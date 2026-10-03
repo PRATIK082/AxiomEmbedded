@@ -117,6 +117,16 @@ def run_cmd(request: str, domain: str | None, platform: str | None) -> int:
     print(json.dumps(plan, indent=2))
     return 0
 
+def serve_cmd(port: int) -> int:
+    from packages.axiom_server.server import serve
+    return serve(port)
+
+
+def mcp_cmd() -> int:
+    from packages.axiom_mcp.server import serve
+    return serve()
+
+
 def main() -> int:
     ap = argparse.ArgumentParser(prog="axiom", description="AxiomEmbedded engineering CLI")
     sp = ap.add_subparsers(dest="cmd")
@@ -132,6 +142,8 @@ def main() -> int:
     rt = sp.add_parser("route"); rt.add_argument("request")
     en = sp.add_parser("engage"); en.add_argument("--domain"); en.add_argument("--platform")
     rn = sp.add_parser("run"); rn.add_argument("request"); rn.add_argument("--domain"); rn.add_argument("--platform")
+    sp.add_parser("mcp")
+    sv = sp.add_parser("serve"); sv.add_argument("--port", type=int, default=8931)
     args = ap.parse_args()
     if args.cmd == "doctor": return doctor()
     if args.cmd == "repo-validate": return validate_repo()
@@ -145,6 +157,8 @@ def main() -> int:
     if args.cmd == "route": print(route(args.request)); return 0
     if args.cmd == "engage": return engage_cmd(args.domain, args.platform)
     if args.cmd == "run": return run_cmd(args.request, args.domain, args.platform)
+    if args.cmd == "mcp": return mcp_cmd()
+    if args.cmd == "serve": return serve_cmd(args.port)
     ap.print_help(); return 0
 
 if __name__ == "__main__":
