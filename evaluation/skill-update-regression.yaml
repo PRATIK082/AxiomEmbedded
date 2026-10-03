@@ -1,0 +1,16 @@
+id: skill-update-regression
+version: 1.0.0
+suite: embedded-skills-deep-update
+checks:
+  - modern_content_all_domains
+  - zero_warnings_gcc_clang
+  - unit_tests_pass_with_coverage
+  - misra_zero_or_deviated
+  - docs_complete
+  - traceability_full
+  - compliance_audit_ready
+  - ci_green
+  - tutorials_runnable
+gates:
+  - evidence-required
+  - human-approval-for-sensitive-actions

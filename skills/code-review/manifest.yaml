@@ -1,10 +1,33 @@
 id: code-review
-version: 1.0.0
+version: 1.2.0
 contract_version: 1
 type: reusable-skill
+standards_refs:
+- number: IEEE 1028
+  version: '2008'
+  clause: Inspection roles, entry/exit criteria
+  source_url: https://standards.ieee.org/standard/1028-2008.html
+- number: ISO 26262-6
+  version: '2018'
+  clause: Clause 6 verification with independence
+  source_url: https://www.iso.org/standard/68389.html
+changelog:
+- version: 1.1.0
+  date: 2026-10-03
+  summary: Deep-update expansion with automate-first pipeline, independence rules
+    and anti-patterns
+- version: 1.2.0
+  date: '2026-10-03'
+  summary: 'Skill packaging: agent-skills frontmatter for multi-harness discovery,
+    domain/platform facets, engagement linkage'
 source_of_truth:
   instructions: SKILL.md
   contract: manifest.yaml
 context:
   graph_first: true
   max_hops_default: 2
+facets:
+  domains:
+  - all
+  platforms:
+  - all

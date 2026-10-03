@@ -1,10 +1,33 @@
 id: requirements
-version: 1.0.0
+version: 1.2.0
 contract_version: 1
 type: reusable-skill
+standards_refs:
+- number: ISO/IEC/IEEE 29148
+  version: '2018'
+  clause: Requirements processes and characteristics
+  source_url: https://www.iso.org/standard/72089.html
+- number: INCOSE GtWR
+  version: v4.0 2023
+  clause: Requirement statement patterns
+  source_url: https://www.incose.org/products-and-services/technical-products/guide-to-writing-requirements
+changelog:
+- version: 1.1.0
+  date: 2026-10-03
+  summary: Deep-update expansion with quality rules, allocation discipline and baselining
+    gates
+- version: 1.2.0
+  date: '2026-10-03'
+  summary: 'Skill packaging: agent-skills frontmatter for multi-harness discovery,
+    domain/platform facets, engagement linkage'
 source_of_truth:
   instructions: SKILL.md
   contract: manifest.yaml
 context:
   graph_first: true
   max_hops_default: 2
+facets:
+  domains:
+  - all
+  platforms:
+  - all

@@ -1,0 +1,15 @@
+{
+  "id": "rtos-deep-update-001",
+  "action": "Phase 3 template replication 1: skills/rtos",
+  "agent": "skill-implementer",
+  "inputs": ["artifacts/research/phase2-findings.json", "skills/mcu/SKILL.md"],
+  "outputs": ["skills/rtos/SKILL.md", "skills/rtos/manifest.yaml", "docs/adr/0002-rtos.md"],
+  "source_baseline": "skills/rtos v1.0.0 stub",
+  "verification": {
+    "verify_skill": "PASS 2026-10-03, pytest 6 passed, doctor PASS, repo validate PASS",
+    "standards_cited": ["FreeRTOS 202604 LTS", "Zephyr LTS", "MISRA C:2025"],
+    "breaking_change": false,
+    "safety_relevant": true,
+    "human_review_required": true
+  }
+}

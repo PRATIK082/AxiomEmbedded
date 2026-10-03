@@ -1,10 +1,44 @@
 id: embedded-linux
-version: 1.0.0
+version: 1.2.0
 contract_version: 1
 type: reusable-skill
+standards_refs:
+- number: Yocto Project Wrynose
+  version: 6.0 LTS
+  clause: Supported to 2030; kernel 6.18, GCC 15.2
+  source_url: https://www.yoctoproject.org/blog/2026/04/30/yocto-project-6-0-releases/
+- number: Yocto Project Scarthgap
+  version: 5.0 LTS
+  clause: Supported to 2028
+  source_url: https://docs.yoctoproject.org/migration-guides/release-5.0.html
+- number: SPDX
+  version: ISO/IEC 5962:2021
+  clause: SBOM format 2.3/3.0
+  source_url: https://spdx.dev/
+changelog:
+- version: 1.1.0
+  date: 2026-10-03
+  summary: Deep-update expansion with Yocto LTS policy, BSP structure, RT path, verified
+    boot, OTA, hardening and maintenance gates
+- version: 1.2.0
+  date: '2026-10-03'
+  summary: 'Skill packaging: agent-skills frontmatter for multi-harness discovery,
+    domain/platform facets, engagement linkage'
 source_of_truth:
   instructions: SKILL.md
   contract: manifest.yaml
 context:
   graph_first: true
   max_hops_default: 2
+facets:
+  domains:
+  - generic-embedded
+  - automotive
+  - industrial
+  - iot
+  - robotics
+  platforms:
+  - mpu
+  - soc
+  - mpsoc
+  - linux

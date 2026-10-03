@@ -1,13 +1,103 @@
-# edge-ai
+---
+name: edge-ai
+description: Model quantization, runtime/delegate selection, memory/latency/power budgets. Use when deploying ML inference on constrained targets.
+version: 1.2.0
+domains: [generic-embedded, automotive, industrial, iot, robotics]
+platforms: [mcu, mpu, soc, mpsoc]
+---
 
-Capability: `ai/edge-ai`.
+# Edge-AI skill
 
-This skill is reusable across domains and platforms. Domain-specific behavior is supplied through profiles/overlays rather than copied into this skill.
+Deploying machine-learning inference on resource-constrained targets: model
+selection and compression, framework and accelerator integration, memory and
+latency budgeting, on-device evaluation, and lifecycle monitoring — with
+safety-relevant deployments routed through `safety` and `ai-validation`.
 
-## Required behavior
-- validate entry criteria
-- consume minimal relevant context
-- produce structured outputs
-- record evidence
-- run configured gates
-- stop on required approval boundaries
+## 1. Purpose and scope
+
+**Purpose.** Ship ML features (classification, detection, keyword spotting,
+anomaly detection, sensor fusion) that meet accuracy, latency, memory, and
+power budgets on MCU/MPU/SoC targets with a documented evaluation story.
+
+**In scope.** Model optimization (quantization, pruning, distillation),
+embedded inference frameworks, NPU/DSP/GPU delegate integration, arena and
+bandwidth budgeting, on-device accuracy/latency/power measurement, dataset and
+drift management, OTA model update.
+
+**Non-goals.** Cloud training pipelines and foundation-model development. This
+skill starts at an exported model artifact and ends at verified on-device
+inference. Safety assurance of ML-based functions belongs to `ai-validation`
+with the `safety` lifecycle; this skill provides the deployment engineering.
+
+## 2. Normative sources (verified Phase 2, high confidence)
+
+| # | Standard | Version / status | Clause / scope | Source |
+|---|----------|------------------|----------------|--------|
+| 1 | MLPerf Tiny | v1.x inference benchmark suite for ultra-low-power devices | Latency/energy measurement methodology (anomaly detection, image classification, keyword spotting, visual wake words) | `https://mlcommons.org/benchmarks/mlperf-tiny/` |
+| 2 | ONNX | Open format, opset-versioned | Portable model interchange between training and embedded runtimes | `https://onnx.ai/` |
+| 3 | TensorFlow Lite for Microcontrollers | Current (TFLM, incl. Ethos-U delegate path) | MCU-class inference runtime, arena-based allocation | `https://www.tensorflow.org/lite/microcontrollers` |
+| 4 | ExecuTorch | Current (PyTorch-native on-device runtime) | MPU/SoC-class deployment with delegate backends | `https://pytorch.org/executorch/` |
+
+## 3. Model optimization pipeline
+
+1. **Start from accuracy headroom.** Train or select with a 2–5 point accuracy
+   margin above the product requirement; quantization and pruning spend that
+   margin. No margin, no compression without a requirement waiver.
+2. **Quantize deliberately.** Post-training INT8 quantization first; fall back
+   to quantization-aware training when PTQ accuracy loss exceeds budget.
+   Record per-tensor dynamic range and the calibration dataset ID — the
+   calibration set is a controlled artifact under `ai-validation` dataset rules.
+3. **Prune and distill when needed.** Structured pruning for NPU/DSP targets
+   (unstructured sparsity rarely accelerates on embedded cores); distillation
+   to shrink architecture families for MCU flash limits.
+4. **Verify numerics on target.** Accuracy is measured with on-device fixed-point
+   inference, never with host-float simulation alone. Report accuracy delta
+   (host float vs on-device quantized) per release.
+
+## 4. Runtime selection and accelerator integration
+
+| Target class | First-choice runtime | Delegate / accelerator path |
+|--------------|---------------------|------------------------------|
+| Cortex-M / low-end (KBs of RAM) | TFLM, static arena | CMSIS-NN kernels; Ethos-U NPU via delegate |
+| Cortex-A / MPU (MBs) | ONNX Runtime Mobile, ExecuTorch | GPU/DSP/NPU delegates, FP16 where supported |
+| SoC/MPSoC with vendor NPU | Vendor SDK via ONNX import | Quantization spec of the NPU toolchain is binding |
+
+**Rules.** The delegate's supported-op list gates model design: unsupported ops
+fall back to CPU and silently destroy latency budgets, so the op audit (§6.1)
+runs before any latency claim. Vendor toolchains are pinned like Yocto layers
+(see `embedded-linux` §3).
+
+## 5. Budgeting — memory, latency, power
+
+1. **Memory.** Static arena sized from the runtime's recording allocator plus
+   headroom; model flash + arena + input buffers + working scratch must fit
+   with margin documented against the linker map. No heap growth at inference
+   time.
+2. **Latency.** Worst-case measured on target at worst-case clock/thermal
+   corner, under full system load. Report p99/p100, not the mean — control
+   loops consume the tail.
+3. **Power.** Energy per inference at the target duty cycle; NPU offload that
+   halves latency but triples energy needs a system-level trade decision with
+   the power budget owner.
+4. **Bandwidth.** Feature-extraction and I/O transfer costs (camera, microphone,
+   DMA) are part of the latency budget, not overhead discovered at integration.
+
+## 6. Release gates (blocking)
+
+1. Op audit: every model op supported on the chosen delegate path, or CPU
+   fallback latency measured and budgeted.
+2. On-device accuracy within the requirement with the quantized artifact;
+   accuracy delta vs host float recorded.
+3. p100 latency within budget at worst-case corner under full system load.
+4. Static memory fit proven against the linker map; no dynamic allocation in
+   the inference path.
+5. Energy per inference within the power budget at the product duty cycle.
+6. Calibration and evaluation dataset IDs recorded; drift-monitoring hooks (see
+   `ai-validation`) wired for field data.
+
+## 7. Verification of this skill (Phase 4 gate)
+
+- Benchmark claims reference MLPerf Tiny methodology or a documented
+  equivalent (§2.1), never ad-hoc host timings.
+- Safety-relevant ML routes to `ai-validation` + `safety`; this skill alone
+  never substantiates a safety claim.

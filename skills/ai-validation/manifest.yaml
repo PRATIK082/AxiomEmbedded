@@ -1,10 +1,44 @@
 id: ai-validation
-version: 1.0.0
+version: 1.2.0
 contract_version: 1
 type: reusable-skill
+standards_refs:
+- number: ISO/IEC 23894
+  version: '2023'
+  clause: AI risk management lifecycle
+  source_url: https://www.iso.org/standard/77304.html
+- number: ISO/IEC 24029
+  version: 24029-1:2021, 24029-2:2023
+  clause: NN robustness assessment
+  source_url: https://www.iso.org/standard/79804.html
+- number: ISO/PAS 8800
+  version: 2024 PAS
+  clause: Automotive AI safety guidance (PAS status, not certification)
+  source_url: https://www.iso.org/standard/83303.html
+changelog:
+- version: 1.1.0
+  date: 2026-10-03
+  summary: Deep-update expansion with ODD discipline, dataset rules, statistical acceptance,
+    drift monitoring
+- version: 1.2.0
+  date: '2026-10-03'
+  summary: 'Skill packaging: agent-skills frontmatter for multi-harness discovery,
+    domain/platform facets, engagement linkage'
 source_of_truth:
   instructions: SKILL.md
   contract: manifest.yaml
 context:
   graph_first: true
   max_hops_default: 2
+facets:
+  domains:
+  - generic-embedded
+  - automotive
+  - industrial
+  - iot
+  - robotics
+  platforms:
+  - mcu
+  - mpu
+  - soc
+  - mpsoc

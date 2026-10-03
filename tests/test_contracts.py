@@ -16,5 +16,5 @@ def test_domain_registry_is_broad():
     assert {"automotive","aerospace","defense","industrial","robotics","generic-embedded"}.issubset(set(data["domains"]))
 
 
-def test_no_vendored_AxiomEmbedded _tree():
+def test_no_vendored_AxiomEmbedded_tree():
     assert not (ROOT / "legacy").exists()

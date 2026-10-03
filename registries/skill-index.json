@@ -1,0 +1,716 @@
+{
+  "version": "1.0.0",
+  "skills": {
+    "requirements": {
+      "description": "Elicitation and baselining of verifiable requirements with methods, allocation, and traceability. Use when writing specs, SHALL statements, or baselining scope.",
+      "domains": [
+        "all"
+      ],
+      "platforms": [
+        "all"
+      ]
+    },
+    "architecture": {
+      "description": "System/software architecture views, interface contracts, allocation, and evaluation. Use when structuring a system, defining ICDs/APIs, or reviewing layering.",
+      "domains": [
+        "all"
+      ],
+      "platforms": [
+        "all"
+      ]
+    },
+    "hardware-architecture": {
+      "description": "ECU/board architecture, power domains, budgets, and HSI contracts. Use when designing hardware, partitioning SoC peripherals, or budgeting power.",
+      "domains": [
+        "all"
+      ],
+      "platforms": [
+        "mcu",
+        "mpu",
+        "soc",
+        "mpsoc"
+      ]
+    },
+    "software-architecture": {
+      "description": "Embedded software layering, concurrency design, and variability without forks. Use when structuring firmware/software tasks, partitions, or product lines.",
+      "domains": [
+        "all"
+      ],
+      "platforms": [
+        "all"
+      ]
+    },
+    "implementation": {
+      "description": "MISRA/CERT construction, static-analysis-clean code, reviews, and definition of done. Use when writing or reviewing C/C++/Rust for targets.",
+      "domains": [
+        "all"
+      ],
+      "platforms": [
+        "all"
+      ]
+    },
+    "code-review": {
+      "description": "Peer-review practice with checklists, size limits, and independence rules. Use when reviewing changes or setting up review policy.",
+      "domains": [
+        "all"
+      ],
+      "platforms": [
+        "all"
+      ]
+    },
+    "static-analysis": {
+      "description": "Checker layering, qualification, baselines, and triage for MISRA/CERT findings. Use when configuring analyzers or clearing violation backlogs.",
+      "domains": [
+        "all"
+      ],
+      "platforms": [
+        "all"
+      ]
+    },
+    "unit-test": {
+      "description": "Host/target unit testing with mocks, coverage per integrity level, and done criteria. Use when writing module tests or setting coverage targets.",
+      "domains": [
+        "all"
+      ],
+      "platforms": [
+        "all"
+      ]
+    },
+    "integration-test": {
+      "description": "Incremental integration strategy, HIL discipline, and timing integration. Use when bringing up combined HW/SW or planning integration stages.",
+      "domains": [
+        "all"
+      ],
+      "platforms": [
+        "all"
+      ]
+    },
+    "system-test": {
+      "description": "Requirement-based system testing, stress/abuse campaigns, and triage. Use when validating a full product against its requirements.",
+      "domains": [
+        "all"
+      ],
+      "platforms": [
+        "all"
+      ]
+    },
+    "validation": {
+      "description": "Needs-based validation scenarios, usability, and acceptance. Use when proving the right product was built for stakeholders.",
+      "domains": [
+        "all"
+      ],
+      "platforms": [
+        "all"
+      ]
+    },
+    "coverage": {
+      "description": "Structural coverage metrics per level, MC/DC practice, and exclusion discipline. Use when measuring or arguing test completeness.",
+      "domains": [
+        "all"
+      ],
+      "platforms": [
+        "all"
+      ]
+    },
+    "traceability": {
+      "description": "Link models, suspect-link propagation, and audit gates across the V-model. Use when building or auditing trace matrices.",
+      "domains": [
+        "all"
+      ],
+      "platforms": [
+        "all"
+      ]
+    },
+    "evidence": {
+      "description": "Evidence taxonomy, integrity rules, and packaging for assessments. Use when assembling assurance cases or audit packs.",
+      "domains": [
+        "all"
+      ],
+      "platforms": [
+        "all"
+      ]
+    },
+    "debugging": {
+      "description": "Reproduce-isolate-root-cause method with silicon testimony and mandatory regression tests. Use when hunting field or lab failures.",
+      "domains": [
+        "all"
+      ],
+      "platforms": [
+        "all"
+      ]
+    },
+    "change-impact": {
+      "description": "Trace-driven blast-radius analysis and safety trigger tests for changes. Use when assessing a change request or planning a hotfix.",
+      "domains": [
+        "all"
+      ],
+      "platforms": [
+        "all"
+      ]
+    },
+    "feature-development": {
+      "description": "Vertical slicing, short-lived branches, and tests-travel-with-code. Use when adding product features incrementally.",
+      "domains": [
+        "all"
+      ],
+      "platforms": [
+        "all"
+      ]
+    },
+    "legacy-recovery": {
+      "description": "Characterization-first brownfield recovery, strangler patterns, knowledge capture. Use when inheriting unknown code or hardware.",
+      "domains": [
+        "all"
+      ],
+      "platforms": [
+        "all"
+      ]
+    },
+    "documentation": {
+      "description": "Docs-as-code, versioned-with-product docs, tested examples. Use when writing manuals, API docs, or runbooks.",
+      "domains": [
+        "all"
+      ],
+      "platforms": [
+        "all"
+      ]
+    },
+    "release": {
+      "description": "Readiness reviews, signing, staged rollout, and hotfix paths. Use when shipping firmware/software or planning OTA releases.",
+      "domains": [
+        "all"
+      ],
+      "platforms": [
+        "all"
+      ]
+    },
+    "configuration-management": {
+      "description": "Version-everything, immutable baselines, and CI identification. Use when setting up version control, baselines, or audits.",
+      "domains": [
+        "all"
+      ],
+      "platforms": [
+        "all"
+      ]
+    },
+    "safety": {
+      "description": "Functional-safety lifecycle with ASIL/SIL/DAL mapping, HARA chains, and sign-off gates. Use for safety goals, integrity levels, or safety cases.",
+      "domains": [
+        "generic-embedded",
+        "automotive",
+        "aerospace",
+        "defense",
+        "industrial",
+        "robotics"
+      ],
+      "platforms": [
+        "all"
+      ]
+    },
+    "security": {
+      "description": "Threat modeling, secure boot, crypto inventory, fuzzing, SBOM/CVE watch. Use when hardening products or answering security requirements.",
+      "domains": [
+        "all"
+      ],
+      "platforms": [
+        "all"
+      ]
+    },
+    "performance": {
+      "description": "Top-down budgets, WCET measurement, profile-before-patch, CI tripwires. Use when meeting latency, throughput, or determinism targets.",
+      "domains": [
+        "all"
+      ],
+      "platforms": [
+        "all"
+      ]
+    },
+    "fault-injection": {
+      "description": "FMEA-derived fault lists, SWIFI/HWIFI levels, and SPFM/LFM accounting. Use when proving safe-state behavior under faults.",
+      "domains": [
+        "generic-embedded",
+        "automotive",
+        "aerospace",
+        "defense",
+        "industrial"
+      ],
+      "platforms": [
+        "all"
+      ]
+    },
+    "simulation": {
+      "description": "MIL-SIL-HIL progression, back-to-back evidence, scenario discipline. Use when testing without hardware or qualifying models.",
+      "domains": [
+        "all"
+      ],
+      "platforms": [
+        "all"
+      ]
+    },
+    "drivers": {
+      "description": "Register/errata discipline, DMA contracts, timeouts, policy-free HALs. Use when writing peripheral drivers or BSPs.",
+      "domains": [
+        "all"
+      ],
+      "platforms": [
+        "mcu",
+        "mpu",
+        "soc"
+      ]
+    },
+    "bootloader": {
+      "description": "Verify-before-jump boot, A/B slots, anti-rollback, key custody. Use when building secure updateable bootloaders.",
+      "domains": [
+        "all"
+      ],
+      "platforms": [
+        "mcu",
+        "mpu",
+        "soc"
+      ]
+    },
+    "embedded-c": {
+      "description": "C17 embedded subset, integer/pointer discipline, startup and linker artifacts. Use when writing C firmware or configuring toolchains.",
+      "domains": [
+        "all"
+      ],
+      "platforms": [
+        "mcu",
+        "bare-metal",
+        "rtos"
+      ]
+    },
+    "embedded-cpp": {
+      "description": "Bounded C++17 subset, no-exceptions/RTTI policy, RAII drivers. Use when writing C++ firmware or HALs.",
+      "domains": [
+        "all"
+      ],
+      "platforms": [
+        "mcu",
+        "mpu",
+        "bare-metal",
+        "rtos"
+      ]
+    },
+    "rust-embedded": {
+      "description": "no_std setup, unsafe-review policy, FFI ownership rules. Use when writing Rust firmware or mixing Rust with C.",
+      "domains": [
+        "all"
+      ],
+      "platforms": [
+        "mcu",
+        "mpu",
+        "bare-metal",
+        "rtos"
+      ]
+    },
+    "embedded-linux": {
+      "description": "Yocto LTS policy, BSP structure, verified boot, OTA, hardening. Use when shipping Linux on MPU/SoC products.",
+      "domains": [
+        "generic-embedded",
+        "automotive",
+        "industrial",
+        "iot",
+        "robotics"
+      ],
+      "platforms": [
+        "mpu",
+        "soc",
+        "mpsoc",
+        "linux"
+      ]
+    },
+    "autosar": {
+      "description": "Classic/Adaptive selection, layered BSW/RTE rules, SOME/IP integration. Use for AUTOSAR ECUs, ARXML, or adaptive applications.",
+      "domains": [
+        "automotive"
+      ],
+      "platforms": [
+        "mcu",
+        "mpu",
+        "autosar-classic",
+        "autosar-adaptive"
+      ]
+    },
+    "robotics": {
+      "description": "ROS 2 distro policy, interface-first nodes, real-time paths, simulation-first testing. Use when building robot behaviors on embedded compute.",
+      "domains": [
+        "robotics",
+        "industrial"
+      ],
+      "platforms": [
+        "mpu",
+        "soc",
+        "linux"
+      ]
+    },
+    "edge-ai": {
+      "description": "Model quantization, runtime/delegate selection, memory/latency/power budgets. Use when deploying ML inference on constrained targets.",
+      "domains": [
+        "generic-embedded",
+        "automotive",
+        "industrial",
+        "iot",
+        "robotics"
+      ],
+      "platforms": [
+        "mcu",
+        "mpu",
+        "soc",
+        "mpsoc"
+      ]
+    },
+    "ai-validation": {
+      "description": "ODD discipline, dataset independence, statistical acceptance, drift monitoring. Use when assuring ML components or arguing AI safety.",
+      "domains": [
+        "generic-embedded",
+        "automotive",
+        "industrial",
+        "iot",
+        "robotics"
+      ],
+      "platforms": [
+        "mcu",
+        "mpu",
+        "soc",
+        "mpsoc"
+      ]
+    },
+    "mcu": {
+      "description": "MCU firmware engineering - core selection, startup, MPU/TrustZone, HAL, RTOS choice. Use for bare-metal or RTOS firmware on Cortex-M/RISC-V.",
+      "domains": [
+        "generic-embedded",
+        "automotive",
+        "industrial",
+        "iot",
+        "robotics"
+      ],
+      "platforms": [
+        "mcu",
+        "bare-metal",
+        "rtos"
+      ]
+    },
+    "mpu": {
+      "description": "MPU-based design - selection from measured load, ECC/DDR, power sequencing, debug-by-design. Use when moving to application processors.",
+      "domains": [
+        "generic-embedded",
+        "automotive",
+        "industrial",
+        "iot",
+        "robotics"
+      ],
+      "platforms": [
+        "mpu",
+        "linux"
+      ]
+    },
+    "soc": {
+      "description": "Heterogeneous SoC allocation across A/R cores, NPUs, safety islands, power/thermal. Use when architecting multi-core SoC products.",
+      "domains": [
+        "generic-embedded",
+        "automotive",
+        "industrial",
+        "robotics"
+      ],
+      "platforms": [
+        "soc",
+        "mpsoc"
+      ]
+    },
+    "mpsoc": {
+      "description": "MPSoC NoC QoS, coherency domains, PL-as-hardware timing closure, cross-die safety. Use for FPGA-SoC or multi-die platforms.",
+      "domains": [
+        "generic-embedded",
+        "automotive",
+        "aerospace",
+        "defense",
+        "industrial"
+      ],
+      "platforms": [
+        "mpsoc",
+        "soc"
+      ]
+    },
+    "rtos": {
+      "description": "RTOS selection, scheduling/IPC rules, MPU partitioning, WCET verification. Use for FreeRTOS/Zephyr/ThreadX designs or timing analysis.",
+      "domains": [
+        "all"
+      ],
+      "platforms": [
+        "mcu",
+        "mpu",
+        "rtos"
+      ]
+    },
+    "bare-metal": {
+      "description": "Reset-to-main init, fault handlers, ISR discipline, super-loop and time-triggered patterns. Use for no-OS firmware or boot code.",
+      "domains": [
+        "all"
+      ],
+      "platforms": [
+        "mcu",
+        "bare-metal"
+      ]
+    },
+    "build-system": {
+      "description": "Warnings-as-errors builds, pinning, toolchain separation, SLSA provenance. Use when setting up CMake builds or reproducible toolchains.",
+      "domains": [
+        "all"
+      ],
+      "platforms": [
+        "all"
+      ]
+    },
+    "requirements-traceability": {
+      "description": "CI orphan checks, suspect triage, and matrix hygiene. Use when automating trace maintenance in pipelines.",
+      "domains": [
+        "all"
+      ],
+      "platforms": [
+        "all"
+      ]
+    },
+    "test-automation": {
+      "description": "Host+target CI stages, farm discipline, flaky quarantine, feedback budgets. Use when building embedded CI pipelines or HIL farms.",
+      "domains": [
+        "all"
+      ],
+      "platforms": [
+        "all"
+      ]
+    },
+    "hardware-bringup": {
+      "description": "Power-to-bootloader staging, golden captures, deviation logs. Use when powering new boards or debugging no-boot failures.",
+      "domains": [
+        "all"
+      ],
+      "platforms": [
+        "mcu",
+        "mpu",
+        "soc",
+        "mpsoc"
+      ]
+    },
+    "project-audit": {
+      "description": "Criteria-first audits, sampling, independence, re-audit closure. Use when auditing projects, suppliers, or compliance readiness.",
+      "domains": [
+        "all"
+      ],
+      "platforms": [
+        "all"
+      ]
+    }
+  },
+  "by_domain": {
+    "generic-embedded": [
+      "ai-validation",
+      "edge-ai",
+      "embedded-linux",
+      "fault-injection",
+      "mcu",
+      "mpsoc",
+      "mpu",
+      "safety",
+      "soc"
+    ],
+    "automotive": [
+      "ai-validation",
+      "autosar",
+      "edge-ai",
+      "embedded-linux",
+      "fault-injection",
+      "mcu",
+      "mpsoc",
+      "mpu",
+      "safety",
+      "soc"
+    ],
+    "industrial": [
+      "ai-validation",
+      "edge-ai",
+      "embedded-linux",
+      "fault-injection",
+      "mcu",
+      "mpsoc",
+      "mpu",
+      "robotics",
+      "safety",
+      "soc"
+    ],
+    "iot": [
+      "ai-validation",
+      "edge-ai",
+      "embedded-linux",
+      "mcu",
+      "mpu"
+    ],
+    "robotics": [
+      "ai-validation",
+      "edge-ai",
+      "embedded-linux",
+      "mcu",
+      "mpu",
+      "robotics",
+      "safety",
+      "soc"
+    ],
+    "all": [
+      "architecture",
+      "bare-metal",
+      "bootloader",
+      "build-system",
+      "change-impact",
+      "code-review",
+      "configuration-management",
+      "coverage",
+      "debugging",
+      "documentation",
+      "drivers",
+      "embedded-c",
+      "embedded-cpp",
+      "evidence",
+      "feature-development",
+      "hardware-architecture",
+      "hardware-bringup",
+      "implementation",
+      "integration-test",
+      "legacy-recovery",
+      "performance",
+      "project-audit",
+      "release",
+      "requirements",
+      "requirements-traceability",
+      "rtos",
+      "rust-embedded",
+      "security",
+      "simulation",
+      "software-architecture",
+      "static-analysis",
+      "system-test",
+      "test-automation",
+      "traceability",
+      "unit-test",
+      "validation"
+    ],
+    "aerospace": [
+      "fault-injection",
+      "mpsoc",
+      "safety"
+    ],
+    "defense": [
+      "fault-injection",
+      "mpsoc",
+      "safety"
+    ]
+  },
+  "by_platform": {
+    "mcu": [
+      "ai-validation",
+      "autosar",
+      "bare-metal",
+      "bootloader",
+      "drivers",
+      "edge-ai",
+      "embedded-c",
+      "embedded-cpp",
+      "hardware-architecture",
+      "hardware-bringup",
+      "mcu",
+      "rtos",
+      "rust-embedded"
+    ],
+    "mpu": [
+      "ai-validation",
+      "autosar",
+      "bootloader",
+      "drivers",
+      "edge-ai",
+      "embedded-cpp",
+      "embedded-linux",
+      "hardware-architecture",
+      "hardware-bringup",
+      "mpu",
+      "robotics",
+      "rtos",
+      "rust-embedded"
+    ],
+    "soc": [
+      "ai-validation",
+      "bootloader",
+      "drivers",
+      "edge-ai",
+      "embedded-linux",
+      "hardware-architecture",
+      "hardware-bringup",
+      "mpsoc",
+      "robotics",
+      "soc"
+    ],
+    "mpsoc": [
+      "ai-validation",
+      "edge-ai",
+      "embedded-linux",
+      "hardware-architecture",
+      "hardware-bringup",
+      "mpsoc",
+      "soc"
+    ],
+    "all": [
+      "architecture",
+      "build-system",
+      "change-impact",
+      "code-review",
+      "configuration-management",
+      "coverage",
+      "debugging",
+      "documentation",
+      "evidence",
+      "fault-injection",
+      "feature-development",
+      "implementation",
+      "integration-test",
+      "legacy-recovery",
+      "performance",
+      "project-audit",
+      "release",
+      "requirements",
+      "requirements-traceability",
+      "safety",
+      "security",
+      "simulation",
+      "software-architecture",
+      "static-analysis",
+      "system-test",
+      "test-automation",
+      "traceability",
+      "unit-test",
+      "validation"
+    ],
+    "autosar-classic": [
+      "autosar"
+    ],
+    "autosar-adaptive": [
+      "autosar"
+    ],
+    "bare-metal": [
+      "bare-metal",
+      "embedded-c",
+      "embedded-cpp",
+      "mcu",
+      "rust-embedded"
+    ],
+    "rtos": [
+      "embedded-c",
+      "embedded-cpp",
+      "mcu",
+      "rtos",
+      "rust-embedded"
+    ],
+    "linux": [
+      "embedded-linux",
+      "mpu",
+      "robotics"
+    ]
+  }
+}

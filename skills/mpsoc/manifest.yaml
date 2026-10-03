@@ -1,10 +1,38 @@
 id: mpsoc
-version: 1.0.0
+version: 1.2.0
 contract_version: 1
 type: reusable-skill
+standards_refs:
+- number: Arm AMBA CHI
+  version: current
+  clause: Scalable coherent fabric protocol
+  source_url: https://developer.arm.com/documentation/
+- number: UCIe
+  version: 1.x/2.0
+  clause: Die-to-die interface; record revision used
+  source_url: https://www.uciexpress.org/specifications
+changelog:
+- version: 1.1.0
+  date: 2026-10-03
+  summary: Deep-update expansion with NoC budgeting, coherency domains and cross-die
+    safety rules
+- version: 1.2.0
+  date: '2026-10-03'
+  summary: 'Skill packaging: agent-skills frontmatter for multi-harness discovery,
+    domain/platform facets, engagement linkage'
 source_of_truth:
   instructions: SKILL.md
   contract: manifest.yaml
 context:
   graph_first: true
   max_hops_default: 2
+facets:
+  domains:
+  - generic-embedded
+  - automotive
+  - aerospace
+  - defense
+  - industrial
+  platforms:
+  - mpsoc
+  - soc

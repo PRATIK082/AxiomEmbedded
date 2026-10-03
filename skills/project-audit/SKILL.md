@@ -1,13 +1,72 @@
-# project-audit
+---
+name: project-audit
+description: Criteria-first audits, sampling, independence, re-audit closure. Use when auditing projects, suppliers, or compliance readiness.
+version: 1.2.0
+domains: [all]
+platforms: [all]
+---
 
-Capability: `core/project-audit`.
+# Project-Audit skill
 
-This skill is reusable across domains and platforms. Domain-specific behavior is supplied through profiles/overlays rather than copied into this skill.
+Independent health checks of embedded projects: process conformance, artifact
+completeness, traceability integrity, risk exposure, and the findings report
+that drives corrective action — including this program's own skill audits.
 
-## Required behavior
-- validate entry criteria
-- consume minimal relevant context
-- produce structured outputs
-- record evidence
-- run configured gates
-- stop on required approval boundaries
+## 1. Purpose and scope
+
+**Purpose.** Answer "how healthy is this project, really?" with evidence —
+before a customer, assessor, or field failure asks harder questions.
+
+**In scope.** Audit planning (criteria, scope, sampling), artifact audits
+(requirements, architecture, code, tests, traceability, evidence),
+process-conformance checks against the project's own workflow, risk and
+technical-debt assessment, findings classification, and corrective-action
+tracking to closure.
+
+**Non-goals.** Certification assessments (see `safety` §7, `security`) and
+financial auditing. Ends at a findings report with agreed actions, owners, and
+dates.
+
+## 2. Normative sources (high confidence)
+
+| # | Standard | Version / status | Clause / scope | Source |
+|---|----------|------------------|----------------|--------|
+| 1 | ISO 19011 Auditing management systems | 2018 | Audit principles, program management, competence, reporting | `https://www.iso.org/standard/70017.html` |
+| 2 | ISO/IEC/IEEE 12207 Life cycle processes | 2017 | Process outcomes used as conformance criteria | `https://www.iso.org/standard/63712.html` |
+| 3 | ISO 26262-2 Management of functional safety | 2018 | Clause 6: confirmation measures, audits, assessments | `https://www.iso.org/standard/68384.html` |
+
+## 3. Audit method
+
+1. **Criteria first.** Each audit declares its criteria (this repo: workflow
+   gates in `workflows/`, rules in `rules/`, skill definitions) and scope
+   (which artifacts, which baseline). Audits without written criteria are
+   opinions.
+2. **Sample, don't skim.** Statistically or risk-based sampled artifacts
+   (requirements, reviews, tests, deviations) examined in depth; sampling
+   rationale recorded. High-risk areas (safety code, crypto, boot chain)
+   always in scope.
+3. **Evidence over assertion.** Every finding cites the artifact, revision,
+   and clause violated; every pass cites the evidence checked. The
+   `scripts/audit_skills.py` gap analysis in this program is an example of a
+   repeatable artifact audit — machine-run, versioned, and re-runnable.
+4. **Classify and track.** Findings graded (blocking / major / minor) with
+   owners and due dates; corrective actions verified by re-audit of the
+   specific finding, not by blanket assurance.
+
+## 4. Independence
+
+Auditors are independent of the audited work (no self-audit of own code or
+plans); safety/security findings require the integrity level's independence
+(`safety` §6). Independence is declared in the audit plan, not assumed.
+
+## 5. Release gates (blocking)
+
+1. Audit plan with criteria, scope, sampling, and independence declaration.
+2. Findings report with classified findings, owners, dates.
+3. Corrective actions closed by re-audit evidence; overdue actions escalated.
+
+## 6. Verification of this skill (Phase 4 gate)
+
+- Standards carry number + version + clause + URL (§2).
+- This program's own audits (`artifacts/gap-analysis/`) satisfy §3 as
+  applied examples.

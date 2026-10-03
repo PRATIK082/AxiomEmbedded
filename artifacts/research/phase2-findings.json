@@ -1,0 +1,110 @@
+[
+  {
+    "domain": "generic-embedded",
+    "claim": "Cortex-M portfolio spans M0/M0+/M23/M3/M4/M33/M35P/M55/M7; M33/M35P/M55 offer TrustZone and up to 16 MPU regions; M4/M7 add DSP and single/double-precision FPU",
+    "standard": {
+      "number": "Armv6-M/Armv7-M/Armv8-M",
+      "version": "M-Profile Architecture",
+      "clause": "Cortex-M comparison table",
+      "source_url": "https://developer.arm.com/-/media/Arm%20Developer%20Community/PDF/Cortex-A%20R%20M%20datasheets/Arm%20Cortex-M%20Comparison%20Table_v3.pdf"
+    },
+    "confidence": "high",
+    "applicable_skills": ["mcu", "mpu", "soc", "bare-metal", "drivers", "bootloader"]
+  },
+  {
+    "domain": "generic-embedded",
+    "claim": "MISRA C:2025 (March 2025) is the latest guideline, incremental over MISRA C:2023 which consolidated MISRA C:2012 plus amendments; Addendum 3 (Jan 2025) maps CERT C coverage",
+    "standard": {
+      "number": "MISRA C:2025",
+      "version": "2025",
+      "clause": "Guidelines for the use of the C language in critical systems",
+      "source_url": "https://misra.org.uk/misra-c"
+    },
+    "confidence": "high",
+    "applicable_skills": ["embedded-c", "safety", "security", "code-review", "static-analysis"]
+  },
+  {
+    "domain": "generic-embedded",
+    "claim": "MISRA C++:2023 targets C++17 and integrates the AUTOSAR C++ guidelines as the single language subset for safety-related C++",
+    "standard": {
+      "number": "MISRA C++:2023",
+      "version": "2023",
+      "clause": "Guidelines for the use of C++17 in critical systems",
+      "source_url": "https://misra.org.uk/misra-cpp2023-released-including-hardcopy"
+    },
+    "confidence": "high",
+    "applicable_skills": ["embedded-cpp", "autosar", "safety", "code-review"]
+  },
+  {
+    "domain": "generic-embedded",
+    "claim": "CMake 3.20.0 is an established minimum baseline (LLVM/Clang build requires it); C++20/C++23/C23 compile features supported from this era forward",
+    "standard": {
+      "number": "CMake",
+      "version": "3.20.0",
+      "clause": "cmake_minimum_required baseline",
+      "source_url": "https://github.com/llvm/llvm-project/blob/main/clang/CMakeLists.txt"
+    },
+    "confidence": "high",
+    "applicable_skills": ["build-system", "mcu", "mpu", "embedded-linux"]
+  },
+  {
+    "domain": "automotive",
+    "claim": "ISO 26262:2018 (Parts 1-10) is the current functional-safety baseline with ASIL A-D; Edition 3 is in DIS enquiry phase (ISO/DIS 26262-2/-3, 2026) and not yet published",
+    "standard": {
+      "number": "ISO 26262",
+      "version": "2018",
+      "clause": "Parts 1-10, ASIL-oriented analyses Part 9",
+      "source_url": "https://www.iso.org/cms/%20render/live/es/sites/isoorg/contents/data/publication/20/02/PUB200262.html"
+    },
+    "confidence": "high",
+    "applicable_skills": ["autosar", "safety", "validation", "traceability", "fault-injection"]
+  },
+  {
+    "domain": "aerospace",
+    "claim": "DO-178C/ED-12C (2011) remains the current airborne software baseline with DAL A-E; supplements DO-330 (tools), DO-331 (model-based), DO-332 (OO), DO-333 (formal methods) apply per technique",
+    "standard": {
+      "number": "RTCA DO-178C",
+      "version": "2011",
+      "clause": "Core + DO-330/331/332/333 supplements",
+      "source_url": "https://www.faa.gov/documentLibrary/media/Order/FAA_Order_8110.49A.pdf"
+    },
+    "confidence": "high",
+    "applicable_skills": ["validation", "traceability", "evidence", "safety", "system-test"]
+  },
+  {
+    "domain": "iot",
+    "claim": "Yocto Project 6.0 Wrynose (April 2026) is the current LTS until April 2030 with kernel 6.18 LTS and GCC 15.2; Scarthgap 5.0 LTS remains supported until April 2028",
+    "standard": {
+      "number": "Yocto Project",
+      "version": "6.0 Wrynose",
+      "clause": "LTS release series",
+      "source_url": "https://www.yoctoproject.org/development/releases"
+    },
+    "confidence": "high",
+    "applicable_skills": ["embedded-linux", "build-system", "security", "mpu", "soc"]
+  },
+  {
+    "domain": "generic-embedded",
+    "claim": "FreeRTOS 202604 LTS (April 2026, kernel 11.3.0) is the current LTS with security hardening, expanded MPU support and MQTT v5.0, supported until April 30 2028; Zephyr supports 1000+ boards with LTS releases maintained 2+ years",
+    "standard": {
+      "number": "FreeRTOS LTS / Zephyr LTS",
+      "version": "202604 LTS / 3.7 LTS lineage",
+      "clause": "LTS support policy",
+      "source_url": "https://www.freertos.org/Community/Blogs/2026/freertos-202604-lts-now-available"
+    },
+    "confidence": "high",
+    "applicable_skills": ["rtos", "mcu", "iot", "industrial", "safety"]
+  },
+  {
+    "domain": "robotics",
+    "claim": "ROS 2 Kilted Kaiju (May 2025) is the latest stable release; Jazzy and Humble remain supported; Lyrical is in development (May 2026); default middleware is DDS with Zenoh as non-DDS option",
+    "standard": {
+      "number": "ROS 2",
+      "version": "Kilted Kaiju",
+      "clause": "Release Kilted Kaiju, RMW implementations",
+      "source_url": "https://docs.ros.org/en/jazzy/Releases/Release-Kilted-Kaiju.html"
+    },
+    "confidence": "high",
+    "applicable_skills": ["robotics", "simulation", "validation", "mpu", "soc"]
+  }
+]

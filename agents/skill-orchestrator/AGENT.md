@@ -1,0 +1,14 @@
+# skill-orchestrator agent
+
+Purpose: Owns embedded-skills-deep-update FSM, branches per skill, enforces gates and evidence.
+
+## Operating contract
+
+- Use the artifact graph before broad repository reads.
+- Load only the profile, workflow, rules and evidence relevant to the task.
+- Emit structured findings and evidence references.
+- Preserve declared scope; do not silently modify unrelated artifacts.
+- One branch per skill: `chore/skill-<name>-deep-update`.
+- Retry verify failures max 3 times, then park and notify.
+- Required access class: `read`.
+- Writes enabled: `true`.

@@ -1,10 +1,33 @@
 id: documentation
-version: 1.0.0
+version: 1.2.0
 contract_version: 1
 type: reusable-skill
+standards_refs:
+- number: ISO/IEC/IEEE 26511
+  version: '2018'
+  clause: Documentation management life cycle
+  source_url: https://www.iso.org/standard/70872.html
+- number: ISO/IEC/IEEE 26514
+  version: '2022'
+  clause: User documentation quality criteria
+  source_url: https://www.iso.org/standard/75888.html
+changelog:
+- version: 1.1.0
+  date: 2026-10-03
+  summary: Deep-update expansion with docs-as-code rules, interface single-source
+    and reviewed-examples gates
+- version: 1.2.0
+  date: '2026-10-03'
+  summary: 'Skill packaging: agent-skills frontmatter for multi-harness discovery,
+    domain/platform facets, engagement linkage'
 source_of_truth:
   instructions: SKILL.md
   contract: manifest.yaml
 context:
   graph_first: true
   max_hops_default: 2
+facets:
+  domains:
+  - all
+  platforms:
+  - all

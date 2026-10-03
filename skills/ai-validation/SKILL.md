@@ -1,5 +1,119 @@
-# ai-validation
+---
+name: ai-validation
+description: ODD discipline, dataset independence, statistical acceptance, drift monitoring. Use when assuring ML components or arguing AI safety.
+version: 1.2.0
+domains: [generic-embedded, automotive, industrial, iot, robotics]
+platforms: [mcu, mpu, soc, mpsoc]
+---
 
-Reusable AxiomEmbedded capability for `ai-validation`.
+# AI-Validation skill
 
-Load task-specific domain/platform/rule overlays before execution.
+Assurance for ML-based components in embedded products: dataset discipline,
+statistical acceptance, robustness and adversarial testing, drift monitoring,
+and the evidence chain that lets a safety case (see `safety`) include an ML
+element without hand-waving.
+
+## 1. Purpose and scope
+
+**Purpose.** Replace "the model works" with quantified claims: accuracy with
+confidence bounds, robustness envelopes, known failure modes, and monitored
+deployment assumptions.
+
+**In scope.** Operational design domain (ODD) definition, dataset requirements
+and coverage, train/validation/test independence, statistical acceptance
+criteria, metamorphic and adversarial testing, uncertainty quantification,
+runtime monitoring and drift response, and ML evidence for safety cases.
+
+**Non-goals.** Model training techniques and deployment optimization (see
+`edge-ai`). This skill judges the model; it does not build it.
+
+**Relationship to safety.** `edge-ai` deploys, this skill assures, `safety`
+certifies. No ML component enters a safety argument without passing this
+skill's gates.
+
+## 2. Normative sources (high confidence)
+
+| # | Standard | Version / status | Clause / scope | Source |
+|---|----------|------------------|----------------|--------|
+| 1 | ISO/IEC 23894 AI risk management | 2023 | Risk lifecycle for AI systems, controls mapping | `https://www.iso.org/standard/77304.html` |
+| 2 | ISO/IEC 24029-x AI robustness | 24029-1:2021, 24029-2:2023 | Robustness assessment methods for neural networks | `https://www.iso.org/standard/79804.html` |
+| 3 | ISO/PAS 8800 Road vehicles — AI safety | 2024 (Publicly Available Specification) | Safety lifecycle for automotive AI/ML; use as guidance, note PAS status | `https://www.iso.org/standard/83303.html` |
+| 4 | MLPerf Tiny | v1.x | Independent benchmark methodology for embedded inference claims | `https://mlcommons.org/benchmarks/mlperf-tiny/` |
+
+> Status honesty. ISO/PAS 8800 is a PAS, not a full International Standard —
+> cite it as guidance and record the status in evidence. Never present PAS
+> conformance as certification.
+
+## 3. ODD — define the world first
+
+1. **Write the ODD.** Enumerate operating conditions the ML component is
+   validated for: lighting, weather, sensor variants, object classes, speeds,
+   background distributions, geographic/data-source bounds. Outside the ODD,
+   the component's outputs are unvalidated by definition.
+2. **ODD drives data.** Every ODD dimension needs dataset coverage targets
+   (minimum samples per slice) and explicit out-of-ODD handling: rejection,
+   fallback, or safe-state transition — tested, not assumed.
+3. **ODD is versioned.** ODD v1.2 pairs with dataset v3.1 and model v2.0;
+   changing the ODD re-opens validation. The triple (ODD, dataset, model) is
+   the validated unit.
+
+## 4. Dataset discipline
+
+1. **Independence.** Test data is collected separately from train/validation
+   (different sessions, sites, or time windows); reuse of training samples in
+   test is disqualifying. Record provenance per split.
+2. **Coverage.** Slice-based coverage against ODD dimensions with minimum
+   counts; rare-but-critical slices (pedestrians at night, fault signatures)
+   are oversampled deliberately and tracked.
+3. **Label quality.** Labeling procedure documented, inter-annotator agreement
+   measured on a sample, disputed labels adjudicated — label error is a
+   quantified input to the acceptance argument, not background noise.
+4. **Calibration sets.** Quantization calibration data (see `edge-ai` §3) is a
+   controlled subset with its own version ID.
+
+## 5. Acceptance — statistics, robustness, uncertainty
+
+1. **Statistical acceptance.** Accuracy/safety metrics reported with confidence
+   intervals at the required level; the sample size is justified before
+   testing (power analysis), not after. Point estimates without intervals do
+   not pass.
+2. **Robustness envelope.** Perturbation testing (noise, blur, occlusion,
+   sensor faults, adversarial examples per ISO/IEC 24029 methods) maps the
+   degradation curve; the envelope where performance stays acceptable is the
+   validated region, recorded with margins.
+3. **Metamorphic testing.** Invariance relations (brightness shift, small
+   rotation, sensor swap) generate oracle-free test cases at scale; violated
+   relations are defects with severity ratings.
+4. **Uncertainty.** Where the architecture emits confidence, calibrate it
+   (reliability diagrams) and define the low-confidence action: abstain,
+   escalate, or hand over — each path tested.
+
+## 6. Deployment monitoring and drift response
+
+1. **Monitor inputs, not just outputs.** Track input-distribution statistics
+   against the ODD baseline; drift beyond thresholds triggers investigation
+   before accuracy visibly degrades.
+2. **Field-data loop.** Production samples feed a quarantine set for periodic
+   re-evaluation; confirmed drift opens a re-validation cycle (new ODD slice,
+   data, model version) — never silent retraining into production.
+3. **Model OTA.** Model updates follow the `embedded-linux` §6 OTA discipline:
+   versioned, atomic, rollback-capable, with re-validation evidence attached
+   to the update artifact.
+
+## 7. Release gates (blocking)
+
+1. ODD written, versioned, and reviewed; out-of-ODD behavior tested.
+2. Dataset splits independent with recorded provenance; coverage targets met
+   per ODD slice.
+3. Acceptance metrics meet thresholds with confidence intervals; sample size
+   pre-justified.
+4. Robustness envelope mapped with margins; metamorphic suites green.
+5. Uncertainty handling (abstain/escalate/handover) implemented and tested.
+6. Drift monitoring specified with thresholds and a re-validation procedure.
+7. Safety-relevant ML: evidence packaged per `safety` §7 with PAS-8800 status
+   honestly recorded.
+
+## 8. Verification of this skill (Phase 4 gate)
+
+- PAS-status honesty (§2): no certification claims from guidance documents.
+- Test-data independence is auditable from provenance records (§4.1).

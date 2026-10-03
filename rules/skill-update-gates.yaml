@@ -1,0 +1,28 @@
+group: skill-update-gates
+version: 1.0.0
+rules:
+  - id: standards-cited
+    severity: blocking
+    automated: true
+    description: Every standards claim must include number, version, clause and source_url
+  - id: no-breaking-change-without-migration
+    severity: blocking
+    automated: true
+    description: Manifest contract_version frozen unless DEPRECATED.md migration note present
+  - id: max-file-lines-500
+    severity: blocking
+    automated: true
+  - id: max-complexity-15
+    severity: blocking
+    automated: true
+  - id: zero-warnings-build
+    severity: blocking
+    automated: true
+    description: cmake build must pass with -Wall -Wextra -Werror on gcc and clang
+  - id: human-approval-for-sensitive-actions
+    severity: blocking
+    automated: false
+    description: Safety/security changes require explicit human sign-off
+  - id: evidence-required
+    severity: blocking
+    automated: true

@@ -1,10 +1,34 @@
 id: bare-metal
-version: 1.0.0
+version: 1.2.0
 contract_version: 1
 type: reusable-skill
+standards_refs:
+- number: Arm Cortex-M exception model
+  version: ARMv6-M/7-M/8-M
+  clause: Exception entry/return, NVIC, fault handlers
+  source_url: https://developer.arm.com/documentation/100235/latest/
+- number: C17
+  version: ISO/IEC 9899:2018
+  clause: Language baseline
+  source_url: https://www.iso.org/standard/74528.html
+changelog:
+- version: 1.1.0
+  date: 2026-10-03
+  summary: Deep-update expansion with startup order, interrupt discipline and main-loop
+    architectures
+- version: 1.2.0
+  date: '2026-10-03'
+  summary: 'Skill packaging: agent-skills frontmatter for multi-harness discovery,
+    domain/platform facets, engagement linkage'
 source_of_truth:
   instructions: SKILL.md
   contract: manifest.yaml
 context:
   graph_first: true
   max_hops_default: 2
+facets:
+  domains:
+  - all
+  platforms:
+  - mcu
+  - bare-metal

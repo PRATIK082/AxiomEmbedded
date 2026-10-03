@@ -1,0 +1,15 @@
+{
+  "id": "autosar-deep-update-001",
+  "action": "Phase 3 template replication 2: skills/autosar",
+  "agent": "skill-implementer",
+  "inputs": ["artifacts/research/phase2-findings.json", "skills/mcu/SKILL.md"],
+  "outputs": ["skills/autosar/SKILL.md", "skills/autosar/manifest.yaml", "docs/adr/0003-autosar.md"],
+  "source_baseline": "skills/autosar v1.0.0 generic stub",
+  "verification": {
+    "verify_skill": "PASS-with-human-review-flag 2026-10-03, pytest 6 passed, repo validate PASS",
+    "standards_cited": ["AUTOSAR CP R24-11", "AUTOSAR FO R24-11", "AUTOSAR AP R23-11", "SOME/IP R22-11"],
+    "breaking_change": false,
+    "safety_relevant": true,
+    "human_review_required": true
+  }
+}

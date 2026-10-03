@@ -1,10 +1,44 @@
 id: edge-ai
-version: 1.0.0
+version: 1.2.0
 contract_version: 1
 type: reusable-skill
+standards_refs:
+- number: MLPerf Tiny
+  version: v1.x
+  clause: Embedded inference benchmark methodology
+  source_url: https://mlcommons.org/benchmarks/mlperf-tiny/
+- number: ONNX
+  version: opset-versioned
+  clause: Model interchange format
+  source_url: https://onnx.ai/
+- number: TFLM
+  version: current
+  clause: MCU inference runtime, arena allocation
+  source_url: https://www.tensorflow.org/lite/microcontrollers
+changelog:
+- version: 1.1.0
+  date: 2026-10-03
+  summary: Deep-update expansion with optimization pipeline, runtime selection, budgeting
+    and release gates
+- version: 1.2.0
+  date: '2026-10-03'
+  summary: 'Skill packaging: agent-skills frontmatter for multi-harness discovery,
+    domain/platform facets, engagement linkage'
 source_of_truth:
   instructions: SKILL.md
   contract: manifest.yaml
 context:
   graph_first: true
   max_hops_default: 2
+facets:
+  domains:
+  - generic-embedded
+  - automotive
+  - industrial
+  - iot
+  - robotics
+  platforms:
+  - mcu
+  - mpu
+  - soc
+  - mpsoc

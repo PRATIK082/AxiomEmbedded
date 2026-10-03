@@ -1,10 +1,37 @@
 id: implementation
-version: 1.0.0
+version: 1.2.0
 contract_version: 1
 type: reusable-skill
+standards_refs:
+- number: MISRA C
+  version: '2025'
+  clause: Mandatory/required/advisory safety rules
+  source_url: https://misra.org.uk/
+- number: MISRA C++
+  version: '2023'
+  clause: C++17 safety subset
+  source_url: https://misra.org.uk/
+- number: CERT C
+  version: current
+  clause: Secure-coding rules (MISRA Add.3 map)
+  source_url: https://wiki.sei.cmu.edu/confluence/display/c/SEI+CERT+C+Coding+Standard
+changelog:
+- version: 1.1.0
+  date: 2026-10-03
+  summary: Deep-update expansion with construction rules, static-analysis deviation
+    handling and definition of done
+- version: 1.2.0
+  date: '2026-10-03'
+  summary: 'Skill packaging: agent-skills frontmatter for multi-harness discovery,
+    domain/platform facets, engagement linkage'
 source_of_truth:
   instructions: SKILL.md
   contract: manifest.yaml
 context:
   graph_first: true
   max_hops_default: 2
+facets:
+  domains:
+  - all
+  platforms:
+  - all

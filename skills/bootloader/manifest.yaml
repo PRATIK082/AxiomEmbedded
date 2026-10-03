@@ -1,10 +1,35 @@
 id: bootloader
-version: 1.0.0
+version: 1.2.0
 contract_version: 1
 type: reusable-skill
+standards_refs:
+- number: NIST SP 800-193
+  version: Rev.1 2024
+  clause: Platform firmware protection, detection, recovery
+  source_url: https://csrc.nist.gov/pubs/sp/800/193/r1/final
+- number: MCUboot
+  version: current
+  clause: Image slots, swap modes, signed updates
+  source_url: https://docs.mcuboot.com/
+changelog:
+- version: 1.1.0
+  date: 2026-10-03
+  summary: Deep-update expansion with verified boot chain, atomic update protocol
+    and power-loss testing
+- version: 1.2.0
+  date: '2026-10-03'
+  summary: 'Skill packaging: agent-skills frontmatter for multi-harness discovery,
+    domain/platform facets, engagement linkage'
 source_of_truth:
   instructions: SKILL.md
   contract: manifest.yaml
 context:
   graph_first: true
   max_hops_default: 2
+facets:
+  domains:
+  - all
+  platforms:
+  - mcu
+  - mpu
+  - soc

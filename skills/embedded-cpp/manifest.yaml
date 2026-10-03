@@ -1,10 +1,39 @@
 id: embedded-cpp
-version: 1.0.0
+version: 1.2.0
 contract_version: 1
 type: reusable-skill
+standards_refs:
+- number: ISO/IEC 14882 C++17
+  version: '2017'
+  clause: Language baseline
+  source_url: https://www.iso.org/standard/68564.html
+- number: MISRA C++
+  version: '2023'
+  clause: C++17 safety subset
+  source_url: https://misra.org.uk/
+- number: CERT C++
+  version: current
+  clause: Secure-coding rules
+  source_url: https://wiki.sei.cmu.edu/confluence/display/cplusplus/SEI+CERT+C%2B%2B+Coding+Standard
+changelog:
+- version: 1.1.0
+  date: 2026-10-03
+  summary: Deep-update expansion with C++17 subset, RAII patterns and build-flag enforcement
+- version: 1.2.0
+  date: '2026-10-03'
+  summary: 'Skill packaging: agent-skills frontmatter for multi-harness discovery,
+    domain/platform facets, engagement linkage'
 source_of_truth:
   instructions: SKILL.md
   contract: manifest.yaml
 context:
   graph_first: true
   max_hops_default: 2
+facets:
+  domains:
+  - all
+  platforms:
+  - mcu
+  - mpu
+  - bare-metal
+  - rtos

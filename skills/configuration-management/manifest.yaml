@@ -1,10 +1,33 @@
 id: configuration-management
-version: 1.0.0
+version: 1.2.0
 contract_version: 1
 type: reusable-skill
+standards_refs:
+- number: ISO 10007
+  version: '2017'
+  clause: Identification, control, status accounting, audit
+  source_url: https://www.iso.org/standard/70400.html
+- number: EIA-649
+  version: Rev C 2019
+  clause: CIs, change control, audits
+  source_url: https://www.sae.org/standards/content/eia649c/
+changelog:
+- version: 1.1.0
+  date: 2026-10-03
+  summary: Deep-update expansion with versioning rules, baseline discipline and configuration
+    audit gates
+- version: 1.2.0
+  date: '2026-10-03'
+  summary: 'Skill packaging: agent-skills frontmatter for multi-harness discovery,
+    domain/platform facets, engagement linkage'
 source_of_truth:
   instructions: SKILL.md
   contract: manifest.yaml
 context:
   graph_first: true
   max_hops_default: 2
+facets:
+  domains:
+  - all
+  platforms:
+  - all

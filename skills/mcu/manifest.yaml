@@ -1,5 +1,5 @@
 id: mcu
-version: 1.0.0
+version: 1.2.0
 contract_version: 1
 type: reusable-skill
 source_of_truth:
@@ -8,3 +8,35 @@ source_of_truth:
 context:
   graph_first: true
   max_hops_default: 2
+standards:
+- number: MISRA C:2025
+  version: '2025'
+  clause: Guidelines for the use of the C language in critical systems
+  source_url: https://misra.org.uk/misra-c
+- number: Armv8-M
+  version: M-Profile Architecture
+  clause: Cortex-M comparison table
+  source_url: https://developer.arm.com/-/media/Arm%20Developer%20Community/PDF/Cortex-A%20R%20M%20datasheets/Arm%20Cortex-M%20Comparison%20Table_v3.pdf
+- number: FreeRTOS LTS
+  version: 202604 LTS
+  clause: LTS support policy
+  source_url: https://www.freertos.org/Community/Blogs/2026/freertos-202604-lts-now-available
+changelog:
+- version: 1.1.0
+  note: Phase 3 template expansion with research citations, core selection guide,
+    MPU/TrustZone, build and test strategy
+- version: 1.2.0
+  date: '2026-10-03'
+  summary: 'Skill packaging: agent-skills frontmatter for multi-harness discovery,
+    domain/platform facets, engagement linkage'
+facets:
+  domains:
+  - generic-embedded
+  - automotive
+  - industrial
+  - iot
+  - robotics
+  platforms:
+  - mcu
+  - bare-metal
+  - rtos

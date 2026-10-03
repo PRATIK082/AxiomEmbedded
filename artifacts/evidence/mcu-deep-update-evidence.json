@@ -1,0 +1,13 @@
+{
+  "id": "mcu-deep-update-001",
+  "action": "Phase 3 template expansion of skills/mcu",
+  "agent": "skill-implementer",
+  "inputs": ["artifacts/research/phase2-findings.json", "artifacts/gap-analysis/skills_gap_analysis.json"],
+  "outputs": ["skills/mcu/SKILL.md", "skills/mcu/manifest.yaml", "docs/adr/0001-mcu-template.md"],
+  "source_baseline": "skills/mcu v1.0.0 stub",
+  "verification": {
+    "verify_skill": "PASS 2026-10-03, pytest 6 passed, doctor PASS, repo validate PASS",
+    "standards_cited": ["MISRA C:2025", "Armv8-M Cortex-M", "FreeRTOS 202604 LTS", "CMake 3.20"],
+    "breaking_change": false
+  }
+}

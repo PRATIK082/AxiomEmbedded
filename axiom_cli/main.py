@@ -12,6 +12,7 @@ from packages.context.selector import select_from_index, ContextBudget
 from packages.workflow.entry import starting_phase
 from packages.workflow.engine import load as load_workflow
 from packages.agents.router import route
+from packages.skills.engage import engage
 
 ROOT = pathlib.Path(__file__).resolve().parents[1]
 
@@ -92,6 +93,30 @@ def workflow_plan(profile: str, entry: str | None) -> int:
     print(json.dumps({"profile": data.get("id"), "entry": mode, "start_phase": starting_phase(mode), "lifecycle": data.get("lifecycle", "v-model")}, indent=2))
     return 0
 
+def engage_cmd(domain: str | None, platform: str | None) -> int:
+    print(json.dumps(engage(domain, platform), indent=2))
+    return 0
+
+def run_cmd(request: str, domain: str | None, platform: str | None) -> int:
+    """Opencode-like standalone run: engage skills, route intent, emit a plan-then-execute plan.
+
+    The host harness (Claude Code, OpenCode, Codex, Antigravity) provides the model;
+    axiom resolves WHAT to load and in WHAT order. Execution beyond planning
+    requires human approval per configs/project.yaml.
+    """
+    selection = engage(domain, platform)
+    plan = {
+        "mode": "plan-then-execute",
+        "request": request,
+        "intent": route(request),
+        "engagement": selection,
+        "phases": ["plan", "implement", "verify", "evidence"],
+        "context_files": selection["context_files"],
+        "approval_required_for": ["git push", "release", "destructive_command", "safety_critical_change", "security_critical_change"],
+    }
+    print(json.dumps(plan, indent=2))
+    return 0
+
 def main() -> int:
     ap = argparse.ArgumentParser(prog="axiom", description="AxiomEmbedded engineering CLI")
     sp = ap.add_subparsers(dest="cmd")
@@ -105,6 +130,8 @@ def main() -> int:
     im = sp.add_parser("impact"); im.add_argument("path")
     wf = sp.add_parser("workflow"); ws = wf.add_subparsers(dest="workflow_cmd"); wp = ws.add_parser("plan"); wp.add_argument("--profile", required=True); wp.add_argument("--entry")
     rt = sp.add_parser("route"); rt.add_argument("request")
+    en = sp.add_parser("engage"); en.add_argument("--domain"); en.add_argument("--platform")
+    rn = sp.add_parser("run"); rn.add_argument("request"); rn.add_argument("--domain"); rn.add_argument("--platform")
     args = ap.parse_args()
     if args.cmd == "doctor": return doctor()
     if args.cmd == "repo-validate": return validate_repo()
@@ -116,6 +143,8 @@ def main() -> int:
     if args.cmd == "impact": return impact(args.path)
     if args.cmd == "workflow" and args.workflow_cmd == "plan": return workflow_plan(args.profile, args.entry)
     if args.cmd == "route": print(route(args.request)); return 0
+    if args.cmd == "engage": return engage_cmd(args.domain, args.platform)
+    if args.cmd == "run": return run_cmd(args.request, args.domain, args.platform)
     ap.print_help(); return 0
 
 if __name__ == "__main__":

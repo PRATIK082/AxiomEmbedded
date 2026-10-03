@@ -1,0 +1,13 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Compliance Evidence",
+  "type": "object",
+  "required": ["skill_id", "standard", "objectives_table", "tool_qualification"],
+  "properties": {
+    "skill_id": {"type": "string"},
+    "standard": {"type": "string"},
+    "objectives_table": {"type": "array", "items": {"type": "object"}},
+    "tool_qualification": {"type": "object"},
+    "deviations": {"type": "array", "items": {"type": "object"}}
+  }
+}

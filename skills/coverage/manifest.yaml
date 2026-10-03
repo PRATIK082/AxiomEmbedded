@@ -1,10 +1,33 @@
 id: coverage
-version: 1.0.0
+version: 1.2.0
 contract_version: 1
 type: reusable-skill
+standards_refs:
+- number: ISO 26262-6
+  version: '2018'
+  clause: Section 9, Table 9 coverage per ASIL
+  source_url: https://www.iso.org/standard/68389.html
+- number: LLVM coverage
+  version: current
+  clause: Source-based instrumentation methodology
+  source_url: https://clang.llvm.org/docs/SourceBasedCodeCoverage.html
+changelog:
+- version: 1.1.0
+  date: 2026-10-03
+  summary: Deep-update expansion with per-level metrics, MC/DC practice and exclusion
+    discipline
+- version: 1.2.0
+  date: '2026-10-03'
+  summary: 'Skill packaging: agent-skills frontmatter for multi-harness discovery,
+    domain/platform facets, engagement linkage'
 source_of_truth:
   instructions: SKILL.md
   contract: manifest.yaml
 context:
   graph_first: true
   max_hops_default: 2
+facets:
+  domains:
+  - all
+  platforms:
+  - all
