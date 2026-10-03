@@ -1,0 +1,4 @@
+id: REQ-001
+kind: requirement
+statement: "The controller shall enter a safe state on watchdog expiry."
+verification: test

@@ -1,0 +1,12 @@
+id: emergency-change
+version: 1.0.0
+states:
+  - id: incident
+  - id: containment
+  - id: minimal-change
+  - id: verification
+  - id: approval
+  - id: follow-up
+gates:
+  - evidence-required
+  - human-approval-for-sensitive-actions

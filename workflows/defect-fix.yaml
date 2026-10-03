@@ -1,0 +1,15 @@
+id: defect-fix
+version: 1.0.0
+states:
+  - id: triage
+  - id: reproduce
+  - id: root-cause
+  - id: impact-analysis
+  - id: fix
+  - id: unit-test
+  - id: regression
+  - id: review
+  - id: evidence
+gates:
+  - evidence-required
+  - human-approval-for-sensitive-actions

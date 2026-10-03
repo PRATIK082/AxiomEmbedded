@@ -1,0 +1,31 @@
+id: automotive-mcu
+version: 1.0.0
+domains:
+  - automotive
+platforms:
+  - mcu
+  - arm-cortex-m
+  - autosar-classic
+os:
+  - autosar-classic
+languages:
+  - c
+lifecycle: v-model
+entry: implementation_available
+standards:
+  - iso-26262
+  - automotive-spice
+  - misra-c
+capabilities:
+  - requirements
+  - architecture
+  - implementation
+  - review
+  - test
+  - verification
+  - validation
+  - traceability
+  - evidence
+  - maintenance
+policies:
+  human_approval_for_sensitive_actions: true

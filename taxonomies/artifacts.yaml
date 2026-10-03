@@ -1,0 +1,14 @@
+artifact_kinds:
+  requirement: {class: specification}
+  risk: {class: assurance}
+  architecture: {class: design}
+  interface: {class: design}
+  design: {class: design}
+  source: {class: implementation}
+  configuration: {class: implementation}
+  test: {class: verification}
+  defect: {class: change}
+  change: {class: change}
+  review: {class: assurance}
+  evidence: {class: assurance}
+  release: {class: lifecycle}

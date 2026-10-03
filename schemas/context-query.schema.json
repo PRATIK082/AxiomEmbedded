@@ -1,0 +1,25 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Context Query",
+  "type": "object",
+  "required": [
+    "roots"
+  ],
+  "properties": {
+    "roots": {
+      "type": "array"
+    },
+    "hops": {
+      "type": "integer",
+      "minimum": 0
+    },
+    "max_files": {
+      "type": "integer",
+      "minimum": 1
+    },
+    "max_tokens": {
+      "type": "integer",
+      "minimum": 1
+    }
+  }
+}

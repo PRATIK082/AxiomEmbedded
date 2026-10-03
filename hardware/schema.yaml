@@ -1,0 +1,7 @@
+hardware:
+  processor: {}
+  memory: {}
+  peripherals: []
+  interfaces: []
+  debug: {}
+  deployment: {}

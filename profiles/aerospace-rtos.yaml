@@ -1,0 +1,31 @@
+id: aerospace-rtos
+version: 1.0.0
+domains:
+  - aerospace
+  - space
+platforms:
+  - mcu
+  - arm-cortex-r
+os:
+  - rtos
+languages:
+  - c
+lifecycle: v-model
+entry: requirements_available
+standards:
+  - do-178c
+  - do-254
+  - arp4754
+capabilities:
+  - requirements
+  - architecture
+  - implementation
+  - review
+  - test
+  - verification
+  - validation
+  - traceability
+  - evidence
+  - maintenance
+policies:
+  human_approval_for_sensitive_actions: true

@@ -1,0 +1,12 @@
+id: maintenance
+version: 1.0.0
+states:
+  - id: triage
+  - id: impact-analysis
+  - id: fix-or-feature
+  - id: verification
+  - id: release
+  - id: knowledge-update
+gates:
+  - evidence-required
+  - human-approval-for-sensitive-actions

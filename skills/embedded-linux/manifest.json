@@ -1,0 +1,28 @@
+{
+  "id": "embedded-linux",
+  "version": "0.1.0",
+  "category": "platforms/embedded-linux",
+  "capabilities": [
+    "embedded-linux"
+  ],
+  "inputs": [
+    "project-context"
+  ],
+  "outputs": [
+    "artifacts",
+    "findings",
+    "evidence"
+  ],
+  "applicable_domains": [
+    "*"
+  ],
+  "applicable_platforms": [
+    "*"
+  ],
+  "evidence": [
+    "result",
+    "tool-version",
+    "input-hash",
+    "output-hash"
+  ]
+}

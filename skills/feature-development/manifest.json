@@ -1,0 +1,28 @@
+{
+  "id": "feature-development",
+  "version": "0.1.0",
+  "category": "maintenance/feature-development",
+  "capabilities": [
+    "feature-development"
+  ],
+  "inputs": [
+    "project-context"
+  ],
+  "outputs": [
+    "artifacts",
+    "findings",
+    "evidence"
+  ],
+  "applicable_domains": [
+    "*"
+  ],
+  "applicable_platforms": [
+    "*"
+  ],
+  "evidence": [
+    "result",
+    "tool-version",
+    "input-hash",
+    "output-hash"
+  ]
+}

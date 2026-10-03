@@ -1,0 +1,36 @@
+{
+  "name": "AxiomEmbedded Engineering Agent",
+  "version": "0.1.0",
+  "description": "Domain-neutral embedded engineering orchestration and analysis agent.",
+  "skills": [
+    "intent-router",
+    "engineering-manager",
+    "requirements",
+    "system-architecture",
+    "hardware-architecture",
+    "software-architecture",
+    "implementation",
+    "code-review",
+    "static-analysis",
+    "test-engineering",
+    "debugging",
+    "root-cause",
+    "change-impact",
+    "migration",
+    "documentation",
+    "safety",
+    "security",
+    "performance",
+    "release",
+    "project-audit",
+    "brownfield-recovery",
+    "hardware-bringup",
+    "ai-validation",
+    "dependency-analysis"
+  ],
+  "interfaces": [
+    "mcp",
+    "cli",
+    "python-api"
+  ]
+}

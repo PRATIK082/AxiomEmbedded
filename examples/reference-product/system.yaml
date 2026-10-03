@@ -1,0 +1,16 @@
+id: SYS-001
+kind: architecture
+name: ReferenceEmbeddedController
+processor:
+  architecture: arm
+  profile: cortex-m
+components:
+  - id: COMP-SENSOR
+    name: SensorManager
+  - id: COMP-CONTROL
+    name: ControlManager
+interfaces:
+  - id: IF-SENSOR-CONTROL
+    source: COMP-SENSOR
+    target: COMP-CONTROL
+    relationship: interfaces-with

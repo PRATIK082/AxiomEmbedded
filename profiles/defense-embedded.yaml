@@ -1,0 +1,28 @@
+id: defense-embedded
+version: 1.0.0
+domains:
+  - defense
+platforms:
+  - mcu
+  - mpu
+os:
+  - rtos
+  - embedded-linux
+languages:
+  - c
+  - cpp
+lifecycle: v-model
+entry: greenfield
+capabilities:
+  - requirements
+  - architecture
+  - implementation
+  - review
+  - test
+  - verification
+  - validation
+  - traceability
+  - evidence
+  - maintenance
+policies:
+  human_approval_for_sensitive_actions: true

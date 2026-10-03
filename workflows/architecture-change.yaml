@@ -1,0 +1,13 @@
+id: architecture-change
+version: 1.0.0
+states:
+  - id: change-request
+  - id: impact-analysis
+  - id: architecture-update
+  - id: design-review
+  - id: implementation
+  - id: verification
+  - id: evidence
+gates:
+  - evidence-required
+  - human-approval-for-sensitive-actions

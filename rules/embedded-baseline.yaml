@@ -1,0 +1,11 @@
+{
+  "id": "embedded-baseline",
+  "scope": "generic embedded",
+  "severity": "mandatory",
+  "controls": [
+    "explicit integer widths where required",
+    "bounded resource use",
+    "defined error handling",
+    "deterministic initialization"
+  ]
+}

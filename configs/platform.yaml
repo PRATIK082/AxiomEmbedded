@@ -1,0 +1,10 @@
+platform:
+  repository: provider-neutral
+  ai_protocols:
+    - mcp
+    - a2a
+  clients:
+    - github-copilot
+    - opencode
+    - generic-ide
+    - custom-cli

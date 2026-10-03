@@ -1,0 +1,23 @@
+{
+  "models": [
+    "v-model",
+    "waterfall",
+    "agile",
+    "iterative",
+    "incremental",
+    "hybrid",
+    "maintenance",
+    "brownfield"
+  ],
+  "entry_points": [
+    "greenfield",
+    "requirements_available",
+    "architecture_available",
+    "implementation",
+    "verification",
+    "validation",
+    "maintenance",
+    "brownfield",
+    "incident_recovery"
+  ]
+}

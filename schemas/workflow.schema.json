@@ -1,0 +1,27 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "AxiomEmbedded Workflow",
+  "type": "object",
+  "required": [
+    "id",
+    "version",
+    "states"
+  ],
+  "properties": {
+    "id": {
+      "type": "string"
+    },
+    "version": {
+      "type": "string"
+    },
+    "states": {
+      "type": "array"
+    },
+    "transitions": {
+      "type": "array"
+    },
+    "gates": {
+      "type": "array"
+    }
+  }
+}

@@ -1,0 +1,5 @@
+id: source-parser
+version: 1.0.0
+purpose: "source parser"
+deterministic: true
+evidence: true

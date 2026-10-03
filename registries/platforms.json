@@ -1,0 +1,31 @@
+{
+  "schema_version": "1.0",
+  "platforms": [
+    "mcu",
+    "mpu",
+    "soc",
+    "mpsoc",
+    "fpga",
+    "gpu",
+    "npu",
+    "dsp",
+    "arm-cortex-m",
+    "arm-cortex-a",
+    "arm-cortex-r",
+    "risc-v",
+    "tricore",
+    "rh850",
+    "powerpc",
+    "xtensa",
+    "x86",
+    "embedded-linux",
+    "freertos",
+    "zephyr",
+    "nuttx",
+    "autosar-classic",
+    "autosar-adaptive",
+    "rtos",
+    "bare-metal",
+    "ros2"
+  ]
+}

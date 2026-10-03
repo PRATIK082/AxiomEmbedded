@@ -1,0 +1,36 @@
+id: edge-ai
+version: 1.0.0
+domains:
+  - generic-embedded
+platforms:
+  - mcu
+  - mpu
+  - npu
+  - gpu
+os:
+  - rtos
+  - embedded-linux
+languages:
+  - c
+  - cpp
+  - python
+lifecycle: iterative
+entry: implementation_available
+ai:
+  - edge-ai
+  - model-deployment
+  - quantization
+  - inference
+capabilities:
+  - requirements
+  - architecture
+  - implementation
+  - review
+  - test
+  - verification
+  - validation
+  - traceability
+  - evidence
+  - maintenance
+policies:
+  human_approval_for_sensitive_actions: true

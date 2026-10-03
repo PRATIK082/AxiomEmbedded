@@ -1,0 +1,15 @@
+group: safety
+version: 1.0.0
+rules:
+  - id: requirements-traceability
+    severity: configurable
+    automated: true
+  - id: defensive-input-validation
+    severity: configurable
+    automated: true
+  - id: single-owner-shared-state
+    severity: configurable
+    automated: true
+  - id: review-required-sensitive-change
+    severity: configurable
+    automated: true

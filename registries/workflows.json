@@ -1,0 +1,41 @@
+{
+  "schema_version": "1.0",
+  "workflows": [
+    {
+      "id": "greenfield",
+      "path": "workflows/greenfield.yaml"
+    },
+    {
+      "id": "brownfield",
+      "path": "workflows/brownfield.yaml"
+    },
+    {
+      "id": "defect-fix",
+      "path": "workflows/defect-fix.yaml"
+    },
+    {
+      "id": "feature-change",
+      "path": "workflows/feature-change.yaml"
+    },
+    {
+      "id": "architecture-change",
+      "path": "workflows/architecture-change.yaml"
+    },
+    {
+      "id": "security-patch",
+      "path": "workflows/security-patch.yaml"
+    },
+    {
+      "id": "emergency-change",
+      "path": "workflows/emergency-change.yaml"
+    },
+    {
+      "id": "standards-migration",
+      "path": "workflows/standards-migration.yaml"
+    },
+    {
+      "id": "maintenance",
+      "path": "workflows/maintenance.yaml"
+    }
+  ]
+}

@@ -1,0 +1,6 @@
+{
+  "name": "axiom-engineering-agent",
+  "description": "Embedded engineering workflow specialist",
+  "skills": ["requirements", "architecture", "debugging", "testing"],
+  "capabilities": {"streaming": false, "pushNotifications": false}
+}

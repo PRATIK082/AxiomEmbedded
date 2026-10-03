@@ -1,0 +1,32 @@
+id: industrial-linux
+version: 1.0.0
+domains:
+  - industrial
+platforms:
+  - mpu
+  - arm-cortex-a
+  - embedded-linux
+os:
+  - embedded-linux
+languages:
+  - c
+  - cpp
+  - python
+lifecycle: iterative
+entry: implementation_available
+standards:
+  - iec-61508
+  - iec-62443
+capabilities:
+  - requirements
+  - architecture
+  - implementation
+  - review
+  - test
+  - verification
+  - validation
+  - traceability
+  - evidence
+  - maintenance
+policies:
+  human_approval_for_sensitive_actions: true

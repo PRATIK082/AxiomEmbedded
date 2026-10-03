@@ -1,0 +1,41 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Requirement",
+  "type": "object",
+  "required": [
+    "id",
+    "statement",
+    "verification"
+  ],
+  "properties": {
+    "id": {
+      "type": "string"
+    },
+    "statement": {
+      "type": "string"
+    },
+    "type": {
+      "enum": [
+        "stakeholder",
+        "system",
+        "hardware",
+        "software",
+        "interface",
+        "safety",
+        "security",
+        "performance",
+        "operational"
+      ]
+    },
+    "verification": {
+      "type": "object"
+    },
+    "status": {
+      "enum": [
+        "draft",
+        "approved",
+        "obsolete"
+      ]
+    }
+  }
+}

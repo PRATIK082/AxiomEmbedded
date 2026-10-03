@@ -1,0 +1,13 @@
+{
+  "schema_version": "1.0",
+  "registries": [
+    "agents",
+    "skills",
+    "domains",
+    "platforms",
+    "tools",
+    "standards",
+    "workflows",
+    "profiles"
+  ]
+}

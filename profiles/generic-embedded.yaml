@@ -1,0 +1,27 @@
+id: generic-embedded
+version: 1.0.0
+domains:
+  - generic-embedded
+platforms:
+  - mcu
+os:
+  - bare-metal
+  - rtos
+languages:
+  - c
+  - cpp
+lifecycle: v-model
+entry: greenfield
+capabilities:
+  - requirements
+  - architecture
+  - implementation
+  - review
+  - test
+  - verification
+  - validation
+  - traceability
+  - evidence
+  - maintenance
+policies:
+  human_approval_for_sensitive_actions: true

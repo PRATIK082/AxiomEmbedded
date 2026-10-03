@@ -1,0 +1,15 @@
+group: cpp
+version: 1.0.0
+rules:
+  - id: ownership-explicit
+    severity: configurable
+    automated: true
+  - id: exception-policy-project-defined
+    severity: configurable
+    automated: true
+  - id: lifetime-safe-interfaces
+    severity: configurable
+    automated: true
+  - id: virtual-destructor-policy
+    severity: configurable
+    automated: true

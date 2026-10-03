@@ -1,0 +1,5 @@
+id: repository-analyzer
+version: 1.0.0
+purpose: "repository analyzer"
+deterministic: true
+evidence: true

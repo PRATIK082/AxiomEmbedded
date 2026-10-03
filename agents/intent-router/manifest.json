@@ -1,0 +1,27 @@
+{
+  "id": "intent-router",
+  "version": "1.0.0",
+  "contract_version": 1,
+  "purpose": "Routes a user request to the smallest engineering workflow and context slice.",
+  "capabilities": [
+    "intent-router"
+  ],
+  "inputs": [
+    "project_profile",
+    "artifact_context",
+    "task"
+  ],
+  "outputs": [
+    "findings",
+    "artifact_updates",
+    "evidence"
+  ],
+  "permissions": {
+    "filesystem": "read",
+    "git_push": false,
+    "release": false
+  },
+  "approval": {
+    "required_for_sensitive_change": true
+  }
+}

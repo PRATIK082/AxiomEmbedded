@@ -1,0 +1,30 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "AxiomEmbedded Artifact",
+  "type": "object",
+  "required": [
+    "id",
+    "kind",
+    "version"
+  ],
+  "properties": {
+    "id": {
+      "type": "string"
+    },
+    "kind": {
+      "type": "string"
+    },
+    "version": {
+      "type": "string"
+    },
+    "status": {
+      "type": "string"
+    },
+    "metadata": {
+      "type": "object"
+    },
+    "relations": {
+      "type": "array"
+    }
+  }
+}

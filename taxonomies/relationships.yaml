@@ -1,0 +1,16 @@
+relationships:
+  - satisfies
+  - derives-from
+  - realizes
+  - decomposes-to
+  - interfaces-with
+  - depends-on
+  - verified-by
+  - validated-by
+  - tested-by
+  - affected-by
+  - mitigates
+  - reviewed-by
+  - evidenced-by
+  - supersedes
+  - generated-from

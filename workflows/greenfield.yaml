@@ -1,0 +1,14 @@
+id: greenfield
+version: 1.0.0
+states:
+  - id: concept
+  - id: requirements
+  - id: system-architecture
+  - id: software-and-hardware-design
+  - id: implementation
+  - id: verification
+  - id: validation
+  - id: release
+gates:
+  - evidence-required
+  - human-approval-for-sensitive-actions

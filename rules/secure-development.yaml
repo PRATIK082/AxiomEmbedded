@@ -1,0 +1,12 @@
+{
+  "id": "secure-development",
+  "scope": "security",
+  "severity": "mandatory",
+  "controls": [
+    "input validation",
+    "least privilege",
+    "secret handling",
+    "dependency review",
+    "security logging"
+  ]
+}

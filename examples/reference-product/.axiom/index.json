@@ -1,0 +1,48 @@
+{
+  "schema_version": "1.0",
+  "root": "/mnt/data/AxiomEmbedded-final/examples/reference-product",
+  "files": [
+    {
+      "path": "README.md",
+      "bytes": 209,
+      "sha256": "dc0d564a058cfbd99b1a53a6a32c0536503945fc235d989d1e4403ceb62410ca",
+      "language": "markdown",
+      "includes": []
+    },
+    {
+      "path": "architecture/ARCH-001.yaml",
+      "bytes": 52,
+      "sha256": "b387b1a8a1e3fd5ffd4d03e26e303369320860a226518aeaa1709598e489951b",
+      "language": "yaml",
+      "includes": []
+    },
+    {
+      "path": "evidence/EVD-001.yaml",
+      "bytes": 86,
+      "sha256": "dd9895ed5c85c9cac2434ea6e49f3c47f1a4ab6083ee71a73321dbad251cd87f",
+      "language": "yaml",
+      "includes": []
+    },
+    {
+      "path": "project.yaml",
+      "bytes": 256,
+      "sha256": "a2a7fc0508ca71c705f19e8202dea9c4ed2b12ad1b9dc7709362c37708d31aac",
+      "language": "yaml",
+      "includes": []
+    },
+    {
+      "path": "requirements/REQ-001.yaml",
+      "bytes": 122,
+      "sha256": "ecb717bc7e018ebb50c55c659f82a6737716c553965309f037a4cba8669b7eed",
+      "language": "yaml",
+      "includes": []
+    },
+    {
+      "path": "tests/TEST-001.yaml",
+      "bytes": 55,
+      "sha256": "ec9b8a9cdbd0331ebf590e2c0fc6ab158470d290919a83e7144e147134f5a3ab",
+      "language": "yaml",
+      "includes": []
+    }
+  ]
+}

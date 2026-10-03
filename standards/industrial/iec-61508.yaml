@@ -1,0 +1,6 @@
+id: iec-61508
+family: industrial
+description: "Functional safety of E/E/PE systems"
+normative_text_included: false
+authority: external
+applicability: project-defined

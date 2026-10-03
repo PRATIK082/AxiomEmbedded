@@ -1,0 +1,6 @@
+id: demo-brownfield-c
+name: Brownfield C Controller
+entry_mode: brownfield
+profile: brownfield-generic
+repository: ./source
+baseline: recovered

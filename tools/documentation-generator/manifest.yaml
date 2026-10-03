@@ -1,0 +1,5 @@
+id: documentation-generator
+version: 1.0.0
+purpose: "documentation generator"
+deterministic: true
+evidence: true

@@ -1,0 +1,29 @@
+{
+  "name": "axiomembedded",
+  "version": "0.1.0",
+  "transport": "stdio-or-host-managed",
+  "tools": [
+    "repo.analyze",
+    "repo.index",
+    "graph.neighbors",
+    "context.select",
+    "profile.validate",
+    "workflow.plan",
+    "change.impact",
+    "evidence.record",
+    "audit.run"
+  ],
+  "resources": [
+    "project://manifest",
+    "profile://active",
+    "graph://index",
+    "skills://registry",
+    "agents://registry"
+  ],
+  "prompts": [
+    "bug-fix",
+    "feature-change",
+    "brownfield-audit",
+    "architecture-review"
+  ]
+}

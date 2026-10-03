@@ -1,0 +1,14 @@
+id: feature-change
+version: 1.0.0
+states:
+  - id: request
+  - id: requirements
+  - id: impact-analysis
+  - id: architecture
+  - id: implementation
+  - id: tests
+  - id: review
+  - id: evidence
+gates:
+  - evidence-required
+  - human-approval-for-sensitive-actions

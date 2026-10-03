@@ -1,0 +1,28 @@
+{
+  "id": "traceability",
+  "version": "0.1.0",
+  "category": "core/traceability",
+  "capabilities": [
+    "traceability"
+  ],
+  "inputs": [
+    "project-context"
+  ],
+  "outputs": [
+    "artifacts",
+    "findings",
+    "evidence"
+  ],
+  "applicable_domains": [
+    "*"
+  ],
+  "applicable_platforms": [
+    "*"
+  ],
+  "evidence": [
+    "result",
+    "tool-version",
+    "input-hash",
+    "output-hash"
+  ]
+}

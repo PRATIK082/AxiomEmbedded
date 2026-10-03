@@ -1,0 +1,27 @@
+{
+  "id": "debugging",
+  "version": "1.0.0",
+  "contract_version": 1,
+  "purpose": "Reproduces faults and drives root-cause analysis.",
+  "capabilities": [
+    "debugging"
+  ],
+  "inputs": [
+    "project_profile",
+    "artifact_context",
+    "task"
+  ],
+  "outputs": [
+    "findings",
+    "artifact_updates",
+    "evidence"
+  ],
+  "permissions": {
+    "filesystem": "read-write",
+    "git_push": false,
+    "release": false
+  },
+  "approval": {
+    "required_for_sensitive_change": true
+  }
+}

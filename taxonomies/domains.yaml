@@ -1,0 +1,18 @@
+{
+  "domains": [
+    "generic-embedded",
+    "automotive",
+    "aerospace",
+    "space",
+    "defense",
+    "industrial",
+    "robotics",
+    "medical",
+    "energy",
+    "rail",
+    "marine",
+    "telecom",
+    "iot",
+    "consumer"
+  ]
+}

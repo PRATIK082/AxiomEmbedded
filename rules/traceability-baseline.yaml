@@ -1,0 +1,10 @@
+{
+  "id": "traceability-baseline",
+  "scope": "engineering",
+  "severity": "mandatory",
+  "controls": [
+    "requirements to design/code/test links",
+    "change-to-test links",
+    "evidence references"
+  ]
+}

@@ -1,0 +1,15 @@
+group: c
+version: 1.0.0
+rules:
+  - id: explicit-conversions
+    severity: configurable
+    automated: true
+  - id: no-unbounded-recursion
+    severity: configurable
+    automated: true
+  - id: pointer-validity
+    severity: configurable
+    automated: true
+  - id: switch-default-policy
+    severity: configurable
+    automated: true

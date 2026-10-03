@@ -1,0 +1,12 @@
+group: testing
+version: 1.0.0
+rules:
+  - id: changed-code-has-test
+    severity: configurable
+    automated: true
+  - id: negative-path-test
+    severity: configurable
+    automated: true
+  - id: regression-test-required-on-fix
+    severity: configurable
+    automated: true

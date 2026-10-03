@@ -1,0 +1,85 @@
+{
+  "schema_version": "1.0",
+  "standards": [
+    {
+      "id": "iso-26262",
+      "family": "automotive",
+      "description": "Automotive functional safety"
+    },
+    {
+      "id": "automotive-spice",
+      "family": "automotive",
+      "description": "Automotive process assessment reference"
+    },
+    {
+      "id": "misra-c",
+      "family": "coding",
+      "description": "C coding-rule family"
+    },
+    {
+      "id": "misra-cpp",
+      "family": "coding",
+      "description": "C++ coding-rule family"
+    },
+    {
+      "id": "iso-sae-21434",
+      "family": "automotive",
+      "description": "Automotive cybersecurity engineering"
+    },
+    {
+      "id": "unece-r155-r156",
+      "family": "automotive",
+      "description": "Automotive cybersecurity/software-update regulatory reference"
+    },
+    {
+      "id": "do-178c",
+      "family": "aerospace",
+      "description": "Airborne software assurance reference"
+    },
+    {
+      "id": "do-254",
+      "family": "aerospace",
+      "description": "Airborne electronic hardware assurance reference"
+    },
+    {
+      "id": "arp4754",
+      "family": "aerospace",
+      "description": "Aircraft/system development assurance reference"
+    },
+    {
+      "id": "arp4761",
+      "family": "aerospace",
+      "description": "Safety assessment reference"
+    },
+    {
+      "id": "ecss-software",
+      "family": "space",
+      "description": "Space engineering reference family"
+    },
+    {
+      "id": "nasa-software-engineering",
+      "family": "space",
+      "description": "NASA software engineering reference"
+    },
+    {
+      "id": "iec-61508",
+      "family": "industrial",
+      "description": "Functional safety of E/E/PE systems"
+    },
+    {
+      "id": "iec-62443",
+      "family": "industrial",
+      "description": "Industrial automation and control systems security"
+    },
+    {
+      "id": "cwe",
+      "family": "security",
+      "description": "Common Weakness Enumeration"
+    },
+    {
+      "id": "cert-c",
+      "family": "security",
+      "description": "Secure C coding guidance"
+    }
+  ]
+}

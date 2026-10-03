@@ -1,0 +1,41 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Axiom Project",
+  "type": "object",
+  "required": [
+    "id",
+    "name",
+    "entry_mode",
+    "profile"
+  ],
+  "properties": {
+    "id": {
+      "type": "string"
+    },
+    "name": {
+      "type": "string"
+    },
+    "entry_mode": {
+      "enum": [
+        "greenfield",
+        "requirements_available",
+        "architecture_available",
+        "implementation",
+        "verification",
+        "validation",
+        "maintenance",
+        "brownfield",
+        "incident_recovery"
+      ]
+    },
+    "profile": {
+      "type": "string"
+    },
+    "repository": {
+      "type": "string"
+    },
+    "baseline": {
+      "type": "string"
+    }
+  }
+}

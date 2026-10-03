@@ -1,0 +1,15 @@
+group: security
+version: 1.0.0
+rules:
+  - id: no-secret-material
+    severity: configurable
+    automated: true
+  - id: secure-defaults
+    severity: configurable
+    automated: true
+  - id: dependency-audit
+    severity: configurable
+    automated: true
+  - id: input-boundary-validation
+    severity: configurable
+    automated: true

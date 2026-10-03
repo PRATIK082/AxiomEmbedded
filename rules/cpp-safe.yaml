@@ -1,0 +1,10 @@
+{
+  "id": "cpp-safe",
+  "scope": "C++",
+  "severity": "mandatory",
+  "controls": [
+    "explicit ownership",
+    "exception policy defined",
+    "avoid uncontrolled dynamic allocation where constrained"
+  ]
+}

@@ -1,0 +1,6 @@
+id: cert-c
+family: security
+description: "Secure C coding guidance"
+normative_text_included: false
+authority: external
+applicability: project-defined

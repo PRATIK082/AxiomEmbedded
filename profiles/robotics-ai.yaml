@@ -1,0 +1,35 @@
+id: robotics-ai
+version: 1.0.0
+domains:
+  - robotics
+platforms:
+  - mcu
+  - mpu
+  - gpu
+  - npu
+os:
+  - ros2
+  - embedded-linux
+  - rtos
+languages:
+  - cpp
+  - python
+  - c
+lifecycle: iterative
+entry: architecture_available
+ai:
+  - edge-ai
+  - computer-vision
+capabilities:
+  - requirements
+  - architecture
+  - implementation
+  - review
+  - test
+  - verification
+  - validation
+  - traceability
+  - evidence
+  - maintenance
+policies:
+  human_approval_for_sensitive_actions: true

@@ -1,0 +1,15 @@
+group: baseline
+version: 1.0.0
+rules:
+  - id: no-implicit-state
+    severity: configurable
+    automated: true
+  - id: bounded-resource-use
+    severity: configurable
+    automated: true
+  - id: explicit-error-handling
+    severity: configurable
+    automated: true
+  - id: deterministic-initialization
+    severity: configurable
+    automated: true

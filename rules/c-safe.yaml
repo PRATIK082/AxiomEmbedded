@@ -1,0 +1,10 @@
+{
+  "id": "c-safe",
+  "scope": "C",
+  "severity": "mandatory",
+  "controls": [
+    "avoid unsafe implicit conversions",
+    "define ownership/lifetime",
+    "minimize undefined behavior risk"
+  ]
+}

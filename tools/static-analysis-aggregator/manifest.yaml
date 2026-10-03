@@ -1,0 +1,5 @@
+id: static-analysis-aggregator
+version: 1.0.0
+purpose: "static analysis aggregator"
+deterministic: true
+evidence: true

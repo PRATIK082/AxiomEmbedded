@@ -1,0 +1,14 @@
+id: brownfield
+version: 1.0.0
+states:
+  - id: discovery
+  - id: architecture-recovery
+  - id: baseline
+  - id: change-impact
+  - id: implementation
+  - id: regression
+  - id: validation
+  - id: release
+gates:
+  - evidence-required
+  - human-approval-for-sensitive-actions

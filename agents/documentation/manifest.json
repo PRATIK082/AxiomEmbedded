@@ -1,0 +1,27 @@
+{
+  "id": "documentation",
+  "version": "1.0.0",
+  "contract_version": 1,
+  "purpose": "Generates and updates engineering documentation from artifacts.",
+  "capabilities": [
+    "documentation"
+  ],
+  "inputs": [
+    "project_profile",
+    "artifact_context",
+    "task"
+  ],
+  "outputs": [
+    "findings",
+    "artifact_updates",
+    "evidence"
+  ],
+  "permissions": {
+    "filesystem": "read-write",
+    "git_push": false,
+    "release": false
+  },
+  "approval": {
+    "required_for_sensitive_change": true
+  }
+}

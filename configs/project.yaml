@@ -1,0 +1,30 @@
+product:
+  id: axiom-embedded
+  version: 0.1.0
+  contract_version: 1
+
+architecture:
+  artifact_source_of_truth: artifact-graph
+  context_strategy: graph-first
+  evidence_strategy: append-oriented
+  plugin_strategy: manifest-driven
+
+lifecycle:
+  default: v-model
+  supported:
+    - v-model
+    - agile
+    - iterative
+    - incremental
+    - hybrid
+    - brownfield
+    - maintenance
+
+agent:
+  default_mode: plan-then-execute
+  approval_required_for:
+    - git push
+    - release
+    - destructive_command
+    - safety_critical_change
+    - security_critical_change

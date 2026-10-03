@@ -1,0 +1,36 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "AxiomEmbedded Evidence",
+  "type": "object",
+  "required": [
+    "id",
+    "action",
+    "source_baseline"
+  ],
+  "properties": {
+    "id": {
+      "type": "string"
+    },
+    "action": {
+      "type": "string"
+    },
+    "agent": {
+      "type": "string"
+    },
+    "inputs": {
+      "type": "array"
+    },
+    "outputs": {
+      "type": "array"
+    },
+    "source_baseline": {
+      "type": "string"
+    },
+    "verification": {
+      "type": "object"
+    },
+    "approval": {
+      "type": "object"
+    }
+  }
+}

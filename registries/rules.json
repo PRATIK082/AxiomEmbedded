@@ -1,0 +1,11 @@
+{
+  "schema_version": "1.0",
+  "rule_groups": [
+    "baseline",
+    "safety",
+    "security",
+    "c",
+    "cpp",
+    "testing"
+  ]
+}

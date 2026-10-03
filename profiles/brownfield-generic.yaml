@@ -1,0 +1,27 @@
+id: brownfield-generic
+version: 1.0.0
+domains:
+  - generic-embedded
+platforms:
+  - generic
+os:
+  - generic
+languages:
+  - c
+  - cpp
+  - rust
+lifecycle: brownfield
+entry: brownfield
+capabilities:
+  - requirements
+  - architecture
+  - implementation
+  - review
+  - test
+  - verification
+  - validation
+  - traceability
+  - evidence
+  - maintenance
+policies:
+  human_approval_for_sensitive_actions: true

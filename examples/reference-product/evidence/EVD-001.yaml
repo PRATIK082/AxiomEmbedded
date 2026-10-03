@@ -1,0 +1,4 @@
+id: EVD-001
+action: baseline
+source_baseline: example
+verification: {status: planned}

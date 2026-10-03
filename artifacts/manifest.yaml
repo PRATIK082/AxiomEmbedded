@@ -1,0 +1,30 @@
+{
+  "artifact_kinds": [
+    "requirement",
+    "architecture",
+    "design",
+    "interface",
+    "source",
+    "configuration",
+    "test-case",
+    "test-result",
+    "defect",
+    "change",
+    "risk",
+    "rule",
+    "review",
+    "evidence",
+    "release"
+  ],
+  "relations": [
+    "satisfies",
+    "realizes",
+    "implements",
+    "verifies",
+    "validates",
+    "depends_on",
+    "affects",
+    "tested_by",
+    "reviewed_by"
+  ]
+}

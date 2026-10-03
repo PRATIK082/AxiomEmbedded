@@ -1,0 +1,13 @@
+id: security-patch
+version: 1.0.0
+states:
+  - id: triage
+  - id: impact-analysis
+  - id: patch
+  - id: security-analysis
+  - id: regression
+  - id: evidence
+  - id: release-gate
+gates:
+  - evidence-required
+  - human-approval-for-sensitive-actions

@@ -1,0 +1,13 @@
+id: standards-migration
+version: 1.0.0
+states:
+  - id: gap-analysis
+  - id: mapping
+  - id: change-plan
+  - id: implementation
+  - id: verification
+  - id: evidence
+  - id: approval
+gates:
+  - evidence-required
+  - human-approval-for-sensitive-actions

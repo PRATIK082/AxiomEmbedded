@@ -1,0 +1,8 @@
+id: mpsoc
+version: 1.0.0
+type: platform-overlay
+context:
+  graph_first: true
+capabilities:
+  - platform-discovery
+  - build-and-test-hooks

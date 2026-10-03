@@ -1,0 +1,16 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "AxiomEmbedded Agent Task",
+  "type": "object",
+  "required": ["id", "intent", "request"],
+  "properties": {
+    "id": {"type": "string"},
+    "intent": {"type": "string"},
+    "request": {"type": "string"},
+    "project": {"type": "string"},
+    "profile": {"type": "string"},
+    "roots": {"type": "array", "items": {"type": "string"}},
+    "approval": {"type": "object"},
+    "constraints": {"type": "object"}
+  }
+}

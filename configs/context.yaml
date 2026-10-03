@@ -1,0 +1,17 @@
+context:
+  strategy: graph-first
+  default_hops: 2
+  max_files: 24
+  max_tokens: 12000
+  prefer:
+    - directly_changed_symbols
+    - direct_dependencies
+    - affected_requirements
+    - affected_tests
+    - applicable_rules
+    - recent_changes
+  avoid:
+    - repository_wide_read
+    - duplicated_context
+    - generated_binaries
+    - vendored_or_generated_trees

@@ -1,0 +1,10 @@
+id: system-test
+version: 1.0.0
+contract_version: 1
+type: reusable-skill
+source_of_truth:
+  instructions: SKILL.md
+  contract: manifest.yaml
+context:
+  graph_first: true
+  max_hops_default: 2

@@ -1,0 +1,9 @@
+id: reference-product
+version: 1.0.0
+domains: [generic-embedded]
+platforms: [mcu]
+os: [rtos]
+languages: [c]
+lifecycle: v-model
+entry: greenfield
+capabilities: [requirements, architecture, implementation, review, test, verification, traceability, evidence]

@@ -1,0 +1,14 @@
+{
+  "id": "generic-embedded",
+  "version": "1.0.0",
+  "type": "domain-overlay",
+  "composes": [
+    "engineering-capabilities"
+  ],
+  "provides": [
+    "domain-context",
+    "domain-checklists",
+    "domain-profile-hooks"
+  ],
+  "standards_are_metadata_only": true
+}

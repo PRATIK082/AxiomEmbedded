@@ -1,0 +1,50 @@
+{
+  "schema_version": "1.0",
+  "root": "/mnt/data/AxiomEmbedded-final/examples/brownfield-c-project",
+  "files": [
+    {
+      "path": "README.md",
+      "bytes": 208,
+      "sha256": "7d348efd78f56ec38571d5ebb5e0eba0c914392b5e9a91239576940f696a05bf",
+      "language": "markdown",
+      "includes": []
+    },
+    {
+      "path": "baseline/README.md",
+      "bytes": 192,
+      "sha256": "edcfba76f51853af4f5adcbee80a09d5cbbad5187732ae9570cb0dd72289671f",
+      "language": "markdown",
+      "includes": []
+    },
+    {
+      "path": "project.yaml",
+      "bytes": 144,
+      "sha256": "c2503cb9671304b7a094ab15366631084ac048eebc97c61d17cfb840f0a64589",
+      "language": "yaml",
+      "includes": []
+    },
+    {
+      "path": "source/controller.h",
+      "bytes": 45,
+      "sha256": "ffc108d036d0fb9403840e184bdcdc4a2650a7ab0b30bdc8c2c9dc659d20a451",
+      "language": "c",
+      "includes": []
+    },
+    {
+      "path": "source/main.c",
+      "bytes": 90,
+      "sha256": "f4429fc79a8efe791d512f28049ee6641eb56f72f66b4dd8104f2fd0af4c4082",
+      "language": "c",
+      "includes": []
+    },
+    {
+      "path": "tests/test_controller.c",
+      "bytes": 87,
+      "sha256": "8cf768196cd46e6bebe9f63be476d9b7924c8a49c3093e5e04e519c5e943c8d6",
+      "language": "c",
+      "includes": [
+        "controller.h"
+      ]
+    }
+  ]
+}

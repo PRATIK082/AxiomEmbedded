@@ -1,0 +1,16 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "AxiomEmbedded Tool Manifest",
+  "type": "object",
+  "required": ["id", "version", "purpose"],
+  "properties": {
+    "id": {"type": "string"},
+    "version": {"type": "string"},
+    "purpose": {"type": "string"},
+    "inputs": {"type": "array"},
+    "outputs": {"type": "array"},
+    "permissions": {"type": "object"},
+    "deterministic": {"type": "boolean"},
+    "evidence": {"type": "boolean"}
+  }
+}

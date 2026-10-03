@@ -1,0 +1,24 @@
+{
+  "compute": [
+    "mcu",
+    "mpu",
+    "soc",
+    "mpsoc",
+    "fpga",
+    "gpu",
+    "npu",
+    "dsp"
+  ],
+  "architectures": [
+    "arm-cortex-m",
+    "arm-cortex-r",
+    "arm-cortex-a",
+    "risc-v",
+    "tricore",
+    "rh850",
+    "powerpc",
+    "xtensa",
+    "x86",
+    "mips"
+  ]
+}

@@ -1,0 +1,5 @@
+id: report-generator
+version: 1.0.0
+purpose: "report generator"
+deterministic: true
+evidence: true

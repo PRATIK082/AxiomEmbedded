@@ -1,0 +1,7 @@
+security:
+  least_privilege: true
+  external_directory_default: deny
+  destructive_shell_default: ask
+  git_push_default: ask
+  release_default: ask
+  secrets_in_repo: deny

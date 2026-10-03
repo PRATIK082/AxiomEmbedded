@@ -1,0 +1,193 @@
+{
+  "schema_version": "1.0",
+  "skills": [
+    {
+      "id": "requirements",
+      "path": "skills/requirements"
+    },
+    {
+      "id": "architecture",
+      "path": "skills/architecture"
+    },
+    {
+      "id": "hardware-architecture",
+      "path": "skills/hardware-architecture"
+    },
+    {
+      "id": "software-architecture",
+      "path": "skills/software-architecture"
+    },
+    {
+      "id": "implementation",
+      "path": "skills/implementation"
+    },
+    {
+      "id": "code-review",
+      "path": "skills/code-review"
+    },
+    {
+      "id": "static-analysis",
+      "path": "skills/static-analysis"
+    },
+    {
+      "id": "unit-test",
+      "path": "skills/unit-test"
+    },
+    {
+      "id": "integration-test",
+      "path": "skills/integration-test"
+    },
+    {
+      "id": "system-test",
+      "path": "skills/system-test"
+    },
+    {
+      "id": "validation",
+      "path": "skills/validation"
+    },
+    {
+      "id": "coverage",
+      "path": "skills/coverage"
+    },
+    {
+      "id": "traceability",
+      "path": "skills/traceability"
+    },
+    {
+      "id": "evidence",
+      "path": "skills/evidence"
+    },
+    {
+      "id": "debugging",
+      "path": "skills/debugging"
+    },
+    {
+      "id": "change-impact",
+      "path": "skills/change-impact"
+    },
+    {
+      "id": "feature-development",
+      "path": "skills/feature-development"
+    },
+    {
+      "id": "legacy-recovery",
+      "path": "skills/legacy-recovery"
+    },
+    {
+      "id": "documentation",
+      "path": "skills/documentation"
+    },
+    {
+      "id": "release",
+      "path": "skills/release"
+    },
+    {
+      "id": "configuration-management",
+      "path": "skills/configuration-management"
+    },
+    {
+      "id": "safety",
+      "path": "skills/safety"
+    },
+    {
+      "id": "security",
+      "path": "skills/security"
+    },
+    {
+      "id": "performance",
+      "path": "skills/performance"
+    },
+    {
+      "id": "fault-injection",
+      "path": "skills/fault-injection"
+    },
+    {
+      "id": "simulation",
+      "path": "skills/simulation"
+    },
+    {
+      "id": "drivers",
+      "path": "skills/drivers"
+    },
+    {
+      "id": "bootloader",
+      "path": "skills/bootloader"
+    },
+    {
+      "id": "embedded-c",
+      "path": "skills/embedded-c"
+    },
+    {
+      "id": "embedded-cpp",
+      "path": "skills/embedded-cpp"
+    },
+    {
+      "id": "rust-embedded",
+      "path": "skills/rust-embedded"
+    },
+    {
+      "id": "embedded-linux",
+      "path": "skills/embedded-linux"
+    },
+    {
+      "id": "autosar",
+      "path": "skills/autosar"
+    },
+    {
+      "id": "robotics",
+      "path": "skills/robotics"
+    },
+    {
+      "id": "edge-ai",
+      "path": "skills/edge-ai"
+    },
+    {
+      "id": "ai-validation",
+      "path": "skills/ai-validation"
+    },
+    {
+      "id": "mcu",
+      "path": "skills/mcu"
+    },
+    {
+      "id": "mpu",
+      "path": "skills/mpu"
+    },
+    {
+      "id": "soc",
+      "path": "skills/soc"
+    },
+    {
+      "id": "mpsoc",
+      "path": "skills/mpsoc"
+    },
+    {
+      "id": "rtos",
+      "path": "skills/rtos"
+    },
+    {
+      "id": "bare-metal",
+      "path": "skills/bare-metal"
+    },
+    {
+      "id": "build-system",
+      "path": "skills/build-system"
+    },
+    {
+      "id": "requirements-traceability",
+      "path": "skills/requirements-traceability"
+    },
+    {
+      "id": "test-automation",
+      "path": "skills/test-automation"
+    },
+    {
+      "id": "hardware-bringup",
+      "path": "skills/hardware-bringup"
+    },
+    {
+      "id": "project-audit",
+      "path": "skills/project-audit"
+    }
+  ]
+}

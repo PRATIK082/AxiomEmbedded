@@ -1,0 +1,13 @@
+{
+  "schema_version": "1.0",
+  "profiles": [
+    "generic-embedded",
+    "automotive-mcu",
+    "aerospace-rtos",
+    "defense-embedded",
+    "industrial-linux",
+    "robotics-ai",
+    "edge-ai",
+    "brownfield-generic"
+  ]
+}

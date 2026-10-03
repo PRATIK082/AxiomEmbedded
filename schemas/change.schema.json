@@ -1,0 +1,30 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "AxiomEmbedded Change",
+  "type": "object",
+  "required": [
+    "id",
+    "type",
+    "status"
+  ],
+  "properties": {
+    "id": {
+      "type": "string"
+    },
+    "type": {
+      "type": "string"
+    },
+    "status": {
+      "type": "string"
+    },
+    "scope": {
+      "type": "array"
+    },
+    "impact": {
+      "type": "object"
+    },
+    "verification": {
+      "type": "object"
+    }
+  }
+}

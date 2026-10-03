@@ -1,0 +1,101 @@
+{
+  "schema_version": "1.0",
+  "agents": [
+    {
+      "id": "intent-router",
+      "manifest": "agents/intent-router/manifest.json"
+    },
+    {
+      "id": "engineering-manager",
+      "manifest": "agents/engineering-manager/manifest.json"
+    },
+    {
+      "id": "requirements",
+      "manifest": "agents/requirements/manifest.json"
+    },
+    {
+      "id": "system-architecture",
+      "manifest": "agents/system-architecture/manifest.json"
+    },
+    {
+      "id": "hardware-architecture",
+      "manifest": "agents/hardware-architecture/manifest.json"
+    },
+    {
+      "id": "software-architecture",
+      "manifest": "agents/software-architecture/manifest.json"
+    },
+    {
+      "id": "implementation",
+      "manifest": "agents/implementation/manifest.json"
+    },
+    {
+      "id": "code-review",
+      "manifest": "agents/code-review/manifest.json"
+    },
+    {
+      "id": "static-analysis",
+      "manifest": "agents/static-analysis/manifest.json"
+    },
+    {
+      "id": "test-engineering",
+      "manifest": "agents/test-engineering/manifest.json"
+    },
+    {
+      "id": "debugging",
+      "manifest": "agents/debugging/manifest.json"
+    },
+    {
+      "id": "root-cause",
+      "manifest": "agents/root-cause/manifest.json"
+    },
+    {
+      "id": "change-impact",
+      "manifest": "agents/change-impact/manifest.json"
+    },
+    {
+      "id": "migration",
+      "manifest": "agents/migration/manifest.json"
+    },
+    {
+      "id": "documentation",
+      "manifest": "agents/documentation/manifest.json"
+    },
+    {
+      "id": "safety",
+      "manifest": "agents/safety/manifest.json"
+    },
+    {
+      "id": "security",
+      "manifest": "agents/security/manifest.json"
+    },
+    {
+      "id": "performance",
+      "manifest": "agents/performance/manifest.json"
+    },
+    {
+      "id": "release",
+      "manifest": "agents/release/manifest.json"
+    },
+    {
+      "id": "project-audit",
+      "manifest": "agents/project-audit/manifest.json"
+    },
+    {
+      "id": "brownfield-recovery",
+      "manifest": "agents/brownfield-recovery/manifest.json"
+    },
+    {
+      "id": "hardware-bringup",
+      "manifest": "agents/hardware-bringup/manifest.json"
+    },
+    {
+      "id": "ai-validation",
+      "manifest": "agents/ai-validation/manifest.json"
+    },
+    {
+      "id": "dependency-analysis",
+      "manifest": "agents/dependency-analysis/manifest.json"
+    }
+  ]
+}

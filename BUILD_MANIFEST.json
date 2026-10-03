@@ -1,0 +1,16 @@
+{
+  "product": "AxiomEmbedded",
+  "version": "0.1.0",
+  "files": 505,
+  "legacy_snapshot_vendored": false,
+  "counts": {
+    "agents": 24,
+    "skills": 47,
+    "skill_documents": 47,
+    "domains": 15,
+    "platforms": 26,
+    "workflows": 9,
+    "profiles": 8
+  },
+  "sha256": "eb0f0c9f7d807756497de70c8e4a78c55f8e11a2f475e583f201d3d0f65ae2ba"
+}
