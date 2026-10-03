@@ -54,7 +54,7 @@ def test_mcp_agrees_with_sdk():
         init = _mcp_call(proc, 1, "initialize")
         assert init["result"]["serverInfo"]["name"] == "axiom-embedded"
         tools = _mcp_call(proc, 2, "tools/list")
-        assert {t["name"] for t in tools["result"]["tools"]} == {"engage", "run_plan", "read_skill", "list_skills", "list_profiles"}
+        assert {t["name"] for t in tools["result"]["tools"]} == {"engage", "run_plan", "read_skill", "list_skills", "list_profiles", "get_status", "plan_fix", "plan_feature"}
         eng = _mcp_call(proc, 3, "tools/call", {"name": "engage", "arguments": {"domain": "automotive", "platform": "mcu"}})
         assert json.loads(eng["result"]["content"][0]["text"])["skill_count"] == 42
         err = _mcp_call(proc, 4, "tools/call", {"name": "read_skill", "arguments": {"skill_id": "no-such-skill"}})

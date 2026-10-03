@@ -13,6 +13,7 @@ from packages.workflow.entry import starting_phase
 from packages.workflow.engine import load as load_workflow
 from packages.agents.router import route
 from packages.skills.engage import engage
+from packages.axiom_ops import get_status, plan_fix, plan_feature
 from packages.axiom_mcp.server import serve as mcp_serve
 from packages.axiom_server.server import serve as http_serve
 
@@ -119,6 +120,36 @@ def run_cmd(request: str, domain: str | None, platform: str | None) -> int:
     print(json.dumps(plan, indent=2))
     return 0
 
+def status_cmd(format: str) -> int:
+    st = get_status()
+    if format == "json":
+        print(json.dumps(st, indent=2))
+        return 0
+    bar = lambda n, total: "#" * int(20 * n / total) + "-" * (20 - int(20 * n / total)) if total else "-" * 20
+    print(f"\nAXIOMEMBEDDED - {st['project']} [{st['state'].upper()}]")
+    print(f"Skills: {st['skills']['total']} at v{st['skills']['latest']}  {bar(st['skills']['total'] - len(st['skills']['stale']), st['skills']['total'])}")
+    for key, val in st["inventory"].items():
+        print(f"  {key:12s} {val}")
+    print("\nNEEDS ATTENTION")
+    if st["needs_attention"]:
+        for a in st["needs_attention"]:
+            print(f"  [{a['severity'].upper()}] {a['id']}: {a['title']}")
+    else:
+        print("  None — all systems nominal.")
+    print(f"\nRECOMMENDED: {st['recommended_next_action']}")
+    return 0
+
+
+def fix_cmd(issue_id: str, domain: str | None, platform: str | None) -> int:
+    print(json.dumps(plan_fix(issue_id, domain, platform), indent=2))
+    return 0
+
+
+def feature_cmd(feature_id: str, domain: str | None, platform: str | None) -> int:
+    print(json.dumps(plan_feature(feature_id, domain, platform), indent=2))
+    return 0
+
+
 def main() -> int:
     ap = argparse.ArgumentParser(prog="axiom", description="AxiomEmbedded engineering CLI")
     sp = ap.add_subparsers(dest="cmd")
@@ -134,6 +165,9 @@ def main() -> int:
     rt = sp.add_parser("route"); rt.add_argument("request")
     en = sp.add_parser("engage"); en.add_argument("--domain"); en.add_argument("--platform")
     rn = sp.add_parser("run"); rn.add_argument("request"); rn.add_argument("--domain"); rn.add_argument("--platform")
+    st = sp.add_parser("status", help="Terminal dashboard: project health + next action"); st.add_argument("--format", choices=["text", "json"], default="text")
+    fx = sp.add_parser("fix", help="Emit the 10-step fix-defect plan for an issue id"); fx.add_argument("issue_id"); fx.add_argument("--domain"); fx.add_argument("--platform")
+    ft = sp.add_parser("feature", help="Emit the 9-step add-feature plan for a feature id"); ft.add_argument("feature_id"); ft.add_argument("--domain"); ft.add_argument("--platform")
     sp.add_parser("mcp", help="Serve Model Context Protocol over stdio (any MCP client)")
     sv = sp.add_parser("serve", help="Serve REST + A2A over HTTP (web apps, custom AI, local LLMs)"); sv.add_argument("--port", type=int, default=8765)
     args = ap.parse_args()
@@ -149,6 +183,9 @@ def main() -> int:
     if args.cmd == "route": print(route(args.request)); return 0
     if args.cmd == "engage": return engage_cmd(args.domain, args.platform)
     if args.cmd == "run": return run_cmd(args.request, args.domain, args.platform)
+    if args.cmd == "status": return status_cmd(args.format)
+    if args.cmd == "fix": return fix_cmd(args.issue_id, args.domain, args.platform)
+    if args.cmd == "feature": return feature_cmd(args.feature_id, args.domain, args.platform)
     if args.cmd == "mcp": return mcp_serve()
     if args.cmd == "serve": return http_serve(args.port)
     ap.print_help(); return 0

@@ -20,6 +20,9 @@ import pathlib
 from packages.agents.router import route
 from packages.skills.engage import engage as engage
 from packages.skills.engage import load_index
+from packages.axiom_ops import get_status as get_status
+from packages.axiom_ops import plan_fix as plan_fix
+from packages.axiom_ops import plan_feature as plan_feature
 
 ROOT = pathlib.Path(__file__).resolve().parents[2]
 
@@ -37,6 +40,9 @@ __all__ = [
     "read_skill",
     "list_skills",
     "list_profiles",
+    "get_status",
+    "plan_fix",
+    "plan_feature",
     "APPROVAL_REQUIRED_FOR",
 ]
 

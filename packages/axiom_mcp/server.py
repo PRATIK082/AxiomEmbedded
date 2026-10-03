@@ -63,6 +63,37 @@ TOOLS = [
         "description": "List available engagement profiles.",
         "inputSchema": {"type": "object", "properties": {}},
     },
+    {
+        "name": "get_status",
+        "description": "Project health dashboard data: skills, versions, inventory, attention items, recommended next action.",
+        "inputSchema": {"type": "object", "properties": {}},
+    },
+    {
+        "name": "plan_fix",
+        "description": "Emit the 10-step fix-defect plan for an issue id (harness executes).",
+        "inputSchema": {
+            "type": "object",
+            "required": ["issue_id"],
+            "properties": {
+                "issue_id": {"type": "string"},
+                "domain": {"type": "string"},
+                "platform": {"type": "string"},
+            },
+        },
+    },
+    {
+        "name": "plan_feature",
+        "description": "Emit the 9-step add-feature plan for a feature id (harness executes).",
+        "inputSchema": {
+            "type": "object",
+            "required": ["feature_id"],
+            "properties": {
+                "feature_id": {"type": "string"},
+                "domain": {"type": "string"},
+                "platform": {"type": "string"},
+            },
+        },
+    },
 ]
 
 
@@ -95,6 +126,12 @@ def dispatch(method: str, params: dict):
             return _text({"skills": sdk.list_skills()})
         if name == "list_profiles":
             return _text({"profiles": sdk.list_profiles()})
+        if name == "get_status":
+            return _text(sdk.get_status())
+        if name == "plan_fix":
+            return _text(sdk.plan_fix(args.get("issue_id", ""), args.get("domain"), args.get("platform")))
+        if name == "plan_feature":
+            return _text(sdk.plan_feature(args.get("feature_id", ""), args.get("domain"), args.get("platform")))
         return {"content": [{"type": "text", "text": f"unknown tool: {name}"}], "isError": True}
     return None
 

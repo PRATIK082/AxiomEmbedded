@@ -28,7 +28,7 @@ AGENT_CARD = {
     "version": "1.0.0",
     "protocol": "a2a/axiom-rest-v1",
     "description": "Domain-neutral embedded engineering platform: skill engagement and plan-then-execute planning.",
-    "capabilities": ["skill-engagement", "run-planning", "skill-reading", "profile-listing"],
+    "capabilities": ["skill-engagement", "run-planning", "skill-reading", "profile-listing", "status-dashboard", "fix-planning", "feature-planning"],
     "interfaces": ["mcp-stdio", "rest", "a2a-task", "cli", "python-sdk"],
 }
 
@@ -43,6 +43,41 @@ def _send(handler: BaseHTTPRequestHandler, status: int, payload) -> None:
     handler.send_header("Content-Length", str(len(body)))
     handler.end_headers()
     handler.wfile.write(body)
+
+
+def _send_html(handler: BaseHTTPRequestHandler, html: str) -> None:
+    body = html.encode("utf-8")
+    handler.send_response(200)
+    handler.send_header("Content-Type", "text/html; charset=utf-8")
+    handler.send_header("Content-Length", str(len(body)))
+    handler.end_headers()
+    handler.wfile.write(body)
+
+
+def dashboard_html() -> str:
+    """Single-screen dashboard (Simple UI): status + next action, complexity hidden."""
+    from packages import axiom_ops as ops
+
+    st = ops.get_status()
+    skills = st["skills"]
+    inv = st["inventory"]
+    items = "".join(
+        f"<li><b>{a['severity'].upper()}</b> {a['id']}: {a['title']}<br><code>{a['action']}</code></li>"
+        for a in st["needs_attention"]
+    ) or "<li>None — all systems nominal.</li>"
+    inv_rows = "".join(f"<tr><td>{k}</td><td>{v}</td></tr>" for k, v in inv.items())
+    return f"""<!doctype html><html><head><meta charset="utf-8">
+<title>AxiomEmbedded Dashboard</title>
+<style>body{{font-family:system-ui,sans-serif;max-width:760px;margin:2rem auto;padding:0 1rem}}
+.card{{border:1px solid #ccc;border-radius:8px;padding:1rem;margin-bottom:1rem}}
+code{{background:#f4f4f4;padding:0 .3rem}}</style></head><body>
+<h1>AxiomEmbedded</h1>
+<div class="card"><h2>Project health: {st['project']} — {st['state'].upper()}</h2>
+<p>Skills: {skills['total']} (latest v{skills['latest']})</p>
+<table>{inv_rows}</table></div>
+<div class="card"><h2>Needs attention</h2><ul>{items}</ul></div>
+<div class="card"><h2>Recommended next action</h2><code>{st['recommended_next_action']}</code></div>
+</body></html>"""
 
 
 class Handler(BaseHTTPRequestHandler):
@@ -61,7 +96,12 @@ class Handler(BaseHTTPRequestHandler):
             return {}
 
     def do_GET(self):  # noqa: N802
-        if self.path == "/v1/skills":
+        if self.path == "/":
+            _send_html(self, dashboard_html())
+            return
+        if self.path == "/v1/status":
+            _send(self, 200, sdk.get_status())
+        elif self.path == "/v1/skills":
             _send(self, 200, {"skills": sdk.list_skills()})
         elif self.path.startswith("/v1/skills/"):
             sid = self.path.rsplit("/", 1)[-1]
@@ -85,6 +125,16 @@ class Handler(BaseHTTPRequestHandler):
                 _send(self, 400, {"error": "missing 'request'"})
             else:
                 _send(self, 200, sdk.run_plan(data["request"], data.get("domain"), data.get("platform")))
+        elif self.path == "/v1/fix":
+            if not data.get("issue_id"):
+                _send(self, 400, {"error": "missing 'issue_id'"})
+            else:
+                _send(self, 200, sdk.plan_fix(data["issue_id"], data.get("domain"), data.get("platform")))
+        elif self.path == "/v1/feature":
+            if not data.get("feature_id"):
+                _send(self, 400, {"error": "missing 'feature_id'"})
+            else:
+                _send(self, 200, sdk.plan_feature(data["feature_id"], data.get("domain"), data.get("platform")))
         elif self.path == "/v1/a2a/tasks":
             request = data.get("message") or data.get("request", "")
             plan = sdk.run_plan(request, data.get("domain"), data.get("platform"))
