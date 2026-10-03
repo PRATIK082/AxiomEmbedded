@@ -1,0 +1,10 @@
+{
+  "mcpServers": {
+    "axiom": {
+      "command": "python",
+      "args": ["-m", "axiom_cli", "mcp"],
+      "cwd": "<ABSOLUTE-PATH-TO-AxiomEmbedded>",
+      "env": {}
+    }
+  }
+}
