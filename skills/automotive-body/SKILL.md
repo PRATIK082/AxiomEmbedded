@@ -1,0 +1,117 @@
+---
+name: automotive-body
+description: Body electronics — BCM, lighting, doors/seats/mirrors, HVAC, PEPS/keyless, LIN/CAN topology, low-power modes, EOL configuration. Use for body ECUs, LIN slaves, and EOL variant coding.
+version: 1.2.0
+domains: [automotive]
+platforms: [mcu, autosar-classic]
+---
+
+# automotive-body — Body electronics capability
+
+Reusable AxiomEmbedded capability for body-domain ECUs: BCM, exterior/interior
+lighting, door/seat/mirror control, HVAC, PEPS/keyless, LIN/CAN topology, low-power
+and wake-up management, and EOL configuration and variant coding.
+
+> Domain overlay `domains/automotive/` is mandatory. Safety-relevant body functions
+> route through `skills/safety/`; PEPS/EOL/diagnostic threats through `skills/security/`.
+> Never claims homologation or theft-resistance certification.
+
+## Objectives
+
+- Partition body functions across BCM + LIN slaves + smart drivers with deterministic CAN/LIN topology.
+- Deliver lighting, closure, seat/mirror, wiper/washer, HVAC, PEPS features with variant handling.
+- Design LIN schedules, CAN matrices, gateways, diagnostics with bus-load/timing budgets.
+- Meet quiescent-current and wake-up targets via sleep modes and partial networking.
+- Deliver EOL configuration: variant coding, calibration, key pairing, flashing flows.
+
+## Prerequisites
+
+- `skills/mcu/` + `skills/autosar/` (Classic: LinIf/LinSM, CanIf/CanSM, EcuM, ComM, Dcm/DEM).
+- Pinned Classic release (R24-11 baseline), MISRA C discipline, UDS stack selection.
+- Electrical baseline: load list, fuse/smart-FET map, harness topology, quiescent budget.
+
+## Outcomes
+
+- `requirements/body-requirements.md` with variant tags (market/trim/LHD/RHD).
+- `architecture/body-architecture.md`: ECU partition, LIN/CAN topology, schedules, power-state machine, PEPS zone map.
+- `src/` Classic SW-Cs + LIN slave code, MISRA clean; `config/` ARXML/LDF artifacts pinned.
+- `eol/` variant-coding tables, flashing sequences, key-pairing procedures, checksums per variant.
+- `test/` unit + integration + HIL (load-box, LIN rest-bus) + power + EOL-rig results.
+- `evidence/` linking every claim to clause + test result.
+
+## Time estimate
+
+- Topology + power-state design: 3–5 days. Feature development: 5–15 days.
+  Integration + power/EOL verification: 5–10 days.
+
+## Resources
+
+- AUTOSAR Classic: `https://www.autosar.org/standards/classic-platform`
+- LIN ISO 17987: `https://www.iso.org/standard/65607.html`
+- CAN partial networking ISO 11898-6: `https://www.iso.org/standard/63862.html`
+- UDS ISO 14229-1: `https://www.iso.org/standard/72439.html`
+- ISO/SAE 21434: `https://www.iso.org/standard/70918.html`
+
+## Domain rules
+
+1. **Topology is a controlled artifact.** Every LIN slave and CAN node pinned;
+   undocumented nodes never join the bus, even on the bench.
+2. **No direct battery loads from logic pins.** All loads via specified smart-FET/
+   high-side/low-side drivers with diagnostics and protection.
+3. **Lighting availability is safety-relevant.** Exterior-lighting failures feed the
+   `safety` chain with safe-state and diagnostic-coverage claims.
+4. **PEPS is a security function.** Relay-attack/key-cloning threats handled with
+   `security` per ISO/SAE 21434; RSSI-only distance is not a ranging claim.
+5. **Sleep is a requirement.** Every ECU/slave has specified sleep/wake states, wake
+   sources, and quiescent allocation; off-allow-list wake-up is a defect.
+6. **Variants are data, not forks.** Market/trim differences are EOL coding data
+   against one software baseline.
+
+## Sub-domain notes
+
+- **BCM:** central locking, immobilizer interface, power distribution, load-shedding, wiper/horn/trailer.
+- **Lighting:** headlamp/tail/stop/turn/DRL/interior; PWM/dimming curves; cold/warm diagnostics.
+- **Doors/seats/mirrors:** window lift anti-pinch (safety-relevant, hardware-verified),
+  locks, mirror/seat adjust/heat, sunroof.
+- **HVAC:** blower PWM, flap steppers, heating, sensing; bounded loops failing to defined state.
+- **PEPS/keyless:** LF challenge + HF/UHF or UWB response, zones, pairing, backup start.
+- **LIN/CAN:** LIN masters with schedule tables; CAN backbone; bus-load budget with margin;
+  NM/ComM per AUTOSAR; DCM/DEM over CAN and LIN-diagnostic frames.
+- **Low power:** EcuM/ComM sleep, LIN sleep + bus-silence wake, CAN partial networking,
+  key-off load-shedding stages.
+- **EOL:** variant coding, parameter flash, key pairing, learn routines, checksum + readback.
+
+## Integration and test strategy
+
+- Rest-bus + load-box HIL: simulated peers, real loads, current measurement; schedule
+  conformance and bus-load tests on target.
+- Power campaign: sleep entry/exit, wake-source matrix, quiescent per ECU/vehicle, soak, load-shed order.
+- PEPS campaign with `security`: zone mapping, relay-attack resistance, key-learning authorization.
+- Lighting/closure: diagnostics coverage per channel, anti-pinch force measurement, HVAC sweeps.
+- EOL rig: flash → code → pair → learn → readback → checksum on every variant;
+  mis-coded-vehicle injection must be caught by readback.
+- Fault injection: LIN break/short, CAN bus-off, slave loss, FET overtemp, low-battery, EOL abort.
+
+## Traceability
+
+- SYS → BSW/SwSR → SW-C/`src/` → schedule/matrix entry → `test/` → evidence ID,
+  with variant tags. Topology artifacts (LDF, DBC, ARXML) by version/hash; EOL tables by checksum.
+
+## Compliance mapping (via overlays, not duplication)
+
+- ISO 26262:2018 where safety-relevant (lighting, anti-pinch) via `safety`;
+  AUTOSAR Classic as implementation argument; LIN per ISO 17987; diagnostics per ISO 14229-1;
+  security per ISO/SAE 21434 with `security`.
+
+## Verification checklist (gate: all must pass)
+
+1. `scripts/verify_skill.py --skill automotive-body` → PASS.
+2. Topology pinned; no phantom nodes.
+3. Build clean (gcc + clang, zero warnings); MISRA deviations rationale-recorded.
+4. Rest-bus/load-box HIL green; bus-load and schedule conformance in budget.
+5. Power campaign green: sleep/wake matrix, quiescent budget, load-shed order.
+6. PEPS tests green with `security` sign-off.
+7. EOL rig green on every variant; checksums recorded.
+8. Traceability gap-free with variant tags; deltas flagged for human review.
+
+Load task-specific domain/platform/rule overlays before execution.

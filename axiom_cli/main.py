@@ -10,9 +10,13 @@ import yaml
 from packages.context.indexer import write_index
 from packages.context.selector import select_from_index, ContextBudget
 from packages.workflow.entry import starting_phase
+from packages.workflow.stage import detect_stage, reconcile_stage
 from packages.workflow.engine import load as load_workflow
-from packages.agents.router import route
+from packages.agents.router import route, detect_domain
 from packages.skills.engage import engage
+from packages.axiom_ops import get_status, plan_fix, plan_feature
+from packages.axiom_mcp.server import serve as mcp_serve
+from packages.axiom_server.server import serve as http_serve
 
 ROOT = pathlib.Path(__file__).resolve().parents[1]
 
@@ -104,11 +108,17 @@ def run_cmd(request: str, domain: str | None, platform: str | None) -> int:
     axiom resolves WHAT to load and in WHAT order. Execution beyond planning
     requires human approval per configs/project.yaml.
     """
+    selection = None
+    domain_source = "explicit"
+    if not domain:
+        domain = detect_domain(request)
+        domain_source = "detected" if domain else "none"
     selection = engage(domain, platform)
     plan = {
         "mode": "plan-then-execute",
         "request": request,
         "intent": route(request),
+        "domain_source": domain_source,
         "engagement": selection,
         "phases": ["plan", "implement", "verify", "evidence"],
         "context_files": selection["context_files"],
@@ -116,6 +126,53 @@ def run_cmd(request: str, domain: str | None, platform: str | None) -> int:
     }
     print(json.dumps(plan, indent=2))
     return 0
+
+def status_cmd(format: str) -> int:
+    st = get_status()
+    if format == "json":
+        print(json.dumps(st, indent=2))
+        return 0
+    bar = lambda n, total: "#" * int(20 * n / total) + "-" * (20 - int(20 * n / total)) if total else "-" * 20
+    print(f"\nAXIOMEMBEDDED - {st['project']} [{st['state'].upper()}]")
+    print(f"Skills: {st['skills']['total']} at v{st['skills']['latest']}  {bar(st['skills']['total'] - len(st['skills']['stale']), st['skills']['total'])}")
+    for key, val in st["inventory"].items():
+        print(f"  {key:12s} {val}")
+    print("\nNEEDS ATTENTION")
+    if st["needs_attention"]:
+        for a in st["needs_attention"]:
+            print(f"  [{a['severity'].upper()}] {a['id']}: {a['title']}")
+    else:
+        print("  None — all systems nominal.")
+    print(f"\nRECOMMENDED: {st['recommended_next_action']}")
+    return 0
+
+
+def stage_cmd(path: str, profile: str | None) -> int:
+    """Evidence-based stage: deepest V-Model phase with artifacts on disk,
+    reconciled with the profile's declared entry (declaration wins)."""
+    detected = detect_stage(path)
+    declared_phase = None
+    if profile:
+        data = _read_yaml(profile)
+        declared_phase = starting_phase(data.get("entry", "brownfield"))
+    print(json.dumps({
+        "path": str(pathlib.Path(path).resolve()),
+        "profile": profile,
+        **reconcile_stage(detected["stage"], declared_phase),
+        "evidence": detected["evidence"],
+    }, indent=2))
+    return 0
+
+
+def fix_cmd(issue_id: str, domain: str | None, platform: str | None) -> int:
+    print(json.dumps(plan_fix(issue_id, domain, platform), indent=2))
+    return 0
+
+
+def feature_cmd(feature_id: str, domain: str | None, platform: str | None) -> int:
+    print(json.dumps(plan_feature(feature_id, domain, platform), indent=2))
+    return 0
+
 
 def main() -> int:
     ap = argparse.ArgumentParser(prog="axiom", description="AxiomEmbedded engineering CLI")
@@ -130,8 +187,14 @@ def main() -> int:
     im = sp.add_parser("impact"); im.add_argument("path")
     wf = sp.add_parser("workflow"); ws = wf.add_subparsers(dest="workflow_cmd"); wp = ws.add_parser("plan"); wp.add_argument("--profile", required=True); wp.add_argument("--entry")
     rt = sp.add_parser("route"); rt.add_argument("request")
+    sg = sp.add_parser("stage", help="Detect project lifecycle stage from evidence + profile entry"); sg.add_argument("path", nargs="?", default="."); sg.add_argument("--profile")
     en = sp.add_parser("engage"); en.add_argument("--domain"); en.add_argument("--platform")
     rn = sp.add_parser("run"); rn.add_argument("request"); rn.add_argument("--domain"); rn.add_argument("--platform")
+    st = sp.add_parser("status", help="Terminal dashboard: project health + next action"); st.add_argument("--format", choices=["text", "json"], default="text")
+    fx = sp.add_parser("fix", help="Emit the 10-step fix-defect plan for an issue id"); fx.add_argument("issue_id"); fx.add_argument("--domain"); fx.add_argument("--platform")
+    ft = sp.add_parser("feature", help="Emit the 9-step add-feature plan for a feature id"); ft.add_argument("feature_id"); ft.add_argument("--domain"); ft.add_argument("--platform")
+    sp.add_parser("mcp", help="Serve Model Context Protocol over stdio (any MCP client)")
+    sv = sp.add_parser("serve", help="Serve REST + A2A over HTTP (web apps, custom AI, local LLMs)"); sv.add_argument("--port", type=int, default=8765)
     args = ap.parse_args()
     if args.cmd == "doctor": return doctor()
     if args.cmd == "repo-validate": return validate_repo()
@@ -143,8 +206,14 @@ def main() -> int:
     if args.cmd == "impact": return impact(args.path)
     if args.cmd == "workflow" and args.workflow_cmd == "plan": return workflow_plan(args.profile, args.entry)
     if args.cmd == "route": print(route(args.request)); return 0
+    if args.cmd == "stage": return stage_cmd(args.path, args.profile)
     if args.cmd == "engage": return engage_cmd(args.domain, args.platform)
     if args.cmd == "run": return run_cmd(args.request, args.domain, args.platform)
+    if args.cmd == "status": return status_cmd(args.format)
+    if args.cmd == "fix": return fix_cmd(args.issue_id, args.domain, args.platform)
+    if args.cmd == "feature": return feature_cmd(args.feature_id, args.domain, args.platform)
+    if args.cmd == "mcp": return mcp_serve()
+    if args.cmd == "serve": return http_serve(args.port)
     ap.print_help(); return 0
 
 if __name__ == "__main__":

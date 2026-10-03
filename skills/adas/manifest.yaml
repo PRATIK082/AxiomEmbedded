@@ -1,0 +1,43 @@
+id: adas
+version: 1.2.0
+contract_version: 1
+type: reusable-skill
+source_of_truth:
+  instructions: SKILL.md
+  contract: manifest.yaml
+context:
+  graph_first: true
+  max_hops_default: 2
+standards_refs:
+- number: SAE J3016
+  version: 2021-04
+  clause: Taxonomy of driving automation L0-L5
+  source_url: https://www.sae.org/standards/content/j3016_202104/
+- number: ISO 21448
+  version: '2022'
+  clause: SOTIF lifecycle, triggering conditions, validation targets
+  source_url: https://www.iso.org/standard/77490.html
+- number: ISO 26262
+  version: '2018'
+  clause: Parts 3-4, 6, 9; HARA, ASIL decomposition
+  source_url: https://www.iso.org/standard/68383.html
+- number: ASAM OpenSCENARIO
+  version: 1.x/2.0
+  clause: Scenario interchange for simulation/HIL
+  source_url: https://www.asam.net/standards/detail/openscenario/
+- number: ASAM OpenDRIVE
+  version: current
+  clause: Road-network interchange
+  source_url: https://www.asam.net/standards/detail/opendrive/
+changelog:
+- version: 1.2.0
+  date: '2026-10-03'
+  summary: New ADAS/AD skill
+facets:
+  domains:
+  - automotive
+  platforms:
+  - mpu
+  - soc
+  - mpsoc
+  - autosar-adaptive

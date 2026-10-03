@@ -1,0 +1,43 @@
+id: automotive-spice
+version: 1.2.0
+contract_version: 1
+type: reusable-skill
+source_of_truth:
+  instructions: SKILL.md
+  contract: manifest.yaml
+context:
+  graph_first: true
+  max_hops_default: 2
+standards_refs:
+- number: Automotive SPICE PRM/PAM
+  version: '4.0'
+  clause: SYS.1-5, SWE.1-6, SUP.1/8/9/10, MAN.3/5/6, VAL; CL0-5, PA 1.1-5.2, N/P/L/F
+  source_url: https://www.vda-qmc.de/en/automotive-spice/
+- number: ISO/IEC 33020
+  version: '2019'
+  clause: Process measurement framework, capability levels and rating scale
+  source_url: https://www.iso.org/standard/70131.html
+- number: ISO/IEC 33002
+  version: '2015'
+  clause: Requirements for performing process assessment
+  source_url: https://www.iso.org/standard/60602.html
+- number: ISO 26262
+  version: '2018'
+  clause: Parts 2-9; ASIL A-D (compliance mapping only)
+  source_url: https://www.iso.org/standard/68383.html
+- number: ISO/SAE 21434
+  version: '2021'
+  clause: Road-vehicles cybersecurity engineering (mapping only)
+  source_url: https://www.iso.org/standard/70918.html
+facets:
+  domains:
+  - automotive
+  platforms:
+  - all
+changelog:
+- version: 1.2.0
+  date: '2026-10-03'
+  summary: 'New skill: Automotive SPICE v4.0 PRM/PAM scoping, VDA scope, CL0-5
+    with N/P/L/F rating, BP/WP mapping, bidirectional traceability and evidence
+    rules, assessment prep, ISO 26262/21434 mapping; metadata-only, no
+    certification claim'

@@ -1,0 +1,36 @@
+id: automotive-cybersecurity
+version: 1.2.0
+contract_version: 1
+type: reusable-skill
+source_of_truth:
+  instructions: SKILL.md
+  contract: manifest.yaml
+context:
+  graph_first: true
+  max_hops_default: 2
+standards_refs:
+- number: ISO/SAE 21434
+  version: '2021'
+  clause: Concept, TARA, CAL1-4, verification, assessment, case
+  source_url: https://www.iso.org/standard/70918.html
+- number: UNECE R155
+  version: In force 2021
+  clause: CSMS and Annex 5 threats/mitigations
+  source_url: https://unece.org/transport/documents/2021/03/standards/un-regulation-no-155-cyber-security-and-cyber-security
+- number: UNECE R156
+  version: In force 2021
+  clause: SUMS and software-update requirements
+  source_url: https://unece.org/transport/documents/2021/03/standards/un-regulation-no-156-software-update-and-software-update
+- number: NIST SP 800-193
+  version: Rev.1 2024
+  clause: Firmware protection, detection, recovery
+  source_url: https://csrc.nist.gov/pubs/sp/800/193/r1/final
+changelog:
+- version: 1.2.0
+  date: '2026-10-03'
+  summary: New automotive cybersecurity skill
+facets:
+  domains:
+  - automotive
+  platforms:
+  - all
