@@ -1,3 +1,11 @@
+---
+name: hardware-architecture
+description: ECU/board architecture, power domains, budgets, and HSI contracts. Use when designing hardware, partitioning SoC peripherals, or budgeting power.
+version: 1.2.0
+domains: [all]
+platforms: [mcu, mpu, soc, mpsoc]
+---
+
 # Hardware-Architecture skill
 
 Board and SoC-level hardware architecture for embedded products: requirement

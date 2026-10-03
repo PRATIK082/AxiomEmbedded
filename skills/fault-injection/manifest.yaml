@@ -1,23 +1,37 @@
 id: fault-injection
-version: 1.1.0
+version: 1.2.0
 contract_version: 1
 type: reusable-skill
 standards_refs:
-  - number: ISO 26262-5
-    version: "2018"
-    clause: Clauses 8-9 hardware metrics and fault injection
-    source_url: https://www.iso.org/standard/68387.html
-  - number: ISO 26262-6
-    version: "2018"
-    clause: Clause 9 software verification incl. fault injection
-    source_url: https://www.iso.org/standard/68388.html
+- number: ISO 26262-5
+  version: '2018'
+  clause: Clauses 8-9 hardware metrics and fault injection
+  source_url: https://www.iso.org/standard/68387.html
+- number: ISO 26262-6
+  version: '2018'
+  clause: Clause 9 software verification incl. fault injection
+  source_url: https://www.iso.org/standard/68388.html
 changelog:
-  - version: 1.1.0
-    date: 2026-10-03
-    summary: Deep-update expansion with campaign design, classification and coverage accounting
+- version: 1.1.0
+  date: 2026-10-03
+  summary: Deep-update expansion with campaign design, classification and coverage
+    accounting
+- version: 1.2.0
+  date: '2026-10-03'
+  summary: 'Skill packaging: agent-skills frontmatter for multi-harness discovery,
+    domain/platform facets, engagement linkage'
 source_of_truth:
   instructions: SKILL.md
   contract: manifest.yaml
 context:
   graph_first: true
   max_hops_default: 2
+facets:
+  domains:
+  - generic-embedded
+  - automotive
+  - aerospace
+  - defense
+  - industrial
+  platforms:
+  - all

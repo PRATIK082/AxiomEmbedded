@@ -1,3 +1,11 @@
+---
+name: robotics
+description: ROS 2 distro policy, interface-first nodes, real-time paths, simulation-first testing. Use when building robot behaviors on embedded compute.
+version: 1.2.0
+domains: [robotics, industrial]
+platforms: [mpu, soc, linux]
+---
+
 # Robotics skill
 
 ROS 2-based robot software for embedded compute: node architecture, real-time

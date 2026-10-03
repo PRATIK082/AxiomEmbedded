@@ -1,3 +1,11 @@
+---
+name: validation
+description: Needs-based validation scenarios, usability, and acceptance. Use when proving the right product was built for stakeholders.
+version: 1.2.0
+domains: [all]
+platforms: [all]
+---
+
 # Validation skill
 
 Confirmation that the right system was built: stakeholder acceptance in the

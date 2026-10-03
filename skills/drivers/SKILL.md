@@ -1,3 +1,11 @@
+---
+name: drivers
+description: Register/errata discipline, DMA contracts, timeouts, policy-free HALs. Use when writing peripheral drivers or BSPs.
+version: 1.2.0
+domains: [all]
+platforms: [mcu, mpu, soc]
+---
+
 # Drivers skill
 
 Peripheral driver development for MCU/MPU targets: register-correct,

@@ -1,3 +1,11 @@
+---
+name: traceability
+description: Link models, suspect-link propagation, and audit gates across the V-model. Use when building or auditing trace matrices.
+version: 1.2.0
+domains: [all]
+platforms: [all]
+---
+
 # Traceability skill
 
 Bidirectional traceability from stakeholder need to verified evidence: the

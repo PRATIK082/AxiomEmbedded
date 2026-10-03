@@ -1,3 +1,11 @@
+---
+name: feature-development
+description: Vertical slicing, short-lived branches, and tests-travel-with-code. Use when adding product features incrementally.
+version: 1.2.0
+domains: [all]
+platforms: [all]
+---
+
 # Feature-Development skill
 
 End-to-end delivery of a single feature through the V-model: from requirement

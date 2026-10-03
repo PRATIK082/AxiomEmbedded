@@ -1,3 +1,11 @@
+---
+name: architecture
+description: System/software architecture views, interface contracts, allocation, and evaluation. Use when structuring a system, defining ICDs/APIs, or reviewing layering.
+version: 1.2.0
+domains: [all]
+platforms: [all]
+---
+
 # Architecture skill
 
 System and software architecture for embedded and cyber-physical systems:

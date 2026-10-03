@@ -1,3 +1,11 @@
+---
+name: documentation
+description: Docs-as-code, versioned-with-product docs, tested examples. Use when writing manuals, API docs, or runbooks.
+version: 1.2.0
+domains: [all]
+platforms: [all]
+---
+
 # Documentation skill
 
 Technical documentation engineers and auditors actually use: architecture

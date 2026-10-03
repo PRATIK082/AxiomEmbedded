@@ -1,3 +1,11 @@
+---
+name: release
+description: Readiness reviews, signing, staged rollout, and hotfix paths. Use when shipping firmware/software or planning OTA releases.
+version: 1.2.0
+domains: [all]
+platforms: [all]
+---
+
 # Release skill
 
 Shipping embedded products safely: release planning, readiness reviews,

@@ -1,3 +1,11 @@
+---
+name: project-audit
+description: Criteria-first audits, sampling, independence, re-audit closure. Use when auditing projects, suppliers, or compliance readiness.
+version: 1.2.0
+domains: [all]
+platforms: [all]
+---
+
 # Project-Audit skill
 
 Independent health checks of embedded projects: process conformance, artifact

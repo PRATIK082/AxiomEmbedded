@@ -1,3 +1,11 @@
+---
+name: fault-injection
+description: FMEA-derived fault lists, SWIFI/HWIFI levels, and SPFM/LFM accounting. Use when proving safe-state behavior under faults.
+version: 1.2.0
+domains: [generic-embedded, automotive, aerospace, defense, industrial]
+platforms: [all]
+---
+
 # Fault-Injection skill
 
 Deliberate fault campaigns that prove safety mechanisms work: hardware faults

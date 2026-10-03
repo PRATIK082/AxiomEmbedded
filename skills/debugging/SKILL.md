@@ -1,3 +1,11 @@
+---
+name: debugging
+description: Reproduce-isolate-root-cause method with silicon testimony and mandatory regression tests. Use when hunting field or lab failures.
+version: 1.2.0
+domains: [all]
+platforms: [all]
+---
+
 # Debugging skill
 
 Systematic defect diagnosis on target hardware: reproduce, isolate, root-cause,

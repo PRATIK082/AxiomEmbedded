@@ -1,3 +1,11 @@
+---
+name: bare-metal
+description: Reset-to-main init, fault handlers, ISR discipline, super-loop and time-triggered patterns. Use for no-OS firmware or boot code.
+version: 1.2.0
+domains: [all]
+platforms: [mcu, bare-metal]
+---
+
 # Bare-Metal skill
 
 Single-core, no-OS firmware on MCU targets: reset-to-main structure, interrupt

@@ -1,23 +1,36 @@
 id: hardware-bringup
-version: 1.1.0
+version: 1.2.0
 contract_version: 1
 type: reusable-skill
 standards_refs:
-  - number: IEEE 1149.1
-    version: "2013"
-    clause: JTAG boundary scan, connectivity
-    source_url: https://standards.ieee.org/ieee/1149-1/4244/
-  - number: ARM CoreSight
-    version: current
-    clause: Debug/trace architecture
-    source_url: https://developer.arm.com/documentation/ihi0029/latest/
+- number: IEEE 1149.1
+  version: '2013'
+  clause: JTAG boundary scan, connectivity
+  source_url: https://standards.ieee.org/ieee/1149-1/4244/
+- number: ARM CoreSight
+  version: current
+  clause: Debug/trace architecture
+  source_url: https://developer.arm.com/documentation/ihi0029/latest/
 changelog:
-  - version: 1.1.0
-    date: 2026-10-03
-    summary: Deep-update expansion with six-stage bring-up sequence and signed bring-up report gates
+- version: 1.1.0
+  date: 2026-10-03
+  summary: Deep-update expansion with six-stage bring-up sequence and signed bring-up
+    report gates
+- version: 1.2.0
+  date: '2026-10-03'
+  summary: 'Skill packaging: agent-skills frontmatter for multi-harness discovery,
+    domain/platform facets, engagement linkage'
 source_of_truth:
   instructions: SKILL.md
   contract: manifest.yaml
 context:
   graph_first: true
   max_hops_default: 2
+facets:
+  domains:
+  - all
+  platforms:
+  - mcu
+  - mpu
+  - soc
+  - mpsoc

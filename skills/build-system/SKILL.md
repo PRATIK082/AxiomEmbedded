@@ -1,3 +1,11 @@
+---
+name: build-system
+description: Warnings-as-errors builds, pinning, toolchain separation, SLSA provenance. Use when setting up CMake builds or reproducible toolchains.
+version: 1.2.0
+domains: [all]
+platforms: [all]
+---
+
 # Build-System skill
 
 Reproducible, hermetic, warning-free builds for firmware and embedded Linux:

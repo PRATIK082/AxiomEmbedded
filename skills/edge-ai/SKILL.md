@@ -1,3 +1,11 @@
+---
+name: edge-ai
+description: Model quantization, runtime/delegate selection, memory/latency/power budgets. Use when deploying ML inference on constrained targets.
+version: 1.2.0
+domains: [generic-embedded, automotive, industrial, iot, robotics]
+platforms: [mcu, mpu, soc, mpsoc]
+---
+
 # Edge-AI skill
 
 Deploying machine-learning inference on resource-constrained targets: model

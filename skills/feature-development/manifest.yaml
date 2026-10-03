@@ -1,23 +1,32 @@
 id: feature-development
-version: 1.1.0
+version: 1.2.0
 contract_version: 1
 type: reusable-skill
 standards_refs:
-  - number: ISO/IEC/IEEE 12207
-    version: "2017"
-    clause: Software implementation and integration
-    source_url: https://www.iso.org/standard/63712.html
-  - number: ISO 26262-6
-    version: "2018"
-    clause: Software design, construction, verification per ASIL
-    source_url: https://www.iso.org/standard/68388.html
+- number: ISO/IEC/IEEE 12207
+  version: '2017'
+  clause: Software implementation and integration
+  source_url: https://www.iso.org/standard/63712.html
+- number: ISO 26262-6
+  version: '2018'
+  clause: Software design, construction, verification per ASIL
+  source_url: https://www.iso.org/standard/68388.html
 changelog:
-  - version: 1.1.0
-    date: 2026-10-03
-    summary: Deep-update expansion with vertical slicing workflow and merge gates
+- version: 1.1.0
+  date: 2026-10-03
+  summary: Deep-update expansion with vertical slicing workflow and merge gates
+- version: 1.2.0
+  date: '2026-10-03'
+  summary: 'Skill packaging: agent-skills frontmatter for multi-harness discovery,
+    domain/platform facets, engagement linkage'
 source_of_truth:
   instructions: SKILL.md
   contract: manifest.yaml
 context:
   graph_first: true
   max_hops_default: 2
+facets:
+  domains:
+  - all
+  platforms:
+  - all

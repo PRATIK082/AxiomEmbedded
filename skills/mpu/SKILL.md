@@ -1,3 +1,11 @@
+---
+name: mpu
+description: MPU-based design - selection from measured load, ECC/DDR, power sequencing, debug-by-design. Use when moving to application processors.
+version: 1.2.0
+domains: [generic-embedded, automotive, industrial, iot, robotics]
+platforms: [mpu, linux]
+---
+
 # MPU skill
 
 Microprocessor-based design with MMU, OS-hosted software, and external memory:

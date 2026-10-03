@@ -1,23 +1,38 @@
 id: mpu
-version: 1.1.0
+version: 1.2.0
 contract_version: 1
 type: reusable-skill
 standards_refs:
-  - number: Armv8-A/Armv9-A
-    version: current
-    clause: MMU, exception levels, power domains
-    source_url: https://developer.arm.com/documentation/
-  - number: JEDEC DDR/LPDDR
-    version: JESD79 series
-    clause: Timing, training, signal integrity
-    source_url: https://www.jedec.org/standards-documents/
+- number: Armv8-A/Armv9-A
+  version: current
+  clause: MMU, exception levels, power domains
+  source_url: https://developer.arm.com/documentation/
+- number: JEDEC DDR/LPDDR
+  version: JESD79 series
+  clause: Timing, training, signal integrity
+  source_url: https://www.jedec.org/standards-documents/
 changelog:
-  - version: 1.1.0
-    date: 2026-10-03
-    summary: Deep-update expansion with selection rules, integration discipline and handoff gates
+- version: 1.1.0
+  date: 2026-10-03
+  summary: Deep-update expansion with selection rules, integration discipline and
+    handoff gates
+- version: 1.2.0
+  date: '2026-10-03'
+  summary: 'Skill packaging: agent-skills frontmatter for multi-harness discovery,
+    domain/platform facets, engagement linkage'
 source_of_truth:
   instructions: SKILL.md
   contract: manifest.yaml
 context:
   graph_first: true
   max_hops_default: 2
+facets:
+  domains:
+  - generic-embedded
+  - automotive
+  - industrial
+  - iot
+  - robotics
+  platforms:
+  - mpu
+  - linux

@@ -1,3 +1,11 @@
+---
+name: software-architecture
+description: Embedded software layering, concurrency design, and variability without forks. Use when structuring firmware/software tasks, partitions, or product lines.
+version: 1.2.0
+domains: [all]
+platforms: [all]
+---
+
 # Software-Architecture skill
 
 Software architecture for firmware and embedded applications: layered design,

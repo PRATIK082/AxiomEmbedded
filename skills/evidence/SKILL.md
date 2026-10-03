@@ -1,3 +1,11 @@
+---
+name: evidence
+description: Evidence taxonomy, integrity rules, and packaging for assessments. Use when assembling assurance cases or audit packs.
+version: 1.2.0
+domains: [all]
+platforms: [all]
+---
+
 # Evidence skill
 
 Assembling audit-ready evidence: what counts as evidence, how it is captured,

@@ -1,3 +1,11 @@
+---
+name: rtos
+description: RTOS selection, scheduling/IPC rules, MPU partitioning, WCET verification. Use for FreeRTOS/Zephyr/ThreadX designs or timing analysis.
+version: 1.2.0
+domains: [all]
+platforms: [mcu, mpu, rtos]
+---
+
 # rtos — Real-time operating system capability (template replication 1)
 
 Reusable AxiomEmbedded capability for RTOS selection, configuration,

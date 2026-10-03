@@ -1,3 +1,11 @@
+---
+name: performance
+description: Top-down budgets, WCET measurement, profile-before-patch, CI tripwires. Use when meeting latency, throughput, or determinism targets.
+version: 1.2.0
+domains: [all]
+platforms: [all]
+---
+
 # Performance skill
 
 Timing, throughput, memory, and power performance for embedded targets:

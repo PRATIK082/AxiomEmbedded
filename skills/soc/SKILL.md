@@ -1,3 +1,11 @@
+---
+name: soc
+description: Heterogeneous SoC allocation across A/R cores, NPUs, safety islands, power/thermal. Use when architecting multi-core SoC products.
+version: 1.2.0
+domains: [generic-embedded, automotive, industrial, robotics]
+platforms: [soc, mpsoc]
+---
+
 # SoC skill
 
 Single-die system integration: combining processors, accelerators, memory,

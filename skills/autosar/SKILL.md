@@ -1,3 +1,11 @@
+---
+name: autosar
+description: Classic/Adaptive selection, layered BSW/RTE rules, SOME/IP integration. Use for AUTOSAR ECUs, ARXML, or adaptive applications.
+version: 1.2.0
+domains: [automotive]
+platforms: [mcu, mpu, autosar-classic, autosar-adaptive]
+---
+
 # autosar — AUTOSAR Classic / Adaptive capability (template replication 2)
 
 Reusable AxiomEmbedded capability for AUTOSAR Classic Platform software

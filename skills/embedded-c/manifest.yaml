@@ -1,27 +1,39 @@
 id: embedded-c
-version: 1.1.0
+version: 1.2.0
 contract_version: 1
 type: reusable-skill
 standards_refs:
-  - number: ISO/IEC 9899 C17
-    version: "2018"
-    clause: Language baseline
-    source_url: https://www.iso.org/standard/74528.html
-  - number: MISRA C
-    version: "2025"
-    clause: Mandatory/required/advisory safety rules
-    source_url: https://misra.org.uk/
-  - number: CERT C
-    version: current
-    clause: Secure-coding rules (MISRA Add.3 map)
-    source_url: https://wiki.sei.cmu.edu/confluence/display/c/SEI+CERT+C+Coding+Standard
+- number: ISO/IEC 9899 C17
+  version: '2018'
+  clause: Language baseline
+  source_url: https://www.iso.org/standard/74528.html
+- number: MISRA C
+  version: '2025'
+  clause: Mandatory/required/advisory safety rules
+  source_url: https://misra.org.uk/
+- number: CERT C
+  version: current
+  clause: Secure-coding rules (MISRA Add.3 map)
+  source_url: https://wiki.sei.cmu.edu/confluence/display/c/SEI+CERT+C+Coding+Standard
 changelog:
-  - version: 1.1.0
-    date: 2026-10-03
-    summary: Deep-update expansion with language subset, startup/linker discipline and review deltas
+- version: 1.1.0
+  date: 2026-10-03
+  summary: Deep-update expansion with language subset, startup/linker discipline and
+    review deltas
+- version: 1.2.0
+  date: '2026-10-03'
+  summary: 'Skill packaging: agent-skills frontmatter for multi-harness discovery,
+    domain/platform facets, engagement linkage'
 source_of_truth:
   instructions: SKILL.md
   contract: manifest.yaml
 context:
   graph_first: true
   max_hops_default: 2
+facets:
+  domains:
+  - all
+  platforms:
+  - mcu
+  - bare-metal
+  - rtos

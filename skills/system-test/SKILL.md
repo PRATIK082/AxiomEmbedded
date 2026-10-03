@@ -1,3 +1,11 @@
+---
+name: system-test
+description: Requirement-based system testing, stress/abuse campaigns, and triage. Use when validating a full product against its requirements.
+version: 1.2.0
+domains: [all]
+platforms: [all]
+---
+
 # System-Test skill
 
 End-to-end verification of the integrated system against system requirements in

@@ -1,27 +1,40 @@
 id: robotics
-version: 1.1.0
+version: 1.2.0
 contract_version: 1
 type: reusable-skill
 standards_refs:
-  - number: ROS 2 Kilted Kaiju
-    version: May 2025
-    clause: Current distro baseline
-    source_url: https://docs.ros.org/en/kilted/
-  - number: ROS 2 Jazzy
-    version: LTS to 2029
-    clause: Stable product baseline
-    source_url: https://docs.ros.org/en/jazzy/
-  - number: ROS 2 Humble
-    version: LTS to 2027
-    clause: Maintenance baseline
-    source_url: https://docs.ros.org/en/humble/
+- number: ROS 2 Kilted Kaiju
+  version: May 2025
+  clause: Current distro baseline
+  source_url: https://docs.ros.org/en/kilted/
+- number: ROS 2 Jazzy
+  version: LTS to 2029
+  clause: Stable product baseline
+  source_url: https://docs.ros.org/en/jazzy/
+- number: ROS 2 Humble
+  version: LTS to 2027
+  clause: Maintenance baseline
+  source_url: https://docs.ros.org/en/humble/
 changelog:
-  - version: 1.1.0
-    date: 2026-10-03
-    summary: Deep-update expansion with distro policy, interface-first architecture, real-time paths, simulation-first testing
+- version: 1.1.0
+  date: 2026-10-03
+  summary: Deep-update expansion with distro policy, interface-first architecture,
+    real-time paths, simulation-first testing
+- version: 1.2.0
+  date: '2026-10-03'
+  summary: 'Skill packaging: agent-skills frontmatter for multi-harness discovery,
+    domain/platform facets, engagement linkage'
 source_of_truth:
   instructions: SKILL.md
   contract: manifest.yaml
 context:
   graph_first: true
   max_hops_default: 2
+facets:
+  domains:
+  - robotics
+  - industrial
+  platforms:
+  - mpu
+  - soc
+  - linux

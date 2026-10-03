@@ -1,3 +1,11 @@
+---
+name: configuration-management
+description: Version-everything, immutable baselines, and CI identification. Use when setting up version control, baselines, or audits.
+version: 1.2.0
+domains: [all]
+platforms: [all]
+---
+
 # Configuration-Management skill
 
 Version control, baselines, branching, and configuration identification for

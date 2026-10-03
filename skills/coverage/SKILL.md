@@ -1,3 +1,11 @@
+---
+name: coverage
+description: Structural coverage metrics per level, MC/DC practice, and exclusion discipline. Use when measuring or arguing test completeness.
+version: 1.2.0
+domains: [all]
+platforms: [all]
+---
+
 # Coverage skill
 
 Structural coverage measurement and closure across the V-model: what to measure

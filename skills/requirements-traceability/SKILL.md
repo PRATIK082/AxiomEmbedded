@@ -1,3 +1,11 @@
+---
+name: requirements-traceability
+description: CI orphan checks, suspect triage, and matrix hygiene. Use when automating trace maintenance in pipelines.
+version: 1.2.0
+domains: [all]
+platforms: [all]
+---
+
 # Requirements-Traceability skill
 
 Operational practice for maintaining the traceability chain day to day:

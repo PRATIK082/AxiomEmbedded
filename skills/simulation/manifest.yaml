@@ -1,23 +1,33 @@
 id: simulation
-version: 1.1.0
+version: 1.2.0
 contract_version: 1
 type: reusable-skill
 standards_refs:
-  - number: FMI
-    version: "3.0"
-    clause: Co-simulation and model-exchange interface
-    source_url: https://fmi-standard.org/
-  - number: DO-331
-    version: "2011"
-    clause: Model-based verification supplement
-    source_url: https://www.rtca.org/products/model-based-development-and-verification-supplement-to-do-178c-and-do-278a-do-331/
+- number: FMI
+  version: '3.0'
+  clause: Co-simulation and model-exchange interface
+  source_url: https://fmi-standard.org/
+- number: DO-331
+  version: '2011'
+  clause: Model-based verification supplement
+  source_url: https://www.rtca.org/products/model-based-development-and-verification-supplement-to-do-178c-and-do-278a-do-331/
 changelog:
-  - version: 1.1.0
-    date: 2026-10-03
-    summary: Deep-update expansion with MIL-SIL-HIL progression, back-to-back evidence and scenario discipline
+- version: 1.1.0
+  date: 2026-10-03
+  summary: Deep-update expansion with MIL-SIL-HIL progression, back-to-back evidence
+    and scenario discipline
+- version: 1.2.0
+  date: '2026-10-03'
+  summary: 'Skill packaging: agent-skills frontmatter for multi-harness discovery,
+    domain/platform facets, engagement linkage'
 source_of_truth:
   instructions: SKILL.md
   contract: manifest.yaml
 context:
   graph_first: true
   max_hops_default: 2
+facets:
+  domains:
+  - all
+  platforms:
+  - all

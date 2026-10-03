@@ -1,3 +1,11 @@
+---
+name: hardware-bringup
+description: Power-to-bootloader staging, golden captures, deviation logs. Use when powering new boards or debugging no-boot failures.
+version: 1.2.0
+domains: [all]
+platforms: [mcu, mpu, soc, mpsoc]
+---
+
 # Hardware-Bringup skill
 
 First-power to working-firmware: staged board validation, clock/power/clock-tree

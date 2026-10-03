@@ -1,23 +1,33 @@
 id: test-automation
-version: 1.1.0
+version: 1.2.0
 contract_version: 1
 type: reusable-skill
 standards_refs:
-  - number: ISO/IEC/IEEE 29119-2
-    version: "2021"
-    clause: Test planning, monitoring, completion
-    source_url: https://www.iso.org/standard/72540.html
-  - number: ISTQB CT-TAE
-    version: current syllabus
-    clause: Test automation architecture patterns
-    source_url: https://www.istqb.org/certifications/test-automation-engineer
+- number: ISO/IEC/IEEE 29119-2
+  version: '2021'
+  clause: Test planning, monitoring, completion
+  source_url: https://www.iso.org/standard/72540.html
+- number: ISTQB CT-TAE
+  version: current syllabus
+  clause: Test automation architecture patterns
+  source_url: https://www.istqb.org/certifications/test-automation-engineer
 changelog:
-  - version: 1.1.0
-    date: 2026-10-03
-    summary: Deep-update expansion with pipeline stages, farm discipline and flaky-test quarantine policy
+- version: 1.1.0
+  date: 2026-10-03
+  summary: Deep-update expansion with pipeline stages, farm discipline and flaky-test
+    quarantine policy
+- version: 1.2.0
+  date: '2026-10-03'
+  summary: 'Skill packaging: agent-skills frontmatter for multi-harness discovery,
+    domain/platform facets, engagement linkage'
 source_of_truth:
   instructions: SKILL.md
   contract: manifest.yaml
 context:
   graph_first: true
   max_hops_default: 2
+facets:
+  domains:
+  - all
+  platforms:
+  - all

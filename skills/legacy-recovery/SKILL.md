@@ -1,3 +1,11 @@
+---
+name: legacy-recovery
+description: Characterization-first brownfield recovery, strangler patterns, knowledge capture. Use when inheriting unknown code or hardware.
+version: 1.2.0
+domains: [all]
+platforms: [all]
+---
+
 # Legacy-Recovery skill
 
 Taming inherited firmware: characterization testing, strangler refactoring,

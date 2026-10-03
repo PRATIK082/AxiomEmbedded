@@ -1,3 +1,11 @@
+---
+name: security
+description: Threat modeling, secure boot, crypto inventory, fuzzing, SBOM/CVE watch. Use when hardening products or answering security requirements.
+version: 1.2.0
+domains: [all]
+platforms: [all]
+---
+
 # Security skill
 
 Product security for connected embedded systems: threat modeling, secure boot

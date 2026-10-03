@@ -1,3 +1,11 @@
+---
+name: code-review
+description: Peer-review practice with checklists, size limits, and independence rules. Use when reviewing changes or setting up review policy.
+version: 1.2.0
+domains: [all]
+platforms: [all]
+---
+
 # Code-Review skill
 
 Human peer review that finds what automation cannot: wrong requirements,

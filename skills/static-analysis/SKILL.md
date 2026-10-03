@@ -1,3 +1,11 @@
+---
+name: static-analysis
+description: Checker layering, qualification, baselines, and triage for MISRA/CERT findings. Use when configuring analyzers or clearing violation backlogs.
+version: 1.2.0
+domains: [all]
+platforms: [all]
+---
+
 # Static-Analysis skill
 
 Configuring, running, and dispositioning static analysis (SAST, MISRA/CERT

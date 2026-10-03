@@ -1,23 +1,33 @@
 id: system-test
-version: 1.1.0
+version: 1.2.0
 contract_version: 1
 type: reusable-skill
 standards_refs:
-  - number: ISO 26262-4
-    version: "2018"
-    clause: Section 8 system testing
-    source_url: https://www.iso.org/standard/68386.html
-  - number: ISO/IEC/IEEE 29119-2
-    version: "2021"
-    clause: Test processes
-    source_url: https://www.iso.org/standard/81291.html
+- number: ISO 26262-4
+  version: '2018'
+  clause: Section 8 system testing
+  source_url: https://www.iso.org/standard/68386.html
+- number: ISO/IEC/IEEE 29119-2
+  version: '2021'
+  clause: Test processes
+  source_url: https://www.iso.org/standard/81291.html
 changelog:
-  - version: 1.1.0
-    date: 2026-10-03
-    summary: Deep-update expansion with requirement-based design, stress/abuse campaigns, triage and exit gates
+- version: 1.1.0
+  date: 2026-10-03
+  summary: Deep-update expansion with requirement-based design, stress/abuse campaigns,
+    triage and exit gates
+- version: 1.2.0
+  date: '2026-10-03'
+  summary: 'Skill packaging: agent-skills frontmatter for multi-harness discovery,
+    domain/platform facets, engagement linkage'
 source_of_truth:
   instructions: SKILL.md
   contract: manifest.yaml
 context:
   graph_first: true
   max_hops_default: 2
+facets:
+  domains:
+  - all
+  platforms:
+  - all

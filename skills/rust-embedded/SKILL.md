@@ -1,3 +1,11 @@
+---
+name: rust-embedded
+description: no_std setup, unsafe-review policy, FFI ownership rules. Use when writing Rust firmware or mixing Rust with C.
+version: 1.2.0
+domains: [all]
+platforms: [mcu, mpu, bare-metal, rtos]
+---
+
 # Rust-Embedded skill
 
 Memory-safe firmware in Rust for MCU/MPU targets: ownership-based driver

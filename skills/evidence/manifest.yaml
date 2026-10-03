@@ -1,23 +1,33 @@
 id: evidence
-version: 1.1.0
+version: 1.2.0
 contract_version: 1
 type: reusable-skill
 standards_refs:
-  - number: ISO 26262-8
-    version: "2018"
-    clause: Clause 10 documentation
-    source_url: https://www.iso.org/standard/68390.html
-  - number: ISO/IEC/IEEE 15289
-    version: "2019"
-    clause: Life-cycle information items
-    source_url: https://www.iso.org/standard/73196.html
+- number: ISO 26262-8
+  version: '2018'
+  clause: Clause 10 documentation
+  source_url: https://www.iso.org/standard/68390.html
+- number: ISO/IEC/IEEE 15289
+  version: '2019'
+  clause: Life-cycle information items
+  source_url: https://www.iso.org/standard/73196.html
 changelog:
-  - version: 1.1.0
-    date: 2026-10-03
-    summary: Deep-update expansion with evidence taxonomy, integrity rules and release gates
+- version: 1.1.0
+  date: 2026-10-03
+  summary: Deep-update expansion with evidence taxonomy, integrity rules and release
+    gates
+- version: 1.2.0
+  date: '2026-10-03'
+  summary: 'Skill packaging: agent-skills frontmatter for multi-harness discovery,
+    domain/platform facets, engagement linkage'
 source_of_truth:
   instructions: SKILL.md
   contract: manifest.yaml
 context:
   graph_first: true
   max_hops_default: 2
+facets:
+  domains:
+  - all
+  platforms:
+  - all

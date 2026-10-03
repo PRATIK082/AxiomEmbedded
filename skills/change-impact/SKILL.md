@@ -1,3 +1,11 @@
+---
+name: change-impact
+description: Trace-driven blast-radius analysis and safety trigger tests for changes. Use when assessing a change request or planning a hotfix.
+version: 1.2.0
+domains: [all]
+platforms: [all]
+---
+
 # Change-Impact skill
 
 Systematic analysis of proposed changes before approval: what is affected,

@@ -1,3 +1,11 @@
+---
+name: bootloader
+description: Verify-before-jump boot, A/B slots, anti-rollback, key custody. Use when building secure updateable bootloaders.
+version: 1.2.0
+domains: [all]
+platforms: [mcu, mpu, soc]
+---
+
 # Bootloader skill
 
 First-stage and update-capable bootloaders for MCU/MPU targets: verified boot

@@ -1,5 +1,5 @@
 id: autosar
-version: 1.1.0
+version: 1.2.0
 contract_version: 1
 type: reusable-skill
 source_of_truth:
@@ -9,22 +9,35 @@ context:
   graph_first: true
   max_hops_default: 2
 standards:
-  - number: AUTOSAR Classic Platform
-    version: R24-11
-    clause: Layered Software Architecture, Doc ID 53
-    source_url: https://www.autosar.org/fileadmin/standards/R24-11/CP/AUTOSAR_CP_EXP_LayeredSoftwareArchitecture.pdf
-  - number: AUTOSAR Foundation
-    version: R24-11
-    clause: Safety Requirements Classic + Adaptive, Doc ID 986
-    source_url: https://www.autosar.org/fileadmin/standards/R24-11/FO/AUTOSAR_FO_RS_Safety.pdf
-  - number: AUTOSAR Adaptive Platform
-    version: R23-11
-    clause: General Requirements incl. C++14 API RS_AP_00114
-    source_url: https://www.autosar.org/fileadmin/standards/R23-11/AP/AUTOSAR_AP_RS_General.pdf
-  - number: SOME/IP Protocol
-    version: R22-11
-    clause: Foundation PRS, Doc ID 696
-    source_url: https://www.autosar.org/fileadmin/standards/R22-11/FO/AUTOSAR_PRS_SOMEIPProtocol.pdf
+- number: AUTOSAR Classic Platform
+  version: R24-11
+  clause: Layered Software Architecture, Doc ID 53
+  source_url: https://www.autosar.org/fileadmin/standards/R24-11/CP/AUTOSAR_CP_EXP_LayeredSoftwareArchitecture.pdf
+- number: AUTOSAR Foundation
+  version: R24-11
+  clause: Safety Requirements Classic + Adaptive, Doc ID 986
+  source_url: https://www.autosar.org/fileadmin/standards/R24-11/FO/AUTOSAR_FO_RS_Safety.pdf
+- number: AUTOSAR Adaptive Platform
+  version: R23-11
+  clause: General Requirements incl. C++14 API RS_AP_00114
+  source_url: https://www.autosar.org/fileadmin/standards/R23-11/AP/AUTOSAR_AP_RS_General.pdf
+- number: SOME/IP Protocol
+  version: R22-11
+  clause: Foundation PRS, Doc ID 696
+  source_url: https://www.autosar.org/fileadmin/standards/R22-11/FO/AUTOSAR_PRS_SOMEIPProtocol.pdf
 changelog:
-  - version: 1.1.0
-    note: Phase 3 template replication with research citations, platform choice guide, Classic/Adaptive rules, SOME/IP integration strategy
+- version: 1.1.0
+  note: Phase 3 template replication with research citations, platform choice guide,
+    Classic/Adaptive rules, SOME/IP integration strategy
+- version: 1.2.0
+  date: '2026-10-03'
+  summary: 'Skill packaging: agent-skills frontmatter for multi-harness discovery,
+    domain/platform facets, engagement linkage'
+facets:
+  domains:
+  - automotive
+  platforms:
+  - mcu
+  - mpu
+  - autosar-classic
+  - autosar-adaptive

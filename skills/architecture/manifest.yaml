@@ -1,23 +1,33 @@
 id: architecture
-version: 1.1.0
+version: 1.2.0
 contract_version: 1
 type: reusable-skill
 standards_refs:
-  - number: ISO/IEC/IEEE 42010
-    version: "2022"
-    clause: Viewpoints, views, correspondence, rationale
-    source_url: https://www.iso.org/standard/50508.html
-  - number: AUTOSAR Classic
-    version: R24-11 baseline
-    clause: Layered architecture Doc ID 53
-    source_url: https://www.autosar.org/standards/classic-platform/
+- number: ISO/IEC/IEEE 42010
+  version: '2022'
+  clause: Viewpoints, views, correspondence, rationale
+  source_url: https://www.iso.org/standard/50508.html
+- number: AUTOSAR Classic
+  version: R24-11 baseline
+  clause: Layered architecture Doc ID 53
+  source_url: https://www.autosar.org/standards/classic-platform/
 changelog:
-  - version: 1.1.0
-    date: 2026-10-03
-    summary: Deep-update expansion with view discipline, layering rules and baselining gates
+- version: 1.1.0
+  date: 2026-10-03
+  summary: Deep-update expansion with view discipline, layering rules and baselining
+    gates
+- version: 1.2.0
+  date: '2026-10-03'
+  summary: 'Skill packaging: agent-skills frontmatter for multi-harness discovery,
+    domain/platform facets, engagement linkage'
 source_of_truth:
   instructions: SKILL.md
   contract: manifest.yaml
 context:
   graph_first: true
   max_hops_default: 2
+facets:
+  domains:
+  - all
+  platforms:
+  - all

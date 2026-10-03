@@ -1,3 +1,11 @@
+---
+name: mcu
+description: MCU firmware engineering - core selection, startup, MPU/TrustZone, HAL, RTOS choice. Use for bare-metal or RTOS firmware on Cortex-M/RISC-V.
+version: 1.2.0
+domains: [generic-embedded, automotive, industrial, iot, robotics]
+platforms: [mcu, bare-metal, rtos]
+---
+
 # mcu — Microcontroller firmware capability (template skill)
 
 Reusable AxiomEmbedded capability for microcontroller selection, bring-up,

@@ -1,3 +1,11 @@
+---
+name: embedded-cpp
+description: Bounded C++17 subset, no-exceptions/RTTI policy, RAII drivers. Use when writing C++ firmware or HALs.
+version: 1.2.0
+domains: [all]
+platforms: [mcu, mpu, bare-metal, rtos]
+---
+
 # Embedded-C++ skill
 
 Idiomatic, safe C++ for embedded targets: modern subset (C++17), zero-cost

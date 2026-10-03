@@ -1,3 +1,11 @@
+---
+name: requirements
+description: Elicitation and baselining of verifiable requirements with methods, allocation, and traceability. Use when writing specs, SHALL statements, or baselining scope.
+version: 1.2.0
+domains: [all]
+platforms: [all]
+---
+
 # Requirements skill
 
 Elicitation, specification, and management of requirements for embedded and

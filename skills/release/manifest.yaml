@@ -1,27 +1,37 @@
 id: release
-version: 1.1.0
+version: 1.2.0
 contract_version: 1
 type: reusable-skill
 standards_refs:
-  - number: ISO/IEC/IEEE 12207
-    version: "2017"
-    clause: Release management and deployment
-    source_url: https://www.iso.org/standard/63712.html
-  - number: UNECE R156
-    version: "2021"
-    clause: Software update management system
-    source_url: https://unece.org/transport/documents/2021/03/standards/un-regulation-no-156-software-update-and-software-update
-  - number: NIST SP 800-193
-    version: "2018"
-    clause: Platform resiliency (Rev.1 draft noted, not cited)
-    source_url: https://doi.org/10.6028/NIST.SP.800-193
+- number: ISO/IEC/IEEE 12207
+  version: '2017'
+  clause: Release management and deployment
+  source_url: https://www.iso.org/standard/63712.html
+- number: UNECE R156
+  version: '2021'
+  clause: Software update management system
+  source_url: https://unece.org/transport/documents/2021/03/standards/un-regulation-no-156-software-update-and-software-update
+- number: NIST SP 800-193
+  version: '2018'
+  clause: Platform resiliency (Rev.1 draft noted, not cited)
+  source_url: https://doi.org/10.6028/NIST.SP.800-193
 changelog:
-  - version: 1.1.0
-    date: 2026-10-03
-    summary: Deep-update expansion with readiness review, signing/staged-rollout rules and hotfix path
+- version: 1.1.0
+  date: 2026-10-03
+  summary: Deep-update expansion with readiness review, signing/staged-rollout rules
+    and hotfix path
+- version: 1.2.0
+  date: '2026-10-03'
+  summary: 'Skill packaging: agent-skills frontmatter for multi-harness discovery,
+    domain/platform facets, engagement linkage'
 source_of_truth:
   instructions: SKILL.md
   contract: manifest.yaml
 context:
   graph_first: true
   max_hops_default: 2
+facets:
+  domains:
+  - all
+  platforms:
+  - all

@@ -1,3 +1,11 @@
+---
+name: implementation
+description: MISRA/CERT construction, static-analysis-clean code, reviews, and definition of done. Use when writing or reviewing C/C++/Rust for targets.
+version: 1.2.0
+domains: [all]
+platforms: [all]
+---
+
 # Implementation skill
 
 Turning evaluated architecture into verified code: coding standards, construction

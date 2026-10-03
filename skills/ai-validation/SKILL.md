@@ -1,3 +1,11 @@
+---
+name: ai-validation
+description: ODD discipline, dataset independence, statistical acceptance, drift monitoring. Use when assuring ML components or arguing AI safety.
+version: 1.2.0
+domains: [generic-embedded, automotive, industrial, iot, robotics]
+platforms: [mcu, mpu, soc, mpsoc]
+---
+
 # AI-Validation skill
 
 Assurance for ML-based components in embedded products: dataset discipline,

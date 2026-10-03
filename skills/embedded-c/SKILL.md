@@ -1,3 +1,11 @@
+---
+name: embedded-c
+description: C17 embedded subset, integer/pointer discipline, startup and linker artifacts. Use when writing C firmware or configuring toolchains.
+version: 1.2.0
+domains: [all]
+platforms: [mcu, bare-metal, rtos]
+---
+
 # Embedded-C skill
 
 Idiomatic, safe, portable C for constrained targets: language subset,

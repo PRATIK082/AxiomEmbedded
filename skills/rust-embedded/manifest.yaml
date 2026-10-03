@@ -1,23 +1,35 @@
 id: rust-embedded
-version: 1.1.0
+version: 1.2.0
 contract_version: 1
 type: reusable-skill
 standards_refs:
-  - number: embedded-hal
-    version: "1.0"
-    clause: Stable portable driver traits
-    source_url: https://docs.rs/embedded-hal/
-  - number: MISRA Rust
-    version: unpublished
-    clause: In development; do NOT claim compliance
-    source_url: https://misra.org.uk/misra-rust/
+- number: embedded-hal
+  version: '1.0'
+  clause: Stable portable driver traits
+  source_url: https://docs.rs/embedded-hal/
+- number: MISRA Rust
+  version: unpublished
+  clause: In development; do NOT claim compliance
+  source_url: https://misra.org.uk/misra-rust/
 changelog:
-  - version: 1.1.0
-    date: 2026-10-03
-    summary: Deep-update expansion with no_std setup, unsafe policy and FFI rules
+- version: 1.1.0
+  date: 2026-10-03
+  summary: Deep-update expansion with no_std setup, unsafe policy and FFI rules
+- version: 1.2.0
+  date: '2026-10-03'
+  summary: 'Skill packaging: agent-skills frontmatter for multi-harness discovery,
+    domain/platform facets, engagement linkage'
 source_of_truth:
   instructions: SKILL.md
   contract: manifest.yaml
 context:
   graph_first: true
   max_hops_default: 2
+facets:
+  domains:
+  - all
+  platforms:
+  - mcu
+  - mpu
+  - bare-metal
+  - rtos

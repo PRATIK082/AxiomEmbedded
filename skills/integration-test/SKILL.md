@@ -1,3 +1,11 @@
+---
+name: integration-test
+description: Incremental integration strategy, HIL discipline, and timing integration. Use when bringing up combined HW/SW or planning integration stages.
+version: 1.2.0
+domains: [all]
+platforms: [all]
+---
+
 # Integration-Test skill
 
 Verification of unit interactions and HW/SW interfaces: module integration,

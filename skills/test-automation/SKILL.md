@@ -1,3 +1,11 @@
+---
+name: test-automation
+description: Host+target CI stages, farm discipline, flaky quarantine, feedback budgets. Use when building embedded CI pipelines or HIL farms.
+version: 1.2.0
+domains: [all]
+platforms: [all]
+---
+
 # Test-Automation skill
 
 Automated testing infrastructure for embedded targets: CI pipelines, on-target

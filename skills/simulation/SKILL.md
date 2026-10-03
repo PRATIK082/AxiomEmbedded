@@ -1,3 +1,11 @@
+---
+name: simulation
+description: MIL-SIL-HIL progression, back-to-back evidence, scenario discipline. Use when testing without hardware or qualifying models.
+version: 1.2.0
+domains: [all]
+platforms: [all]
+---
+
 # Simulation skill
 
 Modeling and simulation across the V-model: MIL/SIL/HIL progression,

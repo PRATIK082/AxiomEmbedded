@@ -1,3 +1,11 @@
+---
+name: unit-test
+description: Host/target unit testing with mocks, coverage per integrity level, and done criteria. Use when writing module tests or setting coverage targets.
+version: 1.2.0
+domains: [all]
+platforms: [all]
+---
+
 # Unit-Test skill
 
 Isolated verification of software units (functions, classes, modules) with

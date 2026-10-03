@@ -1,23 +1,33 @@
 id: debugging
-version: 1.1.0
+version: 1.2.0
 contract_version: 1
 type: reusable-skill
 standards_refs:
-  - number: IEEE 1044
-    version: "2009"
-    clause: Anomaly classification taxonomy
-    source_url: https://standards.ieee.org/standard/1044-2009.html
-  - number: Arm CoreSight
-    version: current
-    clause: ETM/ITM trace infrastructure
-    source_url: https://www.arm.com/architecture/system-architectures/coresight-architecture
+- number: IEEE 1044
+  version: '2009'
+  clause: Anomaly classification taxonomy
+  source_url: https://standards.ieee.org/standard/1044-2009.html
+- number: Arm CoreSight
+  version: current
+  clause: ETM/ITM trace infrastructure
+  source_url: https://www.arm.com/architecture/system-architectures/coresight-architecture
 changelog:
-  - version: 1.1.0
-    date: 2026-10-03
-    summary: Deep-update expansion with reproduce-isolate-root-cause method and prevention feedback
+- version: 1.1.0
+  date: 2026-10-03
+  summary: Deep-update expansion with reproduce-isolate-root-cause method and prevention
+    feedback
+- version: 1.2.0
+  date: '2026-10-03'
+  summary: 'Skill packaging: agent-skills frontmatter for multi-harness discovery,
+    domain/platform facets, engagement linkage'
 source_of_truth:
   instructions: SKILL.md
   contract: manifest.yaml
 context:
   graph_first: true
   max_hops_default: 2
+facets:
+  domains:
+  - all
+  platforms:
+  - all

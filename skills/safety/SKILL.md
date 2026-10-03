@@ -1,3 +1,11 @@
+---
+name: safety
+description: Functional-safety lifecycle with ASIL/SIL/DAL mapping, HARA chains, and sign-off gates. Use for safety goals, integrity levels, or safety cases.
+version: 1.2.0
+domains: [generic-embedded, automotive, aerospace, defense, industrial, robotics]
+platforms: [all]
+---
+
 # Safety skill
 
 Generic functional-safety engineering for embedded and cyber-physical systems.
