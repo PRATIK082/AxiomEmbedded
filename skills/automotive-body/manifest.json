@@ -1,0 +1,1 @@
+{"applicable_domains": ["automotive"], "applicable_platforms": ["mcu", "autosar-classic"], "capabilities": ["automotive-body"], "category": "domains/automotive/body", "evidence": ["result", "tool-version", "input-hash", "output-hash"], "id": "automotive-body", "inputs": ["project-context"], "outputs": ["artifacts", "findings", "evidence"], "version": "0.1.0"}

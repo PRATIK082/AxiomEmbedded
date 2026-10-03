@@ -10,8 +10,9 @@ import yaml
 from packages.context.indexer import write_index
 from packages.context.selector import select_from_index, ContextBudget
 from packages.workflow.entry import starting_phase
+from packages.workflow.stage import detect_stage, reconcile_stage
 from packages.workflow.engine import load as load_workflow
-from packages.agents.router import route
+from packages.agents.router import route, detect_domain
 from packages.skills.engage import engage
 from packages.axiom_ops import get_status, plan_fix, plan_feature
 from packages.axiom_mcp.server import serve as mcp_serve
@@ -107,11 +108,17 @@ def run_cmd(request: str, domain: str | None, platform: str | None) -> int:
     axiom resolves WHAT to load and in WHAT order. Execution beyond planning
     requires human approval per configs/project.yaml.
     """
+    selection = None
+    domain_source = "explicit"
+    if not domain:
+        domain = detect_domain(request)
+        domain_source = "detected" if domain else "none"
     selection = engage(domain, platform)
     plan = {
         "mode": "plan-then-execute",
         "request": request,
         "intent": route(request),
+        "domain_source": domain_source,
         "engagement": selection,
         "phases": ["plan", "implement", "verify", "evidence"],
         "context_files": selection["context_files"],
@@ -140,6 +147,23 @@ def status_cmd(format: str) -> int:
     return 0
 
 
+def stage_cmd(path: str, profile: str | None) -> int:
+    """Evidence-based stage: deepest V-Model phase with artifacts on disk,
+    reconciled with the profile's declared entry (declaration wins)."""
+    detected = detect_stage(path)
+    declared_phase = None
+    if profile:
+        data = _read_yaml(profile)
+        declared_phase = starting_phase(data.get("entry", "brownfield"))
+    print(json.dumps({
+        "path": str(pathlib.Path(path).resolve()),
+        "profile": profile,
+        **reconcile_stage(detected["stage"], declared_phase),
+        "evidence": detected["evidence"],
+    }, indent=2))
+    return 0
+
+
 def fix_cmd(issue_id: str, domain: str | None, platform: str | None) -> int:
     print(json.dumps(plan_fix(issue_id, domain, platform), indent=2))
     return 0
@@ -163,6 +187,7 @@ def main() -> int:
     im = sp.add_parser("impact"); im.add_argument("path")
     wf = sp.add_parser("workflow"); ws = wf.add_subparsers(dest="workflow_cmd"); wp = ws.add_parser("plan"); wp.add_argument("--profile", required=True); wp.add_argument("--entry")
     rt = sp.add_parser("route"); rt.add_argument("request")
+    sg = sp.add_parser("stage", help="Detect project lifecycle stage from evidence + profile entry"); sg.add_argument("path", nargs="?", default="."); sg.add_argument("--profile")
     en = sp.add_parser("engage"); en.add_argument("--domain"); en.add_argument("--platform")
     rn = sp.add_parser("run"); rn.add_argument("request"); rn.add_argument("--domain"); rn.add_argument("--platform")
     st = sp.add_parser("status", help="Terminal dashboard: project health + next action"); st.add_argument("--format", choices=["text", "json"], default="text")
@@ -181,6 +206,7 @@ def main() -> int:
     if args.cmd == "impact": return impact(args.path)
     if args.cmd == "workflow" and args.workflow_cmd == "plan": return workflow_plan(args.profile, args.entry)
     if args.cmd == "route": print(route(args.request)); return 0
+    if args.cmd == "stage": return stage_cmd(args.path, args.profile)
     if args.cmd == "engage": return engage_cmd(args.domain, args.platform)
     if args.cmd == "run": return run_cmd(args.request, args.domain, args.platform)
     if args.cmd == "status": return status_cmd(args.format)

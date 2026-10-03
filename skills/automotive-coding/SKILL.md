@@ -1,0 +1,166 @@
+---
+name: automotive-coding
+description: MISRA C:2025 / MISRA C++:2023 / AUTOSAR C++14 enforcement, CERT C/C++ hardening, analyzer gating and deviation control. Use for ASIL-rated C/C++ ECUs requiring audit-ready coding-compliance evidence.
+version: 1.2.0
+domains: [automotive]
+platforms: [mcu, mpu, autosar-classic, autosar-adaptive, bare-metal, rtos]
+---
+
+# automotive-coding — Automotive coding-standards enforcement
+
+Enforcement-first coding compliance for safety-related automotive C/C++:
+language-subset selection per ECU class, Mandatory/Required/Advisory disposition
+scaled by ASIL, static-analysis gating, and a formal deviation process that produces
+audit-ready evidence — never silent waivers.
+
+> Metadata only. This skill cites standard identifiers, versions, categories, and process
+> requirements. It does not reproduce normative rule text. Engineers consult the licensed
+> documents for rule wording.
+
+## Objectives
+
+- Select the enforceable language subset per ECU class (C11/C17/C++14/C++17).
+- Enforce MISRA C:2025, MISRA C++:2023, and AUTOSAR C++14 guideline deltas with
+  ASIL-scaled Mandatory/Required/Advisory handling.
+- Harden with CERT C / CERT C++ and align with HIC++/JSF AV C++ where contracted.
+- Gate every change and release on analyzer evidence (compiler warnings + MISRA checker + deep analyzer).
+- Disposition every violation as fixed, formally deviated, or pinned false positive —
+  with traceability to code, ASIL, and approval.
+
+## Prerequisites
+
+- Language baselines pinned: ISO C (9899:2018 / C17) and/or ISO C++ (14882:2014 / 14882:2017).
+- ASIL assigned per component (QM / A / B / C / D) with safety plan reference.
+- Toolchain pinned: gcc + clang versions, MISRA checker + ruleset version, deep analyzer
+  (Coverity / Polyspace or equivalent), `clang-tidy` + `cppcheck` versions versioned in repo.
+- Licensed copies of MISRA / AUTOSAR guideline documents available to the team.
+- Depends on `embedded-c`, `embedded-cpp`, `static-analysis`, `code-review`,
+  `traceability`, `autosar` (Classic/Adaptive ECUs).
+
+## Outcomes
+
+- `coding-compliance-plan.md`: subset choice, category matrix per ASIL, tool mapping, deviation authority.
+- Analyzer configs versioned: `tools/coding/*.yaml|json`.
+- Per-change report: zero new violations or linked deviation IDs.
+- Per-release evidence pack: tool + ruleset versions, full-scan logs, deviation register, traceability extract.
+- CI gates green; verification checklist all-pass.
+
+## Time estimate
+
+- Subset + matrix setup for one ECU class: 1–2 days. Analyzer bring-up + baseline: 2–4 days.
+  Per-release evidence pack: 0.5–1 day once steady-state.
+
+## Resources
+
+| # | Source | Scope | URL |
+|---|--------|-------|-----|
+| 1 | MISRA (landing + shop) | MISRA C:2025; MISRA C++:2023 (licensed) | `https://misra.org.uk/` |
+| 2 | AUTOSAR Adaptive | C++14 Guidelines; RS document family | `https://www.autosar.org/standards/adaptive-platform/` |
+| 3 | SEI CERT C | Secure-coding rules | `https://wiki.sei.cmu.edu/confluence/display/c/SEI+CERT+C+Coding+Standard` |
+| 4 | SEI CERT C++ | Secure-coding rules for C++ | `https://wiki.sei.cmu.edu/confluence/display/cplusplus/SEI+CERT+C%2B%2B+Coding+Standard` |
+| 5 | JSF AV C++ (Stroustrup) | Air-vehicle C++ rules; basis for safety subsets | `https://www.stroustrup.com/JSF-AV-rules.pdf` |
+| 6 | HIC++ (Perforce) | HIC++ v4+ subset guidance | `https://www.perforce.com/resources/qac/high-integrity-cpp-coding-standard` |
+| 7 | ISO 26262-6:2018 | Software verification; ASIL scaling basis | `https://www.iso.org/standard/68389.html` |
+
+> Supersession note: cite MISRA C++:2023 for new work; AUTOSAR C++14 guidelines remain
+> applicable only where a C++14 ABI/API is contractually pinned; record the delta either way.
+
+## 1. Language subsets per ECU class
+
+| ECU class | Example | Language baseline | Subset authority | Notes |
+|-----------|---------|-------------------|------------------|-------|
+| Classic safety MCU | Body/brake ASIL-D MCU | C17 (ISO/IEC 9899:2018) | MISRA C:2025 + CERT C | No GNU extensions in portable code; target code behind HAL. |
+| Classic mixed / MCAL-adjacent | Complex drivers | C17 | MISRA C:2025 + CERT C | Layer-bypass code carries its own subset annex + pre-approval. |
+| Adaptive / HPC compute | ADAS/IVI MPU | C++14 API-compatible, checked vs MISRA C++:2023 | MISRA C++:2023 (primary) + AUTOSAR C++14 delta + CERT C++ | Public `ara::com` stays C++14-compatible per RS_AP_00114; record C++17-only constructs as deviations. |
+| Safety MCU in C++ | Modern ASIL-B/D firmware | C++17 | MISRA C++:2023 + CERT C++ (+ HIC++/JSF where contracted) | `-fno-exceptions -fno-rtti` default; each relaxation is a deviation. |
+
+Selection rule: exactly one row per software component, recorded in the compliance plan.
+
+## 2. Category model
+
+- **Mandatory:** never deviated; violation = defect, fix required.
+- **Required:** deviation only via formal procedure (§5) with hazard rationale and expiry.
+- **Advisory:** deviation with reviewer rationale; bulk-disposition by category forbidden.
+- **CERT/HIC++/JSF items** map into Required/Advisory handling per plan; security-taint
+  findings escalate on security timelines regardless of category.
+
+## 3. Enforcement matrix per ASIL
+
+| ASIL | Mandatory | Required | Advisory | Analyzer gate |
+|------|-----------|----------|----------|---------------|
+| QM–A | Fix; blocks merge | Fix or deviate; blocks merge if undispositioned | Disposition per finding | Compiler wall + MISRA checker clean-or-deviated |
+| B | Fix; blocks merge + release | Fix preferred; deviation needs safety-review sign-off + expiry | Per finding; sampling audit per release | Above + `clang-tidy`/`cppcheck` + deep analyzer on changed safety paths |
+| C | Fix; blocks merge + release; root-cause note | Fix unless hazard analysis proves safe; dual approval; expiry ≤ one release | Per finding; 100% of new code sampled | Above + full deep-analyzer scan; tool qualification evidence current |
+| D | Fix; blocks everything; escape = defect + corrective action | Fix; deviation only with independent assessor concurrence, time-bounded | Treated as Required (each justified) | All above + qualified-tool evidence; zero undispositioned at release |
+
+"Clean" always means *clean-or-formally-deviated with valid IDs* — never clean-by-suppression.
+Mixed-ASIL components enforce at the highest ASIL unless FFI is evidenced.
+
+## 4. AUTOSAR / HIC++ / JSF / CERT alignment
+
+1. **Classic ECUs:** MISRA C:2025 is the enforcement authority; CERT C adds taint/API-misuse checkers.
+2. **Adaptive ECUs:** enforce MISRA C++:2023; apply AUTOSAR C++14 guidelines as delta checklist
+   (`ara` namespace discipline, error-harmonization); stricter disposition wins.
+3. **HIC++ / JSF AV C++:** adopt only where contracted; map each item to Mandatory/Required/Advisory;
+   never a substitute for MISRA evidence.
+4. **CERT C/C++:** mandatory checker layer for security-relevant code; findings dispositioned like MISRA.
+
+## 5. Deviation procedure (Required-grade; Advisory uses steps 1–3 + 6)
+
+1. **File:** rule ID + version, locations, rationale, hazard/safety impact, ASIL, handling, expiry.
+2. **Bound:** single component or enumerated locations — never repository-wide blankets.
+3. **Review:** tech-lead (QM–A); + safety review (B); + dual approval (C); + independent assessor (D).
+4. **Record:** deviation ID in register, referenced at each suppression site; suppression without ID is a defect.
+5. **Verify:** compensating verification named and linked in traceability matrix.
+6. **Expire:** re-verified or closed by expiry; stale deviations fail release. Tool upgrades re-validate false positives.
+
+## 6. Toolchain config
+
+Compiler wall (gcc and clang, zero warnings):
+
+```text
+-Wall -Wextra -Werror -Wconversion -Wsign-conversion -Wpedantic
+-Wold-style-cast -Woverloaded-virtual -Wnon-virtual-dtor        # C++ only
+-fno-exceptions -fno-rtti                                      # constrained C++; relax only by deviation
+```
+
+| Layer | Tool | Config artifact | Gate |
+|-------|------|-----------------|------|
+| 1. Compiler | gcc / clang | `tools/coding/warnings.yaml` | Zero warnings host + target |
+| 2. Fast checkers | `clang-tidy`, `cppcheck` | `tools/coding/clang-tidy.yaml`, `tools/coding/cppcheck.cfg` | Required set clean-or-deviated per change |
+| 3. MISRA/CERT checker | Project MISRA checker | Ruleset version + suppression map | ASIL matrix |
+| 4. Deep analyzer | Coverity / Polyspace (or equiv.) | Analyzer project versioned | ASIL B+ changed paths; C/D full-scan per release |
+
+CI gates: per-change layers 1–3 on diff (zero *new* undispositioned findings);
+nightly full 1–4 on target-equivalent config; release full scan + register audit + tool-qual check.
+
+## 7. Review checklist (coding-compliance delta)
+
+- Subset row matches component; C++17-only constructs flagged on C++14-pinned interfaces.
+- Integer/pointer/volatile discipline per `embedded-c`; RAII/no-exception/no-RTTI per `embedded-cpp`.
+- Every finding dispositioned (fixed / deviation ID / pinned false positive); no bare suppressions.
+- Deviation IDs valid (unexpired, scoped, approved at right authority for ASIL).
+- Map-file/bloat checked for template-heavy C++ deltas; `ara` namespace conformance (Adaptive).
+
+## 8. Traceability
+
+- Each source file → subset row ID → analyzer report ID → deviation IDs → test ID → evidence ID.
+- Standards cited as *identifier + version + category/ID only* with public landing URL — never rule prose.
+
+## 9. Compliance mapping (via overlays, not duplication)
+
+- ISO 26262:2018 Parts 1–10, Part 6 software verification; ASIL A–D scaling.
+- AUTOSAR Classic R24-11 / Adaptive R24-11 deltas owned by `autosar`; this skill owns only
+  the coding-subset enforcement slice. Never claim certification from a heuristic check.
+
+## 10. Verification checklist (gate: all must pass)
+
+1. `scripts/verify_skill.py --skill automotive-coding` → PASS.
+2. gcc + clang builds, zero warnings with the §6 wall.
+3. `clang-tidy` + `cppcheck` required sets clean-or-deviated.
+4. MISRA checker + deep analyzer clean-or-deviated per ASIL matrix; versions recorded.
+5. Deviation register complete; every suppression carries valid ID; no expired deviations.
+6. Traceability complete; standards cited as number + version + category/ID + URL.
+7. Safety deltas flagged for human review before PR.
+
+Load task-specific domain/platform/rule overlays before execution.

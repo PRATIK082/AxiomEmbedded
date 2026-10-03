@@ -1,0 +1,6 @@
+id: iso-11898-can
+family: automotive
+description: "Controller area network (CAN-FD/XL) data-link reference"
+normative_text_included: false
+authority: external
+applicability: project-defined

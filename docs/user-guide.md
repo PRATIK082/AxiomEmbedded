@@ -127,7 +127,7 @@ axiom engage --domain robotics --platform soc
 axiom engage --domain aerospace --platform mpu
 axiom engage --domain industrial              # no platform filter
 axiom engage --platform linux                 # no domain filter
-axiom engage                                  # everything (all 47 skills)
+axiom engage                                  # everything (all 58 skills)
 ```
 
 Real output for `--domain robotics --platform soc` (abbreviated):

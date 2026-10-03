@@ -1,0 +1,6 @@
+id: iso-24089-ota
+family: automotive
+description: "Road-vehicle software-update engineering reference"
+normative_text_included: false
+authority: external
+applicability: project-defined

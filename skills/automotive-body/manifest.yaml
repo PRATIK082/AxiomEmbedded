@@ -1,0 +1,37 @@
+id: automotive-body
+version: 1.2.0
+contract_version: 1
+type: reusable-skill
+source_of_truth:
+  instructions: SKILL.md
+  contract: manifest.yaml
+context:
+  graph_first: true
+  max_hops_default: 2
+standards_refs:
+- number: AUTOSAR Classic Platform
+  version: R24-11
+  clause: ComM, EcuM, LinIf, CanIf, DCM/DEM
+  source_url: https://www.autosar.org/standards/classic-platform
+- number: ISO 17987
+  version: series
+  clause: LIN protocol and data link layer
+  source_url: https://www.iso.org/standard/65607.html
+- number: ISO 11898-6
+  version: current
+  clause: CAN partial networking
+  source_url: https://www.iso.org/standard/63862.html
+- number: ISO 14229-1
+  version: current
+  clause: UDS diagnostic services
+  source_url: https://www.iso.org/standard/72439.html
+changelog:
+- version: 1.2.0
+  date: '2026-10-03'
+  summary: New body-electronics skill
+facets:
+  domains:
+  - automotive
+  platforms:
+  - mcu
+  - autosar-classic

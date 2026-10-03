@@ -19,7 +19,7 @@ from packages.axiom_server.server import create_server  # noqa: E402
 
 def test_sdk_engage_selectivity():
     sel = sdk.engage(domain="automotive", platform="mcu")
-    assert sel["skill_count"] == 42
+    assert sel["skill_count"] == 50
     assert "mcu" in sel["skills"] and "autosar" in sel["skills"]
     assert "automotive-mcu" in sel["profiles"]
 
@@ -29,7 +29,7 @@ def test_sdk_run_plan_shape():
     assert plan["mode"] == "plan-then-execute"
     assert plan["phases"] == ["plan", "implement", "verify", "evidence"]
     assert "git push" in plan["approval_required_for"]
-    assert plan["engagement"]["skill_count"] == 42
+    assert plan["engagement"]["skill_count"] == 50
 
 
 def test_sdk_read_skill_unknown():
@@ -56,7 +56,7 @@ def test_mcp_agrees_with_sdk():
         tools = _mcp_call(proc, 2, "tools/list")
         assert {t["name"] for t in tools["result"]["tools"]} == {"engage", "run_plan", "read_skill", "list_skills", "list_profiles", "get_status", "plan_fix", "plan_feature"}
         eng = _mcp_call(proc, 3, "tools/call", {"name": "engage", "arguments": {"domain": "automotive", "platform": "mcu"}})
-        assert json.loads(eng["result"]["content"][0]["text"])["skill_count"] == 42
+        assert json.loads(eng["result"]["content"][0]["text"])["skill_count"] == 50
         err = _mcp_call(proc, 4, "tools/call", {"name": "read_skill", "arguments": {"skill_id": "no-such-skill"}})
         assert err["result"].get("isError") is True
     finally:
@@ -73,10 +73,10 @@ def test_rest_and_a2a_agree_with_sdk():
         card = json.load(urllib.request.urlopen(f"{base}/.well-known/agent.json"))
         assert card["name"] == "axiom-embedded" and "a2a-task" in card["interfaces"]
         req = urllib.request.Request(base + "/v1/engage", data=json.dumps({"domain": "automotive", "platform": "mcu"}).encode(), headers={"Content-Type": "application/json"})
-        assert json.load(urllib.request.urlopen(req))["skill_count"] == 42
+        assert json.load(urllib.request.urlopen(req))["skill_count"] == 50
         req = urllib.request.Request(base + "/v1/a2a/tasks", data=json.dumps({"message": "Add watchdog", "domain": "automotive", "platform": "mcu"}).encode(), headers={"Content-Type": "application/json"})
         task = json.load(urllib.request.urlopen(req))
-        assert task["status"] == "completed" and task["artifact"]["engagement"]["skill_count"] == 42
+        assert task["status"] == "completed" and task["artifact"]["engagement"]["skill_count"] == 50
         try:
             urllib.request.urlopen(f"{base}/v1/skills/no-such-skill")
             raise AssertionError("expected 404")

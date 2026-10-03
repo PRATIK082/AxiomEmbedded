@@ -1,0 +1,45 @@
+id: automotive-coding
+version: 1.2.0
+contract_version: 1
+type: reusable-skill
+source_of_truth:
+  instructions: SKILL.md
+  contract: manifest.yaml
+context:
+  graph_first: true
+  max_hops_default: 2
+standards_refs:
+- number: MISRA C
+  version: '2025'
+  clause: Mandatory/Required/Advisory safety subset
+  source_url: https://misra.org.uk/
+- number: MISRA C++
+  version: '2023'
+  clause: C++17 safety subset
+  source_url: https://misra.org.uk/
+- number: AUTOSAR C++14 Guidelines
+  version: current
+  clause: Guidelines for the use of C++14, incl. RS_AP_00114
+  source_url: https://www.autosar.org/standards/adaptive-platform/
+- number: SEI CERT C/C++
+  version: current
+  clause: Secure-coding rules
+  source_url: https://wiki.sei.cmu.edu/confluence/display/c/SEI+CERT+C+Coding+Standard
+- number: ISO 26262-6
+  version: '2018'
+  clause: Software verification, ASIL scaling
+  source_url: https://www.iso.org/standard/68389.html
+changelog:
+- version: 1.2.0
+  date: '2026-10-03'
+  summary: New enforcement-focused coding skill
+facets:
+  domains:
+  - automotive
+  platforms:
+  - mcu
+  - mpu
+  - autosar-classic
+  - autosar-adaptive
+  - bare-metal
+  - rtos

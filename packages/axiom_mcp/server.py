@@ -55,7 +55,7 @@ TOOLS = [
     },
     {
         "name": "list_skills",
-        "description": "List all 47 skill ids.",
+        "description": "List all 58 skill ids.",
         "inputSchema": {"type": "object", "properties": {}},
     },
     {
