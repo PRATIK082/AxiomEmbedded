@@ -1,0 +1,39 @@
+id: skill-update-profile
+version: 1.0.0
+domains:
+  - generic-embedded
+  - automotive
+  - aerospace
+  - defense
+  - iot
+  - industrial
+  - robotics
+platforms:
+  - mcu
+  - mpu
+  - mpsoc
+  - soc
+os:
+  - bare-metal
+  - rtos
+  - linux
+languages:
+  - c
+  - cpp
+  - rust
+lifecycle: v-model
+entry: embedded-skills-deep-update
+capabilities:
+  - requirements
+  - architecture
+  - implementation
+  - review
+  - test
+  - verification
+  - validation
+  - traceability
+  - evidence
+  - maintenance
+policies:
+  human_approval_for_sensitive_actions: true
+  plan_then_execute: true

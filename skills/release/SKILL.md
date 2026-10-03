@@ -1,13 +1,71 @@
-# release
+# Release skill
 
-Capability: `release/release-engineering`.
+Shipping embedded products safely: release planning, readiness reviews,
+signing and distribution, deployment/OTA execution, and post-release
+monitoring with a defined hotfix path.
 
-This skill is reusable across domains and platforms. Domain-specific behavior is supplied through profiles/overlays rather than copied into this skill.
+## 1. Purpose and scope
 
-## Required behavior
-- validate entry criteria
-- consume minimal relevant context
-- produce structured outputs
-- record evidence
-- run configured gates
-- stop on required approval boundaries
+**Purpose.** Turn a verified baseline into a delivered product — signed,
+traceable, and monitored — with no unreviewed shortcuts between "tests pass"
+and "customer has it".
+
+**In scope.** Release planning and criteria, readiness reviews, artifact
+signing, distribution channels (factory flashing, OTA per
+`embedded-linux` §6, app-store equivalents), deployment verification,
+post-release monitoring, and hotfix/emergency release procedure.
+
+**Non-goals.** Build mechanics (see `build-system`) and baseline creation (see
+`configuration-management`). Starts at a baselined candidate, ends at a
+monitored product in the field.
+
+## 2. Normative sources (high confidence)
+
+| # | Standard | Version / status | Clause / scope | Source |
+|---|----------|------------------|----------------|--------|
+| 1 | ISO/IEC/IEEE 12207 Life cycle processes | 2017 (amended 2020) | Release management, deployment, acceptance support | `https://www.iso.org/standard/63712.html` |
+| 2 | UNECE R156 Software update management | Original 2021, amendments current | SUMS: update processes, integrity, rollback, records for vehicles | `https://unece.org/transport/documents/2021/03/standards/un-regulation-no-156-software-update-and-software-update` |
+| 3 | NIST SP 800-193 Platform resiliency | 2018 (Rev. 1 draft in progress; cite 2018 as released) | Protection, detection, recovery of firmware platforms | `https://doi.org/10.6028/NIST.SP.800-193` |
+
+## 3. Readiness review (blocking)
+
+No release without a recorded readiness decision covering: all verification
+complete per the integrity level (`safety` §6, V-model right arm), open
+defects triaged with severity and deferral rationale, SBOM/CVE status
+(`embedded-linux` §7, `security`), OTA/rollback tested on hardware
+(`bootloader`, `embedded-linux` §6), docs versioned (`documentation`),
+regulatory artifacts complete (homologation, safety case excerpts), and
+rollback/deployment runbooks rehearsed.
+
+## 4. Signing and distribution rules
+
+1. **Sign everything.** Release images signed with offline-held production
+   keys; signatures verified by the update client before install; key
+   rotation and revocation procedures rehearsed, not theoretical.
+2. **Staged rollout.** Canary/beta cohorts before fleet-wide push with
+   automatic halt on failure-rate tripwires; fleet-wide release requires
+   explicit promotion after canary metrics pass.
+3. **Deployment verification.** Post-install self-test and version reporting;
+   the release system knows which devices run which version within hours, not
+   quarters.
+
+## 5. Hotfix path
+
+Emergency releases follow an accelerated — never skipped — pipeline:
+minimal-change branch from the release tag, targeted verification of the fix
+plus regression of affected areas, abbreviated but recorded readiness review,
+and a follow-up full release absorbing the hotfix. "Emergency" justifies
+speed, never absence of evidence.
+
+## 6. Release gates (blocking)
+
+1. Readiness review recorded with named approvers (safety sign-off where
+   applicable).
+2. Signed artifacts with verified provenance; staged rollout plan armed.
+3. Monitoring and rollback runbooks live; hotfix path documented.
+
+## 7. Verification of this skill (Phase 4 gate)
+
+- Standards carry number + version + clause + URL (§2, with released-vs-draft
+  honesty for SP 800-193).
+- No direct-to-fleet release without staged rollout evidence.

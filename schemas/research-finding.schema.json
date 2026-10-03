@@ -1,0 +1,22 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Research Finding",
+  "type": "object",
+  "required": ["domain", "claim", "standard", "confidence", "applicable_skills"],
+  "properties": {
+    "domain": {"type": "string"},
+    "claim": {"type": "string"},
+    "standard": {
+      "type": "object",
+      "required": ["number", "version", "clause", "source_url"],
+      "properties": {
+        "number": {"type": "string"},
+        "version": {"type": "string"},
+        "clause": {"type": "string"},
+        "source_url": {"type": "string"}
+      }
+    },
+    "confidence": {"type": "string", "enum": ["high", "medium", "low"]},
+    "applicable_skills": {"type": "array", "items": {"type": "string"}}
+  }
+}

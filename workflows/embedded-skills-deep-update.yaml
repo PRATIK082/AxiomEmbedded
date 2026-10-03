@@ -1,0 +1,56 @@
+id: embedded-skills-deep-update
+version: 1.0.0
+description: Deep research and comprehensive update of all embedded skills modules
+engine: AxiomEmbedded
+triggers:
+  - manual
+  - schedule: "0 0 * * 0"
+permissions:
+  - read: repository
+  - write: repository
+  - read: pull_requests
+states:
+  - id: request
+  - id: audit
+  - id: research
+  - id: plan
+  - id: implement
+  - id: verify
+  - id: evidence
+  - id: review
+  - id: pr
+transitions:
+  - from: request
+    to: audit
+  - from: audit
+    to: research
+  - from: research
+    to: plan
+  - from: plan
+    to: implement
+  - from: implement
+    to: verify
+  - from: verify
+    to: implement
+    condition: retry_count < 3
+  - from: verify
+    to: plan
+    condition: retry_count >= 3
+  - from: verify
+    to: evidence
+    condition: gates_pass
+  - from: evidence
+    to: review
+  - from: review
+    to: pr
+    condition: human_approval_if_sensitive
+gates:
+  - evidence-required
+  - human-approval-for-sensitive-actions
+  - no-breaking-change-without-migration
+  - standards-cited
+policies:
+  lifecycle: v-model
+  mode: plan-then-execute
+  per_skill_branch: "chore/skill-<name>-deep-update"
+  max_verify_retries: 3

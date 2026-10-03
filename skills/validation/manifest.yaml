@@ -1,7 +1,20 @@
 id: validation
-version: 1.0.0
+version: 1.1.0
 contract_version: 1
 type: reusable-skill
+standards_refs:
+  - number: ISO/IEC/IEEE 15288
+    version: "2023"
+    clause: Validation process
+    source_url: https://www.iso.org/standard/81702.html
+  - number: IEC 62366-1
+    version: 2015+AMD 2020
+    clause: Usability engineering pattern
+    source_url: https://webstore.iec.ch/en/publication/6728
+changelog:
+  - version: 1.1.0
+    date: 2026-10-03
+    summary: Deep-update expansion with needs-based scenarios, usability discipline and acceptance gates
 source_of_truth:
   instructions: SKILL.md
   contract: manifest.yaml

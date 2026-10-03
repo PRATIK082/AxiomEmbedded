@@ -1,7 +1,20 @@
 id: debugging
-version: 1.0.0
+version: 1.1.0
 contract_version: 1
 type: reusable-skill
+standards_refs:
+  - number: IEEE 1044
+    version: "2009"
+    clause: Anomaly classification taxonomy
+    source_url: https://standards.ieee.org/standard/1044-2009.html
+  - number: Arm CoreSight
+    version: current
+    clause: ETM/ITM trace infrastructure
+    source_url: https://www.arm.com/architecture/system-architectures/coresight-architecture
+changelog:
+  - version: 1.1.0
+    date: 2026-10-03
+    summary: Deep-update expansion with reproduce-isolate-root-cause method and prevention feedback
 source_of_truth:
   instructions: SKILL.md
   contract: manifest.yaml

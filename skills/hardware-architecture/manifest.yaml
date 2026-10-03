@@ -1,7 +1,20 @@
 id: hardware-architecture
-version: 1.0.0
+version: 1.1.0
 contract_version: 1
 type: reusable-skill
+standards_refs:
+  - number: ISO 26262-5
+    version: "2018"
+    clause: Hardware architectural design, SPFM/LFM
+    source_url: https://www.iso.org/standard/68387.html
+  - number: IPC-2221
+    version: Rev B
+    clause: PCB design rules baseline
+    source_url: https://www.ipc.org/ipc-2221-generic-printed-board-design
+changelog:
+  - version: 1.1.0
+    date: 2026-10-03
+    summary: Deep-update expansion with budget-before-schematic discipline, HSI contract and review checkpoints
 source_of_truth:
   instructions: SKILL.md
   contract: manifest.yaml

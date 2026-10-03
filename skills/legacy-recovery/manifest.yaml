@@ -1,7 +1,20 @@
 id: legacy-recovery
-version: 1.0.0
+version: 1.1.0
 contract_version: 1
 type: reusable-skill
+standards_refs:
+  - number: WELC (Feathers)
+    version: "2004"
+    clause: Characterization tests, seams, dependency breaking
+    source_url: https://www.informit.com/store/working-effectively-with-legacy-code-9780131177055
+  - number: ISO/IEC 14764
+    version: "2022"
+    clause: Maintenance processes, regression control
+    source_url: https://www.iso.org/standard/75780.html
+changelog:
+  - version: 1.1.0
+    date: 2026-10-03
+    summary: Deep-update expansion with characterization-first recovery sequence and knowledge-capture rules
 source_of_truth:
   instructions: SKILL.md
   contract: manifest.yaml

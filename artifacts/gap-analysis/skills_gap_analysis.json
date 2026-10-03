@@ -1,0 +1,1318 @@
+[
+  {
+    "skill_id": "ai-validation",
+    "categories": {
+      "readme": 47,
+      "requirements": 5,
+      "architecture": 5,
+      "src": 5,
+      "headers": 5,
+      "test": 5,
+      "build": 5,
+      "compliance": 5,
+      "validation": 5,
+      "docs": 5
+    },
+    "gaps": [
+      "missing requirements/ sub-artifact or equivalent section",
+      "missing architecture/ sub-artifact or equivalent section",
+      "missing src/ sub-artifact or equivalent section",
+      "missing headers/ sub-artifact or equivalent section",
+      "missing test/ sub-artifact or equivalent section",
+      "missing build/ sub-artifact or equivalent section",
+      "missing compliance/ sub-artifact or equivalent section",
+      "missing validation/ sub-artifact or equivalent section",
+      "missing docs/ sub-artifact or equivalent section"
+    ],
+    "priority": "high",
+    "effort_person_days": 4.5
+  },
+  {
+    "skill_id": "architecture",
+    "categories": {
+      "readme": 43,
+      "requirements": 5,
+      "architecture": 5,
+      "src": 5,
+      "headers": 5,
+      "test": 5,
+      "build": 5,
+      "compliance": 5,
+      "validation": 5,
+      "docs": 5
+    },
+    "gaps": [
+      "missing requirements/ sub-artifact or equivalent section",
+      "missing architecture/ sub-artifact or equivalent section",
+      "missing src/ sub-artifact or equivalent section",
+      "missing headers/ sub-artifact or equivalent section",
+      "missing test/ sub-artifact or equivalent section",
+      "missing build/ sub-artifact or equivalent section",
+      "missing compliance/ sub-artifact or equivalent section",
+      "missing validation/ sub-artifact or equivalent section",
+      "missing docs/ sub-artifact or equivalent section"
+    ],
+    "priority": "high",
+    "effort_person_days": 4.6
+  },
+  {
+    "skill_id": "autosar",
+    "categories": {
+      "readme": 95,
+      "requirements": 5,
+      "architecture": 5,
+      "src": 5,
+      "headers": 5,
+      "test": 5,
+      "build": 5,
+      "compliance": 5,
+      "validation": 5,
+      "docs": 5
+    },
+    "gaps": [
+      "missing requirements/ sub-artifact or equivalent section",
+      "missing architecture/ sub-artifact or equivalent section",
+      "missing src/ sub-artifact or equivalent section",
+      "missing headers/ sub-artifact or equivalent section",
+      "missing test/ sub-artifact or equivalent section",
+      "missing build/ sub-artifact or equivalent section",
+      "missing compliance/ sub-artifact or equivalent section",
+      "missing validation/ sub-artifact or equivalent section",
+      "missing docs/ sub-artifact or equivalent section"
+    ],
+    "priority": "high",
+    "effort_person_days": 4.3
+  },
+  {
+    "skill_id": "bare-metal",
+    "categories": {
+      "readme": 44,
+      "requirements": 5,
+      "architecture": 5,
+      "src": 5,
+      "headers": 5,
+      "test": 5,
+      "build": 5,
+      "compliance": 5,
+      "validation": 5,
+      "docs": 5
+    },
+    "gaps": [
+      "missing requirements/ sub-artifact or equivalent section",
+      "missing architecture/ sub-artifact or equivalent section",
+      "missing src/ sub-artifact or equivalent section",
+      "missing headers/ sub-artifact or equivalent section",
+      "missing test/ sub-artifact or equivalent section",
+      "missing build/ sub-artifact or equivalent section",
+      "missing compliance/ sub-artifact or equivalent section",
+      "missing validation/ sub-artifact or equivalent section",
+      "missing docs/ sub-artifact or equivalent section"
+    ],
+    "priority": "high",
+    "effort_person_days": 4.6
+  },
+  {
+    "skill_id": "bootloader",
+    "categories": {
+      "readme": 27,
+      "requirements": 5,
+      "architecture": 5,
+      "src": 5,
+      "headers": 5,
+      "test": 5,
+      "build": 5,
+      "compliance": 5,
+      "validation": 5,
+      "docs": 5
+    },
+    "gaps": [
+      "missing requirements/ sub-artifact or equivalent section",
+      "missing architecture/ sub-artifact or equivalent section",
+      "missing src/ sub-artifact or equivalent section",
+      "missing headers/ sub-artifact or equivalent section",
+      "missing test/ sub-artifact or equivalent section",
+      "missing build/ sub-artifact or equivalent section",
+      "missing compliance/ sub-artifact or equivalent section",
+      "missing validation/ sub-artifact or equivalent section",
+      "missing docs/ sub-artifact or equivalent section"
+    ],
+    "priority": "high",
+    "effort_person_days": 4.6
+  },
+  {
+    "skill_id": "build-system",
+    "categories": {
+      "readme": 42,
+      "requirements": 5,
+      "architecture": 5,
+      "src": 5,
+      "headers": 5,
+      "test": 5,
+      "build": 5,
+      "compliance": 5,
+      "validation": 5,
+      "docs": 5
+    },
+    "gaps": [
+      "missing requirements/ sub-artifact or equivalent section",
+      "missing architecture/ sub-artifact or equivalent section",
+      "missing src/ sub-artifact or equivalent section",
+      "missing headers/ sub-artifact or equivalent section",
+      "missing test/ sub-artifact or equivalent section",
+      "missing build/ sub-artifact or equivalent section",
+      "missing compliance/ sub-artifact or equivalent section",
+      "missing validation/ sub-artifact or equivalent section",
+      "missing docs/ sub-artifact or equivalent section"
+    ],
+    "priority": "high",
+    "effort_person_days": 4.6
+  },
+  {
+    "skill_id": "change-impact",
+    "categories": {
+      "readme": 25,
+      "requirements": 5,
+      "architecture": 5,
+      "src": 5,
+      "headers": 5,
+      "test": 5,
+      "build": 5,
+      "compliance": 5,
+      "validation": 5,
+      "docs": 5
+    },
+    "gaps": [
+      "missing requirements/ sub-artifact or equivalent section",
+      "missing architecture/ sub-artifact or equivalent section",
+      "missing src/ sub-artifact or equivalent section",
+      "missing headers/ sub-artifact or equivalent section",
+      "missing test/ sub-artifact or equivalent section",
+      "missing build/ sub-artifact or equivalent section",
+      "missing compliance/ sub-artifact or equivalent section",
+      "missing validation/ sub-artifact or equivalent section",
+      "missing docs/ sub-artifact or equivalent section"
+    ],
+    "priority": "high",
+    "effort_person_days": 4.7
+  },
+  {
+    "skill_id": "code-review",
+    "categories": {
+      "readme": 42,
+      "requirements": 5,
+      "architecture": 5,
+      "src": 5,
+      "headers": 5,
+      "test": 5,
+      "build": 5,
+      "compliance": 5,
+      "validation": 5,
+      "docs": 5
+    },
+    "gaps": [
+      "missing requirements/ sub-artifact or equivalent section",
+      "missing architecture/ sub-artifact or equivalent section",
+      "missing src/ sub-artifact or equivalent section",
+      "missing headers/ sub-artifact or equivalent section",
+      "missing test/ sub-artifact or equivalent section",
+      "missing build/ sub-artifact or equivalent section",
+      "missing compliance/ sub-artifact or equivalent section",
+      "missing validation/ sub-artifact or equivalent section",
+      "missing docs/ sub-artifact or equivalent section"
+    ],
+    "priority": "high",
+    "effort_person_days": 4.6
+  },
+  {
+    "skill_id": "configuration-management",
+    "categories": {
+      "readme": 41,
+      "requirements": 5,
+      "architecture": 5,
+      "src": 5,
+      "headers": 5,
+      "test": 5,
+      "build": 5,
+      "compliance": 5,
+      "validation": 5,
+      "docs": 5
+    },
+    "gaps": [
+      "missing requirements/ sub-artifact or equivalent section",
+      "missing architecture/ sub-artifact or equivalent section",
+      "missing src/ sub-artifact or equivalent section",
+      "missing headers/ sub-artifact or equivalent section",
+      "missing test/ sub-artifact or equivalent section",
+      "missing build/ sub-artifact or equivalent section",
+      "missing compliance/ sub-artifact or equivalent section",
+      "missing validation/ sub-artifact or equivalent section",
+      "missing docs/ sub-artifact or equivalent section"
+    ],
+    "priority": "high",
+    "effort_person_days": 4.6
+  },
+  {
+    "skill_id": "coverage",
+    "categories": {
+      "readme": 26,
+      "requirements": 5,
+      "architecture": 5,
+      "src": 5,
+      "headers": 5,
+      "test": 5,
+      "build": 5,
+      "compliance": 5,
+      "validation": 5,
+      "docs": 5
+    },
+    "gaps": [
+      "missing requirements/ sub-artifact or equivalent section",
+      "missing architecture/ sub-artifact or equivalent section",
+      "missing src/ sub-artifact or equivalent section",
+      "missing headers/ sub-artifact or equivalent section",
+      "missing test/ sub-artifact or equivalent section",
+      "missing build/ sub-artifact or equivalent section",
+      "missing compliance/ sub-artifact or equivalent section",
+      "missing validation/ sub-artifact or equivalent section",
+      "missing docs/ sub-artifact or equivalent section"
+    ],
+    "priority": "high",
+    "effort_person_days": 4.6
+  },
+  {
+    "skill_id": "debugging",
+    "categories": {
+      "readme": 42,
+      "requirements": 5,
+      "architecture": 5,
+      "src": 5,
+      "headers": 5,
+      "test": 5,
+      "build": 5,
+      "compliance": 5,
+      "validation": 5,
+      "docs": 5
+    },
+    "gaps": [
+      "missing requirements/ sub-artifact or equivalent section",
+      "missing architecture/ sub-artifact or equivalent section",
+      "missing src/ sub-artifact or equivalent section",
+      "missing headers/ sub-artifact or equivalent section",
+      "missing test/ sub-artifact or equivalent section",
+      "missing build/ sub-artifact or equivalent section",
+      "missing compliance/ sub-artifact or equivalent section",
+      "missing validation/ sub-artifact or equivalent section",
+      "missing docs/ sub-artifact or equivalent section"
+    ],
+    "priority": "high",
+    "effort_person_days": 4.6
+  },
+  {
+    "skill_id": "documentation",
+    "categories": {
+      "readme": 25,
+      "requirements": 5,
+      "architecture": 5,
+      "src": 5,
+      "headers": 5,
+      "test": 5,
+      "build": 5,
+      "compliance": 5,
+      "validation": 5,
+      "docs": 5
+    },
+    "gaps": [
+      "missing requirements/ sub-artifact or equivalent section",
+      "missing architecture/ sub-artifact or equivalent section",
+      "missing src/ sub-artifact or equivalent section",
+      "missing headers/ sub-artifact or equivalent section",
+      "missing test/ sub-artifact or equivalent section",
+      "missing build/ sub-artifact or equivalent section",
+      "missing compliance/ sub-artifact or equivalent section",
+      "missing validation/ sub-artifact or equivalent section",
+      "missing docs/ sub-artifact or equivalent section"
+    ],
+    "priority": "high",
+    "effort_person_days": 4.7
+  },
+  {
+    "skill_id": "drivers",
+    "categories": {
+      "readme": 44,
+      "requirements": 5,
+      "architecture": 5,
+      "src": 5,
+      "headers": 5,
+      "test": 5,
+      "build": 5,
+      "compliance": 5,
+      "validation": 5,
+      "docs": 5
+    },
+    "gaps": [
+      "missing requirements/ sub-artifact or equivalent section",
+      "missing architecture/ sub-artifact or equivalent section",
+      "missing src/ sub-artifact or equivalent section",
+      "missing headers/ sub-artifact or equivalent section",
+      "missing test/ sub-artifact or equivalent section",
+      "missing build/ sub-artifact or equivalent section",
+      "missing compliance/ sub-artifact or equivalent section",
+      "missing validation/ sub-artifact or equivalent section",
+      "missing docs/ sub-artifact or equivalent section"
+    ],
+    "priority": "high",
+    "effort_person_days": 4.6
+  },
+  {
+    "skill_id": "edge-ai",
+    "categories": {
+      "readme": 45,
+      "requirements": 5,
+      "architecture": 5,
+      "src": 5,
+      "headers": 5,
+      "test": 5,
+      "build": 5,
+      "compliance": 5,
+      "validation": 5,
+      "docs": 5
+    },
+    "gaps": [
+      "missing requirements/ sub-artifact or equivalent section",
+      "missing architecture/ sub-artifact or equivalent section",
+      "missing src/ sub-artifact or equivalent section",
+      "missing headers/ sub-artifact or equivalent section",
+      "missing test/ sub-artifact or equivalent section",
+      "missing build/ sub-artifact or equivalent section",
+      "missing compliance/ sub-artifact or equivalent section",
+      "missing validation/ sub-artifact or equivalent section",
+      "missing docs/ sub-artifact or equivalent section"
+    ],
+    "priority": "high",
+    "effort_person_days": 4.5
+  },
+  {
+    "skill_id": "embedded-c",
+    "categories": {
+      "readme": 26,
+      "requirements": 5,
+      "architecture": 5,
+      "src": 5,
+      "headers": 5,
+      "test": 5,
+      "build": 5,
+      "compliance": 5,
+      "validation": 5,
+      "docs": 5
+    },
+    "gaps": [
+      "missing requirements/ sub-artifact or equivalent section",
+      "missing architecture/ sub-artifact or equivalent section",
+      "missing src/ sub-artifact or equivalent section",
+      "missing headers/ sub-artifact or equivalent section",
+      "missing test/ sub-artifact or equivalent section",
+      "missing build/ sub-artifact or equivalent section",
+      "missing compliance/ sub-artifact or equivalent section",
+      "missing validation/ sub-artifact or equivalent section",
+      "missing docs/ sub-artifact or equivalent section"
+    ],
+    "priority": "high",
+    "effort_person_days": 4.6
+  },
+  {
+    "skill_id": "embedded-cpp",
+    "categories": {
+      "readme": 59,
+      "requirements": 5,
+      "architecture": 5,
+      "src": 5,
+      "headers": 5,
+      "test": 5,
+      "build": 5,
+      "compliance": 5,
+      "validation": 5,
+      "docs": 5
+    },
+    "gaps": [
+      "missing requirements/ sub-artifact or equivalent section",
+      "missing architecture/ sub-artifact or equivalent section",
+      "missing src/ sub-artifact or equivalent section",
+      "missing headers/ sub-artifact or equivalent section",
+      "missing test/ sub-artifact or equivalent section",
+      "missing build/ sub-artifact or equivalent section",
+      "missing compliance/ sub-artifact or equivalent section",
+      "missing validation/ sub-artifact or equivalent section",
+      "missing docs/ sub-artifact or equivalent section"
+    ],
+    "priority": "high",
+    "effort_person_days": 4.5
+  },
+  {
+    "skill_id": "embedded-linux",
+    "categories": {
+      "readme": 49,
+      "requirements": 5,
+      "architecture": 5,
+      "src": 5,
+      "headers": 5,
+      "test": 5,
+      "build": 5,
+      "compliance": 5,
+      "validation": 5,
+      "docs": 5
+    },
+    "gaps": [
+      "missing requirements/ sub-artifact or equivalent section",
+      "missing architecture/ sub-artifact or equivalent section",
+      "missing src/ sub-artifact or equivalent section",
+      "missing headers/ sub-artifact or equivalent section",
+      "missing test/ sub-artifact or equivalent section",
+      "missing build/ sub-artifact or equivalent section",
+      "missing compliance/ sub-artifact or equivalent section",
+      "missing validation/ sub-artifact or equivalent section",
+      "missing docs/ sub-artifact or equivalent section"
+    ],
+    "priority": "high",
+    "effort_person_days": 4.5
+  },
+  {
+    "skill_id": "evidence",
+    "categories": {
+      "readme": 42,
+      "requirements": 5,
+      "architecture": 5,
+      "src": 5,
+      "headers": 5,
+      "test": 5,
+      "build": 5,
+      "compliance": 5,
+      "validation": 5,
+      "docs": 5
+    },
+    "gaps": [
+      "missing requirements/ sub-artifact or equivalent section",
+      "missing architecture/ sub-artifact or equivalent section",
+      "missing src/ sub-artifact or equivalent section",
+      "missing headers/ sub-artifact or equivalent section",
+      "missing test/ sub-artifact or equivalent section",
+      "missing build/ sub-artifact or equivalent section",
+      "missing compliance/ sub-artifact or equivalent section",
+      "missing validation/ sub-artifact or equivalent section",
+      "missing docs/ sub-artifact or equivalent section"
+    ],
+    "priority": "high",
+    "effort_person_days": 4.6
+  },
+  {
+    "skill_id": "fault-injection",
+    "categories": {
+      "readme": 43,
+      "requirements": 5,
+      "architecture": 5,
+      "src": 5,
+      "headers": 5,
+      "test": 5,
+      "build": 5,
+      "compliance": 5,
+      "validation": 5,
+      "docs": 5
+    },
+    "gaps": [
+      "missing requirements/ sub-artifact or equivalent section",
+      "missing architecture/ sub-artifact or equivalent section",
+      "missing src/ sub-artifact or equivalent section",
+      "missing headers/ sub-artifact or equivalent section",
+      "missing test/ sub-artifact or equivalent section",
+      "missing build/ sub-artifact or equivalent section",
+      "missing compliance/ sub-artifact or equivalent section",
+      "missing validation/ sub-artifact or equivalent section",
+      "missing docs/ sub-artifact or equivalent section"
+    ],
+    "priority": "high",
+    "effort_person_days": 4.6
+  },
+  {
+    "skill_id": "feature-development",
+    "categories": {
+      "readme": 41,
+      "requirements": 5,
+      "architecture": 5,
+      "src": 5,
+      "headers": 5,
+      "test": 5,
+      "build": 5,
+      "compliance": 5,
+      "validation": 5,
+      "docs": 5
+    },
+    "gaps": [
+      "missing requirements/ sub-artifact or equivalent section",
+      "missing architecture/ sub-artifact or equivalent section",
+      "missing src/ sub-artifact or equivalent section",
+      "missing headers/ sub-artifact or equivalent section",
+      "missing test/ sub-artifact or equivalent section",
+      "missing build/ sub-artifact or equivalent section",
+      "missing compliance/ sub-artifact or equivalent section",
+      "missing validation/ sub-artifact or equivalent section",
+      "missing docs/ sub-artifact or equivalent section"
+    ],
+    "priority": "high",
+    "effort_person_days": 4.6
+  },
+  {
+    "skill_id": "hardware-architecture",
+    "categories": {
+      "readme": 26,
+      "requirements": 5,
+      "architecture": 5,
+      "src": 5,
+      "headers": 5,
+      "test": 5,
+      "build": 5,
+      "compliance": 5,
+      "validation": 5,
+      "docs": 5
+    },
+    "gaps": [
+      "missing requirements/ sub-artifact or equivalent section",
+      "missing architecture/ sub-artifact or equivalent section",
+      "missing src/ sub-artifact or equivalent section",
+      "missing headers/ sub-artifact or equivalent section",
+      "missing test/ sub-artifact or equivalent section",
+      "missing build/ sub-artifact or equivalent section",
+      "missing compliance/ sub-artifact or equivalent section",
+      "missing validation/ sub-artifact or equivalent section",
+      "missing docs/ sub-artifact or equivalent section"
+    ],
+    "priority": "high",
+    "effort_person_days": 4.6
+  },
+  {
+    "skill_id": "hardware-bringup",
+    "categories": {
+      "readme": 42,
+      "requirements": 5,
+      "architecture": 5,
+      "src": 5,
+      "headers": 5,
+      "test": 5,
+      "build": 5,
+      "compliance": 5,
+      "validation": 5,
+      "docs": 5
+    },
+    "gaps": [
+      "missing requirements/ sub-artifact or equivalent section",
+      "missing architecture/ sub-artifact or equivalent section",
+      "missing src/ sub-artifact or equivalent section",
+      "missing headers/ sub-artifact or equivalent section",
+      "missing test/ sub-artifact or equivalent section",
+      "missing build/ sub-artifact or equivalent section",
+      "missing compliance/ sub-artifact or equivalent section",
+      "missing validation/ sub-artifact or equivalent section",
+      "missing docs/ sub-artifact or equivalent section"
+    ],
+    "priority": "high",
+    "effort_person_days": 4.6
+  },
+  {
+    "skill_id": "implementation",
+    "categories": {
+      "readme": 43,
+      "requirements": 5,
+      "architecture": 5,
+      "src": 5,
+      "headers": 5,
+      "test": 5,
+      "build": 5,
+      "compliance": 5,
+      "validation": 5,
+      "docs": 5
+    },
+    "gaps": [
+      "missing requirements/ sub-artifact or equivalent section",
+      "missing architecture/ sub-artifact or equivalent section",
+      "missing src/ sub-artifact or equivalent section",
+      "missing headers/ sub-artifact or equivalent section",
+      "missing test/ sub-artifact or equivalent section",
+      "missing build/ sub-artifact or equivalent section",
+      "missing compliance/ sub-artifact or equivalent section",
+      "missing validation/ sub-artifact or equivalent section",
+      "missing docs/ sub-artifact or equivalent section"
+    ],
+    "priority": "high",
+    "effort_person_days": 4.6
+  },
+  {
+    "skill_id": "integration-test",
+    "categories": {
+      "readme": 42,
+      "requirements": 5,
+      "architecture": 5,
+      "src": 5,
+      "headers": 5,
+      "test": 5,
+      "build": 5,
+      "compliance": 5,
+      "validation": 5,
+      "docs": 5
+    },
+    "gaps": [
+      "missing requirements/ sub-artifact or equivalent section",
+      "missing architecture/ sub-artifact or equivalent section",
+      "missing src/ sub-artifact or equivalent section",
+      "missing headers/ sub-artifact or equivalent section",
+      "missing test/ sub-artifact or equivalent section",
+      "missing build/ sub-artifact or equivalent section",
+      "missing compliance/ sub-artifact or equivalent section",
+      "missing validation/ sub-artifact or equivalent section",
+      "missing docs/ sub-artifact or equivalent section"
+    ],
+    "priority": "high",
+    "effort_person_days": 4.6
+  },
+  {
+    "skill_id": "legacy-recovery",
+    "categories": {
+      "readme": 26,
+      "requirements": 5,
+      "architecture": 5,
+      "src": 5,
+      "headers": 5,
+      "test": 5,
+      "build": 5,
+      "compliance": 5,
+      "validation": 5,
+      "docs": 5
+    },
+    "gaps": [
+      "missing requirements/ sub-artifact or equivalent section",
+      "missing architecture/ sub-artifact or equivalent section",
+      "missing src/ sub-artifact or equivalent section",
+      "missing headers/ sub-artifact or equivalent section",
+      "missing test/ sub-artifact or equivalent section",
+      "missing build/ sub-artifact or equivalent section",
+      "missing compliance/ sub-artifact or equivalent section",
+      "missing validation/ sub-artifact or equivalent section",
+      "missing docs/ sub-artifact or equivalent section"
+    ],
+    "priority": "high",
+    "effort_person_days": 4.6
+  },
+  {
+    "skill_id": "mcu",
+    "categories": {
+      "readme": 97,
+      "requirements": 5,
+      "architecture": 5,
+      "src": 5,
+      "headers": 5,
+      "test": 5,
+      "build": 5,
+      "compliance": 5,
+      "validation": 5,
+      "docs": 5
+    },
+    "gaps": [
+      "missing requirements/ sub-artifact or equivalent section",
+      "missing architecture/ sub-artifact or equivalent section",
+      "missing src/ sub-artifact or equivalent section",
+      "missing headers/ sub-artifact or equivalent section",
+      "missing test/ sub-artifact or equivalent section",
+      "missing build/ sub-artifact or equivalent section",
+      "missing compliance/ sub-artifact or equivalent section",
+      "missing validation/ sub-artifact or equivalent section",
+      "missing docs/ sub-artifact or equivalent section"
+    ],
+    "priority": "high",
+    "effort_person_days": 4.3
+  },
+  {
+    "skill_id": "mpsoc",
+    "categories": {
+      "readme": 43,
+      "requirements": 5,
+      "architecture": 5,
+      "src": 5,
+      "headers": 5,
+      "test": 5,
+      "build": 5,
+      "compliance": 5,
+      "validation": 5,
+      "docs": 5
+    },
+    "gaps": [
+      "missing requirements/ sub-artifact or equivalent section",
+      "missing architecture/ sub-artifact or equivalent section",
+      "missing src/ sub-artifact or equivalent section",
+      "missing headers/ sub-artifact or equivalent section",
+      "missing test/ sub-artifact or equivalent section",
+      "missing build/ sub-artifact or equivalent section",
+      "missing compliance/ sub-artifact or equivalent section",
+      "missing validation/ sub-artifact or equivalent section",
+      "missing docs/ sub-artifact or equivalent section"
+    ],
+    "priority": "high",
+    "effort_person_days": 4.6
+  },
+  {
+    "skill_id": "mpu",
+    "categories": {
+      "readme": 27,
+      "requirements": 5,
+      "architecture": 5,
+      "src": 5,
+      "headers": 5,
+      "test": 5,
+      "build": 5,
+      "compliance": 5,
+      "validation": 5,
+      "docs": 5
+    },
+    "gaps": [
+      "missing requirements/ sub-artifact or equivalent section",
+      "missing architecture/ sub-artifact or equivalent section",
+      "missing src/ sub-artifact or equivalent section",
+      "missing headers/ sub-artifact or equivalent section",
+      "missing test/ sub-artifact or equivalent section",
+      "missing build/ sub-artifact or equivalent section",
+      "missing compliance/ sub-artifact or equivalent section",
+      "missing validation/ sub-artifact or equivalent section",
+      "missing docs/ sub-artifact or equivalent section"
+    ],
+    "priority": "high",
+    "effort_person_days": 4.6
+  },
+  {
+    "skill_id": "performance",
+    "categories": {
+      "readme": 43,
+      "requirements": 5,
+      "architecture": 5,
+      "src": 5,
+      "headers": 5,
+      "test": 5,
+      "build": 5,
+      "compliance": 5,
+      "validation": 5,
+      "docs": 5
+    },
+    "gaps": [
+      "missing requirements/ sub-artifact or equivalent section",
+      "missing architecture/ sub-artifact or equivalent section",
+      "missing src/ sub-artifact or equivalent section",
+      "missing headers/ sub-artifact or equivalent section",
+      "missing test/ sub-artifact or equivalent section",
+      "missing build/ sub-artifact or equivalent section",
+      "missing compliance/ sub-artifact or equivalent section",
+      "missing validation/ sub-artifact or equivalent section",
+      "missing docs/ sub-artifact or equivalent section"
+    ],
+    "priority": "high",
+    "effort_person_days": 4.6
+  },
+  {
+    "skill_id": "project-audit",
+    "categories": {
+      "readme": 42,
+      "requirements": 5,
+      "architecture": 5,
+      "src": 5,
+      "headers": 5,
+      "test": 5,
+      "build": 5,
+      "compliance": 5,
+      "validation": 5,
+      "docs": 5
+    },
+    "gaps": [
+      "missing requirements/ sub-artifact or equivalent section",
+      "missing architecture/ sub-artifact or equivalent section",
+      "missing src/ sub-artifact or equivalent section",
+      "missing headers/ sub-artifact or equivalent section",
+      "missing test/ sub-artifact or equivalent section",
+      "missing build/ sub-artifact or equivalent section",
+      "missing compliance/ sub-artifact or equivalent section",
+      "missing validation/ sub-artifact or equivalent section",
+      "missing docs/ sub-artifact or equivalent section"
+    ],
+    "priority": "high",
+    "effort_person_days": 4.6
+  },
+  {
+    "skill_id": "release",
+    "categories": {
+      "readme": 27,
+      "requirements": 5,
+      "architecture": 5,
+      "src": 5,
+      "headers": 5,
+      "test": 5,
+      "build": 5,
+      "compliance": 5,
+      "validation": 5,
+      "docs": 5
+    },
+    "gaps": [
+      "missing requirements/ sub-artifact or equivalent section",
+      "missing architecture/ sub-artifact or equivalent section",
+      "missing src/ sub-artifact or equivalent section",
+      "missing headers/ sub-artifact or equivalent section",
+      "missing test/ sub-artifact or equivalent section",
+      "missing build/ sub-artifact or equivalent section",
+      "missing compliance/ sub-artifact or equivalent section",
+      "missing validation/ sub-artifact or equivalent section",
+      "missing docs/ sub-artifact or equivalent section"
+    ],
+    "priority": "high",
+    "effort_person_days": 4.6
+  },
+  {
+    "skill_id": "requirements",
+    "categories": {
+      "readme": 27,
+      "requirements": 5,
+      "architecture": 5,
+      "src": 5,
+      "headers": 5,
+      "test": 5,
+      "build": 5,
+      "compliance": 5,
+      "validation": 5,
+      "docs": 5
+    },
+    "gaps": [
+      "missing requirements/ sub-artifact or equivalent section",
+      "missing architecture/ sub-artifact or equivalent section",
+      "missing src/ sub-artifact or equivalent section",
+      "missing headers/ sub-artifact or equivalent section",
+      "missing test/ sub-artifact or equivalent section",
+      "missing build/ sub-artifact or equivalent section",
+      "missing compliance/ sub-artifact or equivalent section",
+      "missing validation/ sub-artifact or equivalent section",
+      "missing docs/ sub-artifact or equivalent section"
+    ],
+    "priority": "high",
+    "effort_person_days": 4.6
+  },
+  {
+    "skill_id": "requirements-traceability",
+    "categories": {
+      "readme": 25,
+      "requirements": 5,
+      "architecture": 5,
+      "src": 5,
+      "headers": 5,
+      "test": 5,
+      "build": 5,
+      "compliance": 5,
+      "validation": 5,
+      "docs": 5
+    },
+    "gaps": [
+      "missing requirements/ sub-artifact or equivalent section",
+      "missing architecture/ sub-artifact or equivalent section",
+      "missing src/ sub-artifact or equivalent section",
+      "missing headers/ sub-artifact or equivalent section",
+      "missing test/ sub-artifact or equivalent section",
+      "missing build/ sub-artifact or equivalent section",
+      "missing compliance/ sub-artifact or equivalent section",
+      "missing validation/ sub-artifact or equivalent section",
+      "missing docs/ sub-artifact or equivalent section"
+    ],
+    "priority": "high",
+    "effort_person_days": 4.7
+  },
+  {
+    "skill_id": "robotics",
+    "categories": {
+      "readme": 45,
+      "requirements": 5,
+      "architecture": 5,
+      "src": 5,
+      "headers": 5,
+      "test": 5,
+      "build": 5,
+      "compliance": 5,
+      "validation": 5,
+      "docs": 5
+    },
+    "gaps": [
+      "missing requirements/ sub-artifact or equivalent section",
+      "missing architecture/ sub-artifact or equivalent section",
+      "missing src/ sub-artifact or equivalent section",
+      "missing headers/ sub-artifact or equivalent section",
+      "missing test/ sub-artifact or equivalent section",
+      "missing build/ sub-artifact or equivalent section",
+      "missing compliance/ sub-artifact or equivalent section",
+      "missing validation/ sub-artifact or equivalent section",
+      "missing docs/ sub-artifact or equivalent section"
+    ],
+    "priority": "high",
+    "effort_person_days": 4.5
+  },
+  {
+    "skill_id": "rtos",
+    "categories": {
+      "readme": 96,
+      "requirements": 5,
+      "architecture": 5,
+      "src": 5,
+      "headers": 5,
+      "test": 5,
+      "build": 5,
+      "compliance": 5,
+      "validation": 5,
+      "docs": 5
+    },
+    "gaps": [
+      "missing requirements/ sub-artifact or equivalent section",
+      "missing architecture/ sub-artifact or equivalent section",
+      "missing src/ sub-artifact or equivalent section",
+      "missing headers/ sub-artifact or equivalent section",
+      "missing test/ sub-artifact or equivalent section",
+      "missing build/ sub-artifact or equivalent section",
+      "missing compliance/ sub-artifact or equivalent section",
+      "missing validation/ sub-artifact or equivalent section",
+      "missing docs/ sub-artifact or equivalent section"
+    ],
+    "priority": "high",
+    "effort_person_days": 4.3
+  },
+  {
+    "skill_id": "rust-embedded",
+    "categories": {
+      "readme": 59,
+      "requirements": 5,
+      "architecture": 5,
+      "src": 5,
+      "headers": 5,
+      "test": 5,
+      "build": 5,
+      "compliance": 5,
+      "validation": 5,
+      "docs": 5
+    },
+    "gaps": [
+      "missing requirements/ sub-artifact or equivalent section",
+      "missing architecture/ sub-artifact or equivalent section",
+      "missing src/ sub-artifact or equivalent section",
+      "missing headers/ sub-artifact or equivalent section",
+      "missing test/ sub-artifact or equivalent section",
+      "missing build/ sub-artifact or equivalent section",
+      "missing compliance/ sub-artifact or equivalent section",
+      "missing validation/ sub-artifact or equivalent section",
+      "missing docs/ sub-artifact or equivalent section"
+    ],
+    "priority": "high",
+    "effort_person_days": 4.5
+  },
+  {
+    "skill_id": "safety",
+    "categories": {
+      "readme": 83,
+      "requirements": 5,
+      "architecture": 5,
+      "src": 5,
+      "headers": 5,
+      "test": 5,
+      "build": 5,
+      "compliance": 5,
+      "validation": 5,
+      "docs": 5
+    },
+    "gaps": [
+      "missing requirements/ sub-artifact or equivalent section",
+      "missing architecture/ sub-artifact or equivalent section",
+      "missing src/ sub-artifact or equivalent section",
+      "missing headers/ sub-artifact or equivalent section",
+      "missing test/ sub-artifact or equivalent section",
+      "missing build/ sub-artifact or equivalent section",
+      "missing compliance/ sub-artifact or equivalent section",
+      "missing validation/ sub-artifact or equivalent section",
+      "missing docs/ sub-artifact or equivalent section"
+    ],
+    "priority": "high",
+    "effort_person_days": 4.4
+  },
+  {
+    "skill_id": "security",
+    "categories": {
+      "readme": 44,
+      "requirements": 5,
+      "architecture": 5,
+      "src": 5,
+      "headers": 5,
+      "test": 5,
+      "build": 5,
+      "compliance": 5,
+      "validation": 5,
+      "docs": 5
+    },
+    "gaps": [
+      "missing requirements/ sub-artifact or equivalent section",
+      "missing architecture/ sub-artifact or equivalent section",
+      "missing src/ sub-artifact or equivalent section",
+      "missing headers/ sub-artifact or equivalent section",
+      "missing test/ sub-artifact or equivalent section",
+      "missing build/ sub-artifact or equivalent section",
+      "missing compliance/ sub-artifact or equivalent section",
+      "missing validation/ sub-artifact or equivalent section",
+      "missing docs/ sub-artifact or equivalent section"
+    ],
+    "priority": "high",
+    "effort_person_days": 4.6
+  },
+  {
+    "skill_id": "simulation",
+    "categories": {
+      "readme": 42,
+      "requirements": 5,
+      "architecture": 5,
+      "src": 5,
+      "headers": 5,
+      "test": 5,
+      "build": 5,
+      "compliance": 5,
+      "validation": 5,
+      "docs": 5
+    },
+    "gaps": [
+      "missing requirements/ sub-artifact or equivalent section",
+      "missing architecture/ sub-artifact or equivalent section",
+      "missing src/ sub-artifact or equivalent section",
+      "missing headers/ sub-artifact or equivalent section",
+      "missing test/ sub-artifact or equivalent section",
+      "missing build/ sub-artifact or equivalent section",
+      "missing compliance/ sub-artifact or equivalent section",
+      "missing validation/ sub-artifact or equivalent section",
+      "missing docs/ sub-artifact or equivalent section"
+    ],
+    "priority": "high",
+    "effort_person_days": 4.6
+  },
+  {
+    "skill_id": "soc",
+    "categories": {
+      "readme": 43,
+      "requirements": 5,
+      "architecture": 5,
+      "src": 5,
+      "headers": 5,
+      "test": 5,
+      "build": 5,
+      "compliance": 5,
+      "validation": 5,
+      "docs": 5
+    },
+    "gaps": [
+      "missing requirements/ sub-artifact or equivalent section",
+      "missing architecture/ sub-artifact or equivalent section",
+      "missing src/ sub-artifact or equivalent section",
+      "missing headers/ sub-artifact or equivalent section",
+      "missing test/ sub-artifact or equivalent section",
+      "missing build/ sub-artifact or equivalent section",
+      "missing compliance/ sub-artifact or equivalent section",
+      "missing validation/ sub-artifact or equivalent section",
+      "missing docs/ sub-artifact or equivalent section"
+    ],
+    "priority": "high",
+    "effort_person_days": 4.6
+  },
+  {
+    "skill_id": "software-architecture",
+    "categories": {
+      "readme": 58,
+      "requirements": 5,
+      "architecture": 5,
+      "src": 5,
+      "headers": 5,
+      "test": 5,
+      "build": 5,
+      "compliance": 5,
+      "validation": 5,
+      "docs": 5
+    },
+    "gaps": [
+      "missing requirements/ sub-artifact or equivalent section",
+      "missing architecture/ sub-artifact or equivalent section",
+      "missing src/ sub-artifact or equivalent section",
+      "missing headers/ sub-artifact or equivalent section",
+      "missing test/ sub-artifact or equivalent section",
+      "missing build/ sub-artifact or equivalent section",
+      "missing compliance/ sub-artifact or equivalent section",
+      "missing validation/ sub-artifact or equivalent section",
+      "missing docs/ sub-artifact or equivalent section"
+    ],
+    "priority": "high",
+    "effort_person_days": 4.5
+  },
+  {
+    "skill_id": "static-analysis",
+    "categories": {
+      "readme": 42,
+      "requirements": 5,
+      "architecture": 5,
+      "src": 5,
+      "headers": 5,
+      "test": 5,
+      "build": 5,
+      "compliance": 5,
+      "validation": 5,
+      "docs": 5
+    },
+    "gaps": [
+      "missing requirements/ sub-artifact or equivalent section",
+      "missing architecture/ sub-artifact or equivalent section",
+      "missing src/ sub-artifact or equivalent section",
+      "missing headers/ sub-artifact or equivalent section",
+      "missing test/ sub-artifact or equivalent section",
+      "missing build/ sub-artifact or equivalent section",
+      "missing compliance/ sub-artifact or equivalent section",
+      "missing validation/ sub-artifact or equivalent section",
+      "missing docs/ sub-artifact or equivalent section"
+    ],
+    "priority": "high",
+    "effort_person_days": 4.6
+  },
+  {
+    "skill_id": "system-test",
+    "categories": {
+      "readme": 43,
+      "requirements": 5,
+      "architecture": 5,
+      "src": 5,
+      "headers": 5,
+      "test": 5,
+      "build": 5,
+      "compliance": 5,
+      "validation": 5,
+      "docs": 5
+    },
+    "gaps": [
+      "missing requirements/ sub-artifact or equivalent section",
+      "missing architecture/ sub-artifact or equivalent section",
+      "missing src/ sub-artifact or equivalent section",
+      "missing headers/ sub-artifact or equivalent section",
+      "missing test/ sub-artifact or equivalent section",
+      "missing build/ sub-artifact or equivalent section",
+      "missing compliance/ sub-artifact or equivalent section",
+      "missing validation/ sub-artifact or equivalent section",
+      "missing docs/ sub-artifact or equivalent section"
+    ],
+    "priority": "high",
+    "effort_person_days": 4.6
+  },
+  {
+    "skill_id": "test-automation",
+    "categories": {
+      "readme": 26,
+      "requirements": 5,
+      "architecture": 5,
+      "src": 5,
+      "headers": 5,
+      "test": 5,
+      "build": 5,
+      "compliance": 5,
+      "validation": 5,
+      "docs": 5
+    },
+    "gaps": [
+      "missing requirements/ sub-artifact or equivalent section",
+      "missing architecture/ sub-artifact or equivalent section",
+      "missing src/ sub-artifact or equivalent section",
+      "missing headers/ sub-artifact or equivalent section",
+      "missing test/ sub-artifact or equivalent section",
+      "missing build/ sub-artifact or equivalent section",
+      "missing compliance/ sub-artifact or equivalent section",
+      "missing validation/ sub-artifact or equivalent section",
+      "missing docs/ sub-artifact or equivalent section"
+    ],
+    "priority": "high",
+    "effort_person_days": 4.6
+  },
+  {
+    "skill_id": "traceability",
+    "categories": {
+      "readme": 26,
+      "requirements": 5,
+      "architecture": 5,
+      "src": 5,
+      "headers": 5,
+      "test": 5,
+      "build": 5,
+      "compliance": 5,
+      "validation": 5,
+      "docs": 5
+    },
+    "gaps": [
+      "missing requirements/ sub-artifact or equivalent section",
+      "missing architecture/ sub-artifact or equivalent section",
+      "missing src/ sub-artifact or equivalent section",
+      "missing headers/ sub-artifact or equivalent section",
+      "missing test/ sub-artifact or equivalent section",
+      "missing build/ sub-artifact or equivalent section",
+      "missing compliance/ sub-artifact or equivalent section",
+      "missing validation/ sub-artifact or equivalent section",
+      "missing docs/ sub-artifact or equivalent section"
+    ],
+    "priority": "high",
+    "effort_person_days": 4.6
+  },
+  {
+    "skill_id": "unit-test",
+    "categories": {
+      "readme": 58,
+      "requirements": 5,
+      "architecture": 5,
+      "src": 5,
+      "headers": 5,
+      "test": 5,
+      "build": 5,
+      "compliance": 5,
+      "validation": 5,
+      "docs": 5
+    },
+    "gaps": [
+      "missing requirements/ sub-artifact or equivalent section",
+      "missing architecture/ sub-artifact or equivalent section",
+      "missing src/ sub-artifact or equivalent section",
+      "missing headers/ sub-artifact or equivalent section",
+      "missing test/ sub-artifact or equivalent section",
+      "missing build/ sub-artifact or equivalent section",
+      "missing compliance/ sub-artifact or equivalent section",
+      "missing validation/ sub-artifact or equivalent section",
+      "missing docs/ sub-artifact or equivalent section"
+    ],
+    "priority": "high",
+    "effort_person_days": 4.5
+  },
+  {
+    "skill_id": "validation",
+    "categories": {
+      "readme": 42,
+      "requirements": 5,
+      "architecture": 5,
+      "src": 5,
+      "headers": 5,
+      "test": 5,
+      "build": 5,
+      "compliance": 5,
+      "validation": 5,
+      "docs": 5
+    },
+    "gaps": [
+      "missing requirements/ sub-artifact or equivalent section",
+      "missing architecture/ sub-artifact or equivalent section",
+      "missing src/ sub-artifact or equivalent section",
+      "missing headers/ sub-artifact or equivalent section",
+      "missing test/ sub-artifact or equivalent section",
+      "missing build/ sub-artifact or equivalent section",
+      "missing compliance/ sub-artifact or equivalent section",
+      "missing validation/ sub-artifact or equivalent section",
+      "missing docs/ sub-artifact or equivalent section"
+    ],
+    "priority": "high",
+    "effort_person_days": 4.6
+  }
+]

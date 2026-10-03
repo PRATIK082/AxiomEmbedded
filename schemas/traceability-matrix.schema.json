@@ -1,0 +1,23 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Traceability Matrix",
+  "type": "object",
+  "required": ["skill_id", "links"],
+  "properties": {
+    "skill_id": {"type": "string"},
+    "links": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["sys_req", "sw_req", "code", "test", "evidence"],
+        "properties": {
+          "sys_req": {"type": "string"},
+          "sw_req": {"type": "string"},
+          "code": {"type": "string"},
+          "test": {"type": "string"},
+          "evidence": {"type": "string"}
+        }
+      }
+    }
+  }
+}

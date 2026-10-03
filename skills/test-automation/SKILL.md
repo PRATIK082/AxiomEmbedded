@@ -1,5 +1,64 @@
-# test-automation
+# Test-Automation skill
 
-Reusable AxiomEmbedded capability for `test-automation`.
+Automated testing infrastructure for embedded targets: CI pipelines, on-target
+execution farms, mocking seams, flaky-test discipline, and the metrics that
+prove the automation is load-bearing rather than decorative.
 
-Load task-specific domain/platform/rule overlays before execution.
+## 1. Purpose and scope
+
+**Purpose.** Every commit is tested the same way, on representative targets,
+with results that block merges — fast enough that engineers run the suite
+instead of routing around it.
+
+**In scope.** CI pipeline design (host + target stages), hardware-in-the-loop
+farms (flashing, reset, console capture), test doubles (HAL mocks, simulator
+backends per `simulation`), test selection and parallelization, flaky-test
+quarantine policy, and quality metrics (pass rate, duration, coverage trends).
+
+**Non-goals.** Test-case design per level (see `unit-test`,
+`integration-test`, `system-test`). This skill owns the machinery; level
+skills own the content.
+
+## 2. Normative sources (high confidence)
+
+| # | Standard | Version / status | Clause / scope | Source |
+|---|----------|------------------|----------------|--------|
+| 1 | ISO/IEC/IEEE 29119-2 Test processes | 2021 | Test planning, monitoring/control, completion criteria | `https://www.iso.org/standard/72540.html` |
+| 2 | ISTQB Test Automation | Current syllabus (CT-TAE) | Architecture patterns, pilot-to-scale rollout | `https://www.istqb.org/certifications/test-automation-engineer` |
+
+## 3. Pipeline rules
+
+1. **Two stages minimum.** Host stage (unit tests, static analysis, coverage)
+   runs per commit in minutes; target stage (on-hardware or cycle-accurate
+   simulation) runs per merge-request with console logs archived. Target
+   results block merging — advisory-only hardware tests decay into noise.
+2. **Farm discipline.** Each farm board is a managed resource: exclusive
+   allocation per job, power-cycle between runs, serial console captured to
+   the job log, unhealthy boards auto-quarantined with alerts. Shared boards
+   without allocation produce cross-talk failures that erode trust.
+3. **Hermetic and reproducible.** Test jobs pin containers, toolchains, and
+   fixtures; rerunning a job reproduces its result except for quarantined
+   flaky tests (which are tracked, not silently retried).
+4. **Fast feedback budget.** Host stage under 10 minutes default; target stage
+   under 60 minutes default. Suites exceeding budget are split, parallelized,
+   or selected by change impact (see `change-impact`) — never left slow, since
+   slow suites get skipped.
+
+## 4. Flaky-test policy (blocking)
+
+A test failing intermittently without a code change is quarantined within 24h
+with an owner and a root-cause issue (timing assumption, shared state, farm
+health). Quarantined tests run informationally; unquarantined flakes fail the
+pipeline's credibility gate. Retry-without-diagnosis is forbidden — it converts
+signal into superstition.
+
+## 5. Release gates (blocking)
+
+1. Host + target stages green on the merge commit; logs archived.
+2. Zero unquarantined flakes; quarantine list reviewed weekly with burn-down.
+3. Coverage and duration trends published; regressions investigated.
+
+## 6. Verification of this skill (Phase 4 gate)
+
+- Standards cited with number + version + clause + URL (§2).
+- No merged change without target-stage results or a recorded waiver.

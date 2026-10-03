@@ -1,7 +1,24 @@
 id: security
-version: 1.0.0
+version: 1.1.0
 contract_version: 1
 type: reusable-skill
+standards_refs:
+  - number: UNECE R155/R156
+    version: In force 2021
+    clause: CSMS and SUMS requirements
+    source_url: https://unece.org/transport/documents/2021/03/standards/un-regulation-no-155-cyber-security-and-cyber-security
+  - number: IEC 62443
+    version: 4-1:2018, 4-2:2019
+    clause: Secure development, component requirements
+    source_url: https://www.isa.org/standards-and-publications/isa-standards/isa-standards/isa-iec-62443-series-of-standards
+  - number: NIST SP 800-193
+    version: Rev.1 2024
+    clause: Firmware protection, detection, recovery
+    source_url: https://csrc.nist.gov/pubs/sp/800/193/r1/final
+changelog:
+  - version: 1.1.0
+    date: 2026-10-03
+    summary: Deep-update expansion with threat modeling, crypto baseline, fuzz discipline and lifecycle gates
 source_of_truth:
   instructions: SKILL.md
   contract: manifest.yaml

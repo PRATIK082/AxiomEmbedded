@@ -1,7 +1,20 @@
 id: build-system
-version: 1.0.0
+version: 1.1.0
 contract_version: 1
 type: reusable-skill
+standards_refs:
+  - number: CMake
+    version: 3.20 floor
+    clause: Presets, toolchain files, cross-compilation
+    source_url: https://cmake.org/cmake/help/latest/
+  - number: SLSA
+    version: v1.0
+    clause: Build provenance levels
+    source_url: https://slsa.dev/spec/v1.0/levels
+changelog:
+  - version: 1.1.0
+    date: 2026-10-03
+    summary: Deep-update expansion with warnings-as-errors, pinning, toolchain separation and provenance rules
 source_of_truth:
   instructions: SKILL.md
   contract: manifest.yaml

@@ -1,7 +1,20 @@
 id: fault-injection
-version: 1.0.0
+version: 1.1.0
 contract_version: 1
 type: reusable-skill
+standards_refs:
+  - number: ISO 26262-5
+    version: "2018"
+    clause: Clauses 8-9 hardware metrics and fault injection
+    source_url: https://www.iso.org/standard/68387.html
+  - number: ISO 26262-6
+    version: "2018"
+    clause: Clause 9 software verification incl. fault injection
+    source_url: https://www.iso.org/standard/68388.html
+changelog:
+  - version: 1.1.0
+    date: 2026-10-03
+    summary: Deep-update expansion with campaign design, classification and coverage accounting
 source_of_truth:
   instructions: SKILL.md
   contract: manifest.yaml

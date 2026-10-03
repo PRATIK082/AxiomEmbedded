@@ -1,7 +1,16 @@
 id: requirements-traceability
-version: 1.0.0
+version: 1.1.0
 contract_version: 1
 type: reusable-skill
+standards_refs:
+  - number: ISO/IEC/IEEE 29148
+    version: "2018"
+    clause: Traceability maintenance
+    source_url: https://www.iso.org/standard/72089.html
+changelog:
+  - version: 1.1.0
+    date: 2026-10-03
+    summary: Deep-update expansion with workflow rules, suspect triage and pre-audit review
 source_of_truth:
   instructions: SKILL.md
   contract: manifest.yaml

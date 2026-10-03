@@ -1,7 +1,20 @@
 id: test-automation
-version: 1.0.0
+version: 1.1.0
 contract_version: 1
 type: reusable-skill
+standards_refs:
+  - number: ISO/IEC/IEEE 29119-2
+    version: "2021"
+    clause: Test planning, monitoring, completion
+    source_url: https://www.iso.org/standard/72540.html
+  - number: ISTQB CT-TAE
+    version: current syllabus
+    clause: Test automation architecture patterns
+    source_url: https://www.istqb.org/certifications/test-automation-engineer
+changelog:
+  - version: 1.1.0
+    date: 2026-10-03
+    summary: Deep-update expansion with pipeline stages, farm discipline and flaky-test quarantine policy
 source_of_truth:
   instructions: SKILL.md
   contract: manifest.yaml

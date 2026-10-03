@@ -1,13 +1,66 @@
-# legacy-recovery
+# Legacy-Recovery skill
 
-Capability: `maintenance/legacy-recovery`.
+Taming inherited firmware: characterization testing, strangler refactoring,
+documentation archaeology, and incremental modernization — without stopping
+product shipments or breaking undocumented-but-load-bearing behavior.
 
-This skill is reusable across domains and platforms. Domain-specific behavior is supplied through profiles/overlays rather than copied into this skill.
+## 1. Purpose and scope
 
-## Required behavior
-- validate entry criteria
-- consume minimal relevant context
-- produce structured outputs
-- record evidence
-- run configured gates
-- stop on required approval boundaries
+**Purpose.** Turn an untrusted codebase into a maintainable one through
+measured, reversible steps with a safety net that proves behavior is preserved.
+
+**In scope.** Recovery assessment (build, test, doc inventory), characterization
+tests (lock current behavior before changing anything), strangler-fig
+refactoring, toolchain modernization, dead-code removal with evidence, and
+knowledge capture from departing experts.
+
+**Non-goals.** Big-bang rewrites. A rewrite is a new project wearing the old
+name — this skill modernizes in place, incrementally, with the product still
+shipping.
+
+## 2. Normative sources (high confidence)
+
+| # | Reference | Version / status | Scope | Source |
+|---|-----------|------------------|-------|--------|
+| 1 | Feathers, Working Effectively with Legacy Code | 2004 (Prentice Hall) | Characterization tests, seam identification, dependency breaking | `https://www.informit.com/store/working-effectively-with-legacy-code-9780131177055` |
+| 2 | ISO/IEC 14764 Software maintenance | 2022 | Maintenance processes, modification discipline, regression control | `https://www.iso.org/standard/75780.html` |
+| 3 | SEI re-engineering guidance | Current technical reports | Systematically renovating legacy software | `https://www.sei.cmu.edu/our-work/re-engineering/` |
+
+## 3. Recovery sequence
+
+1. **Assess before touching.** Inventory: does it build (which toolchain?),
+   are there any tests, what docs exist, who understands it, what ships from
+   it. Record the baseline — recovery starts from evidence, not complaints.
+2. **Characterization tests first.** Write tests capturing current behavior at
+   module boundaries before any refactor; these tests lock behavior so later
+   changes are verifiable. A refactor without a characterization net is
+   experimentation on the product.
+3. **Seams, then strangler.** Identify seams (link boundaries, HAL interfaces,
+   protocol edges) and grow replacement code alongside the old, switching
+   traffic incrementally. Delete old code only when the new path owns all
+   traffic with passing tests.
+4. **Modernize the platform.** Toolchain, build system (`build-system`), and
+   static analysis (`static-analysis`) come early — a clean build with
+   warnings-as-errors on legacy code quantifies the debt and prevents new debt.
+5. **Capture knowledge.** Structured interviews and code walkthroughs with
+   outgoing experts produce decision records (ADRs) and module guides; every
+   "tribal only" module gets an owner or a retirement plan.
+
+## 4. Rules
+
+- Behavior-preserving steps stay small and separately reviewable; behavior
+  changes are separate commits with requirement updates.
+- Dead-code removal requires proof of unreachability (coverage + call-graph),
+  not "nobody remembers calling it".
+- Safety-relevant legacy: reverse-engineered requirements get the integrity
+  level's review treatment before they anchor a safety argument (`safety`).
+
+## 5. Release gates (blocking)
+
+1. Characterization suite green before, during, and after each refactor step.
+2. No new static-analysis findings; legacy-findings burn-down tracked.
+3. Knowledge artifacts (ADRs, module guides) reviewed and stored.
+
+## 6. Verification of this skill (Phase 4 gate)
+
+- References carry version + scope + URL (§2).

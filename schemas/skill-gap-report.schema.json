@@ -1,0 +1,27 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Skill Gap Report",
+  "type": "object",
+  "required": ["skill_id", "categories", "priority", "effort_person_days"],
+  "properties": {
+    "skill_id": {"type": "string"},
+    "categories": {
+      "type": "object",
+      "properties": {
+        "readme": {"type": "integer", "minimum": 0, "maximum": 100},
+        "requirements": {"type": "integer", "minimum": 0, "maximum": 100},
+        "architecture": {"type": "integer", "minimum": 0, "maximum": 100},
+        "src": {"type": "integer", "minimum": 0, "maximum": 100},
+        "headers": {"type": "integer", "minimum": 0, "maximum": 100},
+        "test": {"type": "integer", "minimum": 0, "maximum": 100},
+        "build": {"type": "integer", "minimum": 0, "maximum": 100},
+        "compliance": {"type": "integer", "minimum": 0, "maximum": 100},
+        "validation": {"type": "integer", "minimum": 0, "maximum": 100},
+        "docs": {"type": "integer", "minimum": 0, "maximum": 100}
+      }
+    },
+    "gaps": {"type": "array", "items": {"type": "string"}},
+    "priority": {"type": "string", "enum": ["high", "medium", "low"]},
+    "effort_person_days": {"type": "number", "minimum": 0}
+  }
+}

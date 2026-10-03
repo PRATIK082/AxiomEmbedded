@@ -1,0 +1,1 @@
+{"id": "skill-orchestrator", "version": "1.0.0", "contract_version": 1, "type": "task-agent", "writes_enabled": true, "access_class": "read"}

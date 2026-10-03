@@ -1,7 +1,20 @@
 id: soc
-version: 1.0.0
+version: 1.1.0
 contract_version: 1
 type: reusable-skill
+standards_refs:
+  - number: Arm PSCI/SCMI
+    version: PSCI 1.1+, SCMI v3.x
+    clause: CPU power-state and system-control firmware interfaces
+    source_url: https://developer.arm.com/documentation/den0022/latest/
+  - number: ISO 26262-11
+    version: "2018"
+    clause: Semiconductor safety integration guideline
+    source_url: https://www.iso.org/standard/69349.html
+changelog:
+  - version: 1.1.0
+    date: 2026-10-03
+    summary: Deep-update expansion with heterogeneous allocation, power/thermal and firmware-interface rules
 source_of_truth:
   instructions: SKILL.md
   contract: manifest.yaml

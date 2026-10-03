@@ -1,7 +1,20 @@
 id: project-audit
-version: 1.0.0
+version: 1.1.0
 contract_version: 1
 type: reusable-skill
+standards_refs:
+  - number: ISO 19011
+    version: "2018"
+    clause: Audit principles, program, reporting
+    source_url: https://www.iso.org/standard/70017.html
+  - number: ISO 26262-2
+    version: "2018"
+    clause: Confirmation measures, audits, assessments
+    source_url: https://www.iso.org/standard/68384.html
+changelog:
+  - version: 1.1.0
+    date: 2026-10-03
+    summary: Deep-update expansion with criteria-first audit method and independence rules
 source_of_truth:
   instructions: SKILL.md
   contract: manifest.yaml

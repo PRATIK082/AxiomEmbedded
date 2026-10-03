@@ -1,7 +1,20 @@
 id: integration-test
-version: 1.0.0
+version: 1.1.0
 contract_version: 1
 type: reusable-skill
+standards_refs:
+  - number: ISO 26262-6
+    version: "2018"
+    clause: Section 10 integration, Table 10
+    source_url: https://www.iso.org/standard/68389.html
+  - number: ISO 26262-4
+    version: "2018"
+    clause: Section 7 system integration
+    source_url: https://www.iso.org/standard/68386.html
+changelog:
+  - version: 1.1.0
+    date: 2026-10-03
+    summary: Deep-update expansion with incremental strategy, HIL discipline, timing integration and exit gates
 source_of_truth:
   instructions: SKILL.md
   contract: manifest.yaml

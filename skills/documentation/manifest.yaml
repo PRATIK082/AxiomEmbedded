@@ -1,7 +1,20 @@
 id: documentation
-version: 1.0.0
+version: 1.1.0
 contract_version: 1
 type: reusable-skill
+standards_refs:
+  - number: ISO/IEC/IEEE 26511
+    version: "2018"
+    clause: Documentation management life cycle
+    source_url: https://www.iso.org/standard/70872.html
+  - number: ISO/IEC/IEEE 26514
+    version: "2022"
+    clause: User documentation quality criteria
+    source_url: https://www.iso.org/standard/75888.html
+changelog:
+  - version: 1.1.0
+    date: 2026-10-03
+    summary: Deep-update expansion with docs-as-code rules, interface single-source and reviewed-examples gates
 source_of_truth:
   instructions: SKILL.md
   contract: manifest.yaml

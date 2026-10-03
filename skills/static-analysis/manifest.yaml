@@ -1,7 +1,20 @@
 id: static-analysis
-version: 1.0.0
+version: 1.1.0
 contract_version: 1
 type: reusable-skill
+standards_refs:
+  - number: MISRA C
+    version: "2025"
+    clause: Enforceable subset for static checking
+    source_url: https://misra.org.uk/
+  - number: ISO 26262-6
+    version: "2018"
+    clause: Clause 9 software verification
+    source_url: https://www.iso.org/standard/68389.html
+changelog:
+  - version: 1.1.0
+    date: 2026-10-03
+    summary: Deep-update expansion with toolchain layering, triage SLAs and baseline discipline
 source_of_truth:
   instructions: SKILL.md
   contract: manifest.yaml

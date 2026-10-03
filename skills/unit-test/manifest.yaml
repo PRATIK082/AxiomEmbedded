@@ -1,7 +1,20 @@
 id: unit-test
-version: 1.0.0
+version: 1.1.0
 contract_version: 1
 type: reusable-skill
+standards_refs:
+  - number: ISO 26262-6
+    version: "2018"
+    clause: Section 9 unit verification, Table 7
+    source_url: https://www.iso.org/standard/68389.html
+  - number: ISTQB CTFL
+    version: v4.0 2023
+    clause: Component testing principles
+    source_url: https://www.istqb.org/certifications/certified-tester-foundation-level/
+changelog:
+  - version: 1.1.0
+    date: 2026-10-03
+    summary: Deep-update expansion with design rules, coverage targets per integrity level and definition of done
 source_of_truth:
   instructions: SKILL.md
   contract: manifest.yaml

@@ -1,7 +1,20 @@
 id: performance
-version: 1.0.0
+version: 1.1.0
 contract_version: 1
 type: reusable-skill
+standards_refs:
+  - number: ISO 26262-6
+    version: "2018"
+    clause: Clause 9 timing and resource verification
+    source_url: https://www.iso.org/standard/68388.html
+  - number: MLPerf Tiny
+    version: v1.x
+    clause: Latency/energy measurement methodology
+    source_url: https://mlcommons.org/benchmarks/mlperf-tiny/
+changelog:
+  - version: 1.1.0
+    date: 2026-10-03
+    summary: Deep-update expansion with budgeting rules, measurement discipline and regression tripwires
 source_of_truth:
   instructions: SKILL.md
   contract: manifest.yaml
