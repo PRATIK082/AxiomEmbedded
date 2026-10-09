@@ -1,0 +1,23 @@
+# SPDX-License-Identifier: Apache-2.0
+# Phase 2c: keyless headless integration against the real opencode binary.
+name: opencode-headless
+
+on:
+  push:
+  pull_request:
+
+jobs:
+  headless:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+      - run: pip install pyyaml pytest
+      - run: curl -fsSL https://opencode.ai/install | bash
+      - run: echo "$HOME/.opencode/bin" >> $GITHUB_PATH
+      - run: opencode --version
+      - run: python -m axiom_cli doctor --skip-tests
+      - run: python -m pytest tests/test_headless.py tests/test_launcher.py -q
+      - run: node --check .opencode/plugins/axiom-policy.ts

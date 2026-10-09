@@ -1,1 +1,10 @@
 AxiomEmbedded active platform. Third-party normative standards text is not redistributed. AxiomEmbedded  migration is supported from an external source tree and is not vendored in this repository.
+
+Third-party runtime attribution
+-------------------------------
+AxiomEmbedded Phase 2 launches, but does not vendor or modify, OpenCode
+(https://github.com/anomalyco/opencode), an open-source AI coding agent
+used as Axiom's execution backend. OpenCode is MIT licensed,
+Copyright (c) 2025 opencode, with full license text at
+https://github.com/anomalyco/opencode/blob/dev/LICENSE. Compatibility
+scope and the tested version are recorded in docs/OPENCODE_COMPAT.md.
