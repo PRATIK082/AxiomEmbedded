@@ -1,0 +1,1 @@
+{"applicable_domains": ["automotive"], "applicable_platforms": ["mpu", "soc", "mpsoc", "autosar-adaptive"], "capabilities": ["adas"], "category": "domains/automotive/adas", "evidence": ["result", "tool-version", "input-hash", "output-hash"], "id": "adas", "inputs": ["project-context"], "outputs": ["artifacts", "findings", "evidence"], "version": "0.1.0"}

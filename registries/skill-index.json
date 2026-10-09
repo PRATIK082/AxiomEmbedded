@@ -500,6 +500,128 @@
       "platforms": [
         "all"
       ]
+    },
+    "adas": {
+      "description": "ADAS/AD perception-to-control pipeline, sensor fusion, SOTIF and ASIL decomposition, Euro-NCAP, data closed-loop, OpenSCENARIO/OpenDRIVE HIL. Use for L0-L4 driver assistance and automated driving.",
+      "domains": [
+        "automotive"
+      ],
+      "platforms": [
+        "mpu",
+        "soc",
+        "mpsoc",
+        "autosar-adaptive"
+      ]
+    },
+    "automotive-body": {
+      "description": "Body electronics — BCM, lighting, doors/seats/mirrors, HVAC, PEPS/keyless, LIN/CAN topology, low-power modes, EOL configuration. Use for body ECUs, LIN slaves, and EOL variant coding.",
+      "domains": [
+        "automotive"
+      ],
+      "platforms": [
+        "mcu",
+        "autosar-classic"
+      ]
+    },
+    "automotive-coding": {
+      "description": "MISRA C:2025 / MISRA C++:2023 / AUTOSAR C++14 enforcement, CERT C/C++ hardening, analyzer gating and deviation control. Use for ASIL-rated C/C++ ECUs requiring audit-ready coding-compliance evidence.",
+      "domains": [
+        "automotive"
+      ],
+      "platforms": [
+        "mcu",
+        "mpu",
+        "autosar-classic",
+        "autosar-adaptive",
+        "bare-metal",
+        "rtos"
+      ]
+    },
+    "automotive-cockpit": {
+      "description": "Digital cockpit — cluster/IVI/HUD, SoC plus hypervisor with QNX/AAOS/Linux, Qt/Kanzi HMI, audio/DSP, driver monitoring, ASIL-B cluster and cybersecurity. Use for clusters, infotainment, HUD programs.",
+      "domains": [
+        "automotive"
+      ],
+      "platforms": [
+        "soc",
+        "mpsoc",
+        "mpu"
+      ]
+    },
+    "automotive-cybersecurity": {
+      "description": "ISO/SAE 21434 TARA, CAL-based rigor, CSMS/SUMS evidence for R155/R156. Use for item definition, threat analysis, security goals, secure design, verification, incident response, or cybersecurity cases.",
+      "domains": [
+        "automotive"
+      ],
+      "platforms": [
+        "all"
+      ]
+    },
+    "automotive-diagnostics": {
+      "description": "UDS/DoIP/OBD-II/J1939/XCP diagnostics, tester integration (ODX/OTX), DTC/DID/routine control, security access. Use for diagnostic stacks, FBL testers, or homologation evidence.",
+      "domains": [
+        "automotive"
+      ],
+      "platforms": [
+        "mcu",
+        "mpu",
+        "autosar-classic",
+        "autosar-adaptive"
+      ]
+    },
+    "automotive-middleware": {
+      "description": "SDV middleware selection and integration — ara::com, SOME/IP-SD, DDS, Zenoh, vsomeip, MQTT, TSN, zero-copy IPC, VSS/VSC. Use for service-oriented vehicle platforms, HPC/zone architectures, deterministic Ethernet.",
+      "domains": [
+        "automotive"
+      ],
+      "platforms": [
+        "mpu",
+        "soc",
+        "linux",
+        "autosar-adaptive"
+      ]
+    },
+    "automotive-networks": {
+      "description": "CAN-FD/XL, LIN, FlexRay, 100/1000BASE-T1 Ethernet + TSN, gateways, busload/timing, DBC/ARXML/LDF/FIBEX. Use for topology, routing, or timing analysis.",
+      "domains": [
+        "automotive"
+      ],
+      "platforms": [
+        "mcu",
+        "mpu",
+        "autosar-classic",
+        "autosar-adaptive"
+      ]
+    },
+    "automotive-ota": {
+      "description": "SOTA/FOTA campaigns per UNECE R156/SUMS, A/B + delta updates, UCM, rollback, backend-to-vehicle chain. Use for updateable fleets or type-approval evidence.",
+      "domains": [
+        "automotive"
+      ],
+      "platforms": [
+        "mcu",
+        "mpu",
+        "autosar-classic",
+        "autosar-adaptive"
+      ]
+    },
+    "automotive-spice": {
+      "description": "Automotive SPICE v4.0 process capability (PRM/PAM, CL0-5, VDA scope, N/P/L/F rating). Use for ASPICE gap analysis, traceability, work-product evidence, or assessment prep.",
+      "domains": [
+        "automotive"
+      ],
+      "platforms": [
+        "all"
+      ]
+    },
+    "automotive-vcycle": {
+      "description": "End-to-end automotive V-Cycle lifecycle from stakeholder requirements to vehicle validation. Use for V-Model planning, MIL/SIL/HIL gates, ASPICE/ISO 26262 alignment, or agile-hybrid programs.",
+      "domains": [
+        "automotive"
+      ],
+      "platforms": [
+        "all"
+      ]
     }
   },
   "by_domain": {
@@ -515,8 +637,19 @@
       "soc"
     ],
     "automotive": [
+      "adas",
       "ai-validation",
       "autosar",
+      "automotive-body",
+      "automotive-coding",
+      "automotive-cockpit",
+      "automotive-cybersecurity",
+      "automotive-diagnostics",
+      "automotive-middleware",
+      "automotive-networks",
+      "automotive-ota",
+      "automotive-spice",
+      "automotive-vcycle",
       "edge-ai",
       "embedded-linux",
       "fault-injection",
@@ -608,6 +741,11 @@
     "mcu": [
       "ai-validation",
       "autosar",
+      "automotive-body",
+      "automotive-coding",
+      "automotive-diagnostics",
+      "automotive-networks",
+      "automotive-ota",
       "bare-metal",
       "bootloader",
       "drivers",
@@ -621,8 +759,15 @@
       "rust-embedded"
     ],
     "mpu": [
+      "adas",
       "ai-validation",
       "autosar",
+      "automotive-cockpit",
+      "automotive-coding",
+      "automotive-diagnostics",
+      "automotive-middleware",
+      "automotive-networks",
+      "automotive-ota",
       "bootloader",
       "drivers",
       "edge-ai",
@@ -636,7 +781,10 @@
       "rust-embedded"
     ],
     "soc": [
+      "adas",
       "ai-validation",
+      "automotive-cockpit",
+      "automotive-middleware",
       "bootloader",
       "drivers",
       "edge-ai",
@@ -648,7 +796,9 @@
       "soc"
     ],
     "mpsoc": [
+      "adas",
       "ai-validation",
+      "automotive-cockpit",
       "edge-ai",
       "embedded-linux",
       "hardware-architecture",
@@ -658,6 +808,9 @@
     ],
     "all": [
       "architecture",
+      "automotive-cybersecurity",
+      "automotive-spice",
+      "automotive-vcycle",
       "build-system",
       "change-impact",
       "code-review",
@@ -688,12 +841,24 @@
       "validation"
     ],
     "autosar-classic": [
-      "autosar"
+      "autosar",
+      "automotive-body",
+      "automotive-coding",
+      "automotive-diagnostics",
+      "automotive-networks",
+      "automotive-ota"
     ],
     "autosar-adaptive": [
-      "autosar"
+      "adas",
+      "autosar",
+      "automotive-coding",
+      "automotive-diagnostics",
+      "automotive-middleware",
+      "automotive-networks",
+      "automotive-ota"
     ],
     "bare-metal": [
+      "automotive-coding",
       "bare-metal",
       "embedded-c",
       "embedded-cpp",
@@ -701,6 +866,7 @@
       "rust-embedded"
     ],
     "rtos": [
+      "automotive-coding",
       "embedded-c",
       "embedded-cpp",
       "mcu",
@@ -708,6 +874,7 @@
       "rust-embedded"
     ],
     "linux": [
+      "automotive-middleware",
       "embedded-linux",
       "mpu",
       "robotics"

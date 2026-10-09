@@ -1,0 +1,36 @@
+id: automotive-vcycle
+version: 1.2.0
+contract_version: 1
+type: reusable-skill
+source_of_truth:
+  instructions: SKILL.md
+  contract: manifest.yaml
+context:
+  graph_first: true
+  max_hops_default: 2
+standards_refs:
+- number: ISO 26262 Road vehicles — Functional safety
+  version: '2018'
+  clause: Part 3 concept, Part 4 system, Part 6 software, Part 8 supporting processes
+  source_url: https://www.iso.org/standard/68383.html
+- number: Automotive SPICE PAM/PRM
+  version: v4.0
+  clause: SYS.1-SYS.5, SWE.1-SWE.6, SUP.9/SUP.10
+  source_url: https://www.automotivespice.com/
+- number: INCOSE Systems Engineering Handbook
+  version: v5
+  clause: V-model decomposition vs integration, verification vs validation
+  source_url: https://www.incose.org/products-and-publications/se-handbook
+- number: ISTQB Certified Tester Foundation Level
+  version: current
+  clause: Test levels, entry/exit criteria, regression vocabulary
+  source_url: https://www.istqb.org/certifications/certified-tester-foundation-level
+changelog:
+- version: 1.2.0
+  date: '2026-10-03'
+  summary: Initial automotive V-Cycle lifecycle skill
+facets:
+  domains:
+  - automotive
+  platforms:
+  - all

@@ -188,6 +188,50 @@
     {
       "id": "project-audit",
       "path": "skills/project-audit"
+    },
+    {
+      "id": "automotive-spice",
+      "path": "skills/automotive-spice"
+    },
+    {
+      "id": "automotive-vcycle",
+      "path": "skills/automotive-vcycle"
+    },
+    {
+      "id": "adas",
+      "path": "skills/adas"
+    },
+    {
+      "id": "automotive-body",
+      "path": "skills/automotive-body"
+    },
+    {
+      "id": "automotive-cockpit",
+      "path": "skills/automotive-cockpit"
+    },
+    {
+      "id": "automotive-middleware",
+      "path": "skills/automotive-middleware"
+    },
+    {
+      "id": "automotive-cybersecurity",
+      "path": "skills/automotive-cybersecurity"
+    },
+    {
+      "id": "automotive-coding",
+      "path": "skills/automotive-coding"
+    },
+    {
+      "id": "automotive-diagnostics",
+      "path": "skills/automotive-diagnostics"
+    },
+    {
+      "id": "automotive-networks",
+      "path": "skills/automotive-networks"
+    },
+    {
+      "id": "automotive-ota",
+      "path": "skills/automotive-ota"
     }
   ]
 }

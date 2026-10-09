@@ -1,0 +1,43 @@
+id: automotive-middleware
+version: 1.2.0
+contract_version: 1
+type: reusable-skill
+source_of_truth:
+  instructions: SKILL.md
+  contract: manifest.yaml
+context:
+  graph_first: true
+  max_hops_default: 2
+standards_refs:
+- number: AUTOSAR Adaptive Platform
+  version: current
+  clause: Overview + ara::com service model
+  source_url: https://www.autosar.org/standards/adaptive-platform
+- number: SOME/IP Protocol PRS
+  version: R22-11
+  clause: Foundation PRS, Doc ID 696
+  source_url: https://www.autosar.org/fileadmin/standards/R22-11/FO/AUTOSAR_PRS_SOMEIPProtocol.pdf
+- number: OMG DDS
+  version: current
+  clause: Data-Distribution Service core + Security
+  source_url: https://www.omg.org/spec/DDS/About-DDS/
+- number: COVESA VSS / VSC
+  version: pinned per design
+  clause: Vehicle Signal Specification + Vehicle Service Catalog
+  source_url: https://covesa.dev/vehicle_signal_specification/
+- number: IEEE TSN
+  version: current
+  clause: 802.1AS gPTP, 802.1Qbv TAS, 802.1Qav CBS
+  source_url: https://1.ieee802.org/tsn/
+changelog:
+- version: 1.2.0
+  date: '2026-10-03'
+  summary: New SDV middleware skill
+facets:
+  domains:
+  - automotive
+  platforms:
+  - mpu
+  - soc
+  - linux
+  - autosar-adaptive
