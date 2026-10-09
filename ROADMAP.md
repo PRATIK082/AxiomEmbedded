@@ -1,5 +1,29 @@
 # AxiomEmbedded roadmap
 
+## Phase 3 Deep research (done)
+- Planner → searchers → verifier → synthesizer (`packages/research.py`) — done.
+- `axiom research` + `research` MCP tool with `auto|opencode|local` (+ key-gated
+  web stubs) backends — done.
+- Remaining: live web search wiring once credentials exist; the closing
+  OpenCode-vs-Claude-Code-vs-Codex-vs-Gemini comparison stays a manual
+  official-docs-only task until then.
+
+## Phase 2 OpenCode runtime layer (done)
+- OpenCode docs/changelog survey → `docs/OPENCODE_COMPAT.md` + `NOTICE` attribution — done.
+- `axiom oc tui|run|research` isolated-config launcher + doctor pin — done.
+- `/axiom-*` slash commands + `axiom-policy` hooks plugin + OpenCode-native subagents — done.
+- Provider/model passthrough + local-model recipes + headless CI — done.
+- Remaining: re-survey when moving off the tested v1 range; custom runtime stays
+  deferred unless OpenCode proves insufficient.
+
+## Phase 1 Distribution (done)
+
+- Installable wheel (`pipx install .`, `axiom` entry point) — done.
+- `axiom_mcp/` stdio server with typed tools for every CLI command — done.
+- `skills/`/`agents/` as single source of truth + generated client files + CI check — done.
+- `axiom install --client` for opencode/claude/codex/gemini/copilot — done.
+- Remaining: PyPI publish, VERSION bump, release tag (Phase 4).
+
 ## 0.1 Foundation (current)
 
 - Normalize AxiomEmbedded  into the AxiomEmbedded product model.

@@ -4,8 +4,10 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "axiom-embedded"
-version = "0.1.0"
+version = "0.2.0"
 description = "Open AI-native engineering platform for embedded and cyber-physical systems"
+readme = "README.md"
+license = { text = "Apache-2.0" }
 requires-python = ">=3.11"
 dependencies = ["PyYAML>=6.0,<7"]
 
@@ -14,6 +16,12 @@ test = ["pytest>=8,<10"]
 
 [project.scripts]
 axiom = "axiom_cli.main:main"
+
+[tool.setuptools.packages.find]
+# Explicit allowlist: the repo root holds many non-package content trees
+# (agents/, skills/, domains/, ...). Auto-discovery would either fail the
+# build or sweep content dirs into the wheel.
+include = ["axiom_cli*", "axiom_mcp*", "packages*"]
 
 [tool.pytest.ini_options]
 pythonpath = ["."]

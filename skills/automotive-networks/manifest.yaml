@@ -1,0 +1,39 @@
+id: automotive-networks
+version: 1.2.0
+contract_version: 1
+type: reusable-skill
+source_of_truth:
+  instructions: SKILL.md
+  contract: manifest.yaml
+context:
+  graph_first: true
+  max_hops_default: 2
+standards_refs:
+- number: ISO 11898-1
+  version: current
+  clause: CAN data-link layer incl. CAN-FD/XL frame scope
+  source_url: https://www.iso.org/search.html?q=11898
+- number: ISO 17987
+  version: current
+  clause: LIN protocol/data-link scope
+  source_url: https://www.iso.org/search.html?q=17987
+- number: IEEE 802.3bw/bp/ch
+  version: current
+  clause: 100BASE-T1 / 1000BASE-T1 / MultiGBASE-T1 PHY scope
+  source_url: https://www.ieee802.org/3/
+- number: OPEN Alliance TC8
+  version: current
+  clause: Automotive Ethernet test scope reference
+  source_url: https://www.opensig.org/
+changelog:
+- version: 1.2.0
+  date: '2026-10-03'
+  summary: New networks skill
+facets:
+  domains:
+  - automotive
+  platforms:
+  - mcu
+  - mpu
+  - autosar-classic
+  - autosar-adaptive

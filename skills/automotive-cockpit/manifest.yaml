@@ -1,0 +1,38 @@
+id: automotive-cockpit
+version: 1.2.0
+contract_version: 1
+type: reusable-skill
+source_of_truth:
+  instructions: SKILL.md
+  contract: manifest.yaml
+context:
+  graph_first: true
+  max_hops_default: 2
+standards_refs:
+- number: ISO 26262
+  version: '2018'
+  clause: ASIL B cluster path; decomposition Part 9 S5; FFI Parts 4/6
+  source_url: https://www.iso.org/standard/68383.html
+- number: ISO/SAE 21434
+  version: '2021'
+  clause: Cybersecurity engineering; TARA, secure update
+  source_url: https://www.iso.org/standard/70918.html
+- number: COVESA Vehicle Signal Specification
+  version: current
+  clause: VSS signal trees for IVI/data abstraction
+  source_url: https://covesa.github.io/vehicle_signal_specification/
+- number: VirtIO
+  version: '1.3'
+  clause: Inter-guest device sharing
+  source_url: https://docs.oasis-open.org/virtio/virtio/v1.3/virtio-v1.3.html
+changelog:
+- version: 1.2.0
+  date: '2026-10-03'
+  summary: New digital-cockpit skill
+facets:
+  domains:
+  - automotive
+  platforms:
+  - soc
+  - mpsoc
+  - mpu

@@ -8,7 +8,7 @@ from __future__ import annotations
 
 import pathlib
 
-from packages.agents.router import route
+from packages.agents.router import route, detect_domain
 from packages.skills.engage import engage
 
 ROOT = pathlib.Path(__file__).resolve().parents[2]
@@ -33,11 +33,17 @@ def run_plan(request: str, domain: str | None = None, platform: str | None = Non
     The host harness supplies the model; axiom resolves WHAT to load and in
     WHAT order. Execution beyond planning requires human approval.
     """
+    selection = None
+    domain_source = "explicit"
+    if not domain:
+        domain = detect_domain(request)
+        domain_source = "detected" if domain else "none"
     selection = engage(domain, platform)
     return {
         "mode": "plan-then-execute",
         "request": request,
         "intent": route(request),
+        "domain_source": domain_source,
         "engagement": selection,
         "phases": ["plan", "implement", "verify", "evidence"],
         "context_files": selection["context_files"],

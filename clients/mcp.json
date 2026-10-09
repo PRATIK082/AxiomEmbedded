@@ -3,7 +3,6 @@
     "axiom-embedded": {
       "command": "python",
       "args": ["-m", "axiom_cli", "mcp"],
-      "cwd": "C:/D/Project/GitHub/AxiomEmbedded",
       "description": "AxiomEmbedded skills: engage, run_plan, read_skill, list_skills, list_profiles"
     }
   }

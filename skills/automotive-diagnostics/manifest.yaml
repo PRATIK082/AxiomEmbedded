@@ -1,0 +1,39 @@
+id: automotive-diagnostics
+version: 1.2.0
+contract_version: 1
+type: reusable-skill
+source_of_truth:
+  instructions: SKILL.md
+  contract: manifest.yaml
+context:
+  graph_first: true
+  max_hops_default: 2
+standards_refs:
+- number: ISO 14229-1
+  version: '2020'
+  clause: UDS service identifiers and NRC identifiers
+  source_url: https://www.iso.org/search.html?q=14229
+- number: ISO 13400-2
+  version: '2019'
+  clause: DoIP identifiers and use scope
+  source_url: https://www.iso.org/search.html?q=13400
+- number: ASAM MCD-2 D (ODX)
+  version: current
+  clause: Diagnostic data description scope
+  source_url: https://www.asam.net/standards/detail/mcd-2-d/
+- number: ASAM MCD-1 XCP
+  version: current
+  clause: Measurement and calibration protocol scope
+  source_url: https://www.asam.net/standards/detail/mcd-1-xcp/
+changelog:
+- version: 1.2.0
+  date: '2026-10-03'
+  summary: New diagnostics skill
+facets:
+  domains:
+  - automotive
+  platforms:
+  - mcu
+  - mpu
+  - autosar-classic
+  - autosar-adaptive

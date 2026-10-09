@@ -1,0 +1,35 @@
+id: automotive-ota
+version: 1.2.0
+contract_version: 1
+type: reusable-skill
+source_of_truth:
+  instructions: SKILL.md
+  contract: manifest.yaml
+context:
+  graph_first: true
+  max_hops_default: 2
+standards_refs:
+- number: UNECE R156
+  version: current
+  clause: Software update and SUMS process scope
+  source_url: https://unece.org/transport/vehicle-regulations
+- number: ISO 24089
+  version: current
+  clause: Road-vehicle software-update engineering
+  source_url: https://www.iso.org/search.html?q=24089
+- number: AUTOSAR Adaptive UCM
+  version: current
+  clause: Update and Configuration Management behaviour scope
+  source_url: https://www.autosar.org/standards/adaptive-platform
+changelog:
+- version: 1.2.0
+  date: '2026-10-03'
+  summary: New OTA skill
+facets:
+  domains:
+  - automotive
+  platforms:
+  - mcu
+  - mpu
+  - autosar-classic
+  - autosar-adaptive

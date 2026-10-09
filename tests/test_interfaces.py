@@ -27,14 +27,14 @@ def _post(url, payload):
 
 def test_sdk_slice_is_42():
     sel = axiom_sdk.engage_skills(DOMAIN, PLATFORM)
-    assert sel["skill_count"] == 42
+    assert sel["skill_count"] == 50
     assert "autosar" in sel["skills"] and "mcu" in sel["skills"]
 
 
 def test_sdk_run_plan_shape():
     plan = axiom_sdk.run_plan("add watchdog supervision", DOMAIN, PLATFORM)
     assert plan["mode"] == "plan-then-execute"
-    assert plan["engagement"]["skill_count"] == 42
+    assert plan["engagement"]["skill_count"] == 50
     assert "git push" in plan["approval_required_for"]
 
 
@@ -64,9 +64,9 @@ def test_rest_and_a2a_agree_with_sdk():
         _, eng = _post(base + "/v1/engage", {"domain": DOMAIN, "platform": PLATFORM})
         assert eng["skills"] == axiom_sdk.engage_skills(DOMAIN, PLATFORM)["skills"]
         _, run = _post(base + "/v1/run", {"request": "x", "domain": DOMAIN, "platform": PLATFORM})
-        assert run["engagement"]["skill_count"] == 42
+        assert run["engagement"]["skill_count"] == 50
         _, task = _post(base + "/v1/a2a/tasks", {"id": "t1", "intent": {"request": "x", "domain": DOMAIN, "platform": PLATFORM}})
-        assert task["status"] == "planned" and task["plan"]["engagement"]["skill_count"] == 42
+        assert task["status"] == "planned" and task["plan"]["engagement"]["skill_count"] == 50
         with urllib.request.urlopen(base + "/.well-known/agent.json") as resp:
             assert json.loads(resp.read().decode())["name"] == "axiom-embedded"
     finally:

@@ -1,0 +1,11 @@
+# SPDX-License-Identifier: Apache-2.0
+# Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+build/
+dist/
+.venv/
+.pytest_cache/
+# Axiom index output
+.axiom/

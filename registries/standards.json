@@ -32,6 +32,56 @@
       "description": "Automotive cybersecurity/software-update regulatory reference"
     },
     {
+      "id": "iso-21448-sotif",
+      "family": "automotive",
+      "description": "Road-vehicle safety of the intended functionality (SOTIF) reference"
+    },
+    {
+      "id": "sae-j3016",
+      "family": "automotive",
+      "description": "Driving automation taxonomy (levels L0-L5) reference"
+    },
+    {
+      "id": "iso-14229-uds",
+      "family": "automotive",
+      "description": "Unified diagnostic services (UDS) reference"
+    },
+    {
+      "id": "iso-13400-doip",
+      "family": "automotive",
+      "description": "Diagnostic communication over Internet Protocol (DoIP) reference"
+    },
+    {
+      "id": "iso-11898-can",
+      "family": "automotive",
+      "description": "Controller area network (CAN-FD/XL) data-link reference"
+    },
+    {
+      "id": "iso-17987-lin",
+      "family": "automotive",
+      "description": "Local interconnect network (LIN) protocol reference"
+    },
+    {
+      "id": "ieee-tsn-automotive",
+      "family": "automotive",
+      "description": "Deterministic Ethernet time-sensitive networking reference"
+    },
+    {
+      "id": "iso-24089-ota",
+      "family": "automotive",
+      "description": "Road-vehicle software-update engineering reference"
+    },
+    {
+      "id": "asam-scenario",
+      "family": "automotive",
+      "description": "Scenario and road-network interchange reference"
+    },
+    {
+      "id": "covesa-vss",
+      "family": "automotive",
+      "description": "Vehicle signal specification and service catalog reference"
+    },
+    {
       "id": "do-178c",
       "family": "aerospace",
       "description": "Airborne software assurance reference"

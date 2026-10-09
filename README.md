@@ -116,7 +116,15 @@ Many embedded projects begin from different points. A new product may start at r
 ## Quick start
 
 ```bash
-python -m axiom_cli doctor
+pipx install axiom-embedded
+axiom doctor
+axiom
+```
+
+Without installing (source checkout):
+
+```bash
+python -m axiom_cli doctor --skip-tests
 python -m axiom_cli profile validate profiles/generic-embedded.yaml
 python -m axiom_cli analyze .
 python -m axiom_cli context select --root examples/brownfield-c-project/source/main.c --hops 2
@@ -126,7 +134,56 @@ python -m axiom_cli impact examples/brownfield-c-project/project.yaml
 
 ## AI clients
 
-The repository contains shared agent instructions and integration contracts for AI clients. Root `AGENTS.md` is the portable project contract. GitHub Copilot additionally consumes `.github/copilot-instructions.md` and path-specific instruction files. OpenCode uses the repository `AGENTS.md` and `opencode.json` instruction list.
+Install the Axiom pack into any project (merges, never clobbers):
+
+```bash
+axiom install --client opencode   # .opencode/agents, .opencode/skills, opencode.json (mcp)
+axiom install --client claude     # .claude/agents, .claude/skills, .mcp.json
+axiom install --client codex      # .codex/config.toml (mcp_servers.axiom-embedded)
+axiom install --client gemini     # .gemini/settings.json + GEMINI.md
+axiom install --client copilot    # .github/copilot-instructions.md
+```
+
+Add `--global` for user-level config (`~/.config/opencode`, `~/.claude`,
+`~/.codex`, `~/.muse`; Copilot stays per-repository). Regenerate the
+checked-in client files after editing `skills/` or `agents/`:
+
+```bash
+python scripts/sync_clients.py        # regenerate
+python scripts/sync_clients.py --check # CI freshness gate
+```
+
+The repository contains shared agent instructions and integration contracts for AI clients. Root `AGENTS.md` is the portable project contract. GitHub Copilot additionally consumes `.github/copilot-instructions.md` and path-specific instruction files. OpenCode consumes `.opencode/agents/`, `.opencode/skills/`, `.opencode/commands/` (`/axiom-*`), the `axiom-policy` plugin (`.opencode/plugins/`), and the `mcp.axiom` entry in `opencode.json`. Every `axiom` command is also an MCP tool over stdio (`axiom mcp`, 19 tools, JSON schemas); `clients/mcp.json` holds a portable server entry.
+
+Live OpenCode runtime (isolated config under `~/.axiom/opencode`, never touches
+the user's own OpenCode setup; see `docs/OPENCODE_COMPAT.md` for the tested
+version range and `docs/OPENCODE_LAUNCHER.md` for details):
+
+```bash
+axiom oc tui                # interactive OpenCode TUI with the Axiom MCP attached
+axiom oc run "add driver"   # one-shot headless run (flags: --model --agent --dir --format)
+axiom oc research "question" # research-framed headless run via the explore agent
+axiom oc run "task" --dry-run # print argv/env without executing
+```
+
+Deep research without leaving the terminal (planner → searchers →
+verifier → synthesizer with citations; `auto` uses OpenCode subagents when
+available, otherwise the keyless local backend):
+
+```bash
+axiom research "ISO 26262 automotive safety" --backend local
+axiom research "question" --format markdown --output report.md
+```
+
+## Compatibility
+
+| Component | Supported |
+|---|---|
+| Python | ≥ 3.11 (PyYAML only; pytest for tests) |
+| OpenCode (live `axiom oc` / research) | v1, tested 1.18.31–1.18.35; v2 fails closed (see `docs/OPENCODE_COMPAT.md`) |
+| Install | `pipx install axiom-embedded` (or `pip install axiom-embedded`) |
+| AI clients | opencode / claude / codex / gemini / copilot via `axiom install --client` |
+
 
 ## Safety and certification boundary
 

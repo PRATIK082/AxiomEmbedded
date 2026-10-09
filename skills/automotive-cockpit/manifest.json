@@ -1,0 +1,1 @@
+{"applicable_domains": ["automotive"], "applicable_platforms": ["soc", "mpsoc", "mpu"], "capabilities": ["automotive-cockpit"], "category": "domains/automotive/cockpit", "evidence": ["result", "tool-version", "input-hash", "output-hash"], "id": "automotive-cockpit", "inputs": ["project-context"], "outputs": ["artifacts", "findings", "evidence"], "version": "0.1.0"}
