@@ -171,6 +171,13 @@ def compose_cmd(prompt: str, domain: str | None, platform: str | None,
                                      standards, hardware, technology), indent=2))
     return 0
 
+
+def packs_cmd(domain: str | None, platform: str | None, standards: list[str]) -> int:
+    from packages.toolpacks.select import select_packs
+
+    print(json.dumps(select_packs(domain, platform, standards), indent=2))
+    return 0
+
 def run_cmd(request: str, domain: str | None, platform: str | None) -> int:
     """Opencode-like standalone run: engage skills, route intent, emit a plan-then-execute plan.
 
@@ -425,14 +432,7 @@ def main() -> int:
     wf = sp.add_parser("workflow"); ws = wf.add_subparsers(dest="workflow_cmd"); wp = ws.add_parser("plan"); wp.add_argument("--profile", required=True); wp.add_argument("--entry")
     rt = sp.add_parser("route"); rt.add_argument("request")
     en = sp.add_parser("engage"); en.add_argument("--domain"); en.add_argument("--platform")
-    en.add_argument("--group", default=None, help="Restrict to a skills/groups.yaml view")
-    en.add_argument("--limit", type=int, default=0, help="Cap returned skills (0 = all; reply carries total/truncated)")
-    pk = sp.add_parser("packs", help="Select plug-and-play tool/pip packs by domain+platform+standards"); pk.add_argument("--domain"); pk.add_argument("--platform");     pk.add_argument("--standard", dest="standards", action="append", default=[], help="Repeatable standard filter (e.g. --standard 'ISO 14229-1')")
-    ev = sp.add_parser("eval", help="List and grade Terminal-Bench-style eval tasks (no model calls)")
-    ev.add_argument("--list", action="store_true", help="List all eval task ids")
-    ev.add_argument("--grade", default=None, help="Grade one task id against static expectations")
-    ev.add_argument("--root", default=".", help="Repo root the task prompt is graded in (default: cwd)")
-    cm = sp.add_parser("compose", help="Compose a skill mind-map DAG from a prompt + facet axes"); cm.add_argument("prompt"); cm.add_argument("--domain"); cm.add_argument("--platform"); cm.add_argument("--os"); cm.add_argument("--language"); cm.add_argument("--standard", dest="standards", action="append", default=[]); cm.add_argument("--hardware"); cm.add_argument("--technology")
+    pk = sp.add_parser("packs", help="Select plug-and-play tool/pip packs by domain+platform+standards"); pk.add_argument("--domain"); pk.add_argument("--platform"); pk.add_argument("--standard", dest="standards", action="append", default=[], help="Repeatable standard filter (e.g. --standard 'ISO 14229-1')")
     rn = sp.add_parser("run"); rn.add_argument("request"); rn.add_argument("--domain"); rn.add_argument("--platform")
     st = sp.add_parser("status", help="Terminal dashboard: project health + next action"); st.add_argument("--format", choices=["text", "json"], default="text")
     fx = sp.add_parser("fix", help="Emit the 10-step fix-defect plan for an issue id"); fx.add_argument("issue_id"); fx.add_argument("--domain"); fx.add_argument("--platform")
@@ -539,17 +539,8 @@ def main() -> int:
     if args.cmd == "impact": return impact(args.path)
     if args.cmd == "workflow" and args.workflow_cmd == "plan": return workflow_plan(args.profile, args.entry)
     if args.cmd == "route": print(route(args.request)); return 0
-    if args.cmd == "engage": return engage_cmd(args.domain, args.platform, args.group, args.limit or 0)
+    if args.cmd == "engage": return engage_cmd(args.domain, args.platform)
     if args.cmd == "packs": return packs_cmd(args.domain, args.platform, args.standards or [])
-    if args.cmd == "eval":
-        from packages.eval.runner import grade as eval_grade, list_tasks as eval_list
-        if getattr(args, "grade", None):
-            print(json.dumps(eval_grade(args.grade, getattr(args, "root", ".")), indent=2))
-            return 0
-        print(json.dumps({"tasks": [t.get("id") for t in eval_list()],
-                          "count": len(eval_list())}, indent=2))
-        return 0
-    if args.cmd == "compose": return compose_cmd(args.prompt, args.domain, args.platform, args.os, args.language, args.standards or [], args.hardware, args.technology)
     if args.cmd == "run": return run_cmd(args.request, args.domain, args.platform)
     if args.cmd == "status": return status_cmd(args.format)
     if args.cmd == "fix": return fix_cmd(args.issue_id, args.domain, args.platform)

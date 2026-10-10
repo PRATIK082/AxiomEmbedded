@@ -55,6 +55,15 @@ def compose_mindmap(
                     hardware, technology)
 
 
+def select_toolpacks(
+    domain: str | None = None,
+    platform: str | None = None,
+    standards: list[str] | None = None,
+) -> dict:
+    """Resolve which tools/pip packs/agents a domain+platform+standards project needs."""
+    return select_packs(domain, platform, standards)
+
+
 def run_plan(request: str, domain: str | None = None, platform: str | None = None) -> dict:
     """Opencode-like plan: engagement + routed intent + phased execution plan.
 
