@@ -89,6 +89,10 @@ External CLI agents that modify code (auto bug-fix / update) MUST:
 ### 4. Reference example
 
 - Tool bridge: `tools/diag-extract-bridge/` (extract packs → canonical spec).
+- Tool bridge: `tools/codeql-standards-bridge/` (CodeQL Coding Standards packs
+  run locally via pinned CLI → SARIF findings + provenance; queries reused
+  pristine, never vendored — their ISO 26262 qualification holds only
+  as distributed).
 - Agent mapping: `agents/diag-auto-review/` (external review/fix CLI
   bound to `automotive-diagnostics` + `code-review`).
 

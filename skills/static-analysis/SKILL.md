@@ -1,7 +1,7 @@
 ---
 name: static-analysis
-description: Checker layering, qualification, baselines, and triage for MISRA/CERT findings. Use when configuring analyzers or clearing violation backlogs.
-version: 1.2.0
+description: Checker layering, qualification, baselines, and triage for MISRA/CERT findings, incl. CodeQL Coding Standards packs run locally. Use when configuring analyzers or clearing violation backlogs.
+version: 1.3.0
 domains: [all]
 platforms: [all]
 axiom:
@@ -48,6 +48,7 @@ record per change and per release.
 | 2 | CERT C | Current | Taint, API-misuse, and secure-coding checkers | `https://wiki.sei.cmu.edu/confluence/display/c/SEI+CERT+C+Coding+Standard` |
 | 3 | ISO 26262-6 Software level | 2018 | Clause 9 verification: static analysis highly recommended ≥ ASIL B, required methods at C/D | `https://www.iso.org/standard/68389.html` |
 | 4 | CWE Top 25 / CVE linkage | Annual (MITRE) | Weakness taxonomy for finding classification and training feedback | `https://cwe.mitre.org/top25/` |
+| 5 | CodeQL Coding Standards (query packs, MIT) | Pinned release (CLI per upstream `supported_codeql_configs.json`) | Reused pristine: MISRA C/C++, AUTOSAR C++14, CERT C/C++ queries; SARIF 2.1.0; ISO 26262 qualification valid only as distributed | `https://github.com/github/codeql-coding-standards` |
 
 ## 3. Toolchain rules
 
@@ -61,6 +62,14 @@ record per change and per release.
 3. **Baseline honestly.** Legacy code gets a dated baseline of pre-existing
    findings with burn-down; new/changed code is zero-tolerance from day one.
    Baselines shrink monotonically — growth blocks the release.
+4. **Reuse the CodeQL packs, never redevelop or fork them.** The MISRA/CERT
+   checker layer is `tools/codeql-standards-bridge/` running upstream packs
+   (`misra-c`, `cert-c`, `misra-cpp`, `cert-cpp`, `autosar-cpp`) locally via
+   a pinned CodeQL CLI; suites `default` (violations), `audit` (review
+   candidates), `strict` (deliberate-looking). Forking or editing queries
+   voids their ISO 26262 tool qualification — deviations go in
+   `coding-standards.yml` (rule ID + justification + scope), never in query
+   edits. SARIF 2.1.0 + `findings.json` + `provenance.json` are the evidence.
 
 ## 4. Triage and disposition
 

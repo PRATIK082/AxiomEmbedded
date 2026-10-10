@@ -1,6 +1,7 @@
 """Contract tests for the extract bridge (stub pack, no real dependency)."""
 from __future__ import annotations
 
+import importlib.util
 import json
 import sys
 import types
@@ -8,9 +9,21 @@ from pathlib import Path
 
 import pytest
 
-sys.path.insert(0, str(Path(__file__).resolve().parent.parent))
+HERE = Path(__file__).resolve().parent
 
-import bridge as shim
+
+def _load_shim() -> object:
+    name = "diag_extract_bridge_shim"
+    if name in sys.modules:
+        return sys.modules[name]
+    spec = importlib.util.spec_from_file_location(name, HERE.parent / "bridge.py")
+    mod = importlib.util.module_from_spec(spec)
+    sys.modules[name] = mod
+    spec.loader.exec_module(mod)
+    return mod
+
+
+shim = _load_shim()
 
 
 def _stub_pack(monkeypatch, payload):

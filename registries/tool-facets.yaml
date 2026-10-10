@@ -11,6 +11,11 @@ tools:
     domains: [all]
     platforms: [all]
     standards: []
+  codeql-standards-bridge:
+    description: Runs CodeQL Coding Standards packs locally (MISRA, AUTOSAR C++14, CERT) and ingests SARIF findings.
+    domains: [all]
+    platforms: [all]
+    standards: [MISRA C 2012, MISRA C 2023, MISRA C++ 2023, AUTOSAR C++14, CERT C, CERT C++]
   coverage-ingestor:
     description: Ingests coverage reports into evidence.
     domains: [all]

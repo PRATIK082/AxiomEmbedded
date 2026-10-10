@@ -238,7 +238,7 @@ approval. Never claim certification or compliance from a heuristic check.
 - `simulation` — MIL-SIL-HIL progression, back-to-back evidence, scenario discipline. Use when testing without hardware or qualifying models.
 - `soc` — Heterogeneous SoC allocation across A/R cores, NPUs, safety islands, power/thermal. Use when architecting multi-core SoC products.
 - `software-architecture` — Embedded software layering, concurrency design, and variability without forks. Use when structuring firmware/software tasks, partitions, or product lines.
-- `static-analysis` — Checker layering, qualification, baselines, and triage for MISRA/CERT findings. Use when configuring analyzers or clearing violation backlogs.
+- `static-analysis` — Checker layering, qualification, baselines, and triage for MISRA/CERT findings, incl. CodeQL Coding Standards packs run locally. Use when configuring analyzers or clearing violation backlogs.
 - `system-test` — Requirement-based system testing, stress/abuse campaigns, and triage. Use when validating a full product against its requirements.
 - `test-automation` — Host+target CI stages, farm discipline, flaky quarantine, feedback budgets. Use when building embedded CI pipelines or HIL farms.
 - `traceability` — Link models, suspect-link propagation, and audit gates across the V-model. Use when building or auditing trace matrices.

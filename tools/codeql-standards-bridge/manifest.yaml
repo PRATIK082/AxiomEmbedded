@@ -1,0 +1,39 @@
+id: codeql-standards-bridge
+version: 1.0.0
+purpose: Run GitHub CodeQL Coding Standards query packs locally via the CodeQL CLI
+  (MISRA C/C++, AUTOSAR C++14, CERT C/C++) and ingest SARIF 2.1.0 findings into evidence;
+  packs stay pristine upstream, never vendored
+deterministic: true
+evidence: true
+inputs:
+- source tree with clean local build command (c99|c11|cpp14|cpp17)
+outputs:
+- findings.json (rule-id, level, file, line, message per SARIF result)
+- provenance.json (cli version, pack ids/versions, db + sarif hashes)
+permissions:
+  network: true
+external:
+  cli: codeql>=2.23.9
+  cli_download: https://github.com/github/codeql-cli-binaries/releases
+  queries: https://github.com/github/codeql-coding-standards
+  queries_license: MIT
+  qualification: ISO 26262 tool qualification valid only as distributed by GitHub,
+    used per their user manual
+  packs:
+  - codeql/misra-c-coding-standards
+  - codeql/cert-c-coding-standards
+  - codeql/misra-cpp-coding-standards
+  - codeql/cert-cpp-coding-standards
+  - codeql/autosar-cpp-coding-standards
+facets:
+  domains:
+  - all
+  platforms:
+  - all
+  standards:
+  - MISRA C 2012
+  - MISRA C 2023
+  - MISRA C++ 2023
+  - AUTOSAR C++14
+  - CERT C
+  - CERT C++

@@ -6,6 +6,10 @@
       "path": "tools/change-impact"
     },
     {
+      "id": "codeql-standards-bridge",
+      "path": "tools/codeql-standards-bridge"
+    },
+    {
       "id": "coverage-ingestor",
       "path": "tools/coverage-ingestor"
     },

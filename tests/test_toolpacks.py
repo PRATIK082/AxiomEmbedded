@@ -29,6 +29,13 @@ def test_standard_filter_drops_unrelated_packs():
     assert "diag-uds-testgen" in sel14229["tools"]
 
 
+def test_misra_filter_selects_codeql_bridge():
+    sel = axiom_sdk.select_toolpacks("automotive", "mcu", ["MISRA C 2023"])
+    assert "codeql-standards-bridge" in sel["tools"]
+    assert "diag-uds-testgen" not in sel["tools"]
+    assert "static-analysis" in sel["skills"]
+
+
 def test_generic_selection_covers_all_tools():
     sel = axiom_sdk.select_toolpacks()
     assert sel["tool_count"] == len(sel["tools"]) >= 12
