@@ -1,5 +1,5 @@
 id: automotive-diagnostics
-version: 1.2.0
+version: 1.3.0
 contract_version: 1
 type: reusable-skill
 source_of_truth:
@@ -11,8 +11,12 @@ context:
 standards_refs:
 - number: ISO 14229-1
   version: '2020'
-  clause: UDS service identifiers and NRC identifiers
+  clause: UDS service identifiers, subfunctions and NRC identifiers
   source_url: https://www.iso.org/search.html?q=14229
+- number: ISO 14229-1
+  version: '2026'
+  clause: Application layer 4th edition publication status
+  source_url: https://committee.iso.org/standard/87962.html
 - number: ISO 13400-2
   version: '2019'
   clause: DoIP identifiers and use scope
@@ -25,10 +29,21 @@ standards_refs:
   version: current
   clause: Measurement and calibration protocol scope
   source_url: https://www.asam.net/standards/detail/mcd-1-xcp/
+- number: AUTOSAR DEXT
+  version: R24-11
+  clause: Diagnostic Extract Template Doc ID 681
+  source_url: https://www.autosar.org/fileadmin/standards/R24-11/CP/AUTOSAR_CP_RS_DiagnosticExtractTemplate.pdf
+- number: AUTOSAR ATS DiagnosticServices
+  version: '1.0.0'
+  clause: Acceptance tests for Dem/Dcm Doc ID 627
+  source_url: https://www.autosar.org/fileadmin/fileadmin/standards/tests/1-0/AUTOSAR_ATS_DiagnosticServices.pdf
 changelog:
 - version: 1.2.0
   date: '2026-10-03'
   summary: New diagnostics skill
+- version: 1.3.0
+  date: '2026-10-10'
+  summary: Full UDS SID/subfunction matrix, extract ingestion (DEXT/ARXML/ODX/CDD/XLSX/YAML/JSON/OTX), positive/negative test and validation codegen, tool-creation contract
 facets:
   domains:
   - automotive

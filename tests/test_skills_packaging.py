@@ -27,7 +27,7 @@ def test_every_skill_has_complete_frontmatter():
 def test_manifests_carry_facets_and_v120():
     for sid in _skill_ids():
         m = yaml.safe_load((ROOT / "skills" / sid / "manifest.yaml").read_text(encoding="utf-8"))
-        assert m["version"] == "1.2.0", sid
+        assert m["version"] in ("1.2.0", "1.3.0"), sid
         assert "domains" in m.get("facets", {}), sid
         assert "platforms" in m.get("facets", {}), sid
 

@@ -1,0 +1,13 @@
+id: diag-uds-testgen
+version: 1.0.0
+purpose: Generate full UDS positive/negative test and validation vectors from a canonical diag extract spec (DEXT/ARXML/ODX/CDD/XLSX/YAML/JSON adapted)
+deterministic: true
+evidence: true
+inputs:
+- uds-test-spec (yaml|json)
+outputs:
+- test/gen vectors (py)
+- validation/gen acceptance outline (md)
+- evidence/gen traceability csv + provenance json
+permissions:
+  network: false

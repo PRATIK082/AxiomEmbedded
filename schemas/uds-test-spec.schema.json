@@ -1,0 +1,56 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "UDS Test Spec (canonical diag extract hand-off)",
+  "description": "Canonical input for diag-uds-testgen. Adapters convert DEXT/ARXML, ODX/PDX, CDD, XLSX, OTX oracles into this shape. Identifiers only; no normative text.",
+  "type": "object",
+  "required": ["ecu", "services"],
+  "properties": {
+    "provenance": {
+      "type": "object",
+      "properties": {
+        "source_type": {"enum": ["dext", "arxml", "odx", "pdx", "cdd", "xlsx", "xls", "yaml", "json", "otx"]},
+        "source_file": {"type": "string"},
+        "source_version": {"type": "string"}
+      }
+    },
+    "ecu": {
+      "type": "object",
+      "required": ["name"],
+      "properties": {
+        "name": {"type": "string"},
+        "sessions": {"type": "array", "items": {"type": "string"}, "default": ["default", "extended", "programming"]},
+        "security_levels": {"type": "array", "items": {"type": "integer"}, "default": [1]}
+      }
+    },
+    "services": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["sid", "name", "supported"],
+        "properties": {
+          "sid": {"type": "integer", "minimum": 16, "maximum": 191},
+          "name": {"type": "string"},
+          "supported": {"type": "boolean"},
+          "subfunctions": {"type": "array", "items": {"type": "integer"}},
+          "dids": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "required": ["id"],
+              "properties": {
+                "id": {"type": "integer"},
+                "sessions": {"type": "array", "items": {"type": "string"}},
+                "security": {"type": ["integer", "null"]},
+                "addressing": {"type": "array", "items": {"type": "string"}}
+              }
+            }
+          },
+          "dtcs": {"type": "array", "items": {"type": "integer"}},
+          "routines": {"type": "array", "items": {"type": "integer"}},
+          "sessions": {"type": "array", "items": {"type": "string"}},
+          "security": {"type": ["integer", "null"]}
+        }
+      }
+    }
+  }
+}

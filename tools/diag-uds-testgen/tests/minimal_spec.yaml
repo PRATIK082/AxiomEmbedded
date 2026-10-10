@@ -1,0 +1,7 @@
+provenance: {source_type: yaml, source_file: minimal_spec.yaml, source_version: '0.1'}
+ecu: {name: DoorECU, sessions: [default, extended, programming], security_levels: [1]}
+services:
+- {sid: 16, name: DiagnosticSessionControl, supported: true, subfunctions: [1, 3], sessions: [default]}
+- {sid: 34, name: ReadDataByIdentifier, supported: true, dids: [{id: 61696, sessions: [default, extended]}]}
+- {sid: 39, name: SecurityAccess, supported: true, subfunctions: [1, 2]}
+- {sid: 17, name: ECUReset, supported: false}
