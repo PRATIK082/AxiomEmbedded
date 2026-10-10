@@ -4,6 +4,24 @@ Policy for third-party / independently-developed pip packs and CLI agents
 (e.g. ARXML/ODX/CDD/XLSX → internal-YAML diagnostic extractors, standard
 script generators, auto bug-fix / code-review / code-update CLI agents).
 
+## Plug-and-play selection by user need
+
+Tools are grouped by facet — domain-specific (automotive diag), compute-specific
+(ecu/mcu/soc/mpsoc), standard-specific (ISO 14229-1, AUTOSAR DEXT), platform tooling
+(generic) — in `registries/tool-facets.yaml`, indexed to `registries/tool-index.json`
+via `python scripts/build_tool_index.py`. The user picks what they need; axiom
+resolves the pack set plus pip installs plus skill-anchored agents:
+
+```bash
+axiom packs --domain automotive --platform mcu --standard "ISO 14229-1"
+```
+
+`axiom packs` (= SDK `select_toolpacks` = MCP `packs` = REST `/v1/packs`)
+returns `{tools, install:[{tool, pip}], agents, skills, manifests}` — one call
+from any interface, all four agree by construction. Adding a new pack category
+(domain, ECU/MCU/SoC, standard, platform) is three steps: append its facets,
+run the index builder, declare `dependencies:` in its bridge manifest.
+
 ## Decision
 
 **Develop independent, map here.** Keep the external pack in its own

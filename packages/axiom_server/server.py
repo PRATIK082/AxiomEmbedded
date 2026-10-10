@@ -74,6 +74,9 @@ class Handler(BaseHTTPRequestHandler):
             return
         if self.path == "/v1/engage":
             _send(self, axiom_sdk.engage_skills(data.get("domain"), data.get("platform")))
+        elif self.path == "/v1/packs":
+            _send(self, axiom_sdk.select_toolpacks(
+                data.get("domain"), data.get("platform"), data.get("standards") or []))
         elif self.path == "/v1/run":
             _send(self, axiom_sdk.run_plan(data.get("request", ""), data.get("domain"), data.get("platform")))
         elif self.path == "/v1/a2a/tasks":

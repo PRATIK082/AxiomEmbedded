@@ -1,6 +1,7 @@
 id: diag-uds-testgen
 version: 1.0.0
-purpose: Generate full UDS positive/negative test and validation vectors from a canonical diag extract spec (DEXT/ARXML/ODX/CDD/XLSX/YAML/JSON adapted)
+purpose: Generate full UDS positive/negative test and validation vectors from a canonical
+  diag extract spec (DEXT/ARXML/ODX/CDD/XLSX/YAML/JSON adapted)
 deterministic: true
 evidence: true
 inputs:
@@ -11,3 +12,13 @@ outputs:
 - evidence/gen traceability csv + provenance json
 permissions:
   network: false
+facets:
+  domains:
+  - automotive
+  platforms:
+  - mcu
+  - mpu
+  - autosar-classic
+  - autosar-adaptive
+  standards:
+  - ISO 14229-1

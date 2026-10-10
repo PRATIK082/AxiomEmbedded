@@ -1,5 +1,11 @@
 id: traceability-checker
 version: 1.0.0
-purpose: "traceability checker"
+purpose: traceability checker
 deterministic: true
 evidence: true
+facets:
+  domains:
+  - all
+  platforms:
+  - all
+  standards: []

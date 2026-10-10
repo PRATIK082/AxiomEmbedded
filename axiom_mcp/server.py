@@ -148,6 +148,11 @@ def tool_engage(args: dict) -> dict:
     return axiom_sdk.engage_skills(args.get("domain"), args.get("platform"))
 
 
+def tool_packs(args: dict) -> dict:
+    return axiom_sdk.select_toolpacks(
+        args.get("domain"), args.get("platform"), args.get("standards") or [])
+
+
 def tool_run_plan(args: dict) -> dict:
     return axiom_sdk.run_plan(args.get("request", ""), args.get("domain"), args.get("platform"))
 
@@ -281,6 +286,21 @@ TOOLS: dict[str, dict] = {
             }
         ),
         "handler": tool_engage,
+    },
+    "packs": {
+        "description": "Select plug-and-play tool/pip packs by domain+platform+standards (mirrors `axiom packs`).",
+        "inputSchema": _schema(
+            {
+                "domain": _opt_str_prop("Engineering domain (e.g. automotive)."),
+                "platform": _opt_str_prop("Compute platform (e.g. mcu)."),
+                "standards": {
+                    "type": "array",
+                    "items": {"type": "string"},
+                    "description": "Standard filters (e.g. ISO 14229-1).",
+                },
+            }
+        ),
+        "handler": tool_packs,
     },
     "run_plan": {
         "description": "Plan-then-execute plan for a request: intent, skill slice, phases, approvals (mirrors `axiom run`).",

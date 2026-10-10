@@ -1,5 +1,11 @@
 id: dependency-analyzer
 version: 1.0.0
-purpose: "dependency analyzer"
+purpose: dependency analyzer
 deterministic: true
 evidence: true
+facets:
+  domains:
+  - all
+  platforms:
+  - all
+  standards: []

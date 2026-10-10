@@ -1,6 +1,7 @@
 id: diag-extract-bridge
 version: 1.0.0
-purpose: Bridge external ARXML/ODX/CDD/XLSX diag-extract pip packs to the canonical UDS test-spec (validates + records provenance; parsing stays in the pack)
+purpose: Bridge external ARXML/ODX/CDD/XLSX diag-extract pip packs to the canonical
+  UDS test-spec (validates + records provenance; parsing stays in the pack)
 deterministic: true
 evidence: true
 inputs:
@@ -14,7 +15,32 @@ external:
   pip: acme-diag-extract>=2.1,<3
   entry_point: acme_diag_extract.extract
   cli: acme-diag-extract
-  supported_inputs: [arxml, odx, pdx, cdd, xlsx, xls]
-  supported_autosar: [R20-11, R21-11, R22-11, R23-11, R24-11, R25-11]
+  supported_inputs:
+  - arxml
+  - odx
+  - pdx
+  - cdd
+  - xlsx
+  - xls
+  supported_autosar:
+  - R20-11
+  - R21-11
+  - R22-11
+  - R23-11
+  - R24-11
+  - R25-11
 dependencies:
 - acme-diag-extract>=2.1,<3
+facets:
+  domains:
+  - automotive
+  platforms:
+  - mcu
+  - mpu
+  - soc
+  - mpsoc
+  - autosar-classic
+  - autosar-adaptive
+  standards:
+  - ISO 14229-1
+  - AUTOSAR DEXT

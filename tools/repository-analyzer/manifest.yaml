@@ -1,5 +1,11 @@
 id: repository-analyzer
 version: 1.0.0
-purpose: "repository analyzer"
+purpose: repository analyzer
 deterministic: true
 evidence: true
+facets:
+  domains:
+  - all
+  platforms:
+  - all
+  standards: []

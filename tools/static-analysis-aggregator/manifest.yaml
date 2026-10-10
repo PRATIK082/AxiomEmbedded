@@ -1,5 +1,11 @@
 id: static-analysis-aggregator
 version: 1.0.0
-purpose: "static analysis aggregator"
+purpose: static analysis aggregator
 deterministic: true
 evidence: true
+facets:
+  domains:
+  - all
+  platforms:
+  - all
+  standards: []

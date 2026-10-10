@@ -10,6 +10,7 @@ import pathlib
 
 from packages.agents.router import route, detect_domain
 from packages.skills.engage import engage
+from packages.toolpacks.select import select_packs
 
 ROOT = pathlib.Path(__file__).resolve().parents[2]
 
@@ -25,6 +26,15 @@ APPROVAL_REQUIRED_FOR = [
 def engage_skills(domain: str | None = None, platform: str | None = None) -> dict:
     """Resolve which skills/profiles a domain+platform project needs."""
     return engage(domain, platform)
+
+
+def select_toolpacks(
+    domain: str | None = None,
+    platform: str | None = None,
+    standards: list[str] | None = None,
+) -> dict:
+    """Resolve which tools/pip packs/agents a domain+platform+standards project needs."""
+    return select_packs(domain, platform, standards)
 
 
 def run_plan(request: str, domain: str | None = None, platform: str | None = None) -> dict:

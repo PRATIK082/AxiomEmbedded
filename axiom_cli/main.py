@@ -153,6 +153,13 @@ def engage_cmd(domain: str | None, platform: str | None) -> int:
     print(json.dumps(engage(domain, platform), indent=2))
     return 0
 
+
+def packs_cmd(domain: str | None, platform: str | None, standards: list[str]) -> int:
+    from packages.toolpacks.select import select_packs
+
+    print(json.dumps(select_packs(domain, platform, standards), indent=2))
+    return 0
+
 def run_cmd(request: str, domain: str | None, platform: str | None) -> int:
     """Opencode-like standalone run: engage skills, route intent, emit a plan-then-execute plan.
 
@@ -298,6 +305,7 @@ def main() -> int:
     wf = sp.add_parser("workflow"); ws = wf.add_subparsers(dest="workflow_cmd"); wp = ws.add_parser("plan"); wp.add_argument("--profile", required=True); wp.add_argument("--entry")
     rt = sp.add_parser("route"); rt.add_argument("request")
     en = sp.add_parser("engage"); en.add_argument("--domain"); en.add_argument("--platform")
+    pk = sp.add_parser("packs", help="Select plug-and-play tool/pip packs by domain+platform+standards"); pk.add_argument("--domain"); pk.add_argument("--platform"); pk.add_argument("--standard", dest="standards", action="append", default=[], help="Repeatable standard filter (e.g. --standard 'ISO 14229-1')")
     rn = sp.add_parser("run"); rn.add_argument("request"); rn.add_argument("--domain"); rn.add_argument("--platform")
     st = sp.add_parser("status", help="Terminal dashboard: project health + next action"); st.add_argument("--format", choices=["text", "json"], default="text")
     fx = sp.add_parser("fix", help="Emit the 10-step fix-defect plan for an issue id"); fx.add_argument("issue_id"); fx.add_argument("--domain"); fx.add_argument("--platform")
@@ -351,6 +359,7 @@ def main() -> int:
     if args.cmd == "workflow" and args.workflow_cmd == "plan": return workflow_plan(args.profile, args.entry)
     if args.cmd == "route": print(route(args.request)); return 0
     if args.cmd == "engage": return engage_cmd(args.domain, args.platform)
+    if args.cmd == "packs": return packs_cmd(args.domain, args.platform, args.standards or [])
     if args.cmd == "run": return run_cmd(args.request, args.domain, args.platform)
     if args.cmd == "status": return status_cmd(args.format)
     if args.cmd == "fix": return fix_cmd(args.issue_id, args.domain, args.platform)

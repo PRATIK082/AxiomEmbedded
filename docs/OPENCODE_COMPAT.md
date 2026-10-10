@@ -157,7 +157,7 @@ launcher work in this phase confirms them against a pinned OpenCode.
 - Per-agent scoping: disable globally (`tools: {"axiom_*": false}`),
   enable per agent (`agent.<name>.tools` / permission globs).
   MCP tools are namespaced `<server>_*`.
-- Phase 1 `axiom_mcp` (stdio, 19 tools) plugs in as one `local`
+- Phase 1 `axiom_mcp` (stdio, 20 tools) plugs in as one `local`
   entry: `command: ["axiom", "mcp"]` (or `python -m` fallback —
   same rule as the Phase 1 installer).
 - `opencode mcp list/add/auth/debug` manage servers at runtime.
