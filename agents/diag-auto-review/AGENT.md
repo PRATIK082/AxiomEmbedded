@@ -1,0 +1,36 @@
+# diag-auto-review agent
+
+Purpose: Binds an external CLI review/fix agent (`acme-code-agent`, exemplar —
+substitute any CLI with the same modes) to Axiom skills. The CLI does the
+mechanical work (auto-resolve findings, review code, propose updates); the
+skills supply the rules it must obey.
+
+## Operating contract
+
+- Load skills FIRST: `automotive-diagnostics` (Rules 1–2 for any diag
+  service/NRC claim) and `code-review` (scope discipline). The CLI MUST NOT
+  run before the applicable skill context is loaded.
+- Allowed CLI modes: `review` (read-only findings), `fix` / `update`
+  (edits confined to the declared task scope). No silent changes outside
+  scope; every edit links to a finding and a skill rule.
+- Use the artifact graph before broad repository reads.
+- Required access class: `write` (edits) with `git_push: false`,
+  `release: false`.
+- Writes enabled: `true` (task scope only).
+- Safety/security deltas (key material, lockout, session gates, SecOC)
+  stop at the human approval gate per `configs/project.yaml` — the agent
+  MUST flag them, never auto-merge.
+- External CLI missing → fail closed with
+  `pip install "acme-code-agent>=1.4,<2"` (independent pack, own release
+  cycle; see `docs/external-packs.md`).
+
+## Example invocation (pattern for future AI)
+
+```text
+1. Load skill context: automotive-diagnostics Rules 1–2 + code-review scope.
+2. Run CLI review:  acme-code-agent review --scope <files> --rules automotive-diagnostics
+3. Triage findings against skill rules (reject CLI claims contradicting NRC/session gates).
+4. Run CLI fix:     acme-code-agent fix --finding <id> --scope <files>
+5. Verify: service-matrix + generator goldens green; evidence updated.
+6. Flag sensitive deltas for human review before PR.
+```

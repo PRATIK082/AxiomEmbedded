@@ -1,0 +1,36 @@
+{
+  "id": "diag-auto-review",
+  "version": "1.0.0",
+  "contract_version": 1,
+  "purpose": "Binds an external CLI review/fix agent to Axiom diag skills: auto-resolves findings, reviews code, and proposes updates under skill rules and human gates.",
+  "capabilities": [
+    "diag-auto-review"
+  ],
+  "inputs": [
+    "project_profile",
+    "artifact_context",
+    "task"
+  ],
+  "outputs": [
+    "findings",
+    "artifact_updates",
+    "evidence"
+  ],
+  "permissions": {
+    "filesystem": "write",
+    "git_push": false,
+    "release": false
+  },
+  "approval": {
+    "required_for_sensitive_change": true
+  },
+  "skills": [
+    "automotive-diagnostics",
+    "code-review"
+  ],
+  "external": {
+    "cli": "acme-code-agent",
+    "pip": "acme-code-agent>=1.4,<2",
+    "modes": ["review", "fix", "update"]
+  }
+}

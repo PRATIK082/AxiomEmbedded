@@ -79,7 +79,7 @@ approval. Never claim certification or compliance from a heuristic check.
 - `unit-test` — Host/target unit testing with mocks, coverage per integrity level, and done criteria. Use when writing module tests or setting coverage targets.
 - `validation` — Needs-based validation scenarios, usability, and acceptance. Use when proving the right product was built for stakeholders.
 
-## Specialist agents (28)
+## Specialist agents (29)
 
 - `ai-validation` — Evaluates embedded AI models for accuracy, resource use and deployment readiness.
 - `brownfield-recovery` — Recovers architecture, dependencies, tests and baselines from an existing product.
@@ -87,6 +87,7 @@ approval. Never claim certification or compliance from a heuristic check.
 - `code-review` — Reviews source changes against architecture, rules, tests and scope.
 - `debugging` — Reproduces faults and drives root-cause analysis.
 - `dependency-analysis` — Builds module, symbol and dependency relationships.
+- `diag-auto-review` — Binds an external CLI review/fix agent to Axiom diag skills: auto-resolves findings, reviews code, and proposes updates under skill rules and human gates.
 - `documentation` — Generates and updates engineering documentation from artifacts.
 - `engineering-manager` — Plans multi-step engineering work, gates and evidence.
 - `hardware-architecture` — Models compute, memory, peripherals, boards and HW/SW boundaries.
