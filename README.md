@@ -162,7 +162,7 @@ axiom update --client cursor      # refresh pack, report stale/force-refreshed f
 axiom uninstall --client cursor   # remove MCP entry + generated files; user content kept
 ```
 
-The repository contains shared agent instructions and integration contracts for AI clients. Root `AGENTS.md` is the portable project contract. GitHub Copilot additionally consumes `.github/copilot-instructions.md` and path-specific instruction files. OpenCode consumes `.opencode/agents/`, `.opencode/skills/`, `.opencode/commands/` (`/axiom-*`), the `axiom-policy` plugin (`.opencode/plugins/`), and the `mcp.axiom` entry in `opencode.json`. Every `axiom` command is also an MCP tool over stdio (`axiom mcp`, 20 tools, JSON schemas); `clients/mcp.json` holds a portable server entry.
+The repository contains shared agent instructions and integration contracts for AI clients. Root `AGENTS.md` is the portable project contract. GitHub Copilot additionally consumes `.github/copilot-instructions.md` and path-specific instruction files. OpenCode consumes `.opencode/agents/`, `.opencode/skills/`, `.opencode/commands/` (`/axiom-*`), the `axiom-policy` plugin (`.opencode/plugins/`), and the `mcp.axiom` entry in `opencode.json`. Every `axiom` command is also an MCP tool over stdio (`axiom mcp`, 21 tools, JSON schemas); `clients/mcp.json` holds a portable server entry.
 
 Live OpenCode runtime (isolated config under `~/.axiom/opencode`, never touches
 the user's own OpenCode setup; see `docs/OPENCODE_COMPAT.md` for the tested
