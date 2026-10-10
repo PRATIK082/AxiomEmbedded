@@ -37,6 +37,23 @@ def select_toolpacks(
     return select_packs(domain, platform, standards)
 
 
+def compose_mindmap(
+    prompt: str,
+    domain: str | None = None,
+    platform: str | None = None,
+    os: str | None = None,
+    language: str | None = None,
+    standards: list[str] | None = None,
+    hardware: str | None = None,
+    technology: str | None = None,
+) -> dict:
+    """Compose a skill mind-map DAG from a prompt + facet axes."""
+    from packages.compose.mindmap import compose_mindmap as _compose
+
+    return _compose(prompt, domain, platform, os, language, standards,
+                    hardware, technology)
+
+
 def run_plan(request: str, domain: str | None = None, platform: str | None = None) -> dict:
     """Opencode-like plan: engagement + routed intent + phased execution plan.
 

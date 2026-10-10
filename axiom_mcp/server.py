@@ -153,6 +153,13 @@ def tool_packs(args: dict) -> dict:
         args.get("domain"), args.get("platform"), args.get("standards") or [])
 
 
+def tool_compose(args: dict) -> dict:
+    return axiom_sdk.compose_mindmap(
+        args.get("prompt", ""), args.get("domain"), args.get("platform"),
+        args.get("os"), args.get("language"), args.get("standards") or [],
+        args.get("hardware"), args.get("technology"))
+
+
 def tool_run_plan(args: dict) -> dict:
     return axiom_sdk.run_plan(args.get("request", ""), args.get("domain"), args.get("platform"))
 
@@ -301,6 +308,27 @@ TOOLS: dict[str, dict] = {
             }
         ),
         "handler": tool_packs,
+    },
+    "compose": {
+        "description": "Compose a skill mind-map DAG from a prompt + facet axes (mirrors `axiom compose`).",
+        "inputSchema": _schema(
+            {
+                "prompt": _str_prop("User engineering request text."),
+                "domain": _opt_str_prop("Engineering domain (e.g. automotive)."),
+                "platform": _opt_str_prop("Compute platform (e.g. mcu)."),
+                "os": _opt_str_prop("Operating system (e.g. autosar-classic)."),
+                "language": _opt_str_prop("Implementation language (e.g. c)."),
+                "standards": {
+                    "type": "array",
+                    "items": {"type": "string"},
+                    "description": "Standard filters (e.g. ISO 14229-1).",
+                },
+                "hardware": _opt_str_prop("Hardware target (e.g. arm-cortex-m)."),
+                "technology": _opt_str_prop("Compute technology (e.g. mcu)."),
+            },
+            required=["prompt"],
+        ),
+        "handler": tool_compose,
     },
     "run_plan": {
         "description": "Plan-then-execute plan for a request: intent, skill slice, phases, approvals (mirrors `axiom run`).",

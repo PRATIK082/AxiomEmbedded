@@ -77,6 +77,11 @@ class Handler(BaseHTTPRequestHandler):
         elif self.path == "/v1/packs":
             _send(self, axiom_sdk.select_toolpacks(
                 data.get("domain"), data.get("platform"), data.get("standards") or []))
+        elif self.path == "/v1/compose":
+            _send(self, axiom_sdk.compose_mindmap(
+                data.get("prompt", ""), data.get("domain"), data.get("platform"),
+                data.get("os"), data.get("language"), data.get("standards") or [],
+                data.get("hardware"), data.get("technology")))
         elif self.path == "/v1/run":
             _send(self, axiom_sdk.run_plan(data.get("request", ""), data.get("domain"), data.get("platform")))
         elif self.path == "/v1/a2a/tasks":

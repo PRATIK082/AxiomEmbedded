@@ -160,6 +160,16 @@ def packs_cmd(domain: str | None, platform: str | None, standards: list[str]) ->
     print(json.dumps(select_packs(domain, platform, standards), indent=2))
     return 0
 
+
+def compose_cmd(prompt: str, domain: str | None, platform: str | None,
+                os: str | None, language: str | None, standards: list[str],
+                hardware: str | None, technology: str | None) -> int:
+    from packages.compose.mindmap import compose_mindmap
+
+    print(json.dumps(compose_mindmap(prompt, domain, platform, os, language,
+                                     standards, hardware, technology), indent=2))
+    return 0
+
 def run_cmd(request: str, domain: str | None, platform: str | None) -> int:
     """Opencode-like standalone run: engage skills, route intent, emit a plan-then-execute plan.
 
@@ -305,7 +315,8 @@ def main() -> int:
     wf = sp.add_parser("workflow"); ws = wf.add_subparsers(dest="workflow_cmd"); wp = ws.add_parser("plan"); wp.add_argument("--profile", required=True); wp.add_argument("--entry")
     rt = sp.add_parser("route"); rt.add_argument("request")
     en = sp.add_parser("engage"); en.add_argument("--domain"); en.add_argument("--platform")
-    pk = sp.add_parser("packs", help="Select plug-and-play tool/pip packs by domain+platform+standards"); pk.add_argument("--domain"); pk.add_argument("--platform"); pk.add_argument("--standard", dest="standards", action="append", default=[], help="Repeatable standard filter (e.g. --standard 'ISO 14229-1')")
+    pk = sp.add_parser("packs", help="Select plug-and-play tool/pip packs by domain+platform+standards"); pk.add_argument("--domain"); pk.add_argument("--platform");     pk.add_argument("--standard", dest="standards", action="append", default=[], help="Repeatable standard filter (e.g. --standard 'ISO 14229-1')")
+    cm = sp.add_parser("compose", help="Compose a skill mind-map DAG from a prompt + facet axes"); cm.add_argument("prompt"); cm.add_argument("--domain"); cm.add_argument("--platform"); cm.add_argument("--os"); cm.add_argument("--language"); cm.add_argument("--standard", dest="standards", action="append", default=[]); cm.add_argument("--hardware"); cm.add_argument("--technology")
     rn = sp.add_parser("run"); rn.add_argument("request"); rn.add_argument("--domain"); rn.add_argument("--platform")
     st = sp.add_parser("status", help="Terminal dashboard: project health + next action"); st.add_argument("--format", choices=["text", "json"], default="text")
     fx = sp.add_parser("fix", help="Emit the 10-step fix-defect plan for an issue id"); fx.add_argument("issue_id"); fx.add_argument("--domain"); fx.add_argument("--platform")
@@ -360,6 +371,7 @@ def main() -> int:
     if args.cmd == "route": print(route(args.request)); return 0
     if args.cmd == "engage": return engage_cmd(args.domain, args.platform)
     if args.cmd == "packs": return packs_cmd(args.domain, args.platform, args.standards or [])
+    if args.cmd == "compose": return compose_cmd(args.prompt, args.domain, args.platform, args.os, args.language, args.standards or [], args.hardware, args.technology)
     if args.cmd == "run": return run_cmd(args.request, args.domain, args.platform)
     if args.cmd == "status": return status_cmd(args.format)
     if args.cmd == "fix": return fix_cmd(args.issue_id, args.domain, args.platform)
