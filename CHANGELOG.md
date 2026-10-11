@@ -24,6 +24,13 @@ Additive skill framework + 30 original `axiom-*` workflow skills:
   domain overlays) — no duplicates; future links via `--set`.
 - Derived `manifest.json` export (`axiom skills manifest`, MCP
   `skill_manifest`; 26 tools): SKILL.md stays single source of truth.
+- P1 generator wrappers (`packages/skill_tools.py`, SDK + MCP, 26 → 33
+  tools): `analyze_repository`, `generate_checklist`, `generate_test_plan`,
+  `generate_traceability_matrix`, `generate_report`, `review_configuration`,
+  `analyze_trace` — deterministic, read-only except repo-confined
+  `output_path` writes (dry-run default); skill-id allowlist, no `..`
+  escape, secret scan reports line numbers only. Tests:
+  `tests/test_skill_tools.py` (19 tests).
 
 
 ## 0.2.0 (2026-10-09)

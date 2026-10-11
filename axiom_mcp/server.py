@@ -255,6 +255,42 @@ def tool_create_skill(args: dict) -> dict:
                       f"skills/{args['skill_id']}/checklists/review.yaml"]}
 
 
+def tool_analyze_repository(args: dict) -> dict:
+    return axiom_sdk.analyze_repository(args.get("repo_path"))
+
+
+def tool_generate_checklist(args: dict) -> dict:
+    return axiom_sdk.generate_checklist(
+        args["skill_id"], args.get("output_path"), args.get("repo_path"))
+
+
+def tool_generate_test_plan(args: dict) -> dict:
+    return axiom_sdk.generate_test_plan(
+        args["skill_id"], args.get("output_path"), args.get("repo_path"))
+
+
+def tool_generate_traceability_matrix(args: dict) -> dict:
+    return axiom_sdk.generate_traceability_matrix(
+        args["skill_id"], args.get("output_path"), args.get("repo_path"))
+
+
+def tool_generate_report(args: dict) -> dict:
+    return axiom_sdk.generate_report(
+        args["skill_id"], args.get("run_dir"), args.get("output_path"),
+        args.get("repo_path"))
+
+
+def tool_review_configuration(args: dict) -> dict:
+    return axiom_sdk.review_configuration(
+        args["skill_id"], args.get("config_path", ""),
+        args.get("repo_path"))
+
+
+def tool_analyze_trace(args: dict) -> dict:
+    return axiom_sdk.analyze_trace(
+        args.get("trace_path", ""), args.get("repo_path"))
+
+
 TOOLS: dict[str, dict] = {
     "version": {
         "description": "Axiom version (mirrors `axiom version`).",
@@ -512,6 +548,85 @@ TOOLS: dict[str, dict] = {
             required=["skill_id", "title"],
         ),
         "handler": tool_create_skill,
+    },
+    "analyze_repository": {
+        "description": "Deterministic artifact inventory of a repo (read-only; counts by artifact type).",
+        "inputSchema": _schema(
+            {"repo_path": _opt_str_prop("Repo-relative path (default: checkout root).")},
+        ),
+        "handler": tool_analyze_repository,
+    },
+    "generate_checklist": {
+        "description": "Merge a skill's checklist gates into Markdown (dry-run unless output_path is set; writes confined to repo).",
+        "inputSchema": _schema(
+            {
+                "skill_id": _str_prop("Skill id."),
+                "output_path": _opt_str_prop("Repo-relative write target (omit for dry-run)."),
+                "repo_path": _opt_str_prop("Repo root for confinement."),
+            },
+            required=["skill_id"],
+        ),
+        "handler": tool_generate_checklist,
+    },
+    "generate_test_plan": {
+        "description": "Map a skill's Execution Workflow steps to verification activities (dry-run unless output_path is set).",
+        "inputSchema": _schema(
+            {
+                "skill_id": _str_prop("Skill id."),
+                "output_path": _opt_str_prop("Repo-relative write target (omit for dry-run)."),
+                "repo_path": _opt_str_prop("Repo root for confinement."),
+            },
+            required=["skill_id"],
+        ),
+        "handler": tool_generate_test_plan,
+    },
+    "generate_traceability_matrix": {
+        "description": "Emit Step x Inputs/Outputs/Evidence/Status CSV for a skill (dry-run unless output_path is set).",
+        "inputSchema": _schema(
+            {
+                "skill_id": _str_prop("Skill id."),
+                "output_path": _opt_str_prop("Repo-relative write target (omit for dry-run)."),
+                "repo_path": _opt_str_prop("Repo root for confinement."),
+            },
+            required=["skill_id"],
+        ),
+        "handler": tool_generate_traceability_matrix,
+    },
+    "generate_report": {
+        "description": "Render a run manifest (or skill context) as Markdown (dry-run unless output_path is set).",
+        "inputSchema": _schema(
+            {
+                "skill_id": _str_prop("Skill id."),
+                "run_dir": _opt_str_prop("Repo-relative run-manifest dir or file."),
+                "output_path": _opt_str_prop("Repo-relative write target (omit for dry-run)."),
+                "repo_path": _opt_str_prop("Repo root for confinement."),
+            },
+            required=["skill_id"],
+        ),
+        "handler": tool_generate_report,
+    },
+    "review_configuration": {
+        "description": "Deterministic structural review of a config file (read-only; YAML/JSON parse, secret scan with line numbers only).",
+        "inputSchema": _schema(
+            {
+                "skill_id": _str_prop("Skill id whose gates apply."),
+                "config_path": _str_prop("Repo-relative config file."),
+                "repo_path": _opt_str_prop("Repo root for confinement."),
+            },
+            required=["skill_id", "config_path"],
+        ),
+        "handler": tool_review_configuration,
+    },
+    "analyze_trace": {
+        "description": "Deterministic trace summary: CSV/TSV histograms and time-range, or log keyword counts (read-only, capped).",
+        "inputSchema": _schema(
+            {
+                "trace_path": _str_prop("Repo-relative trace file."),
+                "repo_path": _opt_str_prop("Repo root for confinement."),
+            },
+            required=["trace_path"],
+        ),
+        "handler": tool_analyze_trace,
     },
 }
 

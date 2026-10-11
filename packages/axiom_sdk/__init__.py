@@ -227,3 +227,15 @@ def skill_report(skill_id: str, run_dir: str) -> dict:
     return {"skill": skill_id, "manifest": data,
             "summary": f"{skill_id}: {len(data.get('generated_files', []))} "
                        f"file(s), checks={data.get('acceptance_checks', [])}"}
+
+
+# P1 generator wrappers (deterministic; see packages/skill_tools.py).
+from packages.skill_tools import (  # noqa: E402,E501
+    analyze_repository,
+    analyze_trace,
+    generate_checklist,
+    generate_report,
+    generate_test_plan,
+    generate_traceability_matrix,
+    review_configuration,
+)
