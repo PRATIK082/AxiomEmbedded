@@ -4,6 +4,8 @@ AxiomEmbedded is an open, AI-native engineering platform for embedded and
 cyber-physical systems (Automotive, Aerospace, Defense, Industrial,
 Robotics). This page covers **OpenCode only**: how to install the pack, what
 it enables inside OpenCode, and every command/tool with usage and use cases.
+Section 10 is the full taxonomy reference (domains, platforms, standards,
+OS/languages/technologies, agents, skills) with cross-links.
 
 > Cross-client matrix: `clients/MCP_CLIENTS.md`.
 > Contributor view of the skill system: `docs/SKILL_FRAMEWORK.md`,
@@ -296,7 +298,285 @@ Full protocol: `docs/skills/AUTHORING_GUIDE.md`, `docs/skills/MULTI_AGENT_WORKFL
 `axiom install --client opencode --global --groups diagnostics` once; every
 project session inherits the same scoped pack + MCP server.
 
-## 9. Troubleshooting
+## 10. Taxonomy reference (domains · platforms · standards · OS · technologies · agents · skills)
+
+Everything below is generated from, or points at, repo source — not prose.
+Counts match the `0.2.0` tree (93 skills, 29 agents, 16 groups).
+
+### 10.1 Domains
+
+Two levels: repo-wide domain overlays in [`../domains/`](../domains/) (policies,
+profiles, reference content) and the per-skill `domain` facet in
+[`../skills/catalog.yaml`](../skills/catalog.yaml) that drives discovery.
+
+Repo domain overlays (15):
+
+| Overlay | Focus |
+|---|---|
+| `automotive` | AUTOSAR Classic/Adaptive, CAN/Ethernet, UDS/DoIP, functional safety, cybersecurity, ADAS, BMS, V2X, zonal/SDV |
+| `aerospace` | DO-178C/DO-254-style safety evidence workflows |
+| `defense` | Rugged/mission-critical embedded, secure boot concepts |
+| `industrial` | PLC-adjacent control review, fieldbus, IEC 61508 awareness |
+| `robotics` | ROS 2, sensor fusion, motion control, autonomy interfaces |
+| `energy` | BMS-adjacent/energy systems (see `energy` group) |
+| `generic-embedded` | Bare-metal/RTOS firmware, drivers, bring-up — reusable anywhere |
+| `consumer`, `iot`, `marine`, `medical`, `rail`, `semiconductor`, `space`, `telecom` | Overlay stubs: profile + manifest ready, skill coverage grows on demand |
+
+Skill-catalog `domain` values (what `engage --domain` and `--domains` match):
+
+| Value | Skills | Meaning |
+|---|---|---|
+| `all` | 41 | Cross-cutting: copied for ANY `--domains` filter, always in discovery |
+| `automotive` | 32 | Automotive-only workflows (AUTOSAR, networks, diagnostics, ADAS, BMS, …) |
+| `generic-embedded` | 9 | Portable firmware/testing/bring-up skills |
+| `platform` | 6 | Architecture/platform-review skills |
+| `robotics` | 2 | ROS 2 / system-integration skills |
+| `aerospace` | 1 | Aerospace/defense safety review |
+| `industrial` | 1 | Industrial control review |
+| `cross-domain` | 1 | Shared engineering workflow |
+
+```bash
+axiom engage --domain automotive --platform mcu --limit 5   # 76 total, paged
+axiom install --client opencode --domains automotive,robotics
+```
+
+### 10.2 Platforms
+
+Platform overlays in [`../platforms/`](../platforms/) (27): compute
+`arm-cortex-m/a/r`, `risc-v`, `tricore`, `rh850`, `powerpc`, `x86`, `xtensa`,
+`dsp`, `gpu`, `npu`, `fpga`, `mcu`, `mpu`, `soc`, `mpsoc`; OS/RTOS
+`bare-metal`, `freertos`, `zephyr`, `nuttx`, `embedded-linux`, `rtos`,
+`ros2`; standards `autosar-classic`, `autosar-adaptive`; plus `generic`.
+
+Skill-level `platforms` bindings (what `--platform` and `by_platform` match —
+a skill lists every target it applies to, so counts overlap):
+
+| Platform | Skills | Typical use |
+|---|---|---|
+| `mcu` | 46 | 8/16/32-bit microcontroller firmware |
+| `mpu` | 44 | Microprocessor / application-core software |
+| `all` | 32 | Platform-agnostic process skills |
+| `soc` / `mpsoc` | 18 / 9 | Heterogeneous SoC, domain/zonal controllers |
+| `autosar-classic` | 14 | OSEK/OIL, BSW, RTE, COM stack work |
+| `autosar-adaptive` | 11 | ara::com, execution/state management |
+| `bare-metal` | 7 | No-OS firmware, bootloaders, drivers |
+| `rtos` | 7 | FreeRTOS/Zephyr-style tasking reviews |
+| `linux` | 4 | Embedded-Linux userspace, gateway/SDV compute |
+
+```bash
+axiom engage --domain automotive --platform autosar-classic
+```
+
+### 10.3 Standards (17, as declared by skills)
+
+Guidance references, never certification claims — safety/security outputs
+always carry a human-review gate.
+
+| Area | Standards |
+|---|---|
+| Functional safety | `ISO 26262:2018`, `IEC 61508` |
+| Cybersecurity | `ISO/SAE 21434` |
+| Coding | `MISRA C`, `CERT C` |
+| Aerospace | `DO-178C`, `DO-254` |
+| In-vehicle comms & diagnostics | `AUTOSAR Classic R24-11`, `AUTOSAR Adaptive R24-11`, `AUTOSAR` (general), `AUTOSAR SOME/IP`, `ISO 11898` (CAN), `ISO 13400-2` (DoIP), `ISO 14229-1` (UDS), `IEEE 802.1 TSN`, `ETSI ITS-G5` (V2X) |
+| Process | `Automotive SPICE` |
+
+Matching rule (`packs`/`compose`): tools with an empty `standards` facet are
+generic and always match; otherwise at least one requested standard must be
+listed. Pass through literally, e.g.:
+
+```bash
+axiom packs --domain automotive --platform mcu --standard "ISO 14229-1"
+axiom compose "Design UDS diagnostics for a gateway ECU" --domain automotive --standard "ISO 14229-1"
+```
+
+### 10.4 OS, languages, hardware, technologies
+
+`os` and `languages` are **profile-driven enums** (see [`../profiles/`](../profiles/),
+e.g. [`../profiles/automotive-mcu.yaml`](../profiles/automotive-mcu.yaml)):
+
+| Axis | Values | Where it binds |
+|---|---|---|
+| `os` | `autosar-classic`, `bare-metal`, `embedded-linux`, `generic`, `linux`, `ros2`, `rtos` | `profiles/*.yaml` → `stage`, `run_plan`, agent context |
+| `languages` | `c`, `cpp`, `python`, `rust` | profiles → review/analysis scope |
+| `hardware` | free-form (`arm-cortex-m`, `tricore`, `soc`, …) | `compose --hardware`; carried in output schema for future index scoring |
+| `technology` | free-form (`mcu`, `soc`, `soc-class-gateway`, …) | `compose --technology`; same passthrough |
+| `lifecycle` | profile value (`v-model`, …) + skill `lifecycle` facet | `stage` detects phase from evidence |
+
+### 10.5 Agents (29)
+
+Contracts live in [`../agents/`](../agents/) (`AGENT.md` + `manifest.json`
+per agent); OpenCode copies go to `.opencode/agents/*.md`. Purpose quotes
+are verbatim from each manifest.
+
+| Agent | Purpose |
+|---|---|
+| `ai-validation` | Evaluates embedded AI models for accuracy, resource use and deployment readiness. |
+| `brownfield-recovery` | Recovers architecture, dependencies, tests and baselines from an existing product. |
+| `change-impact` | Computes change impact across the artifact graph. |
+| `code-review` | Reviews source changes against architecture, rules, tests and scope. |
+| `debugging` | Reproduces faults and drives root-cause analysis. |
+| `dependency-analysis` | Builds module, symbol and dependency relationships. |
+| `diag-auto-review` | Binds an external CLI review/fix agent to Axiom diag skills. |
+| `documentation` | Generates and updates engineering documentation from artifacts. |
+| `engineering-manager` | Plans multi-step engineering work, gates and evidence. |
+| `hardware-architecture` | Models compute, memory, peripherals, boards and HW/SW boundaries. |
+| `hardware-bringup` | Guides hardware/software bring-up and evidence capture. |
+| `implementation` | Implements scoped code changes under project rules. |
+| `intent-router` | Routes a user request to the smallest engineering workflow and context slice. |
+| `migration` | Plans legacy/standard/platform migrations with rollback evidence. |
+| `performance` | Analyses CPU, memory, timing, power and latency constraints. |
+| `project-audit` | Audits repository health, traceability and process completeness. |
+| `release` | Assembles release evidence and release metadata. |
+| `requirements` | Creates, normalizes, decomposes and traces requirements. |
+| `root-cause` | Builds evidence-backed causal hypotheses and verification plans. |
+| `safety` | Performs safety-oriented evidence and gate checks without claiming certification. |
+| `security` | Performs secure-development and threat-oriented checks. |
+| `skill-implementer` / `skill-orchestrator` | Task agents (writes enabled): implement / orchestrate skill work. |
+| `skill-researcher` / `skill-verifier` | Task agents (read-only): research / verify skill work. |
+| `software-architecture` | Designs software components, interfaces, concurrency and deployment. |
+| `static-analysis` | Aggregates and explains static-analysis findings. |
+| `system-architecture` | Maintains system architecture models and interfaces. |
+| `test-engineering` | Designs and executes unit, integration, regression and system testing. |
+
+Use in OpenCode: TUI agent picker, or `axiom oc run --agent debugging "…"`,
+or MCP `route` to let the model choose. Permissions/approvals per agent are
+in its `manifest.json` (`git_push: false`, approval gates, …).
+
+### 10.6 Skills by group (93, 16 rule-based views)
+
+Groups are defined in [`../skills/groups.yaml`](../skills/groups.yaml) as
+OR-of-AND match rules over id/domain/subdomain/tags/maturity — **views, not
+folders** (a skill may appear in two groups). Full metadata per skill:
+[`../skills/catalog.yaml`](../skills/catalog.yaml); full text:
+[`../skills/`](../skills/). Maturity: 🟢 production · 🟡 beta · 🔬 experimental.
+`axiom engage --group <id>` / `axiom install --client opencode --groups <ids>`.
+
+**autosar-classic** (6): [autosar](../skills/autosar/SKILL.md) 🟢 ·
+[axiom-autosar-classic-architecture](../skills/axiom-autosar-classic-architecture/SKILL.md) 🟡 ·
+[axiom-autosar-classic-bsw-integration](../skills/axiom-autosar-classic-bsw-integration/SKILL.md) 🟡 ·
+[axiom-autosar-com-stack](../skills/axiom-autosar-com-stack/SKILL.md) 🔬 ·
+[axiom-autosar-os-config](../skills/axiom-autosar-os-config/SKILL.md) 🔬 ·
+[axiom-autosar-rte-design](../skills/axiom-autosar-rte-design/SKILL.md) 🔬
+
+**autosar-adaptive** (2): [automotive-middleware](../skills/automotive-middleware/SKILL.md) 🟢 ·
+[axiom-autosar-adaptive-deployment](../skills/axiom-autosar-adaptive-deployment/SKILL.md) 🔬
+
+**vehicle-networks** (4): [automotive-networks](../skills/automotive-networks/SKILL.md) 🟢 ·
+[axiom-automotive-ethernet-someip](../skills/axiom-automotive-ethernet-someip/SKILL.md) 🔬 ·
+[axiom-can-network-design](../skills/axiom-can-network-design/SKILL.md) 🟡 ·
+[axiom-can-stack-integration](../skills/axiom-can-stack-integration/SKILL.md) 🔬
+
+**diagnostics** (3): [automotive-diagnostics](../skills/automotive-diagnostics/SKILL.md) 🟢 ·
+[axiom-diagnostics-doip](../skills/axiom-diagnostics-doip/SKILL.md) 🔬 ·
+[axiom-diagnostics-uds](../skills/axiom-diagnostics-uds/SKILL.md) 🟡
+
+**safety-security** (6): [automotive-cybersecurity](../skills/automotive-cybersecurity/SKILL.md) 🟢 ·
+[axiom-aerospace-defense-safety-review](../skills/axiom-aerospace-defense-safety-review/SKILL.md) 🔬 ·
+[axiom-functional-safety](../skills/axiom-functional-safety/SKILL.md) 🔬 ·
+[axiom-vehicle-cybersecurity](../skills/axiom-vehicle-cybersecurity/SKILL.md) 🔬 ·
+[safety](../skills/safety/SKILL.md) 🟢 · [security](../skills/security/SKILL.md) 🟢
+
+**adas** (3): [adas](../skills/adas/SKILL.md) 🟢 ·
+[axiom-adas-perception-pipeline](../skills/axiom-adas-perception-pipeline/SKILL.md) 🔬 ·
+[axiom-adas-validation](../skills/axiom-adas-validation/SKILL.md) 🔬
+
+**energy** (2): [axiom-bms-design](../skills/axiom-bms-design/SKILL.md) 🔬 ·
+[axiom-bms-diagnostics](../skills/axiom-bms-diagnostics/SKILL.md) 🔬
+
+**software-defined-vehicle** (5): [automotive-body](../skills/automotive-body/SKILL.md) 🟢 ·
+[automotive-cockpit](../skills/automotive-cockpit/SKILL.md) 🟢 ·
+[automotive-ota](../skills/automotive-ota/SKILL.md) 🟢 ·
+[axiom-v2x-communication](../skills/axiom-v2x-communication/SKILL.md) 🔬 ·
+[axiom-zonal-architecture](../skills/axiom-zonal-architecture/SKILL.md) 🔬
+
+**release-process** (15): [automotive-coding](../skills/automotive-coding/SKILL.md) 🟢 ·
+[automotive-spice](../skills/automotive-spice/SKILL.md) 🟢 ·
+[automotive-vcycle](../skills/automotive-vcycle/SKILL.md) 🟢 ·
+[axiom-automotive-release-readiness](../skills/axiom-automotive-release-readiness/SKILL.md) 🔬 ·
+[change-impact](../skills/change-impact/SKILL.md) 🟢 ·
+[configuration-management](../skills/configuration-management/SKILL.md) 🟢 ·
+[documentation](../skills/documentation/SKILL.md) 🟢 · [evidence](../skills/evidence/SKILL.md) 🟢 ·
+[legacy-recovery](../skills/legacy-recovery/SKILL.md) 🟢 ·
+[project-audit](../skills/project-audit/SKILL.md) 🟢 · [release](../skills/release/SKILL.md) 🟢 ·
+[requirements](../skills/requirements/SKILL.md) 🟢 ·
+[requirements-traceability](../skills/requirements-traceability/SKILL.md) 🟢 ·
+[traceability](../skills/traceability/SKILL.md) 🟢 · [validation](../skills/validation/SKILL.md) 🟢
+
+**embedded-core** (25): [ai-validation](../skills/ai-validation/SKILL.md) 🟢 ·
+[axiom-embedded-firmware-bringup](../skills/axiom-embedded-firmware-bringup/SKILL.md) 🔬 ·
+[axiom-hil-test-planning](../skills/axiom-hil-test-planning/SKILL.md) 🔬 ·
+[axiom-memory-and-performance-analysis](../skills/axiom-memory-and-performance-analysis/SKILL.md) 🔬 ·
+[axiom-rtos-architecture](../skills/axiom-rtos-architecture/SKILL.md) 🔬 ·
+[axiom-test-automation](../skills/axiom-test-automation/SKILL.md) 🔬 ·
+[axiom-trace-analysis](../skills/axiom-trace-analysis/SKILL.md) 🔬 ·
+[bare-metal](../skills/bare-metal/SKILL.md) 🟢 · [bootloader](../skills/bootloader/SKILL.md) 🟢 ·
+[debugging](../skills/debugging/SKILL.md) 🟢 · [drivers](../skills/drivers/SKILL.md) 🟢 ·
+[edge-ai](../skills/edge-ai/SKILL.md) 🟢 · [embedded-c](../skills/embedded-c/SKILL.md) 🟢 ·
+[embedded-cpp](../skills/embedded-cpp/SKILL.md) 🟢 ·
+[embedded-linux](../skills/embedded-linux/SKILL.md) 🟢 ·
+[fault-injection](../skills/fault-injection/SKILL.md) 🟢 ·
+[hardware-architecture](../skills/hardware-architecture/SKILL.md) 🟢 ·
+[hardware-bringup](../skills/hardware-bringup/SKILL.md) 🟢 · [mcu](../skills/mcu/SKILL.md) 🟢 ·
+[mpsoc](../skills/mpsoc/SKILL.md) 🟢 · [mpu](../skills/mpu/SKILL.md) 🟢 ·
+[performance](../skills/performance/SKILL.md) 🟢 · [rtos](../skills/rtos/SKILL.md) 🟢 ·
+[rust-embedded](../skills/rust-embedded/SKILL.md) 🟢 · [soc](../skills/soc/SKILL.md) 🟢
+
+**testing-verification** (9): [axiom-hil-test-planning](../skills/axiom-hil-test-planning/SKILL.md) 🔬 ·
+[axiom-static-analysis-triage](../skills/axiom-static-analysis-triage/SKILL.md) 🟢 ·
+[axiom-test-automation](../skills/axiom-test-automation/SKILL.md) 🔬 ·
+[coverage](../skills/coverage/SKILL.md) 🟢 ·
+[integration-test](../skills/integration-test/SKILL.md) 🟢 ·
+[simulation](../skills/simulation/SKILL.md) 🟢 · [system-test](../skills/system-test/SKILL.md) 🟢 ·
+[test-automation](../skills/test-automation/SKILL.md) 🟢 · [unit-test](../skills/unit-test/SKILL.md) 🟢
+
+**robotics** (2): [axiom-robotics-system-integration](../skills/axiom-robotics-system-integration/SKILL.md) 🔬 ·
+[robotics](../skills/robotics/SKILL.md) 🟢
+
+**industrial** (1): [axiom-industrial-control-review](../skills/axiom-industrial-control-review/SKILL.md) 🔬
+
+**aerospace-defense** (1): [axiom-aerospace-defense-safety-review](../skills/axiom-aerospace-defense-safety-review/SKILL.md) 🔬
+
+**architecture** (5): [architecture](../skills/architecture/SKILL.md) 🟢 ·
+[axiom-architecture-decision-records](../skills/axiom-architecture-decision-records/SKILL.md) 🟢 ·
+[axiom-interface-contract-design](../skills/axiom-interface-contract-design/SKILL.md) 🟢 ·
+[axiom-platform-architecture-review](../skills/axiom-platform-architecture-review/SKILL.md) 🔬 ·
+[software-architecture](../skills/software-architecture/SKILL.md) 🟢
+
+**ways-of-working** (7): [axiom-embedded-cicd](../skills/axiom-embedded-cicd/SKILL.md) 🟢 ·
+[axiom-technical-debt-assessment](../skills/axiom-technical-debt-assessment/SKILL.md) 🟢 ·
+[build-system](../skills/build-system/SKILL.md) 🟢 · [code-review](../skills/code-review/SKILL.md) 🟢 ·
+[feature-development](../skills/feature-development/SKILL.md) 🟢 ·
+[implementation](../skills/implementation/SKILL.md) 🟢 ·
+[static-analysis](../skills/static-analysis/SKILL.md) 🟢
+
+Skill-to-skill links (`related_skills` / `extends` / `sub_skills` /
+domain & platform overlays) live in the same
+[`catalog.yaml`](../skills/catalog.yaml) — single source, edited via
+`axiom skills link --set`, enforced by `axiom skills validate`. Adding a
+group = one rule block in [`groups.yaml`](../skills/groups.yaml), no folder
+moves. Rule semantics: [`../docs/skills/GROUPS.md`](../docs/skills/GROUPS.md).
+
+### 10.7 How the facets connect (cross-link map)
+
+```
+request ──engage(domain, platform, group, limit)──▶ skills + profiles + context_files
+                │                       │
+   domains/ overlays          platforms/ overlays
+   profiles/*.yaml ──os/languages/lifecycle──▶ stage · run_plan · agent context
+   skills/catalog.yaml ──domain/subdomain/tags/maturity──▶ groups.yaml views ──▶ by_group index
+   skills/*/SKILL.md ──platforms/standards/inputs/outputs──▶ run_skill · generators
+   standards requested ──packs──▶ tool/pip packs (empty facet = generic = always matches)
+   agents/*/manifest.json ──capabilities/permissions/approval──▶ route · oc --agent · MCP
+```
+
+Entry points per role: OpenCode user → §4–§6 of this doc; skill author →
+[`../docs/skills/AUTHORING_GUIDE.md`](../docs/skills/AUTHORING_GUIDE.md);
+parallel-agent teams →
+[`../docs/skills/MULTI_AGENT_WORKFLOW.md`](../docs/skills/MULTI_AGENT_WORKFLOW.md);
+framework standard → [`../docs/SKILL_FRAMEWORK.md`](../docs/SKILL_FRAMEWORK.md).
+
+## 11. Troubleshooting
 
 | Symptom | Fix |
 |---|---|
