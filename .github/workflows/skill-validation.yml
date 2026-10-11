@@ -9,7 +9,6 @@ jobs:
         with: {python-version: "3.11"}
       - run: pip install pyyaml pytest
       - run: python scripts/scaffold_axiom_skills.py --check
-      - run: python scripts/link_related_skills.py --check
       - run: python scripts/enrich_catalog_facets.py --check
       - run: python scripts/validate_skills.py
       - run: python scripts/skill_pipeline.py --check

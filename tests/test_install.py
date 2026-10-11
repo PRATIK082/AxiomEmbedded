@@ -9,15 +9,20 @@ import sys
 import pytest
 
 ROOT = pathlib.Path(__file__).resolve().parents[1]
-CLIENTS = ["opencode", "claude", "codex", "gemini", "copilot"]
+CLIENTS = ["opencode", "claude", "codex", "gemini", "copilot",
+           "cursor", "cline", "aider", "kilo", "openhands"]
 
 
-def run_install(*argv: str, cwd: pathlib.Path) -> dict:
+def run_cli(*argv: str, cwd: pathlib.Path) -> dict:
     proc = subprocess.run(
-        [sys.executable, "-m", "axiom_cli", "install", *argv],
+        [sys.executable, "-m", "axiom_cli", *argv],
         capture_output=True, text=True, check=True, cwd=cwd,
     )
     return json.loads(proc.stdout)
+
+
+def run_install(*argv: str, cwd: pathlib.Path) -> dict:
+    return run_cli("install", *argv, cwd=cwd)
 
 
 @pytest.mark.parametrize("client", CLIENTS)
@@ -95,3 +100,63 @@ def test_install_global_scope_uses_home(tmp_path, client):
     res = run_install("--client", client, "--global", "--home", str(home), "--path", str(proj), cwd=ROOT)
     assert res["scope"] == "global"
     assert not list(proj.rglob("*")), f"project dir must stay untouched: {res}"
+
+def test_new_clients_project_files(tmp_path):
+    proj = tmp_path / "proj"
+    proj.mkdir()
+    run_install("--client", "cursor", "--path", str(proj), cwd=ROOT)
+    assert "axiom-embedded" in json.loads((proj / ".cursor" / "mcp.json").read_text(encoding="utf-8"))["mcpServers"]
+    run_install("--client", "cline", "--path", str(proj), cwd=ROOT)
+    assert "axiom-embedded" in json.loads((proj / ".cline" / "mcp.json").read_text(encoding="utf-8"))["mcpServers"]
+    run_install("--client", "aider", "--path", str(proj), cwd=ROOT)
+    assert "axiom-embedded" in (proj / ".aider.conf.yml").read_text(encoding="utf-8")
+    run_install("--client", "kilo", "--path", str(proj), cwd=ROOT)
+    assert "axiom-embedded" in (proj / ".kilo" / "kilo.jsonc").read_text(encoding="utf-8")
+
+
+def test_uninstall_round_trip(tmp_path):
+    from packages.installer import uninstall_client
+    proj = tmp_path / "proj"
+    proj.mkdir()
+    run_install("--client", "cursor", "--path", str(proj), cwd=ROOT)
+    assert (proj / ".cursor" / "mcp.json").exists()
+    res = uninstall_client("cursor", proj, tmp_path / "home", ROOT, is_global=False)
+    assert res["action"] == "uninstall"
+    if (proj / ".cursor" / "mcp.json").exists():
+        data = json.loads((proj / ".cursor" / "mcp.json").read_text(encoding="utf-8"))
+        assert "axiom-embedded" not in data.get("mcpServers", {}), res
+    # aider hand-managed file: pristine removes, divergent keeps
+    run_install("--client", "aider", "--path", str(proj), cwd=ROOT)
+    res = uninstall_client("aider", proj, tmp_path / "home", ROOT, is_global=False)
+    assert not (proj / ".aider.conf.yml").exists(), res
+    run_install("--client", "aider", "--path", str(proj), cwd=ROOT)
+    (proj / ".aider.conf.yml").write_text("# mine\n", encoding="utf-8")
+    res = uninstall_client("aider", proj, tmp_path / "home", ROOT, is_global=False)
+    assert (proj / ".aider.conf.yml").read_text(encoding="utf-8") == "# mine\n"
+    assert any("kept-divergent" in k for k in res["kept"]), res
+
+
+def test_update_reports_stale_and_refreshes(tmp_path):
+    from packages.installer import update_client
+    proj = tmp_path / "proj"
+    proj.mkdir()
+    run_install("--client", "copilot", "--path", str(proj), cwd=ROOT)
+    target = proj / ".github" / "copilot-instructions.md"
+    target.write_text("diverged", encoding="utf-8")
+    res = update_client("copilot", proj, tmp_path / "home", ROOT, is_global=False)
+    assert res["action"] == "update"
+    assert str(target) in res["stale"], res
+    assert target.read_text(encoding="utf-8") == "diverged"  # default: kept
+    res = update_client("copilot", proj, tmp_path / "home", ROOT, is_global=False, force=True)
+    assert str(target) in res["refreshed"], res
+    assert target.read_text(encoding="utf-8") != "diverged"
+
+
+def test_mcp_uninstall_update_unknown_client():
+    from axiom_mcp.server import dispatch
+    res = dispatch("tools/call", {"name": "uninstall", "arguments": {"client": "nope"}})
+    assert res["status"] == "error"
+    res = dispatch("tools/call", {"name": "update", "arguments": {"client": "nope"}})
+    assert res["status"] == "error"
+    res = dispatch("tools/call", {"name": "install", "arguments": {"client": "nope"}})
+    assert res["status"] == "error"

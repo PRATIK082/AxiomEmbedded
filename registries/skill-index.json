@@ -1336,5 +1336,135 @@
       "robotics",
       "soc"
     ]
+  },
+  "by_group": {
+    "adas": [
+      "adas",
+      "axiom-adas-perception-pipeline",
+      "axiom-adas-validation"
+    ],
+    "aerospace-defense": [
+      "axiom-aerospace-defense-safety-review"
+    ],
+    "architecture": [
+      "architecture",
+      "axiom-architecture-decision-records",
+      "axiom-interface-contract-design",
+      "axiom-platform-architecture-review",
+      "software-architecture"
+    ],
+    "autosar-adaptive": [
+      "automotive-middleware",
+      "axiom-autosar-adaptive-deployment"
+    ],
+    "autosar-classic": [
+      "autosar",
+      "axiom-autosar-classic-architecture",
+      "axiom-autosar-classic-bsw-integration",
+      "axiom-autosar-com-stack",
+      "axiom-autosar-os-config",
+      "axiom-autosar-rte-design"
+    ],
+    "diagnostics": [
+      "automotive-diagnostics",
+      "axiom-diagnostics-doip",
+      "axiom-diagnostics-uds"
+    ],
+    "embedded-core": [
+      "ai-validation",
+      "axiom-embedded-firmware-bringup",
+      "axiom-hil-test-planning",
+      "axiom-memory-and-performance-analysis",
+      "axiom-rtos-architecture",
+      "axiom-test-automation",
+      "axiom-trace-analysis",
+      "bare-metal",
+      "bootloader",
+      "debugging",
+      "drivers",
+      "edge-ai",
+      "embedded-c",
+      "embedded-cpp",
+      "embedded-linux",
+      "fault-injection",
+      "hardware-architecture",
+      "hardware-bringup",
+      "mcu",
+      "mpsoc",
+      "mpu",
+      "performance",
+      "rtos",
+      "rust-embedded",
+      "soc"
+    ],
+    "energy": [
+      "axiom-bms-design",
+      "axiom-bms-diagnostics"
+    ],
+    "industrial": [
+      "axiom-industrial-control-review"
+    ],
+    "release-process": [
+      "automotive-coding",
+      "automotive-spice",
+      "automotive-vcycle",
+      "axiom-automotive-release-readiness",
+      "change-impact",
+      "configuration-management",
+      "documentation",
+      "evidence",
+      "legacy-recovery",
+      "project-audit",
+      "release",
+      "requirements",
+      "requirements-traceability",
+      "traceability",
+      "validation"
+    ],
+    "robotics": [
+      "axiom-robotics-system-integration",
+      "robotics"
+    ],
+    "safety-security": [
+      "automotive-cybersecurity",
+      "axiom-aerospace-defense-safety-review",
+      "axiom-functional-safety",
+      "axiom-vehicle-cybersecurity",
+      "safety",
+      "security"
+    ],
+    "software-defined-vehicle": [
+      "automotive-body",
+      "automotive-cockpit",
+      "automotive-ota",
+      "axiom-v2x-communication",
+      "axiom-zonal-architecture"
+    ],
+    "testing-verification": [
+      "axiom-hil-test-planning",
+      "axiom-static-analysis-triage",
+      "axiom-test-automation",
+      "coverage",
+      "integration-test",
+      "simulation",
+      "system-test",
+      "test-automation",
+      "unit-test"
+    ],
+    "vehicle-networks": [
+      "automotive-networks",
+      "axiom-automotive-ethernet-someip",
+      "axiom-can-network-design",
+      "axiom-can-stack-integration"
+    ],
+    "ways-of-working": [
+      "axiom-embedded-cicd",
+      "axiom-technical-debt-assessment",
+      "build-system",
+      "code-review",
+      "feature-development",
+      "implementation",
+      "static-analysis"
+    ]
   }
 }

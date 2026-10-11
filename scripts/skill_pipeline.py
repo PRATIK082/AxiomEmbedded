@@ -1,11 +1,18 @@
 # SPDX-License-Identifier: Apache-2.0
-"""One-command skill pipeline: link -> enrich -> index -> clients -> validate.
+"""One-command skill pipeline: enrich -> index -> clients -> validate.
 
-Why this exists: keeping skills consistent used to mean remembering five
+Why this exists: keeping skills consistent used to mean remembering several
 scripts in the right order. Now there is exactly one command:
 
   python scripts/skill_pipeline.py            # apply (writes)
   python scripts/skill_pipeline.py --check    # verify only (CI gate)
+
+Single-source rule: SKILL.md frontmatter owns per-skill facts; catalog.yaml
+owns registry facts (facets, skill graph). Everything else (JSON index,
+client mirrors) is derived. The old links.yaml + link_related_skills.py are
+retired: graph edits go straight into catalog.yaml via
+`axiom skills link --set` (or SDK link_skill / MCP link_skill), and the
+validator enforces existence + related-symmetry as hard errors.
 
 Design rule behind it: skills are DATA (SKILL.md + YAML + templates under
 skills/), never code. Adding or editing a skill must never require a .py
@@ -53,7 +60,6 @@ def _generated_files() -> list[pathlib.Path]:
 
 def run_pipeline(check: bool = False) -> dict:
     """Run (or check) the full pipeline. Returns JSON-serializable report."""
-    import link_related_skills as links
     import enrich_catalog_facets as enrich
     import sync_skill_index as sync_idx
     import sync_clients as clients
@@ -63,12 +69,12 @@ def run_pipeline(check: bool = False) -> dict:
     # (e.g. --check) never leak into a sub-parser.
     saved_argv, sys.argv = sys.argv, [sys.argv[0]]
     try:
-        return _run(check, links, enrich, sync_idx, clients, validate_all, record_steps=True)
+        return _run(check, enrich, sync_idx, clients, validate_all, record_steps=True)
     finally:
         sys.argv = saved_argv
 
 
-def _run(check: bool, links, enrich, sync_idx, clients, validate_all, record_steps: bool) -> dict:
+def _run(check: bool, enrich, sync_idx, clients, validate_all, record_steps: bool) -> dict:
     steps: list[dict] = []
     ok = True
 
@@ -80,7 +86,6 @@ def _run(check: bool, links, enrich, sync_idx, clients, validate_all, record_ste
         # Writers run in order; afterwards we compare hashes and fail if
         # anything moved (files were stale). Writers are idempotent, so a
         # second run is a no-op on a clean tree.
-        links.apply()
         enrich.enrich(False)
         sync_idx.main()
         clients.main()
@@ -93,8 +98,7 @@ def _run(check: bool, links, enrich, sync_idx, clients, validate_all, record_ste
         if rec == "STALE":
             ok = False
     else:
-        for name, fn in (("link", links.apply),
-                         ("enrich", lambda: enrich.enrich(False)),
+        for name, fn in (("enrich", lambda: enrich.enrich(False)),
                          ("sync-index", sync_idx.main),
                          ("sync-clients", clients.main)):
             try:

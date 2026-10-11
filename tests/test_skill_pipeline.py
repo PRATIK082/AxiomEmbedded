@@ -25,7 +25,7 @@ def test_pipeline_apply_idempotent():
     applied = axiom_sdk.skill_pipeline(check=False)
     assert applied["status"] == "ok", applied
     assert [s["step"] for s in applied["steps"]] == [
-        "link", "enrich", "sync-index", "sync-clients", "validate"]
+        "enrich", "sync-index", "sync-clients", "validate"]
     after = axiom_sdk.skill_pipeline(check=True)
     assert after["status"] == "ok"
 
@@ -59,7 +59,7 @@ def test_install_domains_end_to_end(tmp_path):
     res = install_client("opencode", dest, tmp_path / "home", ROOT, is_global=False,
                          domains=["robotics"])
     assert res["domains"] == ["robotics"]
-    assert any("domain filter" in n for n in res["notes"])
+    assert any("domains=[" in n for n in res["notes"])
     copied_skills = [w for w in res["written"] if "/skills/" in w]
     assert copied_skills, res
     idx = json.loads((ROOT / "registries" / "skill-index.json").read_text(encoding="utf-8"))

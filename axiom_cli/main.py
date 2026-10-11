@@ -149,8 +149,9 @@ def workflow_plan(profile: str, entry: str | None) -> int:
     print(json.dumps({"profile": data.get("id"), "entry": mode, "start_phase": starting_phase(mode), "lifecycle": data.get("lifecycle", "v-model")}, indent=2))
     return 0
 
-def engage_cmd(domain: str | None, platform: str | None) -> int:
-    print(json.dumps(engage(domain, platform), indent=2))
+def engage_cmd(domain: str | None, platform: str | None, group: str | None = None,
+               limit: int = 0) -> int:
+    print(json.dumps(engage(domain, platform, group, limit), indent=2))
     return 0
 
 
@@ -269,7 +270,7 @@ def research_cmd(question: str, backend: str = "auto", max_subquestions: int = 3
 
 
 def install_cmd(client: str, global_install: bool, path: str, source: str | None, home: str | None,
-                domains: list[str] | None = None) -> int:
+                domains: list[str] | None = None, groups: list[str] | None = None) -> int:
     import pathlib as _pl
     from packages.installer import find_content_source, install_client
 
@@ -285,6 +286,49 @@ def install_cmd(client: str, global_install: bool, path: str, source: str | None
         content,
         is_global=global_install,
         domains=domains,
+        groups=groups,
+    )
+    print(json.dumps({"status": "ok", **result}, indent=2))
+    return 0
+
+
+def _csv(value: str | None) -> list[str] | None:
+    return [d.strip() for d in (value or "").split(",") if d.strip()] or None
+
+
+def uninstall_cmd(client: str, global_install: bool, path: str, home: str | None) -> int:
+    import pathlib as _pl
+    from packages.installer import uninstall_client
+
+    result = uninstall_client(
+        client,
+        _pl.Path(path).resolve(),
+        _pl.Path(home).expanduser() if home else _pl.Path.home(),
+        is_global=global_install,
+    )
+    print(json.dumps({"status": "ok", **result}, indent=2))
+    return 0
+
+
+def update_cmd(client: str, global_install: bool, path: str, source: str | None,
+               home: str | None, domains: list[str] | None = None,
+               groups: list[str] | None = None) -> int:
+    import pathlib as _pl
+    from packages.installer import find_content_source, update_client
+
+    try:
+        content = find_content_source(source)
+    except ValueError as exc:
+        print(json.dumps({"status": "error", "message": str(exc)}, indent=2))
+        return 1
+    result = update_client(
+        client,
+        _pl.Path(path).resolve(),
+        _pl.Path(home).expanduser() if home else _pl.Path.home(),
+        content,
+        is_global=global_install,
+        domains=domains,
+        groups=groups,
     )
     print(json.dumps({"status": "ok", **result}, indent=2))
     return 0
@@ -353,6 +397,15 @@ def skills_cmd(action: str, args: argparse.Namespace) -> int:
         rep = run_pipeline(check=bool(getattr(args, "check", False)))
         print(json.dumps(rep, indent=2))
         return 0 if rep["status"] == "ok" else 1
+    if action == "link":
+        from packages.skills.registry import set_link
+        try:
+            res = set_link(args.kind, args.skill_id, args.values or [])
+        except ValueError as exc:
+            print(json.dumps({"status": "error", "message": str(exc)}, indent=2))
+            return 1
+        print(json.dumps({"status": "ok", **res}, indent=2))
+        return 0
     return 1
 
 
@@ -372,6 +425,8 @@ def main() -> int:
     wf = sp.add_parser("workflow"); ws = wf.add_subparsers(dest="workflow_cmd"); wp = ws.add_parser("plan"); wp.add_argument("--profile", required=True); wp.add_argument("--entry")
     rt = sp.add_parser("route"); rt.add_argument("request")
     en = sp.add_parser("engage"); en.add_argument("--domain"); en.add_argument("--platform")
+    en.add_argument("--group", default=None, help="Restrict to a skills/groups.yaml view")
+    en.add_argument("--limit", type=int, default=0, help="Cap returned skills (0 = all; reply carries total/truncated)")
     pk = sp.add_parser("packs", help="Select plug-and-play tool/pip packs by domain+platform+standards"); pk.add_argument("--domain"); pk.add_argument("--platform");     pk.add_argument("--standard", dest="standards", action="append", default=[], help="Repeatable standard filter (e.g. --standard 'ISO 14229-1')")
     cm = sp.add_parser("compose", help="Compose a skill mind-map DAG from a prompt + facet axes"); cm.add_argument("prompt"); cm.add_argument("--domain"); cm.add_argument("--platform"); cm.add_argument("--os"); cm.add_argument("--language"); cm.add_argument("--standard", dest="standards", action="append", default=[]); cm.add_argument("--hardware"); cm.add_argument("--technology")
     rn = sp.add_parser("run"); rn.add_argument("request"); rn.add_argument("--domain"); rn.add_argument("--platform")
@@ -387,7 +442,8 @@ def main() -> int:
     rs.add_argument("--output", default=None, help="Write the markdown report to FILE")
     rs.add_argument("--model", default=None, help="Model id for the opencode backend")
     ins = sp.add_parser("install", help="Install the Axiom pack into a project or user-global config")
-    ins.add_argument("--client", required=True, choices=["opencode", "claude", "codex", "gemini", "copilot"])
+    ins.add_argument("--client", required=True, choices=["opencode", "claude", "codex", "gemini", "copilot",
+                                                         "cursor", "cline", "aider", "kilo", "openhands"])
     ins.add_argument("--global", dest="global_install", action="store_true", help="Install to user-global config instead of a project dir")
     ins.add_argument("--path", default=".", help="Target project dir (project scope; default: cwd)")
     ins.add_argument("--source", default=None, help="Axiom content source dir (default: auto-detect checkout)")
@@ -395,6 +451,25 @@ def main() -> int:
     ins.add_argument("--domains", default=None,
                      help="Comma-separated domain filter for copied skills (e.g. automotive,robotics). "
                           "Skills with domains=[all] are always included. MCP discovery filters at runtime via engage().")
+    ins.add_argument("--groups", default=None,
+                     help="Comma-separated skill-group filter from skills/groups.yaml "
+                          "(e.g. diagnostics,testing-verification). Combines with --domains (AND).")
+    uns = sp.add_parser("uninstall", help="Remove the Axiom pack (MCP entry, generated files); never touches user content")
+    uns.add_argument("--client", required=True, choices=["opencode", "claude", "codex", "gemini", "copilot",
+                                                         "cursor", "cline", "aider", "kilo", "openhands"])
+    uns.add_argument("--global", dest="global_install", action="store_true")
+    uns.add_argument("--path", default=".")
+    uns.add_argument("--home", default=None, help="Override home dir (testing global installs)")
+    upd = sp.add_parser("update", help="Refresh the Axiom pack (re-install + report stale/force-refreshed files)")
+    upd.add_argument("--client", required=True, choices=["opencode", "claude", "codex", "gemini", "copilot",
+                                                         "cursor", "cline", "aider", "kilo", "openhands"])
+    upd.add_argument("--global", dest="global_install", action="store_true")
+    upd.add_argument("--path", default=".")
+    upd.add_argument("--source", default=None)
+    upd.add_argument("--home", default=None, help="Override home dir (testing global installs)")
+    upd.add_argument("--domains", default=None)
+    upd.add_argument("--groups", default=None,
+                     help="Comma-separated skill-group filter from skills/groups.yaml.")
     oc = sp.add_parser("oc", help="Launch OpenCode with an Axiom-isolated config (Phase 2)")
     oc_sub = oc.add_subparsers(dest="oc_cmd", required=True)
     for verb in ("tui", "run", "research"):
@@ -433,8 +508,12 @@ def main() -> int:
     sc = sk_sub.add_parser("create", help="Scaffold a skill (dry-run unless --apply)")
     sc.add_argument("skill_id"); sc.add_argument("--title", required=True)
     sc.add_argument("--domain", default="automotive"); sc.add_argument("--apply", action="store_true")
-    sa = sk_sub.add_parser("apply", help="Run the full skill pipeline: link->enrich->index->clients->validate")
+    sa = sk_sub.add_parser("apply", help="Run the full skill pipeline: enrich->index->clients->validate")
     sa.add_argument("--check", action="store_true", help="Verify only; exit 1 if generated files are stale")
+    sl = sk_sub.add_parser("link", help="Edit the skill graph in catalog.yaml (single source; then run skills apply)")
+    sl.add_argument("--set", dest="op", action="store_const", const="set", required=True)
+    sl.add_argument("kind", choices=["related_skills", "extends", "sub_skills", "domain_overlays", "platform_overlays"])
+    sl.add_argument("skill_id"); sl.add_argument("values", nargs="*")
     sv = sp.add_parser("serve", help="Serve REST + A2A over HTTP (web apps, custom AI, local LLMs)"); sv.add_argument("--port", type=int, default=8765)
     args = ap.parse_args()
     if args.version: return version_cmd()
@@ -449,7 +528,7 @@ def main() -> int:
     if args.cmd == "impact": return impact(args.path)
     if args.cmd == "workflow" and args.workflow_cmd == "plan": return workflow_plan(args.profile, args.entry)
     if args.cmd == "route": print(route(args.request)); return 0
-    if args.cmd == "engage": return engage_cmd(args.domain, args.platform)
+    if args.cmd == "engage": return engage_cmd(args.domain, args.platform, args.group, args.limit or 0)
     if args.cmd == "packs": return packs_cmd(args.domain, args.platform, args.standards or [])
     if args.cmd == "compose": return compose_cmd(args.prompt, args.domain, args.platform, args.os, args.language, args.standards or [], args.hardware, args.technology)
     if args.cmd == "run": return run_cmd(args.request, args.domain, args.platform)
@@ -458,7 +537,10 @@ def main() -> int:
     if args.cmd == "feature": return feature_cmd(args.feature_id, args.domain, args.platform)
     if args.cmd == "research": return research_cmd(args.question, args.backend, args.max_subquestions, args.format, args.output, args.model)
     if args.cmd == "install": return install_cmd(args.client, args.global_install, args.path, args.source, args.home,
-                                         [d.strip() for d in (args.domains or "").split(",") if d.strip()] or None)
+                                         _csv(args.domains), _csv(args.groups))
+    if args.cmd == "uninstall": return uninstall_cmd(args.client, args.global_install, args.path, args.home)
+    if args.cmd == "update": return update_cmd(args.client, args.global_install, args.path, args.source, args.home,
+                                         _csv(args.domains), _csv(args.groups))
     if args.cmd == "oc":
         return oc_cmd(args.oc_cmd, getattr(args, "prompt", None) or [], args.model, args.agent, args.dir,
                       getattr(args, "format", None), getattr(args, "title", None),

@@ -1,0 +1,21 @@
+# Ship the content trees in the sdist so `pip install` from a tarball still
+# finds skills/agents/registries next to the code. Wheels only carry the
+# Python packages (see pyproject allowlist); a bare wheel install therefore
+# registers the MCP server only — pass --source DIR for full content.
+
+graft skills
+graft agents
+graft registries
+graft schemas
+graft profiles
+graft workflows
+graft domains
+graft platforms
+graft configs
+graft clients
+graft docs
+
+global-exclude *.pyc __pycache__ *.pyo
+global-exclude .axiom/* *.db.zst
+prune .opencode
+prune .claude

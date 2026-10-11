@@ -138,22 +138,34 @@ Install the Axiom pack into any project (merges, never clobbers):
 
 ```bash
 axiom install --client opencode   # .opencode/agents, .opencode/skills, opencode.json (mcp)
-axiom install --client claude     # .claude/agents, .claude/skills, .mcp.json
+axiom install --client claude     # .claude/agents, .claude/skills, .mcp.json (Claude Code)
 axiom install --client codex      # .codex/config.toml (mcp_servers.axiom-embedded)
-axiom install --client gemini     # .gemini/settings.json + GEMINI.md
-axiom install --client copilot    # .github/copilot-instructions.md
+axiom install --client gemini     # .gemini/settings.json + GEMINI.md (Gemini CLI)
+axiom install --client copilot    # .github/copilot-instructions.md (VS Code / Coding Agent / Agent Mode)
+axiom install --client cursor     # .cursor/mcp.json
+axiom install --client cline      # .cline/mcp.json
+axiom install --client aider      # .aider.conf.yml (created only if missing; existing files kept)
+axiom install --client kilo       # .kilo/kilo.jsonc (Kilo Code; existing files kept)
+axiom install --client openhands  # ~/.openhands/mcp.json (always user-global)
 ```
 
-Add `--global` for user-level config (`~/.config/opencode`, `~/.claude`,
-`~/.codex`, `~/.muse`; Copilot stays per-repository). Regenerate the
-checked-in client files after editing `skills/` or `agents/`:
+Add `--global` for user-level config, `--domains automotive,robotics` and/or
+`--groups diagnostics,safety-security` for a scoped skill copy. Full matrix: `clients/MCP_CLIENTS.md`. Lifecycle:
 
 ```bash
-python scripts/sync_clients.py        # regenerate
-python scripts/sync_clients.py --check # CI freshness gate
+axiom update --client cursor      # refresh pack, report stale/force-refreshed files
+axiom uninstall --client cursor   # remove MCP entry + generated files; user content kept
 ```
 
-The repository contains shared agent instructions and integration contracts for AI clients. Root `AGENTS.md` is the portable project contract. GitHub Copilot additionally consumes `.github/copilot-instructions.md` and path-specific instruction files. OpenCode consumes `.opencode/agents/`, `.opencode/skills/`, `.opencode/commands/` (`/axiom-*`), the `axiom-policy` plugin (`.opencode/plugins/`), and the `mcp.axiom` entry in `opencode.json`. Every `axiom` command is also an MCP tool over stdio (`axiom mcp`, 34 tools, JSON schemas); `clients/mcp.json` holds a
+Regenerate the checked-in client files after editing `skills/` or `agents/`
+(one command replaces the old script chain; `--check` is the CI gate):
+
+```bash
+python -m axiom_cli skills apply           # link->enrich->index->clients->validate
+python -m axiom_cli skills apply --check   # CI freshness gate
+```
+
+The repository contains shared agent instructions and integration contracts for AI clients. Root `AGENTS.md` is the portable project contract. GitHub Copilot additionally consumes `.github/copilot-instructions.md` and path-specific instruction files. OpenCode consumes `.opencode/agents/`, `.opencode/skills/`, `.opencode/commands/` (`/axiom-*`), the `axiom-policy` plugin (`.opencode/plugins/`), and the `mcp.axiom` entry in `opencode.json`. Every `axiom` command is also an MCP tool over stdio (`axiom mcp`, 37 tools, JSON schemas); `clients/mcp.json` holds a
 portable server entry.
 
 Live OpenCode runtime (isolated config under `~/.axiom/opencode`, never touches
@@ -178,25 +190,29 @@ axiom research "question" --format markdown --output report.md
 
 ## Axiom Skill Framework
 
-Thirty original `axiom-*` workflow skills (automotive, embedded, robotics,
+Thirty-five original `axiom-*` workflow skills (automotive, embedded, robotics,
 industrial, aerospace, cross-domain) plus the 58 existing skills — one tree,
-one catalog (`skills/catalog.yaml`):
+one catalog (`skills/catalog.yaml`), 16 rule-based groups (`skills/groups.yaml`):
 
 ```bash
 python -m axiom_cli skills list            # list catalog skills
 python -m axiom_cli skills search "uds"    # search by query/domain/standard
 python -m axiom_cli skills run axiom-diagnostics-uds --objective "Review matrix"  # dry-run
-python -m axiom_cli skills apply           # ONE command: link->enrich->index->clients->validate
+python -m axiom_cli skills apply           # ONE command: enrich->index->clients->validate
+python -m axiom_cli engage --group diagnostics --limit 20  # scoped discovery (total/truncated)
 python -m axiom_cli install --client opencode --domains automotive  # domain-scoped install
+python -m axiom_cli install --client opencode --groups diagnostics  # group-scoped install
 ```
 
 Two exemplar skills ship deep workflows with deterministic checker scripts:
 `axiom-autosar-classic-bsw-integration` and `axiom-diagnostics-uds`
-(beta; the other 28 are experimental scaffolds with full metadata,
+(beta; the other 33 are experimental scaffolds with full metadata,
 workflows, checklists, and templates). Runs produce manifests under
 `.axiom/runs/<timestamp>/<skill-id>/`. Same surface over MCP
-(`search_skills`, `validate_skill`, `run_skill`, `create_skill`).
-See `docs/SKILL_FRAMEWORK.md` and `docs/skills/AUTHORING_GUIDE.md`.
+(`search_skills`, `validate_skill`, `run_skill`, `create_skill`,
+`skill_pipeline`, `link_skill`).
+See `docs/SKILL_FRAMEWORK.md`, `docs/skills/AUTHORING_GUIDE.md`,
+and `docs/skills/GROUPS.md`.
 
 ## Compatibility
 
@@ -205,7 +221,7 @@ See `docs/SKILL_FRAMEWORK.md` and `docs/skills/AUTHORING_GUIDE.md`.
 | Python | ≥ 3.11 (PyYAML only; pytest for tests) |
 | OpenCode (live `axiom oc` / research) | v1, tested 1.18.31–1.18.35; v2 fails closed (see `docs/OPENCODE_COMPAT.md`) |
 | Install | `pipx install axiom-embedded` (or `pip install axiom-embedded`) |
-| AI clients | opencode / claude / codex / gemini / copilot via `axiom install --client` |
+| AI clients | 10 clients (opencode/claude/codex/gemini/copilot/cursor/cline/aider/kilo/openhands) via `axiom install --client` |
 
 
 ## Safety and certification boundary

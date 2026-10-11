@@ -193,10 +193,10 @@ def test_mcp_tools_registered():
     for name in ("analyze_repository", "generate_checklist",
                  "generate_test_plan", "generate_traceability_matrix",
                  "generate_report", "review_configuration", "analyze_trace",
-                 "skill_pipeline"):
+                 "skill_pipeline", "link_skill", "uninstall", "update"):
         assert name in TOOLS, name
         assert TOOLS[name]["inputSchema"]["type"] == "object"
-    assert len(TOOLS) == 34
+    assert len(TOOLS) == 37
 
 
 def test_mcp_dispatch_checklist():

@@ -23,9 +23,10 @@ APPROVAL_REQUIRED_FOR = [
 ]
 
 
-def engage_skills(domain: str | None = None, platform: str | None = None) -> dict:
+def engage_skills(domain: str | None = None, platform: str | None = None,
+                  group: str | None = None, limit: int = 0) -> dict:
     """Resolve which skills/profiles a domain+platform project needs."""
-    return engage(domain, platform)
+    return engage(domain, platform, group, limit)
 
 
 def select_toolpacks(
@@ -238,7 +239,7 @@ from packages.axiom_ops import (  # noqa: E402
 
 
 def skill_pipeline(check: bool = False) -> dict:
-    """Run the one-command skill pipeline (link->enrich->index->clients->validate).
+    """Run the one-command skill pipeline (enrich->index->clients->validate).
 
     check=True verifies generated files are current without writing.
     """
@@ -248,6 +249,19 @@ def skill_pipeline(check: bool = False) -> dict:
             _sys.path.insert(0, _p)
     from scripts.skill_pipeline import run_pipeline
     return run_pipeline(check=check)
+
+
+def link_skill(kind: str, skill_id: str, values: list[str]) -> dict:
+    """Edit the skill graph in catalog.yaml (single source).
+
+    kind: related_skills|extends|sub_skills|domain_overlays|platform_overlays.
+    Run skill_pipeline() afterwards to propagate + validate.
+    """
+    from packages.skills.registry import set_link
+    try:
+        return {"status": "ok", **set_link(kind, skill_id, values or [])}
+    except ValueError as exc:
+        return {"status": "error", "message": str(exc)}
 
 # P1 generator wrappers (deterministic; see packages/skill_tools.py).
 from packages.skill_tools import (  # noqa: E402,E501

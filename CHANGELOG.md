@@ -19,9 +19,13 @@ Additive skill framework + 30 original `axiom-*` workflow skills:
   `docs/analysis/{CURRENT_STATE,GAP_ANALYSIS,INTEGRATION_PLAN,FINAL_IMPLEMENTATION_REPORT}.md`,
   `docs/migration/EXISTING_CAPABILITY_MAPPING.md`; README “Axiom Skill Framework”.
 - No existing capability removed/renamed; no reference-repo text used.
-- Linking pass: `skills/links.yaml` + `link_related_skills.py` wire legacy
-  bases to axiom-* specializations (extends/related/sub_skills, siblings,
-  domain overlays) — no duplicates; future links via `--set`.
+- Linking (single source): skill graph lives in `skills/catalog.yaml`
+  (extends/related/sub_skills + overlays wire legacy bases to axiom-*
+  specializations — no duplicates); edits via `axiom skills link --set`
+  with automatic back-links (`skills/links.yaml` + `link_related_skills.py`
+  retired). Stored per-skill `manifest.json` deliberately rejected (second
+  source of truth → drift at 1000+ skills); manifest stays a derived
+  on-demand export.
 - Derived `manifest.json` export (`axiom skills manifest`, MCP
   `skill_manifest`; 26 tools): SKILL.md stays single source of truth.
 - P1 generator wrappers (`packages/skill_tools.py`, SDK + MCP, 26 → 33
@@ -33,7 +37,7 @@ Additive skill framework + 30 original `axiom-*` workflow skills:
   `tests/test_skill_tools.py` (19 tests).
 - One-command pipeline `scripts/skill_pipeline.py` (`axiom skills apply`,
   SDK `skill_pipeline()`, MCP `skill_pipeline`, 33 → 34 tools): the old
-  5-script update procedure is now a single idempotent command with
+  multi-script update procedure is now a single idempotent command with
   `--check` CI gate — forgetting a step is impossible.
   `docs/skills/MULTI_AGENT_WORKFLOW.md` defines the parallel-agent protocol
   (one skill dir per agent, data-vs-generated ownership, merge gate).
@@ -48,6 +52,28 @@ Additive skill framework + 30 original `axiom-*` workflow skills:
   (`scripts/enrich_catalog_facets.py`); `docs/analysis/PROMPT_SYNTHESIS.md`.
 - SDK now re-exports `get_status`/`plan_fix`/`plan_feature` (single
   implementation behind every interface).
+- Single-solution linking (one source, one command — no dual system):
+  skill graph lives in `skills/catalog.yaml`; `axiom skills link --set`
+  (+ SDK `link_skill()`, MCP `link_skill`, 34 → 35 tools) edits it with
+  automatic back-links; unknown references and related-asymmetry are hard
+  validation errors. `skills/links.yaml` + `link_related_skills.py` retired
+  and deleted. Pipeline is now enrich → index → clients → validate.
+- 10-client install matrix: Cursor, Cline, Aider, Kilo Code, OpenHands join
+  opencode/claude/codex/gemini/copilot (`clients/MCP_CLIENTS.md`);
+  `axiom uninstall` removes entries + generated files (user content kept),
+  `axiom update` refreshes stale/force-refreshed files; same lifecycle over
+  MCP (`install`/`uninstall`/`update`, 35 → 37 tools).
+- pip packaging: `MANIFEST.in` ships content tree (skills/agents/registries/
+  schemas/profiles/workflows/domains/platforms/configs/clients/docs);
+  wheel-build + MANIFEST static tests.
+- Self-handled freshness: `.pre-commit-config.yaml` (pipeline `--check` +
+  fast skill tests), `nightly-drift.yml` (scheduled pipeline check + full
+  pytest), CONTRIBUTING merge-gate section.
+- Smart groups for 1000+ skills (`skills/groups.yaml`, 16 rule-based views,
+  `docs/skills/GROUPS.md`): `by_group` index (matcher == index, tested),
+  `engage --group/--limit` with `total`/`truncated` paging, `install
+  --groups` (ANDs with `--domains`); CI enforces 100% group coverage, so no
+  skill is ever orphaned. Tests: `tests/test_skill_groups.py` (9 tests).
 
 
 ## 0.2.0 (2026-10-09)

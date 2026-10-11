@@ -1,0 +1,120 @@
+# SPDX-License-Identifier: Apache-2.0
+# Smart skill groups: rule-based VIEWS over the catalog, not directories.
+#
+# Why views, not folders: at 1000+ skills no static tree stays sane, and
+# moving skill directories would break paths, mirrors, and links. A group
+# is a named rule evaluated against catalog.yaml entries; adding a skill
+# to a group means matching its rule (usually automatic via id_prefix /
+# subdomain) — never a .py change, never a file move.
+#
+# Rule semantics: `match_any` is OR; each clause is AND across its keys,
+# OR within a key's list. Keys: id, id_prefix, domain, subdomain, tags,
+# maturity. Invariant (CI-enforced): every enabled catalog skill matches
+# >= 1 group.
+schema_version: 1
+groups:
+  autosar-classic:
+    title: AUTOSAR Classic platform
+    description: Classic architecture, BSW, RTE, OS, and COM stack.
+    match_any:
+      - {subdomain: [autosar-classic]}
+      - {id: [autosar]}
+  autosar-adaptive:
+    title: AUTOSAR Adaptive platform
+    description: Adaptive deployment, ara::com, execution and state management.
+    match_any:
+      - {subdomain: [autosar-adaptive]}
+      - {id: [automotive-middleware]}
+  vehicle-networks:
+    title: In-vehicle networking
+    description: CAN/CAN FD design and stack, automotive Ethernet, SOME/IP.
+    match_any:
+      - {subdomain: [networks]}
+      - {id: [automotive-networks]}
+  diagnostics:
+    title: Diagnostics and tester workflows
+    description: UDS, DoIP, DTC/DID/routine design, ODX/CDD flows.
+    match_any:
+      - {subdomain: [diagnostics]}
+      - {id: [automotive-diagnostics]}
+  safety-security:
+    title: Functional safety and cybersecurity
+    description: Safety workflow, TARA/secure-boot/secure-diagnostics support.
+    match_any:
+      - {subdomain: [safety, cybersecurity]}
+      - {id: [safety, security, automotive-cybersecurity]}
+  adas:
+    title: ADAS perception and validation
+    description: Perception pipelines, sensor fusion interfaces, ADAS validation.
+    match_any:
+      - {subdomain: [adas]}
+      - {id: [adas]}
+  energy:
+    title: Battery and energy systems
+    description: BMS design, SOC/SOH methods, contactor/thermal/fault handling.
+    match_any:
+      - {subdomain: [bms]}
+  software-defined-vehicle:
+    title: Zonal, V2X, and OTA
+    description: Zonal architecture, V2X messaging, OTA/update strategy.
+    match_any:
+      - {subdomain: [zonal, v2x]}
+      - {id: [automotive-ota, automotive-body, automotive-cockpit]}
+  release-process:
+    title: Release readiness and process
+    description: ASPICE-flavoured gates, V-cycle evidence, release packaging.
+    match_any:
+      - {subdomain: [release]}
+      - {id: [automotive-spice, automotive-vcycle, automotive-coding, release,
+               evidence, validation, change-impact, configuration-management,
+               documentation, project-audit, legacy-recovery, requirements,
+               requirements-traceability, traceability]}
+  embedded-core:
+    title: Embedded core (bring-up, OS, drivers)
+    description: Firmware bring-up, RTOS, bare-metal, drivers, MCU/MPU/SOC.
+    match_any:
+      - {domain: [platform]}
+      - {id: [mcu, mpu, soc, mpsoc, bare-metal, rtos, bootloader, drivers,
+               embedded-c, embedded-cpp, embedded-linux, rust-embedded,
+               hardware-bringup, hardware-architecture, debugging,
+               performance, edge-ai, ai-validation, fault-injection,
+               embedded-c]}
+  testing-verification:
+    title: Test strategy and verification
+    description: Test automation, static-analysis triage, SIL/HIL planning.
+    match_any:
+      - {id: [axiom-test-automation, axiom-hil-test-planning,
+               axiom-static-analysis-triage, test-automation, unit-test,
+               integration-test, system-test, coverage, simulation]}
+  robotics:
+    title: Robotics systems
+    description: ROS 2 integration, sensor fusion, motion control.
+    match_any:
+      - {domain: [robotics]}
+      - {id: [robotics]}
+  industrial:
+    title: Industrial control
+    description: PLC-adjacent review, fieldbus, industrial safety.
+    match_any:
+      - {domain: [industrial]}
+  aerospace-defense:
+    title: Aerospace and defense
+    description: Safety review aligned to aerospace/defense practice.
+    match_any:
+      - {domain: [aerospace]}
+  architecture:
+    title: Architecture and contracts
+    description: Architecture review, interface contracts, ADRs.
+    match_any:
+      - {domain: [cross-domain]}
+      - {id: [architecture, software-architecture,
+               axiom-architecture-decision-records,
+               axiom-interface-contract-design]}
+  ways-of-working:
+    title: Ways of working (CI, debt, process)
+    description: Embedded CI/CD, technical-debt assessment, code review,
+      feature development, implementation practice.
+    match_any:
+      - {id: [axiom-embedded-cicd, axiom-technical-debt-assessment,
+               code-review, static-analysis, build-system, implementation,
+               feature-development]}

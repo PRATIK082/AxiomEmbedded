@@ -15,7 +15,7 @@ implementation; all skills are original AxiomEmbedded content.
 | 30 automotive/platform skills | 30 named skills, 2 beta exemplars first | 10 core automotive first, then expansion | Done on parent branch; this branch adds the 5 cross-domain skills prompt 2 names explicitly (contract, static-analysis triage, CI/CD, ADR, tech debt) |
 | MCP tools | 13 named tools | tool backlog spec with schemas | 7 P1 wrappers implemented (`packages/skill_tools.py`, 33 tools); backlog doc updated |
 | manifest.json | not required | example shape given | Derived export decision (`docs/skill-manifest-decision.md`): SKILL.md frontmatter is single source; `axiom skills manifest` + MCP `skill_manifest` emit that shape |
-| Link to domain/platform/OS | implied | explicit: link skills to domain/platform/OS packages | `skills/links.yaml` (related/extends/overlays) + `packages/skills/registry.resolve_extends`; `domains`/`platforms` frontmatter keys drive `packages/skills/engage.py` matching |
+| Link to domain/platform/OS | implied | explicit: link skills to domain/platform/OS packages | `skills/catalog.yaml` graph keys (related/extends/overlays, edited via `skills link --set`) + `packages/skills/registry.resolve_extends`; `domains`/`platforms` frontmatter keys drive `packages/skills/engage.py` matching |
 | Extensibility | create/validate/list/run/report commands | authoring guide + quality gates | Both exist; this branch adds facet-parity enforcement so future edits stay consistent |
 
 ## 2. Combined workflow (single activity list)
@@ -41,5 +41,5 @@ implementation; all skills are original AxiomEmbedded content.
 - 5 cross-domain skills: `axiom-interface-contract-design`,
   `axiom-static-analysis-triage`, `axiom-embedded-cicd`,
   `axiom-architecture-decision-records`, `axiom-technical-debt-assessment`.
-- links.yaml entries + index/catalog/registry sync for the 5.
+- catalog graph entries + index/catalog/registry sync for the 5.
 - CHANGELOG entry.

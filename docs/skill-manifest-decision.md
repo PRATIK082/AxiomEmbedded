@@ -32,10 +32,12 @@ Drift is impossible by construction (generated, not stored) and covered by
 - Existing `automotive-*` skills are **bases**; new `axiom-*` skills are
   **specializations** (`extends`), grouped as `sub_skills`, cross-referenced
   via `related_skills` (incl. siblings).
-- Single source: `skills/links.yaml` → `scripts/link_related_skills.py`
-  derives catalog links authoritatively (`--check` in CI).
-- Future tools/sub-skills/steps/requirements: extend `links.yaml`
-  (`--set related|extends|sub-skills`), `required_tools`/`mcp_tools` in the
+- Single source: the skill graph lives directly in `skills/catalog.yaml`
+  entries, edited via `axiom skills link --set` (SDK `link_skill`, MCP
+  `link_skill`). The validator enforces existence + related-symmetry as
+  hard errors, so no derivation step can drift.
+- Future tools/sub-skills/steps/requirements: `skills link --set`
+  (`related_skills|extends|sub_skills|domain_overlays|platform_overlays`), `required_tools`/`mcp_tools` in the
   SKILL.md `axiom:` block (validated against the live MCP registry), and
   `domain_overlays`/`platform_overlays` (validated against `domains/`,
   `platforms/`). Docs: `docs/skills/AUTHORING_GUIDE.md`.

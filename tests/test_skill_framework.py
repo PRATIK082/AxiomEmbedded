@@ -125,6 +125,46 @@ def test_links_resolve_and_extends_terminates():
     assert "autosar" in idx["axiom-autosar-classic-bsw-integration"]["related_skills"]
 
 
+def test_related_symmetry_enforced():
+    import yaml as _yaml
+    cat = _yaml.safe_load((ROOT / "skills" / "catalog.yaml").read_text(encoding="utf-8"))
+    idx = {e["id"]: e for e in cat["skills"]}
+    asym = [(s, r) for s, e in idx.items()
+            for r in (e.get("related_skills", []) or [])
+            if r in idx and s not in (idx[r].get("related_skills", []) or [])]
+    assert asym == []
+
+
+def test_set_link_roundtrip_tmp_catalog(tmp_path):
+    import shutil
+    import yaml as _yaml
+    from packages.skills.registry import set_link, check_catalog
+    tmp = tmp_path / "catalog.yaml"
+    shutil.copy(ROOT / "skills" / "catalog.yaml", tmp)
+    res = set_link("related_skills", "autosar",
+                   ["axiom-can-network-design"], path=tmp)
+    assert res["skill"] == "autosar"
+    cat = _yaml.safe_load(tmp.read_text(encoding="utf-8"))
+    idx = {e["id"]: e for e in cat["skills"]}
+    assert idx["autosar"]["related_skills"] == ["axiom-can-network-design"]
+    # back-link auto-maintained
+    assert "autosar" in idx["axiom-can-network-design"]["related_skills"]
+    rep = check_catalog(cat)
+    assert rep["errors"] == [], rep["errors"]
+    try:
+        set_link("related_skills", "autosar", ["no-such-skill"], path=tmp)
+    except ValueError:
+        pass
+    else:
+        raise AssertionError("expected ValueError for unknown target")
+    try:
+        set_link("bogus-kind", "autosar", [], path=tmp)
+    except ValueError:
+        pass
+    else:
+        raise AssertionError("expected ValueError for unknown kind")
+
+
 CROSS_DOMAIN_NEW = [
     "axiom-interface-contract-design",
     "axiom-static-analysis-triage",

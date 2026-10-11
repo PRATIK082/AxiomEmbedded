@@ -27,7 +27,7 @@ step is now impossible: there is only one step.
 | Layer | Files | Who edits | Parallel rule |
 |---|---|---|---|
 | L0 skill content | `skills/<id>/SKILL.md`, `templates/`, `checklists/`, `scripts/`, `examples/` | Any agent | **One skill dir per agent.** Never two agents in the same dir. |
-| L1 relationships | `skills/links.yaml` (related/extends/sub_skills/overlays) | Agent owning the new skill | Append your skill's rows only; never reorder others' rows. |
+| L1 relationships | `skills/catalog.yaml` graph keys (related/extends/sub_skills/overlays) | Agent owning the new skill | Edit only your skill's entry via `skills link --set`; never touch others' entries. |
 | L2 catalog facets | `skills/catalog.yaml` facet fields | Nobody by hand | `enrich` backfills from SKILL.md frontmatter. If a facet is wrong, fix the frontmatter, not the catalog. |
 | L3 generated | `registries/*.json`, `.opencode/skills/*`, `.claude/skills/*`, `GEMINI.md`, `copilot-instructions.md` | Nobody by hand | Pipeline regenerates. CI fails on drift (`--check`). |
 | L4 framework code | `packages/*`, `axiom_mcp/*`, `axiom_cli/*`, `scripts/*` | Senior agent/human only | Adding a skill NEVER needs this. Only new *tool kinds* do. |
@@ -35,8 +35,8 @@ step is now impossible: there is only one step.
 ## Parallel-work protocol
 
 1. **Claim a skill directory** (one agent = one `skills/<id>/` dir, or one
-   domain subtree like `skills/automotive/*`). L1 `links.yaml` rows for your
-   skills are yours to append.
+   domain subtree like `skills/automotive/*`). Your catalog graph entries are
+   yours to edit via `skills link --set`.
 2. **Scaffold, don't copy**: `axiom skills create <id> --title ... --apply`
    (or MCP `create_skill` with apply=true), then write original content.
 3. **Finish with the pipeline**: run `skills apply` (CLI) or `skill_pipeline`
@@ -46,9 +46,9 @@ step is now impossible: there is only one step.
    `pytest`, and `doctor` are green. The pipeline is idempotent: re-running
    on a clean tree changes zero files, so concurrent agents can't corrupt
    each other through it.
-5. **Conflicts**: if two agents touch `links.yaml`, both append disjoint
-   rows — git merges cleanly. If both touch one SKILL.md, that violates
-   rule 1; reassign.
+5. **Conflicts**: two agents editing different catalog entries merge cleanly
+   (one YAML mapping per skill). If both touch one entry or one SKILL.md,
+   that violates rule 1; reassign.
 
 ## Using skills for feature development (any domain)
 

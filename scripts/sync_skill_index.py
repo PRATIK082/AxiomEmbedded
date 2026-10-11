@@ -2,9 +2,12 @@
 from __future__ import annotations
 import json
 import pathlib
+import sys
 import yaml
 
 ROOT = pathlib.Path(__file__).resolve().parents[1]
+if str(ROOT) not in sys.path:
+    sys.path.insert(0, str(ROOT))
 
 
 def main() -> int:
@@ -33,6 +36,11 @@ def main() -> int:
             by_p.setdefault(p, []).append(sid)
     idx["by_domain"] = {k: sorted(v) for k, v in sorted(by_d.items())}
     idx["by_platform"] = {k: sorted(v) for k, v in sorted(by_p.items())}
+    from packages.skills.groups import group_members, validate_groups
+    uncovered = validate_groups(cat)
+    if uncovered:
+        raise SystemExit("skills/groups.yaml covers no group for: " + ", ".join(uncovered))
+    idx["by_group"] = {k: v for k, v in sorted(group_members(cat).items())}
     sj["skills"].sort(key=lambda e: e["id"])
     idx_p.write_text(json.dumps(idx, indent=2) + "\n", encoding="utf-8")
     sj_p.write_text(json.dumps(sj, indent=2) + "\n", encoding="utf-8")

@@ -145,7 +145,8 @@ def tool_route(args: dict) -> dict:
 
 
 def tool_engage(args: dict) -> dict:
-    return axiom_sdk.engage_skills(args.get("domain"), args.get("platform"))
+    return axiom_sdk.engage_skills(args.get("domain"), args.get("platform"),
+                                   args.get("group"), args.get("limit") or 0)
 
 
 def tool_packs(args: dict) -> dict:
@@ -189,15 +190,57 @@ def tool_feature(args: dict) -> dict:
 
 
 def tool_install(args: dict) -> dict:
-    from packages.installer import find_content_source, install_client
+    from packages.installer import CLIENTS, find_content_source, install_client
 
-    return install_client(
+    if args.get("client") not in CLIENTS:
+        return {"status": "error",
+                "message": f"unknown client: {args.get('client')} (choose from {', '.join(CLIENTS)})"}
+    try:
+        return install_client(
+            args["client"],
+            pathlib.Path(args.get("path", ".")).resolve(),
+            pathlib.Path(args["home"]).expanduser() if args.get("home") else pathlib.Path.home(),
+            find_content_source(args.get("source")),
+            is_global=bool(args.get("global", False)),
+            domains=args.get("domains"),
+            groups=args.get("groups"),
+        )
+    except ValueError as exc:
+        return {"status": "error", "message": str(exc)}
+
+
+def tool_uninstall(args: dict) -> dict:
+    from packages.installer import CLIENTS, uninstall_client
+
+    if args.get("client") not in CLIENTS:
+        return {"status": "error",
+                "message": f"unknown client: {args.get('client')} (choose from {', '.join(CLIENTS)})"}
+    return uninstall_client(
         args["client"],
         pathlib.Path(args.get("path", ".")).resolve(),
         pathlib.Path(args["home"]).expanduser() if args.get("home") else pathlib.Path.home(),
-        find_content_source(args.get("source")),
         is_global=bool(args.get("global", False)),
     )
+
+
+def tool_update(args: dict) -> dict:
+    from packages.installer import CLIENTS, find_content_source, update_client
+
+    if args.get("client") not in CLIENTS:
+        return {"status": "error",
+                "message": f"unknown client: {args.get('client')} (choose from {', '.join(CLIENTS)})"}
+    try:
+        return update_client(
+            args["client"],
+            pathlib.Path(args.get("path", ".")).resolve(),
+            pathlib.Path(args["home"]).expanduser() if args.get("home") else pathlib.Path.home(),
+            find_content_source(args.get("source")),
+            is_global=bool(args.get("global", False)),
+            domains=args.get("domains"),
+            groups=args.get("groups"),
+        )
+    except ValueError as exc:
+        return {"status": "error", "message": str(exc)}
 
 
 def tool_research(args: dict) -> dict:
@@ -370,6 +413,8 @@ TOOLS: dict[str, dict] = {
             {
                 "domain": _opt_str_prop("Engineering domain (e.g. automotive)."),
                 "platform": _opt_str_prop("Compute platform (e.g. mcu)."),
+                "group": _opt_str_prop("Restrict to a skills/groups.yaml view."),
+                "limit": {"type": "integer", "description": "Cap returned skills (0 = all)."},
             }
         ),
         "handler": tool_engage,
@@ -483,15 +528,50 @@ TOOLS: dict[str, dict] = {
         "description": "Install the Axiom pack for a client into a project dir or user-global config (mirrors `axiom install --client`). Merges, never clobbers.",
         "inputSchema": _schema(
             {
-                "client": {"type": "string", "description": "opencode|claude|codex|gemini|copilot."},
+                "client": {"type": "string", "description": "opencode|claude|codex|gemini|copilot|cursor|cline|aider|kilo|openhands."},
                 "path": _str_prop("Target project dir (project scope)."),
                 "global": {"type": "boolean", "description": "Install to user-global config instead."},
                 "source": _opt_str_prop("Axiom content source dir override."),
                 "home": _opt_str_prop("Home dir override (testing global installs)."),
+                "domains": {"type": "array", "items": {"type": "string"},
+                            "description": "Domain filter for copied skills (skills with domains=[all] always included)."},
+                "groups": {"type": "array", "items": {"type": "string"},
+                           "description": "Skill-group filter from skills/groups.yaml (AND with domains)."},
             },
             required=["client"],
         ),
         "handler": tool_install,
+    },
+    "uninstall": {
+        "description": "Remove the Axiom pack for a client (MCP entry + generated files only; never touches user content).",
+        "inputSchema": _schema(
+            {
+                "client": {"type": "string", "description": "opencode|claude|codex|gemini|copilot|cursor|cline|aider|kilo|openhands."},
+                "path": _str_prop("Target project dir (project scope)."),
+                "global": {"type": "boolean", "description": "Remove from user-global config instead."},
+                "home": _opt_str_prop("Home dir override (testing global installs)."),
+            },
+            required=["client"],
+        ),
+        "handler": tool_uninstall,
+    },
+    "update": {
+        "description": "Refresh the Axiom pack for a client (re-install + stale/force-refreshed report; mirrors `axiom update`).",
+        "inputSchema": _schema(
+            {
+                "client": {"type": "string", "description": "opencode|claude|codex|gemini|copilot|cursor|cline|aider|kilo|openhands."},
+                "path": _str_prop("Target project dir (project scope)."),
+                "global": {"type": "boolean", "description": "Update user-global config instead."},
+                "source": _opt_str_prop("Axiom content source dir override."),
+                "home": _opt_str_prop("Home dir override (testing global installs)."),
+                "domains": {"type": "array", "items": {"type": "string"},
+                            "description": "Domain filter for copied skills."},
+                "groups": {"type": "array", "items": {"type": "string"},
+                           "description": "Skill-group filter from skills/groups.yaml (AND with domains)."},
+            },
+            required=["client"],
+        ),
+        "handler": tool_update,
     },
     "search_skills": {
         "description": "Search the skill catalog by query/domain/standard (skill discovery).",
@@ -633,7 +713,7 @@ TOOLS: dict[str, dict] = {
         "handler": tool_analyze_trace,
     },
     "skill_pipeline": {
-        "description": "One-command skill pipeline (link->enrich->index->clients->validate); check-only unless apply=true.",
+        "description": "One-command skill pipeline (enrich->index->clients->validate); check-only unless apply=true.",
         "inputSchema": _schema(
             {
                 "check": {"type": "boolean", "description": "Verify only (default true)."},
@@ -642,6 +722,20 @@ TOOLS: dict[str, dict] = {
         ),
         "handler": lambda args: tool_skill_pipeline(
             {"check": not args.get("apply", False)}),
+    },
+    "link_skill": {
+        "description": "Edit the skill graph in catalog.yaml (single source); run skill_pipeline afterwards.",
+        "inputSchema": _schema(
+            {
+                "kind": _str_prop("Link kind: related_skills|extends|sub_skills|domain_overlays|platform_overlays."),
+                "skill_id": _str_prop("Skill id."),
+                "values": {"type": "array", "items": {"type": "string"},
+                           "description": "Target ids (at most one for extends)."},
+            },
+            required=["kind", "skill_id"],
+        ),
+        "handler": lambda args: axiom_sdk.link_skill(
+            args["kind"], args["skill_id"], args.get("values", [])),
     },
 }
 
