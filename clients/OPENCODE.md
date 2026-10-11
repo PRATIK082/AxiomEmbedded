@@ -115,6 +115,62 @@ agent *"what axiom skills apply to CAN diagnostics?"* — it should reach for
 axiom oc run --agent debugging " Sporadic CAN frame loss at 500 kbit/s"
 ```
 
+#### Enabling an agent (no extra step)
+
+Installing already enables everything: `axiom install --client opencode`
+writes one `.md` per agent, and OpenCode **auto-discovers** any `*.md` under
+`.opencode/agents/` (project scope) or `~/.config/opencode/agents/` (global
+scope). There is no registry to update, no flag to flip — if the file is
+there, the agent exists. Verify with:
+
+```bash
+ls .opencode/agents/              # 29 files after install
+```
+
+Each file carries OpenCode-native frontmatter (auto-derived from
+`agents/*/manifest.json` — never hand-edit the copies):
+
+```yaml
+name: code-review
+description: Reviews source changes against architecture, rules, tests and scope.
+mode: subagent
+permission:
+  edit: deny        # read-only agents can't modify files; implementers say `allow`
+  bash:
+    '*': ask        # every shell command needs your approval
+    git push *: deny
+```
+
+#### Activation paths (4 ways)
+
+| # | Path | How | Example |
+|---|---|---|---|
+| 1 | TUI picker | Open the agent switcher in `opencode` TUI, choose e.g. `safety` | interactive session runs under that agent's contract |
+| 2 | `axiom oc run --agent` | Launcher passes `--agent <name>` straight through to `opencode run` | `axiom oc run --agent code-review --dir ./fw "Review drivers/can"` |
+| 3 | Ask the model | Any OpenCode session: *"use the debugging agent…"* — the `description` field is what the model matches on, so name + description are the activation keywords | *"Have the root-cause agent build hypotheses for the reset fault"* |
+| 4 | MCP `route` (any client) | `route("Sporadic CAN frame loss")` → returns `debugging`; the model then loads that agent's contract | works identically in Claude, Cursor, OpenCode — no agent files needed client-side |
+
+#### How an agent works at runtime
+
+An agent file is an **operating contract**, not a script. When active, the
+model must: (1) use the artifact graph before broad reads, (2) load only the
+profile + workflow + rules + evidence relevant to the task (typically via
+`engage` → `context_files`), (3) emit structured findings with evidence
+references, (4) stay inside declared scope. Capability and safety rails come
+from `agents/<name>/manifest.json`: `capabilities`, `permissions`
+(`filesystem: read`, `git_push: false`), and `approval.required_for`
+(push, release, destructive, safety/security-critical). OpenCode enforces the
+`permission:` frontmatter itself; the MCP/CLI side enforces the same policy
+via `APPROVAL_REQUIRED_FOR` in `axiom_sdk` — so TUI, `oc run`, and MCP agree.
+
+#### Other CLI tools
+
+| Tool | Agent support |
+|---|---|
+| Claude Code | Same file-copy model: install writes `.claude/agents/*.md`; native `/agents` handling |
+| Codex | No agent files — reads root `AGENTS.md`; route via `axiom route` / MCP `route` |
+| Cursor / Cline / Aider / Kilo / OpenHands / Gemini / Copilot | No local agent files (runtime via MCP): model calls `route` → `read_skill` → `run_skill`; identical behavior, zero copies to keep fresh |
+
 ### The `axiom oc` launcher
 
 Runs OpenCode with an **Axiom-isolated config** so trials never touch your
