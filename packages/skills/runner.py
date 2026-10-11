@@ -31,15 +31,37 @@ def run_skill(skill_id: str, repo_path: str = ".", target_files: list[str] | Non
     ax = fm.get("axiom", {}) or {}
     tools = list(ax.get("required_tools", []) or []) + [
         t for t in (ax.get("optional_tools", []) or [])]
+    # catalog links (extends/related/sub-skills/overlays); tolerant if absent
+    links: dict = {}
+    try:
+        from packages.skills.registry import load_catalog, resolve_extends
+        _cat = load_catalog()
+        _idx = {e["id"]: e for e in _cat.get("skills", [])}
+        _entry = _idx.get(skill_id, {})
+        links = {
+            "extends": _entry.get("extends"),
+            "extends_chain": resolve_extends(skill_id, _idx),
+            "related_skills": _entry.get("related_skills", []),
+            "sub_skills": _entry.get("sub_skills", []),
+            "domain_overlays": _entry.get("domain_overlays", []),
+            "platform_overlays": _entry.get("platform_overlays", []),
+        }
+        if _entry.get("extends"):
+            base = _entry["extends"]
+    except Exception:
+        links = {"extends": None, "extends_chain": [], "related_skills": [],
+                 "sub_skills": [], "domain_overlays": [], "platform_overlays": []}
     manifest = {
         "skill": skill_id,
         "version": str(fm.get("version")),
         "timestamp": ts,
+        "links": links,
         "inputs": {"repo_path": repo_path, "target_files": targets,
                    "objective": objective, "constraints": constraints},
         "selected_tools": tools,
         "decisions": [f"loaded skill {skill_id} v{fm.get('version')}",
-                      f"dry_run={dry_run}"],
+                      f"dry_run={dry_run}"] +
+        ([f"base context: {links['extends']}"] if links.get("extends") else []),
         "generated_files": [],
         "warnings": [],
         "acceptance_checks": ["SKILL.md sections present",

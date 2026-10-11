@@ -19,6 +19,11 @@ Additive skill framework + 30 original `axiom-*` workflow skills:
   `docs/analysis/{CURRENT_STATE,GAP_ANALYSIS,INTEGRATION_PLAN,FINAL_IMPLEMENTATION_REPORT}.md`,
   `docs/migration/EXISTING_CAPABILITY_MAPPING.md`; README “Axiom Skill Framework”.
 - No existing capability removed/renamed; no reference-repo text used.
+- Linking pass: `skills/links.yaml` + `link_related_skills.py` wire legacy
+  bases to axiom-* specializations (extends/related/sub_skills, siblings,
+  domain overlays) — no duplicates; future links via `--set`.
+- Derived `manifest.json` export (`axiom skills manifest`, MCP
+  `skill_manifest`; 26 tools): SKILL.md stays single source of truth.
 
 
 ## 0.2.0 (2026-10-09)

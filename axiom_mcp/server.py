@@ -224,6 +224,10 @@ def tool_validate_skill(args: dict) -> dict:
     return axiom_sdk.validate_skill(args["skill_id"])
 
 
+def tool_skill_manifest(args: dict) -> dict:
+    return axiom_sdk.skill_manifest(args["skill_id"])
+
+
 def tool_run_skill(args: dict) -> dict:
     return axiom_sdk.run_skill(
         args["skill_id"], args.get("repo_path", "."),
@@ -467,6 +471,14 @@ TOOLS: dict[str, dict] = {
             required=["skill_id"],
         ),
         "handler": tool_validate_skill,
+    },
+    "skill_manifest": {
+        "description": "Derived manifest.json export for a skill (generated from SKILL.md; single source of truth).",
+        "inputSchema": _schema(
+            {"skill_id": _str_prop("Skill id (directory under skills/).")},
+            required=["skill_id"],
+        ),
+        "handler": tool_skill_manifest,
     },
     "run_skill": {
         "description": "Run a skill as a structured workflow; dry-run unless apply=true (writes only under output_dir/.axiom/runs).",

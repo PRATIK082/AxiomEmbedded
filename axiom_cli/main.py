@@ -334,6 +334,9 @@ def skills_cmd(action: str, args: argparse.Namespace) -> int:
         print(json.dumps(axiom_sdk.skill_report(
             args.skill_id, args.run_dir), indent=2))
         return 0
+    if action == "manifest":
+        print(json.dumps(axiom_sdk.skill_manifest(args.skill_id), indent=2))
+        return 0
     if action == "create":
         from scripts.create_skill import scaffold
         plan = scaffold(args.skill_id, args.title,
@@ -415,6 +418,8 @@ def main() -> int:
     sr.add_argument("--output", default=None); sr.add_argument("--apply", action="store_true")
     sp_ = sk_sub.add_parser("report", help="Summarize a run manifest dir")
     sp_.add_argument("skill_id"); sp_.add_argument("run_dir")
+    sm = sk_sub.add_parser("manifest", help="Print derived manifest.json for a skill")
+    sm.add_argument("skill_id")
     sc = sk_sub.add_parser("create", help="Scaffold a skill (dry-run unless --apply)")
     sc.add_argument("skill_id"); sc.add_argument("--title", required=True)
     sc.add_argument("--domain", default="automotive"); sc.add_argument("--apply", action="store_true")

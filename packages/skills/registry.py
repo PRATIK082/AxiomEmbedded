@@ -37,8 +37,21 @@ def check_catalog(data: dict) -> dict:
         for rel in e.get("related_skills", []) or []:
             if rel not in ids:
                 warnings.append(f"{sid}: unknown related_skill {rel}")
-    # cycle detection over related_skills
-    graph = {e["id"]: e.get("related_skills", []) or [] for e in data.get("skills", [])}
+        for sub in e.get("sub_skills", []) or []:
+            if sub not in ids:
+                warnings.append(f"{sid}: unknown sub_skill {sub}")
+        base = e.get("extends")
+        if base and base not in ids:
+            errors.append(f"{sid}: unknown extends base {base}")
+        for ov in (e.get("domain_overlays", []) or []):
+            if not (ROOT / "domains" / ov).is_dir():
+                warnings.append(f"{sid}: missing domains overlay dir: {ov}")
+        for ov in (e.get("platform_overlays", []) or []):
+            if not (ROOT / "platforms" / ov).is_dir():
+                warnings.append(f"{sid}: missing platforms overlay dir: {ov}")
+    # cycle detection over extends only (related/sub are associative, not directed)
+    graph = {e["id"]: ([e["extends"]] if e.get("extends") else [])
+             for e in data.get("skills", [])}
     visited: dict[str, int] = {}
 
     def dfs(n: str, stack: list[str]):
@@ -57,3 +70,15 @@ def check_catalog(data: dict) -> dict:
             dfs(n, [])
     return {"valid": not errors, "errors": errors, "warnings": warnings,
             "skill_count": len(ids)}
+
+
+def resolve_extends(skill_id: str, index: dict[str, dict]) -> list[str]:
+    """Base-skill chain for `extends` (nearest first). Guards against cycles."""
+    chain: list[str] = []
+    seen: set[str] = {skill_id}
+    cur = (index.get(skill_id) or {}).get("extends")
+    while cur and cur not in seen:
+        chain.append(cur)
+        seen.add(cur)
+        cur = (index.get(cur) or {}).get("extends")
+    return chain

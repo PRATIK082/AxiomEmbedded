@@ -160,6 +160,63 @@ def run_skill(skill_id: str, repo_path: str = ".",
                 output_dir, dry_run)
 
 
+def skill_manifest(skill_id: str) -> dict:
+    """Derived manifest.json export for a skill.
+
+    SKILL.md frontmatter is the single source of truth; this dict is
+    generated on demand (never stored) so CLI-agent tools that consume
+    manifest.json get a consistent view. See docs/skill-manifest-decision.md.
+    """
+    from packages.skills.loader import load_skill
+
+    s = load_skill(skill_id)
+    fm = s["frontmatter"]
+    ax = fm.get("axiom", {}) or {}
+    domain = ax.get("domain") or (fm.get("domains") or ["all"])[0]
+    subdomain = ax.get("subdomain", "general")
+    dotted = ax.get("dotted_name", skill_id.replace("-", "."))
+    manifest = {
+        "id": skill_id,
+        "version": str(fm.get("version", "0.1.0")),
+        "applicable_domains": list(fm.get("domains", [])),
+        "applicable_platforms": list(fm.get("platforms", [])),
+        "capabilities": [dotted],
+        "category": f"domains/{domain}/{subdomain}",
+        "evidence": ["run-manifest", "report", "findings", "traceability"],
+        "inputs": list(ax.get("inputs", ["repository path", "objective"])),
+        "outputs": list(ax.get("outputs", ["run report", "run manifest"])),
+        "derived_from": f"skills/{skill_id}/SKILL.md "
+                        f"(single source of truth; do not edit this export)",
+        "axiom": {
+            "dotted_name": dotted,
+            "maturity": ax.get("maturity", "production"
+                               if not skill_id.startswith("axiom-") else "experimental"),
+            "extends": None,
+            "related_skills": list(ax.get("related_skills", [])),
+            "sub_skills": [],
+            "domain_overlays": [],
+            "platform_overlays": [],
+            "required_tools": list(ax.get("required_tools", [])),
+            "optional_tools": list(ax.get("optional_tools", [])),
+        },
+    }
+    try:
+        from packages.skills.registry import load_catalog
+        idx = {e["id"]: e for e in load_catalog().get("skills", [])}
+        entry = idx.get(skill_id, {})
+        manifest["axiom"].update({
+            "extends": entry.get("extends"),
+            "related_skills": sorted(set(manifest["axiom"]["related_skills"]) |
+                                     set(entry.get("related_skills", []))),
+            "sub_skills": list(entry.get("sub_skills", [])),
+            "domain_overlays": list(entry.get("domain_overlays", [])),
+            "platform_overlays": list(entry.get("platform_overlays", [])),
+        })
+    except Exception:
+        pass
+    return manifest
+
+
 def skill_report(skill_id: str, run_dir: str) -> dict:
     """Summarize a previous run_skill manifest directory."""
     import json

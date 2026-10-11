@@ -86,5 +86,40 @@ def test_sdk_search_and_mcp_tools_registered():
     res = axiom_sdk.search_skills("bsw", domain="automotive")
     assert res["count"] >= 1
     for t in ("search_skills", "validate_skill", "run_skill", "create_skill",
-              "list_skills", "read_skill"):
+              "skill_manifest", "list_skills", "read_skill"):
         assert t in TOOLS
+
+
+def test_manifest_matches_frontmatter_all_skills():
+    import yaml as _yaml
+    from packages import axiom_sdk
+    from packages.skills.loader import parse_skill_doc
+    cat = _yaml.safe_load((ROOT / "skills" / "catalog.yaml").read_text(encoding="utf-8"))
+    for e in cat["skills"]:
+        m = axiom_sdk.skill_manifest(e["id"])
+        fm, _ = parse_skill_doc(
+            (ROOT / e["path"] / "SKILL.md").read_text(encoding="utf-8"))
+        assert m["id"] == fm["name"] == e["id"]
+        assert m["version"] == str(fm["version"])
+        assert m["applicable_domains"] == list(fm.get("domains", []))
+        assert m["applicable_platforms"] == list(fm.get("platforms", []))
+        assert m["category"].startswith("domains/")
+        assert "SKILL.md" in m["derived_from"]
+
+
+def test_links_resolve_and_extends_terminates():
+    import yaml as _yaml
+    from packages.skills.registry import index_catalog, resolve_extends
+    cat = _yaml.safe_load((ROOT / "skills" / "catalog.yaml").read_text(encoding="utf-8"))
+    idx = index_catalog(cat)
+    for e in cat["skills"]:
+        for rel in (e.get("related_skills", []) or []) + (e.get("sub_skills", []) or []):
+            assert rel in idx, (e["id"], rel)
+        base = e.get("extends")
+        if base:
+            assert base in idx
+        chain = resolve_extends(e["id"], idx)
+        assert len(chain) <= len(idx)
+    # spot checks: no duplicates created, links are bidirectional-safe
+    assert idx["autosar"]["sub_skills"]
+    assert "autosar" in idx["axiom-autosar-classic-bsw-integration"]["related_skills"]

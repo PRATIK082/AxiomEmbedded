@@ -12,3 +12,17 @@
    then `python scripts/sync_skill_index.py`.
 7. Run: `python -m axiom_cli skills run <id> --objective "..."` (dry-run),
    `--apply` to write under `.axiom/runs/`.
+
+## Linking (no duplicates, future tools/sub-skills/steps)
+- New skill specializing an existing one? Set `extends: <base>` and add the
+  pair to `skills/links.yaml`, then `python scripts/link_related_skills.py`
+  (`--check` in CI; `--set related|extends|sub-skills <id> ...` for ad-hoc).
+- Link tools via the `axiom:` block: `required_tools`, `optional_tools`,
+  `mcp_tools` (checked against the live MCP registry at validation time;
+  unknown names warn with a pointer to `docs/mcp-tool-backlog.md`).
+- Link domain/platform packages via `domain_overlays` / `platform_overlays`
+  in `links.yaml` (must match a directory under `domains/` / `platforms/`).
+- Custom steps/requirements: add them to the SKILL.md Workflow/Inputs
+  sections and mirror machine-checkable gates in `checklists/` + `scripts/`.
+- Consumers needing JSON: `axiom skills manifest <id>` (derived, never
+  stored — see `docs/skill-manifest-decision.md`).

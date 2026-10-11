@@ -61,6 +61,20 @@ def validate_skill_doc(skill_id: str) -> dict:
         for rel in ax.get("related_skills", []) or []:
             if not (ROOT / "skills" / rel).exists():
                 warnings.append(f"unknown related_skill {rel}")
+        declared_tools = list(ax.get("required_tools", []) or []) + \
+            list(ax.get("optional_tools", []) or []) + \
+            list(ax.get("mcp_tools", []) or [])
+        if declared_tools:
+            try:
+                from axiom_mcp.server import TOOLS as _MCP_TOOLS
+                for t in declared_tools:
+                    if t not in _MCP_TOOLS:
+                        warnings.append(
+                            f"tool {t!r} not in MCP registry "
+                            f"(linkable later; see docs/mcp-tool-backlog.md)")
+            except Exception:
+                warnings.append("mcp tool registry unavailable; "
+                                "tool links unchecked")
     else:
         warnings.append("no axiom: metadata block (legacy skill)")
     # required sections in body

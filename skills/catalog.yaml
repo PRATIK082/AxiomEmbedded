@@ -17,9 +17,14 @@ skills:
   outputs:
   - report
   dependencies: []
-  related_skills: []
+  related_skills:
+  - axiom-adas-perception-pipeline
+  - axiom-adas-validation
   path: skills/adas
   enabled: true
+  sub_skills:
+  - axiom-adas-perception-pipeline
+  - axiom-adas-validation
 - id: ai-validation
   name: axiom.legacy.ai-validation
   title: ai-validation
@@ -57,9 +62,12 @@ skills:
   outputs:
   - report
   dependencies: []
-  related_skills: []
+  related_skills:
+  - axiom-platform-architecture-review
   path: skills/architecture
   enabled: true
+  sub_skills:
+  - axiom-platform-architecture-review
 - id: automotive-body
   name: axiom.legacy.automotive-body
   title: automotive-body
@@ -77,9 +85,12 @@ skills:
   outputs:
   - report
   dependencies: []
-  related_skills: []
+  related_skills:
+  - axiom-can-network-design
   path: skills/automotive-body
   enabled: true
+  sub_skills:
+  - axiom-can-network-design
 - id: automotive-cockpit
   name: axiom.legacy.automotive-cockpit
   title: automotive-cockpit
@@ -137,9 +148,12 @@ skills:
   outputs:
   - report
   dependencies: []
-  related_skills: []
+  related_skills:
+  - axiom-vehicle-cybersecurity
   path: skills/automotive-cybersecurity
   enabled: true
+  sub_skills:
+  - axiom-vehicle-cybersecurity
 - id: automotive-diagnostics
   name: axiom.legacy.automotive-diagnostics
   title: automotive-diagnostics
@@ -157,9 +171,14 @@ skills:
   outputs:
   - report
   dependencies: []
-  related_skills: []
+  related_skills:
+  - axiom-diagnostics-doip
+  - axiom-diagnostics-uds
   path: skills/automotive-diagnostics
   enabled: true
+  sub_skills:
+  - axiom-diagnostics-doip
+  - axiom-diagnostics-uds
 - id: automotive-middleware
   name: axiom.legacy.automotive-middleware
   title: automotive-middleware
@@ -177,9 +196,14 @@ skills:
   outputs:
   - report
   dependencies: []
-  related_skills: []
+  related_skills:
+  - axiom-autosar-adaptive-deployment
+  - axiom-zonal-architecture
   path: skills/automotive-middleware
   enabled: true
+  sub_skills:
+  - axiom-autosar-adaptive-deployment
+  - axiom-zonal-architecture
 - id: automotive-networks
   name: axiom.legacy.automotive-networks
   title: automotive-networks
@@ -197,9 +221,16 @@ skills:
   outputs:
   - report
   dependencies: []
-  related_skills: []
+  related_skills:
+  - axiom-automotive-ethernet-someip
+  - axiom-can-network-design
+  - axiom-can-stack-integration
   path: skills/automotive-networks
   enabled: true
+  sub_skills:
+  - axiom-automotive-ethernet-someip
+  - axiom-can-network-design
+  - axiom-can-stack-integration
 - id: automotive-ota
   name: axiom.legacy.automotive-ota
   title: automotive-ota
@@ -217,9 +248,14 @@ skills:
   outputs:
   - report
   dependencies: []
-  related_skills: []
+  related_skills:
+  - axiom-automotive-release-readiness
+  - axiom-zonal-architecture
   path: skills/automotive-ota
   enabled: true
+  sub_skills:
+  - axiom-automotive-release-readiness
+  - axiom-zonal-architecture
 - id: automotive-spice
   name: axiom.legacy.automotive-spice
   title: automotive-spice
@@ -237,9 +273,14 @@ skills:
   outputs:
   - report
   dependencies: []
-  related_skills: []
+  related_skills:
+  - axiom-automotive-release-readiness
+  - axiom-test-automation
   path: skills/automotive-spice
   enabled: true
+  sub_skills:
+  - axiom-automotive-release-readiness
+  - axiom-test-automation
 - id: automotive-vcycle
   name: axiom.legacy.automotive-vcycle
   title: automotive-vcycle
@@ -257,9 +298,14 @@ skills:
   outputs:
   - report
   dependencies: []
-  related_skills: []
+  related_skills:
+  - axiom-hil-test-planning
+  - axiom-test-automation
   path: skills/automotive-vcycle
   enabled: true
+  sub_skills:
+  - axiom-hil-test-planning
+  - axiom-test-automation
 - id: autosar
   name: axiom.legacy.autosar
   title: autosar
@@ -277,9 +323,22 @@ skills:
   outputs:
   - report
   dependencies: []
-  related_skills: []
+  related_skills:
+  - axiom-autosar-adaptive-deployment
+  - axiom-autosar-classic-architecture
+  - axiom-autosar-classic-bsw-integration
+  - axiom-autosar-com-stack
+  - axiom-autosar-os-config
+  - axiom-autosar-rte-design
   path: skills/autosar
   enabled: true
+  sub_skills:
+  - axiom-autosar-adaptive-deployment
+  - axiom-autosar-classic-architecture
+  - axiom-autosar-classic-bsw-integration
+  - axiom-autosar-com-stack
+  - axiom-autosar-os-config
+  - axiom-autosar-rte-design
 - id: axiom-adas-perception-pipeline
   name: axiom.automotive.adas.perception.pipeline
   title: ADAS Perception Pipeline Design
@@ -300,9 +359,12 @@ skills:
   - run report
   - run manifest
   dependencies: []
-  related_skills: []
+  related_skills:
+  - adas
+  - axiom-adas-validation
   path: skills/axiom-adas-perception-pipeline
   enabled: true
+  extends: adas
 - id: axiom-adas-validation
   name: axiom.automotive.adas.validation
   title: ADAS Validation Planning
@@ -323,9 +385,12 @@ skills:
   - run report
   - run manifest
   dependencies: []
-  related_skills: []
+  related_skills:
+  - adas
+  - axiom-adas-perception-pipeline
   path: skills/axiom-adas-validation
   enabled: true
+  extends: adas
 - id: axiom-aerospace-defense-safety-review
   name: axiom.aerospace.aerospace.defense.safety.review
   title: Aerospace and Defense Safety Review
@@ -349,6 +414,9 @@ skills:
   related_skills: []
   path: skills/axiom-aerospace-defense-safety-review
   enabled: true
+  domain_overlays:
+  - aerospace
+  - defense
 - id: axiom-automotive-ethernet-someip
   name: axiom.automotive.automotive.ethernet.someip
   title: Automotive Ethernet and SOME/IP Design
@@ -369,9 +437,13 @@ skills:
   - run report
   - run manifest
   dependencies: []
-  related_skills: []
+  related_skills:
+  - automotive-networks
+  - axiom-can-network-design
+  - axiom-can-stack-integration
   path: skills/axiom-automotive-ethernet-someip
   enabled: true
+  extends: automotive-networks
 - id: axiom-automotive-release-readiness
   name: axiom.automotive.automotive.release.readiness
   title: Automotive Release Readiness
@@ -392,9 +464,16 @@ skills:
   - run report
   - run manifest
   dependencies: []
-  related_skills: []
+  related_skills:
+  - automotive-ota
+  - automotive-spice
+  - axiom-test-automation
+  - axiom-zonal-architecture
+  - evidence
+  - release
   path: skills/axiom-automotive-release-readiness
   enabled: true
+  extends: release
 - id: axiom-autosar-adaptive-deployment
   name: axiom.automotive.autosar.adaptive.deployment
   title: AUTOSAR Adaptive Deployment
@@ -415,9 +494,18 @@ skills:
   - run report
   - run manifest
   dependencies: []
-  related_skills: []
+  related_skills:
+  - automotive-middleware
+  - autosar
+  - axiom-autosar-classic-architecture
+  - axiom-autosar-classic-bsw-integration
+  - axiom-autosar-com-stack
+  - axiom-autosar-os-config
+  - axiom-autosar-rte-design
+  - axiom-zonal-architecture
   path: skills/axiom-autosar-adaptive-deployment
   enabled: true
+  extends: autosar
 - id: axiom-autosar-classic-architecture
   name: axiom.automotive.autosar.classic.architecture
   title: AUTOSAR Classic Architecture Review
@@ -438,9 +526,16 @@ skills:
   - run report
   - run manifest
   dependencies: []
-  related_skills: []
+  related_skills:
+  - autosar
+  - axiom-autosar-adaptive-deployment
+  - axiom-autosar-classic-bsw-integration
+  - axiom-autosar-com-stack
+  - axiom-autosar-os-config
+  - axiom-autosar-rte-design
   path: skills/axiom-autosar-classic-architecture
   enabled: true
+  extends: autosar
 - id: axiom-autosar-classic-bsw-integration
   name: axiom.automotive.autosar.classic.bsw.integration
   title: AUTOSAR Classic BSW Integration
@@ -461,9 +556,16 @@ skills:
   - run report
   - run manifest
   dependencies: []
-  related_skills: []
+  related_skills:
+  - autosar
+  - axiom-autosar-adaptive-deployment
+  - axiom-autosar-classic-architecture
+  - axiom-autosar-com-stack
+  - axiom-autosar-os-config
+  - axiom-autosar-rte-design
   path: skills/axiom-autosar-classic-bsw-integration
   enabled: true
+  extends: autosar
 - id: axiom-autosar-com-stack
   name: axiom.automotive.autosar.com.stack
   title: AUTOSAR COM Stack Review
@@ -484,9 +586,16 @@ skills:
   - run report
   - run manifest
   dependencies: []
-  related_skills: []
+  related_skills:
+  - autosar
+  - axiom-autosar-adaptive-deployment
+  - axiom-autosar-classic-architecture
+  - axiom-autosar-classic-bsw-integration
+  - axiom-autosar-os-config
+  - axiom-autosar-rte-design
   path: skills/axiom-autosar-com-stack
   enabled: true
+  extends: autosar
 - id: axiom-autosar-os-config
   name: axiom.automotive.autosar.os.config
   title: AUTOSAR OS Configuration Review
@@ -507,9 +616,16 @@ skills:
   - run report
   - run manifest
   dependencies: []
-  related_skills: []
+  related_skills:
+  - autosar
+  - axiom-autosar-adaptive-deployment
+  - axiom-autosar-classic-architecture
+  - axiom-autosar-classic-bsw-integration
+  - axiom-autosar-com-stack
+  - axiom-autosar-rte-design
   path: skills/axiom-autosar-os-config
   enabled: true
+  extends: autosar
 - id: axiom-autosar-rte-design
   name: axiom.automotive.autosar.rte.design
   title: AUTOSAR RTE Design
@@ -530,9 +646,16 @@ skills:
   - run report
   - run manifest
   dependencies: []
-  related_skills: []
+  related_skills:
+  - autosar
+  - axiom-autosar-adaptive-deployment
+  - axiom-autosar-classic-architecture
+  - axiom-autosar-classic-bsw-integration
+  - axiom-autosar-com-stack
+  - axiom-autosar-os-config
   path: skills/axiom-autosar-rte-design
   enabled: true
+  extends: autosar
 - id: axiom-bms-design
   name: axiom.automotive.bms.design
   title: BMS Control Design
@@ -599,9 +722,14 @@ skills:
   - run report
   - run manifest
   dependencies: []
-  related_skills: []
+  related_skills:
+  - automotive-body
+  - automotive-networks
+  - axiom-automotive-ethernet-someip
+  - axiom-can-stack-integration
   path: skills/axiom-can-network-design
   enabled: true
+  extends: automotive-networks
 - id: axiom-can-stack-integration
   name: axiom.automotive.can.stack.integration
   title: CAN Stack Integration
@@ -622,9 +750,13 @@ skills:
   - run report
   - run manifest
   dependencies: []
-  related_skills: []
+  related_skills:
+  - automotive-networks
+  - axiom-automotive-ethernet-someip
+  - axiom-can-network-design
   path: skills/axiom-can-stack-integration
   enabled: true
+  extends: automotive-networks
 - id: axiom-diagnostics-doip
   name: axiom.automotive.diagnostics.doip
   title: DoIP Diagnostics Integration
@@ -645,9 +777,12 @@ skills:
   - run report
   - run manifest
   dependencies: []
-  related_skills: []
+  related_skills:
+  - automotive-diagnostics
+  - axiom-diagnostics-uds
   path: skills/axiom-diagnostics-doip
   enabled: true
+  extends: automotive-diagnostics
 - id: axiom-diagnostics-uds
   name: axiom.automotive.diagnostics.uds
   title: UDS Diagnostics Design and Validation
@@ -668,9 +803,12 @@ skills:
   - run report
   - run manifest
   dependencies: []
-  related_skills: []
+  related_skills:
+  - automotive-diagnostics
+  - axiom-diagnostics-doip
   path: skills/axiom-diagnostics-uds
   enabled: true
+  extends: automotive-diagnostics
 - id: axiom-embedded-firmware-bringup
   name: axiom.platform.embedded.firmware.bringup
   title: Embedded Firmware Bring-up
@@ -691,9 +829,14 @@ skills:
   - run report
   - run manifest
   dependencies: []
-  related_skills: []
+  related_skills:
+  - bootloader
+  - drivers
+  - hardware-bringup
+  - mcu
   path: skills/axiom-embedded-firmware-bringup
   enabled: true
+  extends: hardware-bringup
 - id: axiom-functional-safety
   name: axiom.automotive.functional.safety
   title: Functional Safety Workflow
@@ -714,9 +857,11 @@ skills:
   - run report
   - run manifest
   dependencies: []
-  related_skills: []
+  related_skills:
+  - safety
   path: skills/axiom-functional-safety
   enabled: true
+  extends: safety
 - id: axiom-hil-test-planning
   name: axiom.platform.hil.test.planning
   title: HIL Test Planning
@@ -737,9 +882,15 @@ skills:
   - run report
   - run manifest
   dependencies: []
-  related_skills: []
+  related_skills:
+  - automotive-vcycle
+  - axiom-test-automation
+  - integration-test
+  - simulation
+  - system-test
   path: skills/axiom-hil-test-planning
   enabled: true
+  extends: integration-test
 - id: axiom-industrial-control-review
   name: axiom.industrial.industrial.control.review
   title: Industrial Control Review
@@ -763,6 +914,8 @@ skills:
   related_skills: []
   path: skills/axiom-industrial-control-review
   enabled: true
+  domain_overlays:
+  - industrial
 - id: axiom-memory-and-performance-analysis
   name: axiom.platform.memory.and.performance.analysis
   title: Memory and Performance Analysis
@@ -783,9 +936,11 @@ skills:
   - run report
   - run manifest
   dependencies: []
-  related_skills: []
+  related_skills:
+  - performance
   path: skills/axiom-memory-and-performance-analysis
   enabled: true
+  extends: performance
 - id: axiom-platform-architecture-review
   name: axiom.cross-domain.platform.architecture.review
   title: Platform Architecture Review
@@ -806,9 +961,14 @@ skills:
   - run report
   - run manifest
   dependencies: []
-  related_skills: []
+  related_skills:
+  - architecture
+  - code-review
+  - requirements
+  - software-architecture
   path: skills/axiom-platform-architecture-review
   enabled: true
+  extends: architecture
 - id: axiom-robotics-system-integration
   name: axiom.robotics.robotics.system.integration
   title: Robotics System Integration
@@ -829,9 +989,13 @@ skills:
   - run report
   - run manifest
   dependencies: []
-  related_skills: []
+  related_skills:
+  - robotics
   path: skills/axiom-robotics-system-integration
   enabled: true
+  extends: robotics
+  domain_overlays:
+  - robotics
 - id: axiom-rtos-architecture
   name: axiom.platform.rtos.architecture
   title: RTOS Architecture Review
@@ -852,9 +1016,11 @@ skills:
   - run report
   - run manifest
   dependencies: []
-  related_skills: []
+  related_skills:
+  - rtos
   path: skills/axiom-rtos-architecture
   enabled: true
+  extends: rtos
 - id: axiom-test-automation
   name: axiom.platform.test.automation
   title: Embedded Test Automation
@@ -875,9 +1041,18 @@ skills:
   - run report
   - run manifest
   dependencies: []
-  related_skills: []
+  related_skills:
+  - automotive-spice
+  - automotive-vcycle
+  - axiom-automotive-release-readiness
+  - axiom-hil-test-planning
+  - coverage
+  - integration-test
+  - test-automation
+  - unit-test
   path: skills/axiom-test-automation
   enabled: true
+  extends: test-automation
 - id: axiom-trace-analysis
   name: axiom.platform.trace.analysis
   title: Trace Analysis
@@ -898,9 +1073,11 @@ skills:
   - run report
   - run manifest
   dependencies: []
-  related_skills: []
+  related_skills:
+  - debugging
   path: skills/axiom-trace-analysis
   enabled: true
+  extends: debugging
 - id: axiom-v2x-communication
   name: axiom.automotive.v2x.communication
   title: V2X Communication Design
@@ -944,9 +1121,12 @@ skills:
   - run report
   - run manifest
   dependencies: []
-  related_skills: []
+  related_skills:
+  - automotive-cybersecurity
+  - security
   path: skills/axiom-vehicle-cybersecurity
   enabled: true
+  extends: automotive-cybersecurity
 - id: axiom-zonal-architecture
   name: axiom.automotive.zonal.architecture
   title: Zonal Architecture Design
@@ -967,9 +1147,16 @@ skills:
   - run report
   - run manifest
   dependencies: []
-  related_skills: []
+  related_skills:
+  - automotive-middleware
+  - automotive-ota
+  - axiom-automotive-release-readiness
+  - axiom-autosar-adaptive-deployment
+  - mpsoc
+  - soc
   path: skills/axiom-zonal-architecture
   enabled: true
+  extends: automotive-middleware
 - id: bare-metal
   name: axiom.legacy.bare-metal
   title: bare-metal
@@ -1007,9 +1194,12 @@ skills:
   outputs:
   - report
   dependencies: []
-  related_skills: []
+  related_skills:
+  - axiom-embedded-firmware-bringup
   path: skills/bootloader
   enabled: true
+  sub_skills:
+  - axiom-embedded-firmware-bringup
 - id: build-system
   name: axiom.legacy.build-system
   title: build-system
@@ -1067,9 +1257,12 @@ skills:
   outputs:
   - report
   dependencies: []
-  related_skills: []
+  related_skills:
+  - axiom-platform-architecture-review
   path: skills/code-review
   enabled: true
+  sub_skills:
+  - axiom-platform-architecture-review
 - id: configuration-management
   name: axiom.legacy.configuration-management
   title: configuration-management
@@ -1107,9 +1300,12 @@ skills:
   outputs:
   - report
   dependencies: []
-  related_skills: []
+  related_skills:
+  - axiom-test-automation
   path: skills/coverage
   enabled: true
+  sub_skills:
+  - axiom-test-automation
 - id: debugging
   name: axiom.legacy.debugging
   title: debugging
@@ -1127,9 +1323,12 @@ skills:
   outputs:
   - report
   dependencies: []
-  related_skills: []
+  related_skills:
+  - axiom-trace-analysis
   path: skills/debugging
   enabled: true
+  sub_skills:
+  - axiom-trace-analysis
 - id: documentation
   name: axiom.legacy.documentation
   title: documentation
@@ -1167,9 +1366,12 @@ skills:
   outputs:
   - report
   dependencies: []
-  related_skills: []
+  related_skills:
+  - axiom-embedded-firmware-bringup
   path: skills/drivers
   enabled: true
+  sub_skills:
+  - axiom-embedded-firmware-bringup
 - id: edge-ai
   name: axiom.legacy.edge-ai
   title: edge-ai
@@ -1267,9 +1469,12 @@ skills:
   outputs:
   - report
   dependencies: []
-  related_skills: []
+  related_skills:
+  - axiom-automotive-release-readiness
   path: skills/evidence
   enabled: true
+  sub_skills:
+  - axiom-automotive-release-readiness
 - id: fault-injection
   name: axiom.legacy.fault-injection
   title: fault-injection
@@ -1347,9 +1552,12 @@ skills:
   outputs:
   - report
   dependencies: []
-  related_skills: []
+  related_skills:
+  - axiom-embedded-firmware-bringup
   path: skills/hardware-bringup
   enabled: true
+  sub_skills:
+  - axiom-embedded-firmware-bringup
 - id: implementation
   name: axiom.legacy.implementation
   title: implementation
@@ -1387,9 +1595,14 @@ skills:
   outputs:
   - report
   dependencies: []
-  related_skills: []
+  related_skills:
+  - axiom-hil-test-planning
+  - axiom-test-automation
   path: skills/integration-test
   enabled: true
+  sub_skills:
+  - axiom-hil-test-planning
+  - axiom-test-automation
 - id: legacy-recovery
   name: axiom.legacy.legacy-recovery
   title: legacy-recovery
@@ -1427,9 +1640,12 @@ skills:
   outputs:
   - report
   dependencies: []
-  related_skills: []
+  related_skills:
+  - axiom-embedded-firmware-bringup
   path: skills/mcu
   enabled: true
+  sub_skills:
+  - axiom-embedded-firmware-bringup
 - id: mpsoc
   name: axiom.legacy.mpsoc
   title: mpsoc
@@ -1447,9 +1663,12 @@ skills:
   outputs:
   - report
   dependencies: []
-  related_skills: []
+  related_skills:
+  - axiom-zonal-architecture
   path: skills/mpsoc
   enabled: true
+  sub_skills:
+  - axiom-zonal-architecture
 - id: mpu
   name: axiom.legacy.mpu
   title: mpu
@@ -1487,9 +1706,12 @@ skills:
   outputs:
   - report
   dependencies: []
-  related_skills: []
+  related_skills:
+  - axiom-memory-and-performance-analysis
   path: skills/performance
   enabled: true
+  sub_skills:
+  - axiom-memory-and-performance-analysis
 - id: project-audit
   name: axiom.legacy.project-audit
   title: project-audit
@@ -1527,9 +1749,12 @@ skills:
   outputs:
   - report
   dependencies: []
-  related_skills: []
+  related_skills:
+  - axiom-automotive-release-readiness
   path: skills/release
   enabled: true
+  sub_skills:
+  - axiom-automotive-release-readiness
 - id: requirements
   name: axiom.legacy.requirements
   title: requirements
@@ -1547,9 +1772,12 @@ skills:
   outputs:
   - report
   dependencies: []
-  related_skills: []
+  related_skills:
+  - axiom-platform-architecture-review
   path: skills/requirements
   enabled: true
+  sub_skills:
+  - axiom-platform-architecture-review
 - id: requirements-traceability
   name: axiom.legacy.requirements-traceability
   title: requirements-traceability
@@ -1587,9 +1815,12 @@ skills:
   outputs:
   - report
   dependencies: []
-  related_skills: []
+  related_skills:
+  - axiom-robotics-system-integration
   path: skills/robotics
   enabled: true
+  sub_skills:
+  - axiom-robotics-system-integration
 - id: rtos
   name: axiom.legacy.rtos
   title: rtos
@@ -1607,9 +1838,12 @@ skills:
   outputs:
   - report
   dependencies: []
-  related_skills: []
+  related_skills:
+  - axiom-rtos-architecture
   path: skills/rtos
   enabled: true
+  sub_skills:
+  - axiom-rtos-architecture
 - id: rust-embedded
   name: axiom.legacy.rust-embedded
   title: rust-embedded
@@ -1647,9 +1881,12 @@ skills:
   outputs:
   - report
   dependencies: []
-  related_skills: []
+  related_skills:
+  - axiom-functional-safety
   path: skills/safety
   enabled: true
+  sub_skills:
+  - axiom-functional-safety
 - id: security
   name: axiom.legacy.security
   title: security
@@ -1667,9 +1904,12 @@ skills:
   outputs:
   - report
   dependencies: []
-  related_skills: []
+  related_skills:
+  - axiom-vehicle-cybersecurity
   path: skills/security
   enabled: true
+  sub_skills:
+  - axiom-vehicle-cybersecurity
 - id: simulation
   name: axiom.legacy.simulation
   title: simulation
@@ -1687,9 +1927,12 @@ skills:
   outputs:
   - report
   dependencies: []
-  related_skills: []
+  related_skills:
+  - axiom-hil-test-planning
   path: skills/simulation
   enabled: true
+  sub_skills:
+  - axiom-hil-test-planning
 - id: soc
   name: axiom.legacy.soc
   title: soc
@@ -1707,9 +1950,12 @@ skills:
   outputs:
   - report
   dependencies: []
-  related_skills: []
+  related_skills:
+  - axiom-zonal-architecture
   path: skills/soc
   enabled: true
+  sub_skills:
+  - axiom-zonal-architecture
 - id: software-architecture
   name: axiom.legacy.software-architecture
   title: software-architecture
@@ -1727,9 +1973,12 @@ skills:
   outputs:
   - report
   dependencies: []
-  related_skills: []
+  related_skills:
+  - axiom-platform-architecture-review
   path: skills/software-architecture
   enabled: true
+  sub_skills:
+  - axiom-platform-architecture-review
 - id: static-analysis
   name: axiom.legacy.static-analysis
   title: static-analysis
@@ -1767,9 +2016,12 @@ skills:
   outputs:
   - report
   dependencies: []
-  related_skills: []
+  related_skills:
+  - axiom-hil-test-planning
   path: skills/system-test
   enabled: true
+  sub_skills:
+  - axiom-hil-test-planning
 - id: test-automation
   name: axiom.legacy.test-automation
   title: test-automation
@@ -1787,9 +2039,12 @@ skills:
   outputs:
   - report
   dependencies: []
-  related_skills: []
+  related_skills:
+  - axiom-test-automation
   path: skills/test-automation
   enabled: true
+  sub_skills:
+  - axiom-test-automation
 - id: traceability
   name: axiom.legacy.traceability
   title: traceability
@@ -1827,9 +2082,12 @@ skills:
   outputs:
   - report
   dependencies: []
-  related_skills: []
+  related_skills:
+  - axiom-test-automation
   path: skills/unit-test
   enabled: true
+  sub_skills:
+  - axiom-test-automation
 - id: validation
   name: axiom.legacy.validation
   title: validation
