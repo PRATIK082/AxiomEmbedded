@@ -16,6 +16,7 @@ Usage:
 
 from __future__ import annotations
 
+import html
 import json
 from http.server import BaseHTTPRequestHandler, ThreadingHTTPServer
 
@@ -51,7 +52,14 @@ class Handler(BaseHTTPRequestHandler):
         return json.loads(self.rfile.read(length).decode("utf-8") or "{}")
 
     def do_GET(self):  # noqa: N802
-        if self.path == "/v1/skills":
+        if self.path == "/":
+            body = dashboard_html().encode("utf-8")
+            self.send_response(200)
+            self.send_header("Content-Type", "text/html; charset=utf-8")
+            self.send_header("Content-Length", str(len(body)))
+            self.end_headers()
+            self.wfile.write(body)
+        elif self.path == "/v1/skills":
             _send(self, axiom_sdk.list_skills())
         elif self.path.startswith("/v1/skills/"):
             skill_id = self.path.rsplit("/", 1)[-1]
@@ -90,6 +98,30 @@ class Handler(BaseHTTPRequestHandler):
             )
         else:
             _send(self, {"error": "not found"}, 404)
+
+
+def dashboard_html() -> str:
+    """Slice-1 Simple-UI: status dashboard rendered from get_status().
+
+    Pure function (no I/O besides the status snapshot) so it is unit
+    testable and reusable by any future UI surface.
+    """
+    st = axiom_sdk.get_status()
+    skills = st.get("skills", {})
+    nxt = html.escape(str(st.get("recommended_next_action", "")))
+    rows = "".join(
+        f"<tr><td>{html.escape(str(k))}</td><td>{html.escape(str(v))}</td></tr>"
+        for k, v in sorted(skills.items()))
+    return (
+        "<!DOCTYPE html><html lang=\"en\"><head><meta charset=\"utf-8\">"
+        "<title>AxiomEmbedded dashboard</title></head><body>"
+        "<h1>AxiomEmbedded</h1>"
+        f"<p>Project: {html.escape(str(st.get('project', '')))}</p>"
+        "<h2>Skills</h2><table><tbody>" + rows + "</tbody></table>"
+        "<h2>Recommended next action</h2>"
+        f"<p>{nxt}</p>"
+        "</body></html>"
+    )
 
 
 def serve(port: int = 8931) -> int:

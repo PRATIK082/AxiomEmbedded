@@ -27,6 +27,27 @@ def engage_skills(domain: str | None = None, platform: str | None = None) -> dic
     return engage(domain, platform)
 
 
+def get_status() -> dict:
+    """Project health snapshot (re-exported so SDK/CLI/MCP/REST agree)."""
+    from packages.axiom_ops import get_status as _get_status
+
+    return _get_status()
+
+
+def plan_fix(issue_id: str, domain: str | None = None, platform: str | None = None) -> dict:
+    """10-step fix-defect plan (re-exported so SDK/CLI/MCP/REST agree)."""
+    from packages.axiom_ops import plan_fix as _plan_fix
+
+    return _plan_fix(issue_id, domain, platform)
+
+
+def plan_feature(feature_id: str, domain: str | None = None, platform: str | None = None) -> dict:
+    """9-step add-feature plan (re-exported so SDK/CLI/MCP/REST agree)."""
+    from packages.axiom_ops import plan_feature as _plan_feature
+
+    return _plan_feature(feature_id, domain, platform)
+
+
 def run_plan(request: str, domain: str | None = None, platform: str | None = None) -> dict:
     """Opencode-like plan: engagement + routed intent + phased execution plan.
 

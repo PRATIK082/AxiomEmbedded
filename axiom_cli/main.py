@@ -27,6 +27,19 @@ ROOT = pathlib.Path(__file__).resolve().parents[1]
 def _read_yaml(path: str | pathlib.Path):
     return yaml.safe_load(pathlib.Path(path).read_text(encoding="utf-8")) or {}
 
+
+def _need_file(path: str, what: str = "file") -> pathlib.Path | None:
+    """Friendly missing-path error (JSON) instead of a raw traceback.
+
+    Returns the Path when it exists, else prints an error envelope and
+    returns None so callers can `return 2`.
+    """
+    p = pathlib.Path(path)
+    if p.exists():
+        return p
+    print(json.dumps({"status": "error", "message": f"{what} not found: {path}"}, indent=2))
+    return None
+
 def is_source_checkout() -> bool:
     """True when ROOT looks like a source checkout (content trees live there)."""
     return (ROOT / "pyproject.toml").exists() or (ROOT / ".git").exists()
@@ -52,6 +65,8 @@ def validate_repo() -> int:
     return 0
 
 def validate_profile(path: str) -> int:
+    if _need_file(path, "profile") is None:
+        return 2
     data = _read_yaml(path)
     required = ["id", "version", "domains", "capabilities"]
     missing = [k for k in required if k not in data]
@@ -144,6 +159,8 @@ def impact(path: str) -> int:
     return 0
 
 def workflow_plan(profile: str, entry: str | None) -> int:
+    if _need_file(profile, "profile") is None:
+        return 2
     data = _read_yaml(profile)
     mode = entry or data.get("entry", "greenfield")
     print(json.dumps({"profile": data.get("id"), "entry": mode, "start_phase": starting_phase(mode), "lifecycle": data.get("lifecycle", "v-model")}, indent=2))
