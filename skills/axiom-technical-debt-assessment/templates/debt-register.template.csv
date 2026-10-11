@@ -1,0 +1,6 @@
+item_id,location,kind,principal,interest_per_release,contagion,paydown_cost,safety_flag,owner,target_release,status,evidence
+# kind: duplication | obsolete | missing-tests | fragile-build | undocumented-assumption | deferred-decision | other
+# principal/interest/paydown_cost: S | M | L (ranges agreed per team)
+# contagion: integer count of affected areas
+# safety_flag: yes | no
+# status: listed | planned | in-paydown | retired

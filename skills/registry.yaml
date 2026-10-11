@@ -68,6 +68,10 @@ skills:
   path: skills/axiom-aerospace-defense-safety-review
   domain: aerospace
   maturity: experimental
+- name: axiom.legacy.axiom-architecture-decision-records
+  path: skills/axiom-architecture-decision-records
+  domain: all
+  maturity: production
 - name: axiom.automotive.automotive.ethernet.someip
   path: skills/axiom-automotive-ethernet-someip
   domain: automotive
@@ -124,6 +128,10 @@ skills:
   path: skills/axiom-diagnostics-uds
   domain: automotive
   maturity: beta
+- name: axiom.legacy.axiom-embedded-cicd
+  path: skills/axiom-embedded-cicd
+  domain: all
+  maturity: production
 - name: axiom.platform.embedded.firmware.bringup
   path: skills/axiom-embedded-firmware-bringup
   domain: platform
@@ -140,6 +148,10 @@ skills:
   path: skills/axiom-industrial-control-review
   domain: industrial
   maturity: experimental
+- name: axiom.legacy.axiom-interface-contract-design
+  path: skills/axiom-interface-contract-design
+  domain: all
+  maturity: production
 - name: axiom.platform.memory.and.performance.analysis
   path: skills/axiom-memory-and-performance-analysis
   domain: platform
@@ -156,6 +168,14 @@ skills:
   path: skills/axiom-rtos-architecture
   domain: platform
   maturity: experimental
+- name: axiom.legacy.axiom-static-analysis-triage
+  path: skills/axiom-static-analysis-triage
+  domain: all
+  maturity: production
+- name: axiom.legacy.axiom-technical-debt-assessment
+  path: skills/axiom-technical-debt-assessment
+  domain: all
+  maturity: production
 - name: axiom.platform.test.automation
   path: skills/axiom-test-automation
   domain: platform

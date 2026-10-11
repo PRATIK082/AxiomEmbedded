@@ -1,0 +1,13 @@
+gates:
+  - id: singularity
+    text: One decision per ADR; status in fixed vocabulary
+  - id: options
+    text: Credible alternative present with trade-offs
+  - id: consequences
+    text: Costs named; reopen triggers testable
+  - id: linkage
+    text: Requirements/contracts/work items linked or N/A stated
+  - id: approval
+    text: Approver recorded; external approver for safety/security ADRs
+  - id: index
+    text: Numbering gap-free; no orphans or supersede cycles

@@ -68,12 +68,29 @@ related:
   - axiom-robotics-system-integration
   architecture:
   - axiom-platform-architecture-review
+  - axiom-interface-contract-design
+  - axiom-architecture-decision-records
   software-architecture:
   - axiom-platform-architecture-review
   code-review:
   - axiom-platform-architecture-review
+  - axiom-static-analysis-triage
+  - axiom-technical-debt-assessment
+  static-analysis:
+  - axiom-static-analysis-triage
   requirements:
   - axiom-platform-architecture-review
+  requirements-traceability:
+  - axiom-interface-contract-design
+  traceability:
+  - axiom-interface-contract-design
+  test-automation:
+  - axiom-test-automation
+  - axiom-embedded-cicd
+  build-system:
+  - axiom-embedded-cicd
+  documentation:
+  - axiom-architecture-decision-records
   release:
   - axiom-automotive-release-readiness
   evidence:
@@ -108,6 +125,11 @@ extends:
   axiom-hil-test-planning: integration-test
   axiom-robotics-system-integration: robotics
   axiom-platform-architecture-review: architecture
+  axiom-interface-contract-design: architecture
+  axiom-static-analysis-triage: static-analysis
+  axiom-embedded-cicd: build-system
+  axiom-architecture-decision-records: architecture
+  axiom-technical-debt-assessment: code-review
 domain_overlays:
   axiom-robotics-system-integration:
   - robotics

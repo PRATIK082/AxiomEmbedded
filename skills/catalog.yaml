@@ -63,10 +63,14 @@ skills:
   - report
   dependencies: []
   related_skills:
+  - axiom-architecture-decision-records
+  - axiom-interface-contract-design
   - axiom-platform-architecture-review
   path: skills/architecture
   enabled: true
   sub_skills:
+  - axiom-architecture-decision-records
+  - axiom-interface-contract-design
   - axiom-platform-architecture-review
 - id: automotive-body
   name: axiom.legacy.automotive-body
@@ -365,6 +369,24 @@ skills:
   path: skills/axiom-adas-perception-pipeline
   enabled: true
   extends: adas
+  lifecycle:
+  - requirements
+  - architecture
+  - design
+  - implementation
+  - integration
+  - verification
+  - validation
+  - release
+  standards:
+  - ISO 26262:2018
+  artifact_types:
+  - perception interface contract
+  mcp_tools:
+  - run_skill
+  - validate_skill
+  risk_level: high
+  review_required: true
 - id: axiom-adas-validation
   name: axiom.automotive.adas.validation
   title: ADAS Validation Planning
@@ -391,6 +413,25 @@ skills:
   path: skills/axiom-adas-validation
   enabled: true
   extends: adas
+  lifecycle:
+  - requirements
+  - architecture
+  - design
+  - implementation
+  - integration
+  - verification
+  - validation
+  - release
+  standards:
+  - ISO 26262:2018
+  artifact_types:
+  - validation plan
+  - KPI set
+  mcp_tools:
+  - run_skill
+  - validate_skill
+  risk_level: high
+  review_required: true
 - id: axiom-aerospace-defense-safety-review
   name: axiom.aerospace.aerospace.defense.safety.review
   title: Aerospace and Defense Safety Review
@@ -417,6 +458,68 @@ skills:
   domain_overlays:
   - aerospace
   - defense
+  lifecycle:
+  - requirements
+  - architecture
+  - design
+  - implementation
+  - integration
+  - verification
+  - validation
+  - release
+  standards:
+  - DO-178C
+  - DO-254
+  artifact_types:
+  - safety review
+  mcp_tools:
+  - run_skill
+  - validate_skill
+  risk_level: safety-critical
+  review_required: true
+- id: axiom-architecture-decision-records
+  name: axiom.legacy.axiom-architecture-decision-records
+  title: Architecture Decision Records
+  version: 0.1.0
+  domain: all
+  subdomain: legacy
+  category: legacy
+  maturity: production
+  owner: axiom-embedded
+  tags:
+  - legacy
+  inputs:
+  - repository path
+  - objective
+  outputs:
+  - report
+  dependencies: []
+  related_skills:
+  - architecture
+  - axiom-interface-contract-design
+  - axiom-platform-architecture-review
+  - documentation
+  path: skills/axiom-architecture-decision-records
+  enabled: true
+  lifecycle:
+  - requirements
+  - architecture
+  - design
+  - implementation
+  - release
+  - operations
+  standards: []
+  artifact_types:
+  - ADR
+  - ADR index
+  mcp_tools:
+  - run_skill
+  - validate_skill
+  - generate_checklist
+  - generate_report
+  risk_level: low
+  review_required: true
+  extends: architecture
 - id: axiom-automotive-ethernet-someip
   name: axiom.automotive.automotive.ethernet.someip
   title: Automotive Ethernet and SOME/IP Design
@@ -444,6 +547,26 @@ skills:
   path: skills/axiom-automotive-ethernet-someip
   enabled: true
   extends: automotive-networks
+  lifecycle:
+  - requirements
+  - architecture
+  - design
+  - implementation
+  - integration
+  - verification
+  - validation
+  - release
+  standards:
+  - AUTOSAR SOME/IP
+  - IEEE 802.1 TSN
+  artifact_types:
+  - Ethernet design
+  - service model
+  mcp_tools:
+  - run_skill
+  - validate_skill
+  risk_level: medium
+  review_required: true
 - id: axiom-automotive-release-readiness
   name: axiom.automotive.automotive.release.readiness
   title: Automotive Release Readiness
@@ -474,6 +597,25 @@ skills:
   path: skills/axiom-automotive-release-readiness
   enabled: true
   extends: release
+  lifecycle:
+  - requirements
+  - architecture
+  - design
+  - implementation
+  - integration
+  - verification
+  - validation
+  - release
+  standards:
+  - Automotive SPICE
+  artifact_types:
+  - release gate report
+  - evidence package
+  mcp_tools:
+  - run_skill
+  - validate_skill
+  risk_level: high
+  review_required: true
 - id: axiom-autosar-adaptive-deployment
   name: axiom.automotive.autosar.adaptive.deployment
   title: AUTOSAR Adaptive Deployment
@@ -506,6 +648,25 @@ skills:
   path: skills/axiom-autosar-adaptive-deployment
   enabled: true
   extends: autosar
+  lifecycle:
+  - requirements
+  - architecture
+  - design
+  - implementation
+  - integration
+  - verification
+  - validation
+  - release
+  standards:
+  - AUTOSAR Adaptive R24-11
+  artifact_types:
+  - deployment manifest review
+  - deployment checklist
+  mcp_tools:
+  - run_skill
+  - validate_skill
+  risk_level: high
+  review_required: true
 - id: axiom-autosar-classic-architecture
   name: axiom.automotive.autosar.classic.architecture
   title: AUTOSAR Classic Architecture Review
@@ -536,6 +697,26 @@ skills:
   path: skills/axiom-autosar-classic-architecture
   enabled: true
   extends: autosar
+  lifecycle:
+  - requirements
+  - architecture
+  - design
+  - implementation
+  - integration
+  - verification
+  - validation
+  - release
+  standards:
+  - AUTOSAR Classic R24-11
+  - ISO 26262:2018
+  artifact_types:
+  - architecture decision record
+  - layering review
+  mcp_tools:
+  - run_skill
+  - validate_skill
+  risk_level: high
+  review_required: true
 - id: axiom-autosar-classic-bsw-integration
   name: axiom.automotive.autosar.classic.bsw.integration
   title: AUTOSAR Classic BSW Integration
@@ -566,6 +747,27 @@ skills:
   path: skills/axiom-autosar-classic-bsw-integration
   enabled: true
   extends: autosar
+  lifecycle:
+  - requirements
+  - architecture
+  - design
+  - implementation
+  - integration
+  - verification
+  - validation
+  - release
+  standards:
+  - AUTOSAR Classic R24-11
+  - ISO 26262:2018
+  artifact_types:
+  - integration report
+  - validation matrix
+  - configuration-change plan
+  mcp_tools:
+  - run_skill
+  - validate_skill
+  risk_level: high
+  review_required: true
 - id: axiom-autosar-com-stack
   name: axiom.automotive.autosar.com.stack
   title: AUTOSAR COM Stack Review
@@ -596,6 +798,25 @@ skills:
   path: skills/axiom-autosar-com-stack
   enabled: true
   extends: autosar
+  lifecycle:
+  - requirements
+  - architecture
+  - design
+  - implementation
+  - integration
+  - verification
+  - validation
+  - release
+  standards:
+  - AUTOSAR Classic R24-11
+  artifact_types:
+  - COM review
+  - signal-routing table
+  mcp_tools:
+  - run_skill
+  - validate_skill
+  risk_level: medium
+  review_required: true
 - id: axiom-autosar-os-config
   name: axiom.automotive.autosar.os.config
   title: AUTOSAR OS Configuration Review
@@ -626,6 +847,25 @@ skills:
   path: skills/axiom-autosar-os-config
   enabled: true
   extends: autosar
+  lifecycle:
+  - requirements
+  - architecture
+  - design
+  - implementation
+  - integration
+  - verification
+  - validation
+  - release
+  standards:
+  - AUTOSAR Classic R24-11
+  artifact_types:
+  - OS config review
+  - scheduling analysis
+  mcp_tools:
+  - run_skill
+  - validate_skill
+  risk_level: high
+  review_required: true
 - id: axiom-autosar-rte-design
   name: axiom.automotive.autosar.rte.design
   title: AUTOSAR RTE Design
@@ -656,6 +896,25 @@ skills:
   path: skills/axiom-autosar-rte-design
   enabled: true
   extends: autosar
+  lifecycle:
+  - requirements
+  - architecture
+  - design
+  - implementation
+  - integration
+  - verification
+  - validation
+  - release
+  standards:
+  - AUTOSAR Classic R24-11
+  artifact_types:
+  - RTE mapping table
+  - interface contract
+  mcp_tools:
+  - run_skill
+  - validate_skill
+  risk_level: medium
+  review_required: true
 - id: axiom-bms-design
   name: axiom.automotive.bms.design
   title: BMS Control Design
@@ -679,6 +938,25 @@ skills:
   related_skills: []
   path: skills/axiom-bms-design
   enabled: true
+  lifecycle:
+  - requirements
+  - architecture
+  - design
+  - implementation
+  - integration
+  - verification
+  - validation
+  - release
+  standards:
+  - ISO 26262:2018
+  artifact_types:
+  - BMS design review
+  - fault-handling table
+  mcp_tools:
+  - run_skill
+  - validate_skill
+  risk_level: high
+  review_required: true
 - id: axiom-bms-diagnostics
   name: axiom.automotive.bms.diagnostics
   title: BMS Diagnostics and HIL Test Design
@@ -702,6 +980,24 @@ skills:
   related_skills: []
   path: skills/axiom-bms-diagnostics
   enabled: true
+  lifecycle:
+  - requirements
+  - architecture
+  - design
+  - implementation
+  - integration
+  - verification
+  - validation
+  - release
+  standards:
+  - ISO 26262:2018
+  artifact_types:
+  - HIL test plan
+  mcp_tools:
+  - run_skill
+  - validate_skill
+  risk_level: high
+  review_required: true
 - id: axiom-can-network-design
   name: axiom.automotive.can.network.design
   title: CAN Network Design
@@ -730,6 +1026,25 @@ skills:
   path: skills/axiom-can-network-design
   enabled: true
   extends: automotive-networks
+  lifecycle:
+  - requirements
+  - architecture
+  - design
+  - implementation
+  - integration
+  - verification
+  - validation
+  - release
+  standards:
+  - ISO 11898
+  artifact_types:
+  - network design
+  - bus-load budget
+  mcp_tools:
+  - run_skill
+  - validate_skill
+  risk_level: medium
+  review_required: true
 - id: axiom-can-stack-integration
   name: axiom.automotive.can.stack.integration
   title: CAN Stack Integration
@@ -757,6 +1072,24 @@ skills:
   path: skills/axiom-can-stack-integration
   enabled: true
   extends: automotive-networks
+  lifecycle:
+  - requirements
+  - architecture
+  - design
+  - implementation
+  - integration
+  - verification
+  - validation
+  - release
+  standards:
+  - ISO 11898
+  artifact_types:
+  - stack integration report
+  mcp_tools:
+  - run_skill
+  - validate_skill
+  risk_level: medium
+  review_required: true
 - id: axiom-diagnostics-doip
   name: axiom.automotive.diagnostics.doip
   title: DoIP Diagnostics Integration
@@ -783,6 +1116,24 @@ skills:
   path: skills/axiom-diagnostics-doip
   enabled: true
   extends: automotive-diagnostics
+  lifecycle:
+  - requirements
+  - architecture
+  - design
+  - implementation
+  - integration
+  - verification
+  - validation
+  - release
+  standards:
+  - ISO 13400-2
+  artifact_types:
+  - DoIP integration review
+  mcp_tools:
+  - run_skill
+  - validate_skill
+  risk_level: medium
+  review_required: true
 - id: axiom-diagnostics-uds
   name: axiom.automotive.diagnostics.uds
   title: UDS Diagnostics Design and Validation
@@ -809,6 +1160,70 @@ skills:
   path: skills/axiom-diagnostics-uds
   enabled: true
   extends: automotive-diagnostics
+  lifecycle:
+  - requirements
+  - architecture
+  - design
+  - implementation
+  - integration
+  - verification
+  - validation
+  - release
+  standards:
+  - ISO 14229-1
+  - ISO 26262:2018
+  artifact_types:
+  - diagnostic requirements
+  - service matrix
+  - validation report
+  mcp_tools:
+  - run_skill
+  - validate_skill
+  risk_level: high
+  review_required: true
+- id: axiom-embedded-cicd
+  name: axiom.legacy.axiom-embedded-cicd
+  title: Embedded CI-CD Pipeline Design
+  version: 0.1.0
+  domain: all
+  subdomain: legacy
+  category: legacy
+  maturity: production
+  owner: axiom-embedded
+  tags:
+  - legacy
+  inputs:
+  - repository path
+  - objective
+  outputs:
+  - report
+  dependencies: []
+  related_skills:
+  - axiom-test-automation
+  - build-system
+  - test-automation
+  path: skills/axiom-embedded-cicd
+  enabled: true
+  lifecycle:
+  - implementation
+  - integration
+  - verification
+  - validation
+  - release
+  standards: []
+  artifact_types:
+  - pipeline definition
+  - gate checklist
+  - evidence package
+  mcp_tools:
+  - run_skill
+  - validate_skill
+  - generate_checklist
+  - generate_report
+  - review_configuration
+  risk_level: medium
+  review_required: true
+  extends: build-system
 - id: axiom-embedded-firmware-bringup
   name: axiom.platform.embedded.firmware.bringup
   title: Embedded Firmware Bring-up
@@ -837,6 +1252,24 @@ skills:
   path: skills/axiom-embedded-firmware-bringup
   enabled: true
   extends: hardware-bringup
+  lifecycle:
+  - requirements
+  - architecture
+  - design
+  - implementation
+  - integration
+  - verification
+  - validation
+  - release
+  standards: []
+  artifact_types:
+  - bring-up checklist
+  - bring-up report
+  mcp_tools:
+  - run_skill
+  - validate_skill
+  risk_level: medium
+  review_required: true
 - id: axiom-functional-safety
   name: axiom.automotive.functional.safety
   title: Functional Safety Workflow
@@ -862,6 +1295,26 @@ skills:
   path: skills/axiom-functional-safety
   enabled: true
   extends: safety
+  lifecycle:
+  - requirements
+  - architecture
+  - design
+  - implementation
+  - integration
+  - verification
+  - validation
+  - release
+  standards:
+  - ISO 26262:2018
+  artifact_types:
+  - safety plan
+  - FMEA/FTA templates
+  - evidence structure
+  mcp_tools:
+  - run_skill
+  - validate_skill
+  risk_level: safety-critical
+  review_required: true
 - id: axiom-hil-test-planning
   name: axiom.platform.hil.test.planning
   title: HIL Test Planning
@@ -891,6 +1344,23 @@ skills:
   path: skills/axiom-hil-test-planning
   enabled: true
   extends: integration-test
+  lifecycle:
+  - requirements
+  - architecture
+  - design
+  - implementation
+  - integration
+  - verification
+  - validation
+  - release
+  standards: []
+  artifact_types:
+  - HIL test plan
+  mcp_tools:
+  - run_skill
+  - validate_skill
+  risk_level: medium
+  review_required: true
 - id: axiom-industrial-control-review
   name: axiom.industrial.industrial.control.review
   title: Industrial Control Review
@@ -916,6 +1386,67 @@ skills:
   enabled: true
   domain_overlays:
   - industrial
+  lifecycle:
+  - requirements
+  - architecture
+  - design
+  - implementation
+  - integration
+  - verification
+  - validation
+  - release
+  standards:
+  - IEC 61508
+  artifact_types:
+  - control review
+  mcp_tools:
+  - run_skill
+  - validate_skill
+  risk_level: high
+  review_required: true
+- id: axiom-interface-contract-design
+  name: axiom.legacy.axiom-interface-contract-design
+  title: Interface Contract Design
+  version: 0.1.0
+  domain: all
+  subdomain: legacy
+  category: legacy
+  maturity: production
+  owner: axiom-embedded
+  tags:
+  - legacy
+  inputs:
+  - repository path
+  - objective
+  outputs:
+  - report
+  dependencies: []
+  related_skills:
+  - architecture
+  - axiom-architecture-decision-records
+  - axiom-platform-architecture-review
+  - requirements-traceability
+  - traceability
+  path: skills/axiom-interface-contract-design
+  enabled: true
+  lifecycle:
+  - requirements
+  - architecture
+  - design
+  - integration
+  - verification
+  standards: []
+  artifact_types:
+  - interface contract
+  - compatibility report
+  mcp_tools:
+  - run_skill
+  - validate_skill
+  - generate_checklist
+  - generate_traceability_matrix
+  risk_level: medium
+  review_required: true
+  extends: architecture
 - id: axiom-memory-and-performance-analysis
   name: axiom.platform.memory.and.performance.analysis
   title: Memory and Performance Analysis
@@ -941,6 +1472,23 @@ skills:
   path: skills/axiom-memory-and-performance-analysis
   enabled: true
   extends: performance
+  lifecycle:
+  - requirements
+  - architecture
+  - design
+  - implementation
+  - integration
+  - verification
+  - validation
+  - release
+  standards: []
+  artifact_types:
+  - memory/perf report
+  mcp_tools:
+  - run_skill
+  - validate_skill
+  risk_level: medium
+  review_required: true
 - id: axiom-platform-architecture-review
   name: axiom.cross-domain.platform.architecture.review
   title: Platform Architecture Review
@@ -963,12 +1511,34 @@ skills:
   dependencies: []
   related_skills:
   - architecture
+  - axiom-architecture-decision-records
+  - axiom-interface-contract-design
+  - axiom-static-analysis-triage
+  - axiom-technical-debt-assessment
   - code-review
   - requirements
   - software-architecture
   path: skills/axiom-platform-architecture-review
   enabled: true
   extends: architecture
+  lifecycle:
+  - requirements
+  - architecture
+  - design
+  - implementation
+  - integration
+  - verification
+  - validation
+  - release
+  standards: []
+  artifact_types:
+  - architecture review
+  - ADR set
+  mcp_tools:
+  - run_skill
+  - validate_skill
+  risk_level: medium
+  review_required: true
 - id: axiom-robotics-system-integration
   name: axiom.robotics.robotics.system.integration
   title: Robotics System Integration
@@ -996,6 +1566,23 @@ skills:
   extends: robotics
   domain_overlays:
   - robotics
+  lifecycle:
+  - requirements
+  - architecture
+  - design
+  - implementation
+  - integration
+  - verification
+  - validation
+  - release
+  standards: []
+  artifact_types:
+  - integration review
+  mcp_tools:
+  - run_skill
+  - validate_skill
+  risk_level: medium
+  review_required: true
 - id: axiom-rtos-architecture
   name: axiom.platform.rtos.architecture
   title: RTOS Architecture Review
@@ -1021,6 +1608,108 @@ skills:
   path: skills/axiom-rtos-architecture
   enabled: true
   extends: rtos
+  lifecycle:
+  - requirements
+  - architecture
+  - design
+  - implementation
+  - integration
+  - verification
+  - validation
+  - release
+  standards: []
+  artifact_types:
+  - RTOS review
+  mcp_tools:
+  - run_skill
+  - validate_skill
+  risk_level: medium
+  review_required: true
+- id: axiom-static-analysis-triage
+  name: axiom.legacy.axiom-static-analysis-triage
+  title: Static Analysis Triage
+  version: 0.1.0
+  domain: all
+  subdomain: legacy
+  category: legacy
+  maturity: production
+  owner: axiom-embedded
+  tags:
+  - legacy
+  inputs:
+  - repository path
+  - objective
+  outputs:
+  - report
+  dependencies: []
+  related_skills:
+  - axiom-platform-architecture-review
+  - axiom-technical-debt-assessment
+  - code-review
+  - static-analysis
+  path: skills/axiom-static-analysis-triage
+  enabled: true
+  lifecycle:
+  - implementation
+  - integration
+  - verification
+  - release
+  standards:
+  - MISRA C
+  - CERT C
+  artifact_types:
+  - triage log
+  - baseline
+  - gate verdict
+  mcp_tools:
+  - run_skill
+  - validate_skill
+  - generate_report
+  - generate_checklist
+  risk_level: medium
+  review_required: true
+  extends: static-analysis
+- id: axiom-technical-debt-assessment
+  name: axiom.legacy.axiom-technical-debt-assessment
+  title: Technical Debt Assessment
+  version: 0.1.0
+  domain: all
+  subdomain: legacy
+  category: legacy
+  maturity: production
+  owner: axiom-embedded
+  tags:
+  - legacy
+  inputs:
+  - repository path
+  - objective
+  outputs:
+  - report
+  dependencies: []
+  related_skills:
+  - axiom-platform-architecture-review
+  - axiom-static-analysis-triage
+  - code-review
+  path: skills/axiom-technical-debt-assessment
+  enabled: true
+  lifecycle:
+  - design
+  - implementation
+  - integration
+  - release
+  - operations
+  standards: []
+  artifact_types:
+  - debt register
+  - paydown plan
+  mcp_tools:
+  - run_skill
+  - validate_skill
+  - generate_report
+  - generate_checklist
+  risk_level: low
+  review_required: true
+  extends: code-review
 - id: axiom-test-automation
   name: axiom.platform.test.automation
   title: Embedded Test Automation
@@ -1045,6 +1734,7 @@ skills:
   - automotive-spice
   - automotive-vcycle
   - axiom-automotive-release-readiness
+  - axiom-embedded-cicd
   - axiom-hil-test-planning
   - coverage
   - integration-test
@@ -1053,6 +1743,24 @@ skills:
   path: skills/axiom-test-automation
   enabled: true
   extends: test-automation
+  lifecycle:
+  - requirements
+  - architecture
+  - design
+  - implementation
+  - integration
+  - verification
+  - validation
+  - release
+  standards: []
+  artifact_types:
+  - test strategy
+  - test plan
+  mcp_tools:
+  - run_skill
+  - validate_skill
+  risk_level: low
+  review_required: true
 - id: axiom-trace-analysis
   name: axiom.platform.trace.analysis
   title: Trace Analysis
@@ -1078,6 +1786,23 @@ skills:
   path: skills/axiom-trace-analysis
   enabled: true
   extends: debugging
+  lifecycle:
+  - requirements
+  - architecture
+  - design
+  - implementation
+  - integration
+  - verification
+  - validation
+  - release
+  standards: []
+  artifact_types:
+  - trace analysis report
+  mcp_tools:
+  - run_skill
+  - validate_skill
+  risk_level: low
+  review_required: true
 - id: axiom-v2x-communication
   name: axiom.automotive.v2x.communication
   title: V2X Communication Design
@@ -1101,6 +1826,25 @@ skills:
   related_skills: []
   path: skills/axiom-v2x-communication
   enabled: true
+  lifecycle:
+  - requirements
+  - architecture
+  - design
+  - implementation
+  - integration
+  - verification
+  - validation
+  - release
+  standards:
+  - ETSI ITS-G5
+  artifact_types:
+  - message model
+  - test strategy
+  mcp_tools:
+  - run_skill
+  - validate_skill
+  risk_level: medium
+  review_required: true
 - id: axiom-vehicle-cybersecurity
   name: axiom.automotive.vehicle.cybersecurity
   title: Vehicle Cybersecurity Workflow
@@ -1127,6 +1871,25 @@ skills:
   path: skills/axiom-vehicle-cybersecurity
   enabled: true
   extends: automotive-cybersecurity
+  lifecycle:
+  - requirements
+  - architecture
+  - design
+  - implementation
+  - integration
+  - verification
+  - validation
+  - release
+  standards:
+  - ISO/SAE 21434
+  artifact_types:
+  - threat model
+  - security review
+  mcp_tools:
+  - run_skill
+  - validate_skill
+  risk_level: safety-critical
+  review_required: true
 - id: axiom-zonal-architecture
   name: axiom.automotive.zonal.architecture
   title: Zonal Architecture Design
@@ -1157,6 +1920,24 @@ skills:
   path: skills/axiom-zonal-architecture
   enabled: true
   extends: automotive-middleware
+  lifecycle:
+  - requirements
+  - architecture
+  - design
+  - implementation
+  - integration
+  - verification
+  - validation
+  - release
+  standards:
+  - AUTOSAR
+  artifact_types:
+  - zonal architecture record
+  mcp_tools:
+  - run_skill
+  - validate_skill
+  risk_level: medium
+  review_required: true
 - id: bare-metal
   name: axiom.legacy.bare-metal
   title: bare-metal
@@ -1217,9 +1998,12 @@ skills:
   outputs:
   - report
   dependencies: []
-  related_skills: []
+  related_skills:
+  - axiom-embedded-cicd
   path: skills/build-system
   enabled: true
+  sub_skills:
+  - axiom-embedded-cicd
 - id: change-impact
   name: axiom.legacy.change-impact
   title: change-impact
@@ -1259,10 +2043,14 @@ skills:
   dependencies: []
   related_skills:
   - axiom-platform-architecture-review
+  - axiom-static-analysis-triage
+  - axiom-technical-debt-assessment
   path: skills/code-review
   enabled: true
   sub_skills:
   - axiom-platform-architecture-review
+  - axiom-static-analysis-triage
+  - axiom-technical-debt-assessment
 - id: configuration-management
   name: axiom.legacy.configuration-management
   title: configuration-management
@@ -1346,9 +2134,12 @@ skills:
   outputs:
   - report
   dependencies: []
-  related_skills: []
+  related_skills:
+  - axiom-architecture-decision-records
   path: skills/documentation
   enabled: true
+  sub_skills:
+  - axiom-architecture-decision-records
 - id: drivers
   name: axiom.legacy.drivers
   title: drivers
@@ -1795,9 +2586,12 @@ skills:
   outputs:
   - report
   dependencies: []
-  related_skills: []
+  related_skills:
+  - axiom-interface-contract-design
   path: skills/requirements-traceability
   enabled: true
+  sub_skills:
+  - axiom-interface-contract-design
 - id: robotics
   name: axiom.legacy.robotics
   title: robotics
@@ -1996,9 +2790,12 @@ skills:
   outputs:
   - report
   dependencies: []
-  related_skills: []
+  related_skills:
+  - axiom-static-analysis-triage
   path: skills/static-analysis
   enabled: true
+  sub_skills:
+  - axiom-static-analysis-triage
 - id: system-test
   name: axiom.legacy.system-test
   title: system-test
@@ -2040,10 +2837,12 @@ skills:
   - report
   dependencies: []
   related_skills:
+  - axiom-embedded-cicd
   - axiom-test-automation
   path: skills/test-automation
   enabled: true
   sub_skills:
+  - axiom-embedded-cicd
   - axiom-test-automation
 - id: traceability
   name: axiom.legacy.traceability
@@ -2062,9 +2861,12 @@ skills:
   outputs:
   - report
   dependencies: []
-  related_skills: []
+  related_skills:
+  - axiom-interface-contract-design
   path: skills/traceability
   enabled: true
+  sub_skills:
+  - axiom-interface-contract-design
 - id: unit-test
   name: axiom.legacy.unit-test
   title: unit-test

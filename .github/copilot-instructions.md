@@ -18,7 +18,7 @@ Surface the plan first; never execute pushes, releases, destructive
 commands, or safety/security-critical changes without recorded human
 approval. Never claim certification or compliance from a heuristic check.
 
-## Skills (88)
+## Skills (93)
 
 - `adas` — ADAS/AD perception-to-control pipeline, sensor fusion, SOTIF and ASIL decomposition, Euro-NCAP, data closed-loop, OpenSCENARIO/OpenDRIVE HIL. Use for L0-L4 driver assistance and automated driving.
 - `ai-validation` — ODD discipline, dataset independence, statistical acceptance, drift monitoring. Use when assuring ML components or arguing AI safety.
@@ -39,6 +39,8 @@ approval. Never claim certification or compliance from a heuristic check.
 - `axiom-adas-validation` — Plans sensor-fusion validation, recording/replay campaigns and KPI definitions for ADAS functions.
 
 - `axiom-aerospace-defense-safety-review` — Reviews safety-critical embedded designs against DO-178C/DO-254-style objectives and evidence expectations.
+
+- `axiom-architecture-decision-records` — Authors and reviews Architecture Decision Records (context, options, decision, consequences, compliance notes) with numbering, supersede chains, and review gates, so architectural choices stay traceable across the product lifecycle.
 
 - `axiom-automotive-ethernet-someip` — Designs Ethernet topology, VLAN/TSN assumptions and SOME/IP service modeling for service-oriented ECUs.
 
@@ -68,6 +70,8 @@ approval. Never claim certification or compliance from a heuristic check.
 
 - `axiom-diagnostics-uds` — Designs UDS service coverage, session/security posture and negative-response matrices, and validates them with a deterministic checker script.
 
+- `axiom-embedded-cicd` — Designs deterministic CI/CD pipelines for embedded repositories: build matrix, static checks, unit/integration tests, artifact versioning, and evidence packaging, delivered as a reviewable workflow fragment plus gate checklist.
+
 - `axiom-embedded-firmware-bringup` — Brings up firmware on a new MCU/board (clock, memory, drivers, bootloader handoff) with a deterministic checklist.
 
 - `axiom-functional-safety` — Supports HARA, safety goals, FSR/TSR derivation, FMEA/FTA templates and verification-evidence structure for safety-related work.
@@ -76,6 +80,8 @@ approval. Never claim certification or compliance from a heuristic check.
 
 - `axiom-industrial-control-review` — Reviews PLC/fieldbus/OPC-UA control designs and functional-safety touchpoints for industrial controllers.
 
+- `axiom-interface-contract-design` — Designs versioned interface contracts between software components and subsystems (signals, services, APIs, diagnostic ports), with compatibility checks and traceability from requirements to integration tests.
+
 - `axiom-memory-and-performance-analysis` — Analyzes memory classification, stack/heap budgets and performance hotspots against project budgets.
 
 - `axiom-platform-architecture-review` — Reviews embedded platform architecture (requirements-to-design traceability, interface contracts, ADRs, tech-debt) for any domain.
@@ -83,6 +89,10 @@ approval. Never claim certification or compliance from a heuristic check.
 - `axiom-robotics-system-integration` — Integrates ROS 2 nodes, sensor fusion and motion-control interfaces with contract checks.
 
 - `axiom-rtos-architecture` — Reviews RTOS task, priority, IPC and timing architecture for determinism and stack safety.
+
+- `axiom-static-analysis-triage` — Triages static-analysis findings (MISRA, CERT, generic checkers) with a deterministic classifier script: buckets severity, tracks baselines and waivers, and produces a reviewable triage log with gate verdicts.
+
+- `axiom-technical-debt-assessment` — Inventories technical debt as a scored register (principal, interest, contagion, paydown cost), prioritizes paydown with explicit trade-offs, and produces a reviewable paydown plan tied to releases.
 
 - `axiom-test-automation` — Designs unit/integration test strategy, automation hooks and coverage expectations for embedded repos.
 

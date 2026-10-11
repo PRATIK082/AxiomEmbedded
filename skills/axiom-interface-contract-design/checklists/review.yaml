@@ -1,0 +1,13 @@
+gates:
+  - id: boundary
+    text: Boundary, direction, version baseline recorded
+  - id: inventory
+    text: Every element enumerated; doc/code mismatches listed
+  - id: completeness
+    text: Type, range, unit, default, error behavior on all elements
+  - id: compatibility
+    text: Producer/consumer mismatches triaged, zero silent
+  - id: traceability
+    text: Requirement-element-test rows complete for safety elements
+  - id: review
+    text: Both-side owners signed the contract version

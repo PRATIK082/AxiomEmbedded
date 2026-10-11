@@ -229,6 +229,13 @@ def skill_report(skill_id: str, run_dir: str) -> dict:
                        f"file(s), checks={data.get('acceptance_checks', [])}"}
 
 
+# Ops surface (status + fix/feature planners share one implementation).
+from packages.axiom_ops import (  # noqa: E402
+    get_status,
+    plan_fix,
+    plan_feature,
+)
+
 # P1 generator wrappers (deterministic; see packages/skill_tools.py).
 from packages.skill_tools import (  # noqa: E402,E501
     analyze_repository,

@@ -1,0 +1,30 @@
+# Axiom embedded CI pipeline fragment — adapt tiers, matrix, and gates per repo.
+# Tiers: push (fast, host-only) / nightly (full matrix + target) / release (gated).
+name: axiom-embedded-ci
+on:
+  push: null
+  pull_request: null
+jobs:
+  push-gate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Build (host)
+        run: echo "build host config"
+      - name: Unit tests
+        run: echo "run host unit tests"
+  nightly-matrix:
+    if: github.event_name == 'schedule'
+    strategy:
+      matrix:
+        target: [mcu-release, mcu-debug]
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Build ${{ matrix.target }}
+        run: echo "build ${{ matrix.target }}"
+      - name: Upload evidence
+        uses: actions/upload-artifact@v4
+        with:
+          name: evidence-${{ matrix.target }}
+          path: build/evidence/

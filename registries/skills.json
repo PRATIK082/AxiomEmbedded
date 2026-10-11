@@ -70,6 +70,10 @@
       "path": "skills/axiom-aerospace-defense-safety-review"
     },
     {
+      "id": "axiom-architecture-decision-records",
+      "path": "skills/axiom-architecture-decision-records"
+    },
+    {
       "id": "axiom-automotive-ethernet-someip",
       "path": "skills/axiom-automotive-ethernet-someip"
     },
@@ -126,6 +130,10 @@
       "path": "skills/axiom-diagnostics-uds"
     },
     {
+      "id": "axiom-embedded-cicd",
+      "path": "skills/axiom-embedded-cicd"
+    },
+    {
       "id": "axiom-embedded-firmware-bringup",
       "path": "skills/axiom-embedded-firmware-bringup"
     },
@@ -142,6 +150,10 @@
       "path": "skills/axiom-industrial-control-review"
     },
     {
+      "id": "axiom-interface-contract-design",
+      "path": "skills/axiom-interface-contract-design"
+    },
+    {
       "id": "axiom-memory-and-performance-analysis",
       "path": "skills/axiom-memory-and-performance-analysis"
     },
@@ -156,6 +168,14 @@
     {
       "id": "axiom-rtos-architecture",
       "path": "skills/axiom-rtos-architecture"
+    },
+    {
+      "id": "axiom-static-analysis-triage",
+      "path": "skills/axiom-static-analysis-triage"
+    },
+    {
+      "id": "axiom-technical-debt-assessment",
+      "path": "skills/axiom-technical-debt-assessment"
     },
     {
       "id": "axiom-test-automation",

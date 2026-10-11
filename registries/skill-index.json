@@ -558,7 +558,7 @@
       ]
     },
     "automotive-diagnostics": {
-      "description": "UDS/DoIP/OBD-II/J1939/XCP diagnostics, tester integration (ODX/OTX), DTC/DID/routine control, security access. Use for diagnostic stacks, FBL testers, or homologation evidence.",
+      "description": "UDS/DoIP/OBD-II/J1939/XCP diagnostics, tester integration (ODX/OTX), DTC/DID/routine control, security access, AUTOSAR-extract-driven UDS test/validation codegen (DEXT/ARXML/ODX/CDD/XLS/YAML/JSON) with full service/subservice positive/negative coverage. Use for diagnostic stacks, FBL testers, diag t",
       "domains": [
         "automotive"
       ],
@@ -923,6 +923,56 @@
         "mpu",
         "soc"
       ]
+    },
+    "axiom-architecture-decision-records": {
+      "description": "Authors and reviews Architecture Decision Records (context, options, decision, consequences, compliance notes) with numbering, supersede chains, and review gates, so architectural choices stay traceable across the product lifecycle.\n",
+      "domains": [
+        "all"
+      ],
+      "platforms": [
+        "mcu",
+        "mpu"
+      ]
+    },
+    "axiom-embedded-cicd": {
+      "description": "Designs deterministic CI/CD pipelines for embedded repositories: build matrix, static checks, unit/integration tests, artifact versioning, and evidence packaging, delivered as a reviewable workflow fragment plus gate checklist.\n",
+      "domains": [
+        "all"
+      ],
+      "platforms": [
+        "mcu",
+        "mpu"
+      ]
+    },
+    "axiom-interface-contract-design": {
+      "description": "Designs versioned interface contracts between software components and subsystems (signals, services, APIs, diagnostic ports), with compatibility checks and traceability from requirements to integration tests.\n",
+      "domains": [
+        "all"
+      ],
+      "platforms": [
+        "mcu",
+        "mpu"
+      ]
+    },
+    "axiom-static-analysis-triage": {
+      "description": "Triages static-analysis findings (MISRA, CERT, generic checkers) with a deterministic classifier script: buckets severity, tracks baselines and waivers, and produces a reviewable triage log with gate verdicts.\n",
+      "domains": [
+        "all"
+      ],
+      "platforms": [
+        "mcu",
+        "mpu"
+      ]
+    },
+    "axiom-technical-debt-assessment": {
+      "description": "Inventories technical debt as a scored register (principal, interest, contagion, paydown cost), prioritizes paydown with explicit trade-offs, and produces a reviewable paydown plan tied to releases.\n",
+      "domains": [
+        "all"
+      ],
+      "platforms": [
+        "mcu",
+        "mpu"
+      ]
     }
   },
   "by_domain": {
@@ -934,11 +984,16 @@
     ],
     "all": [
       "architecture",
+      "axiom-architecture-decision-records",
+      "axiom-embedded-cicd",
       "axiom-embedded-firmware-bringup",
       "axiom-hil-test-planning",
+      "axiom-interface-contract-design",
       "axiom-memory-and-performance-analysis",
       "axiom-platform-architecture-review",
       "axiom-rtos-architecture",
+      "axiom-static-analysis-triage",
+      "axiom-technical-debt-assessment",
       "axiom-test-automation",
       "axiom-trace-analysis",
       "bare-metal",
@@ -1156,6 +1211,7 @@
       "automotive-ota",
       "autosar",
       "axiom-aerospace-defense-safety-review",
+      "axiom-architecture-decision-records",
       "axiom-automotive-release-readiness",
       "axiom-autosar-classic-architecture",
       "axiom-autosar-classic-bsw-integration",
@@ -1167,13 +1223,17 @@
       "axiom-can-network-design",
       "axiom-can-stack-integration",
       "axiom-diagnostics-uds",
+      "axiom-embedded-cicd",
       "axiom-embedded-firmware-bringup",
       "axiom-functional-safety",
       "axiom-hil-test-planning",
       "axiom-industrial-control-review",
+      "axiom-interface-contract-design",
       "axiom-memory-and-performance-analysis",
       "axiom-platform-architecture-review",
       "axiom-rtos-architecture",
+      "axiom-static-analysis-triage",
+      "axiom-technical-debt-assessment",
       "axiom-test-automation",
       "axiom-trace-analysis",
       "axiom-vehicle-cybersecurity",
@@ -1214,17 +1274,22 @@
       "axiom-adas-perception-pipeline",
       "axiom-adas-validation",
       "axiom-aerospace-defense-safety-review",
+      "axiom-architecture-decision-records",
       "axiom-automotive-ethernet-someip",
       "axiom-automotive-release-readiness",
       "axiom-autosar-adaptive-deployment",
       "axiom-diagnostics-doip",
       "axiom-diagnostics-uds",
+      "axiom-embedded-cicd",
       "axiom-functional-safety",
       "axiom-hil-test-planning",
       "axiom-industrial-control-review",
+      "axiom-interface-contract-design",
       "axiom-memory-and-performance-analysis",
       "axiom-platform-architecture-review",
       "axiom-robotics-system-integration",
+      "axiom-static-analysis-triage",
+      "axiom-technical-debt-assessment",
       "axiom-test-automation",
       "axiom-trace-analysis",
       "axiom-v2x-communication",

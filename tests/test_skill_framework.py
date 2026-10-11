@@ -14,7 +14,7 @@ def test_catalog_lists_every_skill():
     ids = [e["id"] for e in cat["skills"]]
     assert len(ids) == len(set(ids))
     axiom_ids = [i for i in ids if i.startswith("axiom-")]
-    assert len(axiom_ids) == 30
+    assert len(axiom_ids) == 35
     on_disk = {p.name for p in (ROOT / "skills").iterdir()
                if p.is_dir() and (p / "SKILL.md").exists()
                and not p.name.startswith(("_", "."))}
@@ -123,3 +123,57 @@ def test_links_resolve_and_extends_terminates():
     # spot checks: no duplicates created, links are bidirectional-safe
     assert idx["autosar"]["sub_skills"]
     assert "autosar" in idx["axiom-autosar-classic-bsw-integration"]["related_skills"]
+
+
+CROSS_DOMAIN_NEW = [
+    "axiom-interface-contract-design",
+    "axiom-static-analysis-triage",
+    "axiom-embedded-cicd",
+    "axiom-architecture-decision-records",
+    "axiom-technical-debt-assessment",
+]
+
+
+def test_catalog_facet_parity_with_frontmatter():
+    import yaml as _yaml
+    from packages.skills.loader import parse_skill_doc
+    cat = _yaml.safe_load((ROOT / "skills" / "catalog.yaml").read_text(encoding="utf-8"))
+    for e in cat["skills"]:
+        if not e["id"].startswith("axiom-"):
+            continue
+        fm, _ = parse_skill_doc(
+            (ROOT / e["path"] / "SKILL.md").read_text(encoding="utf-8"))
+        ax = fm.get("axiom", {}) or {}
+        for facet in ("lifecycle", "standards", "artifact_types", "mcp_tools",
+                      "risk_level", "review_required"):
+            assert e.get(facet) == ax.get(facet), (e["id"], facet)
+
+
+def test_cross_domain_skills_complete():
+    from packages.skills.loader import validate_skill_doc
+    for sid in CROSS_DOMAIN_NEW:
+        d = ROOT / "skills" / sid
+        assert (d / "SKILL.md").exists(), sid
+        assert (d / "manifest.yaml").exists(), sid
+        assert (d / "checklists" / "review.yaml").exists(), sid
+        assert list((d / "templates").glob("*.template.*")), sid
+        rep = validate_skill_doc(sid)
+        assert rep["valid"], (sid, rep["errors"])
+
+
+def test_triage_classifier_deterministic(tmp_path):
+    import sys
+    sys.path.insert(0, str(ROOT / "skills" / "axiom-static-analysis-triage" / "scripts"))
+    import classify_findings
+    findings = tmp_path / "f.csv"
+    findings.write_text(
+        "finding_id,file,line,rule,severity,message\n"
+        "F-0002,src/a.c,10,R1,warning,m1\n"
+        "F-0001,src/b.c,20,R2,required,m2\n", encoding="utf-8")
+    base = tmp_path / "b.csv"
+    base.write_text("finding_id\nF-0002\n", encoding="utf-8")
+    rows = classify_findings.classify(findings, base)
+    assert [r["finding_id"] for r in rows] == ["F-0001", "F-0002"]
+    assert rows[0]["bucket"] == "new" and rows[0]["gate_class"] == "blocker"
+    assert rows[1]["bucket"] == "carried" and rows[1]["gate_class"] == "major"
+    assert classify_findings.classify(findings, base) == rows
