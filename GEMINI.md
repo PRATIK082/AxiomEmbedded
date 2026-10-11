@@ -13,4 +13,4 @@ evidence/traceability model.
   (or `python -m axiom_cli ...` without install)
 - REST/A2A: `axiom serve --port 8931`
 
-Ships 58 skills (see `registries/skills.json`), axiom-embedded 0.2.0.
+Ships 88 skills (see `registries/skills.json`), axiom-embedded 0.2.0.

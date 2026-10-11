@@ -1,0 +1,7 @@
+area,case,result,evidence
+build,BSW compiles with zero warnings,,build log
+static-review,Layering and config review complete,,review record
+communication,COM/PduR/CanIf routing proven,,bus test
+diagnostics,Dcm/Dem paths exercised,,diag test
+fault-handling,NvM/EcuM fault paths proven,,fault test
+regression,Prior suite green,,CI log

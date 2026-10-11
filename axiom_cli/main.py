@@ -299,6 +299,53 @@ def oc_cmd(verb: str, args: list[str], model: str | None, agent: str | None,
                       fmt=fmt, title=title, source=source, isolate=isolate, dry_run=dry_run)
 
 
+def skills_cmd(action: str, args: argparse.Namespace) -> int:
+    from packages import axiom_sdk
+
+    if action == "list":
+        import yaml as _yaml
+        cat = _yaml.safe_load(
+            (ROOT / "skills" / "catalog.yaml").read_text(encoding="utf-8"))
+        for e in cat.get("skills", []):
+            print(f"{e['id']} [{e.get('maturity', '?')}] {e.get('title', '')}")
+        return 0
+    if action == "validate":
+        from packages.skills.validator import validate_all
+        rep = validate_all()
+        bad = [r for r in rep["skills"] if not r["valid"]]
+        print(json.dumps({"valid": rep["valid"],
+                          "failures": [r["skill"] for r in bad]}, indent=2))
+        return 0 if rep["valid"] else 1
+    if action == "search":
+        print(json.dumps(axiom_sdk.search_skills(
+            getattr(args, "query", "") or "",
+            getattr(args, "domain", None)), indent=2))
+        return 0
+    if action == "run":
+        print(json.dumps(axiom_sdk.run_skill(
+            args.skill_id, getattr(args, "repo", "."),
+            (getattr(args, "target", None) or []),
+            getattr(args, "objective", "") or "",
+            getattr(args, "constraints", "") or "",
+            getattr(args, "output", None),
+            not getattr(args, "apply", False)), indent=2))
+        return 0
+    if action == "report":
+        print(json.dumps(axiom_sdk.skill_report(
+            args.skill_id, args.run_dir), indent=2))
+        return 0
+    if action == "create":
+        from scripts.create_skill import scaffold
+        plan = scaffold(args.skill_id, args.title,
+                        getattr(args, "domain", "automotive") or "automotive",
+                        bool(getattr(args, "apply", False)))
+        print(json.dumps({"skill": args.skill_id, "files": plan,
+                          "applied": bool(getattr(args, "apply", False))},
+                         indent=2))
+        return 0
+    return 1
+
+
 def main() -> int:
     ap = argparse.ArgumentParser(prog="axiom", description="AxiomEmbedded engineering CLI")
     ap.add_argument("--version", action="store_true", help="Print the axiom version and exit")
@@ -355,6 +402,22 @@ def main() -> int:
     sp.add_parser("mcp", help="Serve Model Context Protocol over stdio (any MCP client)")
     sg = sp.add_parser("stage", help="Detect project lifecycle stage from evidence + profile entry")
     sg.add_argument("path", nargs="?", default="."); sg.add_argument("--profile")
+    sk = sp.add_parser("skills", help="Skill framework: list/validate/search/run/report/create")
+    sk_sub = sk.add_subparsers(dest="skills_cmd", required=True)
+    sk_sub.add_parser("list", help="List catalog skills")
+    sk_sub.add_parser("validate", help="Validate all skills + catalog")
+    ss = sk_sub.add_parser("search", help="Search catalog skills")
+    ss.add_argument("query", nargs="?", default=""); ss.add_argument("--domain")
+    sr = sk_sub.add_parser("run", help="Run a skill (dry-run unless --apply)")
+    sr.add_argument("skill_id"); sr.add_argument("--repo", default=".")
+    sr.add_argument("--target", action="append", default=[])
+    sr.add_argument("--objective", default=""); sr.add_argument("--constraints", default="")
+    sr.add_argument("--output", default=None); sr.add_argument("--apply", action="store_true")
+    sp_ = sk_sub.add_parser("report", help="Summarize a run manifest dir")
+    sp_.add_argument("skill_id"); sp_.add_argument("run_dir")
+    sc = sk_sub.add_parser("create", help="Scaffold a skill (dry-run unless --apply)")
+    sc.add_argument("skill_id"); sc.add_argument("--title", required=True)
+    sc.add_argument("--domain", default="automotive"); sc.add_argument("--apply", action="store_true")
     sv = sp.add_parser("serve", help="Serve REST + A2A over HTTP (web apps, custom AI, local LLMs)"); sv.add_argument("--port", type=int, default=8765)
     args = ap.parse_args()
     if args.version: return version_cmd()
@@ -384,6 +447,7 @@ def main() -> int:
                       args.source, args.isolate, args.dry_run)
     if args.cmd == "mcp": return mcp_serve()
     if args.cmd == "stage": return stage_cmd(args.path, args.profile)
+    if args.cmd == "skills": return skills_cmd(args.skills_cmd, args)
     if args.cmd == "serve": return http_serve(args.port)
     ap.print_help(); return 0
 

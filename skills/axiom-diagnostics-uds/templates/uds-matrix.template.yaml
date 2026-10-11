@@ -1,0 +1,9 @@
+# UDS matrix template (canonical hand-off)
+# provenance: {source_type, source_file, source_version}
+ecu: {name: DemoECU, sessions: [default, extended, programming], security_levels: [1]}
+services:
+  - {sid: 16, name: DiagnosticSessionControl, supported: true, sessions: [default, extended, programming]}
+  - {sid: 34, name: ReadDataByIdentifier, supported: true, sessions: [default, extended], dids: [{id: 61680, sessions: [default, extended]}]}
+  - {sid: 25, name: ReadDTCInformation, supported: true, sessions: [default, extended], subfunctions: [1, 2, 10]}
+  - {sid: 39, name: SecurityAccess, supported: true, sessions: [extended]}
+  - {sid: 62, name: TesterPresent, supported: true, sessions: [default, extended, programming]}

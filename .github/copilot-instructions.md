@@ -18,7 +18,7 @@ Surface the plan first; never execute pushes, releases, destructive
 commands, or safety/security-critical changes without recorded human
 approval. Never claim certification or compliance from a heuristic check.
 
-## Skills (58)
+## Skills (88)
 
 - `adas` — ADAS/AD perception-to-control pipeline, sensor fusion, SOTIF and ASIL decomposition, Euro-NCAP, data closed-loop, OpenSCENARIO/OpenDRIVE HIL. Use for L0-L4 driver assistance and automated driving.
 - `ai-validation` — ODD discipline, dataset independence, statistical acceptance, drift monitoring. Use when assuring ML components or arguing AI safety.
@@ -34,6 +34,66 @@ approval. Never claim certification or compliance from a heuristic check.
 - `automotive-spice` — Automotive SPICE v4.0 process capability (PRM/PAM, CL0-5, VDA scope, N/P/L/F rating). Use for ASPICE gap analysis, traceability, work-product evidence, or assessment prep.
 - `automotive-vcycle` — End-to-end automotive V-Cycle lifecycle from stakeholder requirements to vehicle validation. Use for V-Model planning, MIL/SIL/HIL gates, ASPICE/ISO 26262 alignment, or agile-hybrid programs.
 - `autosar` — Classic/Adaptive selection, layered BSW/RTE rules, SOME/IP integration. Use for AUTOSAR ECUs, ARXML, or adaptive applications.
+- `axiom-adas-perception-pipeline` — Designs sensor-abstraction, perception interfaces and object-model contracts for ADAS pipelines.
+
+- `axiom-adas-validation` — Plans sensor-fusion validation, recording/replay campaigns and KPI definitions for ADAS functions.
+
+- `axiom-aerospace-defense-safety-review` — Reviews safety-critical embedded designs against DO-178C/DO-254-style objectives and evidence expectations.
+
+- `axiom-automotive-ethernet-someip` — Designs Ethernet topology, VLAN/TSN assumptions and SOME/IP service modeling for service-oriented ECUs.
+
+- `axiom-automotive-release-readiness` — Gates ECU/software release readiness with evidence packaging, open-finding triage and sign-off checklists.
+
+- `axiom-autosar-adaptive-deployment` — Designs Adaptive service deployment (ara::com manifests, execution/state management, persistency, time sync) with a deployment checklist.
+
+- `axiom-autosar-classic-architecture` — Reviews AUTOSAR Classic platform architecture choices, layering, and release baselines for an ECU project and produces an architecture decision record with findings.
+
+- `axiom-autosar-classic-bsw-integration` — Integrates and reviews AUTOSAR Classic BSW configuration (ARXML/BMD/RTE/OS/COM/PduR/CanIf/CanTp/Dcm/Dem/NvM/EcuM) and produces an integration report with severity-ranked findings and a validation matrix.
+
+- `axiom-autosar-com-stack` — Reviews COM/PduR/CanIf/CanTp signal routing, PDU mapping and gateway assumptions for Classic communication stacks.
+
+- `axiom-autosar-os-config` — Reviews AUTOSAR OS task, alarm, schedule-table and timing-protection configuration against scheduling constraints and stack assumptions.
+
+- `axiom-autosar-rte-design` — Designs RTE ports, interfaces, runnable entities and events for Classic software components with consistency checks and traceability.
+
+- `axiom-bms-design` — Designs cell modeling assumptions, SOC/SOH method selection, contactor/precharge, insulation monitoring and thermal strategy for battery systems.
+
+- `axiom-bms-diagnostics` — Designs BMS fault handling and HIL test campaigns covering cell, contactor, thermal and isolation faults.
+
+- `axiom-can-network-design` — Designs CAN/CAN-FD network topology, identifier allocation, bus-load budgets and timing assumptions from DBC-level inputs.
+
+- `axiom-can-stack-integration` — Integrates and checks CAN driver/CanIf/CanTp stacks including baud-rate, mailbox, and error-handling configuration.
+
+- `axiom-diagnostics-doip` — Integrates DoIP discovery, routing activation and diagnostic transport for Ethernet ECUs with tester-workflow checks.
+
+- `axiom-diagnostics-uds` — Designs UDS service coverage, session/security posture and negative-response matrices, and validates them with a deterministic checker script.
+
+- `axiom-embedded-firmware-bringup` — Brings up firmware on a new MCU/board (clock, memory, drivers, bootloader handoff) with a deterministic checklist.
+
+- `axiom-functional-safety` — Supports HARA, safety goals, FSR/TSR derivation, FMEA/FTA templates and verification-evidence structure for safety-related work.
+
+- `axiom-hil-test-planning` — Plans SIL/HIL campaigns including plant models, fault injection and pass/fail criteria.
+
+- `axiom-industrial-control-review` — Reviews PLC/fieldbus/OPC-UA control designs and functional-safety touchpoints for industrial controllers.
+
+- `axiom-memory-and-performance-analysis` — Analyzes memory classification, stack/heap budgets and performance hotspots against project budgets.
+
+- `axiom-platform-architecture-review` — Reviews embedded platform architecture (requirements-to-design traceability, interface contracts, ADRs, tech-debt) for any domain.
+
+- `axiom-robotics-system-integration` — Integrates ROS 2 nodes, sensor fusion and motion-control interfaces with contract checks.
+
+- `axiom-rtos-architecture` — Reviews RTOS task, priority, IPC and timing architecture for determinism and stack safety.
+
+- `axiom-test-automation` — Designs unit/integration test strategy, automation hooks and coverage expectations for embedded repos.
+
+- `axiom-trace-analysis` — Analyzes execution traces for timing, dropped events and anomaly triage with a deterministic parser script.
+
+- `axiom-v2x-communication` — Models V2X messages, latency/security considerations and simulation hooks with a message test strategy.
+
+- `axiom-vehicle-cybersecurity` — Runs a TARA-aligned cybersecurity workflow (threat model, secure boot/diag, key management, IDS/OTA concepts) producing reviewable evidence.
+
+- `axiom-zonal-architecture` — Designs zonal/domain-controller partitioning, service-oriented communication, compute allocation and update strategy.
+
 - `bare-metal` — Reset-to-main init, fault handlers, ISR discipline, super-loop and time-triggered patterns. Use for no-OS firmware or boot code.
 - `bootloader` — Verify-before-jump boot, A/B slots, anti-rollback, key custody. Use when building secure updateable bootloaders.
 - `build-system` — Warnings-as-errors builds, pinning, toolchain separation, SLSA provenance. Use when setting up CMake builds or reproducible toolchains.

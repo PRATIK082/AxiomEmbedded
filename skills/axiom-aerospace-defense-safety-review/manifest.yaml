@@ -1,0 +1,20 @@
+id: axiom-aerospace-defense-safety-review
+version: 1.2.0
+contract_version: 1
+type: reusable-skill
+source_of_truth:
+  instructions: SKILL.md
+  contract: manifest.yaml
+facets:
+  domains:
+  - aerospace
+  platforms:
+  - mcu
+  - mpu
+standards:
+  - DO-178C
+  - DO-254
+axiom:
+  dotted_name: axiom.aerospace.aerospace_defense_safety_review
+  maturity: experimental
+  category: review

@@ -111,3 +111,62 @@ def list_profiles() -> dict:
             "platforms": data.get("platforms", []),
         }
     return out
+
+
+def search_skills(query: str = "", domain: str | None = None,
+                 standard: str | None = None) -> dict:
+    """Ranked skill search over catalog.yaml (deterministic, stdlib only)."""
+    import yaml
+
+    cat_path = ROOT / "skills" / "catalog.yaml"
+    if not cat_path.exists():
+        return {"query": query, "results": []}
+    cat = yaml.safe_load(cat_path.read_text(encoding="utf-8")) or {}
+    q = query.lower()
+    results = []
+    for e in cat.get("skills", []):
+        if domain and e.get("domain") != domain:
+            continue
+        if standard and standard not in (e.get("standards") or []):
+            hay = " ".join([e.get("id", ""), e.get("title", ""),
+                            str(e.get("standards", ""))]).lower()
+            if standard.lower() not in hay:
+                continue
+        hay = " ".join([e.get("id", ""), e.get("title", ""),
+                        " ".join(e.get("tags", []) or [])]).lower()
+        score = sum(1 for tok in q.split() if tok and tok in hay)
+        if not q or score:
+            results.append({"id": e["id"], "title": e.get("title", ""),
+                            "maturity": e.get("maturity", ""), "score": score})
+    results.sort(key=lambda r: (-r["score"], r["id"]))
+    return {"query": query, "count": len(results), "results": results}
+
+
+def validate_skill(skill_id: str) -> dict:
+    """Validate one skill's SKILL.md contract."""
+    from packages.skills.loader import validate_skill_doc
+
+    return validate_skill_doc(skill_id)
+
+
+def run_skill(skill_id: str, repo_path: str = ".",
+              target_files: list[str] | None = None, objective: str = "",
+              constraints: str = "", output_dir: str | None = None,
+              dry_run: bool = True) -> dict:
+    """Execute a skill as a structured workflow (dry-run default)."""
+    from packages.skills.runner import run_skill as _run
+
+    return _run(skill_id, repo_path, target_files, objective, constraints,
+                output_dir, dry_run)
+
+
+def skill_report(skill_id: str, run_dir: str) -> dict:
+    """Summarize a previous run_skill manifest directory."""
+    import json
+
+    mf = ROOT / run_dir / "run-manifest.json" if not str(run_dir).endswith(
+        "run-manifest.json") else pathlib.Path(run_dir)
+    data = json.loads(pathlib.Path(mf).read_text(encoding="utf-8"))
+    return {"skill": skill_id, "manifest": data,
+            "summary": f"{skill_id}: {len(data.get('generated_files', []))} "
+                       f"file(s), checks={data.get('acceptance_checks', [])}"}

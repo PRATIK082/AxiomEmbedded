@@ -1,0 +1,20 @@
+id: axiom-autosar-classic-bsw-integration
+version: 1.2.0
+contract_version: 1
+type: reusable-skill
+source_of_truth:
+  instructions: SKILL.md
+  contract: manifest.yaml
+facets:
+  domains:
+  - automotive
+  platforms:
+  - mcu
+  - autosar-classic
+standards:
+  - AUTOSAR Classic R24-11
+  - ISO 26262:2018
+axiom:
+  dotted_name: axiom.automotive.autosar_classic_bsw_integration
+  maturity: beta
+  category: integration

@@ -514,7 +514,7 @@
       ]
     },
     "automotive-body": {
-      "description": "Body electronics — BCM, lighting, doors/seats/mirrors, HVAC, PEPS/keyless, LIN/CAN topology, low-power modes, EOL configuration. Use for body ECUs, LIN slaves, and EOL variant coding.",
+      "description": "Body electronics \u2014 BCM, lighting, doors/seats/mirrors, HVAC, PEPS/keyless, LIN/CAN topology, low-power modes, EOL configuration. Use for body ECUs, LIN slaves, and EOL variant coding.",
       "domains": [
         "automotive"
       ],
@@ -538,7 +538,7 @@
       ]
     },
     "automotive-cockpit": {
-      "description": "Digital cockpit — cluster/IVI/HUD, SoC plus hypervisor with QNX/AAOS/Linux, Qt/Kanzi HMI, audio/DSP, driver monitoring, ASIL-B cluster and cybersecurity. Use for clusters, infotainment, HUD programs.",
+      "description": "Digital cockpit \u2014 cluster/IVI/HUD, SoC plus hypervisor with QNX/AAOS/Linux, Qt/Kanzi HMI, audio/DSP, driver monitoring, ASIL-B cluster and cybersecurity. Use for clusters, infotainment, HUD programs.",
       "domains": [
         "automotive"
       ],
@@ -570,7 +570,7 @@
       ]
     },
     "automotive-middleware": {
-      "description": "SDV middleware selection and integration — ara::com, SOME/IP-SD, DDS, Zenoh, vsomeip, MQTT, TSN, zero-copy IPC, VSS/VSC. Use for service-oriented vehicle platforms, HPC/zone architectures, deterministic Ethernet.",
+      "description": "SDV middleware selection and integration \u2014 ara::com, SOME/IP-SD, DDS, Zenoh, vsomeip, MQTT, TSN, zero-copy IPC, VSS/VSC. Use for service-oriented vehicle platforms, HPC/zone architectures, deterministic Ethernet.",
       "domains": [
         "automotive"
       ],
@@ -622,74 +622,325 @@
       "platforms": [
         "all"
       ]
+    },
+    "axiom-autosar-classic-architecture": {
+      "description": "Reviews AUTOSAR Classic platform architecture choices, layering, and release baselines for an ECU project and produces an architecture decision record with findings.\n",
+      "domains": [
+        "automotive"
+      ],
+      "platforms": [
+        "mcu",
+        "autosar-classic"
+      ]
+    },
+    "axiom-autosar-classic-bsw-integration": {
+      "description": "Integrates and reviews AUTOSAR Classic BSW configuration (ARXML/BMD/RTE/OS/COM/PduR/CanIf/CanTp/Dcm/Dem/NvM/EcuM) and produces an integration report with severity-ranked findings and a validation matrix.\n",
+      "domains": [
+        "automotive"
+      ],
+      "platforms": [
+        "mcu",
+        "autosar-classic"
+      ]
+    },
+    "axiom-autosar-rte-design": {
+      "description": "Designs RTE ports, interfaces, runnable entities and events for Classic software components with consistency checks and traceability.\n",
+      "domains": [
+        "automotive"
+      ],
+      "platforms": [
+        "mcu",
+        "autosar-classic"
+      ]
+    },
+    "axiom-autosar-os-config": {
+      "description": "Reviews AUTOSAR OS task, alarm, schedule-table and timing-protection configuration against scheduling constraints and stack assumptions.\n",
+      "domains": [
+        "automotive"
+      ],
+      "platforms": [
+        "mcu",
+        "autosar-classic"
+      ]
+    },
+    "axiom-autosar-com-stack": {
+      "description": "Reviews COM/PduR/CanIf/CanTp signal routing, PDU mapping and gateway assumptions for Classic communication stacks.\n",
+      "domains": [
+        "automotive"
+      ],
+      "platforms": [
+        "mcu",
+        "autosar-classic"
+      ]
+    },
+    "axiom-autosar-adaptive-deployment": {
+      "description": "Designs Adaptive service deployment (ara::com manifests, execution/state management, persistency, time sync) with a deployment checklist.\n",
+      "domains": [
+        "automotive"
+      ],
+      "platforms": [
+        "mpu",
+        "autosar-adaptive"
+      ]
+    },
+    "axiom-can-network-design": {
+      "description": "Designs CAN/CAN-FD network topology, identifier allocation, bus-load budgets and timing assumptions from DBC-level inputs.\n",
+      "domains": [
+        "automotive"
+      ],
+      "platforms": [
+        "mcu",
+        "autosar-classic"
+      ]
+    },
+    "axiom-can-stack-integration": {
+      "description": "Integrates and checks CAN driver/CanIf/CanTp stacks including baud-rate, mailbox, and error-handling configuration.\n",
+      "domains": [
+        "automotive"
+      ],
+      "platforms": [
+        "mcu",
+        "autosar-classic"
+      ]
+    },
+    "axiom-automotive-ethernet-someip": {
+      "description": "Designs Ethernet topology, VLAN/TSN assumptions and SOME/IP service modeling for service-oriented ECUs.\n",
+      "domains": [
+        "automotive"
+      ],
+      "platforms": [
+        "mpu",
+        "autosar-adaptive"
+      ]
+    },
+    "axiom-diagnostics-uds": {
+      "description": "Designs UDS service coverage, session/security posture and negative-response matrices, and validates them with a deterministic checker script.\n",
+      "domains": [
+        "automotive"
+      ],
+      "platforms": [
+        "mcu",
+        "mpu",
+        "autosar-classic",
+        "autosar-adaptive"
+      ]
+    },
+    "axiom-diagnostics-doip": {
+      "description": "Integrates DoIP discovery, routing activation and diagnostic transport for Ethernet ECUs with tester-workflow checks.\n",
+      "domains": [
+        "automotive"
+      ],
+      "platforms": [
+        "mpu",
+        "autosar-adaptive"
+      ]
+    },
+    "axiom-vehicle-cybersecurity": {
+      "description": "Runs a TARA-aligned cybersecurity workflow (threat model, secure boot/diag, key management, IDS/OTA concepts) producing reviewable evidence.\n",
+      "domains": [
+        "automotive"
+      ],
+      "platforms": [
+        "mcu",
+        "mpu"
+      ]
+    },
+    "axiom-functional-safety": {
+      "description": "Supports HARA, safety goals, FSR/TSR derivation, FMEA/FTA templates and verification-evidence structure for safety-related work.\n",
+      "domains": [
+        "automotive"
+      ],
+      "platforms": [
+        "mcu",
+        "mpu"
+      ]
+    },
+    "axiom-adas-perception-pipeline": {
+      "description": "Designs sensor-abstraction, perception interfaces and object-model contracts for ADAS pipelines.\n",
+      "domains": [
+        "automotive"
+      ],
+      "platforms": [
+        "mpu",
+        "soc"
+      ]
+    },
+    "axiom-adas-validation": {
+      "description": "Plans sensor-fusion validation, recording/replay campaigns and KPI definitions for ADAS functions.\n",
+      "domains": [
+        "automotive"
+      ],
+      "platforms": [
+        "mpu",
+        "soc"
+      ]
+    },
+    "axiom-bms-design": {
+      "description": "Designs cell modeling assumptions, SOC/SOH method selection, contactor/precharge, insulation monitoring and thermal strategy for battery systems.\n",
+      "domains": [
+        "automotive"
+      ],
+      "platforms": [
+        "mcu"
+      ]
+    },
+    "axiom-bms-diagnostics": {
+      "description": "Designs BMS fault handling and HIL test campaigns covering cell, contactor, thermal and isolation faults.\n",
+      "domains": [
+        "automotive"
+      ],
+      "platforms": [
+        "mcu"
+      ]
+    },
+    "axiom-v2x-communication": {
+      "description": "Models V2X messages, latency/security considerations and simulation hooks with a message test strategy.\n",
+      "domains": [
+        "automotive"
+      ],
+      "platforms": [
+        "mpu"
+      ]
+    },
+    "axiom-zonal-architecture": {
+      "description": "Designs zonal/domain-controller partitioning, service-oriented communication, compute allocation and update strategy.\n",
+      "domains": [
+        "automotive"
+      ],
+      "platforms": [
+        "mcu",
+        "mpu",
+        "soc"
+      ]
+    },
+    "axiom-automotive-release-readiness": {
+      "description": "Gates ECU/software release readiness with evidence packaging, open-finding triage and sign-off checklists.\n",
+      "domains": [
+        "automotive"
+      ],
+      "platforms": [
+        "mcu",
+        "mpu"
+      ]
+    },
+    "axiom-embedded-firmware-bringup": {
+      "description": "Brings up firmware on a new MCU/board (clock, memory, drivers, bootloader handoff) with a deterministic checklist.\n",
+      "domains": [
+        "all"
+      ],
+      "platforms": [
+        "mcu",
+        "bare-metal"
+      ]
+    },
+    "axiom-rtos-architecture": {
+      "description": "Reviews RTOS task, priority, IPC and timing architecture for determinism and stack safety.\n",
+      "domains": [
+        "all"
+      ],
+      "platforms": [
+        "mcu",
+        "rtos"
+      ]
+    },
+    "axiom-trace-analysis": {
+      "description": "Analyzes execution traces for timing, dropped events and anomaly triage with a deterministic parser script.\n",
+      "domains": [
+        "all"
+      ],
+      "platforms": [
+        "mcu",
+        "mpu"
+      ]
+    },
+    "axiom-memory-and-performance-analysis": {
+      "description": "Analyzes memory classification, stack/heap budgets and performance hotspots against project budgets.\n",
+      "domains": [
+        "all"
+      ],
+      "platforms": [
+        "mcu",
+        "mpu"
+      ]
+    },
+    "axiom-test-automation": {
+      "description": "Designs unit/integration test strategy, automation hooks and coverage expectations for embedded repos.\n",
+      "domains": [
+        "all"
+      ],
+      "platforms": [
+        "mcu",
+        "mpu"
+      ]
+    },
+    "axiom-hil-test-planning": {
+      "description": "Plans SIL/HIL campaigns including plant models, fault injection and pass/fail criteria.\n",
+      "domains": [
+        "all"
+      ],
+      "platforms": [
+        "mcu",
+        "mpu"
+      ]
+    },
+    "axiom-robotics-system-integration": {
+      "description": "Integrates ROS 2 nodes, sensor fusion and motion-control interfaces with contract checks.\n",
+      "domains": [
+        "robotics"
+      ],
+      "platforms": [
+        "mpu",
+        "soc"
+      ]
+    },
+    "axiom-industrial-control-review": {
+      "description": "Reviews PLC/fieldbus/OPC-UA control designs and functional-safety touchpoints for industrial controllers.\n",
+      "domains": [
+        "industrial"
+      ],
+      "platforms": [
+        "mcu",
+        "mpu"
+      ]
+    },
+    "axiom-aerospace-defense-safety-review": {
+      "description": "Reviews safety-critical embedded designs against DO-178C/DO-254-style objectives and evidence expectations.\n",
+      "domains": [
+        "aerospace"
+      ],
+      "platforms": [
+        "mcu",
+        "mpu"
+      ]
+    },
+    "axiom-platform-architecture-review": {
+      "description": "Reviews embedded platform architecture (requirements-to-design traceability, interface contracts, ADRs, tech-debt) for any domain.\n",
+      "domains": [
+        "all"
+      ],
+      "platforms": [
+        "mcu",
+        "mpu",
+        "soc"
+      ]
     }
   },
   "by_domain": {
-    "generic-embedded": [
-      "ai-validation",
-      "edge-ai",
-      "embedded-linux",
+    "aerospace": [
+      "axiom-aerospace-defense-safety-review",
       "fault-injection",
-      "mcu",
       "mpsoc",
-      "mpu",
-      "safety",
-      "soc"
-    ],
-    "automotive": [
-      "adas",
-      "ai-validation",
-      "autosar",
-      "automotive-body",
-      "automotive-coding",
-      "automotive-cockpit",
-      "automotive-cybersecurity",
-      "automotive-diagnostics",
-      "automotive-middleware",
-      "automotive-networks",
-      "automotive-ota",
-      "automotive-spice",
-      "automotive-vcycle",
-      "edge-ai",
-      "embedded-linux",
-      "fault-injection",
-      "mcu",
-      "mpsoc",
-      "mpu",
-      "safety",
-      "soc"
-    ],
-    "industrial": [
-      "ai-validation",
-      "edge-ai",
-      "embedded-linux",
-      "fault-injection",
-      "mcu",
-      "mpsoc",
-      "mpu",
-      "robotics",
-      "safety",
-      "soc"
-    ],
-    "iot": [
-      "ai-validation",
-      "edge-ai",
-      "embedded-linux",
-      "mcu",
-      "mpu"
-    ],
-    "robotics": [
-      "ai-validation",
-      "edge-ai",
-      "embedded-linux",
-      "mcu",
-      "mpu",
-      "robotics",
-      "safety",
-      "soc"
+      "safety"
     ],
     "all": [
       "architecture",
+      "axiom-embedded-firmware-bringup",
+      "axiom-hil-test-planning",
+      "axiom-memory-and-performance-analysis",
+      "axiom-platform-architecture-review",
+      "axiom-rtos-architecture",
+      "axiom-test-automation",
+      "axiom-trace-analysis",
       "bare-metal",
       "bootloader",
       "build-system",
@@ -726,86 +977,98 @@
       "unit-test",
       "validation"
     ],
-    "aerospace": [
+    "automotive": [
+      "adas",
+      "ai-validation",
+      "automotive-body",
+      "automotive-cockpit",
+      "automotive-coding",
+      "automotive-cybersecurity",
+      "automotive-diagnostics",
+      "automotive-middleware",
+      "automotive-networks",
+      "automotive-ota",
+      "automotive-spice",
+      "automotive-vcycle",
+      "autosar",
+      "axiom-adas-perception-pipeline",
+      "axiom-adas-validation",
+      "axiom-automotive-ethernet-someip",
+      "axiom-automotive-release-readiness",
+      "axiom-autosar-adaptive-deployment",
+      "axiom-autosar-classic-architecture",
+      "axiom-autosar-classic-bsw-integration",
+      "axiom-autosar-com-stack",
+      "axiom-autosar-os-config",
+      "axiom-autosar-rte-design",
+      "axiom-bms-design",
+      "axiom-bms-diagnostics",
+      "axiom-can-network-design",
+      "axiom-can-stack-integration",
+      "axiom-diagnostics-doip",
+      "axiom-diagnostics-uds",
+      "axiom-functional-safety",
+      "axiom-v2x-communication",
+      "axiom-vehicle-cybersecurity",
+      "axiom-zonal-architecture",
+      "edge-ai",
+      "embedded-linux",
       "fault-injection",
+      "mcu",
       "mpsoc",
-      "safety"
+      "mpu",
+      "safety",
+      "soc"
     ],
     "defense": [
       "fault-injection",
       "mpsoc",
       "safety"
+    ],
+    "generic-embedded": [
+      "ai-validation",
+      "edge-ai",
+      "embedded-linux",
+      "fault-injection",
+      "mcu",
+      "mpsoc",
+      "mpu",
+      "safety",
+      "soc"
+    ],
+    "industrial": [
+      "ai-validation",
+      "axiom-industrial-control-review",
+      "edge-ai",
+      "embedded-linux",
+      "fault-injection",
+      "mcu",
+      "mpsoc",
+      "mpu",
+      "robotics",
+      "safety",
+      "soc"
+    ],
+    "iot": [
+      "ai-validation",
+      "edge-ai",
+      "embedded-linux",
+      "mcu",
+      "mpu"
+    ],
+    "robotics": [
+      "ai-validation",
+      "axiom-robotics-system-integration",
+      "edge-ai",
+      "embedded-linux",
+      "mcu",
+      "mpu",
+      "robotics",
+      "safety",
+      "soc"
     ]
   },
   "by_platform": {
-    "mcu": [
-      "ai-validation",
-      "autosar",
-      "automotive-body",
-      "automotive-coding",
-      "automotive-diagnostics",
-      "automotive-networks",
-      "automotive-ota",
-      "bare-metal",
-      "bootloader",
-      "drivers",
-      "edge-ai",
-      "embedded-c",
-      "embedded-cpp",
-      "hardware-architecture",
-      "hardware-bringup",
-      "mcu",
-      "rtos",
-      "rust-embedded"
-    ],
-    "mpu": [
-      "adas",
-      "ai-validation",
-      "autosar",
-      "automotive-cockpit",
-      "automotive-coding",
-      "automotive-diagnostics",
-      "automotive-middleware",
-      "automotive-networks",
-      "automotive-ota",
-      "bootloader",
-      "drivers",
-      "edge-ai",
-      "embedded-cpp",
-      "embedded-linux",
-      "hardware-architecture",
-      "hardware-bringup",
-      "mpu",
-      "robotics",
-      "rtos",
-      "rust-embedded"
-    ],
-    "soc": [
-      "adas",
-      "ai-validation",
-      "automotive-cockpit",
-      "automotive-middleware",
-      "bootloader",
-      "drivers",
-      "edge-ai",
-      "embedded-linux",
-      "hardware-architecture",
-      "hardware-bringup",
-      "mpsoc",
-      "robotics",
-      "soc"
-    ],
-    "mpsoc": [
-      "adas",
-      "ai-validation",
-      "automotive-cockpit",
-      "edge-ai",
-      "embedded-linux",
-      "hardware-architecture",
-      "hardware-bringup",
-      "mpsoc",
-      "soc"
-    ],
     "all": [
       "architecture",
       "automotive-cybersecurity",
@@ -840,37 +1103,42 @@
       "unit-test",
       "validation"
     ],
-    "autosar-classic": [
-      "autosar",
-      "automotive-body",
-      "automotive-coding",
-      "automotive-diagnostics",
-      "automotive-networks",
-      "automotive-ota"
-    ],
     "autosar-adaptive": [
       "adas",
-      "autosar",
       "automotive-coding",
       "automotive-diagnostics",
       "automotive-middleware",
       "automotive-networks",
-      "automotive-ota"
+      "automotive-ota",
+      "autosar",
+      "axiom-automotive-ethernet-someip",
+      "axiom-autosar-adaptive-deployment",
+      "axiom-diagnostics-doip",
+      "axiom-diagnostics-uds"
+    ],
+    "autosar-classic": [
+      "automotive-body",
+      "automotive-coding",
+      "automotive-diagnostics",
+      "automotive-networks",
+      "automotive-ota",
+      "autosar",
+      "axiom-autosar-classic-architecture",
+      "axiom-autosar-classic-bsw-integration",
+      "axiom-autosar-com-stack",
+      "axiom-autosar-os-config",
+      "axiom-autosar-rte-design",
+      "axiom-can-network-design",
+      "axiom-can-stack-integration",
+      "axiom-diagnostics-uds"
     ],
     "bare-metal": [
       "automotive-coding",
+      "axiom-embedded-firmware-bringup",
       "bare-metal",
       "embedded-c",
       "embedded-cpp",
       "mcu",
-      "rust-embedded"
-    ],
-    "rtos": [
-      "automotive-coding",
-      "embedded-c",
-      "embedded-cpp",
-      "mcu",
-      "rtos",
       "rust-embedded"
     ],
     "linux": [
@@ -878,6 +1146,130 @@
       "embedded-linux",
       "mpu",
       "robotics"
+    ],
+    "mcu": [
+      "ai-validation",
+      "automotive-body",
+      "automotive-coding",
+      "automotive-diagnostics",
+      "automotive-networks",
+      "automotive-ota",
+      "autosar",
+      "axiom-aerospace-defense-safety-review",
+      "axiom-automotive-release-readiness",
+      "axiom-autosar-classic-architecture",
+      "axiom-autosar-classic-bsw-integration",
+      "axiom-autosar-com-stack",
+      "axiom-autosar-os-config",
+      "axiom-autosar-rte-design",
+      "axiom-bms-design",
+      "axiom-bms-diagnostics",
+      "axiom-can-network-design",
+      "axiom-can-stack-integration",
+      "axiom-diagnostics-uds",
+      "axiom-embedded-firmware-bringup",
+      "axiom-functional-safety",
+      "axiom-hil-test-planning",
+      "axiom-industrial-control-review",
+      "axiom-memory-and-performance-analysis",
+      "axiom-platform-architecture-review",
+      "axiom-rtos-architecture",
+      "axiom-test-automation",
+      "axiom-trace-analysis",
+      "axiom-vehicle-cybersecurity",
+      "axiom-zonal-architecture",
+      "bare-metal",
+      "bootloader",
+      "drivers",
+      "edge-ai",
+      "embedded-c",
+      "embedded-cpp",
+      "hardware-architecture",
+      "hardware-bringup",
+      "mcu",
+      "rtos",
+      "rust-embedded"
+    ],
+    "mpsoc": [
+      "adas",
+      "ai-validation",
+      "automotive-cockpit",
+      "edge-ai",
+      "embedded-linux",
+      "hardware-architecture",
+      "hardware-bringup",
+      "mpsoc",
+      "soc"
+    ],
+    "mpu": [
+      "adas",
+      "ai-validation",
+      "automotive-cockpit",
+      "automotive-coding",
+      "automotive-diagnostics",
+      "automotive-middleware",
+      "automotive-networks",
+      "automotive-ota",
+      "autosar",
+      "axiom-adas-perception-pipeline",
+      "axiom-adas-validation",
+      "axiom-aerospace-defense-safety-review",
+      "axiom-automotive-ethernet-someip",
+      "axiom-automotive-release-readiness",
+      "axiom-autosar-adaptive-deployment",
+      "axiom-diagnostics-doip",
+      "axiom-diagnostics-uds",
+      "axiom-functional-safety",
+      "axiom-hil-test-planning",
+      "axiom-industrial-control-review",
+      "axiom-memory-and-performance-analysis",
+      "axiom-platform-architecture-review",
+      "axiom-robotics-system-integration",
+      "axiom-test-automation",
+      "axiom-trace-analysis",
+      "axiom-v2x-communication",
+      "axiom-vehicle-cybersecurity",
+      "axiom-zonal-architecture",
+      "bootloader",
+      "drivers",
+      "edge-ai",
+      "embedded-cpp",
+      "embedded-linux",
+      "hardware-architecture",
+      "hardware-bringup",
+      "mpu",
+      "robotics",
+      "rtos",
+      "rust-embedded"
+    ],
+    "rtos": [
+      "automotive-coding",
+      "axiom-rtos-architecture",
+      "embedded-c",
+      "embedded-cpp",
+      "mcu",
+      "rtos",
+      "rust-embedded"
+    ],
+    "soc": [
+      "adas",
+      "ai-validation",
+      "automotive-cockpit",
+      "automotive-middleware",
+      "axiom-adas-perception-pipeline",
+      "axiom-adas-validation",
+      "axiom-platform-architecture-review",
+      "axiom-robotics-system-integration",
+      "axiom-zonal-architecture",
+      "bootloader",
+      "drivers",
+      "edge-ai",
+      "embedded-linux",
+      "hardware-architecture",
+      "hardware-bringup",
+      "mpsoc",
+      "robotics",
+      "soc"
     ]
   }
 }

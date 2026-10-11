@@ -1,5 +1,26 @@
 # Changelog
 
+## Unreleased — Axiom Skill Framework (2026-10-11)
+
+Additive skill framework + 30 original `axiom-*` workflow skills:
+
+- `skills/catalog.yaml` (88 skills) + `skills/registry.yaml`; dual
+  frontmatter contract (legacy keys + `axiom:` block) keeps all packaging tests green.
+- Framework core: `packages/skills/{registry,loader,validator,runner}.py`;
+  CLI `axiom skills list|validate|search|run|report|create` (dry-run default);
+  MCP `search_skills|validate_skill|run_skill|create_skill` (21 → 25 tools).
+- Two beta exemplars with checker scripts + tests:
+  `axiom-autosar-classic-bsw-integration`, `axiom-diagnostics-uds`;
+  28 experimental scaffolds with workflows, checklists, templates.
+- `scripts/{validate_skills,create_skill,scaffold_axiom_skills,extend_catalog,sync_skill_index}.py`;
+  `tests/test_skill_framework.py`; `.github/workflows/skill-validation.yml`.
+- Docs: `docs/SKILL_FRAMEWORK.md`, `docs/skills/{AUTHORING_GUIDE,CONTRIBUTING,CATALOG}.md`,
+  `docs/{skill-authoring-guide,mcp-tool-development-guide,skill-quality-gates,skill-gap-analysis,mcp-tool-backlog,current-state-assessment}.md`,
+  `docs/analysis/{CURRENT_STATE,GAP_ANALYSIS,INTEGRATION_PLAN,FINAL_IMPLEMENTATION_REPORT}.md`,
+  `docs/migration/EXISTING_CAPABILITY_MAPPING.md`; README “Axiom Skill Framework”.
+- No existing capability removed/renamed; no reference-repo text used.
+
+
 ## 0.2.0 (2026-10-09)
 
 Distribution (pipx/`axiom` entry, typed MCP server, single-source client

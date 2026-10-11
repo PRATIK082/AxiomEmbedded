@@ -153,7 +153,7 @@ python scripts/sync_clients.py        # regenerate
 python scripts/sync_clients.py --check # CI freshness gate
 ```
 
-The repository contains shared agent instructions and integration contracts for AI clients. Root `AGENTS.md` is the portable project contract. GitHub Copilot additionally consumes `.github/copilot-instructions.md` and path-specific instruction files. OpenCode consumes `.opencode/agents/`, `.opencode/skills/`, `.opencode/commands/` (`/axiom-*`), the `axiom-policy` plugin (`.opencode/plugins/`), and the `mcp.axiom` entry in `opencode.json`. Every `axiom` command is also an MCP tool over stdio (`axiom mcp`, 21 tools, JSON schemas); `clients/mcp.json` holds a portable server entry.
+The repository contains shared agent instructions and integration contracts for AI clients. Root `AGENTS.md` is the portable project contract. GitHub Copilot additionally consumes `.github/copilot-instructions.md` and path-specific instruction files. OpenCode consumes `.opencode/agents/`, `.opencode/skills/`, `.opencode/commands/` (`/axiom-*`), the `axiom-policy` plugin (`.opencode/plugins/`), and the `mcp.axiom` entry in `opencode.json`. Every `axiom` command is also an MCP tool over stdio (`axiom mcp`, 25 tools, JSON schemas); `clients/mcp.json` holds a portable server entry.
 
 Live OpenCode runtime (isolated config under `~/.axiom/opencode`, never touches
 the user's own OpenCode setup; see `docs/OPENCODE_COMPAT.md` for the tested
@@ -174,6 +174,27 @@ available, otherwise the keyless local backend):
 axiom research "ISO 26262 automotive safety" --backend local
 axiom research "question" --format markdown --output report.md
 ```
+
+## Axiom Skill Framework
+
+Thirty original `axiom-*` workflow skills (automotive, embedded, robotics,
+industrial, aerospace, cross-domain) plus the 58 existing skills — one tree,
+one catalog (`skills/catalog.yaml`):
+
+```bash
+python -m axiom_cli skills list            # list catalog skills
+python -m axiom_cli skills search "uds"    # search by query/domain/standard
+python -m axiom_cli skills run axiom-diagnostics-uds --objective "Review matrix"  # dry-run
+python scripts/validate_skills.py          # validate all skills + catalog
+```
+
+Two exemplar skills ship deep workflows with deterministic checker scripts:
+`axiom-autosar-classic-bsw-integration` and `axiom-diagnostics-uds`
+(beta; the other 28 are experimental scaffolds with full metadata,
+workflows, checklists, and templates). Runs produce manifests under
+`.axiom/runs/<timestamp>/<skill-id>/`. Same surface over MCP
+(`search_skills`, `validate_skill`, `run_skill`, `create_skill`).
+See `docs/SKILL_FRAMEWORK.md` and `docs/skills/AUTHORING_GUIDE.md`.
 
 ## Compatibility
 

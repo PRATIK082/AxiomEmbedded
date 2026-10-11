@@ -215,6 +215,42 @@ def tool_research(args: dict) -> dict:
                max_subquestions=max_sub, model=args.get("model"))
 
 
+def tool_search_skills(args: dict) -> dict:
+    return axiom_sdk.search_skills(args.get("query", ""),
+                                   args.get("domain"), args.get("standard"))
+
+
+def tool_validate_skill(args: dict) -> dict:
+    return axiom_sdk.validate_skill(args["skill_id"])
+
+
+def tool_run_skill(args: dict) -> dict:
+    return axiom_sdk.run_skill(
+        args["skill_id"], args.get("repo_path", "."),
+        args.get("target_files") or [], args.get("objective", ""),
+        args.get("constraints", ""), args.get("output_dir"),
+        bool(args.get("apply", False)))
+
+
+def tool_create_skill(args: dict) -> dict:
+    import re as _re
+    import sys as _sys
+    sys_path = str(ROOT / "scripts")
+    if sys_path not in _sys.path:
+        _sys.path.insert(0, sys_path)
+    from create_skill import scaffold
+    if not _re.match(r"^axiom-[a-z0-9]+(-[a-z0-9]+)+$", args["skill_id"]):
+        return {"status": "error", "message": "bad skill id"}
+    if args.get("apply"):
+        plan = scaffold(args["skill_id"], args.get("title", args["skill_id"]),
+                        args.get("domain", "automotive"), True)
+        return {"status": "ok", "applied": True, "files": plan}
+    return {"status": "dry-run",
+            "files": [f"skills/{args['skill_id']}/SKILL.md",
+                      f"skills/{args['skill_id']}/manifest.yaml",
+                      f"skills/{args['skill_id']}/checklists/review.yaml"]}
+
+
 TOOLS: dict[str, dict] = {
     "version": {
         "description": "Axiom version (mirrors `axiom version`).",
@@ -412,6 +448,58 @@ TOOLS: dict[str, dict] = {
             required=["client"],
         ),
         "handler": tool_install,
+    },
+    "search_skills": {
+        "description": "Search the skill catalog by query/domain/standard (skill discovery).",
+        "inputSchema": _schema(
+            {
+                "query": _str_prop("Free-text query."),
+                "domain": _opt_str_prop("Domain filter."),
+                "standard": _opt_str_prop("Standard filter."),
+            }
+        ),
+        "handler": tool_search_skills,
+    },
+    "validate_skill": {
+        "description": "Validate one skill's SKILL.md contract (no writes).",
+        "inputSchema": _schema(
+            {"skill_id": _str_prop("Skill id (directory under skills/).")},
+            required=["skill_id"],
+        ),
+        "handler": tool_validate_skill,
+    },
+    "run_skill": {
+        "description": "Run a skill as a structured workflow; dry-run unless apply=true (writes only under output_dir/.axiom/runs).",
+        "inputSchema": _schema(
+            {
+                "skill_id": _str_prop("Skill id."),
+                "repo_path": _opt_str_prop("Repository path."),
+                "target_files": {
+                    "type": "array",
+                    "items": {"type": "string"},
+                    "description": "Repo-relative target files.",
+                },
+                "objective": _opt_str_prop("User objective."),
+                "constraints": _opt_str_prop("Constraints."),
+                "output_dir": _opt_str_prop("Output directory."),
+                "apply": {"type": "boolean", "description": "Write artifacts (default false=dry-run)."},
+            },
+            required=["skill_id"],
+        ),
+        "handler": tool_run_skill,
+    },
+    "create_skill": {
+        "description": "Scaffold a new axiom-* skill (dry-run unless apply=true; writes only under skills/).",
+        "inputSchema": _schema(
+            {
+                "skill_id": _str_prop("New skill id (axiom-<domain>-<capability>)."),
+                "title": _str_prop("Human-readable title."),
+                "domain": _opt_str_prop("Domain."),
+                "apply": {"type": "boolean", "description": "Write scaffold (default false=dry-run)."},
+            },
+            required=["skill_id", "title"],
+        ),
+        "handler": tool_create_skill,
     },
 }
 

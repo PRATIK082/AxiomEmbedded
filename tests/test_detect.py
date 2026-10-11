@@ -43,7 +43,7 @@ def test_run_cmd_explicit_domain_wins(capsys):
     assert run_cmd("Write UDS diagnostics", "automotive", "mcu") == 0
     plan = json.loads(capsys.readouterr().out)
     assert plan["domain_source"] == "explicit"
-    assert plan["engagement"]["skill_count"] == 50
+    assert plan["engagement"]["skill_count"] == 71
 
 
 def test_detect_stage_empty(tmp_path):
