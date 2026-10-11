@@ -51,7 +51,14 @@ class Handler(BaseHTTPRequestHandler):
         return json.loads(self.rfile.read(length).decode("utf-8") or "{}")
 
     def do_GET(self):  # noqa: N802
-        if self.path == "/v1/skills":
+        if self.path in ("/", "/dashboard"):
+            body = dashboard_html().encode("utf-8")
+            self.send_response(200)
+            self.send_header("Content-Type", "text/html; charset=utf-8")
+            self.send_header("Content-Length", str(len(body)))
+            self.end_headers()
+            self.wfile.write(body)
+        elif self.path == "/v1/skills":
             _send(self, axiom_sdk.list_skills())
         elif self.path.startswith("/v1/skills/"):
             skill_id = self.path.rsplit("/", 1)[-1]
@@ -98,6 +105,38 @@ class Handler(BaseHTTPRequestHandler):
             )
         else:
             _send(self, {"error": "not found"}, 404)
+
+
+def dashboard_html() -> str:
+    """Render the `/` status dashboard (Simple-UI slice 1).
+
+    Single implementation behind ``axiom status`` (terminal) and the
+    ``axiom serve`` landing page. All metrics are live repository data
+    via :mod:`packages.axiom_ops`.
+    """
+    from packages.axiom_ops import get_status
+
+    st = get_status()
+    skills = st.get("skills", {})
+    inv = st.get("inventory", {})
+    attention = st.get("needs_attention", [])
+    recommended = st.get("recommended_next_action", "")
+    rows = "".join(
+        f"<li><b>{a.get('id', '')}</b> [{a.get('severity', '')}] "
+        f"{a.get('title', '')} — {a.get('action', '')}</li>"
+        for a in attention
+    ) or "<li>None — repository is healthy.</li>"
+    return (
+        "<!doctype html><html><head><meta charset='utf-8'>"
+        "<title>AxiomEmbedded — status</title></head><body>"
+        f"<h1>AxiomEmbedded</h1><p>State: {st.get('state', '')}</p>"
+        f"<p>Skills: {skills.get('total', 0)} "
+        f"(latest {skills.get('latest', '')})</p>"
+        f"<p>Inventory: {inv}</p>"
+        "<h2>Needs attention</h2><ul>" + rows + "</ul>"
+        f"<h2>Recommended next action</h2><p>{recommended}</p>"
+        "</body></html>"
+    )
 
 
 def serve(port: int = 8931) -> int:
