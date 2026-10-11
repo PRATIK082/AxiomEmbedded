@@ -1,3 +1,7 @@
+[![AxiomEmbedded — Open AI-Native Engineering Platform for Embedded & Cyber-Physical Systems](https://raw.githubusercontent.com/PRATIK082/AxiomEmbedded/main/docs/images/project-overview.png)](https://github.com/PRATIK082/AxiomEmbedded)
+
+<!-- gallery: future header images/GIFs go here, same linked-image pattern with main-pinned raw URLs. -->
+
 # AxiomEmbedded
 
 **Open AI-Native Engineering Platform for Embedded & Cyber-Physical Systems**
