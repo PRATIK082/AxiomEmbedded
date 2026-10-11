@@ -150,7 +150,8 @@ axiom install --client openhands  # ~/.openhands/mcp.json (always user-global)
 ```
 
 Add `--global` for user-level config, `--domains automotive,robotics` and/or
-`--groups diagnostics,safety-security` for a scoped skill copy. Full matrix: `clients/MCP_CLIENTS.md`. Lifecycle:
+`--groups diagnostics,safety-security` for a scoped skill copy. Full matrix: `clients/MCP_CLIENTS.md`.
+OpenCode install + usage + full command reference: `clients/OPENCODE.md`. Lifecycle:
 
 ```bash
 axiom update --client cursor      # refresh pack, report stale/force-refreshed files
