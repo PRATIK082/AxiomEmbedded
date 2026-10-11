@@ -64,12 +64,34 @@ def _read_yaml(path: pathlib.Path) -> dict:
 
 
 def _skill_health() -> dict:
-    registry = json.loads((ROOT / "registries" / "skills.json").read_text(encoding="utf-8"))
+    from packages.skills.engage import content_root
+
+    root = content_root()
+    if root is None:
+        return {
+            "total": 0,
+            "versions": {},
+            "latest": "unknown",
+            "stale": [],
+            "missing_manifest": [],
+            "content": "missing",
+        }
+    try:
+        registry = json.loads((root / "registries" / "skills.json").read_text(encoding="utf-8"))
+    except (OSError, ValueError):
+        return {
+            "total": 0,
+            "versions": {},
+            "latest": "unknown",
+            "stale": [],
+            "missing_manifest": [],
+            "content": "missing",
+        }
     ids = [s["id"] for s in registry.get("skills", [])]
     versions: dict[str, str] = {}
     missing_manifest: list[str] = []
     for sid in ids:
-        manifest = ROOT / "skills" / sid / "manifest.yaml"
+        manifest = root / "skills" / sid / "manifest.yaml"
         if manifest.exists():
             versions[sid] = str(_read_yaml(manifest).get("version", "unknown"))
         else:
@@ -87,15 +109,22 @@ def _skill_health() -> dict:
 
 
 def _inventory() -> dict:
+    from packages.skills.engage import content_root
+
+    root = content_root()
+    if root is None:
+        return {"schemas": 0, "profiles": 0, "workflows": 0, "agents": 0,
+                "domains": 0, "tests": 0, "content": "missing"}
+
     def count(pattern: str) -> int:
-        return len(list(ROOT.glob(pattern)))
+        return len(list(root.glob(pattern)))
 
     return {
         "schemas": count("schemas/*.schema.json"),
         "profiles": count("profiles/*.yaml"),
         "workflows": count("workflows/*.yaml"),
-        "agents": sum(1 for p in (ROOT / "agents").iterdir() if p.is_dir()),
-        "domains": sum(1 for p in (ROOT / "domains").iterdir() if p.is_dir()) if (ROOT / "domains").exists() else 0,
+        "agents": sum(1 for p in (root / "agents").iterdir() if p.is_dir()),
+        "domains": sum(1 for p in (root / "domains").iterdir() if p.is_dir()) if (root / "domains").exists() else 0,
         "tests": count("tests/test_*.py"),
     }
 
@@ -104,6 +133,15 @@ def get_status() -> dict:
     """Project health of this repository: skills, inventory, attention items."""
     skills = _skill_health()
     attention: list[dict] = []
+    if skills.get("content") == "missing":
+        attention.append(
+            {
+                "severity": "info",
+                "id": "CONTENT-MISSING",
+                "title": "No Axiom content tree (pip-installed CLI without content files)",
+                "action": "run from a source checkout or set AXIOM_CONTENT to the repo dir",
+            }
+        )
     for sid in skills["stale"]:
         attention.append(
             {

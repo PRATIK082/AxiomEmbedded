@@ -60,3 +60,16 @@ def test_mcp_engage_auto_path(tmp_path):
     res = dispatch("tools/call", {"name": "engage", "arguments": {"auto_path": path}})
     assert res["mode"] == "auto"
     assert res["detection"]["domain"] == "robotics"
+
+
+def test_degraded_without_content_tree(monkeypatch):
+    """Installed wheel (no content tree) must degrade, never traceback."""
+    import packages.skills.engage as engage_mod
+    from packages.axiom_ops import get_status
+
+    monkeypatch.setattr(engage_mod, "content_root", lambda: None)
+    sel = engage_mod.engage("automotive", "mcu")
+    assert sel["skill_count"] == 0 and "note" in sel
+    st = get_status()
+    assert st["skills"]["total"] == 0
+    assert any(a["id"] == "CONTENT-MISSING" for a in st["needs_attention"])
