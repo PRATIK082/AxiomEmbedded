@@ -268,7 +268,8 @@ def research_cmd(question: str, backend: str = "auto", max_subquestions: int = 3
     return 0 if envelope.get("status") == "ok" else 1
 
 
-def install_cmd(client: str, global_install: bool, path: str, source: str | None, home: str | None) -> int:
+def install_cmd(client: str, global_install: bool, path: str, source: str | None, home: str | None,
+                domains: list[str] | None = None) -> int:
     import pathlib as _pl
     from packages.installer import find_content_source, install_client
 
@@ -283,6 +284,7 @@ def install_cmd(client: str, global_install: bool, path: str, source: str | None
         _pl.Path(home).expanduser() if home else _pl.Path.home(),
         content,
         is_global=global_install,
+        domains=domains,
     )
     print(json.dumps({"status": "ok", **result}, indent=2))
     return 0
@@ -346,6 +348,11 @@ def skills_cmd(action: str, args: argparse.Namespace) -> int:
                           "applied": bool(getattr(args, "apply", False))},
                          indent=2))
         return 0
+    if action == "apply":
+        from scripts.skill_pipeline import run_pipeline
+        rep = run_pipeline(check=bool(getattr(args, "check", False)))
+        print(json.dumps(rep, indent=2))
+        return 0 if rep["status"] == "ok" else 1
     return 1
 
 
@@ -385,6 +392,9 @@ def main() -> int:
     ins.add_argument("--path", default=".", help="Target project dir (project scope; default: cwd)")
     ins.add_argument("--source", default=None, help="Axiom content source dir (default: auto-detect checkout)")
     ins.add_argument("--home", default=None, help="Override home dir (testing global installs)")
+    ins.add_argument("--domains", default=None,
+                     help="Comma-separated domain filter for copied skills (e.g. automotive,robotics). "
+                          "Skills with domains=[all] are always included. MCP discovery filters at runtime via engage().")
     oc = sp.add_parser("oc", help="Launch OpenCode with an Axiom-isolated config (Phase 2)")
     oc_sub = oc.add_subparsers(dest="oc_cmd", required=True)
     for verb in ("tui", "run", "research"):
@@ -405,7 +415,7 @@ def main() -> int:
     sp.add_parser("mcp", help="Serve Model Context Protocol over stdio (any MCP client)")
     sg = sp.add_parser("stage", help="Detect project lifecycle stage from evidence + profile entry")
     sg.add_argument("path", nargs="?", default="."); sg.add_argument("--profile")
-    sk = sp.add_parser("skills", help="Skill framework: list/validate/search/run/report/create")
+    sk = sp.add_parser("skills", help="Skill framework: list/validate/search/run/report/create/apply")
     sk_sub = sk.add_subparsers(dest="skills_cmd", required=True)
     sk_sub.add_parser("list", help="List catalog skills")
     sk_sub.add_parser("validate", help="Validate all skills + catalog")
@@ -423,6 +433,8 @@ def main() -> int:
     sc = sk_sub.add_parser("create", help="Scaffold a skill (dry-run unless --apply)")
     sc.add_argument("skill_id"); sc.add_argument("--title", required=True)
     sc.add_argument("--domain", default="automotive"); sc.add_argument("--apply", action="store_true")
+    sa = sk_sub.add_parser("apply", help="Run the full skill pipeline: link->enrich->index->clients->validate")
+    sa.add_argument("--check", action="store_true", help="Verify only; exit 1 if generated files are stale")
     sv = sp.add_parser("serve", help="Serve REST + A2A over HTTP (web apps, custom AI, local LLMs)"); sv.add_argument("--port", type=int, default=8765)
     args = ap.parse_args()
     if args.version: return version_cmd()
@@ -445,7 +457,8 @@ def main() -> int:
     if args.cmd == "fix": return fix_cmd(args.issue_id, args.domain, args.platform)
     if args.cmd == "feature": return feature_cmd(args.feature_id, args.domain, args.platform)
     if args.cmd == "research": return research_cmd(args.question, args.backend, args.max_subquestions, args.format, args.output, args.model)
-    if args.cmd == "install": return install_cmd(args.client, args.global_install, args.path, args.source, args.home)
+    if args.cmd == "install": return install_cmd(args.client, args.global_install, args.path, args.source, args.home,
+                                         [d.strip() for d in (args.domains or "").split(",") if d.strip()] or None)
     if args.cmd == "oc":
         return oc_cmd(args.oc_cmd, getattr(args, "prompt", None) or [], args.model, args.agent, args.dir,
                       getattr(args, "format", None), getattr(args, "title", None),

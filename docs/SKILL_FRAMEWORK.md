@@ -18,7 +18,7 @@ All content is original; no reference-repository text was used.
 - `scripts/{validate_skills,create_skill,scaffold_axiom_skills,extend_catalog,sync_skill_index}.py`.
 
 ## Commands / tools
-- CLI: `axiom skills list|validate|search|run|report|create`
+- CLI: `axiom skills list|validate|search|run|report|create|apply`
   (`run`/`create` are dry-run unless `--apply`).
 - MCP: `search_skills, validate_skill, run_skill, create_skill`
   (+ existing `list_skills`, `read_skill`).

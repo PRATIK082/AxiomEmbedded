@@ -255,6 +255,10 @@ def tool_create_skill(args: dict) -> dict:
                       f"skills/{args['skill_id']}/checklists/review.yaml"]}
 
 
+def tool_skill_pipeline(args: dict) -> dict:
+    return axiom_sdk.skill_pipeline(check=bool(args.get("check", True)))
+
+
 def tool_analyze_repository(args: dict) -> dict:
     return axiom_sdk.analyze_repository(args.get("repo_path"))
 
@@ -627,6 +631,17 @@ TOOLS: dict[str, dict] = {
             required=["trace_path"],
         ),
         "handler": tool_analyze_trace,
+    },
+    "skill_pipeline": {
+        "description": "One-command skill pipeline (link->enrich->index->clients->validate); check-only unless apply=true.",
+        "inputSchema": _schema(
+            {
+                "check": {"type": "boolean", "description": "Verify only (default true)."},
+                "apply": {"type": "boolean", "description": "Write canonical generated files (default false)."},
+            },
+        ),
+        "handler": lambda args: tool_skill_pipeline(
+            {"check": not args.get("apply", False)}),
     },
 }
 

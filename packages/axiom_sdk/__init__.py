@@ -236,6 +236,19 @@ from packages.axiom_ops import (  # noqa: E402
     plan_feature,
 )
 
+
+def skill_pipeline(check: bool = False) -> dict:
+    """Run the one-command skill pipeline (link->enrich->index->clients->validate).
+
+    check=True verifies generated files are current without writing.
+    """
+    import sys as _sys
+    for _p in (str(ROOT / "scripts"), str(ROOT)):
+        if _p not in _sys.path:
+            _sys.path.insert(0, _p)
+    from scripts.skill_pipeline import run_pipeline
+    return run_pipeline(check=check)
+
 # P1 generator wrappers (deterministic; see packages/skill_tools.py).
 from packages.skill_tools import (  # noqa: E402,E501
     analyze_repository,

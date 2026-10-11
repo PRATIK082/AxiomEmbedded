@@ -153,7 +153,8 @@ python scripts/sync_clients.py        # regenerate
 python scripts/sync_clients.py --check # CI freshness gate
 ```
 
-The repository contains shared agent instructions and integration contracts for AI clients. Root `AGENTS.md` is the portable project contract. GitHub Copilot additionally consumes `.github/copilot-instructions.md` and path-specific instruction files. OpenCode consumes `.opencode/agents/`, `.opencode/skills/`, `.opencode/commands/` (`/axiom-*`), the `axiom-policy` plugin (`.opencode/plugins/`), and the `mcp.axiom` entry in `opencode.json`. Every `axiom` command is also an MCP tool over stdio (`axiom mcp`, 33 tools, JSON schemas); `clients/mcp.json` holds a portable server entry.
+The repository contains shared agent instructions and integration contracts for AI clients. Root `AGENTS.md` is the portable project contract. GitHub Copilot additionally consumes `.github/copilot-instructions.md` and path-specific instruction files. OpenCode consumes `.opencode/agents/`, `.opencode/skills/`, `.opencode/commands/` (`/axiom-*`), the `axiom-policy` plugin (`.opencode/plugins/`), and the `mcp.axiom` entry in `opencode.json`. Every `axiom` command is also an MCP tool over stdio (`axiom mcp`, 34 tools, JSON schemas); `clients/mcp.json` holds a
+portable server entry.
 
 Live OpenCode runtime (isolated config under `~/.axiom/opencode`, never touches
 the user's own OpenCode setup; see `docs/OPENCODE_COMPAT.md` for the tested
@@ -185,7 +186,8 @@ one catalog (`skills/catalog.yaml`):
 python -m axiom_cli skills list            # list catalog skills
 python -m axiom_cli skills search "uds"    # search by query/domain/standard
 python -m axiom_cli skills run axiom-diagnostics-uds --objective "Review matrix"  # dry-run
-python scripts/validate_skills.py          # validate all skills + catalog
+python -m axiom_cli skills apply           # ONE command: link->enrich->index->clients->validate
+python -m axiom_cli install --client opencode --domains automotive  # domain-scoped install
 ```
 
 Two exemplar skills ship deep workflows with deterministic checker scripts:

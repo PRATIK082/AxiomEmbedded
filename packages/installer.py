@@ -120,8 +120,37 @@ def _generated_relpaths(source: pathlib.Path, prefix: str, kind: str) -> list[st
     return out
 
 
+def _filter_skill_relpaths(source: pathlib.Path, rels: list[str],
+                           domains: list[str] | None) -> tuple[list[str], str]:
+    """Keep only skills matching selected domains (plus domains==['all']).
+
+    Skill binding is DATA (SKILL.md frontmatter -> skill-index.json), so no
+    .py change is ever needed when skills gain or change domains: the index
+    built by `axiom skills apply` drives this filter automatically.
+    """
+    if not domains:
+        return rels, ""
+    try:
+        idx = json.loads((source / "registries" / "skill-index.json").read_text(encoding="utf-8"))
+    except (OSError, ValueError):
+        return rels, "skill index unreadable: domain filter skipped"
+    want = set(domains)
+    keep: list[str] = []
+    for rel in rels:
+        parts = pathlib.PurePosixPath(rel).parts
+        if len(parts) < 3 or parts[1] != "skills":
+            keep.append(rel)  # agents/commands/plugins: not domain-scoped
+            continue
+        entry = idx.get("skills", {}).get(parts[2], {})
+        entry_domains = set(entry.get("domains", []))
+        if "all" in entry_domains or (entry_domains & want):
+            keep.append(rel)
+    return keep, f"domain filter {sorted(want)}: {len(keep)}/{len(rels)} files"
+
+
 def install_client(client: str, dest: pathlib.Path, home: pathlib.Path,
-                   source: pathlib.Path | None, *, is_global: bool) -> dict:
+                   source: pathlib.Path | None, *, is_global: bool,
+                   domains: list[str] | None = None) -> dict:
     if client not in CLIENTS:
         raise ValueError(f"unknown client: {client} (choose from {', '.join(CLIENTS)})")
     server, server_note = mcp_command()
@@ -138,6 +167,9 @@ def install_client(client: str, dest: pathlib.Path, home: pathlib.Path,
                     + _generated_relpaths(source, ".opencode", "skills")
                     + _generated_relpaths(source, ".opencode", "commands")
                     + _generated_relpaths(source, ".opencode", "plugins"))
+            rels, note = _filter_skill_relpaths(source, rels, domains)
+            if note:
+                notes.append(note)
             w, s = _copy_generated(source, root, rels)
             written += w
             skipped += s
@@ -147,6 +179,9 @@ def install_client(client: str, dest: pathlib.Path, home: pathlib.Path,
         root = home / ".claude" if is_global else dest
         if source is not None:
             rels = _generated_relpaths(source, ".claude", "agents") + _generated_relpaths(source, ".claude", "skills")
+            rels, note = _filter_skill_relpaths(source, rels, domains)
+            if note:
+                notes.append(note)
             w, s = _copy_generated(source, root, rels)
             written += w
             skipped += s
@@ -189,6 +224,7 @@ def install_client(client: str, dest: pathlib.Path, home: pathlib.Path,
 
     return {"client": client, "scope": "global" if is_global else "project",
             "dest": str(dest if not is_global else home),
+            "domains": sorted(domains) if domains else "all",
             "written": written, "merged": merged, "skipped": skipped, "notes": notes}
 
 

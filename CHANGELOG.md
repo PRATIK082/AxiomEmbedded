@@ -31,6 +31,23 @@ Additive skill framework + 30 original `axiom-*` workflow skills:
   `output_path` writes (dry-run default); skill-id allowlist, no `..`
   escape, secret scan reports line numbers only. Tests:
   `tests/test_skill_tools.py` (19 tests).
+- One-command pipeline `scripts/skill_pipeline.py` (`axiom skills apply`,
+  SDK `skill_pipeline()`, MCP `skill_pipeline`, 33 → 34 tools): the old
+  5-script update procedure is now a single idempotent command with
+  `--check` CI gate — forgetting a step is impossible.
+  `docs/skills/MULTI_AGENT_WORKFLOW.md` defines the parallel-agent protocol
+  (one skill dir per agent, data-vs-generated ownership, merge gate).
+- Domain-scoped install: `axiom install --client <c> --domains
+  automotive,robotics` copies only matching skills (+ `domains=[all]`
+  shared skills); MCP discovery filters the same way at runtime via
+  `engage()`. No .py change needed as skills/domains grow.
+- 5 cross-domain skills (93 total): `axiom-interface-contract-design`,
+  `axiom-static-analysis-triage` (+ deterministic finding classifier),
+  `axiom-embedded-cicd`, `axiom-architecture-decision-records`,
+  `axiom-technical-debt-assessment`; catalog facet parity
+  (`scripts/enrich_catalog_facets.py`); `docs/analysis/PROMPT_SYNTHESIS.md`.
+- SDK now re-exports `get_status`/`plan_fix`/`plan_feature` (single
+  implementation behind every interface).
 
 
 ## 0.2.0 (2026-10-09)

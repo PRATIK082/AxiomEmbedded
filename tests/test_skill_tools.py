@@ -192,10 +192,11 @@ def test_trace_log_counts_only(tmp_path):
 def test_mcp_tools_registered():
     for name in ("analyze_repository", "generate_checklist",
                  "generate_test_plan", "generate_traceability_matrix",
-                 "generate_report", "review_configuration", "analyze_trace"):
+                 "generate_report", "review_configuration", "analyze_trace",
+                 "skill_pipeline"):
         assert name in TOOLS, name
         assert TOOLS[name]["inputSchema"]["type"] == "object"
-    assert len(TOOLS) == 33
+    assert len(TOOLS) == 34
 
 
 def test_mcp_dispatch_checklist():
