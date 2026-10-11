@@ -113,3 +113,65 @@ python -m axiom_cli uninstall --client opencode --path <project-dir>
 - `0` — ok (`status: ok` in JSON output).
 - `1` — failed check / validation error / unknown tool.
 - `2` — missing input file (friendly JSON, no traceback).
+
+## 9. Auto skill selection + autonomy ladder
+
+### 9.1 Does `engage` auto-analyze, or must the user set domain/platform?
+
+Three paths, most-manual first:
+
+1. **Explicit** — you set it: `engage --domain automotive --platform mcu`.
+   Deterministic filter over `registries/skill-index.json`; no guessing.
+2. **Prompt-text detection** — `run "<request>"` without `--domain` calls
+   `detect_domain()` (distinctive keywords only: `uds`, `autosar`, `asil`,
+   …; generic words like `can`/`code` deliberately excluded). Output records
+   `domain_source: explicit|detected|none` so you can audit which path fired.
+3. **Project-file detection (new)** — `engage --auto [PATH]` scans the
+   project's own files (extensions like `.dbc`/`.arxml`/`.urdf`, filenames
+   like `package.xml`, bounded keyword sniffs of `CMakeLists.txt`/`Kconfig`)
+   and returns `{domain, platform, os, confidence, signals[]}` plus the
+   engaged skill list. Same via MCP: `engage` tool with `auto_path`.
+   No network, no model, capped walk (2000 files, 4 KiB sniffs); every vote
+   is listed in `signals[]` so the guess is auditable.
+
+Recommendation: CI/scripts → path 1 (pinned, reproducible). Interactive
+agent sessions → path 3, falling back to 1 when `confidence < 0.5`.
+
+### 9.2 Linking this to opencode|claude|codex|gemini|copilot
+
+`install --client <c>` does two things per client: (a) copies the generated
+agent/skill files, (b) registers the MCP server. After that each client
+consumes skills differently:
+
+| Client | Skills arrive as | Auto behavior |
+|---|---|---|
+| opencode | `.opencode/skills/*/SKILL.md` + MCP | Auto-discovers skills; `axiom mcp` tools callable |
+| claude | `.claude/skills/*/SKILL.md` + MCP | Same file-copy model |
+| codex | `AGENTS.md` + MCP | Reads AGENTS.md automatically; skills via MCP `engage`/`run_plan` at runtime |
+| gemini | `GEMINI.md` + MCP | Instruction file + MCP tools |
+| copilot | `.github/copilot-instructions.md` + MCP | Agent Mode reads instructions; skills via MCP |
+
+So "linking" = install once per client, then every client resolves skills at
+runtime through the same MCP tools (`engage`, `route`, `run_plan`,
+`read_skill`). One source of truth, five consumers.
+
+### 9.3 Autonomy levels — what to use when
+
+- **L0 human-in-the-loop** (default): every write-capable surface is
+  dry-run-first (`skills run` without `--apply`, MCP `apply=false`).
+  The agent proposes; the human applies. Use for safety/security-relevant work.
+- **L1 human-on-the-loop**: agent runs with `--apply`, but
+  `APPROVAL_REQUIRED_FOR` (`git push`, `release`, destructive/safety/security
+  changes) still blocks without approval, and `status`/`doctor` verify after.
+  Human supervises, intervenes on flags.
+- **L2 agentic session**: `axiom oc run "<task>"` (or the client's own agent
+  with MCP enabled). Agent loops plan→implement→verify inside one session;
+  L0/L1 gates still apply per action.
+- **L3 orchestration**: split by skill directory (one agent = one
+  `skills/<id>/` area), merge only when `pytest` + `doctor` are green.
+- **L4 self-loop to done**: harness loop around axiom primitives —
+  `run` (plan) → apply → `pytest`/`doctor` → `status`, repeat until the
+  dashboard shows no NEEDS ATTENTION. Axiom provides the loop *body*
+  (deterministic checks with JSON status); the *loop itself* lives in the
+  client harness, with L1 approval gates untouched so "finish the task" can
+  never silently push, release, or bypass a safety gate.

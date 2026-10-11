@@ -27,6 +27,25 @@ def engage_skills(domain: str | None = None, platform: str | None = None) -> dic
     return engage(domain, platform)
 
 
+def detect_project(path: str = ".") -> dict:
+    """Detect a project's domain/platform/os from its own files (deterministic)."""
+    from packages.project_detect import detect_project as _detect
+
+    return _detect(path)
+
+
+def engage_auto(path: str = ".") -> dict:
+    """Detect the project, then engage the matching skills/profiles.
+
+    Fully automatic skill selection: no domain/platform arguments needed.
+    """
+    det = detect_project(path)
+    if det.get("status") != "ok":
+        return det
+    sel = engage(det.get("domain"), det.get("platform"))
+    return {"detection": det, **sel, "mode": "auto"}
+
+
 def get_status() -> dict:
     """Project health snapshot (re-exported so SDK/CLI/MCP/REST agree)."""
     from packages.axiom_ops import get_status as _get_status

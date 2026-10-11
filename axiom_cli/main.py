@@ -166,7 +166,12 @@ def workflow_plan(profile: str, entry: str | None) -> int:
     print(json.dumps({"profile": data.get("id"), "entry": mode, "start_phase": starting_phase(mode), "lifecycle": data.get("lifecycle", "v-model")}, indent=2))
     return 0
 
-def engage_cmd(domain: str | None, platform: str | None) -> int:
+def engage_cmd(domain: str | None, platform: str | None, auto: str | None = None) -> int:
+    from packages import axiom_sdk as _sdk
+
+    if auto is not None:
+        print(json.dumps(_sdk.engage_auto(auto), indent=2))
+        return 0
     print(json.dumps(engage(domain, platform), indent=2))
     return 0
 
@@ -315,6 +320,8 @@ def main() -> int:
     wf = sp.add_parser("workflow"); ws = wf.add_subparsers(dest="workflow_cmd"); wp = ws.add_parser("plan"); wp.add_argument("--profile", required=True); wp.add_argument("--entry")
     rt = sp.add_parser("route"); rt.add_argument("request")
     en = sp.add_parser("engage"); en.add_argument("--domain"); en.add_argument("--platform")
+    en.add_argument("--auto", nargs="?", const=".", default=None,
+                    help="Detect domain/platform from the project at PATH (default: cwd), then engage")
     rn = sp.add_parser("run"); rn.add_argument("request"); rn.add_argument("--domain"); rn.add_argument("--platform")
     st = sp.add_parser("status", help="Terminal dashboard: project health + next action"); st.add_argument("--format", choices=["text", "json"], default="text")
     fx = sp.add_parser("fix", help="Emit the 10-step fix-defect plan for an issue id"); fx.add_argument("issue_id"); fx.add_argument("--domain"); fx.add_argument("--platform")
@@ -367,7 +374,7 @@ def main() -> int:
     if args.cmd == "impact": return impact(args.path)
     if args.cmd == "workflow" and args.workflow_cmd == "plan": return workflow_plan(args.profile, args.entry)
     if args.cmd == "route": print(route(args.request)); return 0
-    if args.cmd == "engage": return engage_cmd(args.domain, args.platform)
+    if args.cmd == "engage": return engage_cmd(args.domain, args.platform, getattr(args, "auto", None))
     if args.cmd == "run": return run_cmd(args.request, args.domain, args.platform)
     if args.cmd == "status": return status_cmd(args.format)
     if args.cmd == "fix": return fix_cmd(args.issue_id, args.domain, args.platform)

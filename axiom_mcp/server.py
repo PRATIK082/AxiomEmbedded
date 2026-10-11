@@ -145,6 +145,8 @@ def tool_route(args: dict) -> dict:
 
 
 def tool_engage(args: dict) -> dict:
+    if args.get("auto_path") is not None:
+        return axiom_sdk.engage_auto(args.get("auto_path") or ".")
     return axiom_sdk.engage_skills(args.get("domain"), args.get("platform"))
 
 
@@ -278,6 +280,7 @@ TOOLS: dict[str, dict] = {
             {
                 "domain": _opt_str_prop("Engineering domain (e.g. automotive)."),
                 "platform": _opt_str_prop("Compute platform (e.g. mcu)."),
+                "auto_path": _opt_str_prop("Detect from project files at PATH instead of explicit domain/platform."),
             }
         ),
         "handler": tool_engage,
