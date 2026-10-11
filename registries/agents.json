@@ -96,6 +96,10 @@
     {
       "id": "dependency-analysis",
       "manifest": "agents/dependency-analysis/manifest.json"
+    },
+    {
+      "id": "diag-auto-review",
+      "manifest": "agents/diag-auto-review/manifest.json"
     }
   ]
 }

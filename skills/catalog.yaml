@@ -1,0 +1,2912 @@
+schema_version: '1.0'
+skills:
+- id: adas
+  name: axiom.legacy.adas
+  title: adas
+  version: 1.2.0
+  domain: automotive
+  subdomain: legacy
+  category: legacy
+  maturity: production
+  owner: axiom-embedded
+  tags:
+  - legacy
+  inputs:
+  - repository path
+  - objective
+  outputs:
+  - report
+  dependencies: []
+  related_skills:
+  - axiom-adas-perception-pipeline
+  - axiom-adas-validation
+  path: skills/adas
+  enabled: true
+  sub_skills:
+  - axiom-adas-perception-pipeline
+  - axiom-adas-validation
+- id: ai-validation
+  name: axiom.legacy.ai-validation
+  title: ai-validation
+  version: 1.2.0
+  domain: generic-embedded
+  subdomain: legacy
+  category: legacy
+  maturity: production
+  owner: axiom-embedded
+  tags:
+  - legacy
+  inputs:
+  - repository path
+  - objective
+  outputs:
+  - report
+  dependencies: []
+  related_skills: []
+  path: skills/ai-validation
+  enabled: true
+- id: architecture
+  name: axiom.legacy.architecture
+  title: architecture
+  version: 1.2.0
+  domain: all
+  subdomain: legacy
+  category: legacy
+  maturity: production
+  owner: axiom-embedded
+  tags:
+  - legacy
+  inputs:
+  - repository path
+  - objective
+  outputs:
+  - report
+  dependencies: []
+  related_skills:
+  - axiom-architecture-decision-records
+  - axiom-interface-contract-design
+  - axiom-platform-architecture-review
+  path: skills/architecture
+  enabled: true
+  sub_skills:
+  - axiom-architecture-decision-records
+  - axiom-interface-contract-design
+  - axiom-platform-architecture-review
+- id: automotive-body
+  name: axiom.legacy.automotive-body
+  title: automotive-body
+  version: 1.2.0
+  domain: automotive
+  subdomain: legacy
+  category: legacy
+  maturity: production
+  owner: axiom-embedded
+  tags:
+  - legacy
+  inputs:
+  - repository path
+  - objective
+  outputs:
+  - report
+  dependencies: []
+  related_skills:
+  - axiom-can-network-design
+  path: skills/automotive-body
+  enabled: true
+  sub_skills:
+  - axiom-can-network-design
+- id: automotive-cockpit
+  name: axiom.legacy.automotive-cockpit
+  title: automotive-cockpit
+  version: 1.2.0
+  domain: automotive
+  subdomain: legacy
+  category: legacy
+  maturity: production
+  owner: axiom-embedded
+  tags:
+  - legacy
+  inputs:
+  - repository path
+  - objective
+  outputs:
+  - report
+  dependencies: []
+  related_skills: []
+  path: skills/automotive-cockpit
+  enabled: true
+- id: automotive-coding
+  name: axiom.legacy.automotive-coding
+  title: automotive-coding
+  version: 1.2.0
+  domain: automotive
+  subdomain: legacy
+  category: legacy
+  maturity: production
+  owner: axiom-embedded
+  tags:
+  - legacy
+  inputs:
+  - repository path
+  - objective
+  outputs:
+  - report
+  dependencies: []
+  related_skills: []
+  path: skills/automotive-coding
+  enabled: true
+- id: automotive-cybersecurity
+  name: axiom.legacy.automotive-cybersecurity
+  title: automotive-cybersecurity
+  version: 1.2.0
+  domain: automotive
+  subdomain: legacy
+  category: legacy
+  maturity: production
+  owner: axiom-embedded
+  tags:
+  - legacy
+  inputs:
+  - repository path
+  - objective
+  outputs:
+  - report
+  dependencies: []
+  related_skills:
+  - axiom-vehicle-cybersecurity
+  path: skills/automotive-cybersecurity
+  enabled: true
+  sub_skills:
+  - axiom-vehicle-cybersecurity
+- id: automotive-diagnostics
+  name: axiom.legacy.automotive-diagnostics
+  title: automotive-diagnostics
+  version: 1.3.0
+  domain: automotive
+  subdomain: legacy
+  category: legacy
+  maturity: production
+  owner: axiom-embedded
+  tags:
+  - legacy
+  inputs:
+  - repository path
+  - objective
+  outputs:
+  - report
+  dependencies: []
+  related_skills:
+  - axiom-diagnostics-doip
+  - axiom-diagnostics-uds
+  path: skills/automotive-diagnostics
+  enabled: true
+  sub_skills:
+  - axiom-diagnostics-doip
+  - axiom-diagnostics-uds
+- id: automotive-middleware
+  name: axiom.legacy.automotive-middleware
+  title: automotive-middleware
+  version: 1.2.0
+  domain: automotive
+  subdomain: legacy
+  category: legacy
+  maturity: production
+  owner: axiom-embedded
+  tags:
+  - legacy
+  inputs:
+  - repository path
+  - objective
+  outputs:
+  - report
+  dependencies: []
+  related_skills:
+  - axiom-autosar-adaptive-deployment
+  - axiom-zonal-architecture
+  path: skills/automotive-middleware
+  enabled: true
+  sub_skills:
+  - axiom-autosar-adaptive-deployment
+  - axiom-zonal-architecture
+- id: automotive-networks
+  name: axiom.legacy.automotive-networks
+  title: automotive-networks
+  version: 1.2.0
+  domain: automotive
+  subdomain: legacy
+  category: legacy
+  maturity: production
+  owner: axiom-embedded
+  tags:
+  - legacy
+  inputs:
+  - repository path
+  - objective
+  outputs:
+  - report
+  dependencies: []
+  related_skills:
+  - axiom-automotive-ethernet-someip
+  - axiom-can-network-design
+  - axiom-can-stack-integration
+  path: skills/automotive-networks
+  enabled: true
+  sub_skills:
+  - axiom-automotive-ethernet-someip
+  - axiom-can-network-design
+  - axiom-can-stack-integration
+- id: automotive-ota
+  name: axiom.legacy.automotive-ota
+  title: automotive-ota
+  version: 1.2.0
+  domain: automotive
+  subdomain: legacy
+  category: legacy
+  maturity: production
+  owner: axiom-embedded
+  tags:
+  - legacy
+  inputs:
+  - repository path
+  - objective
+  outputs:
+  - report
+  dependencies: []
+  related_skills:
+  - axiom-automotive-release-readiness
+  - axiom-zonal-architecture
+  path: skills/automotive-ota
+  enabled: true
+  sub_skills:
+  - axiom-automotive-release-readiness
+  - axiom-zonal-architecture
+- id: automotive-spice
+  name: axiom.legacy.automotive-spice
+  title: automotive-spice
+  version: 1.2.0
+  domain: automotive
+  subdomain: legacy
+  category: legacy
+  maturity: production
+  owner: axiom-embedded
+  tags:
+  - legacy
+  inputs:
+  - repository path
+  - objective
+  outputs:
+  - report
+  dependencies: []
+  related_skills:
+  - axiom-automotive-release-readiness
+  - axiom-test-automation
+  path: skills/automotive-spice
+  enabled: true
+  sub_skills:
+  - axiom-automotive-release-readiness
+  - axiom-test-automation
+- id: automotive-vcycle
+  name: axiom.legacy.automotive-vcycle
+  title: automotive-vcycle
+  version: 1.2.0
+  domain: automotive
+  subdomain: legacy
+  category: legacy
+  maturity: production
+  owner: axiom-embedded
+  tags:
+  - legacy
+  inputs:
+  - repository path
+  - objective
+  outputs:
+  - report
+  dependencies: []
+  related_skills:
+  - axiom-hil-test-planning
+  - axiom-test-automation
+  path: skills/automotive-vcycle
+  enabled: true
+  sub_skills:
+  - axiom-hil-test-planning
+  - axiom-test-automation
+- id: autosar
+  name: axiom.legacy.autosar
+  title: autosar
+  version: 1.2.0
+  domain: automotive
+  subdomain: legacy
+  category: legacy
+  maturity: production
+  owner: axiom-embedded
+  tags:
+  - legacy
+  inputs:
+  - repository path
+  - objective
+  outputs:
+  - report
+  dependencies: []
+  related_skills:
+  - axiom-autosar-adaptive-deployment
+  - axiom-autosar-classic-architecture
+  - axiom-autosar-classic-bsw-integration
+  - axiom-autosar-com-stack
+  - axiom-autosar-os-config
+  - axiom-autosar-rte-design
+  path: skills/autosar
+  enabled: true
+  sub_skills:
+  - axiom-autosar-adaptive-deployment
+  - axiom-autosar-classic-architecture
+  - axiom-autosar-classic-bsw-integration
+  - axiom-autosar-com-stack
+  - axiom-autosar-os-config
+  - axiom-autosar-rte-design
+- id: axiom-adas-perception-pipeline
+  name: axiom.automotive.adas.perception.pipeline
+  title: ADAS Perception Pipeline Design
+  version: 0.1.0
+  domain: automotive
+  subdomain: adas
+  category: design
+  maturity: experimental
+  owner: axiom-embedded
+  tags:
+  - adas
+  inputs:
+  - repository path
+  - target files
+  - objective
+  - constraints
+  outputs:
+  - run report
+  - run manifest
+  dependencies: []
+  related_skills:
+  - adas
+  - axiom-adas-validation
+  path: skills/axiom-adas-perception-pipeline
+  enabled: true
+  extends: adas
+  lifecycle:
+  - requirements
+  - architecture
+  - design
+  - implementation
+  - integration
+  - verification
+  - validation
+  - release
+  standards:
+  - ISO 26262:2018
+  artifact_types:
+  - perception interface contract
+  mcp_tools:
+  - run_skill
+  - validate_skill
+  risk_level: high
+  review_required: true
+- id: axiom-adas-validation
+  name: axiom.automotive.adas.validation
+  title: ADAS Validation Planning
+  version: 0.1.0
+  domain: automotive
+  subdomain: adas
+  category: verification
+  maturity: experimental
+  owner: axiom-embedded
+  tags:
+  - adas
+  inputs:
+  - repository path
+  - target files
+  - objective
+  - constraints
+  outputs:
+  - run report
+  - run manifest
+  dependencies: []
+  related_skills:
+  - adas
+  - axiom-adas-perception-pipeline
+  path: skills/axiom-adas-validation
+  enabled: true
+  extends: adas
+  lifecycle:
+  - requirements
+  - architecture
+  - design
+  - implementation
+  - integration
+  - verification
+  - validation
+  - release
+  standards:
+  - ISO 26262:2018
+  artifact_types:
+  - validation plan
+  - KPI set
+  mcp_tools:
+  - run_skill
+  - validate_skill
+  risk_level: high
+  review_required: true
+- id: axiom-aerospace-defense-safety-review
+  name: axiom.aerospace.aerospace.defense.safety.review
+  title: Aerospace and Defense Safety Review
+  version: 0.1.0
+  domain: aerospace
+  subdomain: safety
+  category: review
+  maturity: experimental
+  owner: axiom-embedded
+  tags:
+  - safety
+  inputs:
+  - repository path
+  - target files
+  - objective
+  - constraints
+  outputs:
+  - run report
+  - run manifest
+  dependencies: []
+  related_skills: []
+  path: skills/axiom-aerospace-defense-safety-review
+  enabled: true
+  domain_overlays:
+  - aerospace
+  - defense
+  lifecycle:
+  - requirements
+  - architecture
+  - design
+  - implementation
+  - integration
+  - verification
+  - validation
+  - release
+  standards:
+  - DO-178C
+  - DO-254
+  artifact_types:
+  - safety review
+  mcp_tools:
+  - run_skill
+  - validate_skill
+  risk_level: safety-critical
+  review_required: true
+- id: axiom-architecture-decision-records
+  name: axiom.legacy.axiom-architecture-decision-records
+  title: Architecture Decision Records
+  version: 0.1.0
+  domain: all
+  subdomain: legacy
+  category: legacy
+  maturity: production
+  owner: axiom-embedded
+  tags:
+  - legacy
+  inputs:
+  - repository path
+  - objective
+  outputs:
+  - report
+  dependencies: []
+  related_skills:
+  - architecture
+  - axiom-interface-contract-design
+  - axiom-platform-architecture-review
+  - documentation
+  path: skills/axiom-architecture-decision-records
+  enabled: true
+  lifecycle:
+  - requirements
+  - architecture
+  - design
+  - implementation
+  - release
+  - operations
+  standards: []
+  artifact_types:
+  - ADR
+  - ADR index
+  mcp_tools:
+  - run_skill
+  - validate_skill
+  - generate_checklist
+  - generate_report
+  risk_level: low
+  review_required: true
+  extends: architecture
+- id: axiom-automotive-ethernet-someip
+  name: axiom.automotive.automotive.ethernet.someip
+  title: Automotive Ethernet and SOME/IP Design
+  version: 0.1.0
+  domain: automotive
+  subdomain: networks
+  category: design
+  maturity: experimental
+  owner: axiom-embedded
+  tags:
+  - networks
+  inputs:
+  - repository path
+  - target files
+  - objective
+  - constraints
+  outputs:
+  - run report
+  - run manifest
+  dependencies: []
+  related_skills:
+  - automotive-networks
+  - axiom-can-network-design
+  - axiom-can-stack-integration
+  path: skills/axiom-automotive-ethernet-someip
+  enabled: true
+  extends: automotive-networks
+  lifecycle:
+  - requirements
+  - architecture
+  - design
+  - implementation
+  - integration
+  - verification
+  - validation
+  - release
+  standards:
+  - AUTOSAR SOME/IP
+  - IEEE 802.1 TSN
+  artifact_types:
+  - Ethernet design
+  - service model
+  mcp_tools:
+  - run_skill
+  - validate_skill
+  risk_level: medium
+  review_required: true
+- id: axiom-automotive-release-readiness
+  name: axiom.automotive.automotive.release.readiness
+  title: Automotive Release Readiness
+  version: 0.1.0
+  domain: automotive
+  subdomain: release
+  category: release
+  maturity: experimental
+  owner: axiom-embedded
+  tags:
+  - release
+  inputs:
+  - repository path
+  - target files
+  - objective
+  - constraints
+  outputs:
+  - run report
+  - run manifest
+  dependencies: []
+  related_skills:
+  - automotive-ota
+  - automotive-spice
+  - axiom-test-automation
+  - axiom-zonal-architecture
+  - evidence
+  - release
+  path: skills/axiom-automotive-release-readiness
+  enabled: true
+  extends: release
+  lifecycle:
+  - requirements
+  - architecture
+  - design
+  - implementation
+  - integration
+  - verification
+  - validation
+  - release
+  standards:
+  - Automotive SPICE
+  artifact_types:
+  - release gate report
+  - evidence package
+  mcp_tools:
+  - run_skill
+  - validate_skill
+  risk_level: high
+  review_required: true
+- id: axiom-autosar-adaptive-deployment
+  name: axiom.automotive.autosar.adaptive.deployment
+  title: AUTOSAR Adaptive Deployment
+  version: 0.1.0
+  domain: automotive
+  subdomain: autosar-adaptive
+  category: deployment
+  maturity: experimental
+  owner: axiom-embedded
+  tags:
+  - autosar-adaptive
+  inputs:
+  - repository path
+  - target files
+  - objective
+  - constraints
+  outputs:
+  - run report
+  - run manifest
+  dependencies: []
+  related_skills:
+  - automotive-middleware
+  - autosar
+  - axiom-autosar-classic-architecture
+  - axiom-autosar-classic-bsw-integration
+  - axiom-autosar-com-stack
+  - axiom-autosar-os-config
+  - axiom-autosar-rte-design
+  - axiom-zonal-architecture
+  path: skills/axiom-autosar-adaptive-deployment
+  enabled: true
+  extends: autosar
+  lifecycle:
+  - requirements
+  - architecture
+  - design
+  - implementation
+  - integration
+  - verification
+  - validation
+  - release
+  standards:
+  - AUTOSAR Adaptive R24-11
+  artifact_types:
+  - deployment manifest review
+  - deployment checklist
+  mcp_tools:
+  - run_skill
+  - validate_skill
+  risk_level: high
+  review_required: true
+- id: axiom-autosar-classic-architecture
+  name: axiom.automotive.autosar.classic.architecture
+  title: AUTOSAR Classic Architecture Review
+  version: 0.1.0
+  domain: automotive
+  subdomain: autosar-classic
+  category: architecture
+  maturity: beta
+  owner: axiom-embedded
+  tags:
+  - autosar-classic
+  inputs:
+  - repository path
+  - target files
+  - objective
+  - constraints
+  outputs:
+  - run report
+  - run manifest
+  dependencies: []
+  related_skills:
+  - autosar
+  - axiom-autosar-adaptive-deployment
+  - axiom-autosar-classic-bsw-integration
+  - axiom-autosar-com-stack
+  - axiom-autosar-os-config
+  - axiom-autosar-rte-design
+  path: skills/axiom-autosar-classic-architecture
+  enabled: true
+  extends: autosar
+  lifecycle:
+  - requirements
+  - architecture
+  - design
+  - implementation
+  - integration
+  - verification
+  - validation
+  - release
+  standards:
+  - AUTOSAR Classic R24-11
+  - ISO 26262:2018
+  artifact_types:
+  - architecture decision record
+  - layering review
+  mcp_tools:
+  - run_skill
+  - validate_skill
+  risk_level: high
+  review_required: true
+- id: axiom-autosar-classic-bsw-integration
+  name: axiom.automotive.autosar.classic.bsw.integration
+  title: AUTOSAR Classic BSW Integration
+  version: 0.1.0
+  domain: automotive
+  subdomain: autosar-classic
+  category: integration
+  maturity: beta
+  owner: axiom-embedded
+  tags:
+  - autosar-classic
+  inputs:
+  - repository path
+  - target files
+  - objective
+  - constraints
+  outputs:
+  - run report
+  - run manifest
+  dependencies: []
+  related_skills:
+  - autosar
+  - axiom-autosar-adaptive-deployment
+  - axiom-autosar-classic-architecture
+  - axiom-autosar-com-stack
+  - axiom-autosar-os-config
+  - axiom-autosar-rte-design
+  path: skills/axiom-autosar-classic-bsw-integration
+  enabled: true
+  extends: autosar
+  lifecycle:
+  - requirements
+  - architecture
+  - design
+  - implementation
+  - integration
+  - verification
+  - validation
+  - release
+  standards:
+  - AUTOSAR Classic R24-11
+  - ISO 26262:2018
+  artifact_types:
+  - integration report
+  - validation matrix
+  - configuration-change plan
+  mcp_tools:
+  - run_skill
+  - validate_skill
+  risk_level: high
+  review_required: true
+- id: axiom-autosar-com-stack
+  name: axiom.automotive.autosar.com.stack
+  title: AUTOSAR COM Stack Review
+  version: 0.1.0
+  domain: automotive
+  subdomain: autosar-classic
+  category: configuration
+  maturity: experimental
+  owner: axiom-embedded
+  tags:
+  - autosar-classic
+  inputs:
+  - repository path
+  - target files
+  - objective
+  - constraints
+  outputs:
+  - run report
+  - run manifest
+  dependencies: []
+  related_skills:
+  - autosar
+  - axiom-autosar-adaptive-deployment
+  - axiom-autosar-classic-architecture
+  - axiom-autosar-classic-bsw-integration
+  - axiom-autosar-os-config
+  - axiom-autosar-rte-design
+  path: skills/axiom-autosar-com-stack
+  enabled: true
+  extends: autosar
+  lifecycle:
+  - requirements
+  - architecture
+  - design
+  - implementation
+  - integration
+  - verification
+  - validation
+  - release
+  standards:
+  - AUTOSAR Classic R24-11
+  artifact_types:
+  - COM review
+  - signal-routing table
+  mcp_tools:
+  - run_skill
+  - validate_skill
+  risk_level: medium
+  review_required: true
+- id: axiom-autosar-os-config
+  name: axiom.automotive.autosar.os.config
+  title: AUTOSAR OS Configuration Review
+  version: 0.1.0
+  domain: automotive
+  subdomain: autosar-classic
+  category: configuration
+  maturity: experimental
+  owner: axiom-embedded
+  tags:
+  - autosar-classic
+  inputs:
+  - repository path
+  - target files
+  - objective
+  - constraints
+  outputs:
+  - run report
+  - run manifest
+  dependencies: []
+  related_skills:
+  - autosar
+  - axiom-autosar-adaptive-deployment
+  - axiom-autosar-classic-architecture
+  - axiom-autosar-classic-bsw-integration
+  - axiom-autosar-com-stack
+  - axiom-autosar-rte-design
+  path: skills/axiom-autosar-os-config
+  enabled: true
+  extends: autosar
+  lifecycle:
+  - requirements
+  - architecture
+  - design
+  - implementation
+  - integration
+  - verification
+  - validation
+  - release
+  standards:
+  - AUTOSAR Classic R24-11
+  artifact_types:
+  - OS config review
+  - scheduling analysis
+  mcp_tools:
+  - run_skill
+  - validate_skill
+  risk_level: high
+  review_required: true
+- id: axiom-autosar-rte-design
+  name: axiom.automotive.autosar.rte.design
+  title: AUTOSAR RTE Design
+  version: 0.1.0
+  domain: automotive
+  subdomain: autosar-classic
+  category: design
+  maturity: experimental
+  owner: axiom-embedded
+  tags:
+  - autosar-classic
+  inputs:
+  - repository path
+  - target files
+  - objective
+  - constraints
+  outputs:
+  - run report
+  - run manifest
+  dependencies: []
+  related_skills:
+  - autosar
+  - axiom-autosar-adaptive-deployment
+  - axiom-autosar-classic-architecture
+  - axiom-autosar-classic-bsw-integration
+  - axiom-autosar-com-stack
+  - axiom-autosar-os-config
+  path: skills/axiom-autosar-rte-design
+  enabled: true
+  extends: autosar
+  lifecycle:
+  - requirements
+  - architecture
+  - design
+  - implementation
+  - integration
+  - verification
+  - validation
+  - release
+  standards:
+  - AUTOSAR Classic R24-11
+  artifact_types:
+  - RTE mapping table
+  - interface contract
+  mcp_tools:
+  - run_skill
+  - validate_skill
+  risk_level: medium
+  review_required: true
+- id: axiom-bms-design
+  name: axiom.automotive.bms.design
+  title: BMS Control Design
+  version: 0.1.0
+  domain: automotive
+  subdomain: bms
+  category: design
+  maturity: experimental
+  owner: axiom-embedded
+  tags:
+  - bms
+  inputs:
+  - repository path
+  - target files
+  - objective
+  - constraints
+  outputs:
+  - run report
+  - run manifest
+  dependencies: []
+  related_skills: []
+  path: skills/axiom-bms-design
+  enabled: true
+  lifecycle:
+  - requirements
+  - architecture
+  - design
+  - implementation
+  - integration
+  - verification
+  - validation
+  - release
+  standards:
+  - ISO 26262:2018
+  artifact_types:
+  - BMS design review
+  - fault-handling table
+  mcp_tools:
+  - run_skill
+  - validate_skill
+  risk_level: high
+  review_required: true
+- id: axiom-bms-diagnostics
+  name: axiom.automotive.bms.diagnostics
+  title: BMS Diagnostics and HIL Test Design
+  version: 0.1.0
+  domain: automotive
+  subdomain: bms
+  category: verification
+  maturity: experimental
+  owner: axiom-embedded
+  tags:
+  - bms
+  inputs:
+  - repository path
+  - target files
+  - objective
+  - constraints
+  outputs:
+  - run report
+  - run manifest
+  dependencies: []
+  related_skills: []
+  path: skills/axiom-bms-diagnostics
+  enabled: true
+  lifecycle:
+  - requirements
+  - architecture
+  - design
+  - implementation
+  - integration
+  - verification
+  - validation
+  - release
+  standards:
+  - ISO 26262:2018
+  artifact_types:
+  - HIL test plan
+  mcp_tools:
+  - run_skill
+  - validate_skill
+  risk_level: high
+  review_required: true
+- id: axiom-can-network-design
+  name: axiom.automotive.can.network.design
+  title: CAN Network Design
+  version: 0.1.0
+  domain: automotive
+  subdomain: networks
+  category: design
+  maturity: beta
+  owner: axiom-embedded
+  tags:
+  - networks
+  inputs:
+  - repository path
+  - target files
+  - objective
+  - constraints
+  outputs:
+  - run report
+  - run manifest
+  dependencies: []
+  related_skills:
+  - automotive-body
+  - automotive-networks
+  - axiom-automotive-ethernet-someip
+  - axiom-can-stack-integration
+  path: skills/axiom-can-network-design
+  enabled: true
+  extends: automotive-networks
+  lifecycle:
+  - requirements
+  - architecture
+  - design
+  - implementation
+  - integration
+  - verification
+  - validation
+  - release
+  standards:
+  - ISO 11898
+  artifact_types:
+  - network design
+  - bus-load budget
+  mcp_tools:
+  - run_skill
+  - validate_skill
+  risk_level: medium
+  review_required: true
+- id: axiom-can-stack-integration
+  name: axiom.automotive.can.stack.integration
+  title: CAN Stack Integration
+  version: 0.1.0
+  domain: automotive
+  subdomain: networks
+  category: integration
+  maturity: experimental
+  owner: axiom-embedded
+  tags:
+  - networks
+  inputs:
+  - repository path
+  - target files
+  - objective
+  - constraints
+  outputs:
+  - run report
+  - run manifest
+  dependencies: []
+  related_skills:
+  - automotive-networks
+  - axiom-automotive-ethernet-someip
+  - axiom-can-network-design
+  path: skills/axiom-can-stack-integration
+  enabled: true
+  extends: automotive-networks
+  lifecycle:
+  - requirements
+  - architecture
+  - design
+  - implementation
+  - integration
+  - verification
+  - validation
+  - release
+  standards:
+  - ISO 11898
+  artifact_types:
+  - stack integration report
+  mcp_tools:
+  - run_skill
+  - validate_skill
+  risk_level: medium
+  review_required: true
+- id: axiom-diagnostics-doip
+  name: axiom.automotive.diagnostics.doip
+  title: DoIP Diagnostics Integration
+  version: 0.1.0
+  domain: automotive
+  subdomain: diagnostics
+  category: integration
+  maturity: experimental
+  owner: axiom-embedded
+  tags:
+  - diagnostics
+  inputs:
+  - repository path
+  - target files
+  - objective
+  - constraints
+  outputs:
+  - run report
+  - run manifest
+  dependencies: []
+  related_skills:
+  - automotive-diagnostics
+  - axiom-diagnostics-uds
+  path: skills/axiom-diagnostics-doip
+  enabled: true
+  extends: automotive-diagnostics
+  lifecycle:
+  - requirements
+  - architecture
+  - design
+  - implementation
+  - integration
+  - verification
+  - validation
+  - release
+  standards:
+  - ISO 13400-2
+  artifact_types:
+  - DoIP integration review
+  mcp_tools:
+  - run_skill
+  - validate_skill
+  risk_level: medium
+  review_required: true
+- id: axiom-diagnostics-uds
+  name: axiom.automotive.diagnostics.uds
+  title: UDS Diagnostics Design and Validation
+  version: 0.1.0
+  domain: automotive
+  subdomain: diagnostics
+  category: verification
+  maturity: beta
+  owner: axiom-embedded
+  tags:
+  - diagnostics
+  inputs:
+  - repository path
+  - target files
+  - objective
+  - constraints
+  outputs:
+  - run report
+  - run manifest
+  dependencies: []
+  related_skills:
+  - automotive-diagnostics
+  - axiom-diagnostics-doip
+  path: skills/axiom-diagnostics-uds
+  enabled: true
+  extends: automotive-diagnostics
+  lifecycle:
+  - requirements
+  - architecture
+  - design
+  - implementation
+  - integration
+  - verification
+  - validation
+  - release
+  standards:
+  - ISO 14229-1
+  - ISO 26262:2018
+  artifact_types:
+  - diagnostic requirements
+  - service matrix
+  - validation report
+  mcp_tools:
+  - run_skill
+  - validate_skill
+  risk_level: high
+  review_required: true
+- id: axiom-embedded-cicd
+  name: axiom.legacy.axiom-embedded-cicd
+  title: Embedded CI-CD Pipeline Design
+  version: 0.1.0
+  domain: all
+  subdomain: legacy
+  category: legacy
+  maturity: production
+  owner: axiom-embedded
+  tags:
+  - legacy
+  inputs:
+  - repository path
+  - objective
+  outputs:
+  - report
+  dependencies: []
+  related_skills:
+  - axiom-test-automation
+  - build-system
+  - test-automation
+  path: skills/axiom-embedded-cicd
+  enabled: true
+  lifecycle:
+  - implementation
+  - integration
+  - verification
+  - validation
+  - release
+  standards: []
+  artifact_types:
+  - pipeline definition
+  - gate checklist
+  - evidence package
+  mcp_tools:
+  - run_skill
+  - validate_skill
+  - generate_checklist
+  - generate_report
+  - review_configuration
+  risk_level: medium
+  review_required: true
+  extends: build-system
+- id: axiom-embedded-firmware-bringup
+  name: axiom.platform.embedded.firmware.bringup
+  title: Embedded Firmware Bring-up
+  version: 0.1.0
+  domain: platform
+  subdomain: bringup
+  category: implementation
+  maturity: experimental
+  owner: axiom-embedded
+  tags:
+  - bringup
+  inputs:
+  - repository path
+  - target files
+  - objective
+  - constraints
+  outputs:
+  - run report
+  - run manifest
+  dependencies: []
+  related_skills:
+  - bootloader
+  - drivers
+  - hardware-bringup
+  - mcu
+  path: skills/axiom-embedded-firmware-bringup
+  enabled: true
+  extends: hardware-bringup
+  lifecycle:
+  - requirements
+  - architecture
+  - design
+  - implementation
+  - integration
+  - verification
+  - validation
+  - release
+  standards: []
+  artifact_types:
+  - bring-up checklist
+  - bring-up report
+  mcp_tools:
+  - run_skill
+  - validate_skill
+  risk_level: medium
+  review_required: true
+- id: axiom-functional-safety
+  name: axiom.automotive.functional.safety
+  title: Functional Safety Workflow
+  version: 0.1.0
+  domain: automotive
+  subdomain: safety
+  category: safety
+  maturity: experimental
+  owner: axiom-embedded
+  tags:
+  - safety
+  inputs:
+  - repository path
+  - target files
+  - objective
+  - constraints
+  outputs:
+  - run report
+  - run manifest
+  dependencies: []
+  related_skills:
+  - safety
+  path: skills/axiom-functional-safety
+  enabled: true
+  extends: safety
+  lifecycle:
+  - requirements
+  - architecture
+  - design
+  - implementation
+  - integration
+  - verification
+  - validation
+  - release
+  standards:
+  - ISO 26262:2018
+  artifact_types:
+  - safety plan
+  - FMEA/FTA templates
+  - evidence structure
+  mcp_tools:
+  - run_skill
+  - validate_skill
+  risk_level: safety-critical
+  review_required: true
+- id: axiom-hil-test-planning
+  name: axiom.platform.hil.test.planning
+  title: HIL Test Planning
+  version: 0.1.0
+  domain: platform
+  subdomain: testing
+  category: verification
+  maturity: experimental
+  owner: axiom-embedded
+  tags:
+  - testing
+  inputs:
+  - repository path
+  - target files
+  - objective
+  - constraints
+  outputs:
+  - run report
+  - run manifest
+  dependencies: []
+  related_skills:
+  - automotive-vcycle
+  - axiom-test-automation
+  - integration-test
+  - simulation
+  - system-test
+  path: skills/axiom-hil-test-planning
+  enabled: true
+  extends: integration-test
+  lifecycle:
+  - requirements
+  - architecture
+  - design
+  - implementation
+  - integration
+  - verification
+  - validation
+  - release
+  standards: []
+  artifact_types:
+  - HIL test plan
+  mcp_tools:
+  - run_skill
+  - validate_skill
+  risk_level: medium
+  review_required: true
+- id: axiom-industrial-control-review
+  name: axiom.industrial.industrial.control.review
+  title: Industrial Control Review
+  version: 0.1.0
+  domain: industrial
+  subdomain: control
+  category: review
+  maturity: experimental
+  owner: axiom-embedded
+  tags:
+  - control
+  inputs:
+  - repository path
+  - target files
+  - objective
+  - constraints
+  outputs:
+  - run report
+  - run manifest
+  dependencies: []
+  related_skills: []
+  path: skills/axiom-industrial-control-review
+  enabled: true
+  domain_overlays:
+  - industrial
+  lifecycle:
+  - requirements
+  - architecture
+  - design
+  - implementation
+  - integration
+  - verification
+  - validation
+  - release
+  standards:
+  - IEC 61508
+  artifact_types:
+  - control review
+  mcp_tools:
+  - run_skill
+  - validate_skill
+  risk_level: high
+  review_required: true
+- id: axiom-interface-contract-design
+  name: axiom.legacy.axiom-interface-contract-design
+  title: Interface Contract Design
+  version: 0.1.0
+  domain: all
+  subdomain: legacy
+  category: legacy
+  maturity: production
+  owner: axiom-embedded
+  tags:
+  - legacy
+  inputs:
+  - repository path
+  - objective
+  outputs:
+  - report
+  dependencies: []
+  related_skills:
+  - architecture
+  - axiom-architecture-decision-records
+  - axiom-platform-architecture-review
+  - requirements-traceability
+  - traceability
+  path: skills/axiom-interface-contract-design
+  enabled: true
+  lifecycle:
+  - requirements
+  - architecture
+  - design
+  - integration
+  - verification
+  standards: []
+  artifact_types:
+  - interface contract
+  - compatibility report
+  mcp_tools:
+  - run_skill
+  - validate_skill
+  - generate_checklist
+  - generate_traceability_matrix
+  risk_level: medium
+  review_required: true
+  extends: architecture
+- id: axiom-memory-and-performance-analysis
+  name: axiom.platform.memory.and.performance.analysis
+  title: Memory and Performance Analysis
+  version: 0.1.0
+  domain: platform
+  subdomain: performance
+  category: verification
+  maturity: experimental
+  owner: axiom-embedded
+  tags:
+  - performance
+  inputs:
+  - repository path
+  - target files
+  - objective
+  - constraints
+  outputs:
+  - run report
+  - run manifest
+  dependencies: []
+  related_skills:
+  - performance
+  path: skills/axiom-memory-and-performance-analysis
+  enabled: true
+  extends: performance
+  lifecycle:
+  - requirements
+  - architecture
+  - design
+  - implementation
+  - integration
+  - verification
+  - validation
+  - release
+  standards: []
+  artifact_types:
+  - memory/perf report
+  mcp_tools:
+  - run_skill
+  - validate_skill
+  risk_level: medium
+  review_required: true
+- id: axiom-platform-architecture-review
+  name: axiom.cross-domain.platform.architecture.review
+  title: Platform Architecture Review
+  version: 0.1.0
+  domain: cross-domain
+  subdomain: architecture
+  category: architecture
+  maturity: experimental
+  owner: axiom-embedded
+  tags:
+  - architecture
+  inputs:
+  - repository path
+  - target files
+  - objective
+  - constraints
+  outputs:
+  - run report
+  - run manifest
+  dependencies: []
+  related_skills:
+  - architecture
+  - axiom-architecture-decision-records
+  - axiom-interface-contract-design
+  - axiom-static-analysis-triage
+  - axiom-technical-debt-assessment
+  - code-review
+  - requirements
+  - software-architecture
+  path: skills/axiom-platform-architecture-review
+  enabled: true
+  extends: architecture
+  lifecycle:
+  - requirements
+  - architecture
+  - design
+  - implementation
+  - integration
+  - verification
+  - validation
+  - release
+  standards: []
+  artifact_types:
+  - architecture review
+  - ADR set
+  mcp_tools:
+  - run_skill
+  - validate_skill
+  risk_level: medium
+  review_required: true
+- id: axiom-robotics-system-integration
+  name: axiom.robotics.robotics.system.integration
+  title: Robotics System Integration
+  version: 0.1.0
+  domain: robotics
+  subdomain: integration
+  category: integration
+  maturity: experimental
+  owner: axiom-embedded
+  tags:
+  - integration
+  inputs:
+  - repository path
+  - target files
+  - objective
+  - constraints
+  outputs:
+  - run report
+  - run manifest
+  dependencies: []
+  related_skills:
+  - robotics
+  path: skills/axiom-robotics-system-integration
+  enabled: true
+  extends: robotics
+  domain_overlays:
+  - robotics
+  lifecycle:
+  - requirements
+  - architecture
+  - design
+  - implementation
+  - integration
+  - verification
+  - validation
+  - release
+  standards: []
+  artifact_types:
+  - integration review
+  mcp_tools:
+  - run_skill
+  - validate_skill
+  risk_level: medium
+  review_required: true
+- id: axiom-rtos-architecture
+  name: axiom.platform.rtos.architecture
+  title: RTOS Architecture Review
+  version: 0.1.0
+  domain: platform
+  subdomain: rtos
+  category: architecture
+  maturity: experimental
+  owner: axiom-embedded
+  tags:
+  - rtos
+  inputs:
+  - repository path
+  - target files
+  - objective
+  - constraints
+  outputs:
+  - run report
+  - run manifest
+  dependencies: []
+  related_skills:
+  - rtos
+  path: skills/axiom-rtos-architecture
+  enabled: true
+  extends: rtos
+  lifecycle:
+  - requirements
+  - architecture
+  - design
+  - implementation
+  - integration
+  - verification
+  - validation
+  - release
+  standards: []
+  artifact_types:
+  - RTOS review
+  mcp_tools:
+  - run_skill
+  - validate_skill
+  risk_level: medium
+  review_required: true
+- id: axiom-static-analysis-triage
+  name: axiom.legacy.axiom-static-analysis-triage
+  title: Static Analysis Triage
+  version: 0.1.0
+  domain: all
+  subdomain: legacy
+  category: legacy
+  maturity: production
+  owner: axiom-embedded
+  tags:
+  - legacy
+  inputs:
+  - repository path
+  - objective
+  outputs:
+  - report
+  dependencies: []
+  related_skills:
+  - axiom-platform-architecture-review
+  - axiom-technical-debt-assessment
+  - code-review
+  - static-analysis
+  path: skills/axiom-static-analysis-triage
+  enabled: true
+  lifecycle:
+  - implementation
+  - integration
+  - verification
+  - release
+  standards:
+  - MISRA C
+  - CERT C
+  artifact_types:
+  - triage log
+  - baseline
+  - gate verdict
+  mcp_tools:
+  - run_skill
+  - validate_skill
+  - generate_report
+  - generate_checklist
+  risk_level: medium
+  review_required: true
+  extends: static-analysis
+- id: axiom-technical-debt-assessment
+  name: axiom.legacy.axiom-technical-debt-assessment
+  title: Technical Debt Assessment
+  version: 0.1.0
+  domain: all
+  subdomain: legacy
+  category: legacy
+  maturity: production
+  owner: axiom-embedded
+  tags:
+  - legacy
+  inputs:
+  - repository path
+  - objective
+  outputs:
+  - report
+  dependencies: []
+  related_skills:
+  - axiom-platform-architecture-review
+  - axiom-static-analysis-triage
+  - code-review
+  path: skills/axiom-technical-debt-assessment
+  enabled: true
+  lifecycle:
+  - design
+  - implementation
+  - integration
+  - release
+  - operations
+  standards: []
+  artifact_types:
+  - debt register
+  - paydown plan
+  mcp_tools:
+  - run_skill
+  - validate_skill
+  - generate_report
+  - generate_checklist
+  risk_level: low
+  review_required: true
+  extends: code-review
+- id: axiom-test-automation
+  name: axiom.platform.test.automation
+  title: Embedded Test Automation
+  version: 0.1.0
+  domain: platform
+  subdomain: testing
+  category: verification
+  maturity: experimental
+  owner: axiom-embedded
+  tags:
+  - testing
+  inputs:
+  - repository path
+  - target files
+  - objective
+  - constraints
+  outputs:
+  - run report
+  - run manifest
+  dependencies: []
+  related_skills:
+  - automotive-spice
+  - automotive-vcycle
+  - axiom-automotive-release-readiness
+  - axiom-embedded-cicd
+  - axiom-hil-test-planning
+  - coverage
+  - integration-test
+  - test-automation
+  - unit-test
+  path: skills/axiom-test-automation
+  enabled: true
+  extends: test-automation
+  lifecycle:
+  - requirements
+  - architecture
+  - design
+  - implementation
+  - integration
+  - verification
+  - validation
+  - release
+  standards: []
+  artifact_types:
+  - test strategy
+  - test plan
+  mcp_tools:
+  - run_skill
+  - validate_skill
+  risk_level: low
+  review_required: true
+- id: axiom-trace-analysis
+  name: axiom.platform.trace.analysis
+  title: Trace Analysis
+  version: 0.1.0
+  domain: platform
+  subdomain: observability
+  category: verification
+  maturity: experimental
+  owner: axiom-embedded
+  tags:
+  - observability
+  inputs:
+  - repository path
+  - target files
+  - objective
+  - constraints
+  outputs:
+  - run report
+  - run manifest
+  dependencies: []
+  related_skills:
+  - debugging
+  path: skills/axiom-trace-analysis
+  enabled: true
+  extends: debugging
+  lifecycle:
+  - requirements
+  - architecture
+  - design
+  - implementation
+  - integration
+  - verification
+  - validation
+  - release
+  standards: []
+  artifact_types:
+  - trace analysis report
+  mcp_tools:
+  - run_skill
+  - validate_skill
+  risk_level: low
+  review_required: true
+- id: axiom-v2x-communication
+  name: axiom.automotive.v2x.communication
+  title: V2X Communication Design
+  version: 0.1.0
+  domain: automotive
+  subdomain: v2x
+  category: design
+  maturity: experimental
+  owner: axiom-embedded
+  tags:
+  - v2x
+  inputs:
+  - repository path
+  - target files
+  - objective
+  - constraints
+  outputs:
+  - run report
+  - run manifest
+  dependencies: []
+  related_skills: []
+  path: skills/axiom-v2x-communication
+  enabled: true
+  lifecycle:
+  - requirements
+  - architecture
+  - design
+  - implementation
+  - integration
+  - verification
+  - validation
+  - release
+  standards:
+  - ETSI ITS-G5
+  artifact_types:
+  - message model
+  - test strategy
+  mcp_tools:
+  - run_skill
+  - validate_skill
+  risk_level: medium
+  review_required: true
+- id: axiom-vehicle-cybersecurity
+  name: axiom.automotive.vehicle.cybersecurity
+  title: Vehicle Cybersecurity Workflow
+  version: 0.1.0
+  domain: automotive
+  subdomain: cybersecurity
+  category: security
+  maturity: experimental
+  owner: axiom-embedded
+  tags:
+  - cybersecurity
+  inputs:
+  - repository path
+  - target files
+  - objective
+  - constraints
+  outputs:
+  - run report
+  - run manifest
+  dependencies: []
+  related_skills:
+  - automotive-cybersecurity
+  - security
+  path: skills/axiom-vehicle-cybersecurity
+  enabled: true
+  extends: automotive-cybersecurity
+  lifecycle:
+  - requirements
+  - architecture
+  - design
+  - implementation
+  - integration
+  - verification
+  - validation
+  - release
+  standards:
+  - ISO/SAE 21434
+  artifact_types:
+  - threat model
+  - security review
+  mcp_tools:
+  - run_skill
+  - validate_skill
+  risk_level: safety-critical
+  review_required: true
+- id: axiom-zonal-architecture
+  name: axiom.automotive.zonal.architecture
+  title: Zonal Architecture Design
+  version: 0.1.0
+  domain: automotive
+  subdomain: zonal
+  category: architecture
+  maturity: experimental
+  owner: axiom-embedded
+  tags:
+  - zonal
+  inputs:
+  - repository path
+  - target files
+  - objective
+  - constraints
+  outputs:
+  - run report
+  - run manifest
+  dependencies: []
+  related_skills:
+  - automotive-middleware
+  - automotive-ota
+  - axiom-automotive-release-readiness
+  - axiom-autosar-adaptive-deployment
+  - mpsoc
+  - soc
+  path: skills/axiom-zonal-architecture
+  enabled: true
+  extends: automotive-middleware
+  lifecycle:
+  - requirements
+  - architecture
+  - design
+  - implementation
+  - integration
+  - verification
+  - validation
+  - release
+  standards:
+  - AUTOSAR
+  artifact_types:
+  - zonal architecture record
+  mcp_tools:
+  - run_skill
+  - validate_skill
+  risk_level: medium
+  review_required: true
+- id: bare-metal
+  name: axiom.legacy.bare-metal
+  title: bare-metal
+  version: 1.2.0
+  domain: all
+  subdomain: legacy
+  category: legacy
+  maturity: production
+  owner: axiom-embedded
+  tags:
+  - legacy
+  inputs:
+  - repository path
+  - objective
+  outputs:
+  - report
+  dependencies: []
+  related_skills: []
+  path: skills/bare-metal
+  enabled: true
+- id: bootloader
+  name: axiom.legacy.bootloader
+  title: bootloader
+  version: 1.2.0
+  domain: all
+  subdomain: legacy
+  category: legacy
+  maturity: production
+  owner: axiom-embedded
+  tags:
+  - legacy
+  inputs:
+  - repository path
+  - objective
+  outputs:
+  - report
+  dependencies: []
+  related_skills:
+  - axiom-embedded-firmware-bringup
+  path: skills/bootloader
+  enabled: true
+  sub_skills:
+  - axiom-embedded-firmware-bringup
+- id: build-system
+  name: axiom.legacy.build-system
+  title: build-system
+  version: 1.2.0
+  domain: all
+  subdomain: legacy
+  category: legacy
+  maturity: production
+  owner: axiom-embedded
+  tags:
+  - legacy
+  inputs:
+  - repository path
+  - objective
+  outputs:
+  - report
+  dependencies: []
+  related_skills:
+  - axiom-embedded-cicd
+  path: skills/build-system
+  enabled: true
+  sub_skills:
+  - axiom-embedded-cicd
+- id: change-impact
+  name: axiom.legacy.change-impact
+  title: change-impact
+  version: 1.2.0
+  domain: all
+  subdomain: legacy
+  category: legacy
+  maturity: production
+  owner: axiom-embedded
+  tags:
+  - legacy
+  inputs:
+  - repository path
+  - objective
+  outputs:
+  - report
+  dependencies: []
+  related_skills: []
+  path: skills/change-impact
+  enabled: true
+- id: code-review
+  name: axiom.legacy.code-review
+  title: code-review
+  version: 1.2.0
+  domain: all
+  subdomain: legacy
+  category: legacy
+  maturity: production
+  owner: axiom-embedded
+  tags:
+  - legacy
+  inputs:
+  - repository path
+  - objective
+  outputs:
+  - report
+  dependencies: []
+  related_skills:
+  - axiom-platform-architecture-review
+  - axiom-static-analysis-triage
+  - axiom-technical-debt-assessment
+  path: skills/code-review
+  enabled: true
+  sub_skills:
+  - axiom-platform-architecture-review
+  - axiom-static-analysis-triage
+  - axiom-technical-debt-assessment
+- id: configuration-management
+  name: axiom.legacy.configuration-management
+  title: configuration-management
+  version: 1.2.0
+  domain: all
+  subdomain: legacy
+  category: legacy
+  maturity: production
+  owner: axiom-embedded
+  tags:
+  - legacy
+  inputs:
+  - repository path
+  - objective
+  outputs:
+  - report
+  dependencies: []
+  related_skills: []
+  path: skills/configuration-management
+  enabled: true
+- id: coverage
+  name: axiom.legacy.coverage
+  title: coverage
+  version: 1.2.0
+  domain: all
+  subdomain: legacy
+  category: legacy
+  maturity: production
+  owner: axiom-embedded
+  tags:
+  - legacy
+  inputs:
+  - repository path
+  - objective
+  outputs:
+  - report
+  dependencies: []
+  related_skills:
+  - axiom-test-automation
+  path: skills/coverage
+  enabled: true
+  sub_skills:
+  - axiom-test-automation
+- id: debugging
+  name: axiom.legacy.debugging
+  title: debugging
+  version: 1.2.0
+  domain: all
+  subdomain: legacy
+  category: legacy
+  maturity: production
+  owner: axiom-embedded
+  tags:
+  - legacy
+  inputs:
+  - repository path
+  - objective
+  outputs:
+  - report
+  dependencies: []
+  related_skills:
+  - axiom-trace-analysis
+  path: skills/debugging
+  enabled: true
+  sub_skills:
+  - axiom-trace-analysis
+- id: documentation
+  name: axiom.legacy.documentation
+  title: documentation
+  version: 1.2.0
+  domain: all
+  subdomain: legacy
+  category: legacy
+  maturity: production
+  owner: axiom-embedded
+  tags:
+  - legacy
+  inputs:
+  - repository path
+  - objective
+  outputs:
+  - report
+  dependencies: []
+  related_skills:
+  - axiom-architecture-decision-records
+  path: skills/documentation
+  enabled: true
+  sub_skills:
+  - axiom-architecture-decision-records
+- id: drivers
+  name: axiom.legacy.drivers
+  title: drivers
+  version: 1.2.0
+  domain: all
+  subdomain: legacy
+  category: legacy
+  maturity: production
+  owner: axiom-embedded
+  tags:
+  - legacy
+  inputs:
+  - repository path
+  - objective
+  outputs:
+  - report
+  dependencies: []
+  related_skills:
+  - axiom-embedded-firmware-bringup
+  path: skills/drivers
+  enabled: true
+  sub_skills:
+  - axiom-embedded-firmware-bringup
+- id: edge-ai
+  name: axiom.legacy.edge-ai
+  title: edge-ai
+  version: 1.2.0
+  domain: generic-embedded
+  subdomain: legacy
+  category: legacy
+  maturity: production
+  owner: axiom-embedded
+  tags:
+  - legacy
+  inputs:
+  - repository path
+  - objective
+  outputs:
+  - report
+  dependencies: []
+  related_skills: []
+  path: skills/edge-ai
+  enabled: true
+- id: embedded-c
+  name: axiom.legacy.embedded-c
+  title: embedded-c
+  version: 1.2.0
+  domain: all
+  subdomain: legacy
+  category: legacy
+  maturity: production
+  owner: axiom-embedded
+  tags:
+  - legacy
+  inputs:
+  - repository path
+  - objective
+  outputs:
+  - report
+  dependencies: []
+  related_skills: []
+  path: skills/embedded-c
+  enabled: true
+- id: embedded-cpp
+  name: axiom.legacy.embedded-cpp
+  title: embedded-cpp
+  version: 1.2.0
+  domain: all
+  subdomain: legacy
+  category: legacy
+  maturity: production
+  owner: axiom-embedded
+  tags:
+  - legacy
+  inputs:
+  - repository path
+  - objective
+  outputs:
+  - report
+  dependencies: []
+  related_skills: []
+  path: skills/embedded-cpp
+  enabled: true
+- id: embedded-linux
+  name: axiom.legacy.embedded-linux
+  title: embedded-linux
+  version: 1.2.0
+  domain: generic-embedded
+  subdomain: legacy
+  category: legacy
+  maturity: production
+  owner: axiom-embedded
+  tags:
+  - legacy
+  inputs:
+  - repository path
+  - objective
+  outputs:
+  - report
+  dependencies: []
+  related_skills: []
+  path: skills/embedded-linux
+  enabled: true
+- id: evidence
+  name: axiom.legacy.evidence
+  title: evidence
+  version: 1.2.0
+  domain: all
+  subdomain: legacy
+  category: legacy
+  maturity: production
+  owner: axiom-embedded
+  tags:
+  - legacy
+  inputs:
+  - repository path
+  - objective
+  outputs:
+  - report
+  dependencies: []
+  related_skills:
+  - axiom-automotive-release-readiness
+  path: skills/evidence
+  enabled: true
+  sub_skills:
+  - axiom-automotive-release-readiness
+- id: fault-injection
+  name: axiom.legacy.fault-injection
+  title: fault-injection
+  version: 1.2.0
+  domain: generic-embedded
+  subdomain: legacy
+  category: legacy
+  maturity: production
+  owner: axiom-embedded
+  tags:
+  - legacy
+  inputs:
+  - repository path
+  - objective
+  outputs:
+  - report
+  dependencies: []
+  related_skills: []
+  path: skills/fault-injection
+  enabled: true
+- id: feature-development
+  name: axiom.legacy.feature-development
+  title: feature-development
+  version: 1.2.0
+  domain: all
+  subdomain: legacy
+  category: legacy
+  maturity: production
+  owner: axiom-embedded
+  tags:
+  - legacy
+  inputs:
+  - repository path
+  - objective
+  outputs:
+  - report
+  dependencies: []
+  related_skills: []
+  path: skills/feature-development
+  enabled: true
+- id: hardware-architecture
+  name: axiom.legacy.hardware-architecture
+  title: hardware-architecture
+  version: 1.2.0
+  domain: all
+  subdomain: legacy
+  category: legacy
+  maturity: production
+  owner: axiom-embedded
+  tags:
+  - legacy
+  inputs:
+  - repository path
+  - objective
+  outputs:
+  - report
+  dependencies: []
+  related_skills: []
+  path: skills/hardware-architecture
+  enabled: true
+- id: hardware-bringup
+  name: axiom.legacy.hardware-bringup
+  title: hardware-bringup
+  version: 1.2.0
+  domain: all
+  subdomain: legacy
+  category: legacy
+  maturity: production
+  owner: axiom-embedded
+  tags:
+  - legacy
+  inputs:
+  - repository path
+  - objective
+  outputs:
+  - report
+  dependencies: []
+  related_skills:
+  - axiom-embedded-firmware-bringup
+  path: skills/hardware-bringup
+  enabled: true
+  sub_skills:
+  - axiom-embedded-firmware-bringup
+- id: implementation
+  name: axiom.legacy.implementation
+  title: implementation
+  version: 1.2.0
+  domain: all
+  subdomain: legacy
+  category: legacy
+  maturity: production
+  owner: axiom-embedded
+  tags:
+  - legacy
+  inputs:
+  - repository path
+  - objective
+  outputs:
+  - report
+  dependencies: []
+  related_skills: []
+  path: skills/implementation
+  enabled: true
+- id: integration-test
+  name: axiom.legacy.integration-test
+  title: integration-test
+  version: 1.2.0
+  domain: all
+  subdomain: legacy
+  category: legacy
+  maturity: production
+  owner: axiom-embedded
+  tags:
+  - legacy
+  inputs:
+  - repository path
+  - objective
+  outputs:
+  - report
+  dependencies: []
+  related_skills:
+  - axiom-hil-test-planning
+  - axiom-test-automation
+  path: skills/integration-test
+  enabled: true
+  sub_skills:
+  - axiom-hil-test-planning
+  - axiom-test-automation
+- id: legacy-recovery
+  name: axiom.legacy.legacy-recovery
+  title: legacy-recovery
+  version: 1.2.0
+  domain: all
+  subdomain: legacy
+  category: legacy
+  maturity: production
+  owner: axiom-embedded
+  tags:
+  - legacy
+  inputs:
+  - repository path
+  - objective
+  outputs:
+  - report
+  dependencies: []
+  related_skills: []
+  path: skills/legacy-recovery
+  enabled: true
+- id: mcu
+  name: axiom.legacy.mcu
+  title: mcu
+  version: 1.2.0
+  domain: generic-embedded
+  subdomain: legacy
+  category: legacy
+  maturity: production
+  owner: axiom-embedded
+  tags:
+  - legacy
+  inputs:
+  - repository path
+  - objective
+  outputs:
+  - report
+  dependencies: []
+  related_skills:
+  - axiom-embedded-firmware-bringup
+  path: skills/mcu
+  enabled: true
+  sub_skills:
+  - axiom-embedded-firmware-bringup
+- id: mpsoc
+  name: axiom.legacy.mpsoc
+  title: mpsoc
+  version: 1.2.0
+  domain: generic-embedded
+  subdomain: legacy
+  category: legacy
+  maturity: production
+  owner: axiom-embedded
+  tags:
+  - legacy
+  inputs:
+  - repository path
+  - objective
+  outputs:
+  - report
+  dependencies: []
+  related_skills:
+  - axiom-zonal-architecture
+  path: skills/mpsoc
+  enabled: true
+  sub_skills:
+  - axiom-zonal-architecture
+- id: mpu
+  name: axiom.legacy.mpu
+  title: mpu
+  version: 1.2.0
+  domain: generic-embedded
+  subdomain: legacy
+  category: legacy
+  maturity: production
+  owner: axiom-embedded
+  tags:
+  - legacy
+  inputs:
+  - repository path
+  - objective
+  outputs:
+  - report
+  dependencies: []
+  related_skills: []
+  path: skills/mpu
+  enabled: true
+- id: performance
+  name: axiom.legacy.performance
+  title: performance
+  version: 1.2.0
+  domain: all
+  subdomain: legacy
+  category: legacy
+  maturity: production
+  owner: axiom-embedded
+  tags:
+  - legacy
+  inputs:
+  - repository path
+  - objective
+  outputs:
+  - report
+  dependencies: []
+  related_skills:
+  - axiom-memory-and-performance-analysis
+  path: skills/performance
+  enabled: true
+  sub_skills:
+  - axiom-memory-and-performance-analysis
+- id: project-audit
+  name: axiom.legacy.project-audit
+  title: project-audit
+  version: 1.2.0
+  domain: all
+  subdomain: legacy
+  category: legacy
+  maturity: production
+  owner: axiom-embedded
+  tags:
+  - legacy
+  inputs:
+  - repository path
+  - objective
+  outputs:
+  - report
+  dependencies: []
+  related_skills: []
+  path: skills/project-audit
+  enabled: true
+- id: release
+  name: axiom.legacy.release
+  title: release
+  version: 1.2.0
+  domain: all
+  subdomain: legacy
+  category: legacy
+  maturity: production
+  owner: axiom-embedded
+  tags:
+  - legacy
+  inputs:
+  - repository path
+  - objective
+  outputs:
+  - report
+  dependencies: []
+  related_skills:
+  - axiom-automotive-release-readiness
+  path: skills/release
+  enabled: true
+  sub_skills:
+  - axiom-automotive-release-readiness
+- id: requirements
+  name: axiom.legacy.requirements
+  title: requirements
+  version: 1.2.0
+  domain: all
+  subdomain: legacy
+  category: legacy
+  maturity: production
+  owner: axiom-embedded
+  tags:
+  - legacy
+  inputs:
+  - repository path
+  - objective
+  outputs:
+  - report
+  dependencies: []
+  related_skills:
+  - axiom-platform-architecture-review
+  path: skills/requirements
+  enabled: true
+  sub_skills:
+  - axiom-platform-architecture-review
+- id: requirements-traceability
+  name: axiom.legacy.requirements-traceability
+  title: requirements-traceability
+  version: 1.2.0
+  domain: all
+  subdomain: legacy
+  category: legacy
+  maturity: production
+  owner: axiom-embedded
+  tags:
+  - legacy
+  inputs:
+  - repository path
+  - objective
+  outputs:
+  - report
+  dependencies: []
+  related_skills:
+  - axiom-interface-contract-design
+  path: skills/requirements-traceability
+  enabled: true
+  sub_skills:
+  - axiom-interface-contract-design
+- id: robotics
+  name: axiom.legacy.robotics
+  title: robotics
+  version: 1.2.0
+  domain: robotics
+  subdomain: legacy
+  category: legacy
+  maturity: production
+  owner: axiom-embedded
+  tags:
+  - legacy
+  inputs:
+  - repository path
+  - objective
+  outputs:
+  - report
+  dependencies: []
+  related_skills:
+  - axiom-robotics-system-integration
+  path: skills/robotics
+  enabled: true
+  sub_skills:
+  - axiom-robotics-system-integration
+- id: rtos
+  name: axiom.legacy.rtos
+  title: rtos
+  version: 1.2.0
+  domain: all
+  subdomain: legacy
+  category: legacy
+  maturity: production
+  owner: axiom-embedded
+  tags:
+  - legacy
+  inputs:
+  - repository path
+  - objective
+  outputs:
+  - report
+  dependencies: []
+  related_skills:
+  - axiom-rtos-architecture
+  path: skills/rtos
+  enabled: true
+  sub_skills:
+  - axiom-rtos-architecture
+- id: rust-embedded
+  name: axiom.legacy.rust-embedded
+  title: rust-embedded
+  version: 1.2.0
+  domain: all
+  subdomain: legacy
+  category: legacy
+  maturity: production
+  owner: axiom-embedded
+  tags:
+  - legacy
+  inputs:
+  - repository path
+  - objective
+  outputs:
+  - report
+  dependencies: []
+  related_skills: []
+  path: skills/rust-embedded
+  enabled: true
+- id: safety
+  name: axiom.legacy.safety
+  title: safety
+  version: 1.2.0
+  domain: generic-embedded
+  subdomain: legacy
+  category: legacy
+  maturity: production
+  owner: axiom-embedded
+  tags:
+  - legacy
+  inputs:
+  - repository path
+  - objective
+  outputs:
+  - report
+  dependencies: []
+  related_skills:
+  - axiom-functional-safety
+  path: skills/safety
+  enabled: true
+  sub_skills:
+  - axiom-functional-safety
+- id: security
+  name: axiom.legacy.security
+  title: security
+  version: 1.2.0
+  domain: all
+  subdomain: legacy
+  category: legacy
+  maturity: production
+  owner: axiom-embedded
+  tags:
+  - legacy
+  inputs:
+  - repository path
+  - objective
+  outputs:
+  - report
+  dependencies: []
+  related_skills:
+  - axiom-vehicle-cybersecurity
+  path: skills/security
+  enabled: true
+  sub_skills:
+  - axiom-vehicle-cybersecurity
+- id: simulation
+  name: axiom.legacy.simulation
+  title: simulation
+  version: 1.2.0
+  domain: all
+  subdomain: legacy
+  category: legacy
+  maturity: production
+  owner: axiom-embedded
+  tags:
+  - legacy
+  inputs:
+  - repository path
+  - objective
+  outputs:
+  - report
+  dependencies: []
+  related_skills:
+  - axiom-hil-test-planning
+  path: skills/simulation
+  enabled: true
+  sub_skills:
+  - axiom-hil-test-planning
+- id: soc
+  name: axiom.legacy.soc
+  title: soc
+  version: 1.2.0
+  domain: generic-embedded
+  subdomain: legacy
+  category: legacy
+  maturity: production
+  owner: axiom-embedded
+  tags:
+  - legacy
+  inputs:
+  - repository path
+  - objective
+  outputs:
+  - report
+  dependencies: []
+  related_skills:
+  - axiom-zonal-architecture
+  path: skills/soc
+  enabled: true
+  sub_skills:
+  - axiom-zonal-architecture
+- id: software-architecture
+  name: axiom.legacy.software-architecture
+  title: software-architecture
+  version: 1.2.0
+  domain: all
+  subdomain: legacy
+  category: legacy
+  maturity: production
+  owner: axiom-embedded
+  tags:
+  - legacy
+  inputs:
+  - repository path
+  - objective
+  outputs:
+  - report
+  dependencies: []
+  related_skills:
+  - axiom-platform-architecture-review
+  path: skills/software-architecture
+  enabled: true
+  sub_skills:
+  - axiom-platform-architecture-review
+- id: static-analysis
+  name: axiom.legacy.static-analysis
+  title: static-analysis
+  version: 1.2.0
+  domain: all
+  subdomain: legacy
+  category: legacy
+  maturity: production
+  owner: axiom-embedded
+  tags:
+  - legacy
+  inputs:
+  - repository path
+  - objective
+  outputs:
+  - report
+  dependencies: []
+  related_skills:
+  - axiom-static-analysis-triage
+  path: skills/static-analysis
+  enabled: true
+  sub_skills:
+  - axiom-static-analysis-triage
+- id: system-test
+  name: axiom.legacy.system-test
+  title: system-test
+  version: 1.2.0
+  domain: all
+  subdomain: legacy
+  category: legacy
+  maturity: production
+  owner: axiom-embedded
+  tags:
+  - legacy
+  inputs:
+  - repository path
+  - objective
+  outputs:
+  - report
+  dependencies: []
+  related_skills:
+  - axiom-hil-test-planning
+  path: skills/system-test
+  enabled: true
+  sub_skills:
+  - axiom-hil-test-planning
+- id: test-automation
+  name: axiom.legacy.test-automation
+  title: test-automation
+  version: 1.2.0
+  domain: all
+  subdomain: legacy
+  category: legacy
+  maturity: production
+  owner: axiom-embedded
+  tags:
+  - legacy
+  inputs:
+  - repository path
+  - objective
+  outputs:
+  - report
+  dependencies: []
+  related_skills:
+  - axiom-embedded-cicd
+  - axiom-test-automation
+  path: skills/test-automation
+  enabled: true
+  sub_skills:
+  - axiom-embedded-cicd
+  - axiom-test-automation
+- id: traceability
+  name: axiom.legacy.traceability
+  title: traceability
+  version: 1.2.0
+  domain: all
+  subdomain: legacy
+  category: legacy
+  maturity: production
+  owner: axiom-embedded
+  tags:
+  - legacy
+  inputs:
+  - repository path
+  - objective
+  outputs:
+  - report
+  dependencies: []
+  related_skills:
+  - axiom-interface-contract-design
+  path: skills/traceability
+  enabled: true
+  sub_skills:
+  - axiom-interface-contract-design
+- id: unit-test
+  name: axiom.legacy.unit-test
+  title: unit-test
+  version: 1.2.0
+  domain: all
+  subdomain: legacy
+  category: legacy
+  maturity: production
+  owner: axiom-embedded
+  tags:
+  - legacy
+  inputs:
+  - repository path
+  - objective
+  outputs:
+  - report
+  dependencies: []
+  related_skills:
+  - axiom-test-automation
+  path: skills/unit-test
+  enabled: true
+  sub_skills:
+  - axiom-test-automation
+- id: validation
+  name: axiom.legacy.validation
+  title: validation
+  version: 1.2.0
+  domain: all
+  subdomain: legacy
+  category: legacy
+  maturity: production
+  owner: axiom-embedded
+  tags:
+  - legacy
+  inputs:
+  - repository path
+  - objective
+  outputs:
+  - report
+  dependencies: []
+  related_skills: []
+  path: skills/validation
+  enabled: true

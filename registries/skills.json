@@ -2,204 +2,16 @@
   "schema_version": "1.0",
   "skills": [
     {
-      "id": "requirements",
-      "path": "skills/requirements"
-    },
-    {
-      "id": "architecture",
-      "path": "skills/architecture"
-    },
-    {
-      "id": "hardware-architecture",
-      "path": "skills/hardware-architecture"
-    },
-    {
-      "id": "software-architecture",
-      "path": "skills/software-architecture"
-    },
-    {
-      "id": "implementation",
-      "path": "skills/implementation"
-    },
-    {
-      "id": "code-review",
-      "path": "skills/code-review"
-    },
-    {
-      "id": "static-analysis",
-      "path": "skills/static-analysis"
-    },
-    {
-      "id": "unit-test",
-      "path": "skills/unit-test"
-    },
-    {
-      "id": "integration-test",
-      "path": "skills/integration-test"
-    },
-    {
-      "id": "system-test",
-      "path": "skills/system-test"
-    },
-    {
-      "id": "validation",
-      "path": "skills/validation"
-    },
-    {
-      "id": "coverage",
-      "path": "skills/coverage"
-    },
-    {
-      "id": "traceability",
-      "path": "skills/traceability"
-    },
-    {
-      "id": "evidence",
-      "path": "skills/evidence"
-    },
-    {
-      "id": "debugging",
-      "path": "skills/debugging"
-    },
-    {
-      "id": "change-impact",
-      "path": "skills/change-impact"
-    },
-    {
-      "id": "feature-development",
-      "path": "skills/feature-development"
-    },
-    {
-      "id": "legacy-recovery",
-      "path": "skills/legacy-recovery"
-    },
-    {
-      "id": "documentation",
-      "path": "skills/documentation"
-    },
-    {
-      "id": "release",
-      "path": "skills/release"
-    },
-    {
-      "id": "configuration-management",
-      "path": "skills/configuration-management"
-    },
-    {
-      "id": "safety",
-      "path": "skills/safety"
-    },
-    {
-      "id": "security",
-      "path": "skills/security"
-    },
-    {
-      "id": "performance",
-      "path": "skills/performance"
-    },
-    {
-      "id": "fault-injection",
-      "path": "skills/fault-injection"
-    },
-    {
-      "id": "simulation",
-      "path": "skills/simulation"
-    },
-    {
-      "id": "drivers",
-      "path": "skills/drivers"
-    },
-    {
-      "id": "bootloader",
-      "path": "skills/bootloader"
-    },
-    {
-      "id": "embedded-c",
-      "path": "skills/embedded-c"
-    },
-    {
-      "id": "embedded-cpp",
-      "path": "skills/embedded-cpp"
-    },
-    {
-      "id": "rust-embedded",
-      "path": "skills/rust-embedded"
-    },
-    {
-      "id": "embedded-linux",
-      "path": "skills/embedded-linux"
-    },
-    {
-      "id": "autosar",
-      "path": "skills/autosar"
-    },
-    {
-      "id": "robotics",
-      "path": "skills/robotics"
-    },
-    {
-      "id": "edge-ai",
-      "path": "skills/edge-ai"
+      "id": "adas",
+      "path": "skills/adas"
     },
     {
       "id": "ai-validation",
       "path": "skills/ai-validation"
     },
     {
-      "id": "mcu",
-      "path": "skills/mcu"
-    },
-    {
-      "id": "mpu",
-      "path": "skills/mpu"
-    },
-    {
-      "id": "soc",
-      "path": "skills/soc"
-    },
-    {
-      "id": "mpsoc",
-      "path": "skills/mpsoc"
-    },
-    {
-      "id": "rtos",
-      "path": "skills/rtos"
-    },
-    {
-      "id": "bare-metal",
-      "path": "skills/bare-metal"
-    },
-    {
-      "id": "build-system",
-      "path": "skills/build-system"
-    },
-    {
-      "id": "requirements-traceability",
-      "path": "skills/requirements-traceability"
-    },
-    {
-      "id": "test-automation",
-      "path": "skills/test-automation"
-    },
-    {
-      "id": "hardware-bringup",
-      "path": "skills/hardware-bringup"
-    },
-    {
-      "id": "project-audit",
-      "path": "skills/project-audit"
-    },
-    {
-      "id": "automotive-spice",
-      "path": "skills/automotive-spice"
-    },
-    {
-      "id": "automotive-vcycle",
-      "path": "skills/automotive-vcycle"
-    },
-    {
-      "id": "adas",
-      "path": "skills/adas"
+      "id": "architecture",
+      "path": "skills/architecture"
     },
     {
       "id": "automotive-body",
@@ -210,20 +22,20 @@
       "path": "skills/automotive-cockpit"
     },
     {
-      "id": "automotive-middleware",
-      "path": "skills/automotive-middleware"
+      "id": "automotive-coding",
+      "path": "skills/automotive-coding"
     },
     {
       "id": "automotive-cybersecurity",
       "path": "skills/automotive-cybersecurity"
     },
     {
-      "id": "automotive-coding",
-      "path": "skills/automotive-coding"
-    },
-    {
       "id": "automotive-diagnostics",
       "path": "skills/automotive-diagnostics"
+    },
+    {
+      "id": "automotive-middleware",
+      "path": "skills/automotive-middleware"
     },
     {
       "id": "automotive-networks",
@@ -232,6 +44,334 @@
     {
       "id": "automotive-ota",
       "path": "skills/automotive-ota"
+    },
+    {
+      "id": "automotive-spice",
+      "path": "skills/automotive-spice"
+    },
+    {
+      "id": "automotive-vcycle",
+      "path": "skills/automotive-vcycle"
+    },
+    {
+      "id": "autosar",
+      "path": "skills/autosar"
+    },
+    {
+      "id": "axiom-adas-perception-pipeline",
+      "path": "skills/axiom-adas-perception-pipeline"
+    },
+    {
+      "id": "axiom-adas-validation",
+      "path": "skills/axiom-adas-validation"
+    },
+    {
+      "id": "axiom-aerospace-defense-safety-review",
+      "path": "skills/axiom-aerospace-defense-safety-review"
+    },
+    {
+      "id": "axiom-architecture-decision-records",
+      "path": "skills/axiom-architecture-decision-records"
+    },
+    {
+      "id": "axiom-automotive-ethernet-someip",
+      "path": "skills/axiom-automotive-ethernet-someip"
+    },
+    {
+      "id": "axiom-automotive-release-readiness",
+      "path": "skills/axiom-automotive-release-readiness"
+    },
+    {
+      "id": "axiom-autosar-adaptive-deployment",
+      "path": "skills/axiom-autosar-adaptive-deployment"
+    },
+    {
+      "id": "axiom-autosar-classic-architecture",
+      "path": "skills/axiom-autosar-classic-architecture"
+    },
+    {
+      "id": "axiom-autosar-classic-bsw-integration",
+      "path": "skills/axiom-autosar-classic-bsw-integration"
+    },
+    {
+      "id": "axiom-autosar-com-stack",
+      "path": "skills/axiom-autosar-com-stack"
+    },
+    {
+      "id": "axiom-autosar-os-config",
+      "path": "skills/axiom-autosar-os-config"
+    },
+    {
+      "id": "axiom-autosar-rte-design",
+      "path": "skills/axiom-autosar-rte-design"
+    },
+    {
+      "id": "axiom-bms-design",
+      "path": "skills/axiom-bms-design"
+    },
+    {
+      "id": "axiom-bms-diagnostics",
+      "path": "skills/axiom-bms-diagnostics"
+    },
+    {
+      "id": "axiom-can-network-design",
+      "path": "skills/axiom-can-network-design"
+    },
+    {
+      "id": "axiom-can-stack-integration",
+      "path": "skills/axiom-can-stack-integration"
+    },
+    {
+      "id": "axiom-diagnostics-doip",
+      "path": "skills/axiom-diagnostics-doip"
+    },
+    {
+      "id": "axiom-diagnostics-uds",
+      "path": "skills/axiom-diagnostics-uds"
+    },
+    {
+      "id": "axiom-embedded-cicd",
+      "path": "skills/axiom-embedded-cicd"
+    },
+    {
+      "id": "axiom-embedded-firmware-bringup",
+      "path": "skills/axiom-embedded-firmware-bringup"
+    },
+    {
+      "id": "axiom-functional-safety",
+      "path": "skills/axiom-functional-safety"
+    },
+    {
+      "id": "axiom-hil-test-planning",
+      "path": "skills/axiom-hil-test-planning"
+    },
+    {
+      "id": "axiom-industrial-control-review",
+      "path": "skills/axiom-industrial-control-review"
+    },
+    {
+      "id": "axiom-interface-contract-design",
+      "path": "skills/axiom-interface-contract-design"
+    },
+    {
+      "id": "axiom-memory-and-performance-analysis",
+      "path": "skills/axiom-memory-and-performance-analysis"
+    },
+    {
+      "id": "axiom-platform-architecture-review",
+      "path": "skills/axiom-platform-architecture-review"
+    },
+    {
+      "id": "axiom-robotics-system-integration",
+      "path": "skills/axiom-robotics-system-integration"
+    },
+    {
+      "id": "axiom-rtos-architecture",
+      "path": "skills/axiom-rtos-architecture"
+    },
+    {
+      "id": "axiom-static-analysis-triage",
+      "path": "skills/axiom-static-analysis-triage"
+    },
+    {
+      "id": "axiom-technical-debt-assessment",
+      "path": "skills/axiom-technical-debt-assessment"
+    },
+    {
+      "id": "axiom-test-automation",
+      "path": "skills/axiom-test-automation"
+    },
+    {
+      "id": "axiom-trace-analysis",
+      "path": "skills/axiom-trace-analysis"
+    },
+    {
+      "id": "axiom-v2x-communication",
+      "path": "skills/axiom-v2x-communication"
+    },
+    {
+      "id": "axiom-vehicle-cybersecurity",
+      "path": "skills/axiom-vehicle-cybersecurity"
+    },
+    {
+      "id": "axiom-zonal-architecture",
+      "path": "skills/axiom-zonal-architecture"
+    },
+    {
+      "id": "bare-metal",
+      "path": "skills/bare-metal"
+    },
+    {
+      "id": "bootloader",
+      "path": "skills/bootloader"
+    },
+    {
+      "id": "build-system",
+      "path": "skills/build-system"
+    },
+    {
+      "id": "change-impact",
+      "path": "skills/change-impact"
+    },
+    {
+      "id": "code-review",
+      "path": "skills/code-review"
+    },
+    {
+      "id": "configuration-management",
+      "path": "skills/configuration-management"
+    },
+    {
+      "id": "coverage",
+      "path": "skills/coverage"
+    },
+    {
+      "id": "debugging",
+      "path": "skills/debugging"
+    },
+    {
+      "id": "documentation",
+      "path": "skills/documentation"
+    },
+    {
+      "id": "drivers",
+      "path": "skills/drivers"
+    },
+    {
+      "id": "edge-ai",
+      "path": "skills/edge-ai"
+    },
+    {
+      "id": "embedded-c",
+      "path": "skills/embedded-c"
+    },
+    {
+      "id": "embedded-cpp",
+      "path": "skills/embedded-cpp"
+    },
+    {
+      "id": "embedded-linux",
+      "path": "skills/embedded-linux"
+    },
+    {
+      "id": "evidence",
+      "path": "skills/evidence"
+    },
+    {
+      "id": "fault-injection",
+      "path": "skills/fault-injection"
+    },
+    {
+      "id": "feature-development",
+      "path": "skills/feature-development"
+    },
+    {
+      "id": "hardware-architecture",
+      "path": "skills/hardware-architecture"
+    },
+    {
+      "id": "hardware-bringup",
+      "path": "skills/hardware-bringup"
+    },
+    {
+      "id": "implementation",
+      "path": "skills/implementation"
+    },
+    {
+      "id": "integration-test",
+      "path": "skills/integration-test"
+    },
+    {
+      "id": "legacy-recovery",
+      "path": "skills/legacy-recovery"
+    },
+    {
+      "id": "mcu",
+      "path": "skills/mcu"
+    },
+    {
+      "id": "mpsoc",
+      "path": "skills/mpsoc"
+    },
+    {
+      "id": "mpu",
+      "path": "skills/mpu"
+    },
+    {
+      "id": "performance",
+      "path": "skills/performance"
+    },
+    {
+      "id": "project-audit",
+      "path": "skills/project-audit"
+    },
+    {
+      "id": "release",
+      "path": "skills/release"
+    },
+    {
+      "id": "requirements",
+      "path": "skills/requirements"
+    },
+    {
+      "id": "requirements-traceability",
+      "path": "skills/requirements-traceability"
+    },
+    {
+      "id": "robotics",
+      "path": "skills/robotics"
+    },
+    {
+      "id": "rtos",
+      "path": "skills/rtos"
+    },
+    {
+      "id": "rust-embedded",
+      "path": "skills/rust-embedded"
+    },
+    {
+      "id": "safety",
+      "path": "skills/safety"
+    },
+    {
+      "id": "security",
+      "path": "skills/security"
+    },
+    {
+      "id": "simulation",
+      "path": "skills/simulation"
+    },
+    {
+      "id": "soc",
+      "path": "skills/soc"
+    },
+    {
+      "id": "software-architecture",
+      "path": "skills/software-architecture"
+    },
+    {
+      "id": "static-analysis",
+      "path": "skills/static-analysis"
+    },
+    {
+      "id": "system-test",
+      "path": "skills/system-test"
+    },
+    {
+      "id": "test-automation",
+      "path": "skills/test-automation"
+    },
+    {
+      "id": "traceability",
+      "path": "skills/traceability"
+    },
+    {
+      "id": "unit-test",
+      "path": "skills/unit-test"
+    },
+    {
+      "id": "validation",
+      "path": "skills/validation"
     }
   ]
 }

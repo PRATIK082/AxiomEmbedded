@@ -1,0 +1,19 @@
+id: axiom-embedded-firmware-bringup
+version: 1.2.0
+contract_version: 1
+type: reusable-skill
+source_of_truth:
+  instructions: SKILL.md
+  contract: manifest.yaml
+facets:
+  domains:
+  - all
+  platforms:
+  - mcu
+  - bare-metal
+standards:
+  []
+axiom:
+  dotted_name: axiom.all.embedded_firmware_bringup
+  maturity: experimental
+  category: implementation

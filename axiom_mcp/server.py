@@ -145,7 +145,20 @@ def tool_route(args: dict) -> dict:
 
 
 def tool_engage(args: dict) -> dict:
-    return axiom_sdk.engage_skills(args.get("domain"), args.get("platform"))
+    return axiom_sdk.engage_skills(args.get("domain"), args.get("platform"),
+                                   args.get("group"), args.get("limit") or 0)
+
+
+def tool_packs(args: dict) -> dict:
+    return axiom_sdk.select_toolpacks(
+        args.get("domain"), args.get("platform"), args.get("standards") or [])
+
+
+def tool_compose(args: dict) -> dict:
+    return axiom_sdk.compose_mindmap(
+        args.get("prompt", ""), args.get("domain"), args.get("platform"),
+        args.get("os"), args.get("language"), args.get("standards") or [],
+        args.get("hardware"), args.get("technology"))
 
 
 def tool_run_plan(args: dict) -> dict:
@@ -177,15 +190,57 @@ def tool_feature(args: dict) -> dict:
 
 
 def tool_install(args: dict) -> dict:
-    from packages.installer import find_content_source, install_client
+    from packages.installer import CLIENTS, find_content_source, install_client
 
-    return install_client(
+    if args.get("client") not in CLIENTS:
+        return {"status": "error",
+                "message": f"unknown client: {args.get('client')} (choose from {', '.join(CLIENTS)})"}
+    try:
+        return install_client(
+            args["client"],
+            pathlib.Path(args.get("path", ".")).resolve(),
+            pathlib.Path(args["home"]).expanduser() if args.get("home") else pathlib.Path.home(),
+            find_content_source(args.get("source")),
+            is_global=bool(args.get("global", False)),
+            domains=args.get("domains"),
+            groups=args.get("groups"),
+        )
+    except ValueError as exc:
+        return {"status": "error", "message": str(exc)}
+
+
+def tool_uninstall(args: dict) -> dict:
+    from packages.installer import CLIENTS, uninstall_client
+
+    if args.get("client") not in CLIENTS:
+        return {"status": "error",
+                "message": f"unknown client: {args.get('client')} (choose from {', '.join(CLIENTS)})"}
+    return uninstall_client(
         args["client"],
         pathlib.Path(args.get("path", ".")).resolve(),
         pathlib.Path(args["home"]).expanduser() if args.get("home") else pathlib.Path.home(),
-        find_content_source(args.get("source")),
         is_global=bool(args.get("global", False)),
     )
+
+
+def tool_update(args: dict) -> dict:
+    from packages.installer import CLIENTS, find_content_source, update_client
+
+    if args.get("client") not in CLIENTS:
+        return {"status": "error",
+                "message": f"unknown client: {args.get('client')} (choose from {', '.join(CLIENTS)})"}
+    try:
+        return update_client(
+            args["client"],
+            pathlib.Path(args.get("path", ".")).resolve(),
+            pathlib.Path(args["home"]).expanduser() if args.get("home") else pathlib.Path.home(),
+            find_content_source(args.get("source")),
+            is_global=bool(args.get("global", False)),
+            domains=args.get("domains"),
+            groups=args.get("groups"),
+        )
+    except ValueError as exc:
+        return {"status": "error", "message": str(exc)}
 
 
 def tool_research(args: dict) -> dict:
@@ -201,6 +256,86 @@ def tool_research(args: dict) -> dict:
         max_sub = DEFAULT_MAX_SUBQUESTIONS
     return run(args.get("question", ""), backend=backend,
                max_subquestions=max_sub, model=args.get("model"))
+
+
+def tool_search_skills(args: dict) -> dict:
+    return axiom_sdk.search_skills(args.get("query", ""),
+                                   args.get("domain"), args.get("standard"))
+
+
+def tool_validate_skill(args: dict) -> dict:
+    return axiom_sdk.validate_skill(args["skill_id"])
+
+
+def tool_skill_manifest(args: dict) -> dict:
+    return axiom_sdk.skill_manifest(args["skill_id"])
+
+
+def tool_run_skill(args: dict) -> dict:
+    return axiom_sdk.run_skill(
+        args["skill_id"], args.get("repo_path", "."),
+        args.get("target_files") or [], args.get("objective", ""),
+        args.get("constraints", ""), args.get("output_dir"),
+        bool(args.get("apply", False)))
+
+
+def tool_create_skill(args: dict) -> dict:
+    import re as _re
+    import sys as _sys
+    sys_path = str(ROOT / "scripts")
+    if sys_path not in _sys.path:
+        _sys.path.insert(0, sys_path)
+    from create_skill import scaffold
+    if not _re.match(r"^axiom-[a-z0-9]+(-[a-z0-9]+)+$", args["skill_id"]):
+        return {"status": "error", "message": "bad skill id"}
+    if args.get("apply"):
+        plan = scaffold(args["skill_id"], args.get("title", args["skill_id"]),
+                        args.get("domain", "automotive"), True)
+        return {"status": "ok", "applied": True, "files": plan}
+    return {"status": "dry-run",
+            "files": [f"skills/{args['skill_id']}/SKILL.md",
+                      f"skills/{args['skill_id']}/manifest.yaml",
+                      f"skills/{args['skill_id']}/checklists/review.yaml"]}
+
+
+def tool_skill_pipeline(args: dict) -> dict:
+    return axiom_sdk.skill_pipeline(check=bool(args.get("check", True)))
+
+
+def tool_analyze_repository(args: dict) -> dict:
+    return axiom_sdk.analyze_repository(args.get("repo_path"))
+
+
+def tool_generate_checklist(args: dict) -> dict:
+    return axiom_sdk.generate_checklist(
+        args["skill_id"], args.get("output_path"), args.get("repo_path"))
+
+
+def tool_generate_test_plan(args: dict) -> dict:
+    return axiom_sdk.generate_test_plan(
+        args["skill_id"], args.get("output_path"), args.get("repo_path"))
+
+
+def tool_generate_traceability_matrix(args: dict) -> dict:
+    return axiom_sdk.generate_traceability_matrix(
+        args["skill_id"], args.get("output_path"), args.get("repo_path"))
+
+
+def tool_generate_report(args: dict) -> dict:
+    return axiom_sdk.generate_report(
+        args["skill_id"], args.get("run_dir"), args.get("output_path"),
+        args.get("repo_path"))
+
+
+def tool_review_configuration(args: dict) -> dict:
+    return axiom_sdk.review_configuration(
+        args["skill_id"], args.get("config_path", ""),
+        args.get("repo_path"))
+
+
+def tool_analyze_trace(args: dict) -> dict:
+    return axiom_sdk.analyze_trace(
+        args.get("trace_path", ""), args.get("repo_path"))
 
 
 TOOLS: dict[str, dict] = {
@@ -278,9 +413,47 @@ TOOLS: dict[str, dict] = {
             {
                 "domain": _opt_str_prop("Engineering domain (e.g. automotive)."),
                 "platform": _opt_str_prop("Compute platform (e.g. mcu)."),
+                "group": _opt_str_prop("Restrict to a skills/groups.yaml view."),
+                "limit": {"type": "integer", "description": "Cap returned skills (0 = all)."},
             }
         ),
         "handler": tool_engage,
+    },
+    "packs": {
+        "description": "Select plug-and-play tool/pip packs by domain+platform+standards (mirrors `axiom packs`).",
+        "inputSchema": _schema(
+            {
+                "domain": _opt_str_prop("Engineering domain (e.g. automotive)."),
+                "platform": _opt_str_prop("Compute platform (e.g. mcu)."),
+                "standards": {
+                    "type": "array",
+                    "items": {"type": "string"},
+                    "description": "Standard filters (e.g. ISO 14229-1).",
+                },
+            }
+        ),
+        "handler": tool_packs,
+    },
+    "compose": {
+        "description": "Compose a skill mind-map DAG from a prompt + facet axes (mirrors `axiom compose`).",
+        "inputSchema": _schema(
+            {
+                "prompt": _str_prop("User engineering request text."),
+                "domain": _opt_str_prop("Engineering domain (e.g. automotive)."),
+                "platform": _opt_str_prop("Compute platform (e.g. mcu)."),
+                "os": _opt_str_prop("Operating system (e.g. autosar-classic)."),
+                "language": _opt_str_prop("Implementation language (e.g. c)."),
+                "standards": {
+                    "type": "array",
+                    "items": {"type": "string"},
+                    "description": "Standard filters (e.g. ISO 14229-1).",
+                },
+                "hardware": _opt_str_prop("Hardware target (e.g. arm-cortex-m)."),
+                "technology": _opt_str_prop("Compute technology (e.g. mcu)."),
+            },
+            required=["prompt"],
+        ),
+        "handler": tool_compose,
     },
     "run_plan": {
         "description": "Plan-then-execute plan for a request: intent, skill slice, phases, approvals (mirrors `axiom run`).",
@@ -355,15 +528,214 @@ TOOLS: dict[str, dict] = {
         "description": "Install the Axiom pack for a client into a project dir or user-global config (mirrors `axiom install --client`). Merges, never clobbers.",
         "inputSchema": _schema(
             {
-                "client": {"type": "string", "description": "opencode|claude|codex|gemini|copilot."},
+                "client": {"type": "string", "description": "opencode|claude|codex|gemini|copilot|cursor|cline|aider|kilo|openhands."},
                 "path": _str_prop("Target project dir (project scope)."),
                 "global": {"type": "boolean", "description": "Install to user-global config instead."},
                 "source": _opt_str_prop("Axiom content source dir override."),
                 "home": _opt_str_prop("Home dir override (testing global installs)."),
+                "domains": {"type": "array", "items": {"type": "string"},
+                            "description": "Domain filter for copied skills (skills with domains=[all] always included)."},
+                "groups": {"type": "array", "items": {"type": "string"},
+                           "description": "Skill-group filter from skills/groups.yaml (AND with domains)."},
             },
             required=["client"],
         ),
         "handler": tool_install,
+    },
+    "uninstall": {
+        "description": "Remove the Axiom pack for a client (MCP entry + generated files only; never touches user content).",
+        "inputSchema": _schema(
+            {
+                "client": {"type": "string", "description": "opencode|claude|codex|gemini|copilot|cursor|cline|aider|kilo|openhands."},
+                "path": _str_prop("Target project dir (project scope)."),
+                "global": {"type": "boolean", "description": "Remove from user-global config instead."},
+                "home": _opt_str_prop("Home dir override (testing global installs)."),
+            },
+            required=["client"],
+        ),
+        "handler": tool_uninstall,
+    },
+    "update": {
+        "description": "Refresh the Axiom pack for a client (re-install + stale/force-refreshed report; mirrors `axiom update`).",
+        "inputSchema": _schema(
+            {
+                "client": {"type": "string", "description": "opencode|claude|codex|gemini|copilot|cursor|cline|aider|kilo|openhands."},
+                "path": _str_prop("Target project dir (project scope)."),
+                "global": {"type": "boolean", "description": "Update user-global config instead."},
+                "source": _opt_str_prop("Axiom content source dir override."),
+                "home": _opt_str_prop("Home dir override (testing global installs)."),
+                "domains": {"type": "array", "items": {"type": "string"},
+                            "description": "Domain filter for copied skills."},
+                "groups": {"type": "array", "items": {"type": "string"},
+                           "description": "Skill-group filter from skills/groups.yaml (AND with domains)."},
+            },
+            required=["client"],
+        ),
+        "handler": tool_update,
+    },
+    "search_skills": {
+        "description": "Search the skill catalog by query/domain/standard (skill discovery).",
+        "inputSchema": _schema(
+            {
+                "query": _str_prop("Free-text query."),
+                "domain": _opt_str_prop("Domain filter."),
+                "standard": _opt_str_prop("Standard filter."),
+            }
+        ),
+        "handler": tool_search_skills,
+    },
+    "validate_skill": {
+        "description": "Validate one skill's SKILL.md contract (no writes).",
+        "inputSchema": _schema(
+            {"skill_id": _str_prop("Skill id (directory under skills/).")},
+            required=["skill_id"],
+        ),
+        "handler": tool_validate_skill,
+    },
+    "skill_manifest": {
+        "description": "Derived manifest.json export for a skill (generated from SKILL.md; single source of truth).",
+        "inputSchema": _schema(
+            {"skill_id": _str_prop("Skill id (directory under skills/).")},
+            required=["skill_id"],
+        ),
+        "handler": tool_skill_manifest,
+    },
+    "run_skill": {
+        "description": "Run a skill as a structured workflow; dry-run unless apply=true (writes only under output_dir/.axiom/runs).",
+        "inputSchema": _schema(
+            {
+                "skill_id": _str_prop("Skill id."),
+                "repo_path": _opt_str_prop("Repository path."),
+                "target_files": {
+                    "type": "array",
+                    "items": {"type": "string"},
+                    "description": "Repo-relative target files.",
+                },
+                "objective": _opt_str_prop("User objective."),
+                "constraints": _opt_str_prop("Constraints."),
+                "output_dir": _opt_str_prop("Output directory."),
+                "apply": {"type": "boolean", "description": "Write artifacts (default false=dry-run)."},
+            },
+            required=["skill_id"],
+        ),
+        "handler": tool_run_skill,
+    },
+    "create_skill": {
+        "description": "Scaffold a new axiom-* skill (dry-run unless apply=true; writes only under skills/).",
+        "inputSchema": _schema(
+            {
+                "skill_id": _str_prop("New skill id (axiom-<domain>-<capability>)."),
+                "title": _str_prop("Human-readable title."),
+                "domain": _opt_str_prop("Domain."),
+                "apply": {"type": "boolean", "description": "Write scaffold (default false=dry-run)."},
+            },
+            required=["skill_id", "title"],
+        ),
+        "handler": tool_create_skill,
+    },
+    "analyze_repository": {
+        "description": "Deterministic artifact inventory of a repo (read-only; counts by artifact type).",
+        "inputSchema": _schema(
+            {"repo_path": _opt_str_prop("Repo-relative path (default: checkout root).")},
+        ),
+        "handler": tool_analyze_repository,
+    },
+    "generate_checklist": {
+        "description": "Merge a skill's checklist gates into Markdown (dry-run unless output_path is set; writes confined to repo).",
+        "inputSchema": _schema(
+            {
+                "skill_id": _str_prop("Skill id."),
+                "output_path": _opt_str_prop("Repo-relative write target (omit for dry-run)."),
+                "repo_path": _opt_str_prop("Repo root for confinement."),
+            },
+            required=["skill_id"],
+        ),
+        "handler": tool_generate_checklist,
+    },
+    "generate_test_plan": {
+        "description": "Map a skill's Execution Workflow steps to verification activities (dry-run unless output_path is set).",
+        "inputSchema": _schema(
+            {
+                "skill_id": _str_prop("Skill id."),
+                "output_path": _opt_str_prop("Repo-relative write target (omit for dry-run)."),
+                "repo_path": _opt_str_prop("Repo root for confinement."),
+            },
+            required=["skill_id"],
+        ),
+        "handler": tool_generate_test_plan,
+    },
+    "generate_traceability_matrix": {
+        "description": "Emit Step x Inputs/Outputs/Evidence/Status CSV for a skill (dry-run unless output_path is set).",
+        "inputSchema": _schema(
+            {
+                "skill_id": _str_prop("Skill id."),
+                "output_path": _opt_str_prop("Repo-relative write target (omit for dry-run)."),
+                "repo_path": _opt_str_prop("Repo root for confinement."),
+            },
+            required=["skill_id"],
+        ),
+        "handler": tool_generate_traceability_matrix,
+    },
+    "generate_report": {
+        "description": "Render a run manifest (or skill context) as Markdown (dry-run unless output_path is set).",
+        "inputSchema": _schema(
+            {
+                "skill_id": _str_prop("Skill id."),
+                "run_dir": _opt_str_prop("Repo-relative run-manifest dir or file."),
+                "output_path": _opt_str_prop("Repo-relative write target (omit for dry-run)."),
+                "repo_path": _opt_str_prop("Repo root for confinement."),
+            },
+            required=["skill_id"],
+        ),
+        "handler": tool_generate_report,
+    },
+    "review_configuration": {
+        "description": "Deterministic structural review of a config file (read-only; YAML/JSON parse, secret scan with line numbers only).",
+        "inputSchema": _schema(
+            {
+                "skill_id": _str_prop("Skill id whose gates apply."),
+                "config_path": _str_prop("Repo-relative config file."),
+                "repo_path": _opt_str_prop("Repo root for confinement."),
+            },
+            required=["skill_id", "config_path"],
+        ),
+        "handler": tool_review_configuration,
+    },
+    "analyze_trace": {
+        "description": "Deterministic trace summary: CSV/TSV histograms and time-range, or log keyword counts (read-only, capped).",
+        "inputSchema": _schema(
+            {
+                "trace_path": _str_prop("Repo-relative trace file."),
+                "repo_path": _opt_str_prop("Repo root for confinement."),
+            },
+            required=["trace_path"],
+        ),
+        "handler": tool_analyze_trace,
+    },
+    "skill_pipeline": {
+        "description": "One-command skill pipeline (enrich->index->clients->validate); check-only unless apply=true.",
+        "inputSchema": _schema(
+            {
+                "check": {"type": "boolean", "description": "Verify only (default true)."},
+                "apply": {"type": "boolean", "description": "Write canonical generated files (default false)."},
+            },
+        ),
+        "handler": lambda args: tool_skill_pipeline(
+            {"check": not args.get("apply", False)}),
+    },
+    "link_skill": {
+        "description": "Edit the skill graph in catalog.yaml (single source); run skill_pipeline afterwards.",
+        "inputSchema": _schema(
+            {
+                "kind": _str_prop("Link kind: related_skills|extends|sub_skills|domain_overlays|platform_overlays."),
+                "skill_id": _str_prop("Skill id."),
+                "values": {"type": "array", "items": {"type": "string"},
+                           "description": "Target ids (at most one for extends)."},
+            },
+            required=["kind", "skill_id"],
+        ),
+        "handler": lambda args: axiom_sdk.link_skill(
+            args["kind"], args["skill_id"], args.get("values", [])),
     },
 }
 

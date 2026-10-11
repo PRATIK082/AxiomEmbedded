@@ -1,0 +1,18 @@
+# SPDX-License-Identifier: Apache-2.0
+# Self-handling gate: every commit re-verifies generated skill files.
+# Install once:  pip install pre-commit && pre-commit install
+repos:
+  - repo: local
+    hooks:
+      - id: skill-pipeline-check
+        name: axiom skill pipeline --check
+        entry: python scripts/skill_pipeline.py --check
+        language: system
+        pass_filenames: false
+        always_run: true
+      - id: skill-tests
+        name: axiom skill tests (fast subset)
+        entry: python -m pytest -q tests/test_skill_framework.py tests/test_skill_pipeline.py tests/test_skill_tools.py tests/test_install.py
+        language: system
+        pass_filenames: false
+        always_run: true

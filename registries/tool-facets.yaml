@@ -1,0 +1,68 @@
+# Tool facets: plug-and-play pack selection by user need.
+#
+# Categories: domain-specific (e.g. automotive diag), compute-specific
+# (ecu/mcu/soc/mpsoc), standard-specific (ISO 14229-1, AUTOSAR DEXT), and
+# generic platform tooling (domains/platforms [all]).
+# Rebuild the index after editing: python scripts/build_tool_index.py
+
+tools:
+  change-impact:
+    description: Impact analysis across artifacts and dependencies.
+    domains: [all]
+    platforms: [all]
+    standards: []
+  coverage-ingestor:
+    description: Ingests coverage reports into evidence.
+    domains: [all]
+    platforms: [all]
+    standards: []
+  dependency-analyzer:
+    description: Analyzes repository dependency graphs.
+    domains: [all]
+    platforms: [all]
+    standards: []
+  diag-extract-bridge:
+    description: Bridges external ARXML/ODX/CDD/XLSX extract packs to the canonical UDS test-spec.
+    domains: [automotive]
+    platforms: [mcu, mpu, soc, mpsoc, autosar-classic, autosar-adaptive]
+    standards: [ISO 14229-1, AUTOSAR DEXT]
+  diag-uds-testgen:
+    description: Generates full UDS positive/negative test and validation vectors from a canonical spec.
+    domains: [automotive]
+    platforms: [mcu, mpu, autosar-classic, autosar-adaptive]
+    standards: [ISO 14229-1]
+  documentation-generator:
+    description: Generates documents from interfaces/requirements.
+    domains: [all]
+    platforms: [all]
+    standards: []
+  report-generator:
+    description: Renders evidence and status reports.
+    domains: [all]
+    platforms: [all]
+    standards: []
+  repository-analyzer:
+    description: Structural analysis of repository trees.
+    domains: [all]
+    platforms: [all]
+    standards: []
+  source-parser:
+    description: Parses source files into structural facts.
+    domains: [all]
+    platforms: [all]
+    standards: []
+  static-analysis-aggregator:
+    description: Aggregates static-analysis findings into evidence.
+    domains: [all]
+    platforms: [all]
+    standards: []
+  test-generator:
+    description: Generates test skeletons from interfaces/requirements.
+    domains: [all]
+    platforms: [all]
+    standards: []
+  traceability-checker:
+    description: Checks configured artifact relationships and gaps.
+    domains: [all]
+    platforms: [all]
+    standards: []

@@ -1,5 +1,11 @@
 id: report-generator
 version: 1.0.0
-purpose: "report generator"
+purpose: report generator
 deterministic: true
 evidence: true
+facets:
+  domains:
+  - all
+  platforms:
+  - all
+  standards: []

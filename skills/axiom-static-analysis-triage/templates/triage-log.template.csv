@@ -1,0 +1,5 @@
+finding_id,file,line,rule,severity,bucket,disposition,rationale,owner,expiry,tracking_id
+# bucket: new | fixed | carried
+# disposition: fix | waive | false-positive | deferred
+# example:
+# F-0001,src/can.c,120,MISRA-C:17.7,required,new,fix,,,,

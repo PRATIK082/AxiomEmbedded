@@ -1,0 +1,21 @@
+id: interface-contract # local filename stem; copy per contract
+title: ""
+version: "1.0.0"
+status: draft # draft | proposed | binding | superseded
+parties:
+  producer: { owner: "" }
+  consumers: [{ owner: "" }]
+compatibility: backward-compatible-only # strict-semver | backward-compatible-only | frozen
+elements: []
+# each element:
+# - name: engine_speed
+#   kind: signal # signal | operation | api | diagnostic-port
+#   type: uint16
+#   unit: rpm
+#   range: [0, 8000]
+#   default: 0
+#   endianness: little # little | big | n/a
+#   timing: { period_ms: 10, stale_ms: 50 }
+#   on_error: use-default-and-flag-stale
+#   owner: ""
+changelog: []

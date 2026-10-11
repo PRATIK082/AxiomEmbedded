@@ -1,0 +1,13 @@
+# Axiom skill review checklist (template)
+# Copy to skills/<id>/checklists/review.yaml and fill gates.
+gates:
+  - id: scope
+    text: Scope, inputs, and prerequisites recorded
+  - id: method
+    text: Workflow steps executed in order with evidence
+  - id: validation
+    text: Schema/lint/consistency checks run and green
+  - id: traceability
+    text: Requirements-to-artifact links complete
+  - id: review
+    text: Human review done for safety/security-relevant output

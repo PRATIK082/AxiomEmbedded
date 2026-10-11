@@ -1,0 +1,13 @@
+gates:
+  - id: inventory
+    text: Scope covered; one row per item, no blame language
+  - id: scoring
+    text: Principal/interest/contagion/cost on every row
+  - id: ranking
+    text: Budget line drawn; slice fits capacity
+  - id: ownership
+    text: Owner + target release on every paydown item
+  - id: safety
+    text: Safety/security-adjacent items human-reviewed
+  - id: retirement
+    text: Retired rows carry fix + test evidence

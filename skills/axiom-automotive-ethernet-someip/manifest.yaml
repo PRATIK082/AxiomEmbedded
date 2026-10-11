@@ -1,0 +1,20 @@
+id: axiom-automotive-ethernet-someip
+version: 1.2.0
+contract_version: 1
+type: reusable-skill
+source_of_truth:
+  instructions: SKILL.md
+  contract: manifest.yaml
+facets:
+  domains:
+  - automotive
+  platforms:
+  - mpu
+  - autosar-adaptive
+standards:
+  - AUTOSAR SOME/IP
+  - IEEE 802.1 TSN
+axiom:
+  dotted_name: axiom.automotive.automotive_ethernet_someip
+  maturity: experimental
+  category: design

@@ -1,0 +1,19 @@
+id: axiom-diagnostics-doip
+version: 1.2.0
+contract_version: 1
+type: reusable-skill
+source_of_truth:
+  instructions: SKILL.md
+  contract: manifest.yaml
+facets:
+  domains:
+  - automotive
+  platforms:
+  - mpu
+  - autosar-adaptive
+standards:
+  - ISO 13400-2
+axiom:
+  dotted_name: axiom.automotive.diagnostics_doip
+  maturity: experimental
+  category: integration

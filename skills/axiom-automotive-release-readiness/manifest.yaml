@@ -1,0 +1,19 @@
+id: axiom-automotive-release-readiness
+version: 1.2.0
+contract_version: 1
+type: reusable-skill
+source_of_truth:
+  instructions: SKILL.md
+  contract: manifest.yaml
+facets:
+  domains:
+  - automotive
+  platforms:
+  - mcu
+  - mpu
+standards:
+  - Automotive SPICE
+axiom:
+  dotted_name: axiom.automotive.automotive_release_readiness
+  maturity: experimental
+  category: release

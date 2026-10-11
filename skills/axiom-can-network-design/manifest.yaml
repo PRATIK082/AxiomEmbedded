@@ -1,0 +1,19 @@
+id: axiom-can-network-design
+version: 1.2.0
+contract_version: 1
+type: reusable-skill
+source_of_truth:
+  instructions: SKILL.md
+  contract: manifest.yaml
+facets:
+  domains:
+  - automotive
+  platforms:
+  - mcu
+  - autosar-classic
+standards:
+  - ISO 11898
+axiom:
+  dotted_name: axiom.automotive.can_network_design
+  maturity: beta
+  category: design

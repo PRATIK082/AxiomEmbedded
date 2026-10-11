@@ -1,0 +1,13 @@
+gates:
+  - id: tiers
+    text: Push/nightly/release tiers defined with owners
+  - id: hermetic
+    text: Toolchains pinned; dependencies hashed or vendored
+  - id: gates-mapped
+    text: Every merge/release gate maps to a job
+  - id: secrets
+    text: Secret names only; no values in files
+  - id: quarantine
+    text: Flaky-test quarantine process with owner + expiry
+  - id: evidence
+    text: Evidence artifacts feed release-readiness gate

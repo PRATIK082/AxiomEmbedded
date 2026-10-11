@@ -1,0 +1,13 @@
+gates:
+  - id: reproduction
+    text: Checker version pinned; findings reproducible
+  - id: classification
+    text: Classifier run; new/fixed/carried diff recorded
+  - id: disposition
+    text: 100% of new findings dispositioned, none silent
+  - id: waivers
+    text: Every waiver has owner + expiry; stale waivers re-opened
+  - id: verdict
+    text: Gate verdict emitted and honored
+  - id: review
+    text: Safety waivers carry dated human sign-off

@@ -1,5 +1,11 @@
 id: coverage-ingestor
 version: 1.0.0
-purpose: "coverage ingestor"
+purpose: coverage ingestor
 deterministic: true
 evidence: true
+facets:
+  domains:
+  - all
+  platforms:
+  - all
+  standards: []

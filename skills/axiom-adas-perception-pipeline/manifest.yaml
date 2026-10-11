@@ -1,0 +1,19 @@
+id: axiom-adas-perception-pipeline
+version: 1.2.0
+contract_version: 1
+type: reusable-skill
+source_of_truth:
+  instructions: SKILL.md
+  contract: manifest.yaml
+facets:
+  domains:
+  - automotive
+  platforms:
+  - mpu
+  - soc
+standards:
+  - ISO 26262:2018
+axiom:
+  dotted_name: axiom.automotive.adas_perception_pipeline
+  maturity: experimental
+  category: design

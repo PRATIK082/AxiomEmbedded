@@ -1,0 +1,53 @@
+{
+  "schema_version": "1.0",
+  "tools": [
+    {
+      "id": "change-impact",
+      "path": "tools/change-impact"
+    },
+    {
+      "id": "coverage-ingestor",
+      "path": "tools/coverage-ingestor"
+    },
+    {
+      "id": "dependency-analyzer",
+      "path": "tools/dependency-analyzer"
+    },
+    {
+      "id": "diag-extract-bridge",
+      "path": "tools/diag-extract-bridge"
+    },
+    {
+      "id": "diag-uds-testgen",
+      "path": "tools/diag-uds-testgen"
+    },
+    {
+      "id": "documentation-generator",
+      "path": "tools/documentation-generator"
+    },
+    {
+      "id": "report-generator",
+      "path": "tools/report-generator"
+    },
+    {
+      "id": "repository-analyzer",
+      "path": "tools/repository-analyzer"
+    },
+    {
+      "id": "source-parser",
+      "path": "tools/source-parser"
+    },
+    {
+      "id": "static-analysis-aggregator",
+      "path": "tools/static-analysis-aggregator"
+    },
+    {
+      "id": "test-generator",
+      "path": "tools/test-generator"
+    },
+    {
+      "id": "traceability-checker",
+      "path": "tools/traceability-checker"
+    }
+  ]
+}

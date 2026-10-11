@@ -1,5 +1,11 @@
 id: source-parser
 version: 1.0.0
-purpose: "source parser"
+purpose: source parser
 deterministic: true
 evidence: true
+facets:
+  domains:
+  - all
+  platforms:
+  - all
+  standards: []
