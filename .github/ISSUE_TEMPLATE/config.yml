@@ -1,0 +1,8 @@
+blank_issues_enabled: true
+contact_links:
+  - name: AxiomEmbedded community roadmap and prioritization
+    url: https://github.com/PRATIK082/AxiomEmbedded/issues/5
+    about: Share the domain, engineering workflow, skill, or tool integration you want to see next.
+  - name: Read the contribution guide
+    url: https://github.com/PRATIK082/AxiomEmbedded/blob/main/CONTRIBUTING.md
+    about: Contribution practices, deterministic validation, and generated-file rules.
