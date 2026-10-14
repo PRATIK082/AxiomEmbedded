@@ -1,0 +1,9 @@
+# EV-005: MCP compat probe stays green (registry submission gate).
+id: EV-005
+agent: null
+domain: null
+platform: null
+prompt: Run `axiom mcp --check` and expect status ok with 30+ tools.
+expect:
+  mcp_status: ok
+  min_tool_count: 30

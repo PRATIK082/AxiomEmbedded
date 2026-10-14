@@ -26,9 +26,9 @@
       ],
       "platforms": [
         "mcu",
+        "mpsoc",
         "mpu",
-        "soc",
-        "mpsoc"
+        "soc"
       ]
     },
     "software-architecture": {
@@ -196,10 +196,10 @@
     "safety": {
       "description": "Functional-safety lifecycle with ASIL/SIL/DAL mapping, HARA chains, and sign-off gates. Use for safety goals, integrity levels, or safety cases.",
       "domains": [
-        "generic-embedded",
-        "automotive",
         "aerospace",
+        "automotive",
         "defense",
+        "generic-embedded",
         "industrial",
         "robotics"
       ],
@@ -228,10 +228,10 @@
     "fault-injection": {
       "description": "FMEA-derived fault lists, SWIFI/HWIFI levels, and SPFM/LFM accounting. Use when proving safe-state behavior under faults.",
       "domains": [
-        "generic-embedded",
-        "automotive",
         "aerospace",
+        "automotive",
         "defense",
+        "generic-embedded",
         "industrial"
       ],
       "platforms": [
@@ -275,8 +275,8 @@
         "all"
       ],
       "platforms": [
-        "mcu",
         "bare-metal",
+        "mcu",
         "rtos"
       ]
     },
@@ -286,9 +286,9 @@
         "all"
       ],
       "platforms": [
+        "bare-metal",
         "mcu",
         "mpu",
-        "bare-metal",
         "rtos"
       ]
     },
@@ -298,26 +298,26 @@
         "all"
       ],
       "platforms": [
+        "bare-metal",
         "mcu",
         "mpu",
-        "bare-metal",
         "rtos"
       ]
     },
     "embedded-linux": {
       "description": "Yocto LTS policy, BSP structure, verified boot, OTA, hardening. Use when shipping Linux on MPU/SoC products.",
       "domains": [
-        "generic-embedded",
         "automotive",
+        "generic-embedded",
         "industrial",
         "iot",
         "robotics"
       ],
       "platforms": [
-        "mpu",
-        "soc",
+        "linux",
         "mpsoc",
-        "linux"
+        "mpu",
+        "soc"
       ]
     },
     "autosar": {
@@ -326,105 +326,105 @@
         "automotive"
       ],
       "platforms": [
-        "mcu",
-        "mpu",
+        "autosar-adaptive",
         "autosar-classic",
-        "autosar-adaptive"
+        "mcu",
+        "mpu"
       ]
     },
     "robotics": {
       "description": "ROS 2 distro policy, interface-first nodes, real-time paths, simulation-first testing. Use when building robot behaviors on embedded compute.",
       "domains": [
-        "robotics",
-        "industrial"
+        "industrial",
+        "robotics"
       ],
       "platforms": [
+        "linux",
         "mpu",
-        "soc",
-        "linux"
+        "soc"
       ]
     },
     "edge-ai": {
       "description": "Model quantization, runtime/delegate selection, memory/latency/power budgets. Use when deploying ML inference on constrained targets.",
       "domains": [
-        "generic-embedded",
         "automotive",
+        "generic-embedded",
         "industrial",
         "iot",
         "robotics"
       ],
       "platforms": [
         "mcu",
+        "mpsoc",
         "mpu",
-        "soc",
-        "mpsoc"
+        "soc"
       ]
     },
     "ai-validation": {
       "description": "ODD discipline, dataset independence, statistical acceptance, drift monitoring. Use when assuring ML components or arguing AI safety.",
       "domains": [
-        "generic-embedded",
         "automotive",
+        "generic-embedded",
         "industrial",
         "iot",
         "robotics"
       ],
       "platforms": [
         "mcu",
+        "mpsoc",
         "mpu",
-        "soc",
-        "mpsoc"
+        "soc"
       ]
     },
     "mcu": {
       "description": "MCU firmware engineering - core selection, startup, MPU/TrustZone, HAL, RTOS choice. Use for bare-metal or RTOS firmware on Cortex-M/RISC-V.",
       "domains": [
-        "generic-embedded",
         "automotive",
+        "generic-embedded",
         "industrial",
         "iot",
         "robotics"
       ],
       "platforms": [
-        "mcu",
         "bare-metal",
+        "mcu",
         "rtos"
       ]
     },
     "mpu": {
       "description": "MPU-based design - selection from measured load, ECC/DDR, power sequencing, debug-by-design. Use when moving to application processors.",
       "domains": [
-        "generic-embedded",
         "automotive",
+        "generic-embedded",
         "industrial",
         "iot",
         "robotics"
       ],
       "platforms": [
-        "mpu",
-        "linux"
+        "linux",
+        "mpu"
       ]
     },
     "soc": {
       "description": "Heterogeneous SoC allocation across A/R cores, NPUs, safety islands, power/thermal. Use when architecting multi-core SoC products.",
       "domains": [
-        "generic-embedded",
         "automotive",
+        "generic-embedded",
         "industrial",
         "robotics"
       ],
       "platforms": [
-        "soc",
-        "mpsoc"
+        "mpsoc",
+        "soc"
       ]
     },
     "mpsoc": {
       "description": "MPSoC NoC QoS, coherency domains, PL-as-hardware timing closure, cross-die safety. Use for FPGA-SoC or multi-die platforms.",
       "domains": [
-        "generic-embedded",
-        "automotive",
         "aerospace",
+        "automotive",
         "defense",
+        "generic-embedded",
         "industrial"
       ],
       "platforms": [
@@ -449,8 +449,8 @@
         "all"
       ],
       "platforms": [
-        "mcu",
-        "bare-metal"
+        "bare-metal",
+        "mcu"
       ]
     },
     "build-system": {
@@ -487,9 +487,9 @@
       ],
       "platforms": [
         "mcu",
+        "mpsoc",
         "mpu",
-        "soc",
-        "mpsoc"
+        "soc"
       ]
     },
     "project-audit": {
@@ -507,10 +507,10 @@
         "automotive"
       ],
       "platforms": [
-        "mpu",
-        "soc",
+        "autosar-adaptive",
         "mpsoc",
-        "autosar-adaptive"
+        "mpu",
+        "soc"
       ]
     },
     "automotive-body": {
@@ -519,8 +519,8 @@
         "automotive"
       ],
       "platforms": [
-        "mcu",
-        "autosar-classic"
+        "autosar-classic",
+        "mcu"
       ]
     },
     "automotive-coding": {
@@ -529,11 +529,11 @@
         "automotive"
       ],
       "platforms": [
+        "autosar-adaptive",
+        "autosar-classic",
+        "bare-metal",
         "mcu",
         "mpu",
-        "autosar-classic",
-        "autosar-adaptive",
-        "bare-metal",
         "rtos"
       ]
     },
@@ -543,9 +543,9 @@
         "automotive"
       ],
       "platforms": [
-        "soc",
         "mpsoc",
-        "mpu"
+        "mpu",
+        "soc"
       ]
     },
     "automotive-cybersecurity": {
@@ -563,10 +563,10 @@
         "automotive"
       ],
       "platforms": [
-        "mcu",
-        "mpu",
+        "autosar-adaptive",
         "autosar-classic",
-        "autosar-adaptive"
+        "mcu",
+        "mpu"
       ]
     },
     "automotive-middleware": {
@@ -575,10 +575,10 @@
         "automotive"
       ],
       "platforms": [
-        "mpu",
-        "soc",
+        "autosar-adaptive",
         "linux",
-        "autosar-adaptive"
+        "mpu",
+        "soc"
       ]
     },
     "automotive-networks": {
@@ -587,10 +587,10 @@
         "automotive"
       ],
       "platforms": [
-        "mcu",
-        "mpu",
+        "autosar-adaptive",
         "autosar-classic",
-        "autosar-adaptive"
+        "mcu",
+        "mpu"
       ]
     },
     "automotive-ota": {
@@ -599,10 +599,10 @@
         "automotive"
       ],
       "platforms": [
-        "mcu",
-        "mpu",
+        "autosar-adaptive",
         "autosar-classic",
-        "autosar-adaptive"
+        "mcu",
+        "mpu"
       ]
     },
     "automotive-spice": {
@@ -629,8 +629,8 @@
         "automotive"
       ],
       "platforms": [
-        "mcu",
-        "autosar-classic"
+        "autosar-classic",
+        "mcu"
       ]
     },
     "axiom-autosar-classic-bsw-integration": {
@@ -639,8 +639,8 @@
         "automotive"
       ],
       "platforms": [
-        "mcu",
-        "autosar-classic"
+        "autosar-classic",
+        "mcu"
       ]
     },
     "axiom-autosar-rte-design": {
@@ -649,8 +649,8 @@
         "automotive"
       ],
       "platforms": [
-        "mcu",
-        "autosar-classic"
+        "autosar-classic",
+        "mcu"
       ]
     },
     "axiom-autosar-os-config": {
@@ -659,8 +659,8 @@
         "automotive"
       ],
       "platforms": [
-        "mcu",
-        "autosar-classic"
+        "autosar-classic",
+        "mcu"
       ]
     },
     "axiom-autosar-com-stack": {
@@ -669,8 +669,8 @@
         "automotive"
       ],
       "platforms": [
-        "mcu",
-        "autosar-classic"
+        "autosar-classic",
+        "mcu"
       ]
     },
     "axiom-autosar-adaptive-deployment": {
@@ -679,8 +679,8 @@
         "automotive"
       ],
       "platforms": [
-        "mpu",
-        "autosar-adaptive"
+        "autosar-adaptive",
+        "mpu"
       ]
     },
     "axiom-can-network-design": {
@@ -689,8 +689,8 @@
         "automotive"
       ],
       "platforms": [
-        "mcu",
-        "autosar-classic"
+        "autosar-classic",
+        "mcu"
       ]
     },
     "axiom-can-stack-integration": {
@@ -699,8 +699,8 @@
         "automotive"
       ],
       "platforms": [
-        "mcu",
-        "autosar-classic"
+        "autosar-classic",
+        "mcu"
       ]
     },
     "axiom-automotive-ethernet-someip": {
@@ -709,8 +709,8 @@
         "automotive"
       ],
       "platforms": [
-        "mpu",
-        "autosar-adaptive"
+        "autosar-adaptive",
+        "mpu"
       ]
     },
     "axiom-diagnostics-uds": {
@@ -719,10 +719,10 @@
         "automotive"
       ],
       "platforms": [
-        "mcu",
-        "mpu",
+        "autosar-adaptive",
         "autosar-classic",
-        "autosar-adaptive"
+        "mcu",
+        "mpu"
       ]
     },
     "axiom-diagnostics-doip": {
@@ -731,8 +731,8 @@
         "automotive"
       ],
       "platforms": [
-        "mpu",
-        "autosar-adaptive"
+        "autosar-adaptive",
+        "mpu"
       ]
     },
     "axiom-vehicle-cybersecurity": {
@@ -829,8 +829,8 @@
         "all"
       ],
       "platforms": [
-        "mcu",
-        "bare-metal"
+        "bare-metal",
+        "mcu"
       ]
     },
     "axiom-rtos-architecture": {
@@ -906,7 +906,8 @@
     "axiom-aerospace-defense-safety-review": {
       "description": "Reviews safety-critical embedded designs against DO-178C/DO-254-style objectives and evidence expectations.\n",
       "domains": [
-        "aerospace"
+        "aerospace",
+        "defense"
       ],
       "platforms": [
         "mcu",
@@ -1076,6 +1077,7 @@
       "soc"
     ],
     "defense": [
+      "axiom-aerospace-defense-safety-review",
       "fault-injection",
       "mpsoc",
       "safety"
