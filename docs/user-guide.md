@@ -15,7 +15,10 @@ your own projects**.
 6. [Interfaces: REST, MCP, A2A, Python SDK](#6-interfaces-rest-mcp-a2a-python-sdk)
 7. [AI-client setup (Claude, opencode, Copilot, Cursor, …)](#7-ai-client-setup)
 8. [Interface × client matrix](#8-interface--client-matrix)
-9. [Troubleshooting](#9-troubleshooting)
+9. [Domain-aware agents: how they work and why](#9-domain-aware-agents-how-they-work-and-why)
+10. [Self-check, toolpacks and eval (CLI)](#10-self-check-toolpacks-and-eval-cli)
+11. [Using AxiomEmbedded in a UI](#11-using-axiomembedded-in-a-ui)
+12. [Troubleshooting](#12-troubleshooting)
 
 ---
 
@@ -528,7 +531,93 @@ Which interface to use with which client (full table: `docs/client-matrix.md`):
 
 ---
 
-## 9. Troubleshooting
+## 9. Domain-aware agents: how they work and why
+
+### What it is
+
+Every specialist agent (`agents/*/AGENT.md` — `code-review`, `safety`,
+`security`, `implementation`, … 29 total, Tab-selectable in opencode/Claude)
+keeps a **fixed identity** but adapts its **skill slice and checklists** to
+your project. A `code-review` stays a `code-review`; on an automotive project
+it reviews as automotive (MISRA + ISO 26262 + ASPICE), on a defense project as
+defense (DO-178C-informed + IEC 61508 + hardening).
+
+### How it works (Step 0, every run)
+
+Before any analysis each agent resolves your project context, in this order:
+
+1. **Explicit file (wins):** `./axiom.project.yaml` or `./.axiom/project.yaml`
+   — copy `axiom.project.yaml.example` and set `domain/platform/os/profile/standards`.
+2. **Repo signals:** file names + README scanned for domain markers
+   (`arxml/dbc` → automotive, `do-178/arinc` → aerospace, `plc/modbus` → industrial).
+3. **Prompt keywords:** your request text (`ASIL-D ECU…` → automotive, `ROS2 nav2…` → robotics, … all 8 domains).
+4. **Fallback:** `generic-embedded` — and the agent **asks you a clarification
+   question** instead of guessing silently.
+
+Project signals and prompt signals are **unioned** (both skill slices load,
+core first, capped at 8 primary files so context stays small). The full
+agent × domain cross-map is generated at
+`registries/agent-domain-matrix.json` from the single source
+`configs/domain-routing.yaml`.
+
+### Value add — why use it
+
+- **No manual skill hunting:** Tab-select any agent; the right domain skills load themselves.
+- **Same agent, correct behavior:** review/analysis checklists match your industry (auto vs defense vs industrial vs robotics…).
+- **Token-efficient:** core skill + priority skills load first; the rest stays deferred (max 8 files).
+- **Never silently wrong:** low-confidence or conflicting signals produce one clarification question, not a wrong review.
+- **Auditable verdicts:** safety/security agents must cite evidence or state what is missing — never a bare compliance claim.
+
+### How it helps you (list)
+
+| You are… | It does for you |
+|---|---|
+| Automotive ECU developer | UDS/DoIP, CAN, AUTOSAR, functional-safety checklists auto-loaded |
+| Defense/aerospace engineer | Shared aerospace/defense safety review + hardening checks |
+| Industrial controls engineer | PLC/fieldbus, IEC 61508/62443 context |
+| Robotics developer | ROS 2 integration review patterns |
+| BMS/energy developer | BMS design + diagnostics + HIL planning |
+| New / unknown codebase | Brownfield recovery + fallback clarification question |
+
+Deep dive: `docs/agents/domain-aware-execution.md`. Cross-map source: `configs/domain-routing.yaml`.
+
+---
+
+## 10. Self-check, toolpacks and eval (CLI)
+
+```bash
+# Is my MCP setup compatible with my client? (handshake + tool schemas)
+axiom mcp --check
+
+# Which external tools back my packs, and are they installed?
+axiom packs --domain automotive --platform mcu        # includes `availability:`
+# Backers are WRAPPED, never reimplemented: Cppcheck, Clang-Tidy,
+# Unity/CMock/Ceedling, gcovr/lcov, Robot Framework, Renode, QEMU, OpenOCD.
+
+# Run the built-in routing regression set (no model calls, deterministic)
+axiom eval --list
+axiom eval --grade
+```
+
+Strategy behind this: `docs/ecosystem/standalone-independence.md`. Install options: `docs/ecosystem/install.md`.
+
+---
+
+## 11. Using AxiomEmbedded in a UI
+
+| UI | How | Notes |
+|---|---|---|
+| **opencode TUI** | `axiom oc tui` (isolated config) or Tab-select agents in your own opencode session | Agents are `mode: subagent`; Step 0 runs inside every agent |
+| **Claude Code / Codex / Cursor / VS Code** | Add the MCP server entry (`.mcp.json` shape) or copy the skill slice | Verify first with `axiom mcp --check` |
+| **Web dashboard** | `axiom serve --port 8765` → visit http://127.0.0.1:8765 | See §4 Dashboard UI |
+| **Docs site** | `mkdocs serve` (Material theme, deploys to GitHub Pages) | Entry page: `docs/index.md` |
+
+Slash commands in opencode: `/axiom-engage`, `/axiom-plan`, `/axiom-fix`,
+`/axiom-feature`, `/axiom-impact`, `/axiom-context`, `/axiom-status`, `/axiom-research`.
+
+---
+
+## 12. Troubleshooting
 
 | Symptom | Fix |
 |---------|-----|
