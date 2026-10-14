@@ -13,6 +13,26 @@
     "fallback_domain": "generic-embedded",
     "fallback_profile": "generic-embedded"
   },
+  "runtime": {
+    "ask_threshold": 0.5,
+    "prompt_overrides_weak_repo_signal": true,
+    "clarification_question": "I detected conflicting project signals (repo={repo_domain}, prompt={prompt_domain}). Which domain should I use for this run? Reply: {candidates}.",
+    "token_budget": {
+      "primary_cap": 8,
+      "group_cap": 12,
+      "max_context_files": 8
+    },
+    "production_output_contract": [
+      "verdict",
+      "domain_used",
+      "skills_loaded",
+      "skills_deferred",
+      "standards_applied",
+      "evidence_refs",
+      "approval_gate",
+      "followups"
+    ]
+  },
   "matrix": {
     "ai-validation": {
       "automotive": {
@@ -10290,8 +10310,9 @@
     },
     "skill-implementer": {
       "automotive": {
-        "core_skill": null,
+        "core_skill": "implementation",
         "skills": [
+          "implementation",
           "axiom-functional-safety",
           "axiom-vehicle-cybersecurity",
           "axiom-diagnostics-uds",
@@ -10340,7 +10361,7 @@
           "traceability",
           "validation"
         ],
-        "skill_count": 47,
+        "skill_count": 48,
         "platforms": [
           "mcu",
           "autosar-classic",
@@ -10362,14 +10383,78 @@
         "notes": ""
       },
       "defense": {
-        "core_skill": null,
+        "core_skill": "implementation",
         "skills": [
+          "implementation",
           "axiom-aerospace-defense-safety-review",
           "safety",
           "security",
           "fault-injection",
           "code-review",
           "static-analysis",
+          "ai-validation",
+          "architecture",
+          "axiom-architecture-decision-records",
+          "axiom-embedded-firmware-bringup",
+          "axiom-hil-test-planning",
+          "axiom-interface-contract-design",
+          "axiom-memory-and-performance-analysis",
+          "axiom-platform-architecture-review",
+          "axiom-rtos-architecture",
+          "axiom-static-analysis-triage",
+          "axiom-test-automation",
+          "axiom-trace-analysis",
+          "bare-metal",
+          "bootloader",
+          "coverage",
+          "debugging",
+          "drivers",
+          "edge-ai",
+          "embedded-c",
+          "embedded-cpp",
+          "embedded-linux",
+          "hardware-architecture",
+          "hardware-bringup",
+          "integration-test",
+          "mcu",
+          "mpsoc",
+          "mpu",
+          "performance",
+          "rtos",
+          "rust-embedded",
+          "simulation",
+          "soc",
+          "software-architecture",
+          "system-test",
+          "test-automation",
+          "unit-test"
+        ],
+        "skill_count": 43,
+        "platforms": [
+          "mcu",
+          "mpu",
+          "rtos"
+        ],
+        "standards": [
+          "iec-61508",
+          "cert-c",
+          "misra-c",
+          "do-178c"
+        ],
+        "profiles": [
+          "defense-embedded"
+        ],
+        "notes": "defense reuses shared axiom-aerospace-defense-safety-review; no defense-only duplicate by design."
+      },
+      "aerospace": {
+        "core_skill": "implementation",
+        "skills": [
+          "implementation",
+          "axiom-aerospace-defense-safety-review",
+          "safety",
+          "security",
+          "fault-injection",
+          "code-review",
           "ai-validation",
           "architecture",
           "axiom-architecture-decision-records",
@@ -10411,68 +10496,6 @@
         "platforms": [
           "mcu",
           "mpu",
-          "rtos"
-        ],
-        "standards": [
-          "iec-61508",
-          "cert-c",
-          "misra-c",
-          "do-178c"
-        ],
-        "profiles": [
-          "defense-embedded"
-        ],
-        "notes": "defense reuses shared axiom-aerospace-defense-safety-review; no defense-only duplicate by design."
-      },
-      "aerospace": {
-        "core_skill": null,
-        "skills": [
-          "axiom-aerospace-defense-safety-review",
-          "safety",
-          "security",
-          "fault-injection",
-          "code-review",
-          "ai-validation",
-          "architecture",
-          "axiom-architecture-decision-records",
-          "axiom-embedded-firmware-bringup",
-          "axiom-hil-test-planning",
-          "axiom-interface-contract-design",
-          "axiom-memory-and-performance-analysis",
-          "axiom-platform-architecture-review",
-          "axiom-rtos-architecture",
-          "axiom-static-analysis-triage",
-          "axiom-test-automation",
-          "axiom-trace-analysis",
-          "bare-metal",
-          "bootloader",
-          "coverage",
-          "debugging",
-          "drivers",
-          "edge-ai",
-          "embedded-c",
-          "embedded-cpp",
-          "embedded-linux",
-          "hardware-architecture",
-          "hardware-bringup",
-          "integration-test",
-          "mcu",
-          "mpsoc",
-          "mpu",
-          "performance",
-          "rtos",
-          "rust-embedded",
-          "simulation",
-          "soc",
-          "software-architecture",
-          "system-test",
-          "test-automation",
-          "unit-test"
-        ],
-        "skill_count": 41,
-        "platforms": [
-          "mcu",
-          "mpu",
           "soc",
           "rtos"
         ],
@@ -10490,8 +10513,9 @@
         "notes": "defense reuses shared axiom-aerospace-defense-safety-review; no defense-only duplicate by design."
       },
       "industrial": {
-        "core_skill": null,
+        "core_skill": "implementation",
         "skills": [
+          "implementation",
           "axiom-industrial-control-review",
           "safety",
           "security",
@@ -10529,7 +10553,7 @@
           "test-automation",
           "unit-test"
         ],
-        "skill_count": 36,
+        "skill_count": 37,
         "platforms": [
           "mcu",
           "mpu",
@@ -10547,8 +10571,9 @@
         "notes": ""
       },
       "robotics": {
-        "core_skill": null,
+        "core_skill": "implementation",
         "skills": [
+          "implementation",
           "axiom-robotics-system-integration",
           "safety",
           "code-review",
@@ -10586,7 +10611,7 @@
           "test-automation",
           "unit-test"
         ],
-        "skill_count": 36,
+        "skill_count": 37,
         "platforms": [
           "mpu",
           "soc",
@@ -10603,8 +10628,9 @@
         "notes": ""
       },
       "energy": {
-        "core_skill": null,
+        "core_skill": "implementation",
         "skills": [
+          "implementation",
           "axiom-bms-design",
           "axiom-bms-diagnostics",
           "safety",
@@ -10642,7 +10668,7 @@
           "test-automation",
           "unit-test"
         ],
-        "skill_count": 36,
+        "skill_count": 37,
         "platforms": [
           "mcu",
           "mpu"
@@ -10657,11 +10683,11 @@
         "notes": ""
       },
       "generic-embedded": {
-        "core_skill": null,
+        "core_skill": "implementation",
         "skills": [
+          "implementation",
           "code-review",
           "static-analysis",
-          "implementation",
           "mcu",
           "rtos",
           "ai-validation",
@@ -10720,8 +10746,9 @@
         "notes": ""
       },
       "iot": {
-        "core_skill": null,
+        "core_skill": "implementation",
         "skills": [
+          "implementation",
           "security",
           "embedded-linux",
           "code-review",
@@ -10757,7 +10784,7 @@
           "test-automation",
           "unit-test"
         ],
-        "skill_count": 34,
+        "skill_count": 35,
         "platforms": [
           "mcu",
           "mpu",
@@ -10775,8 +10802,9 @@
     },
     "skill-orchestrator": {
       "automotive": {
-        "core_skill": null,
+        "core_skill": "feature-development",
         "skills": [
+          "feature-development",
           "axiom-functional-safety",
           "axiom-vehicle-cybersecurity",
           "axiom-diagnostics-uds",
@@ -10825,7 +10853,7 @@
           "traceability",
           "validation"
         ],
-        "skill_count": 47,
+        "skill_count": 48,
         "platforms": [
           "mcu",
           "autosar-classic",
@@ -10847,14 +10875,78 @@
         "notes": ""
       },
       "defense": {
-        "core_skill": null,
+        "core_skill": "feature-development",
         "skills": [
+          "feature-development",
           "axiom-aerospace-defense-safety-review",
           "safety",
           "security",
           "fault-injection",
           "code-review",
           "static-analysis",
+          "ai-validation",
+          "architecture",
+          "axiom-architecture-decision-records",
+          "axiom-embedded-firmware-bringup",
+          "axiom-hil-test-planning",
+          "axiom-interface-contract-design",
+          "axiom-memory-and-performance-analysis",
+          "axiom-platform-architecture-review",
+          "axiom-rtos-architecture",
+          "axiom-static-analysis-triage",
+          "axiom-test-automation",
+          "axiom-trace-analysis",
+          "bare-metal",
+          "bootloader",
+          "coverage",
+          "debugging",
+          "drivers",
+          "edge-ai",
+          "embedded-c",
+          "embedded-cpp",
+          "embedded-linux",
+          "hardware-architecture",
+          "hardware-bringup",
+          "integration-test",
+          "mcu",
+          "mpsoc",
+          "mpu",
+          "performance",
+          "rtos",
+          "rust-embedded",
+          "simulation",
+          "soc",
+          "software-architecture",
+          "system-test",
+          "test-automation",
+          "unit-test"
+        ],
+        "skill_count": 43,
+        "platforms": [
+          "mcu",
+          "mpu",
+          "rtos"
+        ],
+        "standards": [
+          "iec-61508",
+          "cert-c",
+          "misra-c",
+          "do-178c"
+        ],
+        "profiles": [
+          "defense-embedded"
+        ],
+        "notes": "defense reuses shared axiom-aerospace-defense-safety-review; no defense-only duplicate by design."
+      },
+      "aerospace": {
+        "core_skill": "feature-development",
+        "skills": [
+          "feature-development",
+          "axiom-aerospace-defense-safety-review",
+          "safety",
+          "security",
+          "fault-injection",
+          "code-review",
           "ai-validation",
           "architecture",
           "axiom-architecture-decision-records",
@@ -10896,68 +10988,6 @@
         "platforms": [
           "mcu",
           "mpu",
-          "rtos"
-        ],
-        "standards": [
-          "iec-61508",
-          "cert-c",
-          "misra-c",
-          "do-178c"
-        ],
-        "profiles": [
-          "defense-embedded"
-        ],
-        "notes": "defense reuses shared axiom-aerospace-defense-safety-review; no defense-only duplicate by design."
-      },
-      "aerospace": {
-        "core_skill": null,
-        "skills": [
-          "axiom-aerospace-defense-safety-review",
-          "safety",
-          "security",
-          "fault-injection",
-          "code-review",
-          "ai-validation",
-          "architecture",
-          "axiom-architecture-decision-records",
-          "axiom-embedded-firmware-bringup",
-          "axiom-hil-test-planning",
-          "axiom-interface-contract-design",
-          "axiom-memory-and-performance-analysis",
-          "axiom-platform-architecture-review",
-          "axiom-rtos-architecture",
-          "axiom-static-analysis-triage",
-          "axiom-test-automation",
-          "axiom-trace-analysis",
-          "bare-metal",
-          "bootloader",
-          "coverage",
-          "debugging",
-          "drivers",
-          "edge-ai",
-          "embedded-c",
-          "embedded-cpp",
-          "embedded-linux",
-          "hardware-architecture",
-          "hardware-bringup",
-          "integration-test",
-          "mcu",
-          "mpsoc",
-          "mpu",
-          "performance",
-          "rtos",
-          "rust-embedded",
-          "simulation",
-          "soc",
-          "software-architecture",
-          "system-test",
-          "test-automation",
-          "unit-test"
-        ],
-        "skill_count": 41,
-        "platforms": [
-          "mcu",
-          "mpu",
           "soc",
           "rtos"
         ],
@@ -10975,8 +11005,9 @@
         "notes": "defense reuses shared axiom-aerospace-defense-safety-review; no defense-only duplicate by design."
       },
       "industrial": {
-        "core_skill": null,
+        "core_skill": "feature-development",
         "skills": [
+          "feature-development",
           "axiom-industrial-control-review",
           "safety",
           "security",
@@ -11014,7 +11045,7 @@
           "test-automation",
           "unit-test"
         ],
-        "skill_count": 36,
+        "skill_count": 37,
         "platforms": [
           "mcu",
           "mpu",
@@ -11032,8 +11063,9 @@
         "notes": ""
       },
       "robotics": {
-        "core_skill": null,
+        "core_skill": "feature-development",
         "skills": [
+          "feature-development",
           "axiom-robotics-system-integration",
           "safety",
           "code-review",
@@ -11071,7 +11103,7 @@
           "test-automation",
           "unit-test"
         ],
-        "skill_count": 36,
+        "skill_count": 37,
         "platforms": [
           "mpu",
           "soc",
@@ -11088,8 +11120,9 @@
         "notes": ""
       },
       "energy": {
-        "core_skill": null,
+        "core_skill": "feature-development",
         "skills": [
+          "feature-development",
           "axiom-bms-design",
           "axiom-bms-diagnostics",
           "safety",
@@ -11127,7 +11160,7 @@
           "test-automation",
           "unit-test"
         ],
-        "skill_count": 36,
+        "skill_count": 37,
         "platforms": [
           "mcu",
           "mpu"
@@ -11142,8 +11175,9 @@
         "notes": ""
       },
       "generic-embedded": {
-        "core_skill": null,
+        "core_skill": "feature-development",
         "skills": [
+          "feature-development",
           "code-review",
           "static-analysis",
           "implementation",
@@ -11174,7 +11208,6 @@
           "embedded-cpp",
           "embedded-linux",
           "fault-injection",
-          "feature-development",
           "hardware-architecture",
           "hardware-bringup",
           "integration-test",
@@ -11205,8 +11238,9 @@
         "notes": ""
       },
       "iot": {
-        "core_skill": null,
+        "core_skill": "feature-development",
         "skills": [
+          "feature-development",
           "security",
           "embedded-linux",
           "code-review",
@@ -11242,7 +11276,7 @@
           "test-automation",
           "unit-test"
         ],
-        "skill_count": 34,
+        "skill_count": 35,
         "platforms": [
           "mcu",
           "mpu",
@@ -11260,8 +11294,9 @@
     },
     "skill-researcher": {
       "automotive": {
-        "core_skill": null,
+        "core_skill": "documentation",
         "skills": [
+          "documentation",
           "axiom-functional-safety",
           "axiom-vehicle-cybersecurity",
           "axiom-diagnostics-uds",
@@ -11300,7 +11335,6 @@
           "axiom-zonal-architecture",
           "change-impact",
           "configuration-management",
-          "documentation",
           "evidence",
           "legacy-recovery",
           "project-audit",
@@ -11332,8 +11366,9 @@
         "notes": ""
       },
       "defense": {
-        "core_skill": null,
+        "core_skill": "documentation",
         "skills": [
+          "documentation",
           "axiom-aerospace-defense-safety-review",
           "safety",
           "security",
@@ -11377,7 +11412,7 @@
           "test-automation",
           "unit-test"
         ],
-        "skill_count": 42,
+        "skill_count": 43,
         "platforms": [
           "mcu",
           "mpu",
@@ -11395,8 +11430,9 @@
         "notes": "defense reuses shared axiom-aerospace-defense-safety-review; no defense-only duplicate by design."
       },
       "aerospace": {
-        "core_skill": null,
+        "core_skill": "documentation",
         "skills": [
+          "documentation",
           "axiom-aerospace-defense-safety-review",
           "safety",
           "security",
@@ -11439,7 +11475,7 @@
           "test-automation",
           "unit-test"
         ],
-        "skill_count": 41,
+        "skill_count": 42,
         "platforms": [
           "mcu",
           "mpu",
@@ -11460,8 +11496,9 @@
         "notes": "defense reuses shared axiom-aerospace-defense-safety-review; no defense-only duplicate by design."
       },
       "industrial": {
-        "core_skill": null,
+        "core_skill": "documentation",
         "skills": [
+          "documentation",
           "axiom-industrial-control-review",
           "safety",
           "security",
@@ -11499,7 +11536,7 @@
           "test-automation",
           "unit-test"
         ],
-        "skill_count": 36,
+        "skill_count": 37,
         "platforms": [
           "mcu",
           "mpu",
@@ -11517,8 +11554,9 @@
         "notes": ""
       },
       "robotics": {
-        "core_skill": null,
+        "core_skill": "documentation",
         "skills": [
+          "documentation",
           "axiom-robotics-system-integration",
           "safety",
           "code-review",
@@ -11556,7 +11594,7 @@
           "test-automation",
           "unit-test"
         ],
-        "skill_count": 36,
+        "skill_count": 37,
         "platforms": [
           "mpu",
           "soc",
@@ -11573,8 +11611,9 @@
         "notes": ""
       },
       "energy": {
-        "core_skill": null,
+        "core_skill": "documentation",
         "skills": [
+          "documentation",
           "axiom-bms-design",
           "axiom-bms-diagnostics",
           "safety",
@@ -11612,7 +11651,7 @@
           "test-automation",
           "unit-test"
         ],
-        "skill_count": 36,
+        "skill_count": 37,
         "platforms": [
           "mcu",
           "mpu"
@@ -11627,8 +11666,9 @@
         "notes": ""
       },
       "generic-embedded": {
-        "core_skill": null,
+        "core_skill": "documentation",
         "skills": [
+          "documentation",
           "code-review",
           "static-analysis",
           "implementation",
@@ -11674,7 +11714,7 @@
           "test-automation",
           "unit-test"
         ],
-        "skill_count": 44,
+        "skill_count": 45,
         "platforms": [
           "mcu",
           "bare-metal",
@@ -11690,8 +11730,9 @@
         "notes": ""
       },
       "iot": {
-        "core_skill": null,
+        "core_skill": "documentation",
         "skills": [
+          "documentation",
           "security",
           "embedded-linux",
           "code-review",
@@ -11727,7 +11768,7 @@
           "test-automation",
           "unit-test"
         ],
-        "skill_count": 34,
+        "skill_count": 35,
         "platforms": [
           "mcu",
           "mpu",
@@ -11745,8 +11786,9 @@
     },
     "skill-verifier": {
       "automotive": {
-        "core_skill": null,
+        "core_skill": "project-audit",
         "skills": [
+          "project-audit",
           "axiom-functional-safety",
           "axiom-vehicle-cybersecurity",
           "axiom-diagnostics-uds",
@@ -11788,7 +11830,6 @@
           "documentation",
           "evidence",
           "legacy-recovery",
-          "project-audit",
           "release",
           "requirements",
           "requirements-traceability",
@@ -11817,8 +11858,9 @@
         "notes": ""
       },
       "defense": {
-        "core_skill": null,
+        "core_skill": "project-audit",
         "skills": [
+          "project-audit",
           "axiom-aerospace-defense-safety-review",
           "safety",
           "security",
@@ -11862,7 +11904,7 @@
           "test-automation",
           "unit-test"
         ],
-        "skill_count": 42,
+        "skill_count": 43,
         "platforms": [
           "mcu",
           "mpu",
@@ -11880,8 +11922,9 @@
         "notes": "defense reuses shared axiom-aerospace-defense-safety-review; no defense-only duplicate by design."
       },
       "aerospace": {
-        "core_skill": null,
+        "core_skill": "project-audit",
         "skills": [
+          "project-audit",
           "axiom-aerospace-defense-safety-review",
           "safety",
           "security",
@@ -11924,7 +11967,7 @@
           "test-automation",
           "unit-test"
         ],
-        "skill_count": 41,
+        "skill_count": 42,
         "platforms": [
           "mcu",
           "mpu",
@@ -11945,8 +11988,9 @@
         "notes": "defense reuses shared axiom-aerospace-defense-safety-review; no defense-only duplicate by design."
       },
       "industrial": {
-        "core_skill": null,
+        "core_skill": "project-audit",
         "skills": [
+          "project-audit",
           "axiom-industrial-control-review",
           "safety",
           "security",
@@ -11984,7 +12028,7 @@
           "test-automation",
           "unit-test"
         ],
-        "skill_count": 36,
+        "skill_count": 37,
         "platforms": [
           "mcu",
           "mpu",
@@ -12002,8 +12046,9 @@
         "notes": ""
       },
       "robotics": {
-        "core_skill": null,
+        "core_skill": "project-audit",
         "skills": [
+          "project-audit",
           "axiom-robotics-system-integration",
           "safety",
           "code-review",
@@ -12041,7 +12086,7 @@
           "test-automation",
           "unit-test"
         ],
-        "skill_count": 36,
+        "skill_count": 37,
         "platforms": [
           "mpu",
           "soc",
@@ -12058,8 +12103,9 @@
         "notes": ""
       },
       "energy": {
-        "core_skill": null,
+        "core_skill": "project-audit",
         "skills": [
+          "project-audit",
           "axiom-bms-design",
           "axiom-bms-diagnostics",
           "safety",
@@ -12097,7 +12143,7 @@
           "test-automation",
           "unit-test"
         ],
-        "skill_count": 36,
+        "skill_count": 37,
         "platforms": [
           "mcu",
           "mpu"
@@ -12112,8 +12158,9 @@
         "notes": ""
       },
       "generic-embedded": {
-        "core_skill": null,
+        "core_skill": "project-audit",
         "skills": [
+          "project-audit",
           "code-review",
           "static-analysis",
           "implementation",
@@ -12159,7 +12206,7 @@
           "test-automation",
           "unit-test"
         ],
-        "skill_count": 44,
+        "skill_count": 45,
         "platforms": [
           "mcu",
           "bare-metal",
@@ -12175,8 +12222,9 @@
         "notes": ""
       },
       "iot": {
-        "core_skill": null,
+        "core_skill": "project-audit",
         "skills": [
+          "project-audit",
           "security",
           "embedded-linux",
           "code-review",
@@ -12212,7 +12260,7 @@
           "test-automation",
           "unit-test"
         ],
-        "skill_count": 34,
+        "skill_count": 35,
         "platforms": [
           "mcu",
           "mpu",

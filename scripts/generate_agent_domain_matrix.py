@@ -58,6 +58,7 @@ def build_matrix() -> dict:
     return {"schema_version": "1.0",
             "sources": ["configs/domain-routing.yaml", "registries/skill-index.json", "agents/*/manifest.json"],
             "defaults": routing.get("defaults", {}),
+            "runtime": routing.get("runtime", {}),
             "matrix": matrix}
 
 

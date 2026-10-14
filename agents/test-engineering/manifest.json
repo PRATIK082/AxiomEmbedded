@@ -27,7 +27,25 @@
   "domain_aware": true,
   "requires_project_context": true,
   "skill_binding": {
+    "core_skill": "test-automation",
     "overlay_source": "configs/domain-routing.yaml",
-    "resolver": "packages/agents/project_context.py"
-  }
+    "resolver": "packages/agents/project_context.py",
+    "matrix": "matrix[test-engineering]",
+    "token_budget": {
+      "primary_cap": 8,
+      "group_cap": 12,
+      "max_context_files": 8
+    },
+    "clarify_when": "needs_clarification=true (fallback or repo/prompt conflict)"
+  },
+  "output_contract": [
+    "verdict",
+    "domain_used",
+    "skills_loaded",
+    "skills_deferred",
+    "standards_applied",
+    "evidence_refs",
+    "approval_gate",
+    "followups"
+  ]
 }

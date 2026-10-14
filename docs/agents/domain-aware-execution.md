@@ -22,7 +22,7 @@ Each agent executes **Step 0 — Resolve project context** before any analysis:
 4. **Fallback:** `generic-embedded` + `generic-embedded` profile.
 
 Then the agent calls `axiom engage --domain X --platform Y` (i.e.
-`packages/skills/engage.py`) and loads, in order:
+`packages/skills/engage.py`) and loads, in order (project AND prompt union):
 
 - **Core skill** — same-name skill (`code-review` → `code-review` skill; full
   map in `configs/domain-routing.yaml::agent_binding.core_skill_by_agent`).
@@ -39,6 +39,30 @@ The full cross-map is generated:
 `registries/agent-domain-matrix.json` (via
 `scripts/generate_agent_domain_matrix.py`) — agent × domain → skills,
 platforms, standards, profiles.
+
+## Runtime clarification (no silent guessing)
+
+`resolve_project_context()` returns `confidence`, `needs_clarification`, and a
+ready-to-ask `clarification_question`. The agent MUST ask and wait when:
+nothing was detected (fallback, confidence 0.2), repo and prompt disagree
+(conflict, ~0.55), or confidence is below `runtime.ask_threshold` (0.5). Ask
+via the host question tool (OpenCode question, Claude AskUserQuestion, or chat
+prompt) with the candidate domains; re-resolve only after the user picks.
+
+## Token efficiency (production rule)
+
+`load_plan = {core, primary[], deferred[]}`. Open at most `primary_cap`
+SKILL.md files (default 8) before analysis; keep `context_files` within
+`max_context_files` (default 8). Consult `deferred` only on demand — never
+bulk-load the matrix.
+
+## Production-grade output (deployment-ready verdict)
+
+Every run ends with a machine-checkable verdict block: `verdict, domain_used,
+skills_loaded, skills_deferred, standards_applied, evidence_refs,
+approval_gate, followups` (see `runtime.production_output_contract`).
+`approval_gate` names the required human approval per `configs/project.yaml`;
+the agent never auto-approves.
 
 ## How a user links a new development (future-proofing)
 

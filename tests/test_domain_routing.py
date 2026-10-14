@@ -68,3 +68,44 @@ def test_matrix_generated_and_fresh():
     assert "code-review" in matrix["matrix"]
     assert matrix["matrix"]["code-review"]["automotive"]["skill_count"] > 0
     assert matrix["matrix"]["code-review"]["defense"]["skill_count"] > 0
+
+
+def test_repo_prompt_conflict_asks_and_unions(tmp_path):
+    (tmp_path / "README.md").write_text("AUTOSAR ECU arxml aspice", encoding="utf-8")
+    ctx = resolve_project_context(tmp_path, "MIL-STD rugged radar tamper", agent_id="code-review")
+    assert ctx["domain"] == "automotive"
+    assert ctx["prompt_domain"] == "defense"
+    assert ctx["needs_clarification"] is True
+    assert ctx["clarification_question"]
+    primary = ctx["load_plan"]["primary"]
+    assert "code-review" in primary  # core first
+    assert len(primary) <= 8  # token cap honored
+
+
+def test_fallback_asks_user(tmp_path):
+    ctx = resolve_project_context(tmp_path, "can you fix the login bug", agent_id="safety")
+    assert ctx["domain"] == "generic-embedded"
+    assert ctx["needs_clarification"] is True
+    assert ctx["confidence"] < 0.5
+
+
+def test_prompt_extras_union_into_primary(tmp_path):
+    ctx = resolve_project_context(tmp_path, "ROS2 nav2 slam cobot", agent_id="safety")
+    assert ctx["domain"] in ("robotics", "generic-embedded")
+    assert ctx["load_plan"]["core"] == "safety"
+    assert len(ctx["load_plan"]["primary"]) <= 8
+
+
+def test_agents_are_specific_not_generic():
+    for agent_dir in (ROOT / "agents").iterdir():
+        md = agent_dir / "AGENT.md"
+        if not md.exists():
+            continue
+        text = md.read_text(encoding="utf-8")
+        assert "Core skill for THIS agent" in text, agent_dir.name
+        assert "Trigger table for " + agent_dir.name in text, agent_dir.name
+        assert "needs_clarification" in text, agent_dir.name
+    for manifest in (ROOT / "agents").glob("*/manifest.json"):
+        data = json.loads(manifest.read_text(encoding="utf-8"))
+        assert data["skill_binding"].get("core_skill"), manifest
+        assert data.get("output_contract"), manifest

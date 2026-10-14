@@ -27,6 +27,25 @@ defaults:
     - .axiom/project.yaml
   fallback_domain: generic-embedded
   fallback_profile: generic-embedded
+runtime:
+  # Confidence policy: explicit=1.0, repo+prompt agree=0.9, single-signal=0.65,
+  # fallback=0.2. Below ask_threshold the agent MUST ask the user (no guessing).
+  ask_threshold: 0.5
+  # Prompt-vs-project conflict: an explicit project file still wins, but a
+  # strong prompt signal against a weak repo signal overrides the repo guess
+  # and forces clarification (never silent).
+  prompt_overrides_weak_repo_signal: true
+  clarification_question: "I detected conflicting project signals (repo={repo_domain}, prompt={prompt_domain}). Which domain should I use for this run? Reply: {candidates}."
+  # Token efficiency: agents load core + primary now, defer the rest.
+  # primary_cap bounds SKILL.md files opened before analysis; deferred skills
+  # are consulted only on demand (named section) — never bulk-loaded.
+  token_budget: {primary_cap: 8, group_cap: 12, max_context_files: 8}
+  # Production-grade output contract: every agent run ends with this verdict
+  # block so deployments/consumers get a machine-checkable result.
+  production_output_contract: [verdict, domain_used, skills_loaded, skills_deferred, standards_applied, evidence_refs, approval_gate, followups]
+  # Skill trigger rule (project AND prompt): load domain slice from project
+  # context, then ADD prompt-domain priority skills when prompt domain differs
+  # (union, core first, dedup) instead of replacing the project slice.
 domains:
   automotive:
     default_profile: automotive-mcu
@@ -125,6 +144,10 @@ agent_binding:
     intent-router: architecture
     engineering-manager: architecture
     diag-auto-review: automotive-diagnostics
+    skill-implementer: implementation
+    skill-orchestrator: feature-development
+    skill-researcher: documentation
+    skill-verifier: project-audit
   notes:
     - Agent identity never changes; only the loaded skill slice changes.
     - Core skill always loads; domain priority_skills load on top.
