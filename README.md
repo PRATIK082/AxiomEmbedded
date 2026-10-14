@@ -235,6 +235,7 @@ AxiomEmbedded welcomes bug reports, new engineering requirements, new domain/pla
 - [Report a bug](https://github.com/PRATIK082/AxiomEmbedded/issues/new?template=bug_report.yml)
 - [Propose a feature or requirement](https://github.com/PRATIK082/AxiomEmbedded/issues/new?template=feature_request.yml)
 - [Read the contributing guide](https://github.com/PRATIK082/AxiomEmbedded/blob/main/CONTRIBUTING.md)
+- [Community roadmap: propose requirements and integrations](https://github.com/PRATIK082/AxiomEmbedded/issues/5)
 - [Browse open issues](https://github.com/PRATIK082/AxiomEmbedded/issues)
 - [Start a pull request](https://github.com/PRATIK082/AxiomEmbedded/compare)
 
