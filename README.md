@@ -228,13 +228,14 @@ and `docs/skills/GROUPS.md`.
 | Install | `pipx install axiom-embedded` (or `pip install axiom-embedded`) |
 | AI clients | 10 clients (opencode/claude/codex/gemini/copilot/cursor/cline/aider/kilo/openhands) via `axiom install --client` |
 
+## Contribute and shape the roadmap
 
-## Safety and certification boundary
+AxiomEmbedded welcomes bug reports, new engineering requirements, new domain/platform coverage, skill contributions, deterministic validation cases, and tool integrations.
 
-AxiomEmbedded provides engineering process automation and reference checks. A passing check is not a certification result and must not be represented as proof of compliance, safety integrity, security certification, or airworthiness. The adopting project must determine applicable editions, objectives, independence requirements, and evidence with qualified personnel and authorised tools.
+- [Report a bug](https://github.com/PRATIK082/AxiomEmbedded/issues/new?template=bug_report.yml)
+- [Propose a feature or requirement](https://github.com/PRATIK082/AxiomEmbedded/issues/new?template=feature_request.yml)
+- [Read the contributing guide](https://github.com/PRATIK082/AxiomEmbedded/blob/main/CONTRIBUTING.md)
+- [Browse open issues](https://github.com/PRATIK082/AxiomEmbedded/issues)
+- [Start a pull request](https://github.com/PRATIK082/AxiomEmbedded/compare)
 
-## Licensing
-# Third-party notices
-
-The content is original and licensed under Apache-2.0. External projects and standards listed under `references/` are references only and are not bundled, vendored, or incorporated.
-The active platform uses the Apache-2.0 licence. AxiomEmbedded  migration is supported from an external source tree; the legacy starter is not vendored. Third-party standards text is not redistributed.
+Use machine-readable manifests and deterministic tests for new capabilities wherever practical. Do not submit confidential customer source, credentials, or copied proprietary standards text. Successful checks are engineering evidence, not proof of certification or safety compliance.
