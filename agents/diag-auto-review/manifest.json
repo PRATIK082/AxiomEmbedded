@@ -31,6 +31,16 @@
   "external": {
     "cli": "acme-code-agent",
     "pip": "acme-code-agent>=1.4,<2",
-    "modes": ["review", "fix", "update"]
+    "modes": [
+      "review",
+      "fix",
+      "update"
+    ]
+  },
+  "domain_aware": true,
+  "requires_project_context": true,
+  "skill_binding": {
+    "overlay_source": "configs/domain-routing.yaml",
+    "resolver": "packages/agents/project_context.py"
   }
 }

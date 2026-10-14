@@ -1,0 +1,14 @@
+# Copy to ./axiom.project.yaml (or .axiom/project.yaml) and commit it.
+# This is the EXPLICIT project context every Tab-selected agent reads first
+# (Step 0). Explicit file beats all auto-detection.
+# Vocabulary: see taxonomies/domains.yaml, taxonomies/platforms.yaml,
+# configs/domain-routing.yaml (canonical domain -> profile/platforms/standards).
+domain: automotive        # automotive | defense | aerospace | industrial | robotics | energy | iot | generic-embedded
+platform: mcu             # mcu | mpu | soc | mpsoc | rtos | bare-metal | linux | autosar-classic | autosar-adaptive
+os: autosar-classic       # optional: autosar-classic | rtos | embedded-linux | bare-metal | ...
+language: c               # optional: c | cpp | rust
+profile: automotive-mcu   # optional: must exist under profiles/*.yaml
+standards:                # optional: checklist identifiers only (metadata, never normative text)
+  - iso-26262
+  - automotive-spice
+  - misra-c

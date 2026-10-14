@@ -1,1 +1,14 @@
-{"id": "skill-orchestrator", "version": "1.0.0", "contract_version": 1, "type": "task-agent", "writes_enabled": true, "access_class": "read"}
+{
+  "id": "skill-orchestrator",
+  "version": "1.0.0",
+  "contract_version": 1,
+  "type": "task-agent",
+  "writes_enabled": true,
+  "access_class": "read",
+  "domain_aware": true,
+  "requires_project_context": true,
+  "skill_binding": {
+    "overlay_source": "configs/domain-routing.yaml",
+    "resolver": "packages/agents/project_context.py"
+  }
+}

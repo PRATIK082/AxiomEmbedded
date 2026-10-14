@@ -23,5 +23,11 @@
   },
   "approval": {
     "required_for_sensitive_change": true
+  },
+  "domain_aware": true,
+  "requires_project_context": true,
+  "skill_binding": {
+    "overlay_source": "configs/domain-routing.yaml",
+    "resolver": "packages/agents/project_context.py"
   }
 }
