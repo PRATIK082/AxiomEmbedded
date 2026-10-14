@@ -239,3 +239,13 @@ AxiomEmbedded welcomes bug reports, new engineering requirements, new domain/pla
 - [Start a pull request](https://github.com/PRATIK082/AxiomEmbedded/compare)
 
 Use machine-readable manifests and deterministic tests for new capabilities wherever practical. Do not submit confidential customer source, credentials, or copied proprietary standards text. Successful checks are engineering evidence, not proof of certification or safety compliance.
+
+## Safety and certification boundary
+
+AxiomEmbedded provides engineering process automation and reference checks. A passing check is not a certification result and must not be represented as proof of compliance, safety integrity, security certification, or airworthiness. The adopting project must determine applicable editions, objectives, independence requirements, and evidence with qualified personnel and authorised tools.
+
+## Licensing
+# Third-party notices
+
+The content is original and licensed under Apache-2.0. External projects and standards listed under `references/` are references only and are not bundled, vendored, or incorporated.
+The active platform uses the Apache-2.0 licence. AxiomEmbedded migration is supported from an external source tree; the legacy starter is not vendored. Third-party standards text is not redistributed.
