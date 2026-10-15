@@ -15,5 +15,9 @@ jobs:
         with:
           python-version: "3.11"
       - run: pip install pyyaml pytest
+      # Mirrors are gitignored build outputs: generate first (fresh checkout
+      # has none), then prove determinism and no drift in TRACKED singles.
+      - run: python scripts/sync_clients.py
       - run: python scripts/sync_clients.py --check
+      - run: git diff --exit-code -- opencode.json .mcp.json GEMINI.md .github/copilot-instructions.md
       - run: python -m pytest tests/test_sync_clients.py tests/test_axiom_mcp.py tests/test_dist_entry.py tests/test_install.py -q

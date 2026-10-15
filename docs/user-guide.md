@@ -40,7 +40,10 @@ py -3.11 -m venv .venv
 # 3. Install editable with test extras
 pip install -e ".[test]"
 
-# 4. Verify the install
+# 4. Generate client mirrors (gitignored build outputs, not committed)
+python scripts/sync_clients.py
+
+# 5. Verify the install
 python -m axiom_cli doctor
 python -m axiom_cli repo validate
 ```

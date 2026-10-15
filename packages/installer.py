@@ -16,6 +16,8 @@ from __future__ import annotations
 import json
 import pathlib
 import shutil
+import subprocess
+import sys
 
 CLIENTS = ("opencode", "claude", "codex", "gemini", "copilot",
            "cursor", "cline", "aider", "kilo", "openhands")
@@ -106,6 +108,30 @@ def _copy_generated(source: pathlib.Path, dest: pathlib.Path, relpaths: list[str
     return written, skipped
 
 
+def ensure_generated(source: pathlib.Path) -> str | None:
+    """Generate client mirrors into source when absent.
+
+    Mirrors under .opencode/.claude are gitignored build outputs; a fresh
+    clone has sources (skills/, agents/) but no mirrors. Install/update/
+    uninstall read the mirrors as their file source, so generate them on
+    demand here instead of silently shipping nothing. Returns a note when
+    generation ran, else None.
+    """
+    markers = (source / ".opencode" / "skills", source / ".claude" / "skills")
+    if all(m.is_dir() and any(m.iterdir()) for m in markers):
+        return None
+    script = source / "scripts" / "sync_clients.py"
+    if not script.exists():
+        return ("client mirrors absent and no generator found: "
+                "agents/skills not installed")
+    proc = subprocess.run(
+        [sys.executable, str(script), "--root", str(source)],
+        capture_output=True, text=True)
+    if proc.returncode != 0:
+        raise RuntimeError(f"sync_clients.py failed: {(proc.stdout + proc.stderr)[-2000:]}")
+    return "client mirrors were absent: generated on demand (gitignored build output)"
+
+
 def _generated_relpaths(source: pathlib.Path, prefix: str, kind: str) -> list[str]:
     """Agent/skill/command/plugin paths under .opencode or .claude in the axiom tree."""
     base = source / prefix / kind
@@ -182,6 +208,10 @@ def install_client(client: str, dest: pathlib.Path, home: pathlib.Path,
     written, merged, skipped, notes = [], [], [], [server_note]
     if source is None:
         notes.append("no axiom content source found: MCP registration only (use --source DIR for agents/skills)")
+    else:
+        note = ensure_generated(source)
+        if note:
+            notes.append(note)
 
     if client == "opencode":
         root = home / ".config" / "opencode" if is_global else dest
@@ -375,6 +405,8 @@ def _client_file_map(client: str, dest: pathlib.Path, home: pathlib.Path,
     """
     copied: list[tuple[pathlib.Path, pathlib.Path]] = []
     configs: list[tuple[pathlib.Path, str, object]] = []
+    if source is not None:
+        ensure_generated(source)
 
     def _copy_rels(prefix: str, kind: str, root: pathlib.Path):
         if source is None:
