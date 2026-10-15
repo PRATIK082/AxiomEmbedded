@@ -7,7 +7,7 @@ derived and must not be edited by hand:
 
   .opencode/agents/<id>.md          OpenCode subagent (provisional format)
   .opencode/skills/<id>/SKILL.md    OpenCode skill copy (provisional format)
-  opencode.json                     instructions + mcp (permission/agent preserved)
+  opencode.json                     instructions, no self MCP (permission/agent preserved)
   .claude/agents/<id>.md            Claude Code subagent
   .claude/skills/<id>/SKILL.md      Claude Code skill copy
   .claude-plugin/plugin.json        Claude plugin manifest
@@ -39,14 +39,6 @@ MCP_SERVER = {
     "command": "python",
     "args": ["-m", "axiom_cli", "mcp"],
     "description": "AxiomEmbedded skills, plans, context, impact, and workflow tools",
-}
-# OpenCode v1 validates `mcp.*` strictly: `{type: "local", command: [...],
-# enabled: ...}` (argv array, no {command, args} split). Verified against
-# `opencode mcp list` (config validation runs without an API key).
-OPENCODE_MCP_SERVER = {
-    "type": "local",
-    "command": ["python", "-m", "axiom_cli", "mcp"],
-    "enabled": True,
 }
 INSTRUCTIONS = [
     "AGENTS.md",
@@ -176,9 +168,19 @@ def opencode_json(existing: dict) -> dict:
     merged["$schema"] = "https://opencode.ai/config.json"
     merged["//"] = STAMP_JSON
     merged["instructions"] = list(INSTRUCTIONS)
+    # No self-referencing MCP server in this checkout: loading
+    # `axiom-embedded` here would inject all 37 tool schemas (~4k tokens)
+    # into every request while duplicating the checked-in skills/ and CLI
+    # the agent already has. Headless runs use the isolated config from
+    # packages/launcher.ensure_isolated_config; consumer projects get the
+    # MCP entry via `axiom install --client`. Drop a stale entry if present,
+    # but preserve any unrelated user-added MCP servers.
     mcp = dict(merged.get("mcp", {}))
-    mcp["axiom-embedded"] = dict(OPENCODE_MCP_SERVER)
-    merged["mcp"] = mcp
+    mcp.pop("axiom-embedded", None)
+    if mcp:
+        merged["mcp"] = mcp
+    else:
+        merged.pop("mcp", None)
     return merged
 
 
