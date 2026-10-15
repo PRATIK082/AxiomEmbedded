@@ -93,7 +93,8 @@ def search_local(subquestion: str, source: str | pathlib.Path | None = None) -> 
         return {"backend": "local", "status": "unavailable", "reason": str(exc),
                 "findings": []}
     keywords = _keywords(subquestion)
-    scored: list[tuple[int, pathlib.Path, list[dict]]] = []
+    query_lc = subquestion.lower()
+    scored: list[tuple[int, int, pathlib.Path, list[dict]]] = []
     skills_root = content / "skills"
     if skills_root.is_dir():
         for skill_dir in sorted(skills_root.iterdir()):
@@ -113,16 +114,25 @@ def search_local(subquestion: str, source: str | pathlib.Path | None = None) -> 
                     refs = refs.get("standards_refs", []) or []
                 except Exception:
                     refs = []
-            scored.append((score, skill_dir, [r for r in refs if str(r.get("number", "")).strip()]))
+            refs = [r for r in refs if str(r.get("number", "")).strip()]
+            # Exact standards-number hits (e.g. query contains "iso 26262" and
+            # the manifest carries number "ISO 26262") rank first so cited
+            # refs are not cut off by the top-N cap on broad multi-keyword
+            # queries. Part-number variants (e.g. "ISO 26262-6") do not get
+            # this bonus.
+            exact = sum(
+                1 for r in refs if str(r.get("number", "")).strip().lower() in query_lc
+            )
+            scored.append((exact, score, skill_dir, refs))
     if not scored:
         return {"backend": "local", "status": "ok", "findings": []}
-    best = max(score for score, _, _ in scored)
+    best = max(score for _, score, _, _ in scored)
     # Relative threshold: multi-keyword queries drop 1-hit noise; single-keyword
     # queries still match. Cap keeps reports readable.
     floor = 2 if best >= 2 else 1
-    ranked = sorted(scored, key=lambda t: (-t[0], t[1].name))[:8]
+    ranked = sorted(scored, key=lambda t: (-t[0], -t[1], t[2].name))[:8]
     findings: list[dict] = []
-    for score, skill_dir, refs in ranked:
+    for exact, score, skill_dir, refs in ranked:
         if score < floor:
             continue
         rel = f"skills/{skill_dir.name}"

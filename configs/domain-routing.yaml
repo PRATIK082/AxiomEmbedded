@@ -1,0 +1,154 @@
+# SPDX-License-Identifier: Apache-2.0
+# Domain routing: single source of truth for domain-aware agent execution.
+#
+# Purpose: when a user Tab-selects ANY agent (code-review, safety, ...), the
+# agent keeps its identity but adapts its skill slice + checklists + standards
+# to the current project domain/platform. This file is the canonical
+# domain -> detect keywords, default profile, platforms, standards, priority
+# skill overlays cross-mapping.
+#
+# Consumed by:
+#   - packages/agents/router.py (detect_domain keywords fallback)
+#   - packages/agents/project_context.py (repo-signal + explicit resolution)
+#   - scripts/generate_agent_domain_matrix.py -> registries/agent-domain-matrix.json
+#   - docs/agents/domain-aware-execution.md (user guide)
+#
+# How to extend (future domains): copy any domain block, adjust keywords /
+# profile / standards / priority_skills, add facet entries in
+# registries/skill-facets.yaml, then run:
+#   python scripts/generate_agent_domain_matrix.py
+#   python scripts/sync_clients.py
+#   python -m pytest -q tests/test_domain_routing.py tests/test_detect.py
+schema_version: '1.0'
+defaults:
+  # Explicit project file wins over every heuristic.
+  project_file_candidates:
+    - axiom.project.yaml
+    - .axiom/project.yaml
+  fallback_domain: generic-embedded
+  fallback_profile: generic-embedded
+runtime:
+  # Confidence policy: explicit=1.0, repo+prompt agree=0.9, single-signal=0.65,
+  # fallback=0.2. Below ask_threshold the agent MUST ask the user (no guessing).
+  ask_threshold: 0.5
+  # Prompt-vs-project conflict: an explicit project file still wins, but a
+  # strong prompt signal against a weak repo signal overrides the repo guess
+  # and forces clarification (never silent).
+  prompt_overrides_weak_repo_signal: true
+  clarification_question: "I detected conflicting project signals (repo={repo_domain}, prompt={prompt_domain}). Which domain should I use for this run? Reply: {candidates}."
+  # Token efficiency: agents load core + primary now, defer the rest.
+  # primary_cap bounds SKILL.md files opened before analysis; deferred skills
+  # are consulted only on demand (named section) — never bulk-loaded.
+  token_budget: {primary_cap: 8, group_cap: 12, max_context_files: 8}
+  # Production-grade output contract: every agent run ends with this verdict
+  # block so deployments/consumers get a machine-checkable result.
+  production_output_contract: [verdict, domain_used, skills_loaded, skills_deferred, standards_applied, evidence_refs, approval_gate, followups]
+  # Skill trigger rule (project AND prompt): load domain slice from project
+  # context, then ADD prompt-domain priority skills when prompt domain differs
+  # (union, core first, dedup) instead of replacing the project slice.
+domains:
+  automotive:
+    default_profile: automotive-mcu
+    platforms: [mcu, autosar-classic, autosar-adaptive]
+    standards: [iso-26262, automotive-spice, misra-c, iso-sae-21434, unece-r155-r156, iso-14229-uds, iso-13400-doip, iso-11898-can]
+    skill_groups: [autosar-classic, autosar-adaptive, vehicle-networks, diagnostics, safety-security, adas, energy, software-defined-vehicle, release-process]
+    priority_skills: [axiom-functional-safety, axiom-vehicle-cybersecurity, axiom-diagnostics-uds, axiom-can-network-design, code-review, safety, security]
+    detect_keywords: [automotive, asil, hara, sotif, fusa, v-model, uds, misra, autosar, aspice, oem, ecu, obd, doip, adas, ncap, secoc, flexray, j1939, some/ip, canfd, can-fd, can-xl, lin bus, v2x, tara, qnx, aaos, aeb, bcm, peps, '21434', '26262', '21448', r155, r156]
+    repo_signals: ['arxml', 'dbc', 'cdd', 'odx', 'ecu', 'autosar', 'aspice']
+  defense:
+    default_profile: defense-embedded
+    platforms: [mcu, mpu, rtos]
+    standards: [iec-61508, cert-c, misra-c, do-178c]
+    skill_groups: [aerospace-defense, embedded-core, testing-verification, architecture]
+    # NOTE: defense reuses the shared aerospace/defense safety review skill;
+    # there is no defense-only duplicate by design (see matrix notes).
+    priority_skills: [axiom-aerospace-defense-safety-review, safety, security, fault-injection, code-review, static-analysis]
+    detect_keywords: [defense, defence, mil-std, milstd, itar, cmmc, mission-critical, rugged, mopp, mosaic, fips-140, tamper, anti-tamper, electronic-warfare, radar, sonar]
+    repo_signals: ['itar', 'mil-std', 'cmcc', 'do-178', 'tpm', 'fips']
+  aerospace:
+    default_profile: aerospace-rtos
+    platforms: [mcu, mpu, soc, rtos]
+    standards: [do-178c, do-254, arp4754, arp4761, misra-c, cert-c]
+    skill_groups: [aerospace-defense, embedded-core, testing-verification, architecture]
+    priority_skills: [axiom-aerospace-defense-safety-review, safety, security, fault-injection, code-review]
+    detect_keywords: [aerospace, avionics, do-178, do-254, arp4754, arp4761, dal-a, dal-b, dal-c, flight-control, fadec, arinc]
+    repo_signals: ['arinc', 'afdx', 'do-178', 'do-254']
+  industrial:
+    default_profile: industrial-linux
+    platforms: [mcu, mpu, linux]
+    standards: [iec-61508, iec-62443, misra-c, cert-c]
+    skill_groups: [industrial, embedded-core, testing-verification]
+    priority_skills: [axiom-industrial-control-review, safety, security, code-review]
+    detect_keywords: [industrial, plc, scada, modbus, profinet, ethercat, iec-61508, iec-62443, sil-2, sil-3, dcs, fieldbus, opc-ua]
+    repo_signals: ['plc', 'scada', 'modbus', 'profinet', 'ethercat']
+  robotics:
+    default_profile: robotics-ai
+    platforms: [mpu, soc, linux]
+    standards: [iec-61508, misra-cpp, cert-c]
+    skill_groups: [robotics, embedded-core, testing-verification]
+    priority_skills: [axiom-robotics-system-integration, safety, code-review]
+    detect_keywords: [robotics, ros2, ros-2, rclcpp, urdf, nav2, moveit, cobot, slam, px4, mavlink]
+    repo_signals: ['urdf', 'ros2', 'nav2', 'moveit']
+  energy:
+    default_profile: generic-embedded
+    platforms: [mcu, mpu]
+    standards: [iec-61508, misra-c]
+    skill_groups: [energy, embedded-core, testing-verification]
+    priority_skills: [axiom-bms-design, axiom-bms-diagnostics, safety, code-review]
+    detect_keywords: [bms, soh, soc-estimation, cell-balancing, contactor, thermal-runaway, iec-62660, ul-1973, mppt, inverter]
+    repo_signals: ['bms', 'inverter', 'mppt']
+  generic-embedded:
+    default_profile: generic-embedded
+    platforms: [mcu, bare-metal, rtos]
+    standards: [misra-c, cert-c]
+    skill_groups: [embedded-core, testing-verification, architecture, ways-of-working]
+    priority_skills: [code-review, static-analysis, implementation, mcu, rtos]
+    detect_keywords: [firmware, microcontroller, cortex-m, freertos, zephyr, bare-metal, bsp, hal, cmsis]
+    repo_signals: ['cmsis', 'hal', 'freertos', 'zephyr']
+  iot:
+    default_profile: edge-ai
+    platforms: [mcu, mpu, linux]
+    standards: [cert-c, iec-62443]
+    skill_groups: [embedded-core, testing-verification]
+    priority_skills: [security, embedded-linux, code-review, edge-ai]
+    detect_keywords: [iot, matter, thread, zigbee, lora, nb-iot, coap, mqtt-sn, openthread]
+    repo_signals: ['matter', 'openthread', 'lora']
+# Agent binding: every Tab-selectable agent follows the same Step 0.
+# core_skill: same-name skill when it exists, else closest generic skill.
+# overlay_source: always configs/domain-routing.yaml + engage() output.
+agent_binding:
+  step0: resolve_project_context
+  core_skill_by_agent:
+    code-review: code-review
+    safety: safety
+    security: security
+    implementation: implementation
+    static-analysis: static-analysis
+    test-engineering: test-automation
+    debugging: debugging
+    requirements: requirements
+    software-architecture: software-architecture
+    system-architecture: architecture
+    hardware-architecture: hardware-architecture
+    hardware-bringup: hardware-bringup
+    project-audit: project-audit
+    release: release
+    documentation: documentation
+    performance: performance
+    change-impact: change-impact
+    root-cause: debugging
+    dependency-analysis: architecture
+    migration: legacy-recovery
+    brownfield-recovery: legacy-recovery
+    ai-validation: ai-validation
+    intent-router: architecture
+    engineering-manager: architecture
+    diag-auto-review: automotive-diagnostics
+    skill-implementer: implementation
+    skill-orchestrator: feature-development
+    skill-researcher: documentation
+    skill-verifier: project-audit
+  notes:
+    - Agent identity never changes; only the loaded skill slice changes.
+    - Core skill always loads; domain priority_skills load on top.
+    - Standards are metadata/checklist identifiers only, never normative text.

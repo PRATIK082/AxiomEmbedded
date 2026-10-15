@@ -20,4 +20,10 @@ jobs:
       - run: opencode --version
       - run: python -m axiom_cli doctor --skip-tests
       - run: python -m pytest tests/test_headless.py tests/test_launcher.py -q
+      # axiom-policy.ts is TypeScript: plain `node --check` only passes on
+      # Node >= 22.6 (type stripping). Pin Node 24 so the syntax check is
+      # deterministic on ubuntu-latest runners.
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "24"
       - run: node --check .opencode/plugins/axiom-policy.ts
