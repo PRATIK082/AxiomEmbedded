@@ -228,6 +228,18 @@ and `docs/skills/GROUPS.md`.
 | Install | `pipx install axiom-embedded` (or `pip install axiom-embedded`) |
 | AI clients | 10 clients (opencode/claude/codex/gemini/copilot/cursor/cline/aider/kilo/openhands) via `axiom install --client` |
 
+## Contribute and shape the roadmap
+
+AxiomEmbedded welcomes bug reports, new engineering requirements, new domain/platform coverage, skill contributions, deterministic validation cases, and tool integrations.
+
+- [Report a bug](https://github.com/PRATIK082/AxiomEmbedded/issues/new?template=bug_report.yml)
+- [Propose a feature or requirement](https://github.com/PRATIK082/AxiomEmbedded/issues/new?template=feature_request.yml)
+- [Read the contributing guide](https://github.com/PRATIK082/AxiomEmbedded/blob/main/CONTRIBUTING.md)
+- [Community roadmap: propose requirements and integrations](https://github.com/PRATIK082/AxiomEmbedded/issues/5)
+- [Browse open issues](https://github.com/PRATIK082/AxiomEmbedded/issues)
+- [Start a pull request](https://github.com/PRATIK082/AxiomEmbedded/compare)
+
+Use machine-readable manifests and deterministic tests for new capabilities wherever practical. Do not submit confidential customer source, credentials, or copied proprietary standards text. Successful checks are engineering evidence, not proof of certification or safety compliance.
 
 ## Safety and certification boundary
 
@@ -237,4 +249,4 @@ AxiomEmbedded provides engineering process automation and reference checks. A pa
 # Third-party notices
 
 The content is original and licensed under Apache-2.0. External projects and standards listed under `references/` are references only and are not bundled, vendored, or incorporated.
-The active platform uses the Apache-2.0 licence. AxiomEmbedded  migration is supported from an external source tree; the legacy starter is not vendored. Third-party standards text is not redistributed.
+The active platform uses the Apache-2.0 licence. AxiomEmbedded migration is supported from an external source tree; the legacy starter is not vendored. Third-party standards text is not redistributed.

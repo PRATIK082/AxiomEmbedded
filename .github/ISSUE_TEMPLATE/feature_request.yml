@@ -1,0 +1,57 @@
+name: Feature or requirement proposal
+description: Propose a capability, engineering requirement, domain pack, tool integration, or workflow.
+title: "[Feature]: "
+body:
+  - type: markdown
+    attributes:
+      value: |
+        New users, domain experts, and tool maintainers are welcome to propose requirements. State the engineering problem and how it can be validated; do not include confidential customer artifacts or copied proprietary standards content.
+  - type: textarea
+    id: problem
+    attributes:
+      label: Problem statement or requirement
+      description: Who is the user, what engineering task needs support, and why does the current framework fall short?
+    validations:
+      required: true
+  - type: dropdown
+    id: area
+    attributes:
+      label: Capability area
+      options:
+        - Core engine or CLI
+        - AI agents or coding-agent integration
+        - New skill, rule, checklist, or template
+        - Domain pack (automotive, aerospace, defense, industrial, robotics, etc.)
+        - Platform or hardware support
+        - V-cycle, workflow, or lifecycle
+        - Testing, verification, validation, or evidence
+        - Security, safety, or permissions
+        - Toolchain or CI/CD integration
+        - Documentation or examples
+        - Other
+    validations:
+      required: true
+  - type: textarea
+    id: proposal
+    attributes:
+      label: Proposed outcome
+      description: Describe expected behavior and the smallest useful scope.
+    validations:
+      required: true
+  - type: textarea
+    id: acceptance
+    attributes:
+      label: Acceptance criteria
+      description: What deterministic tests, validation rules, or evidence would prove the requirement is implemented?
+      placeholder: |
+        - [ ] ...
+        - [ ] ...
+    validations:
+      required: true
+  - type: textarea
+    id: constraints
+    attributes:
+      label: Constraints and references
+      description: Include compatibility, licensing, safety/security, performance, and toolchain constraints. Link to public references rather than pasting proprietary standards text.
+    validations:
+      required: false
