@@ -198,7 +198,15 @@ def install_client(client: str, dest: pathlib.Path, home: pathlib.Path,
             w, s = _copy_generated(source, root, rels)
             written += w
             skipped += s
-        merged.append(f"opencode.json#{_merge_json(root / 'opencode.json', ['mcp', 'axiom-embedded'], server)}")
+        if (not is_global and source is not None
+                and pathlib.Path(dest).resolve() == source.resolve()):
+            # Installing into the Axiom checkout itself must not re-add the
+            # self-referencing MCP server (scripts/sync_clients.py removes it
+            # from this checkout's opencode.json on purpose).
+            notes.append("self-install skipped: this checkout must not load its own "
+                         "axiom-embedded MCP server (see scripts/sync_clients.py)")
+        else:
+            merged.append(f"opencode.json#{_merge_json(root / 'opencode.json', ['mcp', 'axiom-embedded'], server)}")
 
     elif client == "claude":
         root = home / ".claude" if is_global else dest

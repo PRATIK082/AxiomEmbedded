@@ -152,6 +152,19 @@ def test_update_reports_stale_and_refreshes(tmp_path):
     assert target.read_text(encoding="utf-8") != "diverged"
 
 
+def test_install_opencode_into_source_tree_skips_self_mcp():
+    # Installing into the Axiom checkout itself must not re-add the
+    # self-referencing MCP server that sync_clients.py removes on purpose.
+    from packages.installer import install_client
+    import tempfile
+    with tempfile.TemporaryDirectory() as home:
+        res = install_client("opencode", ROOT, pathlib.Path(home), ROOT, is_global=False)
+    assert res["scope"] == "project", res
+    data = json.loads((ROOT / "opencode.json").read_text(encoding="utf-8"))
+    assert "axiom-embedded" not in data.get("mcp", {}), res
+    assert any("self-install skipped" in n for n in res["notes"]), res
+
+
 def test_mcp_uninstall_update_unknown_client():
     from axiom_mcp.server import dispatch
     res = dispatch("tools/call", {"name": "uninstall", "arguments": {"client": "nope"}})
