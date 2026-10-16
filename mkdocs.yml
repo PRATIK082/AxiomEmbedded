@@ -1,0 +1,17 @@
+site_name: AxiomEmbedded
+site_description: Domain-neutral embedded engineering platform — agents, skills, MCP, evidence.
+repo_url: https://github.com/PRATIK082/AxiomEmbedded
+theme:
+  name: material
+  features:
+    - navigation.tabs
+    - navigation.sections
+nav:
+  - Home: index.md
+  - Install: ecosystem/install.md
+  - Independence plan: ecosystem/standalone-independence.md
+  - Domain-aware agents: agents/domain-aware-execution.md
+# Repository contract (AGENTS.md) is linked from docs/index.md instead of nav:
+# mkdocs nav entries must stay inside docs_dir.
+# Serve locally: pip install mkdocs-material && mkdocs serve
+# Deploy: GitHub Pages (see docs/ecosystem/standalone-independence.md P4).

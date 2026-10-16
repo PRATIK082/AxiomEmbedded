@@ -29,7 +29,7 @@ step is now impossible: there is only one step.
 | L0 skill content | `skills/<id>/SKILL.md`, `templates/`, `checklists/`, `scripts/`, `examples/` | Any agent | **One skill dir per agent.** Never two agents in the same dir. |
 | L1 relationships | `skills/catalog.yaml` graph keys (related/extends/sub_skills/overlays) | Agent owning the new skill | Edit only your skill's entry via `skills link --set`; never touch others' entries. |
 | L2 catalog facets | `skills/catalog.yaml` facet fields | Nobody by hand | `enrich` backfills from SKILL.md frontmatter. If a facet is wrong, fix the frontmatter, not the catalog. |
-| L3 generated | `registries/*.json`, `.opencode/skills/*`, `.claude/skills/*`, `GEMINI.md`, `copilot-instructions.md` | Nobody by hand | Pipeline regenerates. CI fails on drift (`--check`). |
+| L3 generated | `registries/*.json`, `.opencode/*`, `.claude/*`, `.claude-plugin/*`, `GEMINI.md`, `copilot-instructions.md` | Nobody by hand | Pipeline regenerates. The client mirrors are gitignored build outputs (rebuild with `scripts/sync_clients.py` after cloning); CI fails on drift in tracked files. |
 | L4 framework code | `packages/*`, `axiom_mcp/*`, `axiom_cli/*`, `scripts/*` | Senior agent/human only | Adding a skill NEVER needs this. Only new *tool kinds* do. |
 
 ## Parallel-work protocol

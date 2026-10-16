@@ -770,6 +770,40 @@ def dispatch(method: str, params: dict):
     raise ValueError(f"unknown method: {method}")
 
 
+def check() -> dict:
+    """Compat self-probe (mirrors `axiom mcp --check`).
+
+    Runs the MCP handshake plus tools/list through the same dispatch path
+    every client uses, and validates each tool carries a description and a
+    JSON-Schema inputSchema. No subprocesses, no network, deterministic.
+    """
+    report: dict = {"status": "ok", "tools": [], "failures": []}
+    try:
+        hello = dispatch("initialize", {"protocolVersion": "2024-11-05"})
+        report["protocolVersion"] = hello.get("protocolVersion")
+        report["server"] = hello.get("serverInfo", {}).get("name")
+    except Exception as exc:  # noqa: BLE001
+        return {"status": "error", "tools": [], "failures": [f"initialize: {exc}"]}
+    try:
+        listing = dispatch("tools/list", {})
+        tools = listing.get("tools", [])
+    except Exception as exc:  # noqa: BLE001
+        return {"status": "error", "tools": [], "failures": [f"tools/list: {exc}"]}
+    for tool in tools:
+        name = tool.get("name", "?")
+        schema = tool.get("inputSchema") or {}
+        if not tool.get("description"):
+            report["failures"].append(f"{name}: missing description")
+        elif schema.get("type") != "object":
+            report["failures"].append(f"{name}: inputSchema is not an object schema")
+        else:
+            report["tools"].append(name)
+    report["tool_count"] = len(report["tools"])
+    if report["failures"]:
+        report["status"] = "error"
+    return report
+
+
 def serve(stdin=None, stdout=None) -> int:
     stdin, stdout = stdin or sys.stdin, stdout or sys.stdout
     for line in stdin:

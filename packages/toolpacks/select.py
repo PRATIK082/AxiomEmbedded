@@ -76,6 +76,12 @@ def select_packs(
                 agents.append(entry["id"])
     except Exception:
         pass
+    try:
+        from packages.toolpacks.detect import detect_all
+
+        availability = detect_all()
+    except Exception:
+        availability = {}
     return {
         "domain": domain,
         "platform": platform,
@@ -86,4 +92,5 @@ def select_packs(
         "agents": sorted(agents),
         "skills": sorted(skills),
         "manifests": [f"tools/{t}/manifest.yaml" for t in sorted(tools)],
+        "availability": availability,
     }

@@ -9,3 +9,11 @@ dist/
 .pytest_cache/
 # Axiom index output
 .axiom/
+# Generated client mirrors (build on demand: python scripts/sync_clients.py).
+# Sources of truth are skills/ and agents/; these are never edited by hand.
+.opencode/agents/
+.opencode/skills/
+.opencode/commands/
+.opencode/plugins/
+.claude/
+.claude-plugin/

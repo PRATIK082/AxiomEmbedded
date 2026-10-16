@@ -1,0 +1,9 @@
+# EV-003: defense project + aerospace-flavoured prompt unions both slices and asks.
+id: EV-003
+agent: safety
+domain: defense
+platform: mpu
+prompt: DAL-B flight-control software assurance for this rugged mission controller.
+expect:
+  skills_contain: [axiom-aerospace-defense-safety-review, safety]
+  clarifies: true

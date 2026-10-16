@@ -428,6 +428,10 @@ def main() -> int:
     en.add_argument("--group", default=None, help="Restrict to a skills/groups.yaml view")
     en.add_argument("--limit", type=int, default=0, help="Cap returned skills (0 = all; reply carries total/truncated)")
     pk = sp.add_parser("packs", help="Select plug-and-play tool/pip packs by domain+platform+standards"); pk.add_argument("--domain"); pk.add_argument("--platform");     pk.add_argument("--standard", dest="standards", action="append", default=[], help="Repeatable standard filter (e.g. --standard 'ISO 14229-1')")
+    ev = sp.add_parser("eval", help="List and grade Terminal-Bench-style eval tasks (no model calls)")
+    ev.add_argument("--list", action="store_true", help="List all eval task ids")
+    ev.add_argument("--grade", default=None, help="Grade one task id against static expectations")
+    ev.add_argument("--root", default=".", help="Repo root the task prompt is graded in (default: cwd)")
     cm = sp.add_parser("compose", help="Compose a skill mind-map DAG from a prompt + facet axes"); cm.add_argument("prompt"); cm.add_argument("--domain"); cm.add_argument("--platform"); cm.add_argument("--os"); cm.add_argument("--language"); cm.add_argument("--standard", dest="standards", action="append", default=[]); cm.add_argument("--hardware"); cm.add_argument("--technology")
     rn = sp.add_parser("run"); rn.add_argument("request"); rn.add_argument("--domain"); rn.add_argument("--platform")
     st = sp.add_parser("status", help="Terminal dashboard: project health + next action"); st.add_argument("--format", choices=["text", "json"], default="text")
@@ -487,7 +491,8 @@ def main() -> int:
                        help="Use the operator's own OpenCode config instead of the Axiom-isolated one")
         p.add_argument("--dry-run", action="store_true",
                        help="Print the resolved argv/env/config without executing")
-    sp.add_parser("mcp", help="Serve Model Context Protocol over stdio (any MCP client)")
+    mc = sp.add_parser("mcp", help="Serve Model Context Protocol over stdio (any MCP client)")
+    mc.add_argument("--check", action="store_true", help="Run the MCP handshake + tool-inventory compat probe instead of serving")
     sg = sp.add_parser("stage", help="Detect project lifecycle stage from evidence + profile entry")
     sg.add_argument("path", nargs="?", default="."); sg.add_argument("--profile")
     sk = sp.add_parser("skills", help="Skill framework: list/validate/search/run/report/create/apply")
@@ -530,6 +535,14 @@ def main() -> int:
     if args.cmd == "route": print(route(args.request)); return 0
     if args.cmd == "engage": return engage_cmd(args.domain, args.platform, args.group, args.limit or 0)
     if args.cmd == "packs": return packs_cmd(args.domain, args.platform, args.standards or [])
+    if args.cmd == "eval":
+        from packages.eval.runner import grade as eval_grade, list_tasks as eval_list
+        if getattr(args, "grade", None):
+            print(json.dumps(eval_grade(args.grade, getattr(args, "root", ".")), indent=2))
+            return 0
+        print(json.dumps({"tasks": [t.get("id") for t in eval_list()],
+                          "count": len(eval_list())}, indent=2))
+        return 0
     if args.cmd == "compose": return compose_cmd(args.prompt, args.domain, args.platform, args.os, args.language, args.standards or [], args.hardware, args.technology)
     if args.cmd == "run": return run_cmd(args.request, args.domain, args.platform)
     if args.cmd == "status": return status_cmd(args.format)
@@ -545,7 +558,13 @@ def main() -> int:
         return oc_cmd(args.oc_cmd, getattr(args, "prompt", None) or [], args.model, args.agent, args.dir,
                       getattr(args, "format", None), getattr(args, "title", None),
                       args.source, args.isolate, args.dry_run)
-    if args.cmd == "mcp": return mcp_serve()
+    if args.cmd == "mcp":
+        if getattr(args, "check", False):
+            from axiom_mcp.server import check as mcp_check
+            report = mcp_check()
+            print(json.dumps(report, indent=2))
+            return 0 if report.get("status") == "ok" else 1
+        return mcp_serve()
     if args.cmd == "stage": return stage_cmd(args.path, args.profile)
     if args.cmd == "skills": return skills_cmd(args.skills_cmd, args)
     if args.cmd == "serve": return http_serve(args.port)

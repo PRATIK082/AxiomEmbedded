@@ -1,0 +1,9 @@
+# EV-004: token budget holds on a wide request (prompt union capped).
+id: EV-004
+agent: implementation
+domain: null
+platform: null
+prompt: Write MISRA firmware with UDS diagnostics and ROS2 telemetry bring-up.
+expect:
+  primary_skill_cap: 8
+  max_context_files: 8

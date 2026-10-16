@@ -29,7 +29,9 @@ any skill edit a single command re-derives everything (`skills apply`).
 
 - Python **≥ 3.11**. Only runtime dependency: **PyYAML** (everything else is stdlib).
 - OpenCode ≥ 1.18 (any recent release works; MCP shape is standard stdio).
-- The repo checkout (or the pip package) — the installer copies content from it.
+- The repo checkout (or the pip package) — the installer copies content from it
+  (from a fresh clone the gitignored mirrors are generated on demand, so no
+  manual `sync_clients.py` run is needed before installing).
 
 ## 3. Install
 

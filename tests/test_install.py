@@ -152,6 +152,44 @@ def test_update_reports_stale_and_refreshes(tmp_path):
     assert target.read_text(encoding="utf-8") != "diverged"
 
 
+def test_install_opencode_into_source_tree_skips_self_mcp():
+    # Installing into the Axiom checkout itself must not re-add the
+    # self-referencing MCP server that sync_clients.py removes on purpose.
+    from packages.installer import install_client
+    import tempfile
+    with tempfile.TemporaryDirectory() as home:
+        res = install_client("opencode", ROOT, pathlib.Path(home), ROOT, is_global=False)
+    assert res["scope"] == "project", res
+    data = json.loads((ROOT / "opencode.json").read_text(encoding="utf-8"))
+    assert "axiom-embedded" not in data.get("mcp", {}), res
+    assert any("self-install skipped" in n for n in res["notes"]), res
+
+
+def test_install_generates_absent_mirrors_on_demand(tmp_path):
+    # Mirrors are gitignored build outputs: installing from a source tree
+    # without them (fresh clone) must generate first, not ship nothing.
+    import shutil
+    from packages.installer import install_client
+    mini = tmp_path / "mini"
+    (mini / "scripts").mkdir(parents=True)
+    shutil.copy(ROOT / "scripts" / "sync_clients.py", mini / "scripts" / "sync_clients.py")
+    (mini / "skills" / "embedded-c").mkdir(parents=True)
+    shutil.copy(ROOT / "skills" / "embedded-c" / "SKILL.md",
+                mini / "skills" / "embedded-c" / "SKILL.md")
+    (mini / "agents").mkdir()
+    shutil.copytree(ROOT / "agents" / "implementation", mini / "agents" / "implementation")
+    shutil.copy(ROOT / "VERSION", mini / "VERSION")
+    proj, home = tmp_path / "proj", tmp_path / "home"
+    proj.mkdir()
+    res = install_client("opencode", proj, home, mini, is_global=False)
+    assert any("generated on demand" in n for n in res["notes"]), res
+    assert (mini / ".opencode" / "skills" / "embedded-c" / "SKILL.md").exists()
+    assert (proj / ".opencode" / "skills" / "embedded-c" / "SKILL.md").exists()
+    again = install_client("opencode", proj, home, mini, is_global=False)
+    assert not any("generated on demand" in n for n in again["notes"]), again
+    assert again["written"] == [], again
+
+
 def test_mcp_uninstall_update_unknown_client():
     from axiom_mcp.server import dispatch
     res = dispatch("tools/call", {"name": "uninstall", "arguments": {"client": "nope"}})

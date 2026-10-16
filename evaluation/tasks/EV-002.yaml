@@ -1,0 +1,9 @@
+# EV-002: ambiguous prompt must trigger clarification, not a guess.
+id: EV-002
+agent: code-review
+domain: null
+platform: null
+prompt: Review this code for checksums.
+expect:
+  clarifies: true
+  min_confidence_to_skip_clarify: 0.5

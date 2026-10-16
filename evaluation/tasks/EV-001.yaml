@@ -1,0 +1,10 @@
+# EV-001: automotive code-review binds the automotive skill slice.
+id: EV-001
+agent: code-review
+domain: automotive
+platform: mcu
+prompt: Review this CAN-FD UDS diagnostic handler for MISRA compliance.
+expect:
+  skills_contain: [code-review, axiom-diagnostics-uds]
+  standards_contain: [misra-c]
+  clarifies: false

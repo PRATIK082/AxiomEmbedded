@@ -26,15 +26,13 @@ def test_generated_files_exist_and_are_stamped():
         assert "sync_clients.py" in path.read_text(encoding="utf-8"), rel
 
 
-def test_opencode_json_has_mcp_and_instructions():
+def test_opencode_json_has_instructions_and_no_self_mcp():
     data = json.loads((ROOT / "opencode.json").read_text(encoding="utf-8"))
     assert "AGENTS.md" in data["instructions"]
-    # OpenCode v1 shape: strict {type: local, command: [...], enabled}
-    # (verified via `opencode mcp list`); the {command, args} split lives
-    # only in .mcp.json for generic MCP clients.
-    entry = data["mcp"]["axiom-embedded"]
-    assert entry["type"] == "local" and entry["enabled"] is True
-    assert entry["command"][-3:] == ["-m", "axiom_cli", "mcp"]
+    # This checkout must not self-load the axiom MCP server (token cost +
+    # self-reference); headless runs use the launcher's isolated config and
+    # consumer projects get the entry via `axiom install --client`.
+    assert "axiom-embedded" not in data.get("mcp", {})
 
 
 def test_agent_and_skill_copies_mirror_sources(tmp_path):
