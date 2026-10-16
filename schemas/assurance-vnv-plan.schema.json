@@ -1,0 +1,35 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "AxiomEmbedded V&V Plan Artifact",
+  "type": "object",
+  "allOf": [{"$ref": "assurance-envelope.schema.json"}],
+  "required": ["artifact_id", "schema_version", "kind", "status", "domain", "created_at", "updated_at", "author", "approval_status", "test_cases", "trace_matrix"],
+  "properties": {
+    "kind": {"const": "vnv-plan"},
+    "test_cases": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "object",
+        "required": ["id", "objective", "covers_requirements"],
+        "properties": {
+          "id": {"type": "string", "pattern": "^TEST-[0-9]+$"},
+          "objective": {"type": "string"},
+          "covers_requirements": {"type": "array", "items": {"type": "string"}},
+          "result": {"type": "string", "enum": ["not-run", "pass", "fail", "OPEN"]}
+        }
+      }
+    },
+    "trace_matrix": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["requirement", "test_case"],
+        "properties": {
+          "requirement": {"type": "string"},
+          "test_case": {"type": "string"}
+        }
+      }
+    }
+  }
+}

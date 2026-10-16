@@ -4,6 +4,18 @@ description: Needs-based validation scenarios, usability, and acceptance. Use wh
 version: 1.2.0
 domains: [all]
 platforms: [all]
+axiom:
+  dotted_name: axiom.legacy.validation
+  domain: all
+  subdomain: legacy
+  category: legacy
+  maturity: production
+  owner: axiom-embedded
+  tags:
+  - legacy
+  related_skills: []
+  checklists:
+  - checklists/validation-checklist.md
 ---
 
 # Validation skill

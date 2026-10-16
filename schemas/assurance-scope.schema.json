@@ -1,0 +1,36 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "AxiomEmbedded System Scope Artifact",
+  "type": "object",
+  "allOf": [{"$ref": "assurance-envelope.schema.json"}],
+  "required": ["artifact_id", "schema_version", "kind", "status", "domain", "created_at", "updated_at", "author", "approval_status", "system", "operating_context", "boundaries"],
+  "properties": {
+    "kind": {"const": "system-scope"},
+    "system": {
+      "type": "object",
+      "required": ["name", "purpose"],
+      "properties": {
+        "name": {"type": "string"},
+        "purpose": {"type": "string"},
+        "lifecycle_phase": {"type": "string"}
+      }
+    },
+    "operating_context": {
+      "type": "object",
+      "required": ["environment", "operators"],
+      "properties": {
+        "environment": {"type": "string"},
+        "operators": {"type": "string"},
+        "interfaces": {"type": "array", "items": {"type": "string"}}
+      }
+    },
+    "boundaries": {
+      "type": "object",
+      "required": ["in_scope", "out_of_scope"],
+      "properties": {
+        "in_scope": {"type": "array", "items": {"type": "string"}},
+        "out_of_scope": {"type": "array", "items": {"type": "string"}}
+      }
+    }
+  }
+}

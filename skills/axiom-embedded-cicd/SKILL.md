@@ -5,7 +5,7 @@ description: >
   Designs deterministic CI/CD pipelines for embedded repositories: build matrix,
   static checks, unit/integration tests, artifact versioning, and evidence
   packaging, delivered as a reviewable workflow fragment plus gate checklist.
-version: 0.1.0
+version: 1.2.0
 author: PRATIK PATIL
 license: Apache-2.0
 domains: [all]

@@ -4,6 +4,19 @@ description: MCU firmware engineering - core selection, startup, MPU/TrustZone, 
 version: 1.2.0
 domains: [generic-embedded, automotive, industrial, iot, robotics]
 platforms: [mcu, bare-metal, rtos]
+axiom:
+  dotted_name: axiom.legacy.mcu
+  domain: generic-embedded
+  subdomain: legacy
+  category: legacy
+  maturity: production
+  owner: axiom-embedded
+  tags:
+  - legacy
+  related_skills:
+  - axiom-embedded-firmware-bringup
+  checklists:
+  - checklists/mcu-checklist.md
 ---
 
 # mcu — Microcontroller firmware capability (template skill)

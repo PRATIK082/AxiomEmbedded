@@ -3,7 +3,7 @@ name: axiom-diagnostics-uds
 title: UDS Diagnostics Design and Validation
 description: >
   Designs UDS service coverage, session/security posture and negative-response matrices, and validates them with a deterministic checker script.
-version: 0.1.0
+version: 1.2.0
 author: PRATIK PATIL
 license: Apache-2.0
 domains: [automotive]

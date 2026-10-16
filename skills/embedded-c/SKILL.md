@@ -4,6 +4,18 @@ description: C17 embedded subset, integer/pointer discipline, startup and linker
 version: 1.2.0
 domains: [all]
 platforms: [mcu, bare-metal, rtos]
+axiom:
+  dotted_name: axiom.legacy.embedded-c
+  domain: all
+  subdomain: legacy
+  category: legacy
+  maturity: production
+  owner: axiom-embedded
+  tags:
+  - legacy
+  related_skills: []
+  checklists:
+  - checklists/embedded-c-checklist.md
 ---
 
 # Embedded-C skill

@@ -4,6 +4,19 @@ description: Checker layering, qualification, baselines, and triage for MISRA/CE
 version: 1.2.0
 domains: [all]
 platforms: [all]
+axiom:
+  dotted_name: axiom.legacy.static-analysis
+  domain: all
+  subdomain: legacy
+  category: legacy
+  maturity: production
+  owner: axiom-embedded
+  tags:
+  - legacy
+  related_skills:
+  - axiom-static-analysis-triage
+  checklists:
+  - checklists/static-analysis-checklist.md
 ---
 
 # Static-Analysis skill

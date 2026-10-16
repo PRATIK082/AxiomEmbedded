@@ -4,6 +4,18 @@ description: Yocto LTS policy, BSP structure, verified boot, OTA, hardening. Use
 version: 1.2.0
 domains: [generic-embedded, automotive, industrial, iot, robotics]
 platforms: [mpu, soc, mpsoc, linux]
+axiom:
+  dotted_name: axiom.legacy.embedded-linux
+  domain: generic-embedded
+  subdomain: legacy
+  category: legacy
+  maturity: production
+  owner: axiom-embedded
+  tags:
+  - legacy
+  related_skills: []
+  checklists:
+  - checklists/embedded-linux-checklist.md
 ---
 
 # Embedded-Linux skill

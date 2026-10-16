@@ -4,6 +4,18 @@ description: FMEA-derived fault lists, SWIFI/HWIFI levels, and SPFM/LFM accounti
 version: 1.2.0
 domains: [generic-embedded, automotive, aerospace, defense, industrial]
 platforms: [all]
+axiom:
+  dotted_name: axiom.legacy.fault-injection
+  domain: generic-embedded
+  subdomain: legacy
+  category: legacy
+  maturity: production
+  owner: axiom-embedded
+  tags:
+  - legacy
+  related_skills: []
+  checklists:
+  - checklists/fault-injection-checklist.md
 ---
 
 # Fault-Injection skill

@@ -1,0 +1,22 @@
+artifact_id: HAZ-AN-001
+schema_version: 1.0.0
+kind: hazard-risk
+status: draft
+domain: industrial
+standards: [ISO 12100:2010, ISO 10218-2:2011]
+created_at: 2026-10-17T00:00:00Z
+updated_at: 2026-10-17T00:00:00Z
+author: engineering-team
+reviewer: TBD
+assumptions: [A1 TBD]
+evidence: [SCOPE-001]
+traceability:
+  - {source: HAZ-001, target: SCOPE-001, relationship: scoped-by}
+open_questions: [Q1 TBD]
+approval_status: draft
+hazards:
+  - id: HAZ-001
+    description: UNKNOWN hazard in UNKNOWN mode
+    severity: medium
+    controls: []
+    rationale: TBD or list CTL-xxx controls

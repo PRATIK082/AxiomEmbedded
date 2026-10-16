@@ -1,0 +1,19 @@
+id: axiom-iso12100-risk-assessment
+version: 1.2.0
+contract_version: 1
+type: reusable-skill
+source_of_truth:
+  instructions: SKILL.md
+  contract: manifest.yaml
+facets:
+  domains:
+  - industrial
+  platforms:
+  - mcu
+  - mpu
+standards:
+- ISO 12100:2010
+axiom:
+  dotted_name: axiom.industrial.iso12100.risk.assessment
+  maturity: experimental
+  category: assessment

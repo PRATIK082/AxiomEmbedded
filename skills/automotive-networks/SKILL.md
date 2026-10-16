@@ -4,6 +4,21 @@ description: CAN-FD/XL, LIN, FlexRay, 100/1000BASE-T1 Ethernet + TSN, gateways, 
 version: 1.2.0
 domains: [automotive]
 platforms: [mcu, mpu, autosar-classic, autosar-adaptive]
+axiom:
+  dotted_name: axiom.legacy.automotive-networks
+  domain: automotive
+  subdomain: legacy
+  category: legacy
+  maturity: production
+  owner: axiom-embedded
+  tags:
+  - legacy
+  related_skills:
+  - axiom-automotive-ethernet-someip
+  - axiom-can-network-design
+  - axiom-can-stack-integration
+  checklists:
+  - checklists/automotive-networks-checklist.md
 ---
 
 # automotive-networks — In-vehicle networking capability

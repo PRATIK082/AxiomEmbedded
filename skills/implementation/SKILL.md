@@ -4,6 +4,18 @@ description: MISRA/CERT construction, static-analysis-clean code, reviews, and d
 version: 1.2.0
 domains: [all]
 platforms: [all]
+axiom:
+  dotted_name: axiom.legacy.implementation
+  domain: all
+  subdomain: legacy
+  category: legacy
+  maturity: production
+  owner: axiom-embedded
+  tags:
+  - legacy
+  related_skills: []
+  checklists:
+  - checklists/implementation-checklist.md
 ---
 
 # Implementation skill

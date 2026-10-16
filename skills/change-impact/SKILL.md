@@ -4,6 +4,18 @@ description: Trace-driven blast-radius analysis and safety trigger tests for cha
 version: 1.2.0
 domains: [all]
 platforms: [all]
+axiom:
+  dotted_name: axiom.legacy.change-impact
+  domain: all
+  subdomain: legacy
+  category: legacy
+  maturity: production
+  owner: axiom-embedded
+  tags:
+  - legacy
+  related_skills: []
+  checklists:
+  - checklists/change-impact-checklist.md
 ---
 
 # Change-Impact skill

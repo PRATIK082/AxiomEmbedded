@@ -3,7 +3,7 @@ name: axiom-automotive-ethernet-someip
 title: Automotive Ethernet and SOME/IP Design
 description: >
   Designs Ethernet topology, VLAN/TSN assumptions and SOME/IP service modeling for service-oriented ECUs.
-version: 0.1.0
+version: 1.2.0
 author: PRATIK PATIL
 license: Apache-2.0
 domains: [automotive]

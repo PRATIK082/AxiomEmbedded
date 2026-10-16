@@ -1,0 +1,25 @@
+artifact_id: REV-SEC-CELL-01
+schema_version: 1.0.0
+kind: review-report
+status: in-review
+domain: industrial
+standards: [IEC 62443-3-3:2013]
+created_at: 2026-10-14T10:00:00Z
+updated_at: 2026-10-14T10:00:00Z
+author: independent-reviewer
+reviewer: independent-reviewer
+assumptions: []
+evidence: [SEC-CELL-01, SCOPE-CELL-01]
+traceability:
+  - {source: REV-SEC-CELL-01, target: SEC-CELL-01, relationship: reviews}
+open_questions: []
+approval_status: pending-review
+target_artifact: SEC-CELL-01
+verdict: revise-and-resubmit
+findings:
+  - id: REV-001
+    severity: Blocker
+    location: threats.SEC-002
+    evidence: SEC-002 has no controls and the credential rotation procedure is undocumented.
+    recommendation: Define HMI credential controls with an owner and re-submit the threat model.
+    owner: controls-team

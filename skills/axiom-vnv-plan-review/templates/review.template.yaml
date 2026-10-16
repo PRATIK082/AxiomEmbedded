@@ -1,0 +1,25 @@
+artifact_id: REV-VNV-001
+schema_version: 1.0.0
+kind: review-report
+status: in-review
+domain: industrial
+standards: [ISO 12100:2010]
+created_at: 2026-10-17T00:00:00Z
+updated_at: 2026-10-17T00:00:00Z
+author: independent-reviewer
+reviewer: independent-reviewer
+assumptions: []
+evidence: [VNV-001]
+traceability:
+  - {source: REV-VNV-001, target: VNV-001, relationship: reviews}
+open_questions: []
+approval_status: pending-review
+target_artifact: VNV-001
+verdict: accept-with-actions
+findings:
+  - id: REV-001
+    severity: Observation
+    location: trace_matrix
+    evidence: quote or section reference
+    recommendation: concrete action
+    owner: engineering-team

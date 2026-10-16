@@ -4,6 +4,19 @@ description: Elicitation and baselining of verifiable requirements with methods,
 version: 1.2.0
 domains: [all]
 platforms: [all]
+axiom:
+  dotted_name: axiom.legacy.requirements
+  domain: all
+  subdomain: legacy
+  category: legacy
+  maturity: production
+  owner: axiom-embedded
+  tags:
+  - legacy
+  related_skills:
+  - axiom-platform-architecture-review
+  checklists:
+  - checklists/requirements-checklist.md
 ---
 
 # Requirements skill

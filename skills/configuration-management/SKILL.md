@@ -4,6 +4,18 @@ description: Version-everything, immutable baselines, and CI identification. Use
 version: 1.2.0
 domains: [all]
 platforms: [all]
+axiom:
+  dotted_name: axiom.legacy.configuration-management
+  domain: all
+  subdomain: legacy
+  category: legacy
+  maturity: production
+  owner: axiom-embedded
+  tags:
+  - legacy
+  related_skills: []
+  checklists:
+  - checklists/configuration-management-checklist.md
 ---
 
 # Configuration-Management skill

@@ -4,6 +4,19 @@ description: Top-down budgets, WCET measurement, profile-before-patch, CI tripwi
 version: 1.2.0
 domains: [all]
 platforms: [all]
+axiom:
+  dotted_name: axiom.legacy.performance
+  domain: all
+  subdomain: legacy
+  category: legacy
+  maturity: production
+  owner: axiom-embedded
+  tags:
+  - legacy
+  related_skills:
+  - axiom-memory-and-performance-analysis
+  checklists:
+  - checklists/performance-checklist.md
 ---
 
 # Performance skill

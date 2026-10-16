@@ -4,6 +4,19 @@ description: ROS 2 distro policy, interface-first nodes, real-time paths, simula
 version: 1.2.0
 domains: [robotics, industrial]
 platforms: [mpu, soc, linux]
+axiom:
+  dotted_name: axiom.legacy.robotics
+  domain: robotics
+  subdomain: legacy
+  category: legacy
+  maturity: production
+  owner: axiom-embedded
+  tags:
+  - legacy
+  related_skills:
+  - axiom-robotics-system-integration
+  checklists:
+  - checklists/robotics-checklist.md
 ---
 
 # Robotics skill

@@ -4,6 +4,20 @@ description: Automotive SPICE v4.0 process capability (PRM/PAM, CL0-5, VDA scope
 version: 1.2.0
 domains: [automotive]
 platforms: [all]
+axiom:
+  dotted_name: axiom.legacy.automotive-spice
+  domain: automotive
+  subdomain: legacy
+  category: legacy
+  maturity: production
+  owner: axiom-embedded
+  tags:
+  - legacy
+  related_skills:
+  - axiom-automotive-release-readiness
+  - axiom-test-automation
+  checklists:
+  - checklists/automotive-spice-checklist.md
 ---
 
 # automotive-spice — Automotive SPICE v4.0 process capability

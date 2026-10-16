@@ -4,6 +4,24 @@ description: Classic/Adaptive selection, layered BSW/RTE rules, SOME/IP integrat
 version: 1.2.0
 domains: [automotive]
 platforms: [mcu, mpu, autosar-classic, autosar-adaptive]
+axiom:
+  dotted_name: axiom.legacy.autosar
+  domain: automotive
+  subdomain: legacy
+  category: legacy
+  maturity: production
+  owner: axiom-embedded
+  tags:
+  - legacy
+  related_skills:
+  - axiom-autosar-adaptive-deployment
+  - axiom-autosar-classic-architecture
+  - axiom-autosar-classic-bsw-integration
+  - axiom-autosar-com-stack
+  - axiom-autosar-os-config
+  - axiom-autosar-rte-design
+  checklists:
+  - checklists/autosar-checklist.md
 ---
 
 # autosar — AUTOSAR Classic / Adaptive capability (template replication 2)

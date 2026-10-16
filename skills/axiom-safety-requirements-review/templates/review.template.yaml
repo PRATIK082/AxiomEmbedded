@@ -1,0 +1,25 @@
+artifact_id: REV-REQ-SET-001
+schema_version: 1.0.0
+kind: review-report
+status: in-review
+domain: industrial
+standards: [ISO 12100:2010, IEC 62061:2021]
+created_at: 2026-10-17T00:00:00Z
+updated_at: 2026-10-17T00:00:00Z
+author: independent-reviewer
+reviewer: independent-reviewer
+assumptions: []
+evidence: [REQ-SET-001]
+traceability:
+  - {source: REV-REQ-SET-001, target: REQ-SET-001, relationship: reviews}
+open_questions: []
+approval_status: pending-review
+target_artifact: REQ-SET-001
+verdict: accept-with-actions
+findings:
+  - id: REV-001
+    severity: Observation
+    location: requirements
+    evidence: quote or section reference
+    recommendation: concrete action
+    owner: engineering-team

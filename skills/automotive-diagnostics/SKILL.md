@@ -4,6 +4,20 @@ description: UDS/DoIP/OBD-II/J1939/XCP diagnostics, tester integration (ODX/OTX)
 version: 1.3.0
 domains: [automotive]
 platforms: [mcu, mpu, autosar-classic, autosar-adaptive]
+axiom:
+  dotted_name: axiom.legacy.automotive-diagnostics
+  domain: automotive
+  subdomain: legacy
+  category: legacy
+  maturity: production
+  owner: axiom-embedded
+  tags:
+  - legacy
+  related_skills:
+  - axiom-diagnostics-doip
+  - axiom-diagnostics-uds
+  checklists:
+  - checklists/automotive-diagnostics-checklist.md
 ---
 
 # automotive-diagnostics — Vehicle diagnostics and tester capability

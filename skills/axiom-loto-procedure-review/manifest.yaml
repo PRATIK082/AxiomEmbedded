@@ -1,0 +1,20 @@
+id: axiom-loto-procedure-review
+version: 1.2.0
+contract_version: 1
+type: reusable-skill
+source_of_truth:
+  instructions: SKILL.md
+  contract: manifest.yaml
+facets:
+  domains:
+  - industrial
+  platforms:
+  - mcu
+  - mpu
+standards:
+- ISO 14118:2017
+- ANSI Z244.1-2016
+axiom:
+  dotted_name: axiom.industrial.loto.procedure
+  maturity: experimental
+  category: procedure

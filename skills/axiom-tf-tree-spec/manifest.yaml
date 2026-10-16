@@ -1,0 +1,18 @@
+id: axiom-tf-tree-spec
+version: 1.2.0
+contract_version: 1
+type: reusable-skill
+source_of_truth:
+  instructions: SKILL.md
+  contract: manifest.yaml
+facets:
+  domains:
+  - robotics
+  platforms:
+  - mpu
+  - soc
+standards: []
+axiom:
+  dotted_name: axiom.robotics.tf.tree.spec
+  maturity: experimental
+  category: design

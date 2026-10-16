@@ -3,7 +3,7 @@ name: axiom-rtos-architecture
 title: RTOS Architecture Review
 description: >
   Reviews RTOS task, priority, IPC and timing architecture for determinism and stack safety.
-version: 0.1.0
+version: 1.2.0
 author: PRATIK PATIL
 license: Apache-2.0
 domains: [all]

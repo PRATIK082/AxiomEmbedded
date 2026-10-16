@@ -5,7 +5,7 @@ description: >
   Designs versioned interface contracts between software components and subsystems
   (signals, services, APIs, diagnostic ports), with compatibility checks and
   traceability from requirements to integration tests.
-version: 0.1.0
+version: 1.2.0
 author: PRATIK PATIL
 license: Apache-2.0
 domains: [all]

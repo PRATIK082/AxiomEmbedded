@@ -4,6 +4,20 @@ description: Threat modeling, secure boot, crypto inventory, fuzzing, SBOM/CVE w
 version: 1.2.0
 domains: [all]
 platforms: [all]
+axiom:
+  dotted_name: axiom.legacy.security
+  domain: all
+  subdomain: legacy
+  category: legacy
+  maturity: production
+  owner: axiom-embedded
+  tags:
+  - legacy
+  related_skills:
+  - axiom-threat-model
+  - axiom-vehicle-cybersecurity
+  checklists:
+  - checklists/security-checklist.md
 ---
 
 # Security skill

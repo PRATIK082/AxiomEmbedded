@@ -1,0 +1,25 @@
+artifact_id: REV-VNV-CELL-01
+schema_version: 1.0.0
+kind: review-report
+status: in-review
+domain: industrial
+standards: [ISO 12100:2010]
+created_at: 2026-10-14T09:00:00Z
+updated_at: 2026-10-14T09:00:00Z
+author: independent-reviewer
+reviewer: independent-reviewer
+assumptions: []
+evidence: [VNV-CELL-01, REQ-CELL-01]
+traceability:
+  - {source: REV-VNV-CELL-01, target: VNV-CELL-01, relationship: reviews}
+open_questions: []
+approval_status: pending-review
+target_artifact: VNV-CELL-01
+verdict: accept-with-actions
+findings:
+  - id: REV-001
+    severity: Major
+    location: test_cases.TEST-001
+    evidence: The 50 ms timing rig is uncalibrated, so TEST-001 cannot yet execute.
+    recommendation: Calibrate the rig and record EVD timing evidence before release.
+    owner: test-team

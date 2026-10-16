@@ -4,6 +4,18 @@ description: MPU-based design - selection from measured load, ECC/DDR, power seq
 version: 1.2.0
 domains: [generic-embedded, automotive, industrial, iot, robotics]
 platforms: [mpu, linux]
+axiom:
+  dotted_name: axiom.legacy.mpu
+  domain: generic-embedded
+  subdomain: legacy
+  category: legacy
+  maturity: production
+  owner: axiom-embedded
+  tags:
+  - legacy
+  related_skills: []
+  checklists:
+  - checklists/mpu-checklist.md
 ---
 
 # MPU skill

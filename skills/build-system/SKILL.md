@@ -4,6 +4,19 @@ description: Warnings-as-errors builds, pinning, toolchain separation, SLSA prov
 version: 1.2.0
 domains: [all]
 platforms: [all]
+axiom:
+  dotted_name: axiom.legacy.build-system
+  domain: all
+  subdomain: legacy
+  category: legacy
+  maturity: production
+  owner: axiom-embedded
+  tags:
+  - legacy
+  related_skills:
+  - axiom-embedded-cicd
+  checklists:
+  - checklists/build-system-checklist.md
 ---
 
 # Build-System skill

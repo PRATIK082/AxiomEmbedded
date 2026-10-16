@@ -1,0 +1,13 @@
+# Inputs for the worked example (stakeholder notes, pre-engineered for the demo)
+system_name: Cell R-12 pick-and-place
+purpose: Transfer machined parts between conveyor and pallet station
+environment: Indoor fenced cell, 8x6 m, shared aisle on north side
+operators: Cell operator (load/unload), maintenance technician (locked-out service)
+interfaces:
+  - Safety gate interlock (dual-channel) to PLC safety controller
+  - Emergency-stop loop (2x e-stop) to PLC safety controller
+  - HMI panel (mode select, reset) on cell controller network
+  - Wi-Fi gateway (telemetry only) to plant network
+known_issues:
+  - Gate bypass observed during night shift (unverified report)
+open_modes: [automatic, manual-reduced-speed, maintenance-locked-out]

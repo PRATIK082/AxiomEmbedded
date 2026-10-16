@@ -3,7 +3,7 @@ name: axiom-autosar-classic-architecture
 title: AUTOSAR Classic Architecture Review
 description: >
   Reviews AUTOSAR Classic platform architecture choices, layering, and release baselines for an ECU project and produces an architecture decision record with findings.
-version: 0.1.0
+version: 1.2.0
 author: PRATIK PATIL
 license: Apache-2.0
 domains: [automotive]

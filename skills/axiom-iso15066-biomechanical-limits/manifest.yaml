@@ -1,0 +1,19 @@
+id: axiom-iso15066-biomechanical-limits
+version: 1.2.0
+contract_version: 1
+type: reusable-skill
+source_of_truth:
+  instructions: SKILL.md
+  contract: manifest.yaml
+facets:
+  domains:
+  - robotics
+  platforms:
+  - mpu
+  - soc
+standards:
+- ISO/TS 15066:2016
+axiom:
+  dotted_name: axiom.robotics.iso15066.biomechanical.limits
+  maturity: experimental
+  category: assessment

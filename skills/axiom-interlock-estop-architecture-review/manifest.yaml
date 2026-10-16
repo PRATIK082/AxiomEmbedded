@@ -1,0 +1,21 @@
+id: axiom-interlock-estop-architecture-review
+version: 1.2.0
+contract_version: 1
+type: reusable-skill
+source_of_truth:
+  instructions: SKILL.md
+  contract: manifest.yaml
+facets:
+  domains:
+  - robotics
+  platforms:
+  - mpu
+  - soc
+standards:
+- ISO 14118:2017
+- ISO 13850:2015
+- ISO 13849-1:2023
+axiom:
+  dotted_name: axiom.robotics.interlock.estop.architecture
+  maturity: experimental
+  category: design

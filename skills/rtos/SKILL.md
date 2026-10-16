@@ -4,6 +4,19 @@ description: RTOS selection, scheduling/IPC rules, MPU partitioning, WCET verifi
 version: 1.2.0
 domains: [all]
 platforms: [mcu, mpu, rtos]
+axiom:
+  dotted_name: axiom.legacy.rtos
+  domain: all
+  subdomain: legacy
+  category: legacy
+  maturity: production
+  owner: axiom-embedded
+  tags:
+  - legacy
+  related_skills:
+  - axiom-rtos-architecture
+  checklists:
+  - checklists/rtos-checklist.md
 ---
 
 # rtos — Real-time operating system capability (template replication 1)

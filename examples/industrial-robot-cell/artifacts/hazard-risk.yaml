@@ -1,0 +1,42 @@
+artifact_id: HAZ-CELL-01
+schema_version: 1.0.0
+kind: hazard-risk
+status: approved
+domain: industrial
+standards: [ISO 12100:2010, ISO 10218-1:2011, ISO 10218-2:2011, ISO/TS 15066:2016, ISO 13849-1:2023, ISO 13850:2015, ISO 14118:2017]
+created_at: 2026-10-10T10:00:00Z
+updated_at: 2026-10-12T10:00:00Z
+author: cell-engineering
+reviewer: independent-reviewer
+assumptions:
+  - A1: Reduced-speed limit 250 mm/s is enforced by the arm controller; not yet measured.
+evidence: [SCOPE-CELL-01]
+traceability:
+  - {source: HAZ-001, target: SCOPE-CELL-01, relationship: scoped-by}
+  - {source: HAZ-002, target: SCOPE-CELL-01, relationship: scoped-by}
+  - {source: HAZ-003, target: SCOPE-CELL-01, relationship: scoped-by}
+  - {source: HAZ-004, target: SCOPE-CELL-01, relationship: scoped-by}
+open_questions:
+  - "Q1: Measure reduced-speed under full payload (owner: test-team)."
+approval_status: approved
+hazards:
+  - id: HAZ-001
+    description: Unexpected arm motion while operator is inside the cell (gate bypassed or interlock fault) in automatic mode.
+    severity: critical
+    controls: [CTL-001, CTL-002]
+    rationale: Dual-channel interlock plus monitored standstill before gate release.
+  - id: HAZ-002
+    description: Failure of emergency-stop loop to halt motion on demand.
+    severity: critical
+    controls: [CTL-003]
+    rationale: Hardwired Category 0 stop independent of software.
+  - id: HAZ-003
+    description: Mode-confusion restart from HMI reset while technician is in cell.
+    severity: high
+    controls: [CTL-004]
+    rationale: Reset requires gate-closed plus deliberate two-step HMI action.
+  - id: HAZ-004
+    description: Telemetry gateway used as entry to cell controller network.
+    severity: medium
+    controls: [CTL-005]
+    rationale: Gateway is outbound-only with allow-listed destination.

@@ -70,6 +70,14 @@
       "path": "skills/axiom-aerospace-defense-safety-review"
     },
     {
+      "id": "axiom-ansi-r1506-compliance-matrix",
+      "path": "skills/axiom-ansi-r1506-compliance-matrix"
+    },
+    {
+      "id": "axiom-ansi-r1506-compliance-matrix-review",
+      "path": "skills/axiom-ansi-r1506-compliance-matrix-review"
+    },
+    {
       "id": "axiom-architecture-decision-records",
       "path": "skills/axiom-architecture-decision-records"
     },
@@ -106,6 +114,14 @@
       "path": "skills/axiom-autosar-rte-design"
     },
     {
+      "id": "axiom-behavior-tree-spec",
+      "path": "skills/axiom-behavior-tree-spec"
+    },
+    {
+      "id": "axiom-behavior-tree-spec-review",
+      "path": "skills/axiom-behavior-tree-spec-review"
+    },
+    {
       "id": "axiom-bms-design",
       "path": "skills/axiom-bms-design"
     },
@@ -120,6 +136,30 @@
     {
       "id": "axiom-can-stack-integration",
       "path": "skills/axiom-can-stack-integration"
+    },
+    {
+      "id": "axiom-cobot-hand-guiding",
+      "path": "skills/axiom-cobot-hand-guiding"
+    },
+    {
+      "id": "axiom-cobot-hand-guiding-review",
+      "path": "skills/axiom-cobot-hand-guiding-review"
+    },
+    {
+      "id": "axiom-dataset-documentation",
+      "path": "skills/axiom-dataset-documentation"
+    },
+    {
+      "id": "axiom-dataset-documentation-review",
+      "path": "skills/axiom-dataset-documentation-review"
+    },
+    {
+      "id": "axiom-declaration-of-conformity",
+      "path": "skills/axiom-declaration-of-conformity"
+    },
+    {
+      "id": "axiom-declaration-of-conformity-review",
+      "path": "skills/axiom-declaration-of-conformity-review"
     },
     {
       "id": "axiom-diagnostics-doip",
@@ -138,12 +178,52 @@
       "path": "skills/axiom-embedded-firmware-bringup"
     },
     {
+      "id": "axiom-eoat-spec",
+      "path": "skills/axiom-eoat-spec"
+    },
+    {
+      "id": "axiom-eoat-spec-review",
+      "path": "skills/axiom-eoat-spec-review"
+    },
+    {
+      "id": "axiom-fleet-manager-architecture",
+      "path": "skills/axiom-fleet-manager-architecture"
+    },
+    {
+      "id": "axiom-fleet-manager-architecture-review",
+      "path": "skills/axiom-fleet-manager-architecture-review"
+    },
+    {
       "id": "axiom-functional-safety",
       "path": "skills/axiom-functional-safety"
     },
     {
+      "id": "axiom-hazard-risk",
+      "path": "skills/axiom-hazard-risk"
+    },
+    {
+      "id": "axiom-hazard-risk-review",
+      "path": "skills/axiom-hazard-risk-review"
+    },
+    {
       "id": "axiom-hil-test-planning",
       "path": "skills/axiom-hil-test-planning"
+    },
+    {
+      "id": "axiom-iec62061-sil",
+      "path": "skills/axiom-iec62061-sil"
+    },
+    {
+      "id": "axiom-iec62061-sil-review",
+      "path": "skills/axiom-iec62061-sil-review"
+    },
+    {
+      "id": "axiom-iec62443-risk-assessment",
+      "path": "skills/axiom-iec62443-risk-assessment"
+    },
+    {
+      "id": "axiom-iec62443-risk-assessment-review",
+      "path": "skills/axiom-iec62443-risk-assessment-review"
     },
     {
       "id": "axiom-industrial-control-review",
@@ -154,20 +234,236 @@
       "path": "skills/axiom-interface-contract-design"
     },
     {
+      "id": "axiom-interlock-estop-architecture",
+      "path": "skills/axiom-interlock-estop-architecture"
+    },
+    {
+      "id": "axiom-interlock-estop-architecture-review",
+      "path": "skills/axiom-interlock-estop-architecture-review"
+    },
+    {
+      "id": "axiom-iso10218-compliance-matrix",
+      "path": "skills/axiom-iso10218-compliance-matrix"
+    },
+    {
+      "id": "axiom-iso10218-compliance-matrix-review",
+      "path": "skills/axiom-iso10218-compliance-matrix-review"
+    },
+    {
+      "id": "axiom-iso12100-risk-assessment",
+      "path": "skills/axiom-iso12100-risk-assessment"
+    },
+    {
+      "id": "axiom-iso12100-risk-assessment-review",
+      "path": "skills/axiom-iso12100-risk-assessment-review"
+    },
+    {
+      "id": "axiom-iso13849-plr",
+      "path": "skills/axiom-iso13849-plr"
+    },
+    {
+      "id": "axiom-iso13849-plr-review",
+      "path": "skills/axiom-iso13849-plr-review"
+    },
+    {
+      "id": "axiom-iso15066-biomechanical-limits",
+      "path": "skills/axiom-iso15066-biomechanical-limits"
+    },
+    {
+      "id": "axiom-iso15066-biomechanical-limits-review",
+      "path": "skills/axiom-iso15066-biomechanical-limits-review"
+    },
+    {
+      "id": "axiom-iso3691-4-risk-assessment",
+      "path": "skills/axiom-iso3691-4-risk-assessment"
+    },
+    {
+      "id": "axiom-iso3691-4-risk-assessment-review",
+      "path": "skills/axiom-iso3691-4-risk-assessment-review"
+    },
+    {
+      "id": "axiom-iso9283-performance-test",
+      "path": "skills/axiom-iso9283-performance-test"
+    },
+    {
+      "id": "axiom-iso9283-performance-test-review",
+      "path": "skills/axiom-iso9283-performance-test-review"
+    },
+    {
+      "id": "axiom-loto-procedure",
+      "path": "skills/axiom-loto-procedure"
+    },
+    {
+      "id": "axiom-loto-procedure-review",
+      "path": "skills/axiom-loto-procedure-review"
+    },
+    {
+      "id": "axiom-machinery-safety-lifecycle-plan",
+      "path": "skills/axiom-machinery-safety-lifecycle-plan"
+    },
+    {
+      "id": "axiom-machinery-safety-lifecycle-plan-review",
+      "path": "skills/axiom-machinery-safety-lifecycle-plan-review"
+    },
+    {
       "id": "axiom-memory-and-performance-analysis",
       "path": "skills/axiom-memory-and-performance-analysis"
+    },
+    {
+      "id": "axiom-model-card",
+      "path": "skills/axiom-model-card"
+    },
+    {
+      "id": "axiom-model-card-review",
+      "path": "skills/axiom-model-card-review"
+    },
+    {
+      "id": "axiom-nav2-config",
+      "path": "skills/axiom-nav2-config"
+    },
+    {
+      "id": "axiom-nav2-config-review",
+      "path": "skills/axiom-nav2-config-review"
+    },
+    {
+      "id": "axiom-operating-envelope",
+      "path": "skills/axiom-operating-envelope"
+    },
+    {
+      "id": "axiom-operating-envelope-review",
+      "path": "skills/axiom-operating-envelope-review"
+    },
+    {
+      "id": "axiom-operator-training-matrix",
+      "path": "skills/axiom-operator-training-matrix"
+    },
+    {
+      "id": "axiom-operator-training-matrix-review",
+      "path": "skills/axiom-operator-training-matrix-review"
+    },
+    {
+      "id": "axiom-ot-asset-inventory",
+      "path": "skills/axiom-ot-asset-inventory"
+    },
+    {
+      "id": "axiom-ot-asset-inventory-review",
+      "path": "skills/axiom-ot-asset-inventory-review"
+    },
+    {
+      "id": "axiom-perception-test-catalog",
+      "path": "skills/axiom-perception-test-catalog"
+    },
+    {
+      "id": "axiom-perception-test-catalog-review",
+      "path": "skills/axiom-perception-test-catalog-review"
+    },
+    {
+      "id": "axiom-pfl-plan",
+      "path": "skills/axiom-pfl-plan"
+    },
+    {
+      "id": "axiom-pfl-plan-review",
+      "path": "skills/axiom-pfl-plan-review"
     },
     {
       "id": "axiom-platform-architecture-review",
       "path": "skills/axiom-platform-architecture-review"
     },
     {
+      "id": "axiom-robot-acceptance-protocol",
+      "path": "skills/axiom-robot-acceptance-protocol"
+    },
+    {
+      "id": "axiom-robot-acceptance-protocol-review",
+      "path": "skills/axiom-robot-acceptance-protocol-review"
+    },
+    {
+      "id": "axiom-robot-cell-layout",
+      "path": "skills/axiom-robot-cell-layout"
+    },
+    {
+      "id": "axiom-robot-cell-layout-review",
+      "path": "skills/axiom-robot-cell-layout-review"
+    },
+    {
+      "id": "axiom-robot-cell-scope",
+      "path": "skills/axiom-robot-cell-scope"
+    },
+    {
+      "id": "axiom-robot-cell-scope-review",
+      "path": "skills/axiom-robot-cell-scope-review"
+    },
+    {
+      "id": "axiom-robot-field-acceptance",
+      "path": "skills/axiom-robot-field-acceptance"
+    },
+    {
+      "id": "axiom-robot-field-acceptance-review",
+      "path": "skills/axiom-robot-field-acceptance-review"
+    },
+    {
+      "id": "axiom-robot-hil-test-catalog",
+      "path": "skills/axiom-robot-hil-test-catalog"
+    },
+    {
+      "id": "axiom-robot-hil-test-catalog-review",
+      "path": "skills/axiom-robot-hil-test-catalog-review"
+    },
+    {
+      "id": "axiom-robot-sop",
+      "path": "skills/axiom-robot-sop"
+    },
+    {
+      "id": "axiom-robot-sop-review",
+      "path": "skills/axiom-robot-sop-review"
+    },
+    {
       "id": "axiom-robotics-system-integration",
       "path": "skills/axiom-robotics-system-integration"
     },
     {
+      "id": "axiom-ros2-system-architecture",
+      "path": "skills/axiom-ros2-system-architecture"
+    },
+    {
+      "id": "axiom-ros2-system-architecture-review",
+      "path": "skills/axiom-ros2-system-architecture-review"
+    },
+    {
       "id": "axiom-rtos-architecture",
       "path": "skills/axiom-rtos-architecture"
+    },
+    {
+      "id": "axiom-safety-io-matrix",
+      "path": "skills/axiom-safety-io-matrix"
+    },
+    {
+      "id": "axiom-safety-io-matrix-review",
+      "path": "skills/axiom-safety-io-matrix-review"
+    },
+    {
+      "id": "axiom-safety-requirements",
+      "path": "skills/axiom-safety-requirements"
+    },
+    {
+      "id": "axiom-safety-requirements-review",
+      "path": "skills/axiom-safety-requirements-review"
+    },
+    {
+      "id": "axiom-scope-context",
+      "path": "skills/axiom-scope-context"
+    },
+    {
+      "id": "axiom-scope-context-review",
+      "path": "skills/axiom-scope-context-review"
+    },
+    {
+      "id": "axiom-ssm-plan",
+      "path": "skills/axiom-ssm-plan"
+    },
+    {
+      "id": "axiom-ssm-plan-review",
+      "path": "skills/axiom-ssm-plan-review"
     },
     {
       "id": "axiom-static-analysis-triage",
@@ -182,8 +478,32 @@
       "path": "skills/axiom-test-automation"
     },
     {
+      "id": "axiom-tf-tree-spec",
+      "path": "skills/axiom-tf-tree-spec"
+    },
+    {
+      "id": "axiom-tf-tree-spec-review",
+      "path": "skills/axiom-tf-tree-spec-review"
+    },
+    {
+      "id": "axiom-threat-model",
+      "path": "skills/axiom-threat-model"
+    },
+    {
+      "id": "axiom-threat-model-review",
+      "path": "skills/axiom-threat-model-review"
+    },
+    {
       "id": "axiom-trace-analysis",
       "path": "skills/axiom-trace-analysis"
+    },
+    {
+      "id": "axiom-urdf-model-spec",
+      "path": "skills/axiom-urdf-model-spec"
+    },
+    {
+      "id": "axiom-urdf-model-spec-review",
+      "path": "skills/axiom-urdf-model-spec-review"
     },
     {
       "id": "axiom-v2x-communication",
@@ -194,8 +514,32 @@
       "path": "skills/axiom-vehicle-cybersecurity"
     },
     {
+      "id": "axiom-vnv-plan",
+      "path": "skills/axiom-vnv-plan"
+    },
+    {
+      "id": "axiom-vnv-plan-review",
+      "path": "skills/axiom-vnv-plan-review"
+    },
+    {
+      "id": "axiom-wireless-coexistence-plan",
+      "path": "skills/axiom-wireless-coexistence-plan"
+    },
+    {
+      "id": "axiom-wireless-coexistence-plan-review",
+      "path": "skills/axiom-wireless-coexistence-plan-review"
+    },
+    {
       "id": "axiom-zonal-architecture",
       "path": "skills/axiom-zonal-architecture"
+    },
+    {
+      "id": "axiom-zone-conduit-plan",
+      "path": "skills/axiom-zone-conduit-plan"
+    },
+    {
+      "id": "axiom-zone-conduit-plan-review",
+      "path": "skills/axiom-zone-conduit-plan-review"
     },
     {
       "id": "bare-metal",

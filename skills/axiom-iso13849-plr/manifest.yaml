@@ -1,0 +1,19 @@
+id: axiom-iso13849-plr
+version: 1.2.0
+contract_version: 1
+type: reusable-skill
+source_of_truth:
+  instructions: SKILL.md
+  contract: manifest.yaml
+facets:
+  domains:
+  - robotics
+  platforms:
+  - mpu
+  - soc
+standards:
+- ISO 13849-1:2023
+axiom:
+  dotted_name: axiom.robotics.iso13849.plr
+  maturity: experimental
+  category: design

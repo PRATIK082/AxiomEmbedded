@@ -3,7 +3,7 @@ name: axiom-autosar-classic-bsw-integration
 title: AUTOSAR Classic BSW Integration
 description: >
   Integrates and reviews AUTOSAR Classic BSW configuration (ARXML/BMD/RTE/OS/COM/PduR/CanIf/CanTp/Dcm/Dem/NvM/EcuM) and produces an integration report with severity-ranked findings and a validation matrix.
-version: 0.1.0
+version: 1.2.0
 author: PRATIK PATIL
 license: Apache-2.0
 domains: [automotive]

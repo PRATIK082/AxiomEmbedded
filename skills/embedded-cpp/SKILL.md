@@ -4,6 +4,18 @@ description: Bounded C++17 subset, no-exceptions/RTTI policy, RAII drivers. Use 
 version: 1.2.0
 domains: [all]
 platforms: [mcu, mpu, bare-metal, rtos]
+axiom:
+  dotted_name: axiom.legacy.embedded-cpp
+  domain: all
+  subdomain: legacy
+  category: legacy
+  maturity: production
+  owner: axiom-embedded
+  tags:
+  - legacy
+  related_skills: []
+  checklists:
+  - checklists/embedded-cpp-checklist.md
 ---
 
 # Embedded-C++ skill

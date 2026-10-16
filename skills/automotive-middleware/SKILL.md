@@ -4,6 +4,20 @@ description: SDV middleware selection and integration — ara::com, SOME/IP-SD, 
 version: 1.2.0
 domains: [automotive]
 platforms: [mpu, soc, linux, autosar-adaptive]
+axiom:
+  dotted_name: axiom.legacy.automotive-middleware
+  domain: automotive
+  subdomain: legacy
+  category: legacy
+  maturity: production
+  owner: axiom-embedded
+  tags:
+  - legacy
+  related_skills:
+  - axiom-autosar-adaptive-deployment
+  - axiom-zonal-architecture
+  checklists:
+  - checklists/automotive-middleware-checklist.md
 ---
 
 # automotive-middleware — Vehicle middleware / SDV layer

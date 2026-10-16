@@ -4,6 +4,20 @@ description: SOTA/FOTA campaigns per UNECE R156/SUMS, A/B + delta updates, UCM, 
 version: 1.2.0
 domains: [automotive]
 platforms: [mcu, mpu, autosar-classic, autosar-adaptive]
+axiom:
+  dotted_name: axiom.legacy.automotive-ota
+  domain: automotive
+  subdomain: legacy
+  category: legacy
+  maturity: production
+  owner: axiom-embedded
+  tags:
+  - legacy
+  related_skills:
+  - axiom-automotive-release-readiness
+  - axiom-zonal-architecture
+  checklists:
+  - checklists/automotive-ota-checklist.md
 ---
 
 # automotive-ota — Software update and campaign capability

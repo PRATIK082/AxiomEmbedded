@@ -4,6 +4,19 @@ description: Structural coverage metrics per level, MC/DC practice, and exclusio
 version: 1.2.0
 domains: [all]
 platforms: [all]
+axiom:
+  dotted_name: axiom.legacy.coverage
+  domain: all
+  subdomain: legacy
+  category: legacy
+  maturity: production
+  owner: axiom-embedded
+  tags:
+  - legacy
+  related_skills:
+  - axiom-test-automation
+  checklists:
+  - checklists/coverage-checklist.md
 ---
 
 # Coverage skill

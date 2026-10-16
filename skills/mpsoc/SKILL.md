@@ -4,6 +4,19 @@ description: MPSoC NoC QoS, coherency domains, PL-as-hardware timing closure, cr
 version: 1.2.0
 domains: [generic-embedded, automotive, aerospace, defense, industrial]
 platforms: [mpsoc, soc]
+axiom:
+  dotted_name: axiom.legacy.mpsoc
+  domain: generic-embedded
+  subdomain: legacy
+  category: legacy
+  maturity: production
+  owner: axiom-embedded
+  tags:
+  - legacy
+  related_skills:
+  - axiom-zonal-architecture
+  checklists:
+  - checklists/mpsoc-checklist.md
 ---
 
 # MPSoC skill

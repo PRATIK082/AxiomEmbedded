@@ -1,0 +1,31 @@
+artifact_id: REV-HAZ-CELL-01
+schema_version: 1.0.0
+kind: review-report
+status: approved
+domain: industrial
+standards: [ISO 12100:2010, ISO 10218-2:2011]
+created_at: 2026-10-13T10:00:00Z
+updated_at: 2026-10-13T10:00:00Z
+author: independent-reviewer
+reviewer: independent-reviewer
+assumptions: []
+evidence: [HAZ-CELL-01, SCOPE-CELL-01]
+traceability:
+  - {source: REV-HAZ-CELL-01, target: HAZ-CELL-01, relationship: reviews}
+open_questions: []
+approval_status: approved
+target_artifact: HAZ-CELL-01
+verdict: accept-with-actions
+findings:
+  - id: REV-001
+    severity: Major
+    location: hazards.HAZ-001
+    evidence: Reduced-speed value 250 mm/s is assumed, not measured under full payload.
+    recommendation: Complete open question Q1 with measured data before requirements freeze.
+    owner: test-team
+  - id: REV-002
+    severity: Observation
+    location: hazards
+    evidence: No hazard covers part-ejection from the gripper toward the fence.
+    recommendation: Add or explicitly disposition a gripper-ejection hazard.
+    owner: cell-engineering

@@ -4,6 +4,18 @@ description: Criteria-first audits, sampling, independence, re-audit closure. Us
 version: 1.2.0
 domains: [all]
 platforms: [all]
+axiom:
+  dotted_name: axiom.legacy.project-audit
+  domain: all
+  subdomain: legacy
+  category: legacy
+  maturity: production
+  owner: axiom-embedded
+  tags:
+  - legacy
+  related_skills: []
+  checklists:
+  - checklists/project-audit-checklist.md
 ---
 
 # Project-Audit skill
