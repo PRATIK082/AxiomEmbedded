@@ -1,0 +1,30 @@
+artifact_id: SEC-CELL-01
+schema_version: 1.0.0
+kind: threat-model
+status: in-review
+domain: industrial
+standards: [IEC 62443-3-3:2013, IEC 62443-3-2:2020, IEC 62443-4-1:2018, IEC 62443-4-2:2019]
+created_at: 2026-10-12T10:00:00Z
+updated_at: 2026-10-13T10:00:00Z
+author: cell-engineering
+reviewer: TBD
+assumptions:
+  - A1: Plant network beyond the gateway is untrusted.
+evidence: [SCOPE-CELL-01]
+traceability:
+  - {source: SEC-001, target: SCOPE-CELL-01, relationship: scoped-by}
+  - {source: SEC-002, target: SCOPE-CELL-01, relationship: scoped-by}
+open_questions:
+  - "Q1: HMI default credentials rotation procedure is undocumented (owner: controls-team)."
+approval_status: pending-review
+threats:
+  - id: SEC-001
+    description: Remote inbound connection through the Wi-Fi gateway reaches the cell controller.
+    severity: high
+    controls: [CTL-005]
+    verification: OPEN
+  - id: SEC-002
+    description: HMI mode-select tampering from default or shared credentials.
+    severity: medium
+    controls: []
+    verification: OPEN

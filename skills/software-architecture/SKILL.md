@@ -4,6 +4,19 @@ description: Embedded software layering, concurrency design, and variability wit
 version: 1.2.0
 domains: [all]
 platforms: [all]
+axiom:
+  dotted_name: axiom.legacy.software-architecture
+  domain: all
+  subdomain: legacy
+  category: legacy
+  maturity: production
+  owner: axiom-embedded
+  tags:
+  - legacy
+  related_skills:
+  - axiom-platform-architecture-review
+  checklists:
+  - checklists/software-architecture-checklist.md
 ---
 
 # Software-Architecture skill

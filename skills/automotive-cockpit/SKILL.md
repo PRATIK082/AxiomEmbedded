@@ -4,6 +4,18 @@ description: Digital cockpit — cluster/IVI/HUD, SoC plus hypervisor with QNX/A
 version: 1.2.0
 domains: [automotive]
 platforms: [soc, mpsoc, mpu]
+axiom:
+  dotted_name: axiom.legacy.automotive-cockpit
+  domain: automotive
+  subdomain: legacy
+  category: legacy
+  maturity: production
+  owner: axiom-embedded
+  tags:
+  - legacy
+  related_skills: []
+  checklists:
+  - checklists/automotive-cockpit-checklist.md
 ---
 
 # automotive-cockpit — Digital cockpit capability

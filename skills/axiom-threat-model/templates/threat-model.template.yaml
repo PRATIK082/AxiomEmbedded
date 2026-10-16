@@ -1,0 +1,22 @@
+artifact_id: SEC-AN-001
+schema_version: 1.0.0
+kind: threat-model
+status: draft
+domain: industrial
+standards: [IEC 62443-3-3:2013]
+created_at: 2026-10-17T00:00:00Z
+updated_at: 2026-10-17T00:00:00Z
+author: engineering-team
+reviewer: TBD
+assumptions: [A1 TBD]
+evidence: [SCOPE-001]
+traceability:
+  - {source: SEC-001, target: SCOPE-001, relationship: scoped-by}
+open_questions: [Q1 TBD]
+approval_status: draft
+threats:
+  - id: SEC-001
+    description: UNKNOWN threat via UNKNOWN interface
+    severity: medium
+    controls: []
+    verification: OPEN

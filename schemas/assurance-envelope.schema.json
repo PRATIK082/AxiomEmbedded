@@ -1,0 +1,45 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "AxiomEmbedded Assurance Envelope (shared core)",
+  "description": "Shared envelope fields required on every assurance artifact. Original to AxiomEmbedded.",
+  "type": "object",
+  "required": [
+    "artifact_id",
+    "schema_version",
+    "kind",
+    "status",
+    "domain",
+    "created_at",
+    "updated_at",
+    "author",
+    "approval_status"
+  ],
+  "properties": {
+    "artifact_id": {"type": "string", "pattern": "^[A-Z]+-[0-9A-Za-z-]+$"},
+    "schema_version": {"type": "string", "pattern": "^[0-9]+\\.[0-9]+\\.[0-9]+$"},
+    "kind": {"type": "string"},
+    "status": {"type": "string", "enum": ["draft", "in-review", "approved", "superseded"]},
+    "domain": {"type": "string"},
+    "standards": {"type": "array", "items": {"type": "string"}},
+    "created_at": {"type": "string", "format": "date-time"},
+    "updated_at": {"type": "string", "format": "date-time"},
+    "author": {"type": "string"},
+    "reviewer": {"type": "string"},
+    "assumptions": {"type": "array", "items": {"type": "string"}},
+    "evidence": {"type": "array", "items": {"type": "string"}},
+    "traceability": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["source", "target", "relationship"],
+        "properties": {
+          "source": {"type": "string"},
+          "target": {"type": "string"},
+          "relationship": {"type": "string"}
+        }
+      }
+    },
+    "open_questions": {"type": "array", "items": {"type": "string"}},
+    "approval_status": {"type": "string", "enum": ["draft", "pending-review", "approved", "rejected"]}
+  }
+}

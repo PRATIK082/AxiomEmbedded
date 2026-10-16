@@ -4,6 +4,19 @@ description: Register/errata discipline, DMA contracts, timeouts, policy-free HA
 version: 1.2.0
 domains: [all]
 platforms: [mcu, mpu, soc]
+axiom:
+  dotted_name: axiom.legacy.drivers
+  domain: all
+  subdomain: legacy
+  category: legacy
+  maturity: production
+  owner: axiom-embedded
+  tags:
+  - legacy
+  related_skills:
+  - axiom-embedded-firmware-bringup
+  checklists:
+  - checklists/drivers-checklist.md
 ---
 
 # Drivers skill

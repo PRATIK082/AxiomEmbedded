@@ -3,7 +3,7 @@ name: axiom-embedded-firmware-bringup
 title: Embedded Firmware Bring-up
 description: >
   Brings up firmware on a new MCU/board (clock, memory, drivers, bootloader handoff) with a deterministic checklist.
-version: 0.1.0
+version: 1.2.0
 author: PRATIK PATIL
 license: Apache-2.0
 domains: [all]

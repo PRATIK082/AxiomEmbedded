@@ -4,6 +4,20 @@ description: Functional-safety lifecycle with ASIL/SIL/DAL mapping, HARA chains,
 version: 1.2.0
 domains: [generic-embedded, automotive, aerospace, defense, industrial, robotics]
 platforms: [all]
+axiom:
+  dotted_name: axiom.legacy.safety
+  domain: generic-embedded
+  subdomain: legacy
+  category: legacy
+  maturity: production
+  owner: axiom-embedded
+  tags:
+  - legacy
+  related_skills:
+  - axiom-functional-safety
+  - axiom-safety-requirements
+  checklists:
+  - checklists/safety-checklist.md
 ---
 
 # Safety skill

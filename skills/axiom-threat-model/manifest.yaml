@@ -1,0 +1,15 @@
+id: axiom-threat-model
+version: 1.2.0
+contract_version: 1
+type: reusable-skill
+source_of_truth:
+  instructions: SKILL.md
+  contract: manifest.yaml
+facets:
+  domains: [industrial, robotics]
+  platforms: [mcu, mpu]
+standards: [IEC 62443-3-3:2013, IEC 62443-3-2:2020, IEC 62443-4-1:2018, IEC 62443-4-2:2019]
+axiom:
+  dotted_name: axiom.assurance.threat_model
+  maturity: experimental
+  category: analysis

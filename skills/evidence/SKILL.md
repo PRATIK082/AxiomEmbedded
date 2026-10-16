@@ -4,6 +4,19 @@ description: Evidence taxonomy, integrity rules, and packaging for assessments. 
 version: 1.2.0
 domains: [all]
 platforms: [all]
+axiom:
+  dotted_name: axiom.legacy.evidence
+  domain: all
+  subdomain: legacy
+  category: legacy
+  maturity: production
+  owner: axiom-embedded
+  tags:
+  - legacy
+  related_skills:
+  - axiom-automotive-release-readiness
+  checklists:
+  - checklists/evidence-checklist.md
 ---
 
 # Evidence skill

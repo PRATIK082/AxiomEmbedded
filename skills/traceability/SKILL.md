@@ -4,6 +4,19 @@ description: Link models, suspect-link propagation, and audit gates across the V
 version: 1.2.0
 domains: [all]
 platforms: [all]
+axiom:
+  dotted_name: axiom.legacy.traceability
+  domain: all
+  subdomain: legacy
+  category: legacy
+  maturity: production
+  owner: axiom-embedded
+  tags:
+  - legacy
+  related_skills:
+  - axiom-interface-contract-design
+  checklists:
+  - checklists/traceability-checklist.md
 ---
 
 # Traceability skill

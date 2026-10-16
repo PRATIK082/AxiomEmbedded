@@ -4,6 +4,19 @@ description: Docs-as-code, versioned-with-product docs, tested examples. Use whe
 version: 1.2.0
 domains: [all]
 platforms: [all]
+axiom:
+  dotted_name: axiom.legacy.documentation
+  domain: all
+  subdomain: legacy
+  category: legacy
+  maturity: production
+  owner: axiom-embedded
+  tags:
+  - legacy
+  related_skills:
+  - axiom-architecture-decision-records
+  checklists:
+  - checklists/documentation-checklist.md
 ---
 
 # Documentation skill

@@ -5,7 +5,7 @@ description: >
   Triages static-analysis findings (MISRA, CERT, generic checkers) with a
   deterministic classifier script: buckets severity, tracks baselines and waivers,
   and produces a reviewable triage log with gate verdicts.
-version: 0.1.0
+version: 1.2.0
 author: PRATIK PATIL
 license: Apache-2.0
 domains: [all]

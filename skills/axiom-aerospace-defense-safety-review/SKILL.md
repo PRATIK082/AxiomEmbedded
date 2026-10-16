@@ -3,7 +3,7 @@ name: axiom-aerospace-defense-safety-review
 title: Aerospace and Defense Safety Review
 description: >
   Reviews safety-critical embedded designs against DO-178C/DO-254-style objectives and evidence expectations.
-version: 0.1.0
+version: 1.2.0
 author: PRATIK PATIL
 license: Apache-2.0
 domains: [aerospace]

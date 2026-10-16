@@ -1,0 +1,22 @@
+artifact_id: REQ-SET-001
+schema_version: 1.0.0
+kind: safety-requirements
+status: draft
+domain: industrial
+standards: [ISO 12100:2010, IEC 62061:2021]
+created_at: 2026-10-17T00:00:00Z
+updated_at: 2026-10-17T00:00:00Z
+author: engineering-team
+reviewer: TBD
+assumptions: [A1 TBD]
+evidence: [HAZ-AN-001]
+traceability:
+  - {source: REQ-001, target: HAZ-001, relationship: mitigates}
+open_questions: [Q1 TBD]
+approval_status: draft
+requirements:
+  - id: REQ-001
+    text: The system shall UNKNOWN (atomic, verifiable).
+    covers_hazards: [HAZ-001]
+    verification: OPEN
+    status: draft

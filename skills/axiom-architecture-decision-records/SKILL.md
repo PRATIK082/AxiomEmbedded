@@ -5,7 +5,7 @@ description: >
   Authors and reviews Architecture Decision Records (context, options, decision,
   consequences, compliance notes) with numbering, supersede chains, and review
   gates, so architectural choices stay traceable across the product lifecycle.
-version: 0.1.0
+version: 1.2.0
 author: PRATIK PATIL
 license: Apache-2.0
 domains: [all]

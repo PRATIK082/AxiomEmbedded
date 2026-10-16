@@ -4,6 +4,18 @@ description: no_std setup, unsafe-review policy, FFI ownership rules. Use when w
 version: 1.2.0
 domains: [all]
 platforms: [mcu, mpu, bare-metal, rtos]
+axiom:
+  dotted_name: axiom.legacy.rust-embedded
+  domain: all
+  subdomain: legacy
+  category: legacy
+  maturity: production
+  owner: axiom-embedded
+  tags:
+  - legacy
+  related_skills: []
+  checklists:
+  - checklists/rust-embedded-checklist.md
 ---
 
 # Rust-Embedded skill

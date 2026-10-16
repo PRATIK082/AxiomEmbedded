@@ -1,0 +1,6 @@
+id: iec-62061
+family: industrial
+description: "Safety of machinery: functional safety of safety-related control systems (SIL)"
+normative_text_included: false
+authority: external
+applicability: project-defined

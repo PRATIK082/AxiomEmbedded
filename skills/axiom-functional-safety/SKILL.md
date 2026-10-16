@@ -3,7 +3,7 @@ name: axiom-functional-safety
 title: Functional Safety Workflow
 description: >
   Supports HARA, safety goals, FSR/TSR derivation, FMEA/FTA templates and verification-evidence structure for safety-related work.
-version: 0.1.0
+version: 1.2.0
 author: PRATIK PATIL
 license: Apache-2.0
 domains: [automotive]

@@ -1,0 +1,13 @@
+gates:
+- id: inputs
+  text: Inputs, scope, and prerequisites recorded
+- id: method
+  text: Workflow steps executed with evidence
+- id: artifact
+  text: Deliverable artifact complete against its template
+- id: standards
+  text: Applicable standard clauses addressed or explicitly deferred
+- id: traceability
+  text: Links to source inputs recorded
+- id: handoff
+  text: Open questions and reviewer handoff recorded

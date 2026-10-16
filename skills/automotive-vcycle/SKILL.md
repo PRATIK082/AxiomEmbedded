@@ -4,6 +4,20 @@ description: End-to-end automotive V-Cycle lifecycle from stakeholder requiremen
 version: 1.2.0
 domains: [automotive]
 platforms: [all]
+axiom:
+  dotted_name: axiom.legacy.automotive-vcycle
+  domain: automotive
+  subdomain: legacy
+  category: legacy
+  maturity: production
+  owner: axiom-embedded
+  tags:
+  - legacy
+  related_skills:
+  - axiom-hil-test-planning
+  - axiom-test-automation
+  checklists:
+  - checklists/automotive-vcycle-checklist.md
 ---
 
 # automotive-vcycle — Advanced automotive V-Cycle / V-Model lifecycle

@@ -1291,6 +1291,7 @@ skills:
   - run manifest
   dependencies: []
   related_skills:
+  - axiom-hazard-risk
   - safety
   path: skills/axiom-functional-safety
   enabled: true
@@ -1381,7 +1382,8 @@ skills:
   - run report
   - run manifest
   dependencies: []
-  related_skills: []
+  related_skills:
+  - axiom-vnv-plan
   path: skills/axiom-industrial-control-review
   enabled: true
   domain_overlays:
@@ -1560,6 +1562,7 @@ skills:
   - run manifest
   dependencies: []
   related_skills:
+  - axiom-scope-context
   - robotics
   path: skills/axiom-robotics-system-integration
   enabled: true
@@ -2677,6 +2680,7 @@ skills:
   dependencies: []
   related_skills:
   - axiom-functional-safety
+  - axiom-safety-requirements
   path: skills/safety
   enabled: true
   sub_skills:
@@ -2699,6 +2703,7 @@ skills:
   - report
   dependencies: []
   related_skills:
+  - axiom-threat-model
   - axiom-vehicle-cybersecurity
   path: skills/security
   enabled: true
@@ -2910,3 +2915,3711 @@ skills:
   related_skills: []
   path: skills/validation
   enabled: true
+- id: axiom-scope-context
+  name: axiom.assurance.scope_context
+  title: System Scope and Operating Context Definition
+  version: 0.1.0
+  domain: industrial
+  subdomain: assurance
+  category: requirements
+  maturity: experimental
+  owner: axiom-embedded
+  tags:
+  - assurance
+  - scope
+  inputs:
+  - stakeholder notes
+  - site survey
+  - interface list
+  outputs:
+  - system-scope artifact
+  dependencies: []
+  related_skills:
+  - axiom-robotics-system-integration
+  - axiom-scope-context-review
+  - axiom-robot-cell-scope
+  path: skills/axiom-scope-context
+  enabled: true
+  lifecycle:
+  - requirements
+  - architecture
+  artifact_types:
+  - system scope
+  mcp_tools:
+  - run_skill
+  - validate_skill
+  risk_level: medium
+  review_required: true
+  standards:
+  - ISO 12100:2010
+  - ISO 10218-2:2011
+  - ISO 11161:2007
+- id: axiom-scope-context-review
+  name: axiom.assurance.scope_context_review
+  title: System Scope and Operating Context Review
+  version: 0.1.0
+  domain: industrial
+  subdomain: assurance
+  category: review
+  maturity: experimental
+  owner: axiom-embedded
+  tags:
+  - assurance
+  - review
+  inputs:
+  - system-scope artifact
+  outputs:
+  - review report
+  dependencies: []
+  related_skills:
+  - axiom-scope-context
+  path: skills/axiom-scope-context-review
+  enabled: true
+  lifecycle:
+  - requirements
+  artifact_types:
+  - review report
+  mcp_tools:
+  - run_skill
+  - validate_skill
+  risk_level: medium
+  review_required: false
+  standards:
+  - ISO 12100:2010
+  - ISO 10218-2:2011
+  - ISO 11161:2007
+- id: axiom-hazard-risk
+  name: axiom.assurance.hazard_risk
+  title: Hazard Analysis and Risk Assessment
+  version: 0.1.0
+  domain: industrial
+  subdomain: safety
+  category: analysis
+  maturity: experimental
+  owner: axiom-embedded
+  tags:
+  - assurance
+  - safety
+  - hazard
+  inputs:
+  - system-scope artifact
+  - incident history
+  outputs:
+  - hazard-risk artifact
+  dependencies: []
+  related_skills:
+  - axiom-functional-safety
+  - axiom-hazard-risk-review
+  - axiom-iso12100-risk-assessment
+  path: skills/axiom-hazard-risk
+  enabled: true
+  lifecycle:
+  - requirements
+  - architecture
+  - verification
+  artifact_types:
+  - hazard analysis
+  - risk assessment
+  mcp_tools:
+  - run_skill
+  - validate_skill
+  risk_level: high
+  review_required: true
+  standards:
+  - ISO 12100:2010
+  - ISO 10218-1:2011
+  - ISO 10218-2:2011
+  - ISO/TS 15066:2016
+  - ISO 13849-1:2023
+  - ISO 13850:2015
+  - ISO 14118:2017
+- id: axiom-hazard-risk-review
+  name: axiom.assurance.hazard_risk_review
+  title: Hazard Analysis and Risk Assessment Review
+  version: 0.1.0
+  domain: industrial
+  subdomain: safety
+  category: review
+  maturity: experimental
+  owner: axiom-embedded
+  tags:
+  - assurance
+  - review
+  - safety
+  inputs:
+  - hazard-risk artifact
+  - system-scope artifact
+  outputs:
+  - review report
+  dependencies: []
+  related_skills:
+  - axiom-hazard-risk
+  path: skills/axiom-hazard-risk-review
+  enabled: true
+  lifecycle:
+  - requirements
+  - verification
+  artifact_types:
+  - review report
+  mcp_tools:
+  - run_skill
+  - validate_skill
+  risk_level: high
+  review_required: false
+  standards:
+  - ISO 12100:2010
+  - ISO 10218-1:2011
+  - ISO 10218-2:2011
+  - ISO/TS 15066:2016
+  - ISO 13849-1:2023
+  - ISO 13850:2015
+  - ISO 14118:2017
+- id: axiom-safety-requirements
+  name: axiom.assurance.safety_requirements
+  title: Safety Requirements Derivation
+  version: 0.1.0
+  domain: industrial
+  subdomain: safety
+  category: requirements
+  maturity: experimental
+  owner: axiom-embedded
+  tags:
+  - assurance
+  - safety
+  - requirements
+  inputs:
+  - hazard-risk artifact
+  - system-scope artifact
+  outputs:
+  - safety-requirements artifact
+  dependencies: []
+  related_skills:
+  - axiom-safety-requirements-review
+  - safety
+  - axiom-iso13849-plr
+  path: skills/axiom-safety-requirements
+  enabled: true
+  lifecycle:
+  - requirements
+  - architecture
+  artifact_types:
+  - safety requirements
+  mcp_tools:
+  - run_skill
+  - validate_skill
+  risk_level: high
+  review_required: true
+  standards:
+  - ISO 12100:2010
+  - ISO 13849-1:2023
+  - ISO 13850:2015
+  - ISO 14118:2017
+  - IEC 62061:2021
+  - IEC 61508:2010
+- id: axiom-safety-requirements-review
+  name: axiom.assurance.safety_requirements_review
+  title: Safety Requirements Review
+  version: 0.1.0
+  domain: industrial
+  subdomain: safety
+  category: review
+  maturity: experimental
+  owner: axiom-embedded
+  tags:
+  - assurance
+  - review
+  - requirements
+  inputs:
+  - safety-requirements artifact
+  - hazard-risk artifact
+  outputs:
+  - review report
+  dependencies: []
+  related_skills:
+  - axiom-safety-requirements
+  path: skills/axiom-safety-requirements-review
+  enabled: true
+  lifecycle:
+  - requirements
+  artifact_types:
+  - review report
+  mcp_tools:
+  - run_skill
+  - validate_skill
+  risk_level: high
+  review_required: false
+  standards:
+  - ISO 12100:2010
+  - ISO 13849-1:2023
+  - ISO 13850:2015
+  - ISO 14118:2017
+  - IEC 62061:2021
+  - IEC 61508:2010
+- id: axiom-vnv-plan
+  name: axiom.assurance.vnv_plan
+  title: Verification and Validation Planning
+  version: 0.1.0
+  domain: industrial
+  subdomain: assurance
+  category: verification
+  maturity: experimental
+  owner: axiom-embedded
+  tags:
+  - assurance
+  - verification
+  - traceability
+  inputs:
+  - safety-requirements artifact
+  outputs:
+  - vnv-plan artifact
+  dependencies: []
+  related_skills:
+  - axiom-industrial-control-review
+  - axiom-vnv-plan-review
+  - axiom-robot-hil-test-catalog
+  path: skills/axiom-vnv-plan
+  enabled: true
+  lifecycle:
+  - verification
+  - validation
+  artifact_types:
+  - V&V plan
+  - traceability matrix
+  mcp_tools:
+  - run_skill
+  - validate_skill
+  risk_level: medium
+  review_required: true
+  standards:
+  - ISO 12100:2010
+  - ISO 13849-2:2012
+  - ISO/TS 15066:2016
+  - IEC 62061:2021
+- id: axiom-vnv-plan-review
+  name: axiom.assurance.vnv_plan_review
+  title: V&V Plan Review
+  version: 0.1.0
+  domain: industrial
+  subdomain: assurance
+  category: review
+  maturity: experimental
+  owner: axiom-embedded
+  tags:
+  - assurance
+  - review
+  - verification
+  inputs:
+  - vnv-plan artifact
+  - safety-requirements artifact
+  outputs:
+  - review report
+  dependencies: []
+  related_skills:
+  - axiom-vnv-plan
+  path: skills/axiom-vnv-plan-review
+  enabled: true
+  lifecycle:
+  - verification
+  - validation
+  artifact_types:
+  - review report
+  mcp_tools:
+  - run_skill
+  - validate_skill
+  risk_level: medium
+  review_required: false
+  standards:
+  - ISO 12100:2010
+  - ISO 13849-2:2012
+  - ISO/TS 15066:2016
+  - IEC 62061:2021
+- id: axiom-threat-model
+  name: axiom.assurance.threat_model
+  title: Cybersecurity Threat Modeling
+  version: 0.1.0
+  domain: industrial
+  subdomain: cybersecurity
+  category: analysis
+  maturity: experimental
+  owner: axiom-embedded
+  tags:
+  - assurance
+  - cybersecurity
+  - threat
+  inputs:
+  - system-scope artifact
+  - architecture sketch
+  outputs:
+  - threat-model artifact
+  dependencies: []
+  related_skills:
+  - axiom-threat-model-review
+  - security
+  - axiom-iec62443-risk-assessment
+  - axiom-zone-conduit-plan
+  path: skills/axiom-threat-model
+  enabled: true
+  lifecycle:
+  - requirements
+  - architecture
+  - verification
+  artifact_types:
+  - threat model
+  mcp_tools:
+  - run_skill
+  - validate_skill
+  risk_level: high
+  review_required: true
+  standards:
+  - IEC 62443-3-3:2013
+  - IEC 62443-3-2:2020
+  - IEC 62443-4-1:2018
+  - IEC 62443-4-2:2019
+- id: axiom-threat-model-review
+  name: axiom.assurance.threat_model_review
+  title: Threat Model Review
+  version: 0.1.0
+  domain: industrial
+  subdomain: cybersecurity
+  category: review
+  maturity: experimental
+  owner: axiom-embedded
+  tags:
+  - assurance
+  - review
+  - cybersecurity
+  inputs:
+  - threat-model artifact
+  - system-scope artifact
+  outputs:
+  - review report
+  dependencies: []
+  related_skills:
+  - axiom-threat-model
+  path: skills/axiom-threat-model-review
+  enabled: true
+  lifecycle:
+  - requirements
+  - verification
+  artifact_types:
+  - review report
+  mcp_tools:
+  - run_skill
+  - validate_skill
+  risk_level: high
+  review_required: false
+  standards:
+  - IEC 62443-3-3:2013
+  - IEC 62443-3-2:2020
+  - IEC 62443-4-1:2018
+  - IEC 62443-4-2:2019
+- id: axiom-ansi-r1506-compliance-matrix
+  name: axiom.industrial.ansi.r1506.compliance.matrix
+  title: ANSI/RIA R15.06 Compliance Matrix
+  version: 0.1.0
+  domain: industrial
+  subdomain: compliance
+  category: compliance
+  maturity: experimental
+  owner: axiom-embedded
+  tags:
+  - compliance
+  - ansi
+  inputs:
+  - requirement list
+  - design evidence
+  - prior audit findings
+  outputs:
+  - compliance matrix
+  - open-claim list
+  dependencies: []
+  related_skills:
+  - axiom-ansi-r1506-compliance-matrix-review
+  path: skills/axiom-ansi-r1506-compliance-matrix
+  enabled: true
+  standards:
+  - ANSI/RIA R15.06-2012
+  - ISO 10218-1:2011
+  - ISO 10218-2:2011
+  lifecycle:
+  - requirements
+  - architecture
+  - design
+  - implementation
+  - integration
+  - verification
+  - validation
+  - release
+  artifact_types:
+  - compliance matrix
+  - evidence index
+  mcp_tools:
+  - run_skill
+  - validate_skill
+  risk_level: high
+  review_required: true
+- id: axiom-ansi-r1506-compliance-matrix-review
+  name: axiom.industrial.ansi.r1506.compliance.matrix
+  title: ANSI/RIA R15.06 Compliance Matrix Review
+  version: 0.1.0
+  domain: industrial
+  subdomain: compliance
+  category: compliance
+  maturity: experimental
+  owner: axiom-embedded
+  tags:
+  - compliance
+  - ansi
+  inputs:
+  - requirement list
+  - design evidence
+  - prior audit findings
+  outputs:
+  - compliance matrix
+  - open-claim list
+  dependencies: []
+  related_skills:
+  - axiom-ansi-r1506-compliance-matrix
+  path: skills/axiom-ansi-r1506-compliance-matrix-review
+  enabled: true
+  standards:
+  - ANSI/RIA R15.06-2012
+  - ISO 10218-1:2011
+  - ISO 10218-2:2011
+  lifecycle:
+  - requirements
+  - architecture
+  - design
+  - implementation
+  - integration
+  - verification
+  - validation
+  - release
+  artifact_types:
+  - compliance matrix
+  - evidence index
+  mcp_tools:
+  - run_skill
+  - validate_skill
+  risk_level: high
+  review_required: true
+- id: axiom-behavior-tree-spec
+  name: axiom.robotics.behavior.tree.spec
+  title: Behavior-Tree Specification
+  version: 0.1.0
+  domain: robotics
+  subdomain: middleware
+  category: design
+  maturity: experimental
+  owner: axiom-embedded
+  tags:
+  - middleware
+  - behavior
+  inputs:
+  - task description
+  - existing tree or pseudocode
+  - interface list
+  outputs:
+  - behavior-tree spec
+  - node contract table
+  dependencies: []
+  related_skills:
+  - axiom-behavior-tree-spec-review
+  path: skills/axiom-behavior-tree-spec
+  enabled: true
+  standards: []
+  lifecycle:
+  - requirements
+  - architecture
+  - design
+  - implementation
+  - integration
+  - verification
+  - validation
+  - release
+  artifact_types:
+  - behavior-tree spec
+  - node contract table
+  mcp_tools:
+  - run_skill
+  - validate_skill
+  risk_level: medium
+  review_required: true
+- id: axiom-behavior-tree-spec-review
+  name: axiom.robotics.behavior.tree.spec
+  title: Behavior-Tree Specification Review
+  version: 0.1.0
+  domain: robotics
+  subdomain: middleware
+  category: design
+  maturity: experimental
+  owner: axiom-embedded
+  tags:
+  - middleware
+  - behavior
+  inputs:
+  - task description
+  - existing tree or pseudocode
+  - interface list
+  outputs:
+  - behavior-tree spec
+  - node contract table
+  dependencies: []
+  related_skills:
+  - axiom-behavior-tree-spec
+  path: skills/axiom-behavior-tree-spec-review
+  enabled: true
+  standards: []
+  lifecycle:
+  - requirements
+  - architecture
+  - design
+  - implementation
+  - integration
+  - verification
+  - validation
+  - release
+  artifact_types:
+  - behavior-tree spec
+  - node contract table
+  mcp_tools:
+  - run_skill
+  - validate_skill
+  risk_level: medium
+  review_required: true
+- id: axiom-cobot-hand-guiding
+  name: axiom.robotics.cobot.hand.guiding
+  title: Cobot Hand-Guiding Design
+  version: 0.1.0
+  domain: robotics
+  subdomain: robot-safety
+  category: design
+  maturity: experimental
+  owner: axiom-embedded
+  tags:
+  - robot-safety
+  - cobot
+  inputs:
+  - cobot model
+  - task list
+  - risk assessment
+  outputs:
+  - hand-guiding design
+  - speed-limit table
+  dependencies: []
+  related_skills:
+  - axiom-cobot-hand-guiding-review
+  path: skills/axiom-cobot-hand-guiding
+  enabled: true
+  standards:
+  - ISO/TS 15066:2016
+  - ISO 10218-1:2011
+  lifecycle:
+  - requirements
+  - architecture
+  - design
+  - implementation
+  - integration
+  - verification
+  - validation
+  - release
+  artifact_types:
+  - hand-guiding design
+  - speed-limit table
+  mcp_tools:
+  - run_skill
+  - validate_skill
+  risk_level: safety-critical
+  review_required: true
+- id: axiom-cobot-hand-guiding-review
+  name: axiom.robotics.cobot.hand.guiding
+  title: Cobot Hand-Guiding Design Review
+  version: 0.1.0
+  domain: robotics
+  subdomain: robot-safety
+  category: design
+  maturity: experimental
+  owner: axiom-embedded
+  tags:
+  - robot-safety
+  - cobot
+  inputs:
+  - cobot model
+  - task list
+  - risk assessment
+  outputs:
+  - hand-guiding design
+  - speed-limit table
+  dependencies: []
+  related_skills:
+  - axiom-cobot-hand-guiding
+  path: skills/axiom-cobot-hand-guiding-review
+  enabled: true
+  standards:
+  - ISO/TS 15066:2016
+  - ISO 10218-1:2011
+  lifecycle:
+  - requirements
+  - architecture
+  - design
+  - implementation
+  - integration
+  - verification
+  - validation
+  - release
+  artifact_types:
+  - hand-guiding design
+  - speed-limit table
+  mcp_tools:
+  - run_skill
+  - validate_skill
+  risk_level: safety-critical
+  review_required: true
+- id: axiom-dataset-documentation
+  name: axiom.robotics.dataset.documentation
+  title: Dataset Documentation
+  version: 0.1.0
+  domain: robotics
+  subdomain: ai-data
+  category: documentation
+  maturity: experimental
+  owner: axiom-embedded
+  tags:
+  - ai-data
+  - dataset
+  inputs:
+  - dataset location
+  - collection notes
+  - license terms
+  outputs:
+  - dataset card
+  - labeling protocol
+  dependencies: []
+  related_skills:
+  - axiom-dataset-documentation-review
+  path: skills/axiom-dataset-documentation
+  enabled: true
+  standards:
+  - ISO/IEC 23894:2023
+  - ISO/IEC 23053:2022
+  lifecycle:
+  - requirements
+  - architecture
+  - design
+  - implementation
+  - integration
+  - verification
+  - validation
+  - release
+  artifact_types:
+  - dataset card
+  - labeling protocol
+  mcp_tools:
+  - run_skill
+  - validate_skill
+  risk_level: medium
+  review_required: true
+- id: axiom-dataset-documentation-review
+  name: axiom.robotics.dataset.documentation
+  title: Dataset Documentation Review
+  version: 0.1.0
+  domain: robotics
+  subdomain: ai-data
+  category: documentation
+  maturity: experimental
+  owner: axiom-embedded
+  tags:
+  - ai-data
+  - dataset
+  inputs:
+  - dataset location
+  - collection notes
+  - license terms
+  outputs:
+  - dataset card
+  - labeling protocol
+  dependencies: []
+  related_skills:
+  - axiom-dataset-documentation
+  path: skills/axiom-dataset-documentation-review
+  enabled: true
+  standards:
+  - ISO/IEC 23894:2023
+  - ISO/IEC 23053:2022
+  lifecycle:
+  - requirements
+  - architecture
+  - design
+  - implementation
+  - integration
+  - verification
+  - validation
+  - release
+  artifact_types:
+  - dataset card
+  - labeling protocol
+  mcp_tools:
+  - run_skill
+  - validate_skill
+  risk_level: medium
+  review_required: true
+- id: axiom-declaration-of-conformity
+  name: axiom.industrial.declaration.of.conformity
+  title: Declaration of Conformity Pack
+  version: 0.1.0
+  domain: industrial
+  subdomain: compliance
+  category: compliance
+  maturity: experimental
+  owner: axiom-embedded
+  tags:
+  - compliance
+  - declaration
+  inputs:
+  - machine scope
+  - risk assessment
+  - test evidence
+  outputs:
+  - conformity pack
+  - standards-applied list
+  dependencies: []
+  related_skills:
+  - axiom-declaration-of-conformity-review
+  path: skills/axiom-declaration-of-conformity
+  enabled: true
+  standards:
+  - EU 2023/1230
+  - ISO 12100:2010
+  lifecycle:
+  - requirements
+  - architecture
+  - design
+  - implementation
+  - integration
+  - verification
+  - validation
+  - release
+  artifact_types:
+  - conformity pack
+  - standards-applied list
+  mcp_tools:
+  - run_skill
+  - validate_skill
+  risk_level: high
+  review_required: true
+- id: axiom-declaration-of-conformity-review
+  name: axiom.industrial.declaration.of.conformity
+  title: Declaration of Conformity Pack Review
+  version: 0.1.0
+  domain: industrial
+  subdomain: compliance
+  category: compliance
+  maturity: experimental
+  owner: axiom-embedded
+  tags:
+  - compliance
+  - declaration
+  inputs:
+  - machine scope
+  - risk assessment
+  - test evidence
+  outputs:
+  - conformity pack
+  - standards-applied list
+  dependencies: []
+  related_skills:
+  - axiom-declaration-of-conformity
+  path: skills/axiom-declaration-of-conformity-review
+  enabled: true
+  standards:
+  - EU 2023/1230
+  - ISO 12100:2010
+  lifecycle:
+  - requirements
+  - architecture
+  - design
+  - implementation
+  - integration
+  - verification
+  - validation
+  - release
+  artifact_types:
+  - conformity pack
+  - standards-applied list
+  mcp_tools:
+  - run_skill
+  - validate_skill
+  risk_level: high
+  review_required: true
+- id: axiom-eoat-spec
+  name: axiom.robotics.eoat.spec
+  title: End-of-Arm Tooling Specification
+  version: 0.1.0
+  domain: robotics
+  subdomain: cell-integration
+  category: design
+  maturity: experimental
+  owner: axiom-embedded
+  tags:
+  - cell-integration
+  - eoat
+  inputs:
+  - workpiece data
+  - cycle-time target
+  - robot payload
+  outputs:
+  - EOAT spec
+  - gripper force budget
+  dependencies: []
+  related_skills:
+  - axiom-eoat-spec-review
+  path: skills/axiom-eoat-spec
+  enabled: true
+  standards:
+  - ISO 10218-1:2011
+  - ISO 10218-2:2011
+  lifecycle:
+  - requirements
+  - architecture
+  - design
+  - implementation
+  - integration
+  - verification
+  - validation
+  - release
+  artifact_types:
+  - EOAT spec
+  - gripper force budget
+  mcp_tools:
+  - run_skill
+  - validate_skill
+  risk_level: high
+  review_required: true
+- id: axiom-eoat-spec-review
+  name: axiom.robotics.eoat.spec
+  title: End-of-Arm Tooling Specification Review
+  version: 0.1.0
+  domain: robotics
+  subdomain: cell-integration
+  category: design
+  maturity: experimental
+  owner: axiom-embedded
+  tags:
+  - cell-integration
+  - eoat
+  inputs:
+  - workpiece data
+  - cycle-time target
+  - robot payload
+  outputs:
+  - EOAT spec
+  - gripper force budget
+  dependencies: []
+  related_skills:
+  - axiom-eoat-spec
+  path: skills/axiom-eoat-spec-review
+  enabled: true
+  standards:
+  - ISO 10218-1:2011
+  - ISO 10218-2:2011
+  lifecycle:
+  - requirements
+  - architecture
+  - design
+  - implementation
+  - integration
+  - verification
+  - validation
+  - release
+  artifact_types:
+  - EOAT spec
+  - gripper force budget
+  mcp_tools:
+  - run_skill
+  - validate_skill
+  risk_level: high
+  review_required: true
+- id: axiom-fleet-manager-architecture
+  name: axiom.robotics.fleet.manager.architecture
+  title: Fleet-Manager Architecture
+  version: 0.1.0
+  domain: robotics
+  subdomain: motion-navigation
+  category: design
+  maturity: experimental
+  owner: axiom-embedded
+  tags:
+  - motion-navigation
+  - fleet
+  inputs:
+  - fleet size
+  - site map
+  - mission list
+  outputs:
+  - fleet architecture
+  - traffic-rule set
+  dependencies: []
+  related_skills:
+  - axiom-fleet-manager-architecture-review
+  path: skills/axiom-fleet-manager-architecture
+  enabled: true
+  standards:
+  - ISO 3691-4:2023
+  lifecycle:
+  - requirements
+  - architecture
+  - design
+  - implementation
+  - integration
+  - verification
+  - validation
+  - release
+  artifact_types:
+  - fleet architecture
+  - traffic-rule set
+  mcp_tools:
+  - run_skill
+  - validate_skill
+  risk_level: high
+  review_required: true
+- id: axiom-fleet-manager-architecture-review
+  name: axiom.robotics.fleet.manager.architecture
+  title: Fleet-Manager Architecture Review
+  version: 0.1.0
+  domain: robotics
+  subdomain: motion-navigation
+  category: design
+  maturity: experimental
+  owner: axiom-embedded
+  tags:
+  - motion-navigation
+  - fleet
+  inputs:
+  - fleet size
+  - site map
+  - mission list
+  outputs:
+  - fleet architecture
+  - traffic-rule set
+  dependencies: []
+  related_skills:
+  - axiom-fleet-manager-architecture
+  path: skills/axiom-fleet-manager-architecture-review
+  enabled: true
+  standards:
+  - ISO 3691-4:2023
+  lifecycle:
+  - requirements
+  - architecture
+  - design
+  - implementation
+  - integration
+  - verification
+  - validation
+  - release
+  artifact_types:
+  - fleet architecture
+  - traffic-rule set
+  mcp_tools:
+  - run_skill
+  - validate_skill
+  risk_level: high
+  review_required: true
+- id: axiom-iec62061-sil
+  name: axiom.industrial.iec62061.sil
+  title: IEC 62061 SIL Determination
+  version: 0.1.0
+  domain: industrial
+  subdomain: compliance
+  category: assessment
+  maturity: experimental
+  owner: axiom-embedded
+  tags:
+  - compliance
+  - iec62061
+  inputs:
+  - hazard list
+  - severity/exposure data
+  - architecture sketch
+  outputs:
+  - SIL determination
+  - safety requirements specification
+  dependencies: []
+  related_skills:
+  - axiom-iec62061-sil-review
+  path: skills/axiom-iec62061-sil
+  enabled: true
+  standards:
+  - IEC 62061:2021
+  - IEC 61508:2010
+  lifecycle:
+  - requirements
+  - architecture
+  - design
+  - implementation
+  - integration
+  - verification
+  - validation
+  - release
+  artifact_types:
+  - SIL determination
+  - safety requirements specification
+  mcp_tools:
+  - run_skill
+  - validate_skill
+  risk_level: safety-critical
+  review_required: true
+- id: axiom-iec62061-sil-review
+  name: axiom.industrial.iec62061.sil
+  title: IEC 62061 SIL Determination Review
+  version: 0.1.0
+  domain: industrial
+  subdomain: compliance
+  category: assessment
+  maturity: experimental
+  owner: axiom-embedded
+  tags:
+  - compliance
+  - iec62061
+  inputs:
+  - hazard list
+  - severity/exposure data
+  - architecture sketch
+  outputs:
+  - SIL determination
+  - safety requirements specification
+  dependencies: []
+  related_skills:
+  - axiom-iec62061-sil
+  path: skills/axiom-iec62061-sil-review
+  enabled: true
+  standards:
+  - IEC 62061:2021
+  - IEC 61508:2010
+  lifecycle:
+  - requirements
+  - architecture
+  - design
+  - implementation
+  - integration
+  - verification
+  - validation
+  - release
+  artifact_types:
+  - SIL determination
+  - safety requirements specification
+  mcp_tools:
+  - run_skill
+  - validate_skill
+  risk_level: safety-critical
+  review_required: true
+- id: axiom-iec62443-risk-assessment
+  name: axiom.industrial.iec62443.risk.assessment
+  title: IEC 62443 Risk Assessment
+  version: 0.1.0
+  domain: industrial
+  subdomain: ot-security
+  category: assessment
+  maturity: experimental
+  owner: axiom-embedded
+  tags:
+  - ot-security
+  - iec62443
+  inputs:
+  - zone sketch
+  - asset inventory
+  - threat model
+  outputs:
+  - OT risk assessment
+  - SL-target proposal
+  dependencies: []
+  related_skills:
+  - axiom-iec62443-risk-assessment-review
+  - axiom-threat-model
+  path: skills/axiom-iec62443-risk-assessment
+  enabled: true
+  standards:
+  - IEC 62443-3-2:2020
+  - IEC 62443-3-3:2013
+  lifecycle:
+  - requirements
+  - architecture
+  - design
+  - implementation
+  - integration
+  - verification
+  - validation
+  - release
+  artifact_types:
+  - OT risk assessment
+  - SL-target proposal
+  mcp_tools:
+  - run_skill
+  - validate_skill
+  risk_level: high
+  review_required: true
+- id: axiom-iec62443-risk-assessment-review
+  name: axiom.industrial.iec62443.risk.assessment
+  title: IEC 62443 Risk Assessment Review
+  version: 0.1.0
+  domain: industrial
+  subdomain: ot-security
+  category: assessment
+  maturity: experimental
+  owner: axiom-embedded
+  tags:
+  - ot-security
+  - iec62443
+  inputs:
+  - zone sketch
+  - asset inventory
+  - threat model
+  outputs:
+  - OT risk assessment
+  - SL-target proposal
+  dependencies: []
+  related_skills:
+  - axiom-iec62443-risk-assessment
+  path: skills/axiom-iec62443-risk-assessment-review
+  enabled: true
+  standards:
+  - IEC 62443-3-2:2020
+  - IEC 62443-3-3:2013
+  lifecycle:
+  - requirements
+  - architecture
+  - design
+  - implementation
+  - integration
+  - verification
+  - validation
+  - release
+  artifact_types:
+  - OT risk assessment
+  - SL-target proposal
+  mcp_tools:
+  - run_skill
+  - validate_skill
+  risk_level: high
+  review_required: true
+- id: axiom-interlock-estop-architecture
+  name: axiom.robotics.interlock.estop.architecture
+  title: Interlock and E-Stop Architecture
+  version: 0.1.0
+  domain: robotics
+  subdomain: robot-safety
+  category: design
+  maturity: experimental
+  owner: axiom-embedded
+  tags:
+  - robot-safety
+  - interlock
+  inputs:
+  - cell layout
+  - safety-function list
+  - risk assessment
+  outputs:
+  - interlock architecture
+  - e-stop topology
+  dependencies: []
+  related_skills:
+  - axiom-interlock-estop-architecture-review
+  path: skills/axiom-interlock-estop-architecture
+  enabled: true
+  standards:
+  - ISO 14118:2017
+  - ISO 13850:2015
+  - ISO 13849-1:2023
+  lifecycle:
+  - requirements
+  - architecture
+  - design
+  - implementation
+  - integration
+  - verification
+  - validation
+  - release
+  artifact_types:
+  - interlock architecture
+  - e-stop topology
+  mcp_tools:
+  - run_skill
+  - validate_skill
+  risk_level: safety-critical
+  review_required: true
+- id: axiom-interlock-estop-architecture-review
+  name: axiom.robotics.interlock.estop.architecture
+  title: Interlock and E-Stop Architecture Review
+  version: 0.1.0
+  domain: robotics
+  subdomain: robot-safety
+  category: design
+  maturity: experimental
+  owner: axiom-embedded
+  tags:
+  - robot-safety
+  - interlock
+  inputs:
+  - cell layout
+  - safety-function list
+  - risk assessment
+  outputs:
+  - interlock architecture
+  - e-stop topology
+  dependencies: []
+  related_skills:
+  - axiom-interlock-estop-architecture
+  path: skills/axiom-interlock-estop-architecture-review
+  enabled: true
+  standards:
+  - ISO 14118:2017
+  - ISO 13850:2015
+  - ISO 13849-1:2023
+  lifecycle:
+  - requirements
+  - architecture
+  - design
+  - implementation
+  - integration
+  - verification
+  - validation
+  - release
+  artifact_types:
+  - interlock architecture
+  - e-stop topology
+  mcp_tools:
+  - run_skill
+  - validate_skill
+  risk_level: safety-critical
+  review_required: true
+- id: axiom-iso10218-compliance-matrix
+  name: axiom.robotics.iso10218.compliance.matrix
+  title: ISO 10218 Compliance Matrix
+  version: 0.1.0
+  domain: robotics
+  subdomain: compliance
+  category: compliance
+  maturity: experimental
+  owner: axiom-embedded
+  tags:
+  - compliance
+  - iso10218
+  inputs:
+  - requirement list
+  - design evidence
+  - risk assessment
+  outputs:
+  - compliance matrix
+  - open-claim list
+  dependencies: []
+  related_skills:
+  - axiom-iso10218-compliance-matrix-review
+  path: skills/axiom-iso10218-compliance-matrix
+  enabled: true
+  standards:
+  - ISO 10218-1:2011
+  - ISO 10218-2:2011
+  lifecycle:
+  - requirements
+  - architecture
+  - design
+  - implementation
+  - integration
+  - verification
+  - validation
+  - release
+  artifact_types:
+  - compliance matrix
+  - evidence index
+  mcp_tools:
+  - run_skill
+  - validate_skill
+  risk_level: high
+  review_required: true
+- id: axiom-iso10218-compliance-matrix-review
+  name: axiom.robotics.iso10218.compliance.matrix
+  title: ISO 10218 Compliance Matrix Review
+  version: 0.1.0
+  domain: robotics
+  subdomain: compliance
+  category: compliance
+  maturity: experimental
+  owner: axiom-embedded
+  tags:
+  - compliance
+  - iso10218
+  inputs:
+  - requirement list
+  - design evidence
+  - risk assessment
+  outputs:
+  - compliance matrix
+  - open-claim list
+  dependencies: []
+  related_skills:
+  - axiom-iso10218-compliance-matrix
+  path: skills/axiom-iso10218-compliance-matrix-review
+  enabled: true
+  standards:
+  - ISO 10218-1:2011
+  - ISO 10218-2:2011
+  lifecycle:
+  - requirements
+  - architecture
+  - design
+  - implementation
+  - integration
+  - verification
+  - validation
+  - release
+  artifact_types:
+  - compliance matrix
+  - evidence index
+  mcp_tools:
+  - run_skill
+  - validate_skill
+  risk_level: high
+  review_required: true
+- id: axiom-iso12100-risk-assessment
+  name: axiom.industrial.iso12100.risk.assessment
+  title: ISO 12100 Risk Assessment
+  version: 0.1.0
+  domain: industrial
+  subdomain: compliance
+  category: assessment
+  maturity: experimental
+  owner: axiom-embedded
+  tags:
+  - compliance
+  - iso12100
+  inputs:
+  - machine limits
+  - task list
+  - incident history
+  outputs:
+  - risk assessment
+  - residual-risk register
+  dependencies: []
+  related_skills:
+  - axiom-iso12100-risk-assessment-review
+  - axiom-hazard-risk
+  path: skills/axiom-iso12100-risk-assessment
+  enabled: true
+  standards:
+  - ISO 12100:2010
+  lifecycle:
+  - requirements
+  - architecture
+  - design
+  - implementation
+  - integration
+  - verification
+  - validation
+  - release
+  artifact_types:
+  - risk assessment
+  - residual-risk register
+  mcp_tools:
+  - run_skill
+  - validate_skill
+  risk_level: high
+  review_required: true
+- id: axiom-iso12100-risk-assessment-review
+  name: axiom.industrial.iso12100.risk.assessment
+  title: ISO 12100 Risk Assessment Review
+  version: 0.1.0
+  domain: industrial
+  subdomain: compliance
+  category: assessment
+  maturity: experimental
+  owner: axiom-embedded
+  tags:
+  - compliance
+  - iso12100
+  inputs:
+  - machine limits
+  - task list
+  - incident history
+  outputs:
+  - risk assessment
+  - residual-risk register
+  dependencies: []
+  related_skills:
+  - axiom-iso12100-risk-assessment
+  path: skills/axiom-iso12100-risk-assessment-review
+  enabled: true
+  standards:
+  - ISO 12100:2010
+  lifecycle:
+  - requirements
+  - architecture
+  - design
+  - implementation
+  - integration
+  - verification
+  - validation
+  - release
+  artifact_types:
+  - risk assessment
+  - residual-risk register
+  mcp_tools:
+  - run_skill
+  - validate_skill
+  risk_level: high
+  review_required: true
+- id: axiom-iso13849-plr
+  name: axiom.robotics.iso13849.plr
+  title: ISO 13849 PLr Determination
+  version: 0.1.0
+  domain: robotics
+  subdomain: robot-safety
+  category: design
+  maturity: experimental
+  owner: axiom-embedded
+  tags:
+  - robot-safety
+  - iso13849
+  inputs:
+  - hazard list
+  - severity/frequency data
+  - architecture sketch
+  outputs:
+  - PLr determination
+  - safety-function list
+  dependencies: []
+  related_skills:
+  - axiom-iso13849-plr-review
+  - axiom-safety-requirements
+  path: skills/axiom-iso13849-plr
+  enabled: true
+  standards:
+  - ISO 13849-1:2023
+  lifecycle:
+  - requirements
+  - architecture
+  - design
+  - implementation
+  - integration
+  - verification
+  - validation
+  - release
+  artifact_types:
+  - PLr determination
+  - safety-function list
+  mcp_tools:
+  - run_skill
+  - validate_skill
+  risk_level: safety-critical
+  review_required: true
+- id: axiom-iso13849-plr-review
+  name: axiom.robotics.iso13849.plr
+  title: ISO 13849 PLr Determination Review
+  version: 0.1.0
+  domain: robotics
+  subdomain: robot-safety
+  category: design
+  maturity: experimental
+  owner: axiom-embedded
+  tags:
+  - robot-safety
+  - iso13849
+  inputs:
+  - hazard list
+  - severity/frequency data
+  - architecture sketch
+  outputs:
+  - PLr determination
+  - safety-function list
+  dependencies: []
+  related_skills:
+  - axiom-iso13849-plr
+  path: skills/axiom-iso13849-plr-review
+  enabled: true
+  standards:
+  - ISO 13849-1:2023
+  lifecycle:
+  - requirements
+  - architecture
+  - design
+  - implementation
+  - integration
+  - verification
+  - validation
+  - release
+  artifact_types:
+  - PLr determination
+  - safety-function list
+  mcp_tools:
+  - run_skill
+  - validate_skill
+  risk_level: safety-critical
+  review_required: true
+- id: axiom-iso15066-biomechanical-limits
+  name: axiom.robotics.iso15066.biomechanical.limits
+  title: ISO/TS 15066 Biomechanical Limits
+  version: 0.1.0
+  domain: robotics
+  subdomain: robot-safety
+  category: assessment
+  maturity: experimental
+  owner: axiom-embedded
+  tags:
+  - robot-safety
+  - iso15066
+  inputs:
+  - contact scenarios
+  - body regions exposed
+  - payload data
+  outputs:
+  - biomechanical limit set
+  - threshold transfer table
+  dependencies: []
+  related_skills:
+  - axiom-iso15066-biomechanical-limits-review
+  path: skills/axiom-iso15066-biomechanical-limits
+  enabled: true
+  standards:
+  - ISO/TS 15066:2016
+  lifecycle:
+  - requirements
+  - architecture
+  - design
+  - implementation
+  - integration
+  - verification
+  - validation
+  - release
+  artifact_types:
+  - biomechanical limit set
+  - threshold transfer table
+  mcp_tools:
+  - run_skill
+  - validate_skill
+  risk_level: high
+  review_required: true
+- id: axiom-iso15066-biomechanical-limits-review
+  name: axiom.robotics.iso15066.biomechanical.limits
+  title: ISO/TS 15066 Biomechanical Limits Review
+  version: 0.1.0
+  domain: robotics
+  subdomain: robot-safety
+  category: assessment
+  maturity: experimental
+  owner: axiom-embedded
+  tags:
+  - robot-safety
+  - iso15066
+  inputs:
+  - contact scenarios
+  - body regions exposed
+  - payload data
+  outputs:
+  - biomechanical limit set
+  - threshold transfer table
+  dependencies: []
+  related_skills:
+  - axiom-iso15066-biomechanical-limits
+  path: skills/axiom-iso15066-biomechanical-limits-review
+  enabled: true
+  standards:
+  - ISO/TS 15066:2016
+  lifecycle:
+  - requirements
+  - architecture
+  - design
+  - implementation
+  - integration
+  - verification
+  - validation
+  - release
+  artifact_types:
+  - biomechanical limit set
+  - threshold transfer table
+  mcp_tools:
+  - run_skill
+  - validate_skill
+  risk_level: high
+  review_required: true
+- id: axiom-iso3691-4-risk-assessment
+  name: axiom.industrial.iso3691.4.risk.assessment
+  title: ISO 3691-4 Risk Assessment
+  version: 0.1.0
+  domain: industrial
+  subdomain: compliance
+  category: assessment
+  maturity: experimental
+  owner: axiom-embedded
+  tags:
+  - compliance
+  - iso3691
+  inputs:
+  - site layout
+  - truck specification
+  - traffic plan
+  outputs:
+  - AMR risk assessment
+  - detection-requirement set
+  dependencies: []
+  related_skills:
+  - axiom-iso3691-4-risk-assessment-review
+  path: skills/axiom-iso3691-4-risk-assessment
+  enabled: true
+  standards:
+  - ISO 3691-4:2023
+  - ISO 12100:2010
+  lifecycle:
+  - requirements
+  - architecture
+  - design
+  - implementation
+  - integration
+  - verification
+  - validation
+  - release
+  artifact_types:
+  - AMR risk assessment
+  - detection-requirement set
+  mcp_tools:
+  - run_skill
+  - validate_skill
+  risk_level: high
+  review_required: true
+- id: axiom-iso3691-4-risk-assessment-review
+  name: axiom.industrial.iso3691.4.risk.assessment
+  title: ISO 3691-4 Risk Assessment Review
+  version: 0.1.0
+  domain: industrial
+  subdomain: compliance
+  category: assessment
+  maturity: experimental
+  owner: axiom-embedded
+  tags:
+  - compliance
+  - iso3691
+  inputs:
+  - site layout
+  - truck specification
+  - traffic plan
+  outputs:
+  - AMR risk assessment
+  - detection-requirement set
+  dependencies: []
+  related_skills:
+  - axiom-iso3691-4-risk-assessment
+  path: skills/axiom-iso3691-4-risk-assessment-review
+  enabled: true
+  standards:
+  - ISO 3691-4:2023
+  - ISO 12100:2010
+  lifecycle:
+  - requirements
+  - architecture
+  - design
+  - implementation
+  - integration
+  - verification
+  - validation
+  - release
+  artifact_types:
+  - AMR risk assessment
+  - detection-requirement set
+  mcp_tools:
+  - run_skill
+  - validate_skill
+  risk_level: high
+  review_required: true
+- id: axiom-iso9283-performance-test
+  name: axiom.robotics.iso9283.performance.test
+  title: ISO 9283 Performance Test
+  version: 0.1.0
+  domain: robotics
+  subdomain: cell-integration
+  category: verification
+  maturity: experimental
+  owner: axiom-embedded
+  tags:
+  - cell-integration
+  - iso9283
+  inputs:
+  - robot model
+  - accuracy requirements
+  - measurement equipment
+  outputs:
+  - performance test spec
+  - threshold table
+  dependencies: []
+  related_skills:
+  - axiom-iso9283-performance-test-review
+  path: skills/axiom-iso9283-performance-test
+  enabled: true
+  standards:
+  - ISO 9283:1998
+  lifecycle:
+  - requirements
+  - architecture
+  - design
+  - implementation
+  - integration
+  - verification
+  - validation
+  - release
+  artifact_types:
+  - performance test spec
+  - threshold table
+  mcp_tools:
+  - run_skill
+  - validate_skill
+  risk_level: medium
+  review_required: true
+- id: axiom-iso9283-performance-test-review
+  name: axiom.robotics.iso9283.performance.test
+  title: ISO 9283 Performance Test Review
+  version: 0.1.0
+  domain: robotics
+  subdomain: cell-integration
+  category: verification
+  maturity: experimental
+  owner: axiom-embedded
+  tags:
+  - cell-integration
+  - iso9283
+  inputs:
+  - robot model
+  - accuracy requirements
+  - measurement equipment
+  outputs:
+  - performance test spec
+  - threshold table
+  dependencies: []
+  related_skills:
+  - axiom-iso9283-performance-test
+  path: skills/axiom-iso9283-performance-test-review
+  enabled: true
+  standards:
+  - ISO 9283:1998
+  lifecycle:
+  - requirements
+  - architecture
+  - design
+  - implementation
+  - integration
+  - verification
+  - validation
+  - release
+  artifact_types:
+  - performance test spec
+  - threshold table
+  mcp_tools:
+  - run_skill
+  - validate_skill
+  risk_level: medium
+  review_required: true
+- id: axiom-loto-procedure
+  name: axiom.industrial.loto.procedure
+  title: Lockout/Tagout Procedure
+  version: 0.1.0
+  domain: industrial
+  subdomain: cell-integration
+  category: procedure
+  maturity: experimental
+  owner: axiom-embedded
+  tags:
+  - cell-integration
+  - loto
+  inputs:
+  - energy-source survey
+  - cell layout
+  - maintenance tasks
+  outputs:
+  - LOTO procedure
+  - isolation-point map
+  dependencies: []
+  related_skills:
+  - axiom-loto-procedure-review
+  path: skills/axiom-loto-procedure
+  enabled: true
+  standards:
+  - ISO 14118:2017
+  - ANSI Z244.1-2016
+  lifecycle:
+  - requirements
+  - architecture
+  - design
+  - implementation
+  - integration
+  - verification
+  - validation
+  - release
+  artifact_types:
+  - LOTO procedure
+  - isolation-point map
+  mcp_tools:
+  - run_skill
+  - validate_skill
+  risk_level: high
+  review_required: true
+- id: axiom-loto-procedure-review
+  name: axiom.industrial.loto.procedure
+  title: Lockout/Tagout Procedure Review
+  version: 0.1.0
+  domain: industrial
+  subdomain: cell-integration
+  category: procedure
+  maturity: experimental
+  owner: axiom-embedded
+  tags:
+  - cell-integration
+  - loto
+  inputs:
+  - energy-source survey
+  - cell layout
+  - maintenance tasks
+  outputs:
+  - LOTO procedure
+  - isolation-point map
+  dependencies: []
+  related_skills:
+  - axiom-loto-procedure
+  path: skills/axiom-loto-procedure-review
+  enabled: true
+  standards:
+  - ISO 14118:2017
+  - ANSI Z244.1-2016
+  lifecycle:
+  - requirements
+  - architecture
+  - design
+  - implementation
+  - integration
+  - verification
+  - validation
+  - release
+  artifact_types:
+  - LOTO procedure
+  - isolation-point map
+  mcp_tools:
+  - run_skill
+  - validate_skill
+  risk_level: high
+  review_required: true
+- id: axiom-machinery-safety-lifecycle-plan
+  name: axiom.industrial.machinery.safety.lifecycle.plan
+  title: Machinery Safety Lifecycle Plan
+  version: 0.1.0
+  domain: industrial
+  subdomain: compliance
+  category: compliance
+  maturity: experimental
+  owner: axiom-embedded
+  tags:
+  - compliance
+  - machinery
+  inputs:
+  - project phases
+  - machine scope
+  - regulatory path
+  outputs:
+  - lifecycle plan
+  - evidence-gate list
+  dependencies: []
+  related_skills:
+  - axiom-machinery-safety-lifecycle-plan-review
+  path: skills/axiom-machinery-safety-lifecycle-plan
+  enabled: true
+  standards:
+  - ISO 12100:2010
+  - EU 2023/1230
+  lifecycle:
+  - requirements
+  - architecture
+  - design
+  - implementation
+  - integration
+  - verification
+  - validation
+  - release
+  artifact_types:
+  - lifecycle plan
+  - evidence-gate list
+  mcp_tools:
+  - run_skill
+  - validate_skill
+  risk_level: high
+  review_required: true
+- id: axiom-machinery-safety-lifecycle-plan-review
+  name: axiom.industrial.machinery.safety.lifecycle.plan
+  title: Machinery Safety Lifecycle Plan Review
+  version: 0.1.0
+  domain: industrial
+  subdomain: compliance
+  category: compliance
+  maturity: experimental
+  owner: axiom-embedded
+  tags:
+  - compliance
+  - machinery
+  inputs:
+  - project phases
+  - machine scope
+  - regulatory path
+  outputs:
+  - lifecycle plan
+  - evidence-gate list
+  dependencies: []
+  related_skills:
+  - axiom-machinery-safety-lifecycle-plan
+  path: skills/axiom-machinery-safety-lifecycle-plan-review
+  enabled: true
+  standards:
+  - ISO 12100:2010
+  - EU 2023/1230
+  lifecycle:
+  - requirements
+  - architecture
+  - design
+  - implementation
+  - integration
+  - verification
+  - validation
+  - release
+  artifact_types:
+  - lifecycle plan
+  - evidence-gate list
+  mcp_tools:
+  - run_skill
+  - validate_skill
+  risk_level: high
+  review_required: true
+- id: axiom-model-card
+  name: axiom.robotics.model.card
+  title: Model Card
+  version: 0.1.0
+  domain: robotics
+  subdomain: ai-data
+  category: documentation
+  maturity: experimental
+  owner: axiom-embedded
+  tags:
+  - ai-data
+  - model
+  inputs:
+  - model identifier
+  - eval results
+  - deployment context
+  outputs:
+  - model card
+  dependencies: []
+  related_skills:
+  - axiom-model-card-review
+  path: skills/axiom-model-card
+  enabled: true
+  standards:
+  - ISO/IEC 23894:2023
+  lifecycle:
+  - requirements
+  - architecture
+  - design
+  - implementation
+  - integration
+  - verification
+  - validation
+  - release
+  artifact_types:
+  - model card
+  mcp_tools:
+  - run_skill
+  - validate_skill
+  risk_level: medium
+  review_required: true
+- id: axiom-model-card-review
+  name: axiom.robotics.model.card
+  title: Model Card Review
+  version: 0.1.0
+  domain: robotics
+  subdomain: ai-data
+  category: documentation
+  maturity: experimental
+  owner: axiom-embedded
+  tags:
+  - ai-data
+  - model
+  inputs:
+  - model identifier
+  - eval results
+  - deployment context
+  outputs:
+  - model card
+  dependencies: []
+  related_skills:
+  - axiom-model-card
+  path: skills/axiom-model-card-review
+  enabled: true
+  standards:
+  - ISO/IEC 23894:2023
+  lifecycle:
+  - requirements
+  - architecture
+  - design
+  - implementation
+  - integration
+  - verification
+  - validation
+  - release
+  artifact_types:
+  - model card
+  mcp_tools:
+  - run_skill
+  - validate_skill
+  risk_level: medium
+  review_required: true
+- id: axiom-nav2-config
+  name: axiom.robotics.nav2.config
+  title: Nav2 Configuration
+  version: 0.1.0
+  domain: robotics
+  subdomain: motion-navigation
+  category: design
+  maturity: experimental
+  owner: axiom-embedded
+  tags:
+  - motion-navigation
+  - nav2
+  inputs:
+  - robot footprint
+  - map data
+  - behavior requirements
+  outputs:
+  - Nav2 parameter set
+  - costmap review
+  dependencies: []
+  related_skills:
+  - axiom-nav2-config-review
+  path: skills/axiom-nav2-config
+  enabled: true
+  standards: []
+  lifecycle:
+  - requirements
+  - architecture
+  - design
+  - implementation
+  - integration
+  - verification
+  - validation
+  - release
+  artifact_types:
+  - Nav2 parameter set
+  - costmap review
+  mcp_tools:
+  - run_skill
+  - validate_skill
+  risk_level: medium
+  review_required: true
+- id: axiom-nav2-config-review
+  name: axiom.robotics.nav2.config
+  title: Nav2 Configuration Review
+  version: 0.1.0
+  domain: robotics
+  subdomain: motion-navigation
+  category: design
+  maturity: experimental
+  owner: axiom-embedded
+  tags:
+  - motion-navigation
+  - nav2
+  inputs:
+  - robot footprint
+  - map data
+  - behavior requirements
+  outputs:
+  - Nav2 parameter set
+  - costmap review
+  dependencies: []
+  related_skills:
+  - axiom-nav2-config
+  path: skills/axiom-nav2-config-review
+  enabled: true
+  standards: []
+  lifecycle:
+  - requirements
+  - architecture
+  - design
+  - implementation
+  - integration
+  - verification
+  - validation
+  - release
+  artifact_types:
+  - Nav2 parameter set
+  - costmap review
+  mcp_tools:
+  - run_skill
+  - validate_skill
+  risk_level: medium
+  review_required: true
+- id: axiom-operating-envelope
+  name: axiom.robotics.operating.envelope
+  title: Operating Envelope Definition
+  version: 0.1.0
+  domain: robotics
+  subdomain: cell-integration
+  category: design
+  maturity: experimental
+  owner: axiom-embedded
+  tags:
+  - cell-integration
+  - operating
+  inputs:
+  - cell layout
+  - task list
+  - risk assessment
+  outputs:
+  - operating envelope
+  - mode-transition table
+  dependencies: []
+  related_skills:
+  - axiom-operating-envelope-review
+  path: skills/axiom-operating-envelope
+  enabled: true
+  standards:
+  - ISO 10218-2:2011
+  - ISO/TS 15066:2016
+  lifecycle:
+  - requirements
+  - architecture
+  - design
+  - implementation
+  - integration
+  - verification
+  - validation
+  - release
+  artifact_types:
+  - operating envelope
+  - mode-transition table
+  mcp_tools:
+  - run_skill
+  - validate_skill
+  risk_level: high
+  review_required: true
+- id: axiom-operating-envelope-review
+  name: axiom.robotics.operating.envelope
+  title: Operating Envelope Definition Review
+  version: 0.1.0
+  domain: robotics
+  subdomain: cell-integration
+  category: design
+  maturity: experimental
+  owner: axiom-embedded
+  tags:
+  - cell-integration
+  - operating
+  inputs:
+  - cell layout
+  - task list
+  - risk assessment
+  outputs:
+  - operating envelope
+  - mode-transition table
+  dependencies: []
+  related_skills:
+  - axiom-operating-envelope
+  path: skills/axiom-operating-envelope-review
+  enabled: true
+  standards:
+  - ISO 10218-2:2011
+  - ISO/TS 15066:2016
+  lifecycle:
+  - requirements
+  - architecture
+  - design
+  - implementation
+  - integration
+  - verification
+  - validation
+  - release
+  artifact_types:
+  - operating envelope
+  - mode-transition table
+  mcp_tools:
+  - run_skill
+  - validate_skill
+  risk_level: high
+  review_required: true
+- id: axiom-operator-training-matrix
+  name: axiom.industrial.operator.training.matrix
+  title: Operator Training Matrix
+  version: 0.1.0
+  domain: industrial
+  subdomain: cell-integration
+  category: procedure
+  maturity: experimental
+  owner: axiom-embedded
+  tags:
+  - cell-integration
+  - operator
+  inputs:
+  - role list
+  - task risk levels
+  - regulatory duties
+  outputs:
+  - training matrix
+  - competence record template
+  dependencies: []
+  related_skills:
+  - axiom-operator-training-matrix-review
+  path: skills/axiom-operator-training-matrix
+  enabled: true
+  standards:
+  - ISO 10218-2:2011
+  - ISO 12100:2010
+  lifecycle:
+  - requirements
+  - architecture
+  - design
+  - implementation
+  - integration
+  - verification
+  - validation
+  - release
+  artifact_types:
+  - training matrix
+  - competence record template
+  mcp_tools:
+  - run_skill
+  - validate_skill
+  risk_level: medium
+  review_required: true
+- id: axiom-operator-training-matrix-review
+  name: axiom.industrial.operator.training.matrix
+  title: Operator Training Matrix Review
+  version: 0.1.0
+  domain: industrial
+  subdomain: cell-integration
+  category: procedure
+  maturity: experimental
+  owner: axiom-embedded
+  tags:
+  - cell-integration
+  - operator
+  inputs:
+  - role list
+  - task risk levels
+  - regulatory duties
+  outputs:
+  - training matrix
+  - competence record template
+  dependencies: []
+  related_skills:
+  - axiom-operator-training-matrix
+  path: skills/axiom-operator-training-matrix-review
+  enabled: true
+  standards:
+  - ISO 10218-2:2011
+  - ISO 12100:2010
+  lifecycle:
+  - requirements
+  - architecture
+  - design
+  - implementation
+  - integration
+  - verification
+  - validation
+  - release
+  artifact_types:
+  - training matrix
+  - competence record template
+  mcp_tools:
+  - run_skill
+  - validate_skill
+  risk_level: medium
+  review_required: true
+- id: axiom-ot-asset-inventory
+  name: axiom.industrial.ot.asset.inventory
+  title: OT Asset Inventory
+  version: 0.1.0
+  domain: industrial
+  subdomain: ot-security
+  category: assessment
+  maturity: experimental
+  owner: axiom-embedded
+  tags:
+  - ot-security
+  - ot
+  inputs:
+  - network diagrams
+  - device lists
+  - scan results
+  outputs:
+  - OT asset inventory
+  - ownership register
+  dependencies: []
+  related_skills:
+  - axiom-ot-asset-inventory-review
+  path: skills/axiom-ot-asset-inventory
+  enabled: true
+  standards:
+  - IEC 62443-2-1:2010
+  - IEC 62443-3-2:2020
+  lifecycle:
+  - requirements
+  - architecture
+  - design
+  - implementation
+  - integration
+  - verification
+  - validation
+  - release
+  artifact_types:
+  - OT asset inventory
+  - ownership register
+  mcp_tools:
+  - run_skill
+  - validate_skill
+  risk_level: medium
+  review_required: true
+- id: axiom-ot-asset-inventory-review
+  name: axiom.industrial.ot.asset.inventory
+  title: OT Asset Inventory Review
+  version: 0.1.0
+  domain: industrial
+  subdomain: ot-security
+  category: assessment
+  maturity: experimental
+  owner: axiom-embedded
+  tags:
+  - ot-security
+  - ot
+  inputs:
+  - network diagrams
+  - device lists
+  - scan results
+  outputs:
+  - OT asset inventory
+  - ownership register
+  dependencies: []
+  related_skills:
+  - axiom-ot-asset-inventory
+  path: skills/axiom-ot-asset-inventory-review
+  enabled: true
+  standards:
+  - IEC 62443-2-1:2010
+  - IEC 62443-3-2:2020
+  lifecycle:
+  - requirements
+  - architecture
+  - design
+  - implementation
+  - integration
+  - verification
+  - validation
+  - release
+  artifact_types:
+  - OT asset inventory
+  - ownership register
+  mcp_tools:
+  - run_skill
+  - validate_skill
+  risk_level: medium
+  review_required: true
+- id: axiom-perception-test-catalog
+  name: axiom.robotics.perception.test.catalog
+  title: Perception Test Catalog
+  version: 0.1.0
+  domain: robotics
+  subdomain: ai-data
+  category: assessment
+  maturity: experimental
+  owner: axiom-embedded
+  tags:
+  - ai-data
+  - perception
+  inputs:
+  - perception requirements
+  - datasets
+  - sensor spec
+  outputs:
+  - perception test catalog
+  - metric-threshold table
+  dependencies: []
+  related_skills:
+  - axiom-perception-test-catalog-review
+  path: skills/axiom-perception-test-catalog
+  enabled: true
+  standards:
+  - ISO/IEC 23894:2023
+  lifecycle:
+  - requirements
+  - architecture
+  - design
+  - implementation
+  - integration
+  - verification
+  - validation
+  - release
+  artifact_types:
+  - perception test catalog
+  - metric-threshold table
+  mcp_tools:
+  - run_skill
+  - validate_skill
+  risk_level: high
+  review_required: true
+- id: axiom-perception-test-catalog-review
+  name: axiom.robotics.perception.test.catalog
+  title: Perception Test Catalog Review
+  version: 0.1.0
+  domain: robotics
+  subdomain: ai-data
+  category: assessment
+  maturity: experimental
+  owner: axiom-embedded
+  tags:
+  - ai-data
+  - perception
+  inputs:
+  - perception requirements
+  - datasets
+  - sensor spec
+  outputs:
+  - perception test catalog
+  - metric-threshold table
+  dependencies: []
+  related_skills:
+  - axiom-perception-test-catalog
+  path: skills/axiom-perception-test-catalog-review
+  enabled: true
+  standards:
+  - ISO/IEC 23894:2023
+  lifecycle:
+  - requirements
+  - architecture
+  - design
+  - implementation
+  - integration
+  - verification
+  - validation
+  - release
+  artifact_types:
+  - perception test catalog
+  - metric-threshold table
+  mcp_tools:
+  - run_skill
+  - validate_skill
+  risk_level: high
+  review_required: true
+- id: axiom-pfl-plan
+  name: axiom.robotics.pfl.plan
+  title: Power-and-Force-Limiting Plan
+  version: 0.1.0
+  domain: robotics
+  subdomain: robot-safety
+  category: design
+  maturity: experimental
+  owner: axiom-embedded
+  tags:
+  - robot-safety
+  - pfl
+  inputs:
+  - collaborative tasks
+  - biomechanical limits
+  - payload data
+  outputs:
+  - PFL plan
+  - contact-scenario table
+  dependencies: []
+  related_skills:
+  - axiom-pfl-plan-review
+  path: skills/axiom-pfl-plan
+  enabled: true
+  standards:
+  - ISO/TS 15066:2016
+  lifecycle:
+  - requirements
+  - architecture
+  - design
+  - implementation
+  - integration
+  - verification
+  - validation
+  - release
+  artifact_types:
+  - PFL plan
+  - contact-scenario table
+  mcp_tools:
+  - run_skill
+  - validate_skill
+  risk_level: safety-critical
+  review_required: true
+- id: axiom-pfl-plan-review
+  name: axiom.robotics.pfl.plan
+  title: Power-and-Force-Limiting Plan Review
+  version: 0.1.0
+  domain: robotics
+  subdomain: robot-safety
+  category: design
+  maturity: experimental
+  owner: axiom-embedded
+  tags:
+  - robot-safety
+  - pfl
+  inputs:
+  - collaborative tasks
+  - biomechanical limits
+  - payload data
+  outputs:
+  - PFL plan
+  - contact-scenario table
+  dependencies: []
+  related_skills:
+  - axiom-pfl-plan
+  path: skills/axiom-pfl-plan-review
+  enabled: true
+  standards:
+  - ISO/TS 15066:2016
+  lifecycle:
+  - requirements
+  - architecture
+  - design
+  - implementation
+  - integration
+  - verification
+  - validation
+  - release
+  artifact_types:
+  - PFL plan
+  - contact-scenario table
+  mcp_tools:
+  - run_skill
+  - validate_skill
+  risk_level: safety-critical
+  review_required: true
+- id: axiom-robot-acceptance-protocol
+  name: axiom.robotics.robot.acceptance.protocol
+  title: Robot Acceptance Protocol
+  version: 0.1.0
+  domain: robotics
+  subdomain: cell-integration
+  category: verification
+  maturity: experimental
+  owner: axiom-embedded
+  tags:
+  - cell-integration
+  - robot
+  inputs:
+  - contract requirements
+  - cell design
+  - safety functions
+  outputs:
+  - acceptance protocol
+  - sign-off record
+  dependencies: []
+  related_skills:
+  - axiom-robot-acceptance-protocol-review
+  path: skills/axiom-robot-acceptance-protocol
+  enabled: true
+  standards:
+  - ISO 10218-2:2011
+  - ISO 9283:1998
+  lifecycle:
+  - requirements
+  - architecture
+  - design
+  - implementation
+  - integration
+  - verification
+  - validation
+  - release
+  artifact_types:
+  - acceptance protocol
+  - sign-off record
+  mcp_tools:
+  - run_skill
+  - validate_skill
+  risk_level: high
+  review_required: true
+- id: axiom-robot-acceptance-protocol-review
+  name: axiom.robotics.robot.acceptance.protocol
+  title: Robot Acceptance Protocol Review
+  version: 0.1.0
+  domain: robotics
+  subdomain: cell-integration
+  category: verification
+  maturity: experimental
+  owner: axiom-embedded
+  tags:
+  - cell-integration
+  - robot
+  inputs:
+  - contract requirements
+  - cell design
+  - safety functions
+  outputs:
+  - acceptance protocol
+  - sign-off record
+  dependencies: []
+  related_skills:
+  - axiom-robot-acceptance-protocol
+  path: skills/axiom-robot-acceptance-protocol-review
+  enabled: true
+  standards:
+  - ISO 10218-2:2011
+  - ISO 9283:1998
+  lifecycle:
+  - requirements
+  - architecture
+  - design
+  - implementation
+  - integration
+  - verification
+  - validation
+  - release
+  artifact_types:
+  - acceptance protocol
+  - sign-off record
+  mcp_tools:
+  - run_skill
+  - validate_skill
+  risk_level: high
+  review_required: true
+- id: axiom-robot-cell-layout
+  name: axiom.robotics.robot.cell.layout
+  title: Robot Cell Layout
+  version: 0.1.0
+  domain: robotics
+  subdomain: cell-integration
+  category: design
+  maturity: experimental
+  owner: axiom-embedded
+  tags:
+  - cell-integration
+  - robot
+  inputs:
+  - equipment list
+  - floor plan
+  - task sequence
+  outputs:
+  - cell layout
+  - safeguarding schedule
+  dependencies: []
+  related_skills:
+  - axiom-robot-cell-layout-review
+  path: skills/axiom-robot-cell-layout
+  enabled: true
+  standards:
+  - ISO 10218-2:2011
+  - ISO 11161:2007
+  lifecycle:
+  - requirements
+  - architecture
+  - design
+  - implementation
+  - integration
+  - verification
+  - validation
+  - release
+  artifact_types:
+  - cell layout
+  - safeguarding schedule
+  mcp_tools:
+  - run_skill
+  - validate_skill
+  risk_level: high
+  review_required: true
+- id: axiom-robot-cell-layout-review
+  name: axiom.robotics.robot.cell.layout
+  title: Robot Cell Layout Review
+  version: 0.1.0
+  domain: robotics
+  subdomain: cell-integration
+  category: design
+  maturity: experimental
+  owner: axiom-embedded
+  tags:
+  - cell-integration
+  - robot
+  inputs:
+  - equipment list
+  - floor plan
+  - task sequence
+  outputs:
+  - cell layout
+  - safeguarding schedule
+  dependencies: []
+  related_skills:
+  - axiom-robot-cell-layout
+  path: skills/axiom-robot-cell-layout-review
+  enabled: true
+  standards:
+  - ISO 10218-2:2011
+  - ISO 11161:2007
+  lifecycle:
+  - requirements
+  - architecture
+  - design
+  - implementation
+  - integration
+  - verification
+  - validation
+  - release
+  artifact_types:
+  - cell layout
+  - safeguarding schedule
+  mcp_tools:
+  - run_skill
+  - validate_skill
+  risk_level: high
+  review_required: true
+- id: axiom-robot-cell-scope
+  name: axiom.robotics.robot.cell.scope
+  title: Robot Cell Scope Definition
+  version: 0.1.0
+  domain: robotics
+  subdomain: cell-integration
+  category: design
+  maturity: experimental
+  owner: axiom-embedded
+  tags:
+  - cell-integration
+  - robot
+  inputs:
+  - stakeholder notes
+  - site survey
+  - equipment list
+  outputs:
+  - cell scope
+  - responsibility matrix
+  dependencies: []
+  related_skills:
+  - axiom-robot-cell-scope-review
+  - axiom-scope-context
+  path: skills/axiom-robot-cell-scope
+  enabled: true
+  standards:
+  - ISO 10218-2:2011
+  - ISO 11161:2007
+  lifecycle:
+  - requirements
+  - architecture
+  - design
+  - implementation
+  - integration
+  - verification
+  - validation
+  - release
+  artifact_types:
+  - cell scope
+  - responsibility matrix
+  mcp_tools:
+  - run_skill
+  - validate_skill
+  risk_level: high
+  review_required: true
+- id: axiom-robot-cell-scope-review
+  name: axiom.robotics.robot.cell.scope
+  title: Robot Cell Scope Definition Review
+  version: 0.1.0
+  domain: robotics
+  subdomain: cell-integration
+  category: design
+  maturity: experimental
+  owner: axiom-embedded
+  tags:
+  - cell-integration
+  - robot
+  inputs:
+  - stakeholder notes
+  - site survey
+  - equipment list
+  outputs:
+  - cell scope
+  - responsibility matrix
+  dependencies: []
+  related_skills:
+  - axiom-robot-cell-scope
+  path: skills/axiom-robot-cell-scope-review
+  enabled: true
+  standards:
+  - ISO 10218-2:2011
+  - ISO 11161:2007
+  lifecycle:
+  - requirements
+  - architecture
+  - design
+  - implementation
+  - integration
+  - verification
+  - validation
+  - release
+  artifact_types:
+  - cell scope
+  - responsibility matrix
+  mcp_tools:
+  - run_skill
+  - validate_skill
+  risk_level: high
+  review_required: true
+- id: axiom-robot-field-acceptance
+  name: axiom.robotics.robot.field.acceptance
+  title: Robot Field Acceptance
+  version: 0.1.0
+  domain: robotics
+  subdomain: cell-integration
+  category: verification
+  maturity: experimental
+  owner: axiom-embedded
+  tags:
+  - cell-integration
+  - robot
+  inputs:
+  - acceptance protocol
+  - installation record
+  - site constraints
+  outputs:
+  - field-acceptance plan
+  - punch list
+  dependencies: []
+  related_skills:
+  - axiom-robot-field-acceptance-review
+  path: skills/axiom-robot-field-acceptance
+  enabled: true
+  standards:
+  - ISO 10218-2:2011
+  lifecycle:
+  - requirements
+  - architecture
+  - design
+  - implementation
+  - integration
+  - verification
+  - validation
+  - release
+  artifact_types:
+  - field-acceptance plan
+  - punch list
+  mcp_tools:
+  - run_skill
+  - validate_skill
+  risk_level: high
+  review_required: true
+- id: axiom-robot-field-acceptance-review
+  name: axiom.robotics.robot.field.acceptance
+  title: Robot Field Acceptance Review
+  version: 0.1.0
+  domain: robotics
+  subdomain: cell-integration
+  category: verification
+  maturity: experimental
+  owner: axiom-embedded
+  tags:
+  - cell-integration
+  - robot
+  inputs:
+  - acceptance protocol
+  - installation record
+  - site constraints
+  outputs:
+  - field-acceptance plan
+  - punch list
+  dependencies: []
+  related_skills:
+  - axiom-robot-field-acceptance
+  path: skills/axiom-robot-field-acceptance-review
+  enabled: true
+  standards:
+  - ISO 10218-2:2011
+  lifecycle:
+  - requirements
+  - architecture
+  - design
+  - implementation
+  - integration
+  - verification
+  - validation
+  - release
+  artifact_types:
+  - field-acceptance plan
+  - punch list
+  mcp_tools:
+  - run_skill
+  - validate_skill
+  risk_level: high
+  review_required: true
+- id: axiom-robot-hil-test-catalog
+  name: axiom.robotics.robot.hil.test.catalog
+  title: Robot HIL Test Catalog
+  version: 0.1.0
+  domain: robotics
+  subdomain: cell-integration
+  category: assessment
+  maturity: experimental
+  owner: axiom-embedded
+  tags:
+  - cell-integration
+  - robot
+  inputs:
+  - safety-function list
+  - HIL rig capability
+  - V&V plan
+  outputs:
+  - HIL test catalog
+  - coverage map
+  dependencies: []
+  related_skills:
+  - axiom-robot-hil-test-catalog-review
+  - axiom-vnv-plan
+  path: skills/axiom-robot-hil-test-catalog
+  enabled: true
+  standards:
+  - ISO 13849-2:2012
+  - ISO 10218-2:2011
+  lifecycle:
+  - requirements
+  - architecture
+  - design
+  - implementation
+  - integration
+  - verification
+  - validation
+  - release
+  artifact_types:
+  - HIL test catalog
+  - coverage map
+  mcp_tools:
+  - run_skill
+  - validate_skill
+  risk_level: high
+  review_required: true
+- id: axiom-robot-hil-test-catalog-review
+  name: axiom.robotics.robot.hil.test.catalog
+  title: Robot HIL Test Catalog Review
+  version: 0.1.0
+  domain: robotics
+  subdomain: cell-integration
+  category: assessment
+  maturity: experimental
+  owner: axiom-embedded
+  tags:
+  - cell-integration
+  - robot
+  inputs:
+  - safety-function list
+  - HIL rig capability
+  - V&V plan
+  outputs:
+  - HIL test catalog
+  - coverage map
+  dependencies: []
+  related_skills:
+  - axiom-robot-hil-test-catalog
+  path: skills/axiom-robot-hil-test-catalog-review
+  enabled: true
+  standards:
+  - ISO 13849-2:2012
+  - ISO 10218-2:2011
+  lifecycle:
+  - requirements
+  - architecture
+  - design
+  - implementation
+  - integration
+  - verification
+  - validation
+  - release
+  artifact_types:
+  - HIL test catalog
+  - coverage map
+  mcp_tools:
+  - run_skill
+  - validate_skill
+  risk_level: high
+  review_required: true
+- id: axiom-robot-sop
+  name: axiom.industrial.robot.sop
+  title: Robot Standard Operating Procedure
+  version: 0.1.0
+  domain: industrial
+  subdomain: cell-integration
+  category: procedure
+  maturity: experimental
+  owner: axiom-embedded
+  tags:
+  - cell-integration
+  - robot
+  inputs:
+  - operating envelope
+  - control design
+  - incident history
+  outputs:
+  - SOP set
+  - fault-recovery cards
+  dependencies: []
+  related_skills:
+  - axiom-robot-sop-review
+  path: skills/axiom-robot-sop
+  enabled: true
+  standards:
+  - ISO 10218-2:2011
+  - ISO 12100:2010
+  lifecycle:
+  - requirements
+  - architecture
+  - design
+  - implementation
+  - integration
+  - verification
+  - validation
+  - release
+  artifact_types:
+  - SOP set
+  - fault-recovery cards
+  mcp_tools:
+  - run_skill
+  - validate_skill
+  risk_level: medium
+  review_required: true
+- id: axiom-robot-sop-review
+  name: axiom.industrial.robot.sop
+  title: Robot Standard Operating Procedure Review
+  version: 0.1.0
+  domain: industrial
+  subdomain: cell-integration
+  category: procedure
+  maturity: experimental
+  owner: axiom-embedded
+  tags:
+  - cell-integration
+  - robot
+  inputs:
+  - operating envelope
+  - control design
+  - incident history
+  outputs:
+  - SOP set
+  - fault-recovery cards
+  dependencies: []
+  related_skills:
+  - axiom-robot-sop
+  path: skills/axiom-robot-sop-review
+  enabled: true
+  standards:
+  - ISO 10218-2:2011
+  - ISO 12100:2010
+  lifecycle:
+  - requirements
+  - architecture
+  - design
+  - implementation
+  - integration
+  - verification
+  - validation
+  - release
+  artifact_types:
+  - SOP set
+  - fault-recovery cards
+  mcp_tools:
+  - run_skill
+  - validate_skill
+  risk_level: medium
+  review_required: true
+- id: axiom-ros2-system-architecture
+  name: axiom.robotics.ros2.system.architecture
+  title: ROS 2 System Architecture
+  version: 0.1.0
+  domain: robotics
+  subdomain: middleware
+  category: design
+  maturity: experimental
+  owner: axiom-embedded
+  tags:
+  - middleware
+  - ros2
+  inputs:
+  - functional requirements
+  - sensor/actuator list
+  - compute budget
+  outputs:
+  - node-graph architecture
+  - interface contract
+  dependencies: []
+  related_skills:
+  - axiom-ros2-system-architecture-review
+  path: skills/axiom-ros2-system-architecture
+  enabled: true
+  standards: []
+  lifecycle:
+  - requirements
+  - architecture
+  - design
+  - implementation
+  - integration
+  - verification
+  - validation
+  - release
+  artifact_types:
+  - node-graph architecture
+  - interface contract
+  mcp_tools:
+  - run_skill
+  - validate_skill
+  risk_level: medium
+  review_required: true
+- id: axiom-ros2-system-architecture-review
+  name: axiom.robotics.ros2.system.architecture
+  title: ROS 2 System Architecture Review
+  version: 0.1.0
+  domain: robotics
+  subdomain: middleware
+  category: design
+  maturity: experimental
+  owner: axiom-embedded
+  tags:
+  - middleware
+  - ros2
+  inputs:
+  - functional requirements
+  - sensor/actuator list
+  - compute budget
+  outputs:
+  - node-graph architecture
+  - interface contract
+  dependencies: []
+  related_skills:
+  - axiom-ros2-system-architecture
+  path: skills/axiom-ros2-system-architecture-review
+  enabled: true
+  standards: []
+  lifecycle:
+  - requirements
+  - architecture
+  - design
+  - implementation
+  - integration
+  - verification
+  - validation
+  - release
+  artifact_types:
+  - node-graph architecture
+  - interface contract
+  mcp_tools:
+  - run_skill
+  - validate_skill
+  risk_level: medium
+  review_required: true
+- id: axiom-safety-io-matrix
+  name: axiom.robotics.safety.io.matrix
+  title: Safety I/O Matrix
+  version: 0.1.0
+  domain: robotics
+  subdomain: robot-safety
+  category: design
+  maturity: experimental
+  owner: axiom-embedded
+  tags:
+  - robot-safety
+  - safety
+  inputs:
+  - safety-function list
+  - controller spec
+  - wiring design
+  outputs:
+  - safety I/O matrix
+  - proof-test schedule
+  dependencies: []
+  related_skills:
+  - axiom-safety-io-matrix-review
+  path: skills/axiom-safety-io-matrix
+  enabled: true
+  standards:
+  - ISO 13849-1:2023
+  - IEC 62061:2021
+  lifecycle:
+  - requirements
+  - architecture
+  - design
+  - implementation
+  - integration
+  - verification
+  - validation
+  - release
+  artifact_types:
+  - safety I/O matrix
+  - proof-test schedule
+  mcp_tools:
+  - run_skill
+  - validate_skill
+  risk_level: safety-critical
+  review_required: true
+- id: axiom-safety-io-matrix-review
+  name: axiom.robotics.safety.io.matrix
+  title: Safety I/O Matrix Review
+  version: 0.1.0
+  domain: robotics
+  subdomain: robot-safety
+  category: design
+  maturity: experimental
+  owner: axiom-embedded
+  tags:
+  - robot-safety
+  - safety
+  inputs:
+  - safety-function list
+  - controller spec
+  - wiring design
+  outputs:
+  - safety I/O matrix
+  - proof-test schedule
+  dependencies: []
+  related_skills:
+  - axiom-safety-io-matrix
+  path: skills/axiom-safety-io-matrix-review
+  enabled: true
+  standards:
+  - ISO 13849-1:2023
+  - IEC 62061:2021
+  lifecycle:
+  - requirements
+  - architecture
+  - design
+  - implementation
+  - integration
+  - verification
+  - validation
+  - release
+  artifact_types:
+  - safety I/O matrix
+  - proof-test schedule
+  mcp_tools:
+  - run_skill
+  - validate_skill
+  risk_level: safety-critical
+  review_required: true
+- id: axiom-ssm-plan
+  name: axiom.robotics.ssm.plan
+  title: Speed-and-Separation-Monitoring Plan
+  version: 0.1.0
+  domain: robotics
+  subdomain: robot-safety
+  category: design
+  maturity: experimental
+  owner: axiom-embedded
+  tags:
+  - robot-safety
+  - ssm
+  inputs:
+  - cell layout
+  - operator positions
+  - sensor spec
+  outputs:
+  - SSM plan
+  - zone map
+  dependencies: []
+  related_skills:
+  - axiom-ssm-plan-review
+  path: skills/axiom-ssm-plan
+  enabled: true
+  standards:
+  - ISO/TS 15066:2016
+  - ISO 10218-2:2011
+  lifecycle:
+  - requirements
+  - architecture
+  - design
+  - implementation
+  - integration
+  - verification
+  - validation
+  - release
+  artifact_types:
+  - SSM plan
+  - zone map
+  mcp_tools:
+  - run_skill
+  - validate_skill
+  risk_level: safety-critical
+  review_required: true
+- id: axiom-ssm-plan-review
+  name: axiom.robotics.ssm.plan
+  title: Speed-and-Separation-Monitoring Plan Review
+  version: 0.1.0
+  domain: robotics
+  subdomain: robot-safety
+  category: design
+  maturity: experimental
+  owner: axiom-embedded
+  tags:
+  - robot-safety
+  - ssm
+  inputs:
+  - cell layout
+  - operator positions
+  - sensor spec
+  outputs:
+  - SSM plan
+  - zone map
+  dependencies: []
+  related_skills:
+  - axiom-ssm-plan
+  path: skills/axiom-ssm-plan-review
+  enabled: true
+  standards:
+  - ISO/TS 15066:2016
+  - ISO 10218-2:2011
+  lifecycle:
+  - requirements
+  - architecture
+  - design
+  - implementation
+  - integration
+  - verification
+  - validation
+  - release
+  artifact_types:
+  - SSM plan
+  - zone map
+  mcp_tools:
+  - run_skill
+  - validate_skill
+  risk_level: safety-critical
+  review_required: true
+- id: axiom-tf-tree-spec
+  name: axiom.robotics.tf.tree.spec
+  title: TF Tree Specification
+  version: 0.1.0
+  domain: robotics
+  subdomain: middleware
+  category: design
+  maturity: experimental
+  owner: axiom-embedded
+  tags:
+  - middleware
+  - tf
+  inputs:
+  - kinematic chain
+  - sensor mounts
+  - map frame policy
+  outputs:
+  - TF-tree spec
+  - frame table
+  dependencies: []
+  related_skills:
+  - axiom-tf-tree-spec-review
+  path: skills/axiom-tf-tree-spec
+  enabled: true
+  standards: []
+  lifecycle:
+  - requirements
+  - architecture
+  - design
+  - implementation
+  - integration
+  - verification
+  - validation
+  - release
+  artifact_types:
+  - TF-tree spec
+  - frame table
+  mcp_tools:
+  - run_skill
+  - validate_skill
+  risk_level: medium
+  review_required: true
+- id: axiom-tf-tree-spec-review
+  name: axiom.robotics.tf.tree.spec
+  title: TF Tree Specification Review
+  version: 0.1.0
+  domain: robotics
+  subdomain: middleware
+  category: design
+  maturity: experimental
+  owner: axiom-embedded
+  tags:
+  - middleware
+  - tf
+  inputs:
+  - kinematic chain
+  - sensor mounts
+  - map frame policy
+  outputs:
+  - TF-tree spec
+  - frame table
+  dependencies: []
+  related_skills:
+  - axiom-tf-tree-spec
+  path: skills/axiom-tf-tree-spec-review
+  enabled: true
+  standards: []
+  lifecycle:
+  - requirements
+  - architecture
+  - design
+  - implementation
+  - integration
+  - verification
+  - validation
+  - release
+  artifact_types:
+  - TF-tree spec
+  - frame table
+  mcp_tools:
+  - run_skill
+  - validate_skill
+  risk_level: medium
+  review_required: true
+- id: axiom-urdf-model-spec
+  name: axiom.robotics.urdf.model.spec
+  title: URDF Model Specification
+  version: 0.1.0
+  domain: robotics
+  subdomain: middleware
+  category: design
+  maturity: experimental
+  owner: axiom-embedded
+  tags:
+  - middleware
+  - urdf
+  inputs:
+  - mechanical design
+  - actuator limits
+  - sensor mounts
+  outputs:
+  - URDF spec
+  - joint-limit table
+  dependencies: []
+  related_skills:
+  - axiom-urdf-model-spec-review
+  path: skills/axiom-urdf-model-spec
+  enabled: true
+  standards: []
+  lifecycle:
+  - requirements
+  - architecture
+  - design
+  - implementation
+  - integration
+  - verification
+  - validation
+  - release
+  artifact_types:
+  - URDF spec
+  - joint-limit table
+  mcp_tools:
+  - run_skill
+  - validate_skill
+  risk_level: medium
+  review_required: true
+- id: axiom-urdf-model-spec-review
+  name: axiom.robotics.urdf.model.spec
+  title: URDF Model Specification Review
+  version: 0.1.0
+  domain: robotics
+  subdomain: middleware
+  category: design
+  maturity: experimental
+  owner: axiom-embedded
+  tags:
+  - middleware
+  - urdf
+  inputs:
+  - mechanical design
+  - actuator limits
+  - sensor mounts
+  outputs:
+  - URDF spec
+  - joint-limit table
+  dependencies: []
+  related_skills:
+  - axiom-urdf-model-spec
+  path: skills/axiom-urdf-model-spec-review
+  enabled: true
+  standards: []
+  lifecycle:
+  - requirements
+  - architecture
+  - design
+  - implementation
+  - integration
+  - verification
+  - validation
+  - release
+  artifact_types:
+  - URDF spec
+  - joint-limit table
+  mcp_tools:
+  - run_skill
+  - validate_skill
+  risk_level: medium
+  review_required: true
+- id: axiom-wireless-coexistence-plan
+  name: axiom.industrial.wireless.coexistence.plan
+  title: Wireless Coexistence Plan
+  version: 0.1.0
+  domain: industrial
+  subdomain: ot-security
+  category: assessment
+  maturity: experimental
+  owner: axiom-embedded
+  tags:
+  - ot-security
+  - wireless
+  inputs:
+  - wireless inventory
+  - spectrum survey
+  - criticality ranking
+  outputs:
+  - coexistence plan
+  - channel plan
+  dependencies: []
+  related_skills:
+  - axiom-wireless-coexistence-plan-review
+  path: skills/axiom-wireless-coexistence-plan
+  enabled: true
+  standards:
+  - IEC 62657:2017
+  - IEC 62443-3-3:2013
+  lifecycle:
+  - requirements
+  - architecture
+  - design
+  - implementation
+  - integration
+  - verification
+  - validation
+  - release
+  artifact_types:
+  - coexistence plan
+  - channel plan
+  mcp_tools:
+  - run_skill
+  - validate_skill
+  risk_level: medium
+  review_required: true
+- id: axiom-wireless-coexistence-plan-review
+  name: axiom.industrial.wireless.coexistence.plan
+  title: Wireless Coexistence Plan Review
+  version: 0.1.0
+  domain: industrial
+  subdomain: ot-security
+  category: assessment
+  maturity: experimental
+  owner: axiom-embedded
+  tags:
+  - ot-security
+  - wireless
+  inputs:
+  - wireless inventory
+  - spectrum survey
+  - criticality ranking
+  outputs:
+  - coexistence plan
+  - channel plan
+  dependencies: []
+  related_skills:
+  - axiom-wireless-coexistence-plan
+  path: skills/axiom-wireless-coexistence-plan-review
+  enabled: true
+  standards:
+  - IEC 62657:2017
+  - IEC 62443-3-3:2013
+  lifecycle:
+  - requirements
+  - architecture
+  - design
+  - implementation
+  - integration
+  - verification
+  - validation
+  - release
+  artifact_types:
+  - coexistence plan
+  - channel plan
+  mcp_tools:
+  - run_skill
+  - validate_skill
+  risk_level: medium
+  review_required: true
+- id: axiom-zone-conduit-plan
+  name: axiom.industrial.zone.conduit.plan
+  title: Zone and Conduit Plan
+  version: 0.1.0
+  domain: industrial
+  subdomain: ot-security
+  category: design
+  maturity: experimental
+  owner: axiom-embedded
+  tags:
+  - ot-security
+  - zone
+  inputs:
+  - network diagrams
+  - risk assessment
+  - asset inventory
+  outputs:
+  - zone/conduit plan
+  - conduit requirement set
+  dependencies: []
+  related_skills:
+  - axiom-zone-conduit-plan-review
+  - axiom-threat-model
+  path: skills/axiom-zone-conduit-plan
+  enabled: true
+  standards:
+  - IEC 62443-3-2:2020
+  lifecycle:
+  - requirements
+  - architecture
+  - design
+  - implementation
+  - integration
+  - verification
+  - validation
+  - release
+  artifact_types:
+  - zone/conduit plan
+  - conduit requirement set
+  mcp_tools:
+  - run_skill
+  - validate_skill
+  risk_level: high
+  review_required: true
+- id: axiom-zone-conduit-plan-review
+  name: axiom.industrial.zone.conduit.plan
+  title: Zone and Conduit Plan Review
+  version: 0.1.0
+  domain: industrial
+  subdomain: ot-security
+  category: design
+  maturity: experimental
+  owner: axiom-embedded
+  tags:
+  - ot-security
+  - zone
+  inputs:
+  - network diagrams
+  - risk assessment
+  - asset inventory
+  outputs:
+  - zone/conduit plan
+  - conduit requirement set
+  dependencies: []
+  related_skills:
+  - axiom-zone-conduit-plan
+  path: skills/axiom-zone-conduit-plan-review
+  enabled: true
+  standards:
+  - IEC 62443-3-2:2020
+  lifecycle:
+  - requirements
+  - architecture
+  - design
+  - implementation
+  - integration
+  - verification
+  - validation
+  - release
+  artifact_types:
+  - zone/conduit plan
+  - conduit requirement set
+  mcp_tools:
+  - run_skill
+  - validate_skill
+  risk_level: high
+  review_required: true

@@ -4,6 +4,19 @@ description: Readiness reviews, signing, staged rollout, and hotfix paths. Use w
 version: 1.2.0
 domains: [all]
 platforms: [all]
+axiom:
+  dotted_name: axiom.legacy.release
+  domain: all
+  subdomain: legacy
+  category: legacy
+  maturity: production
+  owner: axiom-embedded
+  tags:
+  - legacy
+  related_skills:
+  - axiom-automotive-release-readiness
+  checklists:
+  - checklists/release-checklist.md
 ---
 
 # Release skill

@@ -520,6 +520,12 @@ def main() -> int:
     sl.add_argument("kind", choices=["related_skills", "extends", "sub_skills", "domain_overlays", "platform_overlays"])
     sl.add_argument("skill_id"); sl.add_argument("values", nargs="*")
     sv = sp.add_parser("serve", help="Serve REST + A2A over HTTP (web apps, custom AI, local LLMs)"); sv.add_argument("--port", type=int, default=8765)
+    ar = sp.add_parser("artifact", help="Validate assurance artifacts against schemas"); ar_sub = ar.add_subparsers(dest="artifact_cmd", required=True)
+    ar_v = ar_sub.add_parser("validate", help="Validate one artifact file"); ar_v.add_argument("path")
+    tr = sp.add_parser("trace", help="Traceability checks over an artifact directory"); tr_sub = tr.add_subparsers(dest="trace_cmd", required=True)
+    tr_c = tr_sub.add_parser("check", help="Check cross-artifact traceability"); tr_c.add_argument("path", nargs="?", default=".")
+    rv = sp.add_parser("review", help="Validate review reports"); rv_sub = rv.add_subparsers(dest="review_cmd", required=True)
+    rv_c = rv_sub.add_parser("check", help="Validate one review report file"); rv_c.add_argument("path")
     args = ap.parse_args()
     if args.version: return version_cmd()
     if args.cmd == "version": return version_cmd()
@@ -567,6 +573,20 @@ def main() -> int:
         return mcp_serve()
     if args.cmd == "stage": return stage_cmd(args.path, args.profile)
     if args.cmd == "skills": return skills_cmd(args.skills_cmd, args)
+    if args.cmd == "artifact" and args.artifact_cmd == "validate":
+        from packages.skills.assurance import validate_artifact_file
+        print(json.dumps(validate_artifact_file(args.path), indent=2))
+        return 0 if validate_artifact_file(args.path)["valid"] else 1
+    if args.cmd == "trace" and args.trace_cmd == "check":
+        from packages.skills.assurance import check_traceability
+        rep = check_traceability(args.path)
+        print(json.dumps(rep, indent=2))
+        return 0 if rep["valid"] else 1
+    if args.cmd == "review" and args.review_cmd == "check":
+        from packages.skills.assurance import validate_artifact_file
+        rep = validate_artifact_file(args.path)
+        print(json.dumps(rep, indent=2))
+        return 0 if rep["valid"] and rep.get("kind") == "review-report" else 1
     if args.cmd == "serve": return http_serve(args.port)
     ap.print_help(); return 0
 

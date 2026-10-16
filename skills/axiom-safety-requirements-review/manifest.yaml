@@ -1,0 +1,15 @@
+id: axiom-safety-requirements-review
+version: 1.2.0
+contract_version: 1
+type: reusable-skill
+source_of_truth:
+  instructions: SKILL.md
+  contract: manifest.yaml
+facets:
+  domains: [industrial, robotics]
+  platforms: [mcu, mpu]
+standards: [ISO 12100:2010, ISO 13849-1:2023, ISO 13850:2015, ISO 14118:2017, IEC 62061:2021, IEC 61508:2010]
+axiom:
+  dotted_name: axiom.assurance.safety_requirements_review
+  maturity: experimental
+  category: review

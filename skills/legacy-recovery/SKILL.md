@@ -4,6 +4,18 @@ description: Characterization-first brownfield recovery, strangler patterns, kno
 version: 1.2.0
 domains: [all]
 platforms: [all]
+axiom:
+  dotted_name: axiom.legacy.legacy-recovery
+  domain: all
+  subdomain: legacy
+  category: legacy
+  maturity: production
+  owner: axiom-embedded
+  tags:
+  - legacy
+  related_skills: []
+  checklists:
+  - checklists/legacy-recovery-checklist.md
 ---
 
 # Legacy-Recovery skill

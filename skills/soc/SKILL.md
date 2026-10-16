@@ -4,6 +4,19 @@ description: Heterogeneous SoC allocation across A/R cores, NPUs, safety islands
 version: 1.2.0
 domains: [generic-embedded, automotive, industrial, robotics]
 platforms: [soc, mpsoc]
+axiom:
+  dotted_name: axiom.legacy.soc
+  domain: generic-embedded
+  subdomain: legacy
+  category: legacy
+  maturity: production
+  owner: axiom-embedded
+  tags:
+  - legacy
+  related_skills:
+  - axiom-zonal-architecture
+  checklists:
+  - checklists/soc-checklist.md
 ---
 
 # SoC skill

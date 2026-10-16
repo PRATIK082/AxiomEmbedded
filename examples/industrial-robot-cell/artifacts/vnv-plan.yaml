@@ -1,0 +1,49 @@
+artifact_id: VNV-CELL-01
+schema_version: 1.0.0
+kind: vnv-plan
+status: in-review
+domain: industrial
+standards: [ISO 12100:2010, ISO 13849-2:2012, ISO/TS 15066:2016, IEC 62061:2021]
+created_at: 2026-10-12T09:00:00Z
+updated_at: 2026-10-13T09:00:00Z
+author: test-team
+reviewer: TBD
+assumptions:
+  - A1: Tests are planned; none executed yet, so all results are not-run.
+evidence: [REQ-CELL-01]
+traceability:
+  - {source: TEST-001, target: REQ-001, relationship: verifies}
+  - {source: TEST-002, target: REQ-002, relationship: verifies}
+  - {source: TEST-003, target: REQ-003, relationship: verifies}
+  - {source: TEST-004, target: REQ-004, relationship: verifies}
+  - {source: TEST-005, target: REQ-005, relationship: verifies}
+open_questions:
+  - "Q1: Timing rig for the 50 ms interlock test is not yet calibrated (owner: test-team)."
+approval_status: pending-review
+test_cases:
+  - id: TEST-001
+    objective: Open each interlock channel in automatic mode and record power-removal time.
+    covers_requirements: [REQ-001]
+    result: not-run
+  - id: TEST-002
+    objective: Attempt gate release with axes coasting; confirm denial until standstill.
+    covers_requirements: [REQ-002]
+    result: not-run
+  - id: TEST-003
+    objective: Actuate each e-stop and confirm Category 0 stop without software involvement.
+    covers_requirements: [REQ-003]
+    result: not-run
+  - id: TEST-004
+    objective: Inspect HMI restart logic for gate-closed plus two-step requirement.
+    covers_requirements: [REQ-004]
+    result: not-run
+  - id: TEST-005
+    objective: Analyse gateway ruleset for outbound-only single-destination enforcement.
+    covers_requirements: [REQ-005]
+    result: not-run
+trace_matrix:
+  - {requirement: REQ-001, test_case: TEST-001}
+  - {requirement: REQ-002, test_case: TEST-002}
+  - {requirement: REQ-003, test_case: TEST-003}
+  - {requirement: REQ-004, test_case: TEST-004}
+  - {requirement: REQ-005, test_case: TEST-005}

@@ -1,0 +1,34 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "AxiomEmbedded Review Report",
+  "type": "object",
+  "required": ["artifact_id", "schema_version", "kind", "status", "domain", "created_at", "updated_at", "author", "approval_status", "target_artifact", "verdict", "findings"],
+  "properties": {
+    "kind": {"const": "review-report"},
+    "target_artifact": {"type": "string"},
+    "verdict": {"type": "string", "enum": ["accept", "accept-with-actions", "revise-and-resubmit"]},
+    "findings": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["id", "severity", "location", "recommendation", "owner"],
+        "properties": {
+          "id": {"type": "string", "pattern": "^REV-[0-9]+$"},
+          "severity": {"type": "string", "enum": ["Blocker", "Major", "Minor", "Observation", "Information Request"]},
+          "location": {"type": "string"},
+          "evidence": {"type": "string"},
+          "recommendation": {"type": "string"},
+          "owner": {"type": "string"}
+        }
+      }
+    },
+    "artifact_id": {"type": "string"},
+    "schema_version": {"type": "string"},
+    "status": {"type": "string"},
+    "domain": {"type": "string"},
+    "created_at": {"type": "string"},
+    "updated_at": {"type": "string"},
+    "author": {"type": "string"},
+    "approval_status": {"type": "string"}
+  }
+}

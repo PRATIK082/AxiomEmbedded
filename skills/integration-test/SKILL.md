@@ -4,6 +4,20 @@ description: Incremental integration strategy, HIL discipline, and timing integr
 version: 1.2.0
 domains: [all]
 platforms: [all]
+axiom:
+  dotted_name: axiom.legacy.integration-test
+  domain: all
+  subdomain: legacy
+  category: legacy
+  maturity: production
+  owner: axiom-embedded
+  tags:
+  - legacy
+  related_skills:
+  - axiom-hil-test-planning
+  - axiom-test-automation
+  checklists:
+  - checklists/integration-test-checklist.md
 ---
 
 # Integration-Test skill

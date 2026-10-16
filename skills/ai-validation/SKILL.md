@@ -4,6 +4,18 @@ description: ODD discipline, dataset independence, statistical acceptance, drift
 version: 1.2.0
 domains: [generic-embedded, automotive, industrial, iot, robotics]
 platforms: [mcu, mpu, soc, mpsoc]
+axiom:
+  dotted_name: axiom.legacy.ai-validation
+  domain: generic-embedded
+  subdomain: legacy
+  category: legacy
+  maturity: production
+  owner: axiom-embedded
+  tags:
+  - legacy
+  related_skills: []
+  checklists:
+  - checklists/ai-validation-checklist.md
 ---
 
 # AI-Validation skill

@@ -3,7 +3,7 @@ name: axiom-bms-diagnostics
 title: BMS Diagnostics and HIL Test Design
 description: >
   Designs BMS fault handling and HIL test campaigns covering cell, contactor, thermal and isolation faults.
-version: 0.1.0
+version: 1.2.0
 author: PRATIK PATIL
 license: Apache-2.0
 domains: [automotive]

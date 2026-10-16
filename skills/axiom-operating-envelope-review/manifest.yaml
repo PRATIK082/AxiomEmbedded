@@ -1,0 +1,20 @@
+id: axiom-operating-envelope-review
+version: 1.2.0
+contract_version: 1
+type: reusable-skill
+source_of_truth:
+  instructions: SKILL.md
+  contract: manifest.yaml
+facets:
+  domains:
+  - robotics
+  platforms:
+  - mpu
+  - soc
+standards:
+- ISO 10218-2:2011
+- ISO/TS 15066:2016
+axiom:
+  dotted_name: axiom.robotics.operating.envelope
+  maturity: experimental
+  category: design

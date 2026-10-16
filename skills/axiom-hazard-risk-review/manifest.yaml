@@ -1,0 +1,15 @@
+id: axiom-hazard-risk-review
+version: 1.2.0
+contract_version: 1
+type: reusable-skill
+source_of_truth:
+  instructions: SKILL.md
+  contract: manifest.yaml
+facets:
+  domains: [industrial, robotics]
+  platforms: [mcu, mpu]
+standards: [ISO 12100:2010, ISO 10218-1:2011, ISO 10218-2:2011, ISO/TS 15066:2016, ISO 13849-1:2023, ISO 13850:2015, ISO 14118:2017]
+axiom:
+  dotted_name: axiom.assurance.hazard_risk_review
+  maturity: experimental
+  category: review

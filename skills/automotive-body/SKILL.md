@@ -4,6 +4,19 @@ description: Body electronics — BCM, lighting, doors/seats/mirrors, HVAC, PEPS
 version: 1.2.0
 domains: [automotive]
 platforms: [mcu, autosar-classic]
+axiom:
+  dotted_name: axiom.legacy.automotive-body
+  domain: automotive
+  subdomain: legacy
+  category: legacy
+  maturity: production
+  owner: axiom-embedded
+  tags:
+  - legacy
+  related_skills:
+  - axiom-can-network-design
+  checklists:
+  - checklists/automotive-body-checklist.md
 ---
 
 # automotive-body — Body electronics capability

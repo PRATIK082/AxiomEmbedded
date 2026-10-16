@@ -4,6 +4,19 @@ description: Host/target unit testing with mocks, coverage per integrity level, 
 version: 1.2.0
 domains: [all]
 platforms: [all]
+axiom:
+  dotted_name: axiom.legacy.unit-test
+  domain: all
+  subdomain: legacy
+  category: legacy
+  maturity: production
+  owner: axiom-embedded
+  tags:
+  - legacy
+  related_skills:
+  - axiom-test-automation
+  checklists:
+  - checklists/unit-test-checklist.md
 ---
 
 # Unit-Test skill

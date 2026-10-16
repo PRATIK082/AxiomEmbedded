@@ -1,0 +1,13 @@
+gates:
+- id: completeness
+  text: Artifact present and complete against its template
+- id: criteria
+  text: Review criteria applied per clause or claim
+- id: evidence
+  text: Evidence sampled, not just asserted
+- id: traceability
+  text: Traceability links audited end to end
+- id: verdict
+  text: Verdict recorded with severity-ranked findings
+- id: independence
+  text: Reviewer independence recorded

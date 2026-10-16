@@ -1,0 +1,20 @@
+id: axiom-cobot-hand-guiding-review
+version: 1.2.0
+contract_version: 1
+type: reusable-skill
+source_of_truth:
+  instructions: SKILL.md
+  contract: manifest.yaml
+facets:
+  domains:
+  - robotics
+  platforms:
+  - mpu
+  - soc
+standards:
+- ISO/TS 15066:2016
+- ISO 10218-1:2011
+axiom:
+  dotted_name: axiom.robotics.cobot.hand.guiding
+  maturity: experimental
+  category: design

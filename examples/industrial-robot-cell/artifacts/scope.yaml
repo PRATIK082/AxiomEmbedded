@@ -1,0 +1,41 @@
+artifact_id: SCOPE-CELL-01
+schema_version: 1.0.0
+kind: system-scope
+status: approved
+domain: industrial
+standards: [ISO 12100:2010, ISO 10218-2:2011, ISO 11161:2007]
+created_at: 2026-10-10T09:00:00Z
+updated_at: 2026-10-12T09:00:00Z
+author: cell-engineering
+reviewer: independent-reviewer
+assumptions:
+  - A1: Night-shift gate-bypass report is unverified; treated as credible until refuted.
+assumptions_note: none
+evidence: [inputs/scope-inputs.yaml]
+traceability: []
+open_questions:
+  - "Q1: Confirm pallet-station light curtain scope with site owner (owner: cell-engineering)."
+approval_status: approved
+system:
+  name: Cell R-12 pick-and-place
+  purpose: Transfer machined parts between conveyor and pallet station.
+  lifecycle_phase: detailed-design
+operating_context:
+  environment: Indoor fenced cell 8x6 m, shared aisle north side.
+  operators: Cell operator; maintenance technician under lockout.
+  interfaces:
+    - Safety gate interlock dual-channel to PLC safety controller
+    - Emergency-stop loop to PLC safety controller
+    - HMI panel on cell controller network
+    - Wi-Fi gateway telemetry to plant network
+boundaries:
+  in_scope:
+    - 6-axis arm and gripper
+    - Fence, gate interlock, e-stop loop
+    - PLC safety controller logic
+    - HMI mode-select and reset
+    - Cell Wi-Fi gateway telemetry path
+  out_of_scope:
+    - Conveyor upstream control
+    - Plant network beyond gateway
+    - Part quality inspection

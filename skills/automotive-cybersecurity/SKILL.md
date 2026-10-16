@@ -4,6 +4,19 @@ description: ISO/SAE 21434 TARA, CAL-based rigor, CSMS/SUMS evidence for R155/R1
 version: 1.2.0
 domains: [automotive]
 platforms: [all]
+axiom:
+  dotted_name: axiom.legacy.automotive-cybersecurity
+  domain: automotive
+  subdomain: legacy
+  category: legacy
+  maturity: production
+  owner: axiom-embedded
+  tags:
+  - legacy
+  related_skills:
+  - axiom-vehicle-cybersecurity
+  checklists:
+  - checklists/automotive-cybersecurity-checklist.md
 ---
 
 # Automotive Cybersecurity skill

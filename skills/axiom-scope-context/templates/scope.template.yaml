@@ -1,0 +1,27 @@
+# Copy, rename, and fill. Unknown values stay UNKNOWN/OPEN — never invent.
+artifact_id: SCOPE-001
+schema_version: 1.0.0
+kind: system-scope
+status: draft
+domain: industrial
+standards: [ISO 12100:2010]
+created_at: 2026-10-17T00:00:00Z
+updated_at: 2026-10-17T00:00:00Z
+author: engineering-team
+reviewer: TBD
+assumptions: [A1 TBD]
+evidence: []
+traceability: []
+open_questions: [Q1 TBD]
+approval_status: draft
+system:
+  name: UNKNOWN
+  purpose: UNKNOWN
+  lifecycle_phase: concept
+operating_context:
+  environment: UNKNOWN
+  operators: UNKNOWN
+  interfaces: []
+boundaries:
+  in_scope: []
+  out_of_scope: []

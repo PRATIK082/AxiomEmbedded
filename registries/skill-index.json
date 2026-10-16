@@ -974,6 +974,876 @@
         "mcu",
         "mpu"
       ]
+    },
+    "axiom-scope-context": {
+      "description": "Use when an engineering team must define system scope, operating context, and boundaries for an embedded or cyber-physical product. Trigger phrases include \"define system scope\", \"capture operating context\", \"set system boundaries\", and \"scope the robot cell\".\n",
+      "domains": [
+        "industrial",
+        "robotics"
+      ],
+      "platforms": [
+        "mcu",
+        "mpu"
+      ]
+    },
+    "axiom-scope-context-review": {
+      "description": "Use when an independent review of a system-scope artifact is required. Trigger phrases include \"review system scope\", \"audit operating context\", and \"check scope boundaries\".\n",
+      "domains": [
+        "industrial",
+        "robotics"
+      ],
+      "platforms": [
+        "mcu",
+        "mpu"
+      ]
+    },
+    "axiom-hazard-risk": {
+      "description": "Use when a team must identify system hazards and assess risk for an embedded or cyber-physical product. Trigger phrases include \"perform hazard analysis\", \"create a risk assessment\", \"identify system hazards\", and \"assess safety risks\".\n",
+      "domains": [
+        "industrial",
+        "robotics"
+      ],
+      "platforms": [
+        "mcu",
+        "mpu"
+      ]
+    },
+    "axiom-hazard-risk-review": {
+      "description": "Use when an independent review of a hazard-risk artifact is required. Trigger phrases include \"review hazard analysis\", \"audit risk assessment\", and \"check hazard coverage\".\n",
+      "domains": [
+        "industrial",
+        "robotics"
+      ],
+      "platforms": [
+        "mcu",
+        "mpu"
+      ]
+    },
+    "axiom-safety-requirements": {
+      "description": "Use when safety requirements must be derived from hazards and scope for an embedded product. Trigger phrases include \"derive safety requirements\", \"write safety goals\", \"map hazards to requirements\", and \"safety requirements specification\".\n",
+      "domains": [
+        "industrial",
+        "robotics"
+      ],
+      "platforms": [
+        "mcu",
+        "mpu"
+      ]
+    },
+    "axiom-safety-requirements-review": {
+      "description": "Use when an independent review of safety requirements is required. Trigger phrases include \"review safety requirements\", \"audit requirement coverage\", and \"check requirements traceability\".\n",
+      "domains": [
+        "industrial",
+        "robotics"
+      ],
+      "platforms": [
+        "mcu",
+        "mpu"
+      ]
+    },
+    "axiom-vnv-plan": {
+      "description": "Use when a verification and validation plan with a requirements-to-test trace matrix is needed. Trigger phrases include \"create a V&V plan\", \"plan verification tests\", \"build a traceability matrix\", and \"map requirements to tests\".\n",
+      "domains": [
+        "industrial",
+        "robotics"
+      ],
+      "platforms": [
+        "mcu",
+        "mpu"
+      ]
+    },
+    "axiom-vnv-plan-review": {
+      "description": "Use when an independent review of a V&V plan and trace matrix is required. Trigger phrases include \"review test plan\", \"audit traceability matrix\", and \"check verification coverage\".\n",
+      "domains": [
+        "industrial",
+        "robotics"
+      ],
+      "platforms": [
+        "mcu",
+        "mpu"
+      ]
+    },
+    "axiom-threat-model": {
+      "description": "Use when a cybersecurity threat model with risk-ranked threats and controls is needed for a connected embedded product. Trigger phrases include \"create a threat model\", \"assess cybersecurity risks\", \"model attack surfaces\", and \"define security controls\".\n",
+      "domains": [
+        "industrial",
+        "robotics"
+      ],
+      "platforms": [
+        "mcu",
+        "mpu"
+      ]
+    },
+    "axiom-threat-model-review": {
+      "description": "Use when an independent review of a cybersecurity threat model is required. Trigger phrases include \"review threat model\", \"audit security controls\", and \"check attack surface coverage\".\n",
+      "domains": [
+        "industrial",
+        "robotics"
+      ],
+      "platforms": [
+        "mcu",
+        "mpu"
+      ]
+    },
+    "axiom-ansi-r1506-compliance-matrix": {
+      "description": "Builds a clause-by-claim compliance matrix for ANSI/RIA R15.06 robot-system safety, aligned to ISO 10218, with an evidence pointer per claim.",
+      "domains": [
+        "industrial"
+      ],
+      "platforms": [
+        "mcu",
+        "mpu"
+      ]
+    },
+    "axiom-ansi-r1506-compliance-matrix-review": {
+      "description": "Builds a clause-by-claim compliance matrix for ANSI/RIA R15.06 robot-system safety, aligned to ISO 10218, with an evidence pointer per claim.",
+      "domains": [
+        "industrial"
+      ],
+      "platforms": [
+        "mcu",
+        "mpu"
+      ]
+    },
+    "axiom-behavior-tree-spec": {
+      "description": "Specifies behavior-tree structure for a robot task controller: node types, blackboard keys, tick semantics, and failure-handling contracts.",
+      "domains": [
+        "robotics"
+      ],
+      "platforms": [
+        "mpu",
+        "soc"
+      ]
+    },
+    "axiom-behavior-tree-spec-review": {
+      "description": "Specifies behavior-tree structure for a robot task controller: node types, blackboard keys, tick semantics, and failure-handling contracts.",
+      "domains": [
+        "robotics"
+      ],
+      "platforms": [
+        "mpu",
+        "soc"
+      ]
+    },
+    "axiom-cobot-hand-guiding": {
+      "description": "Designs hand-guiding collaborative operation: enabling-device logic, reduced-speed limits, mode transitions, and stop behavior.",
+      "domains": [
+        "robotics"
+      ],
+      "platforms": [
+        "mpu",
+        "soc"
+      ]
+    },
+    "axiom-cobot-hand-guiding-review": {
+      "description": "Designs hand-guiding collaborative operation: enabling-device logic, reduced-speed limits, mode transitions, and stop behavior.",
+      "domains": [
+        "robotics"
+      ],
+      "platforms": [
+        "mpu",
+        "soc"
+      ]
+    },
+    "axiom-dataset-documentation": {
+      "description": "Documents robotics datasets: provenance, licensing, splits, labeling protocol, sensor calibration notes, and known biases.",
+      "domains": [
+        "robotics"
+      ],
+      "platforms": [
+        "mpu",
+        "soc"
+      ]
+    },
+    "axiom-dataset-documentation-review": {
+      "description": "Documents robotics datasets: provenance, licensing, splits, labeling protocol, sensor calibration notes, and known biases.",
+      "domains": [
+        "robotics"
+      ],
+      "platforms": [
+        "mpu",
+        "soc"
+      ]
+    },
+    "axiom-declaration-of-conformity": {
+      "description": "Assembles the declaration-of-conformity evidence pack: applicable legislation, standards applied, responsible person, and artifact pointers.",
+      "domains": [
+        "industrial"
+      ],
+      "platforms": [
+        "mcu",
+        "mpu"
+      ]
+    },
+    "axiom-declaration-of-conformity-review": {
+      "description": "Assembles the declaration-of-conformity evidence pack: applicable legislation, standards applied, responsible person, and artifact pointers.",
+      "domains": [
+        "industrial"
+      ],
+      "platforms": [
+        "mcu",
+        "mpu"
+      ]
+    },
+    "axiom-eoat-spec": {
+      "description": "Specifies end-of-arm tooling: gripper forces, tool-change interface, vacuum/magnetic retention, and retained-risk assumptions.",
+      "domains": [
+        "robotics"
+      ],
+      "platforms": [
+        "mpu",
+        "soc"
+      ]
+    },
+    "axiom-eoat-spec-review": {
+      "description": "Specifies end-of-arm tooling: gripper forces, tool-change interface, vacuum/magnetic retention, and retained-risk assumptions.",
+      "domains": [
+        "robotics"
+      ],
+      "platforms": [
+        "mpu",
+        "soc"
+      ]
+    },
+    "axiom-fleet-manager-architecture": {
+      "description": "Architects fleet-manager task assignment, traffic rules, map/zone interfaces, and deadlock handling for multi-AMR operation.",
+      "domains": [
+        "robotics"
+      ],
+      "platforms": [
+        "mpu",
+        "soc"
+      ]
+    },
+    "axiom-fleet-manager-architecture-review": {
+      "description": "Architects fleet-manager task assignment, traffic rules, map/zone interfaces, and deadlock handling for multi-AMR operation.",
+      "domains": [
+        "robotics"
+      ],
+      "platforms": [
+        "mpu",
+        "soc"
+      ]
+    },
+    "axiom-iec62061-sil": {
+      "description": "Determines SIL targets per safety function and writes software/system safety requirements with verification criteria.",
+      "domains": [
+        "industrial"
+      ],
+      "platforms": [
+        "mcu",
+        "mpu"
+      ]
+    },
+    "axiom-iec62061-sil-review": {
+      "description": "Determines SIL targets per safety function and writes software/system safety requirements with verification criteria.",
+      "domains": [
+        "industrial"
+      ],
+      "platforms": [
+        "mcu",
+        "mpu"
+      ]
+    },
+    "axiom-iec62443-risk-assessment": {
+      "description": "Runs an OT cyber-risk assessment: consequence analysis, threat scenarios, SL-target proposal, and mitigation mapping.",
+      "domains": [
+        "industrial"
+      ],
+      "platforms": [
+        "mcu",
+        "mpu"
+      ]
+    },
+    "axiom-iec62443-risk-assessment-review": {
+      "description": "Runs an OT cyber-risk assessment: consequence analysis, threat scenarios, SL-target proposal, and mitigation mapping.",
+      "domains": [
+        "industrial"
+      ],
+      "platforms": [
+        "mcu",
+        "mpu"
+      ]
+    },
+    "axiom-interlock-estop-architecture": {
+      "description": "Architects the interlock chain and e-stop topology: channels, stop categories, restart behavior, and defeat monitoring.",
+      "domains": [
+        "robotics"
+      ],
+      "platforms": [
+        "mpu",
+        "soc"
+      ]
+    },
+    "axiom-interlock-estop-architecture-review": {
+      "description": "Architects the interlock chain and e-stop topology: channels, stop categories, restart behavior, and defeat monitoring.",
+      "domains": [
+        "robotics"
+      ],
+      "platforms": [
+        "mpu",
+        "soc"
+      ]
+    },
+    "axiom-iso10218-compliance-matrix": {
+      "description": "Builds a clause-by-claim compliance matrix for ISO 10218-1 and ISO 10218-2 with an evidence pointer per claim.",
+      "domains": [
+        "robotics"
+      ],
+      "platforms": [
+        "mpu",
+        "soc"
+      ]
+    },
+    "axiom-iso10218-compliance-matrix-review": {
+      "description": "Builds a clause-by-claim compliance matrix for ISO 10218-1 and ISO 10218-2 with an evidence pointer per claim.",
+      "domains": [
+        "robotics"
+      ],
+      "platforms": [
+        "mpu",
+        "soc"
+      ]
+    },
+    "axiom-iso12100-risk-assessment": {
+      "description": "Runs hazard identification, risk estimation, and risk-reduction recording for machinery per ISO 12100, with residual-risk statements.",
+      "domains": [
+        "industrial"
+      ],
+      "platforms": [
+        "mcu",
+        "mpu"
+      ]
+    },
+    "axiom-iso12100-risk-assessment-review": {
+      "description": "Runs hazard identification, risk estimation, and risk-reduction recording for machinery per ISO 12100, with residual-risk statements.",
+      "domains": [
+        "industrial"
+      ],
+      "platforms": [
+        "mcu",
+        "mpu"
+      ]
+    },
+    "axiom-iso13849-plr": {
+      "description": "Determines the required Performance Level (PLr) per safety function and allocates subsystem targets for later verification.",
+      "domains": [
+        "robotics"
+      ],
+      "platforms": [
+        "mpu",
+        "soc"
+      ]
+    },
+    "axiom-iso13849-plr-review": {
+      "description": "Determines the required Performance Level (PLr) per safety function and allocates subsystem targets for later verification.",
+      "domains": [
+        "robotics"
+      ],
+      "platforms": [
+        "mpu",
+        "soc"
+      ]
+    },
+    "axiom-iso15066-biomechanical-limits": {
+      "description": "Records applicable body-region force/pressure limits and transfers them into PFL thresholds and measurement points.",
+      "domains": [
+        "robotics"
+      ],
+      "platforms": [
+        "mpu",
+        "soc"
+      ]
+    },
+    "axiom-iso15066-biomechanical-limits-review": {
+      "description": "Records applicable body-region force/pressure limits and transfers them into PFL thresholds and measurement points.",
+      "domains": [
+        "robotics"
+      ],
+      "platforms": [
+        "mpu",
+        "soc"
+      ]
+    },
+    "axiom-iso3691-4-risk-assessment": {
+      "description": "Runs risk assessment for driverless-truck deployment: operating zones, detection performance, braking, and traffic interaction.",
+      "domains": [
+        "industrial"
+      ],
+      "platforms": [
+        "mcu",
+        "mpu"
+      ]
+    },
+    "axiom-iso3691-4-risk-assessment-review": {
+      "description": "Runs risk assessment for driverless-truck deployment: operating zones, detection performance, braking, and traffic interaction.",
+      "domains": [
+        "industrial"
+      ],
+      "platforms": [
+        "mcu",
+        "mpu"
+      ]
+    },
+    "axiom-iso9283-performance-test": {
+      "description": "Specifies pose-accuracy and path-repeatability tests: test poses, loads, speeds, measurement method, and acceptance thresholds.",
+      "domains": [
+        "robotics"
+      ],
+      "platforms": [
+        "mpu",
+        "soc"
+      ]
+    },
+    "axiom-iso9283-performance-test-review": {
+      "description": "Specifies pose-accuracy and path-repeatability tests: test poses, loads, speeds, measurement method, and acceptance thresholds.",
+      "domains": [
+        "robotics"
+      ],
+      "platforms": [
+        "mpu",
+        "soc"
+      ]
+    },
+    "axiom-loto-procedure": {
+      "description": "Writes lockout/tagout procedures: energy sources, isolation points, lock application order, and zero-energy verification steps.",
+      "domains": [
+        "industrial"
+      ],
+      "platforms": [
+        "mcu",
+        "mpu"
+      ]
+    },
+    "axiom-loto-procedure-review": {
+      "description": "Writes lockout/tagout procedures: energy sources, isolation points, lock application order, and zero-energy verification steps.",
+      "domains": [
+        "industrial"
+      ],
+      "platforms": [
+        "mcu",
+        "mpu"
+      ]
+    },
+    "axiom-machinery-safety-lifecycle-plan": {
+      "description": "Plans the machinery safety lifecycle: milestones, review gates, and evidence deliverables from concept through decommissioning.",
+      "domains": [
+        "industrial"
+      ],
+      "platforms": [
+        "mcu",
+        "mpu"
+      ]
+    },
+    "axiom-machinery-safety-lifecycle-plan-review": {
+      "description": "Plans the machinery safety lifecycle: milestones, review gates, and evidence deliverables from concept through decommissioning.",
+      "domains": [
+        "industrial"
+      ],
+      "platforms": [
+        "mcu",
+        "mpu"
+      ]
+    },
+    "axiom-model-card": {
+      "description": "Authors model cards for robotics ML models: intended use, metrics, limits, failure modes, and deployment caveats.",
+      "domains": [
+        "robotics"
+      ],
+      "platforms": [
+        "mpu",
+        "soc"
+      ]
+    },
+    "axiom-model-card-review": {
+      "description": "Authors model cards for robotics ML models: intended use, metrics, limits, failure modes, and deployment caveats.",
+      "domains": [
+        "robotics"
+      ],
+      "platforms": [
+        "mpu",
+        "soc"
+      ]
+    },
+    "axiom-nav2-config": {
+      "description": "Designs Nav2 planner/controller/costmap configuration with deterministic parameter records and behavior-tree plugin selection.",
+      "domains": [
+        "robotics"
+      ],
+      "platforms": [
+        "mpu",
+        "soc"
+      ]
+    },
+    "axiom-nav2-config-review": {
+      "description": "Designs Nav2 planner/controller/costmap configuration with deterministic parameter records and behavior-tree plugin selection.",
+      "domains": [
+        "robotics"
+      ],
+      "platforms": [
+        "mpu",
+        "soc"
+      ]
+    },
+    "axiom-operating-envelope": {
+      "description": "Defines the operating envelope: spaces, modes, speed/force boundaries, and permitted transitions between collaborative and automatic operation.",
+      "domains": [
+        "robotics"
+      ],
+      "platforms": [
+        "mpu",
+        "soc"
+      ]
+    },
+    "axiom-operating-envelope-review": {
+      "description": "Defines the operating envelope: spaces, modes, speed/force boundaries, and permitted transitions between collaborative and automatic operation.",
+      "domains": [
+        "robotics"
+      ],
+      "platforms": [
+        "mpu",
+        "soc"
+      ]
+    },
+    "axiom-operator-training-matrix": {
+      "description": "Matrices roles to required training modules, refresh intervals, and competence evidence for robot-cell personnel.",
+      "domains": [
+        "industrial"
+      ],
+      "platforms": [
+        "mcu",
+        "mpu"
+      ]
+    },
+    "axiom-operator-training-matrix-review": {
+      "description": "Matrices roles to required training modules, refresh intervals, and competence evidence for robot-cell personnel.",
+      "domains": [
+        "industrial"
+      ],
+      "platforms": [
+        "mcu",
+        "mpu"
+      ]
+    },
+    "axiom-ot-asset-inventory": {
+      "description": "Inventories OT assets: devices, firmware versions, protocols, network attachment, and ownership for security management.",
+      "domains": [
+        "industrial"
+      ],
+      "platforms": [
+        "mcu",
+        "mpu"
+      ]
+    },
+    "axiom-ot-asset-inventory-review": {
+      "description": "Inventories OT assets: devices, firmware versions, protocols, network attachment, and ownership for security management.",
+      "domains": [
+        "industrial"
+      ],
+      "platforms": [
+        "mcu",
+        "mpu"
+      ]
+    },
+    "axiom-perception-test-catalog": {
+      "description": "Catalogs perception tests: scenarios, ground-truth method, metrics, pass thresholds, and dataset traceability.",
+      "domains": [
+        "robotics"
+      ],
+      "platforms": [
+        "mpu",
+        "soc"
+      ]
+    },
+    "axiom-perception-test-catalog-review": {
+      "description": "Catalogs perception tests: scenarios, ground-truth method, metrics, pass thresholds, and dataset traceability.",
+      "domains": [
+        "robotics"
+      ],
+      "platforms": [
+        "mpu",
+        "soc"
+      ]
+    },
+    "axiom-pfl-plan": {
+      "description": "Designs the power-and-force-limiting regime: contact scenarios, force/pressure thresholds, and measurement verification points.",
+      "domains": [
+        "robotics"
+      ],
+      "platforms": [
+        "mpu",
+        "soc"
+      ]
+    },
+    "axiom-pfl-plan-review": {
+      "description": "Designs the power-and-force-limiting regime: contact scenarios, force/pressure thresholds, and measurement verification points.",
+      "domains": [
+        "robotics"
+      ],
+      "platforms": [
+        "mpu",
+        "soc"
+      ]
+    },
+    "axiom-robot-acceptance-protocol": {
+      "description": "Defines the acceptance protocol: FAT/SAT stages, test criteria, performance sampling, and sign-off evidence.",
+      "domains": [
+        "robotics"
+      ],
+      "platforms": [
+        "mpu",
+        "soc"
+      ]
+    },
+    "axiom-robot-acceptance-protocol-review": {
+      "description": "Defines the acceptance protocol: FAT/SAT stages, test criteria, performance sampling, and sign-off evidence.",
+      "domains": [
+        "robotics"
+      ],
+      "platforms": [
+        "mpu",
+        "soc"
+      ]
+    },
+    "axiom-robot-cell-layout": {
+      "description": "Lays out the robot cell: fences, gates, light curtains, operator stations, material flow, and maintenance access.",
+      "domains": [
+        "robotics"
+      ],
+      "platforms": [
+        "mpu",
+        "soc"
+      ]
+    },
+    "axiom-robot-cell-layout-review": {
+      "description": "Lays out the robot cell: fences, gates, light curtains, operator stations, material flow, and maintenance access.",
+      "domains": [
+        "robotics"
+      ],
+      "platforms": [
+        "mpu",
+        "soc"
+      ]
+    },
+    "axiom-robot-cell-scope": {
+      "description": "Defines robot-cell scope: equipment list, boundaries, external interfaces, and integrator versus user responsibilities.",
+      "domains": [
+        "robotics"
+      ],
+      "platforms": [
+        "mpu",
+        "soc"
+      ]
+    },
+    "axiom-robot-cell-scope-review": {
+      "description": "Defines robot-cell scope: equipment list, boundaries, external interfaces, and integrator versus user responsibilities.",
+      "domains": [
+        "robotics"
+      ],
+      "platforms": [
+        "mpu",
+        "soc"
+      ]
+    },
+    "axiom-robot-field-acceptance": {
+      "description": "Plans on-site acceptance: installation checks, safeguarding verification, production-trial criteria, and punch-list management.",
+      "domains": [
+        "robotics"
+      ],
+      "platforms": [
+        "mpu",
+        "soc"
+      ]
+    },
+    "axiom-robot-field-acceptance-review": {
+      "description": "Plans on-site acceptance: installation checks, safeguarding verification, production-trial criteria, and punch-list management.",
+      "domains": [
+        "robotics"
+      ],
+      "platforms": [
+        "mpu",
+        "soc"
+      ]
+    },
+    "axiom-robot-hil-test-catalog": {
+      "description": "Catalogs hardware-in-the-loop tests for robot safety functions: fault injection, timing measurement, and coverage mapping.",
+      "domains": [
+        "robotics"
+      ],
+      "platforms": [
+        "mpu",
+        "soc"
+      ]
+    },
+    "axiom-robot-hil-test-catalog-review": {
+      "description": "Catalogs hardware-in-the-loop tests for robot safety functions: fault injection, timing measurement, and coverage mapping.",
+      "domains": [
+        "robotics"
+      ],
+      "platforms": [
+        "mpu",
+        "soc"
+      ]
+    },
+    "axiom-robot-sop": {
+      "description": "Writes standard operating procedures: startup, mode changes, fault recovery, and shutdown for robot-cell operators.",
+      "domains": [
+        "industrial"
+      ],
+      "platforms": [
+        "mcu",
+        "mpu"
+      ]
+    },
+    "axiom-robot-sop-review": {
+      "description": "Writes standard operating procedures: startup, mode changes, fault recovery, and shutdown for robot-cell operators.",
+      "domains": [
+        "industrial"
+      ],
+      "platforms": [
+        "mcu",
+        "mpu"
+      ]
+    },
+    "axiom-ros2-system-architecture": {
+      "description": "Architects the ROS 2 system: node graph, topics/services/actions, QoS choices, executors, and lifecycle management.",
+      "domains": [
+        "robotics"
+      ],
+      "platforms": [
+        "mpu",
+        "soc"
+      ]
+    },
+    "axiom-ros2-system-architecture-review": {
+      "description": "Architects the ROS 2 system: node graph, topics/services/actions, QoS choices, executors, and lifecycle management.",
+      "domains": [
+        "robotics"
+      ],
+      "platforms": [
+        "mpu",
+        "soc"
+      ]
+    },
+    "axiom-safety-io-matrix": {
+      "description": "Maps safety inputs and outputs to controllers: test pulses, discrepancy monitoring, and proof-test intervals.",
+      "domains": [
+        "robotics"
+      ],
+      "platforms": [
+        "mpu",
+        "soc"
+      ]
+    },
+    "axiom-safety-io-matrix-review": {
+      "description": "Maps safety inputs and outputs to controllers: test pulses, discrepancy monitoring, and proof-test intervals.",
+      "domains": [
+        "robotics"
+      ],
+      "platforms": [
+        "mpu",
+        "soc"
+      ]
+    },
+    "axiom-ssm-plan": {
+      "description": "Designs speed-and-separation monitoring: protective zones, speed mapping, sensor coverage claims, and stop-performance budgets.",
+      "domains": [
+        "robotics"
+      ],
+      "platforms": [
+        "mpu",
+        "soc"
+      ]
+    },
+    "axiom-ssm-plan-review": {
+      "description": "Designs speed-and-separation monitoring: protective zones, speed mapping, sensor coverage claims, and stop-performance budgets.",
+      "domains": [
+        "robotics"
+      ],
+      "platforms": [
+        "mpu",
+        "soc"
+      ]
+    },
+    "axiom-tf-tree-spec": {
+      "description": "Specifies the TF frame tree: frame ids, parentage, update rates, static versus dynamic authority, and validation checks.",
+      "domains": [
+        "robotics"
+      ],
+      "platforms": [
+        "mpu",
+        "soc"
+      ]
+    },
+    "axiom-tf-tree-spec-review": {
+      "description": "Specifies the TF frame tree: frame ids, parentage, update rates, static versus dynamic authority, and validation checks.",
+      "domains": [
+        "robotics"
+      ],
+      "platforms": [
+        "mpu",
+        "soc"
+      ]
+    },
+    "axiom-urdf-model-spec": {
+      "description": "Specifies the URDF model: links, joints, limits, inertial placeholders, visual/collision geometry policy, and check procedures.",
+      "domains": [
+        "robotics"
+      ],
+      "platforms": [
+        "mpu",
+        "soc"
+      ]
+    },
+    "axiom-urdf-model-spec-review": {
+      "description": "Specifies the URDF model: links, joints, limits, inertial placeholders, visual/collision geometry policy, and check procedures.",
+      "domains": [
+        "robotics"
+      ],
+      "platforms": [
+        "mpu",
+        "soc"
+      ]
+    },
+    "axiom-wireless-coexistence-plan": {
+      "description": "Plans wireless coexistence: spectrum survey, interference budgets, channel planning, and fallback behavior on link loss.",
+      "domains": [
+        "industrial"
+      ],
+      "platforms": [
+        "mcu",
+        "mpu"
+      ]
+    },
+    "axiom-wireless-coexistence-plan-review": {
+      "description": "Plans wireless coexistence: spectrum survey, interference budgets, channel planning, and fallback behavior on link loss.",
+      "domains": [
+        "industrial"
+      ],
+      "platforms": [
+        "mcu",
+        "mpu"
+      ]
+    },
+    "axiom-zone-conduit-plan": {
+      "description": "Partitions the OT network into zones and conduits with security-level targets, conduit requirements, and firewall rules.",
+      "domains": [
+        "industrial"
+      ],
+      "platforms": [
+        "mcu",
+        "mpu"
+      ]
+    },
+    "axiom-zone-conduit-plan-review": {
+      "description": "Partitions the OT network into zones and conduits with security-level targets, conduit requirements, and firewall rules.",
+      "domains": [
+        "industrial"
+      ],
+      "platforms": [
+        "mcu",
+        "mpu"
+      ]
     }
   },
   "by_domain": {
@@ -1095,7 +1965,43 @@
     ],
     "industrial": [
       "ai-validation",
+      "axiom-ansi-r1506-compliance-matrix",
+      "axiom-ansi-r1506-compliance-matrix-review",
+      "axiom-declaration-of-conformity",
+      "axiom-declaration-of-conformity-review",
+      "axiom-hazard-risk",
+      "axiom-hazard-risk-review",
+      "axiom-iec62061-sil",
+      "axiom-iec62061-sil-review",
+      "axiom-iec62443-risk-assessment",
+      "axiom-iec62443-risk-assessment-review",
       "axiom-industrial-control-review",
+      "axiom-iso12100-risk-assessment",
+      "axiom-iso12100-risk-assessment-review",
+      "axiom-iso3691-4-risk-assessment",
+      "axiom-iso3691-4-risk-assessment-review",
+      "axiom-loto-procedure",
+      "axiom-loto-procedure-review",
+      "axiom-machinery-safety-lifecycle-plan",
+      "axiom-machinery-safety-lifecycle-plan-review",
+      "axiom-operator-training-matrix",
+      "axiom-operator-training-matrix-review",
+      "axiom-ot-asset-inventory",
+      "axiom-ot-asset-inventory-review",
+      "axiom-robot-sop",
+      "axiom-robot-sop-review",
+      "axiom-safety-requirements",
+      "axiom-safety-requirements-review",
+      "axiom-scope-context",
+      "axiom-scope-context-review",
+      "axiom-threat-model",
+      "axiom-threat-model-review",
+      "axiom-vnv-plan",
+      "axiom-vnv-plan-review",
+      "axiom-wireless-coexistence-plan",
+      "axiom-wireless-coexistence-plan-review",
+      "axiom-zone-conduit-plan",
+      "axiom-zone-conduit-plan-review",
       "edge-ai",
       "embedded-linux",
       "fault-injection",
@@ -1115,7 +2021,67 @@
     ],
     "robotics": [
       "ai-validation",
+      "axiom-behavior-tree-spec",
+      "axiom-behavior-tree-spec-review",
+      "axiom-cobot-hand-guiding",
+      "axiom-cobot-hand-guiding-review",
+      "axiom-dataset-documentation",
+      "axiom-dataset-documentation-review",
+      "axiom-eoat-spec",
+      "axiom-eoat-spec-review",
+      "axiom-fleet-manager-architecture",
+      "axiom-fleet-manager-architecture-review",
+      "axiom-hazard-risk",
+      "axiom-hazard-risk-review",
+      "axiom-interlock-estop-architecture",
+      "axiom-interlock-estop-architecture-review",
+      "axiom-iso10218-compliance-matrix",
+      "axiom-iso10218-compliance-matrix-review",
+      "axiom-iso13849-plr",
+      "axiom-iso13849-plr-review",
+      "axiom-iso15066-biomechanical-limits",
+      "axiom-iso15066-biomechanical-limits-review",
+      "axiom-iso9283-performance-test",
+      "axiom-iso9283-performance-test-review",
+      "axiom-model-card",
+      "axiom-model-card-review",
+      "axiom-nav2-config",
+      "axiom-nav2-config-review",
+      "axiom-operating-envelope",
+      "axiom-operating-envelope-review",
+      "axiom-perception-test-catalog",
+      "axiom-perception-test-catalog-review",
+      "axiom-pfl-plan",
+      "axiom-pfl-plan-review",
+      "axiom-robot-acceptance-protocol",
+      "axiom-robot-acceptance-protocol-review",
+      "axiom-robot-cell-layout",
+      "axiom-robot-cell-layout-review",
+      "axiom-robot-cell-scope",
+      "axiom-robot-cell-scope-review",
+      "axiom-robot-field-acceptance",
+      "axiom-robot-field-acceptance-review",
+      "axiom-robot-hil-test-catalog",
+      "axiom-robot-hil-test-catalog-review",
       "axiom-robotics-system-integration",
+      "axiom-ros2-system-architecture",
+      "axiom-ros2-system-architecture-review",
+      "axiom-safety-io-matrix",
+      "axiom-safety-io-matrix-review",
+      "axiom-safety-requirements",
+      "axiom-safety-requirements-review",
+      "axiom-scope-context",
+      "axiom-scope-context-review",
+      "axiom-ssm-plan",
+      "axiom-ssm-plan-review",
+      "axiom-tf-tree-spec",
+      "axiom-tf-tree-spec-review",
+      "axiom-threat-model",
+      "axiom-threat-model-review",
+      "axiom-urdf-model-spec",
+      "axiom-urdf-model-spec-review",
+      "axiom-vnv-plan",
+      "axiom-vnv-plan-review",
       "edge-ai",
       "embedded-linux",
       "mcu",
@@ -1213,6 +2179,8 @@
       "automotive-ota",
       "autosar",
       "axiom-aerospace-defense-safety-review",
+      "axiom-ansi-r1506-compliance-matrix",
+      "axiom-ansi-r1506-compliance-matrix-review",
       "axiom-architecture-decision-records",
       "axiom-automotive-release-readiness",
       "axiom-autosar-classic-architecture",
@@ -1224,22 +2192,56 @@
       "axiom-bms-diagnostics",
       "axiom-can-network-design",
       "axiom-can-stack-integration",
+      "axiom-declaration-of-conformity",
+      "axiom-declaration-of-conformity-review",
       "axiom-diagnostics-uds",
       "axiom-embedded-cicd",
       "axiom-embedded-firmware-bringup",
       "axiom-functional-safety",
+      "axiom-hazard-risk",
+      "axiom-hazard-risk-review",
       "axiom-hil-test-planning",
+      "axiom-iec62061-sil",
+      "axiom-iec62061-sil-review",
+      "axiom-iec62443-risk-assessment",
+      "axiom-iec62443-risk-assessment-review",
       "axiom-industrial-control-review",
       "axiom-interface-contract-design",
+      "axiom-iso12100-risk-assessment",
+      "axiom-iso12100-risk-assessment-review",
+      "axiom-iso3691-4-risk-assessment",
+      "axiom-iso3691-4-risk-assessment-review",
+      "axiom-loto-procedure",
+      "axiom-loto-procedure-review",
+      "axiom-machinery-safety-lifecycle-plan",
+      "axiom-machinery-safety-lifecycle-plan-review",
       "axiom-memory-and-performance-analysis",
+      "axiom-operator-training-matrix",
+      "axiom-operator-training-matrix-review",
+      "axiom-ot-asset-inventory",
+      "axiom-ot-asset-inventory-review",
       "axiom-platform-architecture-review",
+      "axiom-robot-sop",
+      "axiom-robot-sop-review",
       "axiom-rtos-architecture",
+      "axiom-safety-requirements",
+      "axiom-safety-requirements-review",
+      "axiom-scope-context",
+      "axiom-scope-context-review",
       "axiom-static-analysis-triage",
       "axiom-technical-debt-assessment",
       "axiom-test-automation",
+      "axiom-threat-model",
+      "axiom-threat-model-review",
       "axiom-trace-analysis",
       "axiom-vehicle-cybersecurity",
+      "axiom-vnv-plan",
+      "axiom-vnv-plan-review",
+      "axiom-wireless-coexistence-plan",
+      "axiom-wireless-coexistence-plan-review",
       "axiom-zonal-architecture",
+      "axiom-zone-conduit-plan",
+      "axiom-zone-conduit-plan-review",
       "bare-metal",
       "bootloader",
       "drivers",
@@ -1276,27 +2278,113 @@
       "axiom-adas-perception-pipeline",
       "axiom-adas-validation",
       "axiom-aerospace-defense-safety-review",
+      "axiom-ansi-r1506-compliance-matrix",
+      "axiom-ansi-r1506-compliance-matrix-review",
       "axiom-architecture-decision-records",
       "axiom-automotive-ethernet-someip",
       "axiom-automotive-release-readiness",
       "axiom-autosar-adaptive-deployment",
+      "axiom-behavior-tree-spec",
+      "axiom-behavior-tree-spec-review",
+      "axiom-cobot-hand-guiding",
+      "axiom-cobot-hand-guiding-review",
+      "axiom-dataset-documentation",
+      "axiom-dataset-documentation-review",
+      "axiom-declaration-of-conformity",
+      "axiom-declaration-of-conformity-review",
       "axiom-diagnostics-doip",
       "axiom-diagnostics-uds",
       "axiom-embedded-cicd",
+      "axiom-eoat-spec",
+      "axiom-eoat-spec-review",
+      "axiom-fleet-manager-architecture",
+      "axiom-fleet-manager-architecture-review",
       "axiom-functional-safety",
+      "axiom-hazard-risk",
+      "axiom-hazard-risk-review",
       "axiom-hil-test-planning",
+      "axiom-iec62061-sil",
+      "axiom-iec62061-sil-review",
+      "axiom-iec62443-risk-assessment",
+      "axiom-iec62443-risk-assessment-review",
       "axiom-industrial-control-review",
       "axiom-interface-contract-design",
+      "axiom-interlock-estop-architecture",
+      "axiom-interlock-estop-architecture-review",
+      "axiom-iso10218-compliance-matrix",
+      "axiom-iso10218-compliance-matrix-review",
+      "axiom-iso12100-risk-assessment",
+      "axiom-iso12100-risk-assessment-review",
+      "axiom-iso13849-plr",
+      "axiom-iso13849-plr-review",
+      "axiom-iso15066-biomechanical-limits",
+      "axiom-iso15066-biomechanical-limits-review",
+      "axiom-iso3691-4-risk-assessment",
+      "axiom-iso3691-4-risk-assessment-review",
+      "axiom-iso9283-performance-test",
+      "axiom-iso9283-performance-test-review",
+      "axiom-loto-procedure",
+      "axiom-loto-procedure-review",
+      "axiom-machinery-safety-lifecycle-plan",
+      "axiom-machinery-safety-lifecycle-plan-review",
       "axiom-memory-and-performance-analysis",
+      "axiom-model-card",
+      "axiom-model-card-review",
+      "axiom-nav2-config",
+      "axiom-nav2-config-review",
+      "axiom-operating-envelope",
+      "axiom-operating-envelope-review",
+      "axiom-operator-training-matrix",
+      "axiom-operator-training-matrix-review",
+      "axiom-ot-asset-inventory",
+      "axiom-ot-asset-inventory-review",
+      "axiom-perception-test-catalog",
+      "axiom-perception-test-catalog-review",
+      "axiom-pfl-plan",
+      "axiom-pfl-plan-review",
       "axiom-platform-architecture-review",
+      "axiom-robot-acceptance-protocol",
+      "axiom-robot-acceptance-protocol-review",
+      "axiom-robot-cell-layout",
+      "axiom-robot-cell-layout-review",
+      "axiom-robot-cell-scope",
+      "axiom-robot-cell-scope-review",
+      "axiom-robot-field-acceptance",
+      "axiom-robot-field-acceptance-review",
+      "axiom-robot-hil-test-catalog",
+      "axiom-robot-hil-test-catalog-review",
+      "axiom-robot-sop",
+      "axiom-robot-sop-review",
       "axiom-robotics-system-integration",
+      "axiom-ros2-system-architecture",
+      "axiom-ros2-system-architecture-review",
+      "axiom-safety-io-matrix",
+      "axiom-safety-io-matrix-review",
+      "axiom-safety-requirements",
+      "axiom-safety-requirements-review",
+      "axiom-scope-context",
+      "axiom-scope-context-review",
+      "axiom-ssm-plan",
+      "axiom-ssm-plan-review",
       "axiom-static-analysis-triage",
       "axiom-technical-debt-assessment",
       "axiom-test-automation",
+      "axiom-tf-tree-spec",
+      "axiom-tf-tree-spec-review",
+      "axiom-threat-model",
+      "axiom-threat-model-review",
       "axiom-trace-analysis",
+      "axiom-urdf-model-spec",
+      "axiom-urdf-model-spec-review",
       "axiom-v2x-communication",
       "axiom-vehicle-cybersecurity",
+      "axiom-vnv-plan",
+      "axiom-vnv-plan-review",
+      "axiom-wireless-coexistence-plan",
+      "axiom-wireless-coexistence-plan-review",
       "axiom-zonal-architecture",
+      "axiom-zone-conduit-plan",
+      "axiom-zone-conduit-plan-review",
       "bootloader",
       "drivers",
       "edge-ai",
@@ -1325,8 +2413,58 @@
       "automotive-middleware",
       "axiom-adas-perception-pipeline",
       "axiom-adas-validation",
+      "axiom-behavior-tree-spec",
+      "axiom-behavior-tree-spec-review",
+      "axiom-cobot-hand-guiding",
+      "axiom-cobot-hand-guiding-review",
+      "axiom-dataset-documentation",
+      "axiom-dataset-documentation-review",
+      "axiom-eoat-spec",
+      "axiom-eoat-spec-review",
+      "axiom-fleet-manager-architecture",
+      "axiom-fleet-manager-architecture-review",
+      "axiom-interlock-estop-architecture",
+      "axiom-interlock-estop-architecture-review",
+      "axiom-iso10218-compliance-matrix",
+      "axiom-iso10218-compliance-matrix-review",
+      "axiom-iso13849-plr",
+      "axiom-iso13849-plr-review",
+      "axiom-iso15066-biomechanical-limits",
+      "axiom-iso15066-biomechanical-limits-review",
+      "axiom-iso9283-performance-test",
+      "axiom-iso9283-performance-test-review",
+      "axiom-model-card",
+      "axiom-model-card-review",
+      "axiom-nav2-config",
+      "axiom-nav2-config-review",
+      "axiom-operating-envelope",
+      "axiom-operating-envelope-review",
+      "axiom-perception-test-catalog",
+      "axiom-perception-test-catalog-review",
+      "axiom-pfl-plan",
+      "axiom-pfl-plan-review",
       "axiom-platform-architecture-review",
+      "axiom-robot-acceptance-protocol",
+      "axiom-robot-acceptance-protocol-review",
+      "axiom-robot-cell-layout",
+      "axiom-robot-cell-layout-review",
+      "axiom-robot-cell-scope",
+      "axiom-robot-cell-scope-review",
+      "axiom-robot-field-acceptance",
+      "axiom-robot-field-acceptance-review",
+      "axiom-robot-hil-test-catalog",
+      "axiom-robot-hil-test-catalog-review",
       "axiom-robotics-system-integration",
+      "axiom-ros2-system-architecture",
+      "axiom-ros2-system-architecture-review",
+      "axiom-safety-io-matrix",
+      "axiom-safety-io-matrix-review",
+      "axiom-ssm-plan",
+      "axiom-ssm-plan-review",
+      "axiom-tf-tree-spec",
+      "axiom-tf-tree-spec-review",
+      "axiom-urdf-model-spec",
+      "axiom-urdf-model-spec-review",
       "axiom-zonal-architecture",
       "bootloader",
       "drivers",
@@ -1354,6 +2492,20 @@
       "axiom-interface-contract-design",
       "axiom-platform-architecture-review",
       "software-architecture"
+    ],
+    "assurance": [
+      "axiom-hazard-risk",
+      "axiom-hazard-risk-review",
+      "axiom-safety-io-matrix",
+      "axiom-safety-io-matrix-review",
+      "axiom-safety-requirements",
+      "axiom-safety-requirements-review",
+      "axiom-scope-context",
+      "axiom-scope-context-review",
+      "axiom-threat-model",
+      "axiom-threat-model-review",
+      "axiom-vnv-plan",
+      "axiom-vnv-plan-review"
     ],
     "autosar-adaptive": [
       "automotive-middleware",
@@ -1404,7 +2556,43 @@
       "axiom-bms-diagnostics"
     ],
     "industrial": [
-      "axiom-industrial-control-review"
+      "axiom-ansi-r1506-compliance-matrix",
+      "axiom-ansi-r1506-compliance-matrix-review",
+      "axiom-declaration-of-conformity",
+      "axiom-declaration-of-conformity-review",
+      "axiom-hazard-risk",
+      "axiom-hazard-risk-review",
+      "axiom-iec62061-sil",
+      "axiom-iec62061-sil-review",
+      "axiom-iec62443-risk-assessment",
+      "axiom-iec62443-risk-assessment-review",
+      "axiom-industrial-control-review",
+      "axiom-iso12100-risk-assessment",
+      "axiom-iso12100-risk-assessment-review",
+      "axiom-iso3691-4-risk-assessment",
+      "axiom-iso3691-4-risk-assessment-review",
+      "axiom-loto-procedure",
+      "axiom-loto-procedure-review",
+      "axiom-machinery-safety-lifecycle-plan",
+      "axiom-machinery-safety-lifecycle-plan-review",
+      "axiom-operator-training-matrix",
+      "axiom-operator-training-matrix-review",
+      "axiom-ot-asset-inventory",
+      "axiom-ot-asset-inventory-review",
+      "axiom-robot-sop",
+      "axiom-robot-sop-review",
+      "axiom-safety-requirements",
+      "axiom-safety-requirements-review",
+      "axiom-scope-context",
+      "axiom-scope-context-review",
+      "axiom-threat-model",
+      "axiom-threat-model-review",
+      "axiom-vnv-plan",
+      "axiom-vnv-plan-review",
+      "axiom-wireless-coexistence-plan",
+      "axiom-wireless-coexistence-plan-review",
+      "axiom-zone-conduit-plan",
+      "axiom-zone-conduit-plan-review"
     ],
     "release-process": [
       "automotive-coding",
@@ -1424,13 +2612,69 @@
       "validation"
     ],
     "robotics": [
+      "axiom-behavior-tree-spec",
+      "axiom-behavior-tree-spec-review",
+      "axiom-cobot-hand-guiding",
+      "axiom-cobot-hand-guiding-review",
+      "axiom-dataset-documentation",
+      "axiom-dataset-documentation-review",
+      "axiom-eoat-spec",
+      "axiom-eoat-spec-review",
+      "axiom-fleet-manager-architecture",
+      "axiom-fleet-manager-architecture-review",
+      "axiom-interlock-estop-architecture",
+      "axiom-interlock-estop-architecture-review",
+      "axiom-iso10218-compliance-matrix",
+      "axiom-iso10218-compliance-matrix-review",
+      "axiom-iso13849-plr",
+      "axiom-iso13849-plr-review",
+      "axiom-iso15066-biomechanical-limits",
+      "axiom-iso15066-biomechanical-limits-review",
+      "axiom-iso9283-performance-test",
+      "axiom-iso9283-performance-test-review",
+      "axiom-model-card",
+      "axiom-model-card-review",
+      "axiom-nav2-config",
+      "axiom-nav2-config-review",
+      "axiom-operating-envelope",
+      "axiom-operating-envelope-review",
+      "axiom-perception-test-catalog",
+      "axiom-perception-test-catalog-review",
+      "axiom-pfl-plan",
+      "axiom-pfl-plan-review",
+      "axiom-robot-acceptance-protocol",
+      "axiom-robot-acceptance-protocol-review",
+      "axiom-robot-cell-layout",
+      "axiom-robot-cell-layout-review",
+      "axiom-robot-cell-scope",
+      "axiom-robot-cell-scope-review",
+      "axiom-robot-field-acceptance",
+      "axiom-robot-field-acceptance-review",
+      "axiom-robot-hil-test-catalog",
+      "axiom-robot-hil-test-catalog-review",
       "axiom-robotics-system-integration",
+      "axiom-ros2-system-architecture",
+      "axiom-ros2-system-architecture-review",
+      "axiom-safety-io-matrix",
+      "axiom-safety-io-matrix-review",
+      "axiom-ssm-plan",
+      "axiom-ssm-plan-review",
+      "axiom-tf-tree-spec",
+      "axiom-tf-tree-spec-review",
+      "axiom-urdf-model-spec",
+      "axiom-urdf-model-spec-review",
       "robotics"
     ],
     "safety-security": [
       "automotive-cybersecurity",
       "axiom-aerospace-defense-safety-review",
       "axiom-functional-safety",
+      "axiom-hazard-risk",
+      "axiom-hazard-risk-review",
+      "axiom-safety-requirements",
+      "axiom-safety-requirements-review",
+      "axiom-threat-model",
+      "axiom-threat-model-review",
       "axiom-vehicle-cybersecurity",
       "safety",
       "security"

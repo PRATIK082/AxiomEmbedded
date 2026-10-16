@@ -5,7 +5,7 @@ description: >
   Inventories technical debt as a scored register (principal, interest, contagion,
   paydown cost), prioritizes paydown with explicit trade-offs, and produces a
   reviewable paydown plan tied to releases.
-version: 0.1.0
+version: 1.2.0
 author: PRATIK PATIL
 license: Apache-2.0
 domains: [all]

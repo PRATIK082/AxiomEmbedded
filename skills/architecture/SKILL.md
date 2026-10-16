@@ -4,6 +4,21 @@ description: System/software architecture views, interface contracts, allocation
 version: 1.2.0
 domains: [all]
 platforms: [all]
+axiom:
+  dotted_name: axiom.legacy.architecture
+  domain: all
+  subdomain: legacy
+  category: legacy
+  maturity: production
+  owner: axiom-embedded
+  tags:
+  - legacy
+  related_skills:
+  - axiom-architecture-decision-records
+  - axiom-interface-contract-design
+  - axiom-platform-architecture-review
+  checklists:
+  - checklists/architecture-checklist.md
 ---
 
 # Architecture skill

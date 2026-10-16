@@ -1,0 +1,19 @@
+id: axiom-zone-conduit-plan
+version: 1.2.0
+contract_version: 1
+type: reusable-skill
+source_of_truth:
+  instructions: SKILL.md
+  contract: manifest.yaml
+facets:
+  domains:
+  - industrial
+  platforms:
+  - mcu
+  - mpu
+standards:
+- IEC 62443-3-2:2020
+axiom:
+  dotted_name: axiom.industrial.zone.conduit.plan
+  maturity: experimental
+  category: design

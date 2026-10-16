@@ -4,6 +4,20 @@ description: Host+target CI stages, farm discipline, flaky quarantine, feedback 
 version: 1.2.0
 domains: [all]
 platforms: [all]
+axiom:
+  dotted_name: axiom.legacy.test-automation
+  domain: all
+  subdomain: legacy
+  category: legacy
+  maturity: production
+  owner: axiom-embedded
+  tags:
+  - legacy
+  related_skills:
+  - axiom-embedded-cicd
+  - axiom-test-automation
+  checklists:
+  - checklists/test-automation-checklist.md
 ---
 
 # Test-Automation skill

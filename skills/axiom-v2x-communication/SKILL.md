@@ -3,7 +3,7 @@ name: axiom-v2x-communication
 title: V2X Communication Design
 description: >
   Models V2X messages, latency/security considerations and simulation hooks with a message test strategy.
-version: 0.1.0
+version: 1.2.0
 author: PRATIK PATIL
 license: Apache-2.0
 domains: [automotive]

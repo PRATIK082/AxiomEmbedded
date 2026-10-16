@@ -1,0 +1,25 @@
+artifact_id: REV-SCOPE-CELL-01
+schema_version: 1.0.0
+kind: review-report
+status: approved
+domain: industrial
+standards: [ISO 12100:2010]
+created_at: 2026-10-13T09:00:00Z
+updated_at: 2026-10-13T09:00:00Z
+author: independent-reviewer
+reviewer: independent-reviewer
+assumptions: []
+evidence: [SCOPE-CELL-01]
+traceability:
+  - {source: REV-SCOPE-CELL-01, target: SCOPE-CELL-01, relationship: reviews}
+open_questions: []
+approval_status: approved
+target_artifact: SCOPE-CELL-01
+verdict: accept-with-actions
+findings:
+  - id: REV-001
+    severity: Observation
+    location: boundaries.out_of_scope
+    evidence: Conveyor handover point is excluded; pinch point at the fence pass-through is not named.
+    recommendation: Name the conveyor pass-through guarding as in-scope or add an interface assumption.
+    owner: cell-engineering

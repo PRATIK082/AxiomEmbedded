@@ -1,0 +1,19 @@
+artifact_id: REV-REQ-CELL-01
+schema_version: 1.0.0
+kind: review-report
+status: approved
+domain: industrial
+standards: [ISO 12100:2010, IEC 62061:2021]
+created_at: 2026-10-13T11:00:00Z
+updated_at: 2026-10-13T11:00:00Z
+author: independent-reviewer
+reviewer: independent-reviewer
+assumptions: []
+evidence: [REQ-CELL-01, HAZ-CELL-01]
+traceability:
+  - {source: REV-REQ-CELL-01, target: REQ-CELL-01, relationship: reviews}
+open_questions: []
+approval_status: approved
+target_artifact: REQ-CELL-01
+verdict: accept
+findings: []

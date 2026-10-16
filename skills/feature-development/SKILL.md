@@ -4,6 +4,18 @@ description: Vertical slicing, short-lived branches, and tests-travel-with-code.
 version: 1.2.0
 domains: [all]
 platforms: [all]
+axiom:
+  dotted_name: axiom.legacy.feature-development
+  domain: all
+  subdomain: legacy
+  category: legacy
+  maturity: production
+  owner: axiom-embedded
+  tags:
+  - legacy
+  related_skills: []
+  checklists:
+  - checklists/feature-development-checklist.md
 ---
 
 # Feature-Development skill

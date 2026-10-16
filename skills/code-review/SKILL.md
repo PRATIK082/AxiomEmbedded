@@ -4,6 +4,21 @@ description: Peer-review practice with checklists, size limits, and independence
 version: 1.2.0
 domains: [all]
 platforms: [all]
+axiom:
+  dotted_name: axiom.legacy.code-review
+  domain: all
+  subdomain: legacy
+  category: legacy
+  maturity: production
+  owner: axiom-embedded
+  tags:
+  - legacy
+  related_skills:
+  - axiom-platform-architecture-review
+  - axiom-static-analysis-triage
+  - axiom-technical-debt-assessment
+  checklists:
+  - checklists/code-review-checklist.md
 ---
 
 # Code-Review skill

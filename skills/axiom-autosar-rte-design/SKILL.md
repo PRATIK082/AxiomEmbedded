@@ -3,7 +3,7 @@ name: axiom-autosar-rte-design
 title: AUTOSAR RTE Design
 description: >
   Designs RTE ports, interfaces, runnable entities and events for Classic software components with consistency checks and traceability.
-version: 0.1.0
+version: 1.2.0
 author: PRATIK PATIL
 license: Apache-2.0
 domains: [automotive]

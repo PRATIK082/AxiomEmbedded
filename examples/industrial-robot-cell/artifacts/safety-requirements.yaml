@@ -1,0 +1,48 @@
+artifact_id: REQ-CELL-01
+schema_version: 1.0.0
+kind: safety-requirements
+status: approved
+domain: industrial
+standards: [ISO 12100:2010, ISO 13849-1:2023, ISO 13850:2015, ISO 14118:2017, IEC 62061:2021, IEC 61508:2010]
+created_at: 2026-10-11T09:00:00Z
+updated_at: 2026-10-12T11:00:00Z
+author: cell-engineering
+reviewer: independent-reviewer
+assumptions:
+  - A1: PLC scan budget for interlock path is 50 ms; timing test pending.
+evidence: [HAZ-CELL-01, SCOPE-CELL-01]
+traceability:
+  - {source: REQ-001, target: HAZ-001, relationship: mitigates}
+  - {source: REQ-002, target: HAZ-001, relationship: mitigates}
+  - {source: REQ-003, target: HAZ-002, relationship: mitigates}
+  - {source: REQ-004, target: HAZ-003, relationship: mitigates}
+  - {source: REQ-005, target: HAZ-004, relationship: mitigates}
+open_questions:
+  - "Q1: Confirm 50 ms interlock budget with PLC vendor data (owner: controls-team)."
+approval_status: approved
+requirements:
+  - id: REQ-001
+    text: The safety controller shall remove arm motive power within 50 ms of either gate-interlock channel opening.
+    covers_hazards: [HAZ-001]
+    verification: test
+    status: approved
+  - id: REQ-002
+    text: Gate release shall be denied until monitored standstill of all axes is confirmed.
+    covers_hazards: [HAZ-001]
+    verification: test
+    status: approved
+  - id: REQ-003
+    text: Actuation of any e-stop device shall trigger a Category 0 stop independent of cell software.
+    covers_hazards: [HAZ-002]
+    verification: test
+    status: approved
+  - id: REQ-004
+    text: Cell restart from HMI reset shall require gate-closed state plus a deliberate two-step operator action.
+    covers_hazards: [HAZ-003]
+    verification: inspection
+    status: approved
+  - id: REQ-005
+    text: The telemetry gateway shall permit outbound-only traffic to one allow-listed plant destination.
+    covers_hazards: [HAZ-004]
+    verification: analysis
+    status: approved

@@ -1,0 +1,19 @@
+id: axiom-iso9283-performance-test-review
+version: 1.2.0
+contract_version: 1
+type: reusable-skill
+source_of_truth:
+  instructions: SKILL.md
+  contract: manifest.yaml
+facets:
+  domains:
+  - robotics
+  platforms:
+  - mpu
+  - soc
+standards:
+- ISO 9283:1998
+axiom:
+  dotted_name: axiom.robotics.iso9283.performance.test
+  maturity: experimental
+  category: verification

@@ -4,6 +4,19 @@ description: Reproduce-isolate-root-cause method with silicon testimony and mand
 version: 1.2.0
 domains: [all]
 platforms: [all]
+axiom:
+  dotted_name: axiom.legacy.debugging
+  domain: all
+  subdomain: legacy
+  category: legacy
+  maturity: production
+  owner: axiom-embedded
+  tags:
+  - legacy
+  related_skills:
+  - axiom-trace-analysis
+  checklists:
+  - checklists/debugging-checklist.md
 ---
 
 # Debugging skill

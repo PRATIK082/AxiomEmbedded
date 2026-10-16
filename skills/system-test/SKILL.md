@@ -4,6 +4,19 @@ description: Requirement-based system testing, stress/abuse campaigns, and triag
 version: 1.2.0
 domains: [all]
 platforms: [all]
+axiom:
+  dotted_name: axiom.legacy.system-test
+  domain: all
+  subdomain: legacy
+  category: legacy
+  maturity: production
+  owner: axiom-embedded
+  tags:
+  - legacy
+  related_skills:
+  - axiom-hil-test-planning
+  checklists:
+  - checklists/system-test-checklist.md
 ---
 
 # System-Test skill

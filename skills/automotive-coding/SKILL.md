@@ -4,6 +4,18 @@ description: MISRA C:2025 / MISRA C++:2023 / AUTOSAR C++14 enforcement, CERT C/C
 version: 1.2.0
 domains: [automotive]
 platforms: [mcu, mpu, autosar-classic, autosar-adaptive, bare-metal, rtos]
+axiom:
+  dotted_name: axiom.legacy.automotive-coding
+  domain: automotive
+  subdomain: legacy
+  category: legacy
+  maturity: production
+  owner: axiom-embedded
+  tags:
+  - legacy
+  related_skills: []
+  checklists:
+  - checklists/automotive-coding-checklist.md
 ---
 
 # automotive-coding — Automotive coding-standards enforcement

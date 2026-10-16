@@ -4,6 +4,20 @@ description: ADAS/AD perception-to-control pipeline, sensor fusion, SOTIF and AS
 version: 1.2.0
 domains: [automotive]
 platforms: [mpu, soc, mpsoc, autosar-adaptive]
+axiom:
+  dotted_name: axiom.legacy.adas
+  domain: automotive
+  subdomain: legacy
+  category: legacy
+  maturity: production
+  owner: axiom-embedded
+  tags:
+  - legacy
+  related_skills:
+  - axiom-adas-perception-pipeline
+  - axiom-adas-validation
+  checklists:
+  - checklists/adas-checklist.md
 ---
 
 # adas — ADAS / Automated Driving capability

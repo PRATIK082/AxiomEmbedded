@@ -4,6 +4,18 @@ description: Reset-to-main init, fault handlers, ISR discipline, super-loop and 
 version: 1.2.0
 domains: [all]
 platforms: [mcu, bare-metal]
+axiom:
+  dotted_name: axiom.legacy.bare-metal
+  domain: all
+  subdomain: legacy
+  category: legacy
+  maturity: production
+  owner: axiom-embedded
+  tags:
+  - legacy
+  related_skills: []
+  checklists:
+  - checklists/bare-metal-checklist.md
 ---
 
 # Bare-Metal skill

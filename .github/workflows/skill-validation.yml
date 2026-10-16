@@ -14,3 +14,4 @@ jobs:
       - run: python scripts/skill_pipeline.py --check
       - run: python -m pytest -q tests/test_skill_framework.py 
 tests/test_skills_packaging.py tests/test_skill_tools.py tests/test_skill_pipeline.py
+tests/test_assurance.py

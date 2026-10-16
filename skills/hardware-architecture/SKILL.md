@@ -4,6 +4,18 @@ description: ECU/board architecture, power domains, budgets, and HSI contracts. 
 version: 1.2.0
 domains: [all]
 platforms: [mcu, mpu, soc, mpsoc]
+axiom:
+  dotted_name: axiom.legacy.hardware-architecture
+  domain: all
+  subdomain: legacy
+  category: legacy
+  maturity: production
+  owner: axiom-embedded
+  tags:
+  - legacy
+  related_skills: []
+  checklists:
+  - checklists/hardware-architecture-checklist.md
 ---
 
 # Hardware-Architecture skill

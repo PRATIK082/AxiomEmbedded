@@ -3,7 +3,7 @@ name: axiom-can-network-design
 title: CAN Network Design
 description: >
   Designs CAN/CAN-FD network topology, identifier allocation, bus-load budgets and timing assumptions from DBC-level inputs.
-version: 0.1.0
+version: 1.2.0
 author: PRATIK PATIL
 license: Apache-2.0
 domains: [automotive]

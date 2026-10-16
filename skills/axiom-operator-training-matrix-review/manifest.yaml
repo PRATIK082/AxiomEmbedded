@@ -1,0 +1,20 @@
+id: axiom-operator-training-matrix-review
+version: 1.2.0
+contract_version: 1
+type: reusable-skill
+source_of_truth:
+  instructions: SKILL.md
+  contract: manifest.yaml
+facets:
+  domains:
+  - industrial
+  platforms:
+  - mcu
+  - mpu
+standards:
+- ISO 10218-2:2011
+- ISO 12100:2010
+axiom:
+  dotted_name: axiom.industrial.operator.training.matrix
+  maturity: experimental
+  category: procedure

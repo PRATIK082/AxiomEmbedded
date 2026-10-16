@@ -1,0 +1,20 @@
+id: axiom-iec62061-sil-review
+version: 1.2.0
+contract_version: 1
+type: reusable-skill
+source_of_truth:
+  instructions: SKILL.md
+  contract: manifest.yaml
+facets:
+  domains:
+  - industrial
+  platforms:
+  - mcu
+  - mpu
+standards:
+- IEC 62061:2021
+- IEC 61508:2010
+axiom:
+  dotted_name: axiom.industrial.iec62061.sil
+  maturity: experimental
+  category: assessment
