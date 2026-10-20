@@ -153,6 +153,13 @@ def tool_packs(args: dict) -> dict:
         args.get("domain"), args.get("platform"), args.get("standards") or [])
 
 
+def tool_tool_candidates(args: dict) -> dict:
+    return axiom_sdk.list_tool_candidates(
+        args.get("domain"), args.get("platform"), args.get("standards") or [],
+        args.get("category"), args.get("status"),
+        bool(args.get("include_informational", False)))
+
+
 def tool_compose(args: dict) -> dict:
     return axiom_sdk.compose_mindmap(
         args.get("prompt", ""), args.get("domain"), args.get("platform"),
@@ -308,6 +315,27 @@ TOOLS: dict[str, dict] = {
             }
         ),
         "handler": tool_packs,
+    },
+    "tool_candidates": {
+        "description": "List open-source tool candidates (licence, channel, plugin point, benefit) matching domain+platform+standards (mirrors `axiom tools`).",
+        "inputSchema": _schema(
+            {
+                "domain": _opt_str_prop("Engineering domain (e.g. automotive)."),
+                "platform": _opt_str_prop("Compute platform (e.g. mcu)."),
+                "standards": {
+                    "type": "array",
+                    "items": {"type": "string"},
+                    "description": "Standard filters (e.g. ISO 14229-1).",
+                },
+                "category": _opt_str_prop("Tool category filter (e.g. static-analysis)."),
+                "status": _opt_str_prop("Status filter (candidate, accepted, reference, rejected)."),
+                "include_informational": {
+                    "type": "boolean",
+                    "description": "Include reference/rejected entries (audit view).",
+                },
+            }
+        ),
+        "handler": tool_tool_candidates,
     },
     "compose": {
         "description": "Compose a skill mind-map DAG from a prompt + facet axes (mirrors `axiom compose`).",

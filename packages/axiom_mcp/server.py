@@ -1,6 +1,6 @@
 """AxiomEmbedded MCP server over stdio (newline-delimited JSON-RPC 2.0).
 
-Tools: engage, run_plan, read_skill, list_skills, list_profiles.
+Tools: engage, run_plan, read_skill, list_skills, list_profiles, tool_candidates.
 Every tool delegates to packages.axiom_sdk — the single implementation.
 
 Usage (опрос via clients/mcp.json):
@@ -30,6 +30,10 @@ TOOLS = {
     },
     "list_skills": {"description": "All skill ids with descriptions.", "params": []},
     "list_profiles": {"description": "All profile ids with domains/platforms.", "params": []},
+    "tool_candidates": {
+        "description": "List open-source tool candidates (licence, channel, plugin point, benefit).",
+        "params": ["domain", "platform", "standards", "category", "status"],
+    },
 }
 
 
@@ -48,6 +52,11 @@ def dispatch(method: str, params: dict):
             return axiom_sdk.list_skills()
         if name == "list_profiles":
             return axiom_sdk.list_profiles()
+        if name == "tool_candidates":
+            return axiom_sdk.list_tool_candidates(
+                args.get("domain"), args.get("platform"), args.get("standards") or [],
+                args.get("category"), args.get("status"),
+                bool(args.get("include_informational", False)))
         raise ValueError(f"unknown tool: {name}")
     raise ValueError(f"unknown method: {method}")
 

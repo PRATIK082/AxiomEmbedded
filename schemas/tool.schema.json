@@ -11,6 +11,50 @@
     "outputs": {"type": "array"},
     "permissions": {"type": "object"},
     "deterministic": {"type": "boolean"},
-    "evidence": {"type": "boolean"}
+    "evidence": {"type": "boolean"},
+    "kind": {
+      "type": "string",
+      "enum": ["bridge", "adapter", "suite", "platform"],
+      "description": "bridge = thin adapter over an external pack; adapter = direct tool; suite = tool family; platform = runtime target."
+    },
+    "source": {
+      "type": "string",
+      "description": "Upstream URL of the wrapped tool or pack."
+    },
+    "license": {
+      "type": "string",
+      "description": "SPDX id of the wrapped tool. Copyleft (GPL/AGPL) requires linkage: subprocess."
+    },
+    "linkage": {
+      "type": "string",
+      "enum": ["subprocess", "import", "none"],
+      "description": "How Axiom invokes the wrapped tool. Copyleft tools MUST be subprocess."
+    },
+    "external": {
+      "type": "object",
+      "description": "External pack contract: pip spec, entry point, CLI, supported input formats/versions.",
+      "properties": {
+        "pip": {"type": "string"},
+        "entry_point": {"type": "string"},
+        "cli": {"type": "string"},
+        "supported_inputs": {"type": "array"},
+        "supported_pack_versions": {"type": "array"},
+        "supported_autosar": {"type": "array"}
+      }
+    },
+    "dependencies": {
+      "type": "array",
+      "items": {"type": "string"},
+      "description": "Install specs for the wrapped tool (pip requirement, apt package, image ref)."
+    },
+    "facets": {
+      "type": "object",
+      "description": "Selection facets. Stamped by scripts/build_tool_index.py from registries/tool-facets.yaml.",
+      "properties": {
+        "domains": {"type": "array"},
+        "platforms": {"type": "array"},
+        "standards": {"type": "array"}
+      }
+    }
   }
 }
