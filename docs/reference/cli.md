@@ -11,3 +11,7 @@
 | `axiom workflow plan` | Determine lifecycle entry/start phase |
 | `axiom impact FILE` | Inspect project entry/lifecycle baseline |
 | `axiom route TEXT` | Route intent to a specialist agent |
+| `axiom engage` | Resolve which skills/profiles a domain+platform project needs |
+| `axiom packs` | Select plug-and-play tool/pip packs by domain+platform+standards |
+| `axiom tools` | List open-source tool candidates (licence, channel, plugin point, benefit) by domain+platform+standards |
+| `axiom compose TEXT` | Compose a skill mind-map DAG from a prompt + facet axes |

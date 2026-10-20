@@ -179,6 +179,16 @@ def packs_cmd(domain: str | None, platform: str | None, standards: list[str]) ->
     return 0
 
 
+def tools_cmd(domain: str | None, platform: str | None, standards: list[str],
+              category: str | None, status: str | None,
+              include_informational: bool) -> int:
+    from packages.toolpacks.candidates import select_candidates
+
+    print(json.dumps(select_candidates(domain, platform, standards, category, status,
+                                       include_informational), indent=2))
+    return 0
+
+
 def compose_cmd(prompt: str, domain: str | None, platform: str | None,
                 os: str | None, language: str | None, standards: list[str],
                 hardware: str | None, technology: str | None) -> int:
@@ -443,6 +453,7 @@ def main() -> int:
     rt = sp.add_parser("route"); rt.add_argument("request")
     en = sp.add_parser("engage"); en.add_argument("--domain"); en.add_argument("--platform")
     pk = sp.add_parser("packs", help="Select plug-and-play tool/pip packs by domain+platform+standards"); pk.add_argument("--domain"); pk.add_argument("--platform");     pk.add_argument("--standard", dest="standards", action="append", default=[], help="Repeatable standard filter (e.g. --standard 'ISO 14229-1')")
+    tc = sp.add_parser("tools", help="List open-source tool candidates (licence, channel, plugin point, benefit) by domain+platform+standards"); tc.add_argument("--domain"); tc.add_argument("--platform"); tc.add_argument("--standard", dest="standards", action="append", default=[]); tc.add_argument("--category"); tc.add_argument("--status"); tc.add_argument("--include-informational", action="store_true", help="Include reference/rejected entries")
     cm = sp.add_parser("compose", help="Compose a skill mind-map DAG from a prompt + facet axes"); cm.add_argument("prompt"); cm.add_argument("--domain"); cm.add_argument("--platform"); cm.add_argument("--os"); cm.add_argument("--language"); cm.add_argument("--standard", dest="standards", action="append", default=[]); cm.add_argument("--hardware"); cm.add_argument("--technology")
     rn = sp.add_parser("run"); rn.add_argument("request"); rn.add_argument("--domain"); rn.add_argument("--platform")
     st = sp.add_parser("status", help="Terminal dashboard: project health + next action"); st.add_argument("--format", choices=["text", "json"], default="text")
@@ -552,6 +563,7 @@ def main() -> int:
     if args.cmd == "route": print(route(args.request)); return 0
     if args.cmd == "engage": return engage_cmd(args.domain, args.platform)
     if args.cmd == "packs": return packs_cmd(args.domain, args.platform, args.standards or [])
+    if args.cmd == "tools": return tools_cmd(args.domain, args.platform, args.standards or [], args.category, args.status, args.include_informational)
     if args.cmd == "compose": return compose_cmd(args.prompt, args.domain, args.platform, args.os, args.language, args.standards or [], args.hardware, args.technology)
     if args.cmd == "run": return run_cmd(args.request, args.domain, args.platform)
     if args.cmd == "status": return status_cmd(args.format)

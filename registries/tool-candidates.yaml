@@ -1,0 +1,3557 @@
+# Tool candidate registry — the pluggable-tool surface of AxiomEmbedded.
+#
+# This is the RESEARCH registry: every open-source tool that can plausibly be
+# plugged into AxiomEmbedded, with its licence, install channel, the Axiom
+# extension point it serves, and the concrete benefit it brings.
+#
+# It is deliberately separate from registries/tool-index.json, which lists only
+# tools that are IMPLEMENTED today (tools/<id>/manifest.yaml + pip deps).
+# Flow:  candidate (here) -> accepted -> tools/<id>/manifest.yaml -> tool-index.json
+#
+# Rules honoured by this file:
+#   - "Keep standards metadata and applicability separate from proprietary
+#      normative text."  => no candidate may require vendored standard prose.
+#      MISRA/CIS/XCCDF rule text is user-supplied at runtime, never committed.
+#   - Copyleft (GPL/AGPL) candidates use linkage: subprocess. They are never
+#      imported into Axiom code that ships.
+#   - "Generated files must identify their generator and remain reproducible."
+#      => generated_from below names the survey; the file itself is hand-maintained.
+#
+# Validate: python scripts/validate_tool_candidates.py
+# Survey:   docs/research/2026-10-21-global-embedded-agent-tool-catalog.md
+version: 1.0.0
+generated_from: "OSS survey 2026-10-21 (4 parallel research passes; GitHub API + LICENSE files + PyPI JSON)"
+
+candidates:
+
+  # ---------------------------------------------------------------------
+  # 1. STATIC ANALYSIS / MISRA / CERT  (skills: static-analysis, embedded-c/cpp)
+  # ---------------------------------------------------------------------
+  - id: clang-tidy
+    name: clang-tidy
+    upstream: https://github.com/llvm/llvm-project
+    license: Apache-2.0 WITH LLVM-exception
+    language: C++
+    channel: binary
+    install: "apt install clang-tidy  (or pip install clang-tidy via ssciwr/clang-tidy-wheel)"
+    entry_point: clang-tidy
+    kind: adapter
+    linkage: subprocess
+    plugin_point: tools/static-analysis-aggregator
+    domains: [all]
+    platforms: [all]
+    standards: []
+    categories: [static-analysis, misra, cert]
+    status: accepted
+    milestone: M1
+    benefit: "One adapter covers SEI CERT (cert-*), C++ Core Guidelines, bugprone-* and llvm-header-guard checks; consumes the compile_commands.json Axiom already produces per target triple."
+    notes: "Needs a cross-TU compile database; Axiom should emit it as an artifact, not a temp file."
+
+  - id: clang-static-analyzer
+    name: Clang Static Analyzer (scan-build)
+    upstream: https://github.com/llvm/llvm-project
+    license: Apache-2.0 WITH LLVM-exception
+    language: C++
+    channel: binary
+    install: "apt install clang-tools  (scan-build / scan-build-py)"
+    entry_point: scan-build
+    kind: adapter
+    linkage: subprocess
+    plugin_point: tools/static-analysis-aggregator
+    domains: [all]
+    platforms: [all]
+    standards: []
+    categories: [static-analysis, dataflow]
+    status: accepted
+    milestone: M1
+    benefit: "Path-sensitive dataflow findings (null deref, leak, use-after-free) that clang-tidy cannot produce; emits plist/SARIF that Axiom normalises into evidence rows."
+
+  - id: cppcheck
+    name: cppcheck (+ misra addon)
+    upstream: https://github.com/cppcheck-opensource/cppcheck
+    license: GPL-3.0
+    language: C++
+    channel: binary
+    install: "apt install cppcheck"
+    entry_point: cppcheck
+    kind: adapter
+    linkage: subprocess
+    plugin_point: tools/static-analysis-aggregator
+    domains: [all]
+    platforms: [all]
+    standards: []
+    categories: [static-analysis, misra, build-free]
+    status: accepted
+    milestone: M2
+    benefit: "The only practical build-free analyser for vendor/legacy MCU code: tolerates inline asm, missing headers and non-standard syntax; ships a 143-rule MISRA C:2012 addon reporting rule NUMBERS only."
+    notes: "GPL-3.0 => subprocess only. MISRA rule text must be supplied by the user at runtime (--rule-texts=), never vendored."
+
+  - id: codeql-coding-standards
+    name: CodeQL Coding Standards
+    upstream: https://github.com/github/codeql-coding-standards
+    license: MIT
+    language: QL
+    channel: binary
+    install: "CodeQL CLI bundle (separate licence terms apply to the CLI)"
+    entry_point: codeql
+    kind: suite
+    linkage: subprocess
+    plugin_point: tools/static-analysis-aggregator
+    domains: [all]
+    platforms: [all]
+    standards: []
+    categories: [static-analysis, misra, cert, autosar]
+    status: candidate
+    milestone: M4
+    benefit: "The widest OSS rule catalogue (MISRA C:2012/2023, MISRA C++:2023, AUTOSAR C++14, SEI CERT) and the only one with ISO 26262 Part 8 tool-qualification paperwork."
+    notes: "Queries are MIT, but the CodeQL CLI needs a commercial GHAS licence to analyse closed-source customer code. Ship as an optional pack, never as the only MISRA path."
+
+  - id: semgrep
+    name: Semgrep CE
+    upstream: https://github.com/semgrep/semgrep
+    license: LGPL-2.1
+    language: OCaml
+    channel: pip
+    install: "semgrep>=1.0"
+    entry_point: semgrep
+    kind: adapter
+    linkage: subprocess
+    plugin_point: tools/static-analysis-aggregator
+    domains: [all]
+    platforms: [all]
+    standards: []
+    categories: [static-analysis, custom-rules]
+    status: accepted
+    milestone: M1
+    benefit: "Cheapest way to encode project-specific embedded rules (no dynamic allocation in an ISR, no printf in task context, bounded loop counters) as versioned per-domain overlay rule packs."
+    notes: "Engine is LGPL; Semgrep's bundled rules carry a separate licence. Ship Axiom-authored rules only."
+
+  - id: clang-tidy-automotive
+    name: clang-tidy-automotive
+    upstream: https://github.com/PeterHallonmark/clang-tidy-automotive
+    license: LLVM-license-structure
+    language: C++
+    channel: source
+    install: "CMake build of the clang-tidy plugin"
+    entry_point: clang-tidy
+    kind: adapter
+    linkage: subprocess
+    plugin_point: tools/static-analysis-aggregator
+    domains: [automotive]
+    platforms: [mcu, mpu, soc, mpsoc, autosar-classic, autosar-adaptive]
+    standards: [MISRA C:2012, MISRA C:2023, MISRA C++:2023]
+    categories: [static-analysis, misra, rule-mapping]
+    status: reference
+    milestone: M4
+    benefit: "Architectural precedent to copy: it separates MISRA rule MAPPING from check IMPLEMENTATION, which is exactly how Axiom should keep applicability metadata out of proprietary normative text."
+
+  - id: autocheck
+    name: autocheck
+    upstream: https://github.com/yonamine/autocheck
+    license: Apache-2.0
+    language: C++
+    channel: source
+    install: "LLVM/Clang source build"
+    entry_point: autocheck
+    kind: adapter
+    linkage: subprocess
+    plugin_point: tools/static-analysis-aggregator
+    domains: [automotive]
+    platforms: [mcu, mpu, soc]
+    standards: [AUTOSAR C++14]
+    categories: [static-analysis, autosar]
+    status: candidate
+    milestone: M4
+    benefit: "AUTOSAR C++14 rule set with JSON output; fills the AUTOSAR-specific gap that generic linters leave."
+    notes: "Requires building LLVM from source — a container adapter, not a pip dependency."
+
+  - id: naivesystems-analyze
+    name: NaiveSystems Analyze (Community)
+    upstream: https://github.com/naivesystems/analyze
+    license: GPL-3.0
+    language: C++
+    channel: container
+    install: "ghcr.io/naivesystems/analyze"
+    entry_point: analyze
+    kind: adapter
+    linkage: subprocess
+    plugin_point: tools/static-analysis-aggregator
+    domains: [automotive]
+    platforms: [mcu, mpu, soc, mpsoc]
+    standards: [MISRA C:2012, MISRA C++:2008, AUTOSAR C++14]
+    categories: [static-analysis, misra, container]
+    status: candidate
+    milestone: M4
+    benefit: "Community edition bundles MISRA C:2012/2019 + AUTOSAR C++14 in one container image — the fastest route to a full automotive rule sweep in CI."
+    notes: "Linux + podman/docker only, Fedora-based images. GPL-3.0 => subprocess only."
+
+  - id: coccinelle
+    name: Coccinelle (spatch)
+    upstream: https://github.com/coccinelle/coccinelle
+    license: GPL-2.0
+    language: OCaml
+    channel: binary
+    install: "apt install coccinelle  (or prebuilt spatch)"
+    entry_point: spatch
+    kind: adapter
+    linkage: subprocess
+    plugin_point: tools/static-analysis-aggregator
+    domains: [all]
+    platforms: [all]
+    standards: []
+    categories: [static-analysis, semantic-patches]
+    status: candidate
+    milestone: M4
+    benefit: "Coverity-class source-to-source auditing: SmML semantic patches encode bespoke internal rules (e.g. no blocking call in an ISR) that no off-the-shelf linter ships."
+
+  - id: cbmc
+    name: CBMC
+    upstream: https://github.com/diffblue/cbmc
+    license: BSD-4-Clause
+    language: C++
+    channel: binary
+    install: "release binary / apt"
+    entry_point: cbmc
+    kind: adapter
+    linkage: subprocess
+    plugin_point: tools/static-analysis-aggregator
+    domains: [all]
+    platforms: [all]
+    standards: [ISO 26262, EN 50128]
+    categories: [static-analysis, formal, evidence]
+    status: candidate
+    milestone: M4
+    benefit: "Bounded model checking that PROVES absence of buffer overflows and undefined behaviour — the closest OSS path to proof-grade evidence for ISO 26262 / EN 50128 claims."
+
+  - id: reviewdog
+    name: Reviewdog
+    upstream: https://github.com/reviewdog/reviewdog
+    license: MIT
+    language: Go
+    channel: binary
+    install: "release binary / brew / nix"
+    entry_point: reviewdog
+    kind: adapter
+    linkage: subprocess
+    plugin_point: tools/static-analysis-aggregator
+    domains: [all]
+    platforms: [all]
+    standards: []
+    categories: [static-analysis, evidence, ci]
+    status: accepted
+    milestone: M1
+    benefit: "The universal normaliser: filters ANY linter's output to the diff and re-emits it as SARIF or a PR comment, so twenty heterogeneous analysers become one Axiom evidence stream."
+
+  - id: lizard
+    name: Lizard
+    upstream: https://github.com/terryyin/lizard
+    license: Other
+    language: Python
+    channel: pip
+    install: "lizard>=1.17"
+    entry_point: lizard
+    kind: adapter
+    linkage: subprocess
+    plugin_point: tools/static-analysis-aggregator
+    domains: [all]
+    platforms: [all]
+    standards: []
+    categories: [static-analysis, complexity]
+    status: candidate
+    milestone: M1
+    benefit: "Cyclomatic-complexity and clone detection that needs no headers and no compile database — the only analyser that works on an unbuildable vendor MCU tree."
+    notes: "GitHub reports NOASSERTION for the licence; confirm the SPDX id before shipping."
+
+  - id: flawfinder
+    name: flawfinder
+    upstream: https://github.com/david-a-wheeler/flawfinder
+    license: GPL-2.0-or-later
+    language: Python
+    channel: pip
+    install: "flawfinder>=2.0"
+    entry_point: flawfinder
+    kind: adapter
+    linkage: subprocess
+    plugin_point: tools/static-analysis-aggregator
+    domains: [all]
+    platforms: [all]
+    standards: []
+    categories: [static-analysis, cwe]
+    status: candidate
+    milestone: M1
+    benefit: "Lexical CWE scan of dangerous C functions (strcpy, sprintf, system) that still works on code that does not compile — a cheap first pass over legacy sources."
+
+  - id: include-what-you-use
+    name: IWYU
+    upstream: https://github.com/include-what-you-use/include-what-you-use
+    license: NCSA
+    language: C++
+    channel: source
+    install: "build against LLVM"
+    entry_point: include-what-you-use
+    kind: adapter
+    linkage: subprocess
+    plugin_point: tools/static-analysis-aggregator
+    domains: [all]
+    platforms: [all]
+    standards: []
+    categories: [static-analysis, layering]
+    status: candidate
+    milestone: M4
+    benefit: "Header hygiene evidence for AUTOSAR / ISO 26262 layering rules; also shrinks embedded build times by removing transitive include bloat."
+
+  # ---------------------------------------------------------------------
+  # 2. COVERAGE
+  # ---------------------------------------------------------------------
+  - id: gcovr
+    name: gcovr
+    upstream: https://github.com/gcovr/gcovr
+    license: BSD-3-Clause
+    language: Python
+    channel: pip
+    install: "gcovr>=8.7"
+    entry_point: gcovr
+    kind: adapter
+    linkage: subprocess
+    plugin_point: tools/coverage-ingestor
+    domains: [all]
+    platforms: [all]
+    standards: []
+    categories: [coverage, evidence]
+    status: accepted
+    milestone: M1
+    benefit: "Single pip dependency that turns gcov/llvm-cov output into Cobertura, JaCoCo, Clover, LCOV, SonarQube, JSON, CSV and Markdown — one adapter, every downstream coverage consumer."
+
+  - id: llvm-cov
+    name: llvm-cov
+    upstream: https://github.com/llvm/llvm-project
+    license: Apache-2.0 WITH LLVM-exception
+    language: C++
+    channel: binary
+    install: "apt install llvm"
+    entry_point: llvm-cov
+    kind: adapter
+    linkage: subprocess
+    plugin_point: tools/coverage-ingestor
+    domains: [all]
+    platforms: [all]
+    standards: []
+    categories: [coverage, evidence]
+    status: accepted
+    milestone: M2
+    benefit: "Region-precise coverage for cross-compiled targets; the natural companion to clang-tidy and libFuzzer when the GCC gcov runtime is not available."
+
+  - id: kcov
+    name: Kcov
+    upstream: https://github.com/SimonKagstrom/kcov
+    license: GPL-2.0-only
+    language: C++
+    channel: binary
+    install: "apt install kcov"
+    entry_point: kcov
+    kind: adapter
+    linkage: subprocess
+    plugin_point: tools/coverage-ingestor
+    domains: [all]
+    platforms: [all]
+    standards: []
+    categories: [coverage, legacy]
+    status: candidate
+    milestone: M4
+    benefit: "Recovers coverage from DWARF debug info WITHOUT recompiling — the only way to measure pre-built vendor object files and legacy firmware images."
+
+  - id: checksec-py
+    name: checksec.py
+    upstream: https://github.com/Wenzel/checksec.py
+    license: GPL-3.0
+    language: Python
+    channel: pip
+    install: "checksec.py>=0.9"
+    entry_point: checksec.py
+    kind: adapter
+    linkage: subprocess
+    plugin_point: tools/static-analysis-aggregator
+    domains: [industrial, iot, automotive, medical, aerospace]
+    platforms: [embedded-linux, mpu, soc, mpsoc]
+    standards: []
+    categories: [hardening, evidence, security]
+    status: accepted
+    milestone: M2
+    benefit: "Proves the shipped ECU/rootfs image actually carries RELRO, Canary, NX, PIE and FORTIFY — the hardening evidence an ISO 21434 assessment asks for."
+
+  - id: checksec-go
+    name: checksec (Go port)
+    upstream: https://github.com/slimm609/checksec
+    license: GPL-3.0
+    language: Go
+    channel: binary
+    install: "release binary"
+    entry_point: checksec
+    kind: adapter
+    linkage: subprocess
+    plugin_point: tools/static-analysis-aggregator
+    domains: [industrial, iot, automotive]
+    platforms: [embedded-linux, mpu, soc]
+    standards: []
+    categories: [hardening, evidence, ci]
+    status: candidate
+    milestone: M2
+    benefit: "Adds a --fail-if hard gate per hardening property and understands static / bare-metal ELFs, so hardening becomes a blocking CI check rather than a report."
+
+  - id: openscap
+    name: OpenSCAP
+    upstream: https://github.com/OpenSCAP/openscap
+    license: LGPL-2.1
+    language: C
+    channel: binary
+    install: "apt install oscap  (libopenscap8)"
+    entry_point: oscap
+    kind: adapter
+    linkage: subprocess
+    plugin_point: tools/static-analysis-aggregator
+    domains: [industrial, iot, medical]
+    platforms: [embedded-linux]
+    standards: []
+    categories: [hardening, policy, cis]
+    status: candidate
+    milestone: M4
+    benefit: "NIST SCAP 1.2 certified evaluator that produces machine-checkable CIS-benchmark evidence for an embedded-Linux BSP; the benchmark CONTENT stays an external, separately licensed input."
+
+  # ---------------------------------------------------------------------
+  # 3. TEST FRAMEWORKS
+  # ---------------------------------------------------------------------
+  - id: unity
+    name: Unity
+    upstream: https://github.com/ThrowTheSwitch/Unity
+    license: MIT
+    language: C
+    channel: source
+    install: "vendor unity.c + unity_internals.h into the test build"
+    entry_point: unity
+    kind: platform
+    linkage: none
+    plugin_point: skills/unit-test
+    domains: [all]
+    platforms: [all]
+    standards: []
+    categories: [test-framework, unit-test]
+    status: accepted
+    milestone: M2
+    benefit: "The de-facto embedded unit-test framework (~1 KB RAM, C99, no OS) — gives every Axiom target profile a zero-dependency unit-test substrate."
+
+  - id: cmock
+    name: CMock
+    upstream: https://github.com/ThrowTheSwitch/CMock
+    license: MIT
+    language: C
+    channel: source
+    install: "vendor cmock.c + Ruby generator"
+    entry_point: cmock
+    kind: platform
+    linkage: none
+    plugin_point: skills/unit-test
+    domains: [all]
+    platforms: [all]
+    standards: []
+    categories: [test-framework, mocking]
+    status: accepted
+    milestone: M2
+    benefit: "Auto-generates mocks from headers, so Axiom can turn an interface contract artifact directly into a compilable mock and a hardware-free test double."
+
+  - id: ceedling
+    name: Ceedling
+    upstream: https://github.com/ThrowTheSwitch/Ceedling
+    license: MIT
+    language: Ruby
+    channel: gem
+    install: "gem install ceedling"
+    entry_point: ceedling
+    kind: platform
+    linkage: subprocess
+    plugin_point: skills/unit-test
+    domains: [all]
+    platforms: [all]
+    standards: []
+    categories: [test-framework, build]
+    status: candidate
+    milestone: M2
+    benefit: "Orchestrates Unity+CMock+CException into a single CI target that builds, links and runs host-simulated unit tests and emits coverage XML."
+
+  - id: fff
+    name: FFF
+    upstream: https://github.com/meekrosoft/FFF
+    license: MIT
+    language: C
+    channel: source
+    install: "vendor fff.h"
+    entry_point: fff
+    kind: platform
+    linkage: none
+    plugin_point: skills/unit-test
+    domains: [all]
+    platforms: [all]
+    standards: []
+    categories: [test-framework, mocking]
+    status: candidate
+    milestone: M2
+    benefit: "Single-header fake framework with the smallest possible footprint — the fallback for targets too constrained for CMock's generated code."
+
+  - id: doctest
+    name: doctest
+    upstream: https://github.com/doctest/doctest
+    license: MIT
+    language: C++11
+    channel: source
+    install: "vendor doctest.h"
+    entry_point: doctest
+    kind: platform
+    linkage: none
+    plugin_point: skills/unit-test
+    domains: [all]
+    platforms: [all]
+    standards: []
+    categories: [test-framework, unit-test]
+    status: candidate
+    milestone: M2
+    benefit: "Smallest C++11 test framework (single header) — the target-side option for C++ embedded projects where GoogleTest is too heavy."
+
+  - id: robotframework
+    name: Robot Framework
+    upstream: https://github.com/robotframework/robotframework
+    license: Apache-2.0
+    language: Python
+    channel: pip
+    install: "robotframework>=7.0"
+    entry_point: robot
+    kind: platform
+    linkage: subprocess
+    plugin_point: skills/hil-test-planning
+    domains: [all]
+    platforms: [all]
+    standards: []
+    categories: [hil, test-automation, traceability]
+    status: accepted
+    milestone: M3
+    benefit: "The only realistic way to encode a HIL test plan as reviewable, diff-able, traceable text artifacts that both humans and agents can edit."
+
+  - id: robotframework-uds
+    name: RobotFramework-UDS
+    upstream: https://github.com/test-fullautomation/robotframework-uds
+    license: Apache-2.0
+    language: Python
+    channel: pip
+    install: "RobotFramework-UDS"
+    entry_point: robot
+    kind: suite
+    linkage: subprocess
+    plugin_point: tools/diag-uds-testgen
+    domains: [automotive]
+    platforms: [mcu, mpu, autosar-classic, autosar-adaptive]
+    standards: [ISO 14229-1]
+    categories: [diagnostics, hil, test-automation]
+    status: candidate
+    milestone: M3
+    benefit: "Bosch-supplied ISO 14229 keywords — turns an Axiom UDS vector set into executable bench steps without writing a new keyword library."
+
+  - id: cocotb
+    name: cocotb
+    upstream: https://github.com/cocotb/cocotb
+    license: BSD-3-Clause
+    language: Python
+    channel: pip
+    install: "cocotb>=2.0"
+    entry_point: cocotb
+    kind: platform
+    linkage: subprocess
+    plugin_point: skills/system-test
+    domains: [semiconductor, aerospace, defense, industrial, automotive]
+    platforms: [fpga, soc, mpsoc, gpu, npu]
+    standards: []
+    categories: [hdl, verification, test-framework]
+    status: candidate
+    milestone: M4
+    benefit: "Python HDL verification — lets Axiom's simulator skill drive Verilog/VHDL testbenches with the same agent-friendly language used everywhere else."
+
+  # ---------------------------------------------------------------------
+  # 4. FUZZING / FAULT INJECTION
+  # ---------------------------------------------------------------------
+  - id: fuzzware
+    name: Fuzzware
+    upstream: https://github.com/fuzzware-fuzzer/fuzzware
+    license: Apache-2.0
+    language: Python
+    channel: binary
+    install: "install script (bundles unicorn + AFL++)"
+    entry_point: fuzzware
+    kind: adapter
+    linkage: subprocess
+    plugin_point: skills/fault-injection
+    domains: [automotive, industrial, iot, medical]
+    platforms: [mcu, soc, mpsoc, arm-cortex-m]
+    standards: []
+    categories: [fuzzing, fault-injection, mcu]
+    status: accepted
+    milestone: M4
+    benefit: "The only verified OSS fuzzer purpose-built for ARM Cortex-M firmware images with MMIO modelling — direct MCU fuzzing with no hardware and no emulation licence."
+
+  - id: aflpp
+    name: AFL++
+    upstream: https://github.com/AFLplusplus/AFLplusplus
+    license: AGPL-3.0-or-later
+    language: C
+    channel: source
+    install: "source build (make)"
+    entry_point: afl-fuzz
+    kind: adapter
+    linkage: subprocess
+    plugin_point: skills/fault-injection
+    domains: [all]
+    platforms: [all]
+    standards: []
+    categories: [fuzzing]
+    status: candidate
+    milestone: M4
+    benefit: "Coverage-guided fuzzing with corpus minimisation and QEMU/unicorn rehosting — the general-purpose fuzzer behind the protocol and image harnesses."
+    notes: "AGPL-3.0: subprocess only; if an adapter is ever exposed as a network service, AGPL section 13 source obligations trigger."
+
+  - id: honggfuzz
+    name: honggfuzz
+    upstream: https://github.com/google/honggfuzz
+    license: Apache-2.0
+    language: C
+    channel: source
+    install: "source build (make)"
+    entry_point: honggfuzz
+    kind: adapter
+    linkage: subprocess
+    plugin_point: skills/fault-injection
+    domains: [all]
+    platforms: [all]
+    standards: []
+    categories: [fuzzing]
+    status: candidate
+    milestone: M4
+    benefit: "Permissive-licensed alternative to AFL++ for organisations that cannot accept AGPL in the toolchain."
+
+  - id: libfuzzer
+    name: libFuzzer
+    upstream: https://github.com/llvm/llvm-project
+    license: Apache-2.0 WITH LLVM-exception
+    language: C++
+    channel: binary
+    install: "apt install clang  (-fsanitize=fuzzer)"
+    entry_point: clang
+    kind: adapter
+    linkage: subprocess
+    plugin_point: skills/fault-injection
+    domains: [all]
+    platforms: [all]
+    standards: []
+    categories: [fuzzing, unit-level]
+    status: candidate
+    milestone: M4
+    benefit: "The only in-process fuzzer — essential for unit-level fuzzing of embedded C parsers (CAN frames, boot headers, NMEA packets) where a separate process cannot reach the target code."
+
+  - id: boofuzz
+    name: BooFuzz
+    upstream: https://github.com/jtpereyda/boofuzz
+    license: GPL-2.0
+    language: Python
+    channel: pip
+    install: "boofuzz>=0.3"
+    entry_point: boofuzz
+    kind: adapter
+    linkage: subprocess
+    plugin_point: skills/threat-model
+    domains: [automotive, industrial, medical, iot]
+    platforms: [all]
+    standards: []
+    categories: [fuzzing, protocols]
+    status: accepted
+    milestone: M4
+    benefit: "Protocol fuzzer with native serial/TCP/UDP/raw-socket transports — the right tool for UDS, DoIP and bootloader attack surfaces, and it records results to SQLite for the evidence ledger."
+
+  - id: oss-fuzz
+    name: OSS-Fuzz / CIFuzz
+    upstream: https://github.com/google/oss-fuzz
+    license: Apache-2.0
+    language: Python
+    channel: container
+    install: "gcr.io/oss-fuzz base image"
+    entry_point: cifuzz
+    kind: adapter
+    linkage: subprocess
+    plugin_point: skills/fault-injection
+    domains: [all]
+    platforms: [all]
+    standards: []
+    categories: [fuzzing, ci]
+    status: candidate
+    milestone: M4
+    benefit: "CIFuzz builds fuzzers from a PR, runs ~600 s, fails only on NEW reproducible crashes and emits SARIF — a ready-made continuous-fuzzing gate for Axiom CI."
+    notes: "OSS-Fuzz infrastructure targets x86_64; MCU code still needs the local harnesses above."
+
+  - id: unicorn
+    name: Unicorn
+    upstream: https://github.com/unicorn-engine/unicorn
+    license: GPL-2.0
+    language: C
+    channel: pip
+    install: "unicorn>=2.1"
+    entry_point: unicorn
+    kind: adapter
+    linkage: subprocess
+    plugin_point: skills/fault-injection
+    domains: [all]
+    platforms: [all]
+    standards: []
+    categories: [emulation, fault-injection]
+    status: accepted
+    milestone: M4
+    benefit: "Multi-architecture CPU emulator with Python bindings — the cheapest deterministic instruction-level fault injector available, and the engine inside Fuzzware."
+
+  - id: syzkaller
+    name: syzkaller
+    upstream: https://github.com/google/syzkaller
+    license: Apache-2.0
+    language: Go
+    channel: source
+    install: "go build"
+    entry_point: syz-manager
+    kind: adapter
+    linkage: subprocess
+    plugin_point: skills/fault-injection
+    domains: [industrial, iot, automotive, medical]
+    platforms: [embedded-linux, mpu, soc]
+    standards: []
+    categories: [fuzzing, kernel]
+    status: candidate
+    milestone: M4
+    benefit: "Unsupervised kernel/OS fuzzing for embedded-Linux BSPs — covers the attack surface that pure userspace fuzzing misses."
+
+  # ---------------------------------------------------------------------
+  # 5. BINARY ANALYSIS / REVERSE ENGINEERING
+  # ---------------------------------------------------------------------
+  - id: ghidra
+    name: Ghidra
+    upstream: https://github.com/NationalSecurityAgency/ghidra
+    license: Apache-2.0
+    language: Java
+    channel: binary
+    install: "release zip (JRE required)"
+    entry_point: analyzeHeadless
+    kind: adapter
+    linkage: subprocess
+    plugin_point: tools/source-parser
+    domains: [all]
+    platforms: [all]
+    standards: []
+    categories: [binary-analysis, reverse-engineering]
+    status: candidate
+    milestone: M4
+    benefit: "analyzeHeadless + PyGhidra makes binary triage a legitimate CI adapter: hardening flags, function inventories and embedded strings become machine-readable evidence."
+
+  - id: angr
+    name: angr
+    upstream: https://github.com/angr/angr
+    license: BSD-2-Clause
+    language: Python
+    channel: pip
+    install: "angr>=10.0"
+    entry_point: angr
+    kind: adapter
+    linkage: subprocess
+    plugin_point: tools/source-parser
+    domains: [all]
+    platforms: [all]
+    standards: []
+    categories: [binary-analysis, reverse-engineering]
+    status: accepted
+    milestone: M4
+    benefit: "The cleanest pip-installable binary-analysis library: CFG, decompilation, symbolic execution and reachability answering 'is this vulnerable function actually reachable from the ECU entry points?'."
+
+  - id: rizin
+    name: Rizin
+    upstream: https://github.com/rizinorg/rizin
+    license: LGPL-3.0-only
+    language: C
+    channel: source
+    install: "meson build / release tarball"
+    entry_point: rizin
+    kind: adapter
+    linkage: subprocess
+    plugin_point: tools/source-parser
+    domains: [all]
+    platforms: [all]
+    standards: []
+    categories: [binary-analysis, reverse-engineering]
+    status: candidate
+    milestone: M4
+    benefit: "Actively driven radare2 fork with the best MCU/legacy architecture coverage (TMS320, M68X, C166, 8051, Xtensa) and a scriptable pipe API for CI."
+
+  - id: radare2
+    name: radare2
+    upstream: https://github.com/radareorg/radare2
+    license: LGPL-3.0
+    language: C
+    channel: source
+    install: "meson / acr build"
+    entry_point: r2
+    kind: adapter
+    linkage: subprocess
+    plugin_point: tools/source-parser
+    domains: [all]
+    platforms: [all]
+    standards: []
+    categories: [binary-analysis, reverse-engineering]
+    status: reference
+    milestone: M4
+    benefit: "Mature, widest-architecture reference implementation; `r2 -Lj` emits a machine-readable licence SBOM of its own plugins, which Axiom can reuse as a supply-chain pattern."
+
+  - id: floss
+    name: FLOSS (flare-floss)
+    upstream: https://github.com/mandiant/flare-floss
+    license: Apache-2.0
+    language: Python
+    channel: pip
+    install: "flare-floss>=3.0"
+    entry_point: floss
+    kind: adapter
+    linkage: subprocess
+    plugin_point: tools/source-parser
+    domains: [all]
+    platforms: [all]
+    standards: []
+    categories: [binary-analysis, security]
+    status: accepted
+    milestone: M4
+    benefit: "Extracts obfuscated, stack and tight strings from a firmware image, surfacing hidden credentials, URLs, CAN identifiers and diagnostic keys that `strings` misses."
+
+  - id: binwalk
+    name: Binwalk
+    upstream: https://github.com/ReFirmLabs/binwalk
+    license: MIT
+    language: Rust
+    channel: cargo
+    install: "cargo install binwalk"
+    entry_point: binwalk
+    kind: adapter
+    linkage: subprocess
+    plugin_point: tools/source-parser
+    domains: [iot, automotive, industrial, consumer]
+    platforms: [mcu, mpu, soc, embedded-linux]
+    standards: []
+    categories: [firmware-image, forensics]
+    status: accepted
+    milestone: M4
+    benefit: "Carves embedded filesystems, compressed blobs and firmware partitions out of an ECU flash image so Axiom can index and scan what is really inside the delivered binary."
+
+  # ---------------------------------------------------------------------
+  # 6. SUPPLY CHAIN / SBOM / LICENCE
+  # ---------------------------------------------------------------------
+  - id: syft
+    name: Syft
+    upstream: https://github.com/anchore/syft
+    license: Apache-2.0
+    language: Go
+    channel: binary
+    install: "release binary (static, no runtime deps)"
+    entry_point: syft
+    kind: adapter
+    linkage: subprocess
+    plugin_point: tools/dependency-analyzer
+    domains: [all]
+    platforms: [all]
+    standards: []
+    categories: [sbom, sca, evidence]
+    status: accepted
+    milestone: M1
+    benefit: "Generates SPDX and CycloneDX SBOMs from directories, archives and container images — the foundation for firmware-image SBOM and for feeding every downstream CVE matcher."
+
+  - id: grype
+    name: Grype
+    upstream: https://github.com/anchore/grype
+    license: Apache-2.0
+    language: Go
+    channel: binary
+    install: "release binary"
+    entry_point: grype
+    kind: adapter
+    linkage: subprocess
+    plugin_point: tools/dependency-analyzer
+    domains: [all]
+    platforms: [all]
+    standards: []
+    categories: [sca, evidence]
+    status: accepted
+    milestone: M1
+    benefit: "Matches a Syft SBOM against CVEs with EPSS/KEV risk scoring and OpenVEX support, turning 'what is in this image' into 'what is exploitable in this image'."
+    notes: "Use v0.104.1 or later (CVE-2025-65965 credential leak in JSON file output)."
+
+  - id: osv-scanner
+    name: OSV-Scanner
+    upstream: https://github.com/google/osv-scanner
+    license: Apache-2.0
+    language: Go
+    channel: binary
+    install: "release binary / go install"
+    entry_point: osv-scanner
+    kind: adapter
+    linkage: subprocess
+    plugin_point: tools/dependency-analyzer
+    domains: [all]
+    platforms: [all]
+    standards: []
+    categories: [sca, evidence]
+    status: accepted
+    milestone: M1
+    benefit: "Detects VENDORED C/C++ with call analysis, cutting the false-positive rate that makes embedded SCA unusable, and supports an --offline mode for air-gapped CI."
+
+  - id: cve-bin-tool
+    name: cve-bin-tool
+    upstream: https://github.com/ossf/cve-bin-tool
+    license: GPL-3.0-or-later
+    language: Python
+    channel: pip
+    install: "cve-bin-tool>=3.4"
+    entry_point: cve-bin-tool
+    kind: adapter
+    linkage: subprocess
+    plugin_point: tools/dependency-analyzer
+    domains: [all]
+    platforms: [all]
+    standards: []
+    categories: [sca, binary-analysis, evidence]
+    status: accepted
+    milestone: M1
+    benefit: "450+ binary checkers fingerprint the libraries actually COMPILED INTO a shipped ECU image — the question no source-level SCA tool answers."
+    notes: "GPL-3.0 => subprocess only."
+
+  - id: trivy
+    name: Trivy
+    upstream: https://github.com/aquasecurity/trivy
+    license: Apache-2.0
+    language: Go
+    channel: binary
+    install: "release binary / docker"
+    entry_point: trivy
+    kind: adapter
+    linkage: subprocess
+    plugin_point: tools/dependency-analyzer
+    domains: [all]
+    platforms: [all]
+    standards: []
+    categories: [sca, secrets, evidence]
+    status: candidate
+    milestone: M4
+    benefit: "CVE, misconfiguration, secret and licence scanning over an extracted ECU root filesystem, so the whole image — not just its source — becomes auditable evidence."
+
+  - id: cyclonedx-python-lib
+    name: CycloneDX Python lib
+    upstream: https://github.com/CycloneDX/cyclonedx-python-lib
+    license: Apache-2.0
+    language: Python
+    channel: pip
+    install: "cyclonedx-python-lib>=11.0"
+    entry_point: cyclonedx
+    kind: adapter
+    linkage: subprocess
+    plugin_point: tools/dependency-analyzer
+    domains: [all]
+    platforms: [all]
+    standards: []
+    categories: [sbom, evidence]
+    status: accepted
+    milestone: M1
+    benefit: "Lets an Axiom adapter emit and validate a CycloneDX BOM natively in-process, which is what UNECE WP.14 / ISO 21434 evidence pipelines consume."
+
+  - id: spdx-tools
+    name: SPDX tools-python
+    upstream: https://github.com/spdx/tools-python
+    license: Apache-2.0
+    language: Python
+    channel: pip
+    install: "spdx-tools>=0.8"
+    entry_point: pyspdxtools
+    kind: adapter
+    linkage: subprocess
+    plugin_point: tools/dependency-analyzer
+    domains: [all]
+    platforms: [all]
+    standards: []
+    categories: [sbom, evidence]
+    status: accepted
+    milestone: M1
+    benefit: "Reference SPDX 2.2/2.3 implementation, so Axiom can validate and emit the other major SBOM dialect interchangeably."
+
+  - id: reuse-tool
+    name: REUSE tool
+    upstream: https://github.com/fsfe/reuse-tool
+    license: GPL-3.0-or-later
+    language: Python
+    channel: pip
+    install: "reuse>=4.0"
+    entry_point: reuse
+    kind: adapter
+    linkage: subprocess
+    plugin_point: tools/traceability-checker
+    domains: [all]
+    platforms: [all]
+    standards: []
+    categories: [licensing, traceability]
+    status: accepted
+    milestone: M1
+    benefit: "Per-file SPDX header and LICENSES/ compliance linting — enforces that every source file in every embedded package declares its licence, which is a traceability requirement, not just a legal one."
+
+  - id: scancode-toolkit
+    name: ScanCode Toolkit
+    upstream: https://github.com/aboutcode-org/scancode-toolkit
+    license: Apache-2.0
+    language: Python
+    channel: pip
+    install: "scancode-toolkit>=32.0"
+    entry_point: scancode
+    kind: adapter
+    linkage: subprocess
+    plugin_point: tools/dependency-analyzer
+    domains: [all]
+    platforms: [all]
+    standards: []
+    categories: [licensing, sca]
+    status: candidate
+    milestone: M4
+    benefit: "Reference-accurate full-text licence detection for vendored third-party C sources — catches copied code that no package manifest records."
+
+  - id: pip-licenses
+    name: pip-licenses
+    upstream: https://github.com/raimon49/pip-licenses
+    license: MIT
+    language: Python
+    channel: pip
+    install: "pip-licenses>=5.0"
+    entry_point: pip-licenses
+    kind: adapter
+    linkage: subprocess
+    plugin_point: tools/dependency-analyzer
+    domains: [all]
+    platforms: [all]
+    standards: []
+    categories: [licensing, ci]
+    status: accepted
+    milestone: M1
+    benefit: "A ready-made policy gate for Axiom's own adapter dependencies: --fail-on=\"GPL-3.0\" turns licence hygiene into a build failure instead of a surprise."
+
+  - id: ort
+    name: OSS Review Toolkit (ORT)
+    upstream: https://github.com/oss-review-toolkit/ort
+    license: Apache-2.0
+    language: Kotlin
+    channel: container
+    install: "maven central org.ossreviewtoolkit:cli  (or container image)"
+    entry_point: ort
+    kind: suite
+    linkage: subprocess
+    plugin_point: tools/dependency-analyzer
+    domains: [all]
+    platforms: [all]
+    standards: []
+    categories: [sbom, policy, licensing]
+    status: candidate
+    milestone: M5
+    benefit: "The heavyweight but complete FOSS-policy engine: SBOM generation, policy-as-code, licence/security evaluation and source-archive creation for a full supply-chain programme."
+
+  - id: scorecard
+    name: OpenSSF Scorecard
+    upstream: https://github.com/ossf/scorecard
+    license: Apache-2.0
+    language: Go
+    channel: container
+    install: "ghcr.io/ossf/scorecard"
+    entry_point: scorecard
+    kind: adapter
+    linkage: subprocess
+    plugin_point: tools/dependency-analyzer
+    domains: [all]
+    platforms: [all]
+    standards: []
+    categories: [supply-chain, policy]
+    status: candidate
+    milestone: M5
+    benefit: "Scores a third-party dependency's own supply-chain hygiene (signed releases, pinned deps, fuzzing, SAST) — the vetting step before a C library is admitted to an Axiom profile."
+
+  - id: guac
+    name: GUAC
+    upstream: https://github.com/guacsec/guac
+    license: Apache-2.0
+    language: Go
+    channel: binary
+    install: "release binary + graph database"
+    entry_point: guacone
+    kind: suite
+    linkage: subprocess
+    plugin_point: packages/core/artifact_graph
+    domains: [all]
+    platforms: [all]
+    standards: []
+    categories: [sbom, provenance, graph]
+    status: candidate
+    milestone: M5
+    benefit: "Correlates SBOM, provenance, VEX and Scorecard into a graph so Axiom can answer 'which of my shipped firmware images transitively depend on a vulnerable library?'."
+
+  # ---------------------------------------------------------------------
+  # 7. DEBUG / FLASH / TARGET
+  # ---------------------------------------------------------------------
+  - id: pyocd
+    name: pyOCD
+    upstream: https://github.com/pyocd/pyOCD
+    license: Apache-2.0
+    language: Python
+    channel: pip
+    install: "pyocd>=0.46"
+    entry_point: pyocd
+    kind: adapter
+    linkage: subprocess
+    plugin_point: skills/hardware-bringup
+    domains: [all]
+    platforms: [mcu, soc, mpsoc, arm-cortex-m, arm-cortex-r]
+    standards: []
+    categories: [debug, flash, bringup]
+    status: accepted
+    milestone: M2
+    benefit: "Pure-pip CMSIS-DAP flash, debug and GDB server with no vendor SDK — the single highest-leverage adapter for bringing up an unknown Cortex-M target, replacing J-Link/Ozone."
+
+  - id: openocd
+    name: OpenOCD
+    upstream: https://gitlab.com/openocd/openocd
+    license: GPL-2.0-or-later
+    language: C
+    channel: apt
+    install: "apt install openocd"
+    entry_point: openocd
+    kind: adapter
+    linkage: subprocess
+    plugin_point: skills/hardware-bringup
+    domains: [all]
+    platforms: [mcu, soc, mpsoc, arm-cortex-m, arm-cortex-r, risc-v]
+    standards: []
+    categories: [debug, flash]
+    status: accepted
+    milestone: M2
+    benefit: "The OSS JTAG/SWD GDB server every target-attach workflow needs, with a broad target/driver matrix that no single vendor probe provides."
+    notes: "Canonical home is GitLab, not GitHub — the manifest must carry the GitLab URL."
+
+  - id: stlink
+    name: stlink
+    upstream: https://github.com/stlink-org/stlink
+    license: BSD-3-Clause
+    language: C
+    channel: apt
+    install: "apt install stlink"
+    entry_point: st-flash
+    kind: adapter
+    linkage: subprocess
+    plugin_point: skills/hardware-bringup
+    domains: [automotive, industrial, consumer, iot]
+    platforms: [mcu, soc, arm-cortex-m]
+    standards: []
+    categories: [debug, flash]
+    status: candidate
+    milestone: M2
+    benefit: "Open replacement for STM32CubeProgrammer's flashing step, so an Axiom bring-up pipeline needs no vendor toolchain on the agent machine."
+
+  - id: esptool
+    name: esptool
+    upstream: https://github.com/espressif/esptool
+    license: GPL-2.0
+    language: Python
+    channel: pip
+    install: "esptool>=5.6"
+    entry_point: esptool
+    kind: adapter
+    linkage: subprocess
+    plugin_point: skills/hardware-bringup
+    domains: [iot, consumer, industrial]
+    platforms: [mcu, soc]
+    standards: []
+    categories: [flash, bringup]
+    status: candidate
+    milestone: M2
+    benefit: "A complete flash-and-verify adapter for ESP32 targets in one pip dependency, covering a platform family that would otherwise need the vendor IDF."
+
+  - id: intelhex
+    name: IntelHex
+    upstream: https://github.com/python-intelhex/intelhex
+    license: BSD-3-Clause
+    language: Python
+    channel: pip
+    install: "intelhex>=2.3"
+    entry_point: intelhex
+    kind: adapter
+    linkage: subprocess
+    plugin_point: packages/core/artifacts
+    domains: [all]
+    platforms: [all]
+    standards: []
+    categories: [artifact, firmware-image]
+    status: accepted
+    milestone: M2
+    benefit: "HEX/ELF/BIN conversion for the artifact pipeline, so the binary that is flashed and the binary that is evidence-attested are provably the same bytes."
+
+  - id: hdiffpatch
+    name: HDiffPatch
+    upstream: https://github.com/sisong/HDiffPatch
+    license: MIT
+    language: C++
+    channel: source
+    install: "source build"
+    entry_point: hdiffpatch
+    kind: adapter
+    linkage: subprocess
+    plugin_point: skills/automotive-ota
+    domains: [automotive, iot, industrial, consumer]
+    platforms: [all]
+    standards: []
+    categories: [delta-update, ota]
+    status: candidate
+    milestone: M4
+    benefit: "Actively maintained binary delta engine for OTA updates, enabling a differential-update evidence row that shows exactly which bytes changed between firmware versions."
+
+  # ---------------------------------------------------------------------
+  # 8. EMULATION / HIL
+  # ---------------------------------------------------------------------
+  - id: renode
+    name: Renode
+    upstream: https://github.com/renode/renode
+    license: MIT
+    language: C#
+    channel: binary
+    install: "portable release package (mono/dotnet)"
+    entry_point: renode
+    kind: platform
+    linkage: subprocess
+    plugin_point: skills/system-test
+    domains: [all]
+    platforms: [mcu, mpu, soc, mpsoc, arm-cortex-m, arm-cortex-a, risc-v, xtensa]
+    standards: []
+    categories: [emulation, hil, test-framework]
+    status: accepted
+    milestone: M4
+    benefit: "Runs unmodified Cortex-M/A/R, RISC-V and Xtensa firmware in CI with a Robot Framework binding — the only OSS route to HIL-grade system tests without hardware."
+
+  - id: qemu
+    name: QEMU
+    upstream: https://github.com/qemu/qemu
+    license: GPL-2.0
+    language: C
+    channel: apt
+    install: "apt install qemu-system-arm"
+    entry_point: qemu-system-arm
+    kind: platform
+    linkage: subprocess
+    plugin_point: skills/system-test
+    domains: [industrial, automotive, iot, medical]
+    platforms: [embedded-linux, mpu, soc, mpsoc, arm-cortex-a, x86]
+    standards: []
+    categories: [emulation, hil]
+    status: accepted
+    milestone: M4
+    benefit: "System emulation for embedded-Linux targets, giving the platform a full-OS test environment that Renode's MCU focus does not cover."
+
+  - id: simavr
+    name: simavr
+    upstream: https://github.com/buserror/simavr
+    license: GPL-3.0
+    language: C
+    channel: apt
+    install: "apt install simavr"
+    entry_point: simavr
+    kind: platform
+    linkage: subprocess
+    plugin_point: skills/system-test
+    domains: [iot, consumer, industrial]
+    platforms: [mcu, arm-cortex-m]
+    standards: []
+    categories: [emulation]
+    status: candidate
+    milestone: M4
+    benefit: "Lightweight AVR simulator that reads ELF directly; a cheap CI target for small 8-bit nodes in an IoT fleet."
+
+  # ---------------------------------------------------------------------
+  # 9. RTOS / BSP / PLATFORM
+  # ---------------------------------------------------------------------
+  - id: zephyr
+    name: Zephyr
+    upstream: https://github.com/zephyrproject-rtos/zephyr
+    license: Apache-2.0
+    language: C
+    channel: container
+    install: "zephyrproject-rtos/docker-image + Zephyr SDK"
+    entry_point: west
+    kind: platform
+    linkage: subprocess
+    plugin_point: platforms/zephyr
+    domains: [all]
+    platforms: [mcu, soc, mpsoc, arm-cortex-m, arm-cortex-r, risc-v, xtensa, arm-cortex-a]
+    standards: []
+    categories: [rtos, platform]
+    status: accepted
+    milestone: M2
+    benefit: "The most-used embedded platform in the field; its in-tree ztest framework and twister harness give Axiom a complete headless test CI for a whole RTOS family, plus a device-tree model the hardware skill can read."
+
+  - id: west
+    name: west
+    upstream: https://github.com/zephyrproject-rtos/west
+    license: Apache-2.0
+    language: Python
+    channel: pip
+    install: "west>=1.5"
+    entry_point: west
+    kind: platform
+    linkage: subprocess
+    plugin_point: platforms/zephyr
+    domains: [all]
+    platforms: [all]
+    standards: []
+    categories: [build, reproducible]
+    status: accepted
+    milestone: M2
+    benefit: "Manifest-based multi-repo workspace manager — the reproducibility mechanism that pins every Zephyr module to an exact revision, making builds auditable and rebuildable."
+
+  - id: zephyr-sdk
+    name: Zephyr SDK
+    upstream: https://github.com/zephyrproject-rtos/sdk-ng
+    license: Apache-2.0
+    language: C
+    channel: binary
+    install: "release tarball (sdk-ng)"
+    entry_point: arm-zephyr-eabi-gcc
+    kind: platform
+    linkage: subprocess
+    plugin_point: platforms/zephyr
+    domains: [all]
+    platforms: [mcu, soc, mpsoc]
+    standards: []
+    categories: [toolchain, reproducible]
+    status: candidate
+    milestone: M2
+    benefit: "Pinned cross-compiler toolchains without building one — removes the longest and least reproducible step from any embedded CI pipeline."
+
+  - id: freertos
+    name: FreeRTOS
+    upstream: https://github.com/FreeRTOS/FreeRTOS
+    license: MIT
+    language: C
+    channel: source
+    install: "vendor kernel + demos"
+    entry_point: FreeRTOS
+    kind: platform
+    linkage: none
+    plugin_point: platforms/freertos
+    domains: [all]
+    platforms: [mcu, soc, mpsoc, arm-cortex-m, risc-v]
+    standards: []
+    categories: [rtos, platform]
+    status: candidate
+    milestone: M2
+    benefit: "The most deployed RTOS in the field; a first-class Axiom platform target for the rtos and rtos-architecture skills."
+
+  - id: nuttx
+    name: Apache NuttX
+    upstream: https://github.com/apache/nuttx
+    license: Apache-2.0
+    language: C
+    channel: source
+    install: "make menuconfig  (nuttx + apps)"
+    entry_point: nuttx
+    kind: platform
+    linkage: none
+    plugin_point: platforms/nuttx
+    domains: [aerospace, industrial, iot, automotive]
+    platforms: [mcu, soc, mpsoc, risc-v, arm-cortex-m]
+    standards: []
+    categories: [rtos, platform, posix]
+    status: candidate
+    milestone: M2
+    benefit: "POSIX-compliant RTOS with its own simulator, so an Axiom integration-test profile can run on the host as well as the target."
+
+  - id: sel4
+    name: seL4
+    upstream: https://github.com/sel4/sel4
+    license: GPL-2.0-only
+    language: C
+    channel: source
+    install: "source + formal toolchain"
+    entry_point: sel4
+    kind: platform
+    linkage: none
+    plugin_point: platforms/rtos
+    domains: [aerospace, defense, industrial, medical]
+    platforms: [soc, mpsoc, arm-cortex-a, risc-v, x86]
+    standards: []
+    categories: [rtos, assurance, platform]
+    status: reference
+    milestone: M4
+    benefit: "The highest-assurance kernel in the ecosystem and the reference for per-file SPDX tagging, which is exactly the traceability discipline Axiom asks of safety-critical packages."
+
+  - id: tock
+    name: Tock
+    upstream: https://github.com/tock/tock
+    license: Apache-2.0 OR MIT
+    language: Rust
+    channel: source
+    install: "source + Rust toolchain"
+    entry_point: tock
+    kind: platform
+    linkage: none
+    plugin_point: skills/rust-embedded
+    domains: [all]
+    platforms: [mcu, soc, mpsoc, risc-v, arm-cortex-m]
+    standards: []
+    categories: [rtos, rust, platform]
+    status: candidate
+    milestone: M2
+    benefit: "A memory-safe Rust MCU kernel — the concrete platform target that gives Axiom's rust-embedded skill something real to build and analyse."
+
+  - id: riot
+    name: RIOT OS
+    upstream: https://github.com/RIOT-OS/RIOT
+    license: LGPL-2.1
+    language: C
+    channel: source
+    install: "make BOARD=... "
+    entry_point: riot
+    kind: platform
+    linkage: none
+    plugin_point: platforms/rtos
+    domains: [iot, industrial, energy, rail]
+    platforms: [mcu, soc, arm-cortex-m, risc-v, mips]
+    standards: []
+    categories: [rtos, platform]
+    status: candidate
+    milestone: M2
+    benefit: "Broad MCU + network board support with simple make targets, so it can be added as a CI target without a custom toolchain wrapper."
+
+  - id: threadx
+    name: Eclipse ThreadX
+    upstream: https://github.com/eclipse-threadx/threadx
+    license: MIT
+    language: C
+    channel: source
+    install: "source + CMake"
+    entry_point: threadx
+    kind: platform
+    linkage: none
+    plugin_point: platforms/rtos
+    domains: [industrial, iot, automotive, medical]
+    platforms: [mcu, soc, mpsoc, arm-cortex-a, arm-cortex-m]
+    standards: []
+    categories: [rtos, platform]
+    status: candidate
+    milestone: M2
+    benefit: "ThreadX became genuinely open source under the Eclipse Foundation — a commercially proven kernel that can now be an Axiom platform target without a vendor agreement."
+
+  - id: esp-idf
+    name: ESP-IDF
+    upstream: https://github.com/espressif/esp-idf
+    license: Apache-2.0
+    language: C
+    channel: container
+    install: "espressif/idf docker image"
+    entry_point: idf.py
+    kind: platform
+    linkage: subprocess
+    plugin_point: platforms/mcu
+    domains: [iot, consumer, industrial]
+    platforms: [mcu, soc, risc-v, xtensa]
+    standards: []
+    categories: [platform, build]
+    status: candidate
+    milestone: M2
+    benefit: "The reference platform for the largest low-cost MCU fleet in the world; idf.py gives Axiom a single build/flash/monitor entry point for that family."
+
+  - id: mcuboot
+    name: MCUboot
+    upstream: https://github.com/mcu-tools/mcuboot
+    license: Apache-2.0
+    language: C
+    channel: source
+    install: "source + cross toolchain"
+    entry_point: mcuboot
+    kind: platform
+    linkage: none
+    plugin_point: skills/bootloader
+    domains: [automotive, industrial, medical, consumer, iot]
+    platforms: [mcu, mpsoc, arm-cortex-m, risc-v]
+    standards: []
+    categories: [bootloader, secure-update, platform]
+    status: accepted
+    milestone: M2
+    benefit: "Signed bootloader with mcumgr OTA — the concrete implementation behind Axiom's bootloader skill and the automated-OTA evidence chain."
+
+  - id: trusted-firmware-m
+    name: TrustedFirmware-M
+    upstream: https://github.com/TrustedFirmware-M/trusted-firmware-m
+    license: BSD-3-Clause
+    language: C
+    channel: source
+    install: "source + cross toolchain"
+    entry_point: tfm
+    kind: platform
+    linkage: none
+    plugin_point: platforms/soc
+    domains: [automotive, industrial, medical, defense]
+    platforms: [soc, mpsoc, arm-cortex-a, arm-cortex-m]
+    standards: []
+    categories: [tee, secure-boot, platform]
+    status: candidate
+    milestone: M4
+    benefit: "Arm PSA Secure Partition reference implementation — gives Axiom's threat-model skill a real TEE to reason about instead of an abstract diagram."
+
+  - id: arm-tf-a
+    name: Arm Trusted Firmware-A
+    upstream: https://github.com/ARM-software/arm-trusted-firmware
+    license: BSD-3-Clause
+    language: C
+    channel: source
+    install: "source + cross toolchain"
+    entry_point: bl1
+    kind: platform
+    linkage: none
+    plugin_point: platforms/soc
+    domains: [automotive, industrial, medical, defense]
+    platforms: [soc, mpsoc, arm-cortex-a, arm-cortex-m]
+    standards: []
+    categories: [secure-boot, platform]
+    status: candidate
+    milestone: M4
+    benefit: "Secure boot for Cortex-A class targets, the counterpart to MCUboot on the M-class side, so secure-update evidence is symmetric across both MCU families."
+
+  - id: cmsis-core
+    name: Arm CMSIS-Core v6
+    upstream: https://github.com/ARM-software/CMSIS_6
+    license: Apache-2.0
+    language: C
+    channel: source
+    install: "vendor headers"
+    entry_point: cmsis
+    kind: platform
+    linkage: none
+    plugin_point: skills/drivers
+    domains: [all]
+    platforms: [mcu, soc, mpsoc, arm-cortex-m, arm-cortex-r]
+    standards: []
+    categories: [hal, drivers, platform]
+    status: accepted
+    milestone: M2
+    benefit: "The vendor-neutral Cortex-M core abstraction that lets Axiom's drivers skill write HAL-independent driver code and the bring-up skill reason about core peripherals generically."
+
+  - id: libopencm3
+    name: libopencm3
+    upstream: https://github.com/libopencm3/libopencm3
+    license: GPL-3.0
+    language: C
+    channel: source
+    install: "source + cross toolchain"
+    entry_point: opencm3
+    kind: platform
+    linkage: none
+    plugin_point: skills/drivers
+    domains: [all]
+    platforms: [mcu, arm-cortex-m]
+    standards: []
+    categories: [hal, drivers, platform]
+    status: candidate
+    milestone: M2
+    benefit: "Vendor-neutral MCU HAL for STM32/FDP/NXP/AT32 — a concrete fallback when a bring-up project has no vendor SDK available."
+
+  - id: mbed-tls
+    name: Mbed TLS
+    upstream: https://github.com/ARMmbed/mbedtls
+    license: Apache-2.0
+    language: C
+    channel: source
+    install: "source + cross toolchain"
+    entry_point: mbedtls
+    kind: platform
+    linkage: none
+    plugin_point: skills/drivers
+    domains: [all]
+    platforms: [all]
+    standards: []
+    categories: [crypto, drivers, platform]
+    status: candidate
+    milestone: M4
+    benefit: "The default embedded TLS baseline that Axiom's security skills can assume as the present, so a threat model starts from a known-good crypto floor."
+
+  - id: openthread
+    name: OpenThread
+    upstream: https://github.com/openthread/openthread
+    license: BSD-3-Clause
+    language: C++
+    channel: source
+    install: "source + CMake/Ninja"
+    entry_point: ot-cli
+    kind: platform
+    linkage: none
+    plugin_point: platforms/embedded-linux
+    domains: [iot, consumer, industrial, energy]
+    platforms: [mcu, soc, arm-cortex-m]
+    standards: []
+    categories: [connectivity, platform]
+    status: candidate
+    milestone: M4
+    benefit: "A complete 802.15.4 / Thread stack, giving Axiom's wireless and OT-security skills a real network target for coexistence and threat analysis."
+
+  - id: buildroot
+    name: Buildroot
+    upstream: https://github.com/buildroot/buildroot
+    license: GPL-2.0
+    language: Makefile
+    channel: source
+    install: "make defconfig && make"
+    entry_point: buildroot
+    kind: platform
+    linkage: subprocess
+    plugin_point: platforms/embedded-linux
+    domains: [industrial, iot, automotive, medical]
+    platforms: [embedded-linux, mpu, soc, mpsoc]
+    standards: []
+    categories: [build, linux]
+    status: candidate
+    milestone: M2
+    benefit: "Fast uClibc/musl Linux distro builder — the cheapest reproducible embedded-Linux image for Axiom's Linux profiles."
+
+  - id: yocto-bitbake
+    name: Yocto (bitbake + OE-Core)
+    upstream: https://github.com/openembedded/openembedded-core
+    license: GPL-2.0
+    language: Python
+    channel: source
+    install: "bitbake + oe-core + meta-yocto (poky master is frozen)"
+    entry_point: bitbake
+    kind: platform
+    linkage: subprocess
+    plugin_point: platforms/embedded-linux
+    domains: [automotive, industrial, medical]
+    platforms: [embedded-linux, mpu, soc, mpsoc]
+    standards: []
+    categories: [build, linux]
+    status: candidate
+    milestone: M2
+    benefit: "Policy-grade Linux BSP construction with layer-based customisation — the industry default for automotive and industrial Linux images."
+
+  - id: rtos-free-rtos
+    name: RTEMS
+    upstream: https://github.com/rtems/rtems
+    license: BSD-2-Clause
+    language: C
+    channel: source
+    install: "RTEMS Source Builder"
+    entry_point: rtems
+    kind: platform
+    linkage: none
+    plugin_point: platforms/rtos
+    domains: [aerospace, defense, space, industrial]
+    platforms: [mcu, soc, mpsoc, sparc, powerpc]
+    standards: []
+    categories: [rtos, platform, aerospace]
+    status: candidate
+    milestone: M2
+    benefit: "A POSIX RTOS with real aerospace and defence heritage, giving Axiom's aerospace and defence profiles a credible runtime target."
+
+  # ---------------------------------------------------------------------
+  # 10. BUILD SYSTEMS / REPRODUCIBILITY
+  # ---------------------------------------------------------------------
+  - id: cmake
+    name: CMake + CTest
+    upstream: https://github.com/Kitware/CMake
+    license: BSD-3-Clause
+    language: C
+    channel: pip
+    install: "cmake>=4.0"
+    entry_point: cmake
+    kind: platform
+    linkage: subprocess
+    plugin_point: skills/build-system
+    domains: [all]
+    platforms: [all]
+    standards: []
+    categories: [build, test-driver]
+    status: accepted
+    milestone: M2
+    benefit: "The most universal build and test contract in the industry; CTest's result schema gives Axiom a standardised, tool-neutral place to read test outcomes from."
+
+  - id: meson
+    name: Meson
+    upstream: https://github.com/mesonbuild/meson
+    license: Apache-2.0
+    language: Python
+    channel: pip
+    install: "meson>=1.12"
+    entry_point: meson
+    kind: platform
+    linkage: subprocess
+    plugin_point: skills/build-system
+    domains: [all]
+    platforms: [all]
+    standards: []
+    categories: [build]
+    status: accepted
+    milestone: M2
+    benefit: "A pure-Python build system: an adapter can declare a build contract with zero native compilation, and its machine-readable introspection is friendlier to agents than CMake's."
+
+  - id: ninja
+    name: Ninja
+    upstream: https://github.com/ninja-build/ninja
+    license: Apache-2.0
+    language: C++
+    channel: pip
+    install: "ninja>=1.13"
+    entry_point: ninja
+    kind: platform
+    linkage: subprocess
+    plugin_point: skills/build-system
+    domains: [all]
+    platforms: [all]
+    standards: []
+    categories: [build]
+    status: accepted
+    milestone: M2
+    benefit: "Fast build executor as a binary wheel; the executor that Zephyr, Renode and OpenThread all use, so one adapter covers several toolchains."
+
+  - id: conan
+    name: Conan
+    upstream: https://github.com/conan-io/conan
+    license: MIT
+    language: Python
+    channel: pip
+    install: "conan>=2.0"
+    entry_point: conan
+    kind: platform
+    linkage: subprocess
+    plugin_point: skills/build-system
+    domains: [all]
+    platforms: [all]
+    standards: []
+    categories: [build, dependencies, reproducible]
+    status: accepted
+    milestone: M2
+    benefit: "The C/C++-native package manager with cross-compilation profiles and binary packages — the most practical way to lock and evidence third-party C/C++ dependencies reproducibly."
+
+  - id: nix
+    name: Nix
+    upstream: https://github.com/NixOS/nix
+    license: LGPL-2.1
+    language: C++
+    channel: binary
+    install: "nix installer / nix-portable"
+    entry_point: nix
+    kind: platform
+    linkage: subprocess
+    plugin_point: packages/core
+    domains: [all]
+    platforms: [all]
+    standards: []
+    categories: [reproducible, hermetic]
+    status: candidate
+    milestone: M5
+    benefit: "Hermetic content-addressed builds: the answer to 'rebuild this ECU toolchain bit-identically' and the cleanest way to give every adapter a reproducible execution environment."
+
+  - id: bazel
+    name: Bazel
+    upstream: https://github.com/bazelbuild/bazel
+    license: Apache-2.0
+    language: Java
+    channel: binary
+    install: "bazelisk"
+    entry_point: bazel
+    kind: platform
+    linkage: subprocess
+    plugin_point: skills/build-system
+    domains: [all]
+    platforms: [all]
+    standards: []
+    categories: [build, hermetic]
+    status: reference
+    milestone: M5
+    benefit: "Strict-dependency hermetic C++ builds with a remote cache — the model for a large multi-repo embedded platform where incremental build time dominates."
+
+  # ---------------------------------------------------------------------
+  # 11. AUTOSAR / DIAGNOSTICS
+  # ---------------------------------------------------------------------
+  - id: autosar-data-py
+    name: autosar-data (Python bindings)
+    upstream: https://github.com/DanielT/autosar-data-py
+    license: Apache-2.0
+    language: Rust
+    channel: pip
+    install: "autosar-data>=0.17"
+    entry_point: autosar_data
+    kind: bridge
+    linkage: subprocess
+    plugin_point: tools/diag-extract-bridge
+    domains: [automotive]
+    platforms: [mcu, mpu, soc, mpsoc, autosar-classic, autosar-adaptive]
+    standards: [AUTOSAR DEXT]
+    categories: [autosar, arxml]
+    status: accepted
+    milestone: M3
+    benefit: "The strongest pip-installable ARXML reader/writer, with strict schema validation on load — it can PROVE an ARXML file matches the declared AUTOSAR version instead of guessing."
+    notes: "Verify the cp3xx wheel exists for the target architecture before shipping."
+
+  - id: py-armodel
+    name: py-armodel
+    upstream: https://github.com/melodypama/py-armodel
+    license: MIT
+    language: Python
+    channel: pip
+    install: "armodel>=1.9"
+    entry_point: armodel
+    kind: bridge
+    linkage: subprocess
+    plugin_point: tools/diag-extract-bridge
+    domains: [automotive]
+    platforms: [mcu, mpu, soc, autosar-classic, autosar-adaptive]
+    standards: [AUTOSAR DEXT]
+    categories: [autosar, arxml]
+    status: accepted
+    milestone: M3
+    benefit: "The most mature pure-Python ARXML parser/writer with round-trip integration tests and auto-detection of AUTOSAR 4.0.3 to R24-11 — the portable fallback when the Rust wheel is unavailable."
+
+  - id: cogu-autosar
+    name: autosar (cogu)
+    upstream: https://github.com/cogu/autosar
+    license: MIT
+    language: Python
+    channel: pip
+    install: "autosar>=0.4"
+    entry_point: autosar
+    kind: bridge
+    linkage: subprocess
+    plugin_point: tools/diag-extract-bridge
+    domains: [automotive]
+    platforms: [mcu, mpu, soc, autosar-classic, autosar-adaptive]
+    standards: [AUTOSAR DEXT]
+    categories: [autosar, arxml]
+    status: candidate
+    milestone: M3
+    benefit: "A third independent ARXML implementation, giving Axiom a cross-check when two parsers disagree on a supplier file."
+    notes: "PyPI ships the v0.4 API while the README documents v0.5 — pin deliberately."
+
+  - id: odxtools
+    name: odxtools
+    upstream: https://github.com/mercedes-benz/odxtools
+    license: MIT
+    language: Python
+    channel: pip
+    install: "odxtools>=11.7"
+    entry_point: odxtools
+    kind: bridge
+    linkage: subprocess
+    plugin_point: tools/diag-extract-bridge
+    domains: [automotive]
+    platforms: [mcu, mpu, soc, mpsoc, autosar-classic, autosar-adaptive]
+    standards: [ISO 14229-1]
+    categories: [diagnostics, odx]
+    status: accepted
+    milestone: M3
+    benefit: "Replaces the placeholder acme-diag-extract dependency with a real pack: it parses ODX/PDX, resolves diagnostic layers and DIDs, and encodes/decodes genuine ISO 14229 requests into the canonical UDS test-spec."
+
+  - id: udsoncan
+    name: udsoncan
+    upstream: https://github.com/pylessard/python-udsoncan
+    license: MIT
+    language: Python
+    channel: pip
+    install: "udsoncan>=1.26"
+    entry_point: udsoncan
+    kind: adapter
+    linkage: subprocess
+    plugin_point: tools/diag-uds-testgen
+    domains: [automotive]
+    platforms: [mcu, mpu, autosar-classic, autosar-adaptive]
+    standards: [ISO 14229-1]
+    categories: [diagnostics, test-execution]
+    status: accepted
+    milestone: M3
+    benefit: "The reference ISO 14229-1 client: it closes the loop by turning Axiom's generated UDS vectors into executable requests against a real ECU or a vECU, producing pass/fail evidence rows."
+
+  - id: python-can
+    name: python-can
+    upstream: https://github.com/hardbyte/python-can
+    license: LGPL-3.0
+    language: Python
+    channel: pip
+    install: "python-can>=4.6"
+    entry_point: "python-can"
+    kind: adapter
+    linkage: subprocess
+    plugin_point: tools/diag-uds-testgen
+    domains: [automotive, industrial, energy, marine, rail]
+    platforms: [mcu, mpu, soc, mpsoc]
+    standards: []
+    categories: [can, transport, bench]
+    status: accepted
+    milestone: M3
+    benefit: "One uniform CAN/CAN-FD backend over SocketCAN, Vector, PCAN, slcan and vcan — and the vcan virtual bus is what makes Axiom's CAN CI hardware-free."
+
+  - id: can-isotp
+    name: python-can-isotp
+    upstream: https://github.com/pylessard/python-can-isotp
+    license: MIT
+    language: Python
+    channel: pip
+    install: "can-isotp>=2.0"
+    entry_point: can_isotp
+    kind: adapter
+    linkage: subprocess
+    plugin_point: tools/diag-uds-testgen
+    domains: [automotive, industrial]
+    platforms: [mcu, mpu, soc, mpsoc, autosar-classic, autosar-adaptive]
+    standards: [ISO 14229-1]
+    categories: [can, transport, iso-tp]
+    status: accepted
+    milestone: M3
+    benefit: "ISO 15765-2 segmentation — the difference between 'UDS works on the bench' and 'UDS works against a real ECU' with multi-frame services."
+
+  - id: doipclient
+    name: doipclient
+    upstream: https://github.com/jacobschaer/python-doipclient
+    license: MIT
+    language: Python
+    channel: pip
+    install: "doipclient>=1.2"
+    entry_point: doipclient
+    kind: adapter
+    linkage: subprocess
+    plugin_point: skills/axiom-diagnostics-doip
+    domains: [automotive]
+    platforms: [mpu, soc, mpsoc, autosar-adaptive]
+    standards: [ISO 13400]
+    categories: [diagnostics, doip, transport]
+    status: accepted
+    milestone: M3
+    benefit: "A pure-Python ISO 13400 client designed as the transport for udsoncan — the missing DoIP layer that Axiom's axiom-diagnostics-doip skill currently has no OSS backing for."
+
+  - id: canmatrix
+    name: canmatrix
+    upstream: https://github.com/ebroecker/canmatrix
+    license: BSD-2-Clause
+    language: Python
+    channel: pip
+    install: "canmatrix>=1.3"
+    entry_point: canconvert
+    kind: bridge
+    linkage: subprocess
+    plugin_point: tools/diag-extract-bridge
+    domains: [automotive, industrial, marine, rail]
+    platforms: [mcu, mpu, soc, mpsoc]
+    standards: []
+    categories: [can, communication-matrix, lin]
+    status: accepted
+    milestone: M3
+    benefit: "The only library that ingests DBC, DBF, KCD, ARXML, SYM, XLS, LDF, ODX, EDS and FIBEX and exports them back; the canconvert CLI is a ready-made bridge for the automotive-networks skill."
+
+  - id: cantools
+    name: cantools
+    upstream: https://github.com/cantools/cantools
+    license: MIT
+    language: Python
+    channel: pip
+    install: "cantools>=45.0"
+    entry_point: cantools
+    kind: bridge
+    linkage: subprocess
+    plugin_point: tools/diag-extract-bridge
+    domains: [automotive, industrial, marine, rail]
+    platforms: [mcu, mpu, soc, mpsoc]
+    standards: []
+    categories: [can, codegen, communication-matrix]
+    status: accepted
+    milestone: M3
+    benefit: "Reads ARXML 3 and 4 plus CDD directly, and GENERATES C source from a DBC — so Axiom can close the loop from communication matrix to compilable driver stubs."
+
+  - id: ldfparser
+    name: ldfparser
+    upstream: https://github.com/c4deszes/ldfparser
+    license: MIT
+    language: Python
+    channel: pip
+    install: "ldfparser"
+    entry_point: ldfparser
+    kind: bridge
+    linkage: subprocess
+    plugin_point: tools/diag-extract-bridge
+    domains: [automotive, industrial]
+    platforms: [mcu, soc]
+    standards: [ISO 17987-1]
+    categories: [lin, communication-matrix]
+    status: accepted
+    milestone: M3
+    benefit: "LIN is the one bus family in Axiom's scope with NO parser at all; this closes the gap and is already the engine canmatrix uses for LDF."
+
+  - id: fibexconverter
+    name: FibexConverter
+    upstream: https://github.com/LarsVoelker/FibexConverter
+    license: GPL-2.0
+    language: Python
+    channel: source
+    install: "git clone + uv sync"
+    entry_point: fibexconverter
+    kind: bridge
+    linkage: subprocess
+    plugin_point: tools/diag-extract-bridge
+    domains: [automotive]
+    platforms: [mpu, soc, mpsoc, autosar-adaptive]
+    standards: []
+    categories: [someip, fibex]
+    status: candidate
+    milestone: M3
+    benefit: "FIBEX 4 to text, Wireshark dissector, CSV/XLSX, a topology graph and Peach fuzz models — the only open FIBEX path, which the axiom-automotive-ethernet-someip skill needs."
+    notes: "GPL-2.0 => subprocess only."
+
+  - id: vsomeip
+    name: vSomeIP
+    upstream: https://github.com/COVESA/vsomeip
+    license: MPL-2.0
+    language: C++
+    channel: source
+    install: "CMake + Boost"
+    entry_point: vsomeipd
+    kind: platform
+    linkage: subprocess
+    plugin_point: skills/axiom-automotive-ethernet-someip
+    domains: [automotive]
+    platforms: [soc, mpsoc, arm-cortex-a, autosar-adaptive]
+    standards: []
+    categories: [someip, platform, zonal]
+    status: candidate
+    milestone: M3
+    benefit: "The reference SOME/IP stack with service discovery and E2E — a concrete runtime against which Axiom's zonal-architecture and automotive-Ethernet skills can validate designs."
+
+  - id: vehicle-signal-specification
+    name: COVESA VSS
+    upstream: https://github.com/COVESA/vehicle_signal_specification
+    license: MPL-2.0
+    language: YAML
+    channel: source
+    install: "git clone"
+    entry_point: vss
+    kind: suite
+    linkage: none
+    plugin_point: schemas/artifact
+    domains: [automotive]
+    platforms: [all]
+    standards: []
+    categories: [signal-model, canonical-naming]
+    status: candidate
+    milestone: M5
+    benefit: "A canonical, industry-agreed signal vocabulary that Axiom's schemas can reference by identifier, so vehicle data is comparable across tools without anyone vendoring the text."
+
+  - id: caringcaribou
+    name: CaringCaribou
+    upstream: https://github.com/CaringCaribou/caringcaribou
+    license: GPL-3.0
+    language: Python
+    channel: source
+    install: "git clone + pipenv"
+    entry_point: caringcaribou
+    kind: adapter
+    linkage: subprocess
+    plugin_point: skills/axiom-vehicle-cybersecurity
+    domains: [automotive]
+    platforms: [mcu, mpu, soc, mpsoc]
+    standards: [ISO 14229-1, ISO 13400]
+    categories: [security, diagnostics, fuzzing]
+    status: accepted
+    milestone: M4
+    benefit: "DoIP and UDS security testing and fuzzing — a direct, concrete implementation for Axiom's vehicle-cybersecurity skill against real diagnostic attack surfaces."
+
+  - id: autosar-classic-platform
+    name: openAUTOSAR classic-platform
+    upstream: https://github.com/openAUTOSAR/classic-platform
+    license: GPL-2.0
+    language: C
+    channel: source
+    install: "source build (generated config)"
+    entry_point: openautosar
+    kind: reference
+    linkage: none
+    plugin_point: skills/autosar
+    domains: [automotive]
+    platforms: [autosar-classic]
+    standards: []
+    categories: [autosar, bsw, reference]
+    status: reference
+    milestone: M4
+    benefit: "A readable AUTOSAR Classic BSW reference (CanIf, Cm, Dcm, Dem) that Axiom's AUTOSAR skills can consult as authoritative implementation context — reference material, never a dependency."
+
+  - id: capella
+    name: Eclipse Capella
+    upstream: https://github.com/eclipse-capella/capella
+    license: EPL-2.0
+    language: Java
+    channel: source
+    install: "Eclipse plugin"
+    entry_point: capella
+    kind: reference
+    linkage: none
+    plugin_point: skills/software-architecture
+    domains: [aerospace, space, automotive, defense]
+    platforms: [all]
+    standards: []
+    categories: [sysml, mbse, model-source]
+    status: reference
+    milestone: M5
+    benefit: "A SysML/MBSE model source that Axiom's architecture skills can point to; kept as a model SOURCE, never as the home for standards-derived content, because SysML profiles carry vendor wording."
+
+  # ---------------------------------------------------------------------
+  # 12. BENCH / INSTRUMENTS / MEASUREMENT
+  # ---------------------------------------------------------------------
+  - id: asammdf
+    name: asammdf
+    upstream: https://github.com/danielhrisca/asammdf
+    license: LGPL-3.0
+    language: Python
+    channel: pip
+    install: "asammdf>=8.8"
+    entry_point: asammdf
+    kind: adapter
+    linkage: subprocess
+    plugin_point: tools/change-impact
+    domains: [automotive, industrial, energy, marine]
+    platforms: [mcu, mpu, soc, mpsoc]
+    standards: []
+    categories: [measurement, can, lin, evidence]
+    status: candidate
+    milestone: M4
+    benefit: "Reads ASAM MDF4 measurement logs from real benches and decodes CAN and LIN with DBC, LDF or ARXML — closing the loop from Axiom's canonical spec back to physical measurement evidence."
+
+  - id: pyserial
+    name: pyserial
+    upstream: https://github.com/pyserial/pyserial
+    license: BSD-3-Clause
+    language: Python
+    channel: pip
+    install: "pyserial>=3.5"
+    entry_point: "python -m serial.tools.miniterm"
+    kind: adapter
+    linkage: subprocess
+    plugin_point: skills/hil-test-planning
+    domains: [all]
+    platforms: [all]
+    standards: []
+    categories: [serial, bench, transport]
+    status: accepted
+    milestone: M3
+    benefit: "The ubiquitous serial transport for bench harnesses, console logging and bootloader interaction — the lowest-friction physical link in a bring-up or HIL script."
+
+  - id: pymodbus
+    name: pymodbus
+    upstream: https://github.com/pymodbus-dev/pymodbus
+    license: BSD-3-Clause
+    language: Python
+    channel: pip
+    install: "pymodbus>=3.16"
+    entry_point: "python -m pymodbus"
+    kind: adapter
+    linkage: subprocess
+    plugin_point: skills/hil-test-planning
+    domains: [industrial, energy, marine, rail]
+    platforms: [embedded-linux, mpu, soc]
+    standards: []
+    categories: [fieldbus, bench]
+    status: accepted
+    milestone: M4
+    benefit: "Modbus TCP/RTU client and server, which is the actual fieldbus of Axiom's industrial and energy profiles — it lets a HIL test speak the real plant protocol."
+
+  - id: pyvisa
+    name: PyVISA
+    upstream: https://github.com/pyvisa/pyvisa
+    license: MIT
+    language: Python
+    channel: pip
+    install: "pyvisa>=1.16"
+    entry_point: "python -m visa"
+    kind: adapter
+    linkage: subprocess
+    plugin_point: skills/hil-test-planning
+    domains: [aerospace, defense, industrial, semiconductor]
+    platforms: [all]
+    standards: []
+    categories: [instruments, bench]
+    status: accepted
+    milestone: M4
+    benefit: "The vendor-neutral instrument abstraction (GPIB, USB, TCPIP) — the boundary that keeps Axiom's bench adapters independent of any one instrument vendor's SDK."
+
+  - id: rs-instrument
+    name: RsInstrument
+    upstream: https://github.com/Rohde-Schwarz/RsInstrument
+    license: MIT
+    language: Python
+    channel: pip
+    install: "RsInstrument>=1.131"
+    entry_point: "python -m RsInstrument"
+    kind: adapter
+    linkage: subprocess
+    plugin_point: skills/hil-test-planning
+    domains: [aerospace, defense, semiconductor, industrial]
+    platforms: [all]
+    standards: []
+    categories: [instruments, bench]
+    status: candidate
+    milestone: M4
+    benefit: "R&S instrument control built on PyVISA, giving Axiom a concrete RF and power measurement backend for wireless coexistence and EMC work."
+
+  - id: sigrok-decode
+    name: libsigrokdecode
+    upstream: https://github.com/sigrokproject/libsigrokdecode
+    license: GPL-3.0
+    language: Python
+    channel: pip
+    install: "sigrokdecoder"
+    entry_point: sigrok-cli
+    kind: adapter
+    linkage: subprocess
+    plugin_point: skills/trace-analysis
+    domains: [all]
+    platforms: [all]
+    standards: []
+    categories: [logic-analysis, trace]
+    status: candidate
+    milestone: M4
+    benefit: "Protocol decoders for CAN, UART, I2C and SPI — turns a logic-analyser capture into decoded facts the trace-analysis skill can reason about."
+
+  # ---------------------------------------------------------------------
+  # 13. REQUIREMENTS / TRACEABILITY / COMPLIANCE / POLICY
+  # ---------------------------------------------------------------------
+  - id: openfasttrace
+    name: openFastTrace
+    upstream: https://github.com/itsallcode/openfasttrace
+    license: GPL-3.0
+    language: Java
+    channel: binary
+    install: "apt / brew / standalone JAR (Java 17) / oftw.sh"
+    entry_point: oft
+    kind: adapter
+    linkage: subprocess
+    plugin_point: tools/traceability-checker
+    domains: [all]
+    platforms: [all]
+    standards: []
+    categories: [requirements, traceability]
+    status: accepted
+    milestone: M1
+    benefit: "Headless requirement-to-implementation tracing with a deterministic exit code and a failBuild switch — the OSS reference implementation Axiom's traceability-checker can validate against, and it already ships agent skills."
+    notes: "Reference standards clauses BY ID only, never by text — the metadata/text separation Axiom requires."
+
+  - id: sphinx-needs
+    name: sphinx-needs
+    upstream: https://github.com/useblocks/sphinx-needs
+    license: MIT
+    language: Python
+    channel: pip
+    install: "sphinx-needs>=5.0"
+    entry_point: sphinx-build
+    kind: platform
+    linkage: subprocess
+    plugin_point: skills/requirements
+    domains: [all]
+    platforms: [all]
+    standards: []
+    categories: [requirements, documentation, traceability]
+    status: accepted
+    milestone: M1
+    benefit: "The '.. req::' directive keeps requirement prose and its metadata (id, status, links, applicability) in one file — exactly Axiom's requirement-artifact shape — and emits a traceability matrix natively."
+
+  - id: strictdoc
+    name: StrictDoc
+    upstream: https://github.com/strictdoc-project/strictdoc
+    license: Apache-2.0
+    language: Python
+    channel: pip
+    install: "strictdoc>=1.0"
+    entry_point: strictdoc
+    kind: platform
+    linkage: subprocess
+    plugin_point: skills/requirements
+    domains: [all]
+    platforms: [all]
+    standards: []
+    categories: [requirements, traceability, reqif]
+    status: accepted
+    milestone: M1
+    benefit: "Text-based requirements with a real hierarchy, traceability-graph validation and ReqIF export — one command (strictdoc export) turns a requirements tree into reviewable evidence."
+
+  - id: reqif
+    name: reqif
+    upstream: https://github.com/strictdoc-project/reqif
+    license: Apache-2.0
+    language: Python
+    channel: pip
+    install: "reqif>=0.1"
+    entry_point: reqif
+    kind: platform
+    linkage: subprocess
+    plugin_point: skills/requirements
+    domains: [all]
+    platforms: [all]
+    standards: []
+    categories: [reqif, interchange, requirements]
+    status: accepted
+    milestone: M1
+    benefit: "The canonical OSS ReqIF parser/validator — the neutral interchange layer between Axiom and any commercial requirements tool (DOORS, Jama, Polarion) without redistributing anyone's proprietary text."
+
+  - id: doorstop
+    name: Doorstop
+    upstream: https://github.com/doorstop-dev/doorstop
+    license: LGPL-3.0
+    language: Python
+    channel: pip
+    install: "doorstop>=4.0"
+    entry_point: doorstop
+    kind: platform
+    linkage: subprocess
+    plugin_point: skills/requirements
+    domains: [all]
+    platforms: [all]
+    standards: []
+    categories: [requirements]
+    status: candidate
+    milestone: M2
+    benefit: "The minimal YAML-frontmatter requirements tool — the lowest-ceremony option when a team only needs a handful of reviewable requirement items."
+
+  - id: doxygen
+    name: Doxygen
+    upstream: https://github.com/doxygen/doxygen
+    license: GPL-2.0
+    language: C++
+    channel: apt
+    install: "apt install doxygen"
+    entry_point: doxygen
+    kind: adapter
+    linkage: subprocess
+    plugin_point: tools/documentation-generator
+    domains: [all]
+    platforms: [all]
+    standards: []
+    categories: [documentation, traceability]
+    status: accepted
+    milestone: M2
+    benefit: "Custom \\requirement and \\ref tags let the CODE carry requirement IDs, which is the natural bridge from Axiom requirement artifacts into embedded C/C++/Rust sources."
+
+  - id: opa
+    name: Open Policy Agent
+    upstream: https://github.com/open-policy-agent/opa
+    license: Apache-2.0
+    language: Go
+    channel: binary
+    install: "release binary"
+    entry_point: opa
+    kind: platform
+    linkage: subprocess
+    plugin_point: rules
+    domains: [all]
+    platforms: [all]
+    standards: []
+    categories: [policy, compliance, machine-checkable]
+    status: accepted
+    milestone: M1
+    benefit: "Rego encodes rule ID, applicability predicate and evidence requirement with ZERO standards text — the single best fit for Axiom's 'standards metadata is not normative text' rule, and it becomes a machine-checkable rule artifact."
+
+  - id: compliance-trestle
+    name: Compliance Trestle (OSCAL)
+    upstream: https://github.com/oscal-compass/compliance-trestle
+    license: Apache-2.0
+    language: Python
+    channel: pip
+    install: "compliance-trestle>=5.0"
+    entry_point: trestle
+    kind: platform
+    linkage: subprocess
+    plugin_point: skills/axiom-ansi-r1506-compliance-matrix
+    domains: [all]
+    platforms: [all]
+    standards: []
+    categories: [compliance, oscal, machine-checkable]
+    status: accepted
+    milestone: M5
+    benefit: "The NIST OSCAL 1.2.1 object model in pydantic v2: a profile declares a SUBSET of control identifiers with tailoring metadata and project-authored remarks — a machine-validated compliance artifact that never reproduces the standard."
+
+  - id: fret
+    name: FRET (NASA)
+    upstream: https://github.com/nasa-sw-vnv/fret
+    license: Public-domain
+    language: JavaScript
+    channel: npm
+    install: "npm install fret"
+    entry_point: fret
+    kind: adapter
+    linkage: subprocess
+    plugin_point: skills/axiom-safety-requirements
+    domains: [aerospace, defense, automotive, industrial, medical]
+    platforms: [all]
+    standards: []
+    categories: [requirements, formal, temporal]
+    status: candidate
+    milestone: M5
+    benefit: "Formal temporal requirement specification — lets Axiom's safety-requirements skill state timing obligations that a plain-text requirement cannot, and generate the obligations as project-authored artifacts."
+
+  - id: oslc-client
+    name: oslc-client
+    upstream: https://github.com/oslc/oslc-client
+    license: Apache-2.0
+    language: JavaScript
+    channel: npm
+    install: "npm install oslc-client"
+    entry_point: oslc
+    kind: adapter
+    linkage: subprocess
+    plugin_point: skills/requirements
+    domains: [all]
+    platforms: [all]
+    standards: []
+    categories: [requirements, interchange]
+    status: candidate
+    milestone: M5
+    benefit: "Reads requirements from Polarion, DOORS and Jama over OSLC 3.0 — the one way to pull a customer baseline into Axiom without asking the customer to export files."
+
+  - id: madr
+    name: MADR + log4brains
+    upstream: https://github.com/adr/madr
+    license: MIT
+    language: Markdown
+    channel: source
+    install: "template copy; log4brains via npm i -g log4brains"
+    entry_point: log4brains
+    kind: platform
+    linkage: subprocess
+    plugin_point: packages/core/artifacts
+    domains: [all]
+    platforms: [all]
+    standards: []
+    categories: [adr, documentation]
+    status: accepted
+    milestone: M2
+    benefit: "Docs-as-code decision records with a validated template and a static-site build — the ADR artifact gets a proven schema and workflow instead of an ad-hoc markdown convention."
+
+  - id: lychee
+    name: lychee
+    upstream: https://github.com/lycheeverse/lychee
+    license: Apache-2.0
+    language: Rust
+    channel: binary
+    install: "release binary"
+    entry_point: lychee
+    kind: adapter
+    linkage: subprocess
+    plugin_point: tools/traceability-checker
+    domains: [all]
+    platforms: [all]
+    standards: []
+    categories: [link-check, traceability, ci]
+    status: accepted
+    milestone: M1
+    benefit: "A traceability claim is only as good as the links behind it; lychee makes a dead requirement-to-code or requirement-to-test link a CI failure."
+
+  # ---------------------------------------------------------------------
+  # 14. DOCUMENTATION / DIAGRAMS / ARCHITECTURE
+  # ---------------------------------------------------------------------
+  - id: sphinx
+    name: Sphinx
+    upstream: https://github.com/sphinx-doc/sphinx
+    license: BSD-3-Clause
+    language: Python
+    channel: pip
+    install: "sphinx>=8.0"
+    entry_point: sphinx-build
+    kind: platform
+    linkage: subprocess
+    plugin_point: tools/documentation-generator
+    domains: [all]
+    platforms: [all]
+    standards: []
+    categories: [documentation]
+    status: accepted
+    milestone: M1
+    benefit: "The baseline technical-documentation engine that sphinx-needs extends; a deterministic, scriptable build Axiom can invoke to regenerate evidence documents."
+
+  - id: mkdocs
+    name: MkDocs + Material
+    upstream: https://github.com/squidfunk/mkdocs-material
+    license: MIT
+    language: Python
+    channel: pip
+    install: "mkdocs-material>=9.0"
+    entry_point: mkdocs
+    kind: platform
+    linkage: subprocess
+    plugin_point: tools/documentation-generator
+    domains: [all]
+    platforms: [all]
+    standards: []
+    categories: [documentation]
+    status: candidate
+    milestone: M2
+    benefit: "A lighter documentation site builder, useful for the per-domain overlay packages that each want their own small, fast documentation site."
+
+  - id: plantuml
+    name: PlantUML
+    upstream: https://github.com/plantuml/plantuml
+    license: LGPL-3.0
+    language: Java
+    channel: binary
+    install: "release JAR / apt install plantuml"
+    entry_point: plantuml
+    kind: adapter
+    linkage: subprocess
+    plugin_point: tools/report-generator
+    domains: [all]
+    platforms: [all]
+    standards: []
+    categories: [diagrams, architecture, timing]
+    status: accepted
+    milestone: M2
+    benefit: "One JAR renders sequence, state, timing and gantt diagrams headlessly (-tpdf/-tsvg) — the best cost/benefit for firmware timing and state diagrams, which are first-class in embedded review."
+
+  - id: mermaid
+    name: Mermaid
+    upstream: https://github.com/mermaid-js/mermaid
+    license: MIT
+    language: TypeScript
+    channel: npm
+    install: "npm i -g @mermaid-js/mermaid-cli"
+    entry_point: mmdc
+    kind: adapter
+    linkage: subprocess
+    plugin_point: tools/report-generator
+    domains: [all]
+    platforms: [all]
+    standards: []
+    categories: [diagrams, documentation]
+    status: accepted
+    milestone: M2
+    benefit: "Markdown-native diagrams — the only diagram tool that survives inside an agent-edited markdown artifact without a separate rendering pipeline or a binary on the agent machine."
+
+  - id: d2
+    name: D2
+    upstream: https://github.com/terrastruct/d2
+    license: MPL-2.0
+    language: Go
+    channel: binary
+    install: "release binary / go install"
+    entry_point: d2
+    kind: adapter
+    linkage: subprocess
+    plugin_point: tools/report-generator
+    domains: [all]
+    platforms: [all]
+    standards: []
+    categories: [diagrams, architecture]
+    status: candidate
+    milestone: M2
+    benefit: "Declarative layout with deterministic output, which matters because a diagram that renders differently each run is not auditable evidence."
+
+  - id: graphviz
+    name: Graphviz
+    upstream: https://gitlab.com/graphviz/graphviz
+    license: EPL-1.0
+    language: C
+    channel: apt
+    install: "apt install graphviz"
+    entry_point: dot
+    kind: adapter
+    linkage: subprocess
+    plugin_point: packages/core/artifact_graph
+    domains: [all]
+    platforms: [all]
+    standards: []
+    categories: [diagrams, graph]
+    status: accepted
+    milestone: M2
+    benefit: "Static graph rendering for Axiom's artifact graph — the dependency and traceability views become reviewable images, not just JSON."
+    notes: "The GitHub repo is an empty archived stub; the canonical home is GitLab."
+
+  - id: structurizr
+    name: Structurizr
+    upstream: https://github.com/structurizr/structurizr
+    license: Apache-2.0
+    language: Java
+    channel: binary
+    install: "JAR / Maven"
+    entry_point: structurizr
+    kind: platform
+    linkage: subprocess
+    plugin_point: skills/software-architecture
+    domains: [all]
+    platforms: [all]
+    standards: []
+    categories: [architecture, c4, modelling]
+    status: candidate
+    milestone: M5
+    benefit: "The C4 model with a versioned workspace DSL — architecture becomes a reviewable, diff-able artifact rather than a slide, and it stays project-authored so it never imports normative text."
+
+  - id: arc42
+    name: arc42 template
+    upstream: https://github.com/arc42/arc42-template
+    license: CC-BY-SA-4.0
+    language: AsciiDoc
+    channel: source
+    install: "template copy"
+    entry_point: arc42
+    kind: platform
+    linkage: none
+    plugin_point: skills/software-architecture
+    domains: [all]
+    platforms: [all]
+    standards: []
+    categories: [architecture, template]
+    status: candidate
+    milestone: M5
+    benefit: "The industry-recognised SE architecture template; adopting it gives every Axiom domain overlay the same architecture document skeleton and headings."
+
+  - id: vale
+    name: Vale
+    upstream: https://github.com/errata-ai/vale
+    license: MIT
+    language: Go
+    channel: binary
+    install: "release binary / brew"
+    entry_point: vale
+    kind: adapter
+    linkage: subprocess
+    plugin_point: skills/documentation
+    domains: [all]
+    platforms: [all]
+    standards: []
+    categories: [prose, documentation, safety]
+    status: candidate
+    milestone: M5
+    benefit: "Terminology and prose linting on safety-critical documents, with project-authored vocabulary files — it catches the ambiguous wording that turns into a safety defect."
+
+  - id: markdownlint
+    name: markdownlint-cli2
+    upstream: https://github.com/DavidAnson/markdownlint-cli2
+    license: MIT
+    language: JavaScript
+    channel: npm
+    install: "npm i -g markdownlint-cli2"
+    entry_point: markdownlint-cli2
+    kind: adapter
+    linkage: subprocess
+    plugin_point: skills/documentation
+    domains: [all]
+    platforms: [all]
+    standards: []
+    categories: [prose, documentation, ci]
+    status: accepted
+    milestone: M2
+    benefit: "A cheap style gate over every skill, ADR and requirement markdown file, keeping the human-readable artifacts as clean as the machine-readable ones."
+
+  - id: pandoc
+    name: pandoc
+    upstream: https://github.com/jgm/pandoc
+    license: GPL-2.0
+    language: Haskell
+    channel: apt
+    install: "apt install pandoc"
+    entry_point: pandoc
+    kind: adapter
+    linkage: subprocess
+    plugin_point: tools/report-generator
+    domains: [all]
+    platforms: [all]
+    standards: []
+    categories: [conversion, documentation]
+    status: candidate
+    milestone: M5
+    benefit: "Format conversion between requirement, documentation and delivery artefacts (Markdown to DOCX to PDF) so evidence packages can be handed to a customer in the format they accept."
+
+  # ---------------------------------------------------------------------
+  # 15. CODE KNOWLEDGE / SEARCH
+  # ---------------------------------------------------------------------
+  - id: ast-grep
+    name: ast-grep
+    upstream: https://github.com/ast-grep/ast-grep
+    license: MIT
+    language: Rust
+    channel: npm
+    install: "npm i -g @ast-grep/cli"
+    entry_point: sg
+    kind: adapter
+    linkage: subprocess
+    plugin_point: tools/source-parser
+    domains: [all]
+    platforms: [all]
+    standards: []
+    categories: [structural-search, traceability]
+    status: accepted
+    milestone: M1
+    benefit: "Structural pattern search that finds requirement anchors in embedded C/C++ WITHOUT a full build — far cheaper than CodeQL or clang for a first traceability pass, and it works on vendor blobs."
+
+  - id: ctags
+    name: Universal Ctags
+    upstream: https://github.com/universal-ctags/ctags
+    license: GPL-2.0
+    language: C
+    channel: apt
+    install: "apt install universal-ctags"
+    entry_point: ctags
+    kind: adapter
+    linkage: subprocess
+    plugin_point: tools/source-parser
+    domains: [all]
+    platforms: [all]
+    standards: []
+    categories: [symbol-index]
+    status: accepted
+    milestone: M1
+    benefit: "Cross-language symbol extraction for C, C++ and assembly — the cheapest reliable way to populate Axiom's source index for a large embedded codebase with no build system."
+
+  - id: tree-sitter
+    name: tree-sitter
+    upstream: https://github.com/tree-sitter/tree-sitter
+    license: MIT
+    language: Rust
+    channel: source
+    install: "cargo install tree-sitter-cli"
+    entry_point: tree-sitter
+    kind: platform
+    linkage: subprocess
+    plugin_point: tools/source-parser
+    domains: [all]
+    platforms: [all]
+    standards: []
+    categories: [parsing]
+    status: candidate
+    milestone: M2
+    benefit: "The grammar engine that makes Axiom's own embedded-language parsers fast and language-complete, replacing hand-written regex parsing of C headers and assembly."
+
+  - id: zoekt
+    name: Zoekt
+    upstream: https://github.com/sourcegraph/zoekt
+    license: Apache-2.0
+    language: Go
+    channel: binary
+    install: "release binary / go install"
+    entry_point: zoekt-index
+    kind: adapter
+    linkage: subprocess
+    plugin_point: tools/repository-analyzer
+    domains: [all]
+    platforms: [all]
+    standards: []
+    categories: [code-search]
+    status: candidate
+    milestone: M5
+    benefit: "Trigram code search across a large embedded monorepo — the open half of the functionality that made commercial code search attractive."
+
+  - id: kythe
+    name: Kythe
+    upstream: https://github.com/kythe/kythe
+    license: Apache-2.0
+    language: Go
+    channel: source
+    install: "bazel build //kythe/..."
+    entry_point: kythe
+    kind: platform
+    linkage: subprocess
+    plugin_point: tools/source-parser
+    domains: [all]
+    platforms: [all]
+    standards: []
+    categories: [code-graph, cross-reference]
+    status: candidate
+    milestone: M5
+    benefit: "Semantic cross-references with a language-agnostic index — the strongest open answer to the commercial 'Understand' cross-reference feature for very large codebases."
+
+  # ---------------------------------------------------------------------
+  # 16. CI / PROVENANCE
+  # ---------------------------------------------------------------------
+  - id: woodpecker
+    name: Woodpecker CI
+    upstream: https://github.com/woodpecker-ci/woodpecker
+    license: Apache-2.0
+    language: Go
+    channel: binary
+    install: "release binary / docker"
+    entry_point: woodpecker-cli
+    kind: platform
+    linkage: subprocess
+    plugin_point: skills/axiom-embedded-cicd
+    domains: [all]
+    platforms: [all]
+    standards: []
+    categories: [ci]
+    status: candidate
+    milestone: M5
+    benefit: "A container-native, Drone-compatible CI that can run self-hosted inside a lab network — the practical way to execute embedded CI where cloud CI cannot reach the hardware."
+
+  - id: gitea
+    name: Gitea
+    upstream: https://github.com/go-gitea/gitea
+    license: MIT
+    language: Go
+    channel: binary
+    install: "single binary / docker"
+    entry_point: gitea
+    kind: platform
+    linkage: subprocess
+    plugin_point: skills/axiom-embedded-cicd
+    domains: [all]
+    platforms: [all]
+    standards: []
+    categories: [git, ci, self-hosted]
+    status: candidate
+    milestone: M5
+    benefit: "A single-binary self-hosted Git and CI for organisations whose IP cannot leave the lab — with the issue tracker that Axiom's requirement workflow can reference."
+
+  - id: in-toto
+    name: in-toto attestations
+    upstream: https://github.com/in-toto/attestation
+    license: Apache-2.0
+    language: Rust
+    channel: binary
+    install: "release binary / cargo"
+    entry_point: attestation
+    kind: platform
+    linkage: subprocess
+    plugin_point: artifacts/evidence
+    domains: [all]
+    platforms: [all]
+    standards: []
+    categories: [provenance, evidence]
+    status: candidate
+    milestone: M5
+    benefit: "Links evidence to the build step that produced it, so a firmware image, its SBOM and its test results form one verifiable chain rather than three unrelated files."
+
+  - id: slsa-verifier
+    name: SLSA verifier
+    upstream: https://github.com/slsa-framework/slsa-verifier
+    license: Apache-2.0
+    language: Go
+    channel: binary
+    install: "release binary"
+    entry_point: slsa-verifier
+    kind: adapter
+    linkage: subprocess
+    plugin_point: tools/traceability-checker
+    domains: [all]
+    platforms: [all]
+    standards: []
+    categories: [provenance, ci]
+    status: candidate
+    milestone: M5
+    benefit: "Verifies build provenance of artefacts, closing the loop from a signed firmware image back to the exact source commit and toolchain that produced it."
+
+  # ---------------------------------------------------------------------
+  # 17. DATA / LEDGER / RETRIEVAL
+  # ---------------------------------------------------------------------
+  - id: duckdb
+    name: DuckDB
+    upstream: https://github.com/duckdb/duckdb
+    license: MIT
+    language: C++
+    channel: pip
+    install: "duckdb>=1.0"
+    entry_point: duckdb
+    kind: platform
+    linkage: subprocess
+    plugin_point: packages/core/evidence
+    domains: [all]
+    platforms: [all]
+    standards: []
+    categories: [ledger, query, evidence]
+    status: accepted
+    milestone: M1
+    benefit: "Queries the traceability matrix and evidence ledger as SQL over Parquet/CSV — it lets Axiom's CLI stay thin while answering 'what is untraced, unevidenced or stale?' deterministically and offline."
+
+  - id: sqlite-vec
+    name: sqlite-vec
+    upstream: https://github.com/asg017/sqlite-vec
+    license: Apache-2.0
+    language: C
+    channel: pip
+    install: "sqlite-vec>=0.1"
+    entry_point: sqlite_vec
+    kind: platform
+    linkage: subprocess
+    plugin_point: packages/context
+    domains: [all]
+    platforms: [all]
+    standards: []
+    categories: [vector-search, retrieval]
+    status: candidate
+    milestone: M5
+    benefit: "Zero-infrastructure vector search inside SQLite — the only way an agent can semantically query the local artefact corpus without standing up a separate database server."
+
+  - id: lancedb
+    name: LanceDB
+    upstream: https://github.com/lancedb/lancedb
+    license: Apache-2.0
+    language: Rust
+    channel: pip
+    install: "lancedb>=0.0"
+    entry_point: lancedb
+    kind: platform
+    linkage: subprocess
+    plugin_point: packages/context
+    domains: [all]
+    platforms: [all]
+    standards: []
+    categories: [vector-search, retrieval]
+    status: candidate
+    milestone: M5
+    benefit: "An embedded, serverless vector index — gives the context engine semantic retrieval over requirements and code while keeping the whole platform single-process and offline."
+
+  # ---------------------------------------------------------------------
+  # 18. PERFORMANCE / TRACE
+  # ---------------------------------------------------------------------
+  - id: perf
+    name: perf
+    upstream: https://github.com/torvalds/linux
+    license: GPL-2.0
+    language: C
+    channel: apt
+    install: "apt install linux-tools"
+    entry_point: perf
+    kind: adapter
+    linkage: subprocess
+    plugin_point: skills/performance
+    domains: [industrial, automotive, iot, medical, energy]
+    platforms: [embedded-linux, mpu, soc, mpsoc]
+    standards: []
+    categories: [performance, profiling]
+    status: accepted
+    milestone: M4
+    benefit: "PMU sampling on Linux targets — the concrete measurement behind Axiom's performance skill and its WCET and memory-and-performance analysis skills."
+
+  - id: perfetto
+    name: Perfetto
+    upstream: https://github.com/google/perfetto
+    license: Apache-2.0
+    language: C++
+    channel: binary
+    install: "apt install perfetto-tools  (or prebuilt)"
+    entry_point: perfetto
+    kind: adapter
+    linkage: subprocess
+    plugin_point: skills/trace-analysis
+    domains: [industrial, automotive, iot]
+    platforms: [embedded-linux, mpu, soc]
+    standards: []
+    categories: [trace, profiling]
+    status: candidate
+    milestone: M4
+    benefit: "A modern ftrace and eBPF trace pipeline with a queryable UI — turns a runtime trace into a shareable evidence artefact instead of a log file."
+
+  - id: bpftrace
+    name: bpftrace
+    upstream: https://github.com/bpftrace/bpftrace
+    license: Apache-2.0
+    language: C++
+    channel: apt
+    install: "apt install bpftrace"
+    entry_point: bpftrace
+    kind: adapter
+    linkage: subprocess
+    plugin_point: skills/trace-analysis
+    domains: [industrial, automotive, iot]
+    platforms: [embedded-linux, mpu, soc]
+    standards: []
+    categories: [trace, profiling]
+    status: candidate
+    milestone: M4
+    benefit: "One-line eBPF tracing — the easiest CI-safe runtime instrumentation for the trace-analysis skill on Linux SBC targets."
+
+  - id: gprof
+    name: gprof
+    upstream: https://github.com/gcc-mirror/gcc
+    license: GPL-3.0
+    language: C
+    channel: binary
+    install: "part of the GCC toolchain"
+    entry_point: gprof
+    kind: adapter
+    linkage: subprocess
+    plugin_point: skills/performance
+    domains: [all]
+    platforms: [all]
+    standards: []
+    categories: [performance, profiling]
+    status: accepted
+    milestone: M4
+    benefit: "Function-level flat profiling for bare-metal C that needs zero extra tooling — the performance baseline available on every target, even with no RTOS and no Linux."
+
+  - id: scalene
+    name: scalene
+    upstream: https://github.com/plasma-umass/scalene
+    license: Apache-2.0
+    language: Python
+    channel: pip
+    install: "scalene>=1.5"
+    entry_point: scalene
+    kind: adapter
+    linkage: subprocess
+    plugin_point: skills/performance
+    domains: [all]
+    platforms: [all]
+    standards: []
+    categories: [performance, profiling]
+    status: candidate
+    milestone: M4
+    benefit: "CPU, GPU and memory profiling of the Python harnesses themselves, so the test tooling Axiom ships is measured as carefully as the firmware it tests."
+
+  # ---------------------------------------------------------------------
+  # 19. MBD / SIMULATION / ROBOTICS
+  # ---------------------------------------------------------------------
+  - id: openmodelica
+    name: OpenModelica
+    upstream: https://github.com/OpenModelica/OpenModelica
+    license: OSMC-PL
+    language: C++
+    channel: binary
+    install: "apt install openmodelica"
+    entry_point: omc
+    kind: platform
+    linkage: subprocess
+    plugin_point: skills/simulation
+    domains: [automotive, industrial, energy, aerospace]
+    platforms: [all]
+    standards: []
+    categories: [mbd, simulation]
+    status: candidate
+    milestone: M5
+    benefit: "An open Modelica compiler — the credible open path to plant models when the incumbent is Simulink, and it lets Axiom's simulation skill work offline."
+
+  - id: fmpy
+    name: FMPy
+    upstream: https://github.com/CATIA-Systems/FMPy
+    license: BSD-2-Clause
+    language: Python
+    channel: pip
+    install: "fmpy>=0.3"
+    entry_point: fmpy
+    kind: platform
+    linkage: subprocess
+    plugin_point: skills/simulation
+    domains: [automotive, industrial, energy]
+    platforms: [all]
+    standards: []
+    categories: [mbd, simulation, co-simulation]
+    status: candidate
+    milestone: M5
+    benefit: "Runs Functional Mock-up Units from Python — the co-simulation bridge that lets Axiom's SIL pipeline test a controller against a plant model."
+
+  - id: python-control
+    name: python-control
+    upstream: https://github.com/python-control/python-control
+    license: BSD-3-Clause
+    language: Python
+    channel: pip
+    install: "control>=0.10"
+    entry_point: "python -m control"
+    kind: platform
+    linkage: subprocess
+    plugin_point: skills/performance
+    domains: [industrial, energy, aerospace, automotive, medical]
+    platforms: [all]
+    standards: []
+    categories: [control, analysis]
+    status: candidate
+    milestone: M5
+    benefit: "Control-loop design and analysis (step response, stability margins) — gives Axiom's performance skill a first-principles check rather than only measurement."
+
+  - id: ros2
+    name: ROS 2
+    upstream: https://github.com/ros2/ros2
+    license: Apache-2.0
+    language: Python
+    channel: source
+    install: "apt (RoboStack) / source"
+    entry_point: ros2
+    kind: platform
+    linkage: subprocess
+    plugin_point: platforms/ros2
+    domains: [robotics, industrial, automotive, defense]
+    platforms: [embedded-linux, mpu, soc, mpsoc]
+    standards: []
+    categories: [middleware, platform]
+    status: accepted
+    milestone: M4
+    benefit: "The robotics middleware that Axiom's ros2 platform and nav2-config skills target; the reference integration surface for any robot cell project."
+
+  - id: micro-ros
+    name: micro-ROS
+    upstream: https://github.com/micro-ROS/micro_ros_setup
+    license: Apache-2.0
+    language: Shell
+    channel: source
+    install: "source + colcon"
+    entry_point: micro_ros_setup
+    kind: platform
+    linkage: subprocess
+    plugin_point: platforms/ros2
+    domains: [robotics, industrial, automotive]
+    platforms: [mcu, mpsoc, arm-cortex-m, risc-v]
+    standards: []
+    categories: [middleware, mcu-bridge]
+    status: candidate
+    milestone: M4
+    benefit: "The MCU-to-ROS2 bridge for FreeRTOS, Zephyr, NuttX and ESP-IDF — the concrete link that makes a microcontroller a first-class citizen in a ROS 2 system."
+
+  - id: nav2
+    name: Nav2
+    upstream: https://github.com/ros-navigation/navigation2
+    license: Apache-2.0
+    language: C++
+    channel: source
+    install: "source + colcon"
+    entry_point: nav2
+    kind: platform
+    linkage: subprocess
+    plugin_point: skills/axiom-nav2-config
+    domains: [robotics, industrial]
+    platforms: [embedded-linux, mpu, soc]
+    standards: []
+    categories: [navigation]
+    status: candidate
+    milestone: M4
+    benefit: "The navigation stack that Axiom's nav2-config skill validates against — a concrete, reviewable configuration target for a robot cell project."
+
+  - id: gazebo
+    name: Gazebo Sim
+    upstream: https://github.com/gazebosim/gz-sim
+    license: Apache-2.0
+    language: C++
+    channel: binary
+    install: "apt install gz-sim  (or release binaries)"
+    entry_point: gz
+    kind: platform
+    linkage: subprocess
+    plugin_point: skills/simulation
+    domains: [robotics, industrial, automotive, defense]
+    platforms: [all]
+    standards: []
+    categories: [simulation]
+    status: candidate
+    milestone: M4
+    benefit: "Physics simulation with a headless CLI, giving Axiom's simulation skill an environment in which a robot or vehicle behaviour can be validated before hardware exists."
+
+  - id: sumo
+    name: SUMO
+    upstream: https://github.com/eclipse-sumo/sumo
+    license: EPL-2.0
+    language: Python
+    channel: apt
+    install: "apt install sumo"
+    entry_point: sumo-gui
+    kind: platform
+    linkage: subprocess
+    plugin_point: skills/axiom-adas-perception-pipeline
+    domains: [automotive]
+    platforms: [all]
+    standards: []
+    categories: [simulation, adas]
+    status: candidate
+    milestone: M4
+    benefit: "Traffic simulation for ADAS scenario generation — the missing traffic context in Axiom's ADAS perception pipeline and validation skills."
+
+  - id: ns-3
+    name: ns-3
+    upstream: https://gitlab.com/nsnam/ns-3-dev
+    license: GPL-2.0
+    language: C++
+    channel: source
+    install: "./build.py"
+    entry_point: ns3
+    kind: platform
+    linkage: subprocess
+    plugin_point: skills/simulation
+    domains: [automotive, industrial, telecom, iot]
+    platforms: [embedded-linux, mpu, soc]
+    standards: []
+    categories: [simulation, networking]
+    status: candidate
+    milestone: M5
+    benefit: "Packet-level network simulation for automotive Ethernet and TSN work — the network reality that a zonal architecture has to survive."
+
+  # ---------------------------------------------------------------------
+  # 20. FPGA / EDA
+  # ---------------------------------------------------------------------
+  - id: yosys
+    name: Yosys
+    upstream: https://github.com/YosysHQ/yosys
+    license: ISC
+    language: C++
+    channel: source
+    install: "source build / oss-cad-suite"
+    entry_point: yosys
+    kind: platform
+    linkage: subprocess
+    plugin_point: platforms/fpga
+    domains: [semiconductor, industrial, aerospace, defense]
+    platforms: [fpga, soc, mpsoc]
+    standards: []
+    categories: [hdl, synthesis, fpga]
+    status: candidate
+    milestone: M5
+    benefit: "Verilog synthesis and the frontend of every open FPGA flow — gives Axiom's FPGA platform overlay a real path from RTL to bitstream."
+
+  - id: litex
+    name: LiteX
+    upstream: https://github.com/enjoy-digital/litex
+    license: BSD-2-Clause
+    language: Python
+    channel: pip
+    install: "litex>=2024.12"
+    entry_point: litex
+    kind: platform
+    linkage: subprocess
+    plugin_point: platforms/fpga
+    domains: [semiconductor, industrial, research]
+    platforms: [fpga, soc]
+    standards: []
+    categories: [soc-builder, fpga]
+    status: candidate
+    milestone: M5
+    benefit: "A Python SoC builder — the most agent-friendly way to define a hardware platform, because the platform description is code an agent can read and write."
+
+  - id: amaranth
+    name: Amaranth
+    upstream: https://github.com/amaranth-lang/amaranth
+    license: BSD-2-Clause
+    language: Python
+    channel: pip
+    install: "amaranth>=0.5"
+    entry_point: amaranth
+    kind: platform
+    linkage: subprocess
+    plugin_point: skills/axiom-urdf-model-spec
+    domains: [semiconductor, industrial]
+    platforms: [fpga, soc]
+    standards: []
+    categories: [hdl, modelling]
+    status: candidate
+    milestone: M5
+    benefit: "Hardware description from Python — the successor to the archived Migen, and the format an AI agent can actually author."
+
+  - id: kicad
+    name: KiCad
+    upstream: https://github.com/KiCad/kicad-source-mirror
+    license: GPL-3.0
+    language: C++
+    channel: apt
+    install: "apt install kicad  (kicad-cli for headless use)"
+    entry_point: kicad-cli
+    kind: platform
+    linkage: subprocess
+    plugin_point: skills/hardware-architecture
+    domains: [industrial, automotive, medical, consumer, iot]
+    platforms: [mcu, soc, mpsoc]
+    standards: []
+    categories: [eda, hardware, pcb]
+    status: candidate
+    milestone: M5
+    benefit: "kicad-cli gives headless netlist export, DRC and BOM generation — so the hardware-architecture skill can validate a schematic and produce a real BOM as an artifact."
+
+  - id: klayout
+    name: KLayout
+    upstream: https://github.com/KLayout/klayout
+    license: GPL-3.0
+    language: C++
+    channel: pip
+    install: "klayout>=0.30"
+    entry_point: klayout
+    kind: platform
+    linkage: subprocess
+    plugin_point: skills/hardware-architecture
+    domains: [semiconductor]
+    platforms: [fpga, soc, mpsoc]
+    standards: []
+    categories: [eda, layout, inspection]
+    status: candidate
+    milestone: M5
+    benefit: "GDS viewing and editing with Python scripting in CI — the practical way to inspect a die or package layout as part of a hardware review."
+
+  - id: openroad
+    name: OpenROAD + OpenLane
+    upstream: https://github.com/The-OpenROAD-Project/OpenROAD
+    license: BSD-3-Clause
+    language: Verilog
+    channel: container
+    install: "docker (openlane / orfs)"
+    entry_point: openroad
+    kind: platform
+    linkage: subprocess
+    plugin_point: skills/hardware-architecture
+    domains: [semiconductor]
+    platforms: [fpga, soc, mpsoc]
+    standards: []
+    categories: [eda, asic]
+    status: candidate
+    milestone: M5
+    benefit: "An open ASIC place-and-route flow with reference scripts for sky130 and ASAP7 — the only end-to-end open silicon path available to a team without a foundry EDA licence."
+
+  # ---------------------------------------------------------------------
+  # 21. REJECTED / DO NOT ADOPT (recorded so the decision is auditable)
+  # ---------------------------------------------------------------------
+  - id: reject-pvs-studio
+    name: PVS-Studio
+    upstream: https://github.com/viva64/pvs-studio
+    license: Proprietary
+    language: C++
+    channel: binary
+    install: "vendor installer"
+    entry_point: pvs-studio
+    kind: reference
+    linkage: none
+    plugin_point: tools/static-analysis-aggregator
+    domains: [all]
+    platforms: [all]
+    standards: []
+    categories: [static-analysis]
+    status: rejected
+    milestone: M0
+    benefit: "Would have provided high-quality diagnostics, but the free licence is non-commercial OSS only and the free-key path was removed in April 2026 — not redistributable in a commercial platform."
+    rejected_reason: "Not open source; commercial licence required for customer code."
+
+  - id: reject-codefactor
+    name: CodeFactor
+    upstream: https://www.codefactor.io
+    license: Proprietary
+    language: SaaS
+    channel: container
+    install: "hosted SaaS"
+    entry_point: codefactor
+    kind: reference
+    linkage: none
+    plugin_point: tools/static-analysis-aggregator
+    domains: [all]
+    platforms: [all]
+    standards: []
+    categories: [static-analysis]
+    status: rejected
+    milestone: M0
+    benefit: "Would have provided hosted review of linter output."
+    rejected_reason: "Proprietary hosted SaaS; no on-prem or CI-native programmatic entry point."
+
+  - id: reject-codeql-cli-commercial
+    name: CodeQL CLI (commercial analysis)
+    upstream: https://github.com/github/codeql
+    license: MIT (queries only)
+    language: QL
+    channel: binary
+    install: "CodeQL CLI bundle"
+    entry_point: codeql
+    kind: reference
+    linkage: none
+    plugin_point: tools/static-analysis-aggregator
+    domains: [all]
+    platforms: [all]
+    standards: []
+    categories: [static-analysis, misra]
+    status: rejected
+    milestone: M0
+    benefit: "The query catalogue is excellent and is retained as an optional candidate."
+    rejected_reason: "The CLI requires a commercial GitHub Advanced Security licence to analyse closed-source customer code, so it cannot be the default MISRA path."
+
+  - id: reject-infer
+    name: Facebook Infer
+    upstream: https://github.com/facebook/infer
+    license: MIT
+    language: OCaml
+    channel: binary
+    install: "release tarball / opam"
+    entry_point: infer
+    kind: reference
+    linkage: none
+    plugin_point: tools/static-analysis-aggregator
+    domains: [all]
+    platforms: [all]
+    standards: []
+    categories: [static-analysis]
+    status: rejected
+    milestone: M0
+    benefit: "Capable analyser with a long history."
+    rejected_reason: "Last tagged release v1.3.0 (2021-05) and the source build compiles a custom Clang; effectively a dead release line for a new adapter."
+
+  - id: reject-tern
+    name: Tern
+    upstream: https://github.com/tern-tools/tern
+    license: BSD-2-Clause
+    language: Python
+    channel: container
+    install: "docker image only"
+    entry_point: tern
+    kind: reference
+    linkage: none
+    plugin_point: tools/dependency-analyzer
+    domains: [all]
+    platforms: [all]
+    standards: []
+    categories: [sbom]
+    status: rejected
+    milestone: M0
+    benefit: "Container-image SBOM generation."
+    rejected_reason: "Docker/OCI only; superseded by Syft, which handles directories, archives and images with a single static binary."
+
+  - id: reject-safety-cli
+    name: Safety CLI
+    upstream: https://github.com/pyupio/safety
+    license: MIT
+    language: Python
+    channel: pip
+    install: "safety>=3.0"
+    entry_point: safety
+    kind: reference
+    linkage: none
+    plugin_point: tools/dependency-analyzer
+    domains: [all]
+    platforms: [all]
+    standards: []
+    categories: [sca]
+    status: rejected
+    milestone: M0
+    benefit: "Python dependency scanning for Axiom's own tooling."
+    rejected_reason: "v3 mandates an authenticated login and paid plans for commercial use; osv-scanner and pip-audit cover the same need under Apache-2.0."
+
+  - id: reject-cve-search
+    name: cve-search
+    upstream: https://github.com/cve-search/cve-search
+    license: AGPL-3.0
+    language: Python
+    channel: binary
+    install: "release + MongoDB"
+    entry_point: search.py
+    kind: reference
+    linkage: none
+    plugin_point: tools/dependency-analyzer
+    domains: [all]
+    platforms: [all]
+    standards: []
+    categories: [sca]
+    status: rejected
+    milestone: M0
+    benefit: "Local CVE/CPE search for air-gapped programmes."
+    rejected_reason: "AGPL-3.0 and requires a running MongoDB; osv-scanner (Apache-2.0) covers the same need with an offline mode."
+
+  - id: reject-adr-tools
+    name: adr-tools
+    upstream: https://github.com/npryce/adr-tools
+    license: GPL-3.0
+    language: Shell
+    channel: source
+    install: "git clone"
+    entry_point: adr
+    kind: reference
+    linkage: none
+    plugin_point: packages/core/artifacts
+    domains: [all]
+    platforms: [all]
+    standards: []
+    categories: [adr]
+    status: rejected
+    milestone: M0
+    benefit: "Nygard-format ADR CLI."
+    rejected_reason: "Unmaintained since March 2020; MADR plus log4brains covers the same need with an actively maintained toolchain."
+
+  - id: reject-embunit
+    name: embUnit
+    upstream: https://sourceforge.net/projects/embunit/
+    license: Other
+    language: C
+    channel: source
+    install: "SourceForge archive"
+    entry_point: embUnit
+    kind: reference
+    linkage: none
+    plugin_point: skills/unit-test
+    domains: [all]
+    platforms: [all]
+    standards: []
+    categories: [test-framework]
+    status: rejected
+    milestone: M0
+    benefit: "Very small C unit-test footprint for heavily constrained targets."
+    rejected_reason: "Effectively dead (SourceForge last update 2015); Unity and FFF cover the same need with maintained code."
+
+  - id: reject-pysomeip
+    name: pysomeip
+    upstream: https://github.com/afflux/pysomeip
+    license: MIT
+    language: Python
+    channel: pip
+    install: "someip>=0.3"
+    entry_point: someip
+    kind: reference
+    linkage: none
+    plugin_point: skills/axiom-automotive-ethernet-someip
+    domains: [automotive]
+    platforms: [all]
+    standards: []
+    categories: [someip]
+    status: rejected
+    milestone: M0
+    benefit: "Basic Python SOME/IP stack."
+    rejected_reason: "Repository archived; someipy (GPL-3.0, subprocess-only) is the maintained alternative, with vsomeip as the reference runtime."
+
+  - id: reject-python-uds
+    name: python-uds
+    upstream: https://github.com/richClubb/python-uds
+    license: MIT
+    language: Python
+    channel: pip
+    install: "python-uds>=1.0"
+    entry_point: python_uds
+    kind: reference
+    linkage: none
+    plugin_point: tools/diag-uds-testgen
+    domains: [automotive]
+    platforms: [all]
+    standards: [ISO 14229-1]
+    categories: [diagnostics]
+    status: rejected
+    milestone: M0
+    benefit: "Full UDS and LIN stack in Python."
+    rejected_reason: "Repository archived; udsoncan is the maintained reference ISO 14229-1 client."
+
+  - id: reject-modelio-for-compliance
+    name: Modelio / Capella / Papyrus as compliance hosts
+    upstream: https://github.com/ModelioOpenSource/Modelio
+    license: GPL-3.0
+    language: Java
+    channel: source
+    install: "Eclipse / desktop app"
+    entry_point: modelio
+    kind: reference
+    linkage: none
+    plugin_point: skills/software-architecture
+    domains: [all]
+    platforms: [all]
+    standards: []
+    categories: [sysml, mbse]
+    status: rejected
+    milestone: M0
+    benefit: "Excellent for ARCHITECTURE artefacts, and retained as a model source."
+    rejected_reason: "Not headless, and their bundled SysML profiles embed vendor normative wording; they must never host standards-derived content, only project-authored architecture."
+
+  - id: reject-unverified-projects
+    name: "autosar-compliance-checker, CANtastic, ICsee, OpenFlightStack, ipcexamples, pyxdd, artop, reqtrace, open-needs, Code2Flow"
+    upstream: https://github.com
+    license: UNVERIFIED
+    language: UNKNOWN
+    channel: source
+    install: "n/a"
+    entry_point: n/a
+    kind: reference
+    linkage: none
+    plugin_point: docs/research
+    domains: [all]
+    platforms: [all]
+    standards: []
+    categories: [trap]
+    status: rejected
+    milestone: M0
+    benefit: "Recording the names so no future agent plans an adapter around a project that does not exist."
+    rejected_reason: "No such repository could be verified. Plan around naivesystems/analyze, oss-review-toolkit, open-vehicle-control-system/cantastic, ldfparser, COVESA/vsomeip/examples and strictdoc-project/reqif instead."

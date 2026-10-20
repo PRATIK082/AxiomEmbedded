@@ -9,7 +9,9 @@ from __future__ import annotations
 import pathlib
 
 from packages.agents.router import route, detect_domain
+from packages.axiom_ops import get_status, plan_feature, plan_fix
 from packages.skills.engage import engage
+from packages.toolpacks.candidates import select_candidates
 from packages.toolpacks.select import select_packs
 
 ROOT = pathlib.Path(__file__).resolve().parents[2]
@@ -62,6 +64,24 @@ def select_toolpacks(
 ) -> dict:
     """Resolve which tools/pip packs/agents a domain+platform+standards project needs."""
     return select_packs(domain, platform, standards)
+
+
+def list_tool_candidates(
+    domain: str | None = None,
+    platform: str | None = None,
+    standards: list[str] | None = None,
+    category: str | None = None,
+    status: str | None = None,
+    include_informational: bool = False,
+) -> dict:
+    """Resolve the open-source tool candidates that fit a project request.
+
+    The candidate registry (`registries/tool-candidates.yaml`) records every
+    surveyed OSS tool with its licence, install channel, plugin point and
+    benefit. This resolves the subset that applies to the given facets.
+    """
+    return select_candidates(domain, platform, standards, category, status,
+                             include_informational)
 
 
 def compose_mindmap(

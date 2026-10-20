@@ -1,0 +1,97 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "AxiomEmbedded Tool Candidate Registry",
+  "type": "object",
+  "required": ["version", "candidates"],
+  "properties": {
+    "version": {"type": "string"},
+    "generated_from": {"type": "string"},
+    "candidates": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": [
+          "id",
+          "name",
+          "upstream",
+          "license",
+          "channel",
+          "plugin_point",
+          "status",
+          "milestone",
+          "benefit"
+        ],
+        "properties": {
+          "id": {
+            "type": "string",
+            "pattern": "^[a-z0-9][a-z0-9._-]*$",
+            "description": "Stable candidate id, unique in the registry."
+          },
+          "name": {"type": "string"},
+          "upstream": {
+            "type": "string",
+            "description": "Canonical upstream URL (GitHub/GitLab/PyPI/sourceforge)."
+          },
+          "license": {
+            "type": "string",
+            "description": "SPDX id where known, otherwise the literal upstream expression."
+          },
+          "language": {"type": "string"},
+          "channel": {
+            "type": "string",
+            "enum": ["pip", "binary", "container", "source", "apt", "npm", "gem", "cargo"],
+            "description": "How the adapter acquires the tool. Mirrors the adapter classes in docs/reference/plugin-model.md."
+          },
+          "install": {
+            "type": "string",
+            "description": "Concrete install spec (pip requirement, apt package, image ref, release URL)."
+          },
+          "entry_point": {
+            "type": "string",
+            "description": "CLI binary or python entry point the adapter invokes."
+          },
+          "kind": {
+            "type": "string",
+            "enum": ["bridge", "adapter", "suite", "platform", "reference"],
+            "description": "bridge = thin adapter over an external pack; adapter = direct tool; suite = tool family; platform = runtime target; reference = context only, never executed."
+          },
+          "linkage": {
+            "type": "string",
+            "enum": ["subprocess", "import", "none"],
+            "description": "How Axiom links the tool. Copyleft tools MUST be subprocess."
+          },
+          "plugin_point": {
+            "type": "string",
+            "description": "Axiom extension point this candidate plugs into (tools/<id>, skills/<id>, agents/<id>, domains/<id>, platforms/<id>, packages/<pkg>)."
+          },
+          "domains": {"type": "array", "items": {"type": "string"}},
+          "platforms": {"type": "array", "items": {"type": "string"}},
+          "standards": {"type": "array", "items": {"type": "string"}},
+          "categories": {
+            "type": "array",
+            "items": {"type": "string"},
+            "description": "Capability buckets used for grouping in the catalogue doc."
+          },
+          "status": {
+            "type": "string",
+            "enum": ["candidate", "accepted", "rejected", "reference"]
+          },
+          "milestone": {
+            "type": "string",
+            "pattern": "^M[0-9]$",
+            "description": "Delivery milestone for accepted candidates."
+          },
+          "benefit": {
+            "type": "string",
+            "description": "One-line statement of the concrete benefit to an AxiomEmbedded project."
+          },
+          "rejected_reason": {
+            "type": "string",
+            "description": "Why a candidate is rejected (licence, dead project, not headless, unverifiable)."
+          },
+          "notes": {"type": "string"}
+        }
+      }
+    }
+  }
+}
