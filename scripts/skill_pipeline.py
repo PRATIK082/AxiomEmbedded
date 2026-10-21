@@ -82,14 +82,23 @@ def _run(check: bool, enrich, sync_idx, clients, validate_all, record_steps: boo
         steps.append({"step": name, "status": status, "detail": detail})
 
     if check:
-        before = _hash_tree(_generated_files())
+        # Snapshot the generated-file SET before the writers run and hash that
+        # same set afterwards. Client mirrors (.claude/, .opencode/) are
+        # gitignored build outputs: a clean checkout has none and the writers
+        # create them. Re-resolving the set after the writers run would count
+        # their own first-run output as drift and fail every clean checkout.
+        # Hashing the same paths on both sides keeps stale-mirror detection
+        # (a pre-existing mirror that the writer rewrites still moves the
+        # hash) while ignoring files that were absent by design.
+        before_paths = _generated_files()
+        before = _hash_tree(before_paths)
         # Writers run in order; afterwards we compare hashes and fail if
         # anything moved (files were stale). Writers are idempotent, so a
         # second run is a no-op on a clean tree.
         enrich.enrich(False)
         sync_idx.main()
         clients.main()
-        after = _hash_tree(_generated_files())
+        after = _hash_tree(before_paths)
         rec = "STALE" if before != after else "OK"
         # Restore pre-check bytes? No: writers are idempotent and produce
         # canonical bytes, so `after` IS the correct content. We only report.

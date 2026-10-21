@@ -3,11 +3,18 @@
 
 import json
 import pathlib
+import shutil
 import subprocess
 import sys
 
+import pytest
+
 ROOT = pathlib.Path(__file__).resolve().parents[1]
 SCRIPT = ROOT / "scripts" / "sync_clients.py"
+
+
+def _node() -> str | None:
+    return shutil.which("node")
 
 
 def test_sync_check_passes_on_clean_tree():
@@ -125,3 +132,47 @@ def test_opencode_commands_and_plugin():
     text = plugin.read_text(encoding="utf-8")
     assert "export const server" in text and "tool.execute.before" in text
     assert "experimental.session.compacting" in text
+
+
+def test_generated_plugin_is_javascript_parseable(tmp_path):
+    """The generated plugin must stay inside the JavaScript subset.
+
+    CI gates it with `node --check`, which is only a JavaScript parser on
+    some Node releases (it does not apply TypeScript type stripping).
+    Type annotations would therefore make the gate depend on the Node
+    patch release, so the plugin is generated as plain JavaScript - still
+    valid TypeScript for opencode/Bun - and checked here the same way.
+
+    The probe uses a `.mjs` copy on purpose: `.mjs` is always parsed as
+    ECMAScript module and never gets type stripping, so it reproduces the
+    strictest reading of the gate on every Node version.
+    """
+    node = _node()
+    if node is None:
+        pytest.skip("node is not installed")
+    sys.path.insert(0, str(ROOT / "scripts"))
+    import sync_clients
+
+    target = tmp_path / "axiom-policy.mjs"
+    target.write_text(sync_clients.PLUGIN_TS, encoding="utf-8")
+    proc = subprocess.run([node, "--check", str(target)], capture_output=True, text=True)
+    assert proc.returncode == 0, proc.stdout + proc.stderr
+
+
+def test_generated_plugin_still_exports_server(tmp_path):
+    """Rewriting the plugin as JavaScript must keep the module contract."""
+    node = _node()
+    if node is None:
+        pytest.skip("node is not installed")
+    sys.path.insert(0, str(ROOT / "scripts"))
+    import sync_clients
+
+    target = tmp_path / "axiom-policy.mjs"
+    target.write_text(sync_clients.PLUGIN_TS, encoding="utf-8")
+    script = (
+        f"import({target.as_uri()!r}).then(m => "
+        "{ if (typeof m.server !== 'function') { process.exit(3); } })"
+    )
+    proc = subprocess.run([node, "--input-type=module", "-e", script],
+                          capture_output=True, text=True)
+    assert proc.returncode == 0, proc.stdout + proc.stderr

@@ -20,9 +20,16 @@ jobs:
       - run: opencode --version
       - run: python -m axiom_cli doctor --skip-tests
       - run: python -m pytest tests/test_headless.py tests/test_launcher.py -q
-      # axiom-policy.ts is TypeScript: plain `node --check` only passes on
-      # Node >= 22.6 (type stripping). Pin Node 24 so the syntax check is
-      # deterministic on ubuntu-latest runners.
+      # .opencode/ and .claude/ are gitignored client mirrors, not tracked
+      # sources. A fresh CI checkout has none, so the plugin must be
+      # generated before it can be syntax-checked (same pattern as
+      # sync-check.yml: generate first, then verify).
+      - run: python scripts/sync_clients.py
+      # axiom-policy.ts is written in the JavaScript subset of TypeScript on
+      # purpose: `node --check` is only a JavaScript parser on some Node
+      # releases (it does not apply TypeScript type stripping), so a file
+      # with type annotations fails the check depending on the Node patch
+      # release. The gate is therefore deterministic on every Node version.
       - uses: actions/setup-node@v4
         with:
           node-version: "24"

@@ -24,6 +24,7 @@ import pathlib
 import re
 import shutil
 import subprocess
+import sys
 
 from packages.installer import find_content_source, opencode_mcp_entry
 
@@ -211,7 +212,11 @@ def execute(verb: str, args: list[str], *, model: str | None = None,
         print(json.dumps({"status": "error", **status}, indent=2))
         return 1
     if status["state"] == "warn":
-        print(json.dumps({"status": "warning", **status}, indent=2))
+        # Warnings go to stderr: stdout must carry exactly ONE JSON document
+        # so machine consumers can json.loads() it. The same status is also
+        # embedded in the dry-run payload under "opencode", so nothing is lost.
+        print(json.dumps({"status": "warning", **status}, indent=2),
+              file=sys.stderr)
 
     if isolate:
         cfg = ensure_isolated_config(home, model=None, source=source)

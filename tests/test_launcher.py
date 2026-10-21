@@ -125,6 +125,32 @@ def test_execute_dry_run_never_spawns(monkeypatch, tmp_path, capsys):
     assert out["isolated"] is True
 
 
+def test_execute_warn_state_keeps_stdout_single_json(monkeypatch, tmp_path, capsys):
+    """Regression: a 'warn' status must not add a second JSON doc to stdout.
+
+    When the installed opencode is newer/older than the tested line the
+    launcher warns. The warning used to be printed to stdout, so stdout
+    carried two JSON documents and json.loads() failed with
+    "Extra data: line 8 column 1" -- which broke `axiom oc run --dry-run`
+    consumers in CI (tests/test_headless.py).
+    """
+    monkeypatch.setattr(launcher, "opencode_status",
+                        lambda: {"state": "warn", "binary": "opencode",
+                                 "version": "1.18.40", "detail": "newer v1"})
+    monkeypatch.setattr(launcher.subprocess, "run",
+                        lambda *a, **k: (_ for _ in ()).throw(
+                            AssertionError("dry-run must not spawn a process")))
+    rc = execute("run", ["hello"], dry_run=True, home=tmp_path)
+    assert rc == 0
+    captured = capsys.readouterr()
+    # stdout is exactly one JSON document -> json.loads must not raise.
+    out = json.loads(captured.out)
+    assert out["status"] == "dry-run"
+    assert out["opencode"]["state"] == "warn"
+    # The warning itself went to stderr, and is still available.
+    assert json.loads(captured.err)["status"] == "warning"
+
+
 def test_execute_refuses_without_opencode(monkeypatch, capsys):
     monkeypatch.setattr(launcher, "opencode_status",
                         lambda: {"state": "fail", "binary": None,

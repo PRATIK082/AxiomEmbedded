@@ -37,6 +37,35 @@ def test_pipeline_mcp_check_only_by_default():
     assert res["mode"] == "check"
 
 
+def test_pipeline_check_ignores_client_mirrors_created_by_the_writers(monkeypatch):
+    """Regression: --check must not report the writers' own output as drift.
+
+    Client mirrors (.claude/, .opencode/) are gitignored build outputs. A
+    clean checkout has none, so the writers create them. Comparing a
+    before/after file *set* therefore reported STALE on every clean checkout
+    of main. The check must hash the same path set on both sides.
+    """
+    import scripts.skill_pipeline as sp
+
+    real = sp._generated_files
+    calls = {"n": 0}
+
+    def fake_generated_files():
+        calls["n"] += 1
+        if calls["n"] == 1:
+            # A clean checkout: only the tracked generated files exist.
+            return [p for p in real()
+                    if ".claude" not in p.parts and ".opencode" not in p.parts]
+        # The writers have just created the client mirrors.
+        return real()
+
+    monkeypatch.setattr(sp, "_generated_files", fake_generated_files)
+    rep = sp.run_pipeline(check=True)
+    assert rep["status"] == "ok", rep
+    step = next(s for s in rep["steps"] if s["step"] == "writers-idempotent")
+    assert step["status"] == "OK", step
+
+
 def test_domain_filter_keeps_all_and_matching(tmp_path):
     idx = json.loads((ROOT / "registries" / "skill-index.json").read_text(encoding="utf-8"))
     any_domain = next(d for s in idx["skills"].values() for d in s.get("domains", []) if d != "all")
