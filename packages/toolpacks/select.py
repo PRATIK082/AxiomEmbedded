@@ -14,11 +14,17 @@ import pathlib
 
 import yaml
 
-ROOT = pathlib.Path(__file__).resolve().parents[2]
+from packages.paths import ROOT
 
 
 def load_tool_index() -> dict:
-    return json.loads((ROOT / "registries" / "tool-index.json").read_text(encoding="utf-8"))
+    p = ROOT / "registries" / "tool-index.json"
+    if not p.exists():
+        return {"tools": {}}
+    try:
+        return json.loads(p.read_text(encoding="utf-8"))
+    except Exception:
+        return {"tools": {}}
 
 
 def _match(facets: list[str], wanted: str | None) -> bool:

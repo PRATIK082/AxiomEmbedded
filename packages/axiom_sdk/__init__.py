@@ -12,7 +12,7 @@ from packages.agents.router import route, detect_domain
 from packages.skills.engage import engage
 from packages.toolpacks.select import select_packs
 
-ROOT = pathlib.Path(__file__).resolve().parents[2]
+from packages.paths import ROOT
 
 APPROVAL_REQUIRED_FOR = [
     "git push",

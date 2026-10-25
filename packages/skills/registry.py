@@ -3,7 +3,7 @@ from __future__ import annotations
 import pathlib
 import yaml
 
-ROOT = pathlib.Path(__file__).resolve().parents[2]
+from packages.paths import ROOT
 CATALOG = ROOT / "skills" / "catalog.yaml"
 
 

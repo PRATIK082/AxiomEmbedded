@@ -6,7 +6,7 @@ underlying implementation (``packages.*``), so CLI and MCP always agree.
 Each tool carries a JSON Schema ``inputSchema`` plus a plain-language
 description for model-driven clients.
 
-Envelope (same as ``packages.axiom_mcp``):
+Envelope (single MCP server, ``axiom_mcp``):
     {"jsonrpc": "2.0", "id": 1, "method": "tools/list", "params": {}}
     {"jsonrpc": "2.0", "id": 2, "method": "tools/call",
      "params": {"name": "engage", "arguments": {"domain": "automotive"}}}

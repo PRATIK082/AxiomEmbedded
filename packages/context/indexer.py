@@ -17,7 +17,8 @@ def language_for(path: Path) -> str:
 def scan(root: str | Path) -> list[FileRecord]:
     root = Path(root)
     out: list[FileRecord] = []
-    ignored = {".git", ".pytest_cache", "__pycache__", ".venv", "build", "dist"}
+    ignored = {".git", ".pytest_cache", "__pycache__", ".venv", "build", "dist",
+               ".axiom", "node_modules", ".opencode", ".claude", ".claude-plugin"}
     for p in root.rglob("*"):
         if not p.is_file() or any(part in ignored for part in p.parts):
             continue

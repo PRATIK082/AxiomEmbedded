@@ -26,7 +26,7 @@ import yaml
 
 from packages.agents.router import detect_domain
 
-ROOT = pathlib.Path(__file__).resolve().parents[2]
+from packages.paths import ROOT
 
 ROUTING_FILE = ROOT / "configs" / "domain-routing.yaml"
 

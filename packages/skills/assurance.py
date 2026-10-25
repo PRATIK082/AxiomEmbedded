@@ -11,7 +11,7 @@ import re
 
 import yaml
 
-ROOT = pathlib.Path(__file__).resolve().parents[2]
+from packages.paths import ROOT
 
 ENVELOPE_REQUIRED = ["artifact_id", "schema_version", "kind", "status", "domain",
                      "created_at", "updated_at", "author", "approval_status"]

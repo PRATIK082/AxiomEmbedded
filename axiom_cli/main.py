@@ -12,6 +12,7 @@ from axiom_cli import __version__ as CLI_VERSION
 
 from packages.context.indexer import write_index
 from packages.context.selector import select_from_index, ContextBudget
+from packages.context.change_scope import git_changed_files
 from packages.workflow.entry import starting_phase
 from packages.workflow.stage import detect_stage, reconcile_stage
 from packages.workflow.engine import load as load_workflow
@@ -140,7 +141,26 @@ def context_select(index: str, roots: list[str], hops: int, max_files: int, max_
 def impact(path: str) -> int:
     p = pathlib.Path(path)
     data = _read_yaml(p) if p.suffix in {".yaml", ".yml"} else {}
-    print(json.dumps({"project": data.get("id", p.stem), "mode": data.get("lifecycle", "unknown"), "entry": data.get("entry", "unknown"), "next_phase": starting_phase(data.get("entry", "brownfield"))}, indent=2))
+    root = p.parent if p.is_file() else p
+    index_path = root / ".axiom" / "index.json"
+    changed = git_changed_files(root)
+    selected: list[str] = []
+    try:
+        if index_path.exists():
+            selected = select_from_index(str(index_path), changed or ["."], ContextBudget(max_files=24, max_bytes=500_000))
+        else:
+            count = write_index(root, index_path)
+            selected = select_from_index(str(index_path), changed or ["."], ContextBudget(max_files=24, max_bytes=500_000))
+    except Exception:
+        selected = changed
+    print(json.dumps({
+        "project": data.get("id", p.stem),
+        "mode": data.get("lifecycle", "unknown"),
+        "entry": data.get("entry", "unknown"),
+        "next_phase": starting_phase(data.get("entry", "brownfield")),
+        "changed_files": changed,
+        "affected_context": selected,
+    }, indent=2))
     return 0
 
 def workflow_plan(profile: str, entry: str | None) -> int:

@@ -7,7 +7,7 @@ import yaml
 from packages.skills.loader import validate_skill_doc
 from packages.skills.registry import load_catalog, check_catalog
 
-ROOT = pathlib.Path(__file__).resolve().parents[2]
+from packages.paths import ROOT
 
 
 def validate_all(catalog_path: pathlib.Path | None = None) -> dict:
