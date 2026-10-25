@@ -21,6 +21,10 @@ from packages.skills.engage import engage
 from packages.axiom_ops import get_status, plan_fix, plan_feature
 from packages.launcher import execute as oc_execute, opencode_status, RESEARCH_PREAMBLE
 from packages.toolchain import run_build, run_tests, run_coverage, run_static, capture_serial, flash
+from packages.requirements import import_requirements, write_requirements_artifact
+from packages.requirements.traceability import generate_matrix, write_matrix_csv
+from packages.skills.assurance import (build_hazard_artifact, build_threat_artifact,
+                                      build_review, validate_artifact_file)
 from axiom_mcp.server import serve as mcp_serve
 from packages.axiom_server.server import serve as http_serve
 
@@ -199,6 +203,41 @@ def flash_cmd(tool: str, firmware: str) -> int:
     res = flash(tool, firmware)
     print(json.dumps(res, indent=2))
     return 0 if res.get("status") == "ok" else 1
+
+def hazard_cmd(artifact_id: str, output: str, domain: str) -> int:
+    doc = build_hazard_artifact(artifact_id, domain)
+    import yaml as _yaml
+    p = pathlib.Path(output)
+    p.parent.mkdir(parents=True, exist_ok=True)
+    p.write_text(_yaml.safe_dump(doc, sort_keys=False), encoding="utf-8")
+    print(json.dumps({"artifact_id": artifact_id, "output": str(p)}, indent=2))
+    return 0
+
+def threat_cmd(artifact_id: str, output: str, domain: str) -> int:
+    doc = build_threat_artifact(artifact_id, domain)
+    import yaml as _yaml
+    p = pathlib.Path(output)
+    p.parent.mkdir(parents=True, exist_ok=True)
+    p.write_text(_yaml.safe_dump(doc, sort_keys=False), encoding="utf-8")
+    print(json.dumps({"artifact_id": artifact_id, "output": str(p)}, indent=2))
+    return 0
+
+def requirements_import_cmd(path: str, output: str, domain: str) -> int:
+    reqs = import_requirements(path)
+    out = write_requirements_artifact(reqs, output, domain)
+    print(json.dumps({"imported": len(reqs), "output": str(out)}, indent=2))
+    return 0
+
+def trace_generate_cmd(reqs_file: str, source: str, tests: str, output: str) -> int:
+    import yaml as _yaml
+    data = _yaml.safe_load(pathlib.Path(reqs_file).read_text(encoding="utf-8")) or {}
+    reqs = data.get("requirements", [])
+    src_files = [str(p) for p in pathlib.Path(source).rglob("*") if p.is_file()]
+    test_files = [str(p) for p in pathlib.Path(tests).rglob("*") if p.is_file()] if pathlib.Path(tests).exists() else []
+    rows = generate_matrix(reqs, test_files, src_files)
+    out = write_matrix_csv(rows, output)
+    print(json.dumps({"rows": len(rows), "output": str(out)}, indent=2))
+    return 0
 
 def workflow_plan(profile: str, entry: str | None) -> int:
     data = _read_yaml(profile)
@@ -501,6 +540,12 @@ def main() -> int:
     fl = sp.add_parser("flash", help="Flash firmware via probe (approval required)")
     fl.add_argument("--tool", default="openocd", choices=["openocd"])
     fl.add_argument("--firmware", required=True)
+    hz = sp.add_parser("hazard", help="Scaffold a hazard-risk assurance artifact")
+    hz.add_argument("artifact_id"); hz.add_argument("--output", default="hazard.yaml")
+    hz.add_argument("--domain", default="industrial")
+    th = sp.add_parser("threat", help="Scaffold a threat-model assurance artifact")
+    th.add_argument("artifact_id"); th.add_argument("--output", default="threat.yaml")
+    th.add_argument("--domain", default="industrial")
     ctx = sp.add_parser("context"); cs = ctx.add_subparsers(dest="context_cmd"); cc = cs.add_parser("select"); cc.add_argument("--index", default=".axiom/index.json"); cc.add_argument("--root", action="append", required=True); cc.add_argument("--hops", type=int, default=2); cc.add_argument("--max-files", type=int, default=24); cc.add_argument("--max-bytes", type=int, default=500000)
     im = sp.add_parser("impact"); im.add_argument("path")
     wf = sp.add_parser("workflow"); ws = wf.add_subparsers(dest="workflow_cmd"); wp = ws.add_parser("plan"); wp.add_argument("--profile", required=True); wp.add_argument("--entry")
@@ -605,6 +650,14 @@ def main() -> int:
     ar_v = ar_sub.add_parser("validate", help="Validate one artifact file"); ar_v.add_argument("path")
     tr = sp.add_parser("trace", help="Traceability checks over an artifact directory"); tr_sub = tr.add_subparsers(dest="trace_cmd", required=True)
     tr_c = tr_sub.add_parser("check", help="Check cross-artifact traceability"); tr_c.add_argument("path", nargs="?", default=".")
+    tr_g = tr_sub.add_parser("generate", help="Generate a traceability matrix CSV")
+    tr_g.add_argument("reqs_file"); tr_g.add_argument("--source", default=".")
+    tr_g.add_argument("--tests", default="."); tr_g.add_argument("--output", default="traceability.csv")
+    rq = sp.add_parser("requirements", help="Requirements management")
+    rq_sub = rq.add_subparsers(dest="req_cmd", required=True)
+    rq_i = rq_sub.add_parser("import", help="Import requirements from CSV/YAML/JSON")
+    rq_i.add_argument("path"); rq_i.add_argument("--output", default="requirements.yaml")
+    rq_i.add_argument("--domain", default="generic-embedded")
     rv = sp.add_parser("review", help="Validate review reports"); rv_sub = rv.add_subparsers(dest="review_cmd", required=True)
     rv_c = rv_sub.add_parser("check", help="Validate one review report file"); rv_c.add_argument("path")
     args = ap.parse_args()
@@ -628,6 +681,10 @@ def main() -> int:
         return serial_cmd(args.port, args.baud, args.duration, args.output)
     if args.cmd == "flash":
         return flash_cmd(args.tool, args.firmware)
+    if args.cmd == "hazard":
+        return hazard_cmd(args.artifact_id, args.output, args.domain)
+    if args.cmd == "threat":
+        return threat_cmd(args.artifact_id, args.output, args.domain)
     if args.cmd == "context" and args.context_cmd == "select": return context_select(args.index, args.root, args.hops, args.max_files, args.max_bytes)
     if args.cmd == "impact": return impact(args.path)
     if args.cmd == "workflow" and args.workflow_cmd == "plan": return workflow_plan(args.profile, args.entry)
@@ -675,6 +732,10 @@ def main() -> int:
         rep = check_traceability(args.path)
         print(json.dumps(rep, indent=2))
         return 0 if rep["valid"] else 1
+    if args.cmd == "trace" and args.trace_cmd == "generate":
+        return trace_generate_cmd(args.reqs_file, args.source, args.tests, args.output)
+    if args.cmd == "requirements" and args.req_cmd == "import":
+        return requirements_import_cmd(args.path, args.output, args.domain)
     if args.cmd == "review" and args.review_cmd == "check":
         from packages.skills.assurance import validate_artifact_file
         rep = validate_artifact_file(args.path)

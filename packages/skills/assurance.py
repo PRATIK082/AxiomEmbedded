@@ -181,6 +181,46 @@ def check_traceability(directory: str | pathlib.Path) -> dict:
                        "artifacts": len(arts)}}
 
 
+def build_hazard_artifact(artifact_id: str, domain: str = "industrial") -> dict:
+    now = utcnow()
+    return {
+        "artifact_id": artifact_id,
+        "schema_version": "1.0.0",
+        "kind": "hazard-risk",
+        "status": "draft",
+        "domain": domain,
+        "created_at": now,
+        "updated_at": now,
+        "author": "axiom",
+        "approval_status": "draft",
+        "hazards": [],
+        "assumptions": [],
+        "evidence": [],
+        "traceability": [],
+        "open_questions": [],
+    }
+
+
+def build_threat_artifact(artifact_id: str, domain: str = "industrial") -> dict:
+    now = utcnow()
+    return {
+        "artifact_id": artifact_id,
+        "schema_version": "1.0.0",
+        "kind": "threat-model",
+        "status": "draft",
+        "domain": domain,
+        "created_at": now,
+        "updated_at": now,
+        "author": "axiom",
+        "approval_status": "draft",
+        "threats": [],
+        "assumptions": [],
+        "evidence": [],
+        "traceability": [],
+        "open_questions": [],
+    }
+
+
 def build_review(target_artifact_id: str, findings: list[dict], reviewer: str = "independent-reviewer",
                  domain: str = "industrial") -> dict:
     """Build an append-only review report dict (never mutates the target)."""
