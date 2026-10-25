@@ -1,0 +1,6 @@
+# Local-only design notes, agent step logs, and detailed design drafts.
+docs/local/
+docs/internal/
+docs/agent-steps/
+*.local.md
+.design/
