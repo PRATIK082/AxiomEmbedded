@@ -27,6 +27,7 @@ from packages.release import generate_changelog
 from packages.cicd import generate_cicd
 from packages.sbom import generate_sbom
 from packages.docs import run_doxygen
+from packages.plugins import list_plugins
 from packages.skills.assurance import (build_hazard_artifact, build_threat_artifact,
                                       build_review, validate_artifact_file)
 from axiom_mcp.server import serve as mcp_serve
@@ -230,6 +231,10 @@ def docs_cmd(config: str | None, source: str) -> int:
     res = run_doxygen(config, source)
     print(json.dumps(res, indent=2))
     return 0 if res.get("status") in ("ok", "unavailable") else 1
+
+def plugins_cmd() -> int:
+    print(json.dumps({"plugins": list_plugins()}, indent=2))
+    return 0
 
 def hazard_cmd(artifact_id: str, output: str, domain: str) -> int:
     doc = build_hazard_artifact(artifact_id, domain)
@@ -587,6 +592,8 @@ def main() -> int:
     dc = sp.add_parser("docs", help="Generate documentation (Doxygen)")
     dc.add_argument("--config", default=None)
     dc.add_argument("--source", default=".")
+    pl = sp.add_parser("plugins", help="List installed axiom plugins (entry points)")
+    pl.add_argument("action", nargs="?", default="list", choices=["list"])
     ctx = sp.add_parser("context"); cs = ctx.add_subparsers(dest="context_cmd"); cc = cs.add_parser("select"); cc.add_argument("--index", default=".axiom/index.json"); cc.add_argument("--root", action="append", required=True); cc.add_argument("--hops", type=int, default=2); cc.add_argument("--max-files", type=int, default=24); cc.add_argument("--max-bytes", type=int, default=500000)
     im = sp.add_parser("impact"); im.add_argument("path")
     wf = sp.add_parser("workflow"); ws = wf.add_subparsers(dest="workflow_cmd"); wp = ws.add_parser("plan"); wp.add_argument("--profile", required=True); wp.add_argument("--entry")
@@ -734,6 +741,8 @@ def main() -> int:
         return sbom_cmd(args.root, args.output)
     if args.cmd == "docs":
         return docs_cmd(args.config, args.source)
+    if args.cmd == "plugins":
+        return plugins_cmd()
     if args.cmd == "context" and args.context_cmd == "select": return context_select(args.index, args.root, args.hops, args.max_files, args.max_bytes)
     if args.cmd == "impact": return impact(args.path)
     if args.cmd == "workflow" and args.workflow_cmd == "plan": return workflow_plan(args.profile, args.entry)
