@@ -224,9 +224,17 @@ and `docs/skills/GROUPS.md`.
 | Component | Supported |
 |---|---|
 | Python | ≥ 3.11 (PyYAML only; pytest for tests) |
-| OpenCode (live `axiom oc` / research) | v1, tested 1.18.31–1.18.35; v2 fails closed (see `docs/OPENCODE_COMPAT.md`) |
+| OpenCode (live `axiom oc` / research) | v1 tested 1.18.31-1.18.35; v2.1.0-2.1.4 supported via `packages/launcher.py` (see `docs/OPENCODE_COMPAT.md`) |
 | Install | `pipx install axiom-embedded` (or `pip install axiom-embedded`) |
 | AI clients | 10 clients (opencode/claude/codex/gemini/copilot/cursor/cline/aider/kilo/openhands) via `axiom install --client` |
+
+## Development, cleanup, and low-token workflow
+
+See docs/development.md for the cleanup record, token-reduction protocol, and install/uninstall/link matrix.
+
+- Cleanup removed the editable install, generated build outputs, and ~/.axiom.
+- Use targeted tests during iteration; run the full merge gate once before commit.
+- OpenCode v2.1.0-2.1.4 is supported; v1 remains the tested baseline.
 
 ## Contribute and shape the roadmap
 

@@ -47,7 +47,8 @@ def _patch_binary(monkeypatch, version_out: str):
     ("1.18.35", "ok"),
     ("1.18.40", "warn"),   # newer v1 than surveyed: warn, keep going
     ("1.17.0", "warn"),    # older than the tested floor: warn
-    ("2.0.6", "fail"),     # untested major: fail closed
+    ("2.0.6", "warn"),     # untested older v2: warn, keep going
+    ("2.1.4", "ok"),       # surveyed v2: pass
 ])
 def test_status_matrix(monkeypatch, version_out, state):
     _patch_binary(monkeypatch, version_out)
