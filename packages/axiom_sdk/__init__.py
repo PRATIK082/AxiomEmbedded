@@ -11,6 +11,7 @@ import pathlib
 from packages.agents.router import route, detect_domain
 from packages.skills.engage import engage
 from packages.toolpacks.select import select_packs
+from packages.toolchain import run_build
 
 from packages.paths import ROOT
 
@@ -262,6 +263,12 @@ def link_skill(kind: str, skill_id: str, values: list[str]) -> dict:
         return {"status": "ok", **set_link(kind, skill_id, values or [])}
     except ValueError as exc:
         return {"status": "error", "message": str(exc)}
+
+
+def build(system: str = "cmake", source: str = ".", build_dir: str | None = None,
+          target: str | None = None, jobs: int = 4) -> dict:
+    """Invoke a build system and return parsed diagnostics (mirrors `axiom build`)."""
+    return run_build(system, source, build_dir, target, jobs)
 
 # P1 generator wrappers (deterministic; see packages/skill_tools.py).
 from packages.skill_tools import (  # noqa: E402,E501

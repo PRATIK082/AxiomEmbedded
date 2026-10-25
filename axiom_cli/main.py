@@ -20,6 +20,7 @@ from packages.agents.router import route, detect_domain
 from packages.skills.engage import engage
 from packages.axiom_ops import get_status, plan_fix, plan_feature
 from packages.launcher import execute as oc_execute, opencode_status, RESEARCH_PREAMBLE
+from packages.toolchain import run_build, run_tests, run_coverage, run_static, capture_serial, flash
 from axiom_mcp.server import serve as mcp_serve
 from packages.axiom_server.server import serve as http_serve
 
@@ -162,6 +163,42 @@ def impact(path: str) -> int:
         "affected_context": selected,
     }, indent=2))
     return 0
+
+def build_cmd(system: str, source: str, build_dir: str | None, target: str | None,
+              jobs: int) -> int:
+    res = run_build(system, source, build_dir, target, jobs)
+    print(json.dumps(res, indent=2))
+    # propagate failure exit code
+    failed = False
+    for v in (res.values() if isinstance(res, dict) else []):
+        if isinstance(v, dict) and v.get("status") in ("failed", "timeout", "error", "unavailable"):
+            failed = True
+    return 1 if failed else 0
+
+def test_cmd(framework: str, source: str) -> int:
+    res = run_tests(framework, source)
+    print(json.dumps(res, indent=2))
+    return 0 if res.get("status") in ("ok",) else 1
+
+def coverage_cmd(tool: str, source: str, threshold) -> int:
+    res = run_coverage(tool, source, threshold=threshold)
+    print(json.dumps(res, indent=2))
+    return 0 if res.get("status") in ("ok",) else 1
+
+def static_cmd(tool: str, source: str) -> int:
+    res = run_static(tool, source)
+    print(json.dumps(res, indent=2))
+    return 0 if res.get("status") in ("ok", "findings") else 1
+
+def serial_cmd(port: str, baud: int, duration: int, output: str | None) -> int:
+    res = capture_serial(port, baud, duration, output)
+    print(json.dumps(res, indent=2))
+    return 0 if res.get("status") == "ok" else 1
+
+def flash_cmd(tool: str, firmware: str) -> int:
+    res = flash(tool, firmware)
+    print(json.dumps(res, indent=2))
+    return 0 if res.get("status") == "ok" else 1
 
 def workflow_plan(profile: str, entry: str | None) -> int:
     data = _read_yaml(profile)
@@ -440,6 +477,30 @@ def main() -> int:
     prof = sp.add_parser("profile"); prof_sub = prof.add_subparsers(dest="profile_cmd"); pv = prof_sub.add_parser("validate"); pv.add_argument("path")
     an = sp.add_parser("analyze"); an.add_argument("path", nargs="?", default=".")
     graph = sp.add_parser("graph"); gs = graph.add_subparsers(dest="graph_cmd"); gb = gs.add_parser("build"); gb.add_argument("path", nargs="?", default="."); gb.add_argument("--output")
+    bd = sp.add_parser("build", help="Invoke a build system (cmake/make/ninja) and report diagnostics")
+    bd.add_argument("--system", default="cmake", choices=["cmake", "make", "ninja"])
+    bd.add_argument("--source", default=".")
+    bd.add_argument("--build-dir", default=None)
+    bd.add_argument("--target", default=None)
+    bd.add_argument("--jobs", type=int, default=4)
+    ts = sp.add_parser("test", help="Invoke a test runner (pytest/ceedling) and report results")
+    ts.add_argument("--framework", default="pytest", choices=["pytest", "ceedling", "unity"])
+    ts.add_argument("--source", default=".")
+    cv = sp.add_parser("coverage", help="Run coverage (gcovr) and report threshold")
+    cv.add_argument("--tool", default="gcovr", choices=["gcovr"])
+    cv.add_argument("--source", default=".")
+    cv.add_argument("--threshold", type=float, default=None)
+    st2 = sp.add_parser("static", help="Run static analysis (cppcheck/clang-tidy)")
+    st2.add_argument("--tool", default="cppcheck", choices=["cppcheck", "clang-tidy"])
+    st2.add_argument("--source", default=".")
+    sl = sp.add_parser("serial", help="Capture serial/UART output")
+    sl.add_argument("--port", required=True)
+    sl.add_argument("--baud", type=int, default=115200)
+    sl.add_argument("--duration", type=int, default=5)
+    sl.add_argument("--output", default=None)
+    fl = sp.add_parser("flash", help="Flash firmware via probe (approval required)")
+    fl.add_argument("--tool", default="openocd", choices=["openocd"])
+    fl.add_argument("--firmware", required=True)
     ctx = sp.add_parser("context"); cs = ctx.add_subparsers(dest="context_cmd"); cc = cs.add_parser("select"); cc.add_argument("--index", default=".axiom/index.json"); cc.add_argument("--root", action="append", required=True); cc.add_argument("--hops", type=int, default=2); cc.add_argument("--max-files", type=int, default=24); cc.add_argument("--max-bytes", type=int, default=500000)
     im = sp.add_parser("impact"); im.add_argument("path")
     wf = sp.add_parser("workflow"); ws = wf.add_subparsers(dest="workflow_cmd"); wp = ws.add_parser("plan"); wp.add_argument("--profile", required=True); wp.add_argument("--entry")
@@ -555,6 +616,18 @@ def main() -> int:
     if args.cmd == "profile" and args.profile_cmd == "validate": return validate_profile(args.path)
     if args.cmd == "analyze": return analyze(args.path)
     if args.cmd == "graph" and args.graph_cmd == "build": return graph_build(args.path, args.output)
+    if args.cmd == "build":
+        return build_cmd(args.system, args.source, args.build_dir, args.target, args.jobs)
+    if args.cmd == "test":
+        return test_cmd(args.framework, args.source)
+    if args.cmd == "coverage":
+        return coverage_cmd(args.tool, args.source, args.threshold)
+    if args.cmd == "static":
+        return static_cmd(args.tool, args.source)
+    if args.cmd == "serial":
+        return serial_cmd(args.port, args.baud, args.duration, args.output)
+    if args.cmd == "flash":
+        return flash_cmd(args.tool, args.firmware)
     if args.cmd == "context" and args.context_cmd == "select": return context_select(args.index, args.root, args.hops, args.max_files, args.max_bytes)
     if args.cmd == "impact": return impact(args.path)
     if args.cmd == "workflow" and args.workflow_cmd == "plan": return workflow_plan(args.profile, args.entry)
