@@ -8,6 +8,8 @@
 - [ ] Section `5. Agent mode (headless) operating notes` addressed with project evidence
 - [ ] Section `6. Release gates (blocking)` addressed with project evidence
 - [ ] Section `7. Verification of this skill (Phase 4 gate)` addressed with project evidence
+- [ ] No generated client mirrors (`.opencode/`, `.claude/`, `.claude-plugin/`) or generated index output (`.axiom/`) is tracked
+- [ ] `git ls-files` contains no build-output or local index paths
 - [ ] Assumptions, evidence links, and open questions recorded
 - [ ] No normative text copied from standards; citations are number/edition/clause only
 - [ ] Traceability links to related artifacts recorded (or N/A with reason)

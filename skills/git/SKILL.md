@@ -1,7 +1,7 @@
 ---
 name: git
 description: Git workflow discipline for clean history, safe branching, review-ready commits, controlled merges/rebases, tags, and recovery. Use when creating branches, committing, merging, rebasing, tagging, syncing remotes, or recovering repository state.
-version: 1.2.0
+version: 1.3.0
 domains: [all]
 platforms: [all]
 axiom:
@@ -82,6 +82,10 @@ Ends at an auditable, recoverable repository state.
 10. **Submodules/worktrees pinned.** Record submodule commits and worktree
     paths; never leave a repository in a detached or half-merged state without
     a documented reason.
+11. **No generated build outputs or local index artifacts.** Never commit
+    client mirrors (`.opencode/`, `.claude/`, `.claude-plugin/`) or generated
+    index output (`.axiom/`). Keep them ignored/untracked and remove them from
+    the index if they were accidentally committed.
 
 ## 4. Decision rules
 
@@ -114,6 +118,8 @@ Ends at an auditable, recoverable repository state.
 4. Required tests pass on the tip commit.
 5. Release tags are annotated and point to the released commit.
 6. No secrets or generated artifacts are committed.
+7. No generated client mirrors (`.opencode/`, `.claude/`, `.claude-plugin/`) or
+   generated index output (`.axiom/`) is committed.
 
 ## 7. Verification of this skill (Phase 4 gate)
 
