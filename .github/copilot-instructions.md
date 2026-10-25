@@ -18,7 +18,7 @@ Surface the plan first; never execute pushes, releases, destructive
 commands, or safety/security-critical changes without recorded human
 approval. Never claim certification or compliance from a heuristic check.
 
-## Skills (179)
+## Skills (180)
 
 - `adas` — ADAS/AD perception-to-control pipeline, sensor fusion, SOTIF and ASIL decomposition, Euro-NCAP, data closed-loop, OpenSCENARIO/OpenDRIVE HIL. Use for L0-L4 driver assistance and automated driving.
 - `ai-validation` — ODD discipline, dataset independence, statistical acceptance, drift monitoring. Use when assuring ML components or arguing AI safety.
@@ -217,6 +217,7 @@ approval. Never claim certification or compliance from a heuristic check.
 - `evidence` — Evidence taxonomy, integrity rules, and packaging for assessments. Use when assembling assurance cases or audit packs.
 - `fault-injection` — FMEA-derived fault lists, SWIFI/HWIFI levels, and SPFM/LFM accounting. Use when proving safe-state behavior under faults.
 - `feature-development` — Vertical slicing, short-lived branches, and tests-travel-with-code. Use when adding product features incrementally.
+- `git` — Git workflow discipline for clean history, safe branching, review-ready commits, controlled merges/rebases, tags, and recovery. Use when creating branches, committing, merging, rebasing, tagging, syncing remotes, or recovering repository state.
 - `hardware-architecture` — ECU/board architecture, power domains, budgets, and HSI contracts. Use when designing hardware, partitioning SoC peripherals, or budgeting power.
 - `hardware-bringup` — Power-to-bootloader staging, golden captures, deviation logs. Use when powering new boards or debugging no-boot failures.
 - `implementation` — MISRA/CERT construction, static-analysis-clean code, reviews, and definition of done. Use when writing or reviewing C/C++/Rust for targets.
@@ -245,7 +246,7 @@ approval. Never claim certification or compliance from a heuristic check.
 - `unit-test` — Host/target unit testing with mocks, coverage per integrity level, and done criteria. Use when writing module tests or setting coverage targets.
 - `validation` — Needs-based validation scenarios, usability, and acceptance. Use when proving the right product was built for stakeholders.
 
-## Specialist agents (29)
+## Specialist agents (30)
 
 - `ai-validation` — Evaluates embedded AI models for accuracy, resource use and deployment readiness.
 - `brownfield-recovery` — Recovers architecture, dependencies, tests and baselines from an existing product.
@@ -256,6 +257,7 @@ approval. Never claim certification or compliance from a heuristic check.
 - `diag-auto-review` — Binds an external CLI review/fix agent to Axiom diag skills: auto-resolves findings, reviews code, and proposes updates under skill rules and human gates.
 - `documentation` — Generates and updates engineering documentation from artifacts.
 - `engineering-manager` — Plans multi-step engineering work, gates and evidence.
+- `git` — Manages Git repository state: branches, commits, history hygiene, merges, tags, and recovery.
 - `hardware-architecture` — Models compute, memory, peripherals, boards and HW/SW boundaries.
 - `hardware-bringup` — Guides hardware/software bring-up and evidence capture.
 - `implementation` — Implements scoped code changes under project rules.

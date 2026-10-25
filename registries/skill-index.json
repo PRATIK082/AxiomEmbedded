@@ -1844,6 +1844,15 @@
         "mcu",
         "mpu"
       ]
+    },
+    "git": {
+      "description": "Git workflow discipline for clean history, safe branching, review-ready commits, controlled merges/rebases, tags, and recovery. Use when creating branches, committing, merging, rebasing, tagging, syncing remotes, or recovering repository state.",
+      "domains": [
+        "all"
+      ],
+      "platforms": [
+        "all"
+      ]
     }
   },
   "by_domain": {
@@ -1881,6 +1890,7 @@
       "embedded-cpp",
       "evidence",
       "feature-development",
+      "git",
       "hardware-architecture",
       "hardware-bringup",
       "implementation",
@@ -2107,6 +2117,7 @@
       "evidence",
       "fault-injection",
       "feature-development",
+      "git",
       "implementation",
       "integration-test",
       "legacy-recovery",
@@ -2709,6 +2720,7 @@
       "build-system",
       "code-review",
       "feature-development",
+      "git",
       "implementation",
       "static-analysis"
     ]

@@ -610,6 +610,10 @@
       "path": "skills/feature-development"
     },
     {
+      "id": "git",
+      "path": "skills/git"
+    },
+    {
       "id": "hardware-architecture",
       "path": "skills/hardware-architecture"
     },

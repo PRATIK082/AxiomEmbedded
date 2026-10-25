@@ -264,6 +264,10 @@ skills:
   path: skills/feature-development
   domain: all
   maturity: production
+- name: axiom.legacy.git
+  path: skills/git
+  domain: all
+  maturity: production
 - name: axiom.legacy.hardware-architecture
   path: skills/hardware-architecture
   domain: all
