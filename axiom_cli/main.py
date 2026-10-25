@@ -23,6 +23,10 @@ from packages.launcher import execute as oc_execute, opencode_status, RESEARCH_P
 from packages.toolchain import run_build, run_tests, run_coverage, run_static, capture_serial, flash
 from packages.requirements import import_requirements, write_requirements_artifact
 from packages.requirements.traceability import generate_matrix, write_matrix_csv
+from packages.release import generate_changelog
+from packages.cicd import generate_cicd
+from packages.sbom import generate_sbom
+from packages.docs import run_doxygen
 from packages.skills.assurance import (build_hazard_artifact, build_threat_artifact,
                                       build_review, validate_artifact_file)
 from axiom_mcp.server import serve as mcp_serve
@@ -203,6 +207,29 @@ def flash_cmd(tool: str, firmware: str) -> int:
     res = flash(tool, firmware)
     print(json.dumps(res, indent=2))
     return 0 if res.get("status") == "ok" else 1
+
+def changelog_cmd(repo: str, output: str | None, version: str | None, since: str | None) -> int:
+    text = generate_changelog(repo, since, version)
+    if output:
+        pathlib.Path(output).write_text(text, encoding="utf-8")
+    else:
+        print(text)
+    return 0
+
+def cicd_cmd(kind: str, output: str) -> int:
+    p = generate_cicd(kind, output)
+    print(json.dumps({"generated": str(p)}, indent=2))
+    return 0
+
+def sbom_cmd(root: str, output: str) -> int:
+    p = generate_sbom(root, output)
+    print(json.dumps({"generated": str(p)}, indent=2))
+    return 0
+
+def docs_cmd(config: str | None, source: str) -> int:
+    res = run_doxygen(config, source)
+    print(json.dumps(res, indent=2))
+    return 0 if res.get("status") in ("ok", "unavailable") else 1
 
 def hazard_cmd(artifact_id: str, output: str, domain: str) -> int:
     doc = build_hazard_artifact(artifact_id, domain)
@@ -546,6 +573,20 @@ def main() -> int:
     th = sp.add_parser("threat", help="Scaffold a threat-model assurance artifact")
     th.add_argument("artifact_id"); th.add_argument("--output", default="threat.yaml")
     th.add_argument("--domain", default="industrial")
+    cl = sp.add_parser("changelog", help="Generate changelog from git history")
+    cl.add_argument("--repo", default=".")
+    cl.add_argument("--output", default=None)
+    cl.add_argument("--version", default=None)
+    cl.add_argument("--since", default=None)
+    ci = sp.add_parser("cicd", help="Generate CI/CD pipeline templates")
+    ci.add_argument("--kind", default="github", choices=["github", "gitlab"])
+    ci.add_argument("--output", default=".")
+    sb = sp.add_parser("sbom", help="Generate SBOM (CycloneDX-lite)")
+    sb.add_argument("--root", default=".")
+    sb.add_argument("--output", default="sbom.json")
+    dc = sp.add_parser("docs", help="Generate documentation (Doxygen)")
+    dc.add_argument("--config", default=None)
+    dc.add_argument("--source", default=".")
     ctx = sp.add_parser("context"); cs = ctx.add_subparsers(dest="context_cmd"); cc = cs.add_parser("select"); cc.add_argument("--index", default=".axiom/index.json"); cc.add_argument("--root", action="append", required=True); cc.add_argument("--hops", type=int, default=2); cc.add_argument("--max-files", type=int, default=24); cc.add_argument("--max-bytes", type=int, default=500000)
     im = sp.add_parser("impact"); im.add_argument("path")
     wf = sp.add_parser("workflow"); ws = wf.add_subparsers(dest="workflow_cmd"); wp = ws.add_parser("plan"); wp.add_argument("--profile", required=True); wp.add_argument("--entry")
@@ -685,6 +726,14 @@ def main() -> int:
         return hazard_cmd(args.artifact_id, args.output, args.domain)
     if args.cmd == "threat":
         return threat_cmd(args.artifact_id, args.output, args.domain)
+    if args.cmd == "changelog":
+        return changelog_cmd(args.repo, args.output, args.version, args.since)
+    if args.cmd == "cicd":
+        return cicd_cmd(args.kind, args.output)
+    if args.cmd == "sbom":
+        return sbom_cmd(args.root, args.output)
+    if args.cmd == "docs":
+        return docs_cmd(args.config, args.source)
     if args.cmd == "context" and args.context_cmd == "select": return context_select(args.index, args.root, args.hops, args.max_files, args.max_bytes)
     if args.cmd == "impact": return impact(args.path)
     if args.cmd == "workflow" and args.workflow_cmd == "plan": return workflow_plan(args.profile, args.entry)
