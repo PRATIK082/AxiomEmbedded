@@ -1,5 +1,5 @@
 id: git
-version: 1.3.0
+version: 1.2.0
 contract_version: 1
 type: reusable-skill
 standards_refs:
@@ -12,9 +12,6 @@ standards_refs:
   clause: Commit message structure and semantic versioning hints
   source_url: https://www.conventionalcommits.org/en/v1.0.0/
 changelog:
-- version: 1.3.0
-  date: '2026-10-25'
-  summary: 'Added repository hygiene rule: never commit generated client mirrors or generated Axiom index artifacts; keep them ignored/untracked.'
 - version: 1.2.0
   date: '2026-10-25'
   summary: 'Skill packaging: agent-skills frontmatter for multi-harness discovery, domain/platform facets, engagement linkage'

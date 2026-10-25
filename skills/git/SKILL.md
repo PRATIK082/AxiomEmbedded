@@ -1,7 +1,7 @@
 ---
 name: git
 description: Git workflow discipline for clean history, safe branching, review-ready commits, controlled merges/rebases, tags, and recovery. Use when creating branches, committing, merging, rebasing, tagging, syncing remotes, or recovering repository state.
-version: 1.3.0
+version: 1.2.0
 domains: [all]
 platforms: [all]
 axiom:
