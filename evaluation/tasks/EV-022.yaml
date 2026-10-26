@@ -1,0 +1,8 @@
+# EV-022
+id: EV-022
+agent: safety
+domain: automotive
+platform: mcu
+prompt: ISO 21434 TARA for connected vehicle.
+expect:
+  skills_contain: ['axiom-iso-21434-tara']

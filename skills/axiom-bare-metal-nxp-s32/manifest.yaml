@@ -1,0 +1,18 @@
+id: axiom-bare-metal-nxp-s32
+version: 1.2.0
+contract_version: 1
+type: reusable-skill
+source_of_truth:
+  instructions: SKILL.md
+  contract: manifest.yaml
+facets:
+  domains:
+  - all
+  platforms:
+  - mcu
+standards:
+  []
+axiom:
+  dotted_name: axiom.all.bare_metal_nxp_s32
+  maturity: experimental
+  category: implementation

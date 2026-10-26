@@ -16,7 +16,7 @@ axiom:
   domain: robotics
   subdomain: middleware
   category: design
-  maturity: experimental
+  maturity: beta
   owner: axiom-embedded
   tags:
   - middleware

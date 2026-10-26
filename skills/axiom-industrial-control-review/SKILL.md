@@ -13,7 +13,7 @@ axiom:
   domain: industrial
   subdomain: control
   category: review
-  maturity: experimental
+  maturity: beta
   owner: axiom-embedded
   tags: [control]
   related_skills: []

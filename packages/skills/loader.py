@@ -32,6 +32,30 @@ def load_skill(skill_id: str) -> dict:
             "dir": str(d)}
 
 
+def load_skill_meta(skill_id: str) -> dict:
+    """Lazy: frontmatter + manifest only, body omitted (load on demand)."""
+    if not ID_RE.match(skill_id) or ".." in skill_id or "/" in skill_id:
+        raise ValueError(f"invalid skill id: {skill_id!r}")
+    d = ROOT / "skills" / skill_id
+    text = (d / "SKILL.md").read_text(encoding="utf-8")
+    fm, _body = parse_skill_doc(text)
+    manifest = {}
+    mp = d / "manifest.yaml"
+    if mp.exists():
+        manifest = yaml.safe_load(mp.read_text(encoding="utf-8")) or {}
+    return {"id": skill_id, "frontmatter": fm, "manifest": manifest, "dir": str(d),
+            "body_loaded": False}
+
+
+def load_skill_body(skill_id: str) -> str:
+    """Load only the body of a skill on demand (lazy loading)."""
+    if not ID_RE.match(skill_id) or ".." in skill_id or "/" in skill_id:
+        raise ValueError(f"invalid skill id: {skill_id!r}")
+    d = ROOT / "skills" / skill_id
+    _fm, body = parse_skill_doc((d / "SKILL.md").read_text(encoding="utf-8"))
+    return body
+
+
 def validate_skill_doc(skill_id: str) -> dict:
     errors: list[str] = []
     warnings: list[str] = []
@@ -83,3 +107,32 @@ def validate_skill_doc(skill_id: str) -> dict:
             warnings.append(f"body missing section {section}")
     return {"skill": skill_id, "valid": not errors, "errors": errors,
             "warnings": warnings}
+
+TEMPLATE_SECTIONS = ("## Purpose", "## Workflow", "## Acceptance", "## Checklist",
+                     "## Examples", "## Pitfalls", "## References")
+
+
+def validate_template(skill_id: str) -> dict:
+    errors = []
+    warnings = []
+    try:
+        s = load_skill(skill_id)
+    except Exception as exc:
+        return {"skill": skill_id, "valid": False, "errors": [str(exc)], "warnings": []}
+    fm = s["frontmatter"]
+    body = s["body"]
+    for sec in ("## Purpose", "## Workflow", "## Acceptance"):
+        if sec.lower() not in body.lower():
+            warnings.append("body missing section " + sec)
+    for sec in ("## Checklist", "## Examples", "## Pitfalls", "## References"):
+        if sec.lower() not in body.lower():
+            warnings.append("body missing optional section " + sec)
+    meta = fm.get("metadata", {}) or {}
+    if not meta.get("origin"):
+        warnings.append("frontmatter missing metadata.origin")
+    if not meta.get("version"):
+        warnings.append("frontmatter missing metadata.version")
+    ax = fm.get("axiom", {}) or {}
+    if "triggers" not in fm and "triggers" not in ax:
+        warnings.append("no triggers declared")
+    return {"skill": skill_id, "valid": not errors, "errors": errors, "warnings": warnings}

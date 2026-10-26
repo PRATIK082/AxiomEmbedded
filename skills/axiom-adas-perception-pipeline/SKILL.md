@@ -13,7 +13,7 @@ axiom:
   domain: automotive
   subdomain: adas
   category: design
-  maturity: experimental
+  maturity: beta
   owner: axiom-embedded
   tags: [adas]
   related_skills: []

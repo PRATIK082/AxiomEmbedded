@@ -16,7 +16,7 @@ axiom:
   domain: industrial
   subdomain: assurance
   category: requirements
-  maturity: experimental
+  maturity: beta
   owner: axiom-embedded
   tags: [assurance, scope]
   related_skills: [axiom-scope-context-review]

@@ -1,0 +1,8 @@
+# EV-015
+id: EV-015
+agent: implementation
+domain: industrial
+platform: mpu
+prompt: EtherCAT motion control integration.
+expect:
+  skills_contain: ['axiom-ethercat-motion']

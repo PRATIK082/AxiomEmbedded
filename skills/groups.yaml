@@ -126,3 +126,8 @@ groups:
       - {id_prefix: [axiom-scope-, axiom-hazard-, axiom-safety-,
                       axiom-vnv-, axiom-threat-]}
       - {subdomain: [assurance]}
+  other:
+    title: Other / uncategorized
+    description: Catch-all for skills not yet assigned to a specific group.
+    match_any:
+      - {}

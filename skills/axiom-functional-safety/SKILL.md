@@ -13,7 +13,7 @@ axiom:
   domain: automotive
   subdomain: safety
   category: safety
-  maturity: experimental
+  maturity: beta
   owner: axiom-embedded
   tags: [safety]
   related_skills: []

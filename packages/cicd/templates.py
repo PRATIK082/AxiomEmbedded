@@ -19,6 +19,7 @@ jobs:
       - run: python -m pytest -q
       - run: python -m axiom_cli doctor --skip-tests
       - run: python scripts/skill_pipeline.py --check
+      - run: python -m axiom_cli security scan .
 """
 
 

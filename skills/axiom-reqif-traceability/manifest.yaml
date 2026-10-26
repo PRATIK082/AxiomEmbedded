@@ -1,0 +1,19 @@
+id: axiom-reqif-traceability
+version: 1.2.0
+contract_version: 1
+type: reusable-skill
+source_of_truth:
+  instructions: SKILL.md
+  contract: manifest.yaml
+facets:
+  domains:
+  - all
+  platforms:
+  - mcu
+  - mpu
+standards:
+  - ReqIF 1.2
+axiom:
+  dotted_name: axiom.all.reqif_traceability
+  maturity: experimental
+  category: traceability

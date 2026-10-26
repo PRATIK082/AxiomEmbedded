@@ -1,0 +1,20 @@
+id: axiom-obd-ii-diagnostics
+version: 1.2.0
+contract_version: 1
+type: reusable-skill
+source_of_truth:
+  instructions: SKILL.md
+  contract: manifest.yaml
+facets:
+  domains:
+  - automotive
+  platforms:
+  - mcu
+  - mpu
+standards:
+  - SAE J1979
+  - ISO 15031
+axiom:
+  dotted_name: axiom.automotive.obd_ii_diagnostics
+  maturity: experimental
+  category: design

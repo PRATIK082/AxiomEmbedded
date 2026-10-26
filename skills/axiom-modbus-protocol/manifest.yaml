@@ -1,0 +1,19 @@
+id: axiom-modbus-protocol
+version: 1.2.0
+contract_version: 1
+type: reusable-skill
+source_of_truth:
+  instructions: SKILL.md
+  contract: manifest.yaml
+facets:
+  domains:
+  - industrial
+  platforms:
+  - mcu
+  - mpu
+standards:
+  - Modbus
+axiom:
+  dotted_name: axiom.industrial.modbus_protocol
+  maturity: experimental
+  category: integration

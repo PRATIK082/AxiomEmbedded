@@ -231,6 +231,79 @@ def search_opencode(subquestion: str, *, model: str | None = None,
     return result
 
 
+def search_rag(subquestion: str, source: str | None = None) -> dict:
+    """Local RAG search over repo docs/skills; always available."""
+    from packages import rag as _rag
+    from packages.installer import find_content_source
+
+    try:
+        content = find_content_source(source)
+    except ValueError as exc:
+        return {"backend": "rag", "status": "unavailable",
+                "reason": str(exc), "findings": []}
+    roots = [content]
+    if source:
+        roots = [source]
+    try:
+        index = _rag.build_index(roots)
+    except Exception as exc:  # noqa: BLE001
+        return {"backend": "rag", "status": "error",
+                "reason": str(exc), "findings": []}
+    hits = _rag.search(index, subquestion, top_k=5)
+    findings = []
+    for h in hits:
+        findings.append({
+            "claim": f"Local document '{h['path']}' is relevant to the query "
+                     f"(score {h['score']}).",
+            "number": "",
+            "version": "",
+            "clause": "",
+            "source_url": "",
+            "source_path": h["path"],
+            "confidence": "medium",
+            "paraphrase": True,
+        })
+    return {"backend": "rag", "status": "ok", "findings": findings}
+
+
+def verify_identifiers(findings: list[dict], source: str | None = None) -> list[dict]:
+    """Hallucination guard: mark findings whose claim references an unknown
+    identifier token. Adds ``identifier_status`` field; does not drop findings
+    (honest reporting)."""
+    from packages.installer import find_content_source
+
+    # Build a small symbol index from skill manifests + agent names.
+    symbols: set[str] = set()
+    try:
+        content = find_content_source(source)
+        for p in (content / "skills").rglob("manifest.yaml"):
+            try:
+                import yaml as _y
+
+                data = _y.safe_load(p.read_text(encoding="utf-8")) or {}
+            except Exception:
+                continue
+            for key in ("id", "name", "title"):
+                v = data.get(key)
+                if isinstance(v, str):
+                    symbols.add(v.lower())
+        agents = content / "agents"
+        if agents.is_dir():
+            for p in agents.rglob("*.md"):
+                symbols.add(p.stem.lower())
+    except Exception:
+        pass
+    out = []
+    for f in findings:
+        claim = str(f.get("claim", "")).lower()
+        toks = set(re.findall(r"[a-z][a-z0-9_-]{2,}", claim))
+        unknown = [t for t in toks if t not in symbols and not t.isdigit()]
+        # Heuristic: only flag if most tokens are unknown (avoid false positives)
+        status = "verified" if (not toks or len(unknown) < len(toks) * 0.8) else "unverified"
+        out.append({**f, "identifier_status": status})
+    return out
+
+
 def verify(findings: list[dict]) -> tuple[list[dict], list[dict]]:
     """Dedupe + confidence-gate findings; drop uncited claims honestly."""
     accepted: list[dict] = []
@@ -329,6 +402,14 @@ def run(question: str, *, backend: str = "auto",
                 fallback["note"] = (f"{which} unavailable: {result.get('reason', '')}; "
                                     "fell back to local")
                 result = fallback
+        # Optional local RAG augmentation (Track B): consult the local
+        # document index and merge any additional cited findings.
+        if backend in ("auto", "local"):
+            rag_res = search_rag(sub, source)
+            if rag_res.get("status") == "ok" and rag_res.get("findings"):
+                result = dict(result)
+                result["findings"] = list(result.get("findings", [])) + rag_res["findings"]
+                result["rag"] = "merged"
         per_question.append({"subquestion": sub, **result})
         for finding in result.get("findings", []):
             # Same skill manifest matches several overlapping sub-questions;
@@ -339,6 +420,7 @@ def run(question: str, *, backend: str = "auto",
                 seen_claims.add(key)
                 raw.append(finding)
     accepted, rejected = verify(raw)
+    accepted = verify_identifiers(accepted, source)
     report = synthesize(question, per_question, accepted, rejected)
     return {
         "status": "ok",

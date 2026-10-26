@@ -13,7 +13,7 @@ axiom:
   domain: aerospace
   subdomain: safety
   category: review
-  maturity: experimental
+  maturity: beta
   owner: axiom-embedded
   tags: [safety]
   related_skills: []

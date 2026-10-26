@@ -13,7 +13,7 @@ axiom:
   domain: automotive
   subdomain: autosar-adaptive
   category: deployment
-  maturity: experimental
+  maturity: beta
   owner: axiom-embedded
   tags: [autosar-adaptive]
   related_skills: []

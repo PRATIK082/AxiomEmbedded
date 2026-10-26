@@ -13,7 +13,7 @@ axiom:
   domain: platform
   subdomain: testing
   category: verification
-  maturity: experimental
+  maturity: beta
   owner: axiom-embedded
   tags: [testing]
   related_skills: []

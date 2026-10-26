@@ -16,7 +16,7 @@ axiom:
   domain: industrial
   subdomain: cell-integration
   category: procedure
-  maturity: experimental
+  maturity: beta
   owner: axiom-embedded
   tags:
   - cell-integration

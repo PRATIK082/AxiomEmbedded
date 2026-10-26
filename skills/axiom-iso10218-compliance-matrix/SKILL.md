@@ -16,7 +16,7 @@ axiom:
   domain: robotics
   subdomain: compliance
   category: compliance
-  maturity: experimental
+  maturity: beta
   owner: axiom-embedded
   tags:
   - compliance

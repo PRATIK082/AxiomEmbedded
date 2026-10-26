@@ -82,6 +82,18 @@
       "path": "skills/axiom-architecture-decision-records"
     },
     {
+      "id": "axiom-arinc429-bus",
+      "path": "skills/axiom-arinc429-bus"
+    },
+    {
+      "id": "axiom-arinc653-partition",
+      "path": "skills/axiom-arinc653-partition"
+    },
+    {
+      "id": "axiom-aspice-process",
+      "path": "skills/axiom-aspice-process"
+    },
+    {
       "id": "axiom-automotive-ethernet-someip",
       "path": "skills/axiom-automotive-ethernet-someip"
     },
@@ -114,6 +126,14 @@
       "path": "skills/axiom-autosar-rte-design"
     },
     {
+      "id": "axiom-bare-metal-nxp-s32",
+      "path": "skills/axiom-bare-metal-nxp-s32"
+    },
+    {
+      "id": "axiom-bare-metal-stm32",
+      "path": "skills/axiom-bare-metal-stm32"
+    },
+    {
       "id": "axiom-behavior-tree-spec",
       "path": "skills/axiom-behavior-tree-spec"
     },
@@ -128,6 +148,10 @@
     {
       "id": "axiom-bms-diagnostics",
       "path": "skills/axiom-bms-diagnostics"
+    },
+    {
+      "id": "axiom-bootloader-ota",
+      "path": "skills/axiom-bootloader-ota"
     },
     {
       "id": "axiom-can-network-design",
@@ -170,12 +194,32 @@
       "path": "skills/axiom-diagnostics-uds"
     },
     {
+      "id": "axiom-dma-isr-lowpower",
+      "path": "skills/axiom-dma-isr-lowpower"
+    },
+    {
+      "id": "axiom-do178c-planning",
+      "path": "skills/axiom-do178c-planning"
+    },
+    {
+      "id": "axiom-do254-hardware",
+      "path": "skills/axiom-do254-hardware"
+    },
+    {
+      "id": "axiom-do326a-cyber",
+      "path": "skills/axiom-do326a-cyber"
+    },
+    {
       "id": "axiom-embedded-cicd",
       "path": "skills/axiom-embedded-cicd"
     },
     {
       "id": "axiom-embedded-firmware-bringup",
       "path": "skills/axiom-embedded-firmware-bringup"
+    },
+    {
+      "id": "axiom-embedded-linux-yocto",
+      "path": "skills/axiom-embedded-linux-yocto"
     },
     {
       "id": "axiom-eoat-spec",
@@ -186,12 +230,24 @@
       "path": "skills/axiom-eoat-spec-review"
     },
     {
+      "id": "axiom-ethercat-motion",
+      "path": "skills/axiom-ethercat-motion"
+    },
+    {
       "id": "axiom-fleet-manager-architecture",
       "path": "skills/axiom-fleet-manager-architecture"
     },
     {
       "id": "axiom-fleet-manager-architecture-review",
       "path": "skills/axiom-fleet-manager-architecture-review"
+    },
+    {
+      "id": "axiom-flexray-network",
+      "path": "skills/axiom-flexray-network"
+    },
+    {
+      "id": "axiom-freertos-integration",
+      "path": "skills/axiom-freertos-integration"
     },
     {
       "id": "axiom-functional-safety",
@@ -210,6 +266,14 @@
       "path": "skills/axiom-hil-test-planning"
     },
     {
+      "id": "axiom-iec61131-plc",
+      "path": "skills/axiom-iec61131-plc"
+    },
+    {
+      "id": "axiom-iec61508-safety",
+      "path": "skills/axiom-iec61508-safety"
+    },
+    {
       "id": "axiom-iec62061-sil",
       "path": "skills/axiom-iec62061-sil"
     },
@@ -226,6 +290,10 @@
       "path": "skills/axiom-iec62443-risk-assessment-review"
     },
     {
+      "id": "axiom-iec62443-security",
+      "path": "skills/axiom-iec62443-security"
+    },
+    {
       "id": "axiom-industrial-control-review",
       "path": "skills/axiom-industrial-control-review"
     },
@@ -240,6 +308,10 @@
     {
       "id": "axiom-interlock-estop-architecture-review",
       "path": "skills/axiom-interlock-estop-architecture-review"
+    },
+    {
+      "id": "axiom-iso-21434-tara",
+      "path": "skills/axiom-iso-21434-tara"
     },
     {
       "id": "axiom-iso10218-compliance-matrix",
@@ -290,6 +362,10 @@
       "path": "skills/axiom-iso9283-performance-test-review"
     },
     {
+      "id": "axiom-lin-network",
+      "path": "skills/axiom-lin-network"
+    },
+    {
       "id": "axiom-loto-procedure",
       "path": "skills/axiom-loto-procedure"
     },
@@ -306,8 +382,32 @@
       "path": "skills/axiom-machinery-safety-lifecycle-plan-review"
     },
     {
+      "id": "axiom-mcp-tool-backlog",
+      "path": "skills/axiom-mcp-tool-backlog"
+    },
+    {
       "id": "axiom-memory-and-performance-analysis",
       "path": "skills/axiom-memory-and-performance-analysis"
+    },
+    {
+      "id": "axiom-microros-embedded",
+      "path": "skills/axiom-microros-embedded"
+    },
+    {
+      "id": "axiom-mil-sil-hil-testing",
+      "path": "skills/axiom-mil-sil-hil-testing"
+    },
+    {
+      "id": "axiom-mil1553-bus",
+      "path": "skills/axiom-mil1553-bus"
+    },
+    {
+      "id": "axiom-misra-c-cpp-review",
+      "path": "skills/axiom-misra-c-cpp-review"
+    },
+    {
+      "id": "axiom-modbus-protocol",
+      "path": "skills/axiom-modbus-protocol"
     },
     {
       "id": "axiom-model-card",
@@ -318,12 +418,24 @@
       "path": "skills/axiom-model-card-review"
     },
     {
+      "id": "axiom-motion-control",
+      "path": "skills/axiom-motion-control"
+    },
+    {
       "id": "axiom-nav2-config",
       "path": "skills/axiom-nav2-config"
     },
     {
       "id": "axiom-nav2-config-review",
       "path": "skills/axiom-nav2-config-review"
+    },
+    {
+      "id": "axiom-obd-ii-diagnostics",
+      "path": "skills/axiom-obd-ii-diagnostics"
+    },
+    {
+      "id": "axiom-opcua-server",
+      "path": "skills/axiom-opcua-server"
     },
     {
       "id": "axiom-operating-envelope",
@@ -370,6 +482,14 @@
       "path": "skills/axiom-platform-architecture-review"
     },
     {
+      "id": "axiom-profinet-integration",
+      "path": "skills/axiom-profinet-integration"
+    },
+    {
+      "id": "axiom-reqif-traceability",
+      "path": "skills/axiom-reqif-traceability"
+    },
+    {
       "id": "axiom-robot-acceptance-protocol",
       "path": "skills/axiom-robot-acceptance-protocol"
     },
@@ -410,6 +530,10 @@
       "path": "skills/axiom-robot-hil-test-catalog-review"
     },
     {
+      "id": "axiom-robot-safety",
+      "path": "skills/axiom-robot-safety"
+    },
+    {
       "id": "axiom-robot-sop",
       "path": "skills/axiom-robot-sop"
     },
@@ -422,6 +546,10 @@
       "path": "skills/axiom-robotics-system-integration"
     },
     {
+      "id": "axiom-ros2-node-design",
+      "path": "skills/axiom-ros2-node-design"
+    },
+    {
       "id": "axiom-ros2-system-architecture",
       "path": "skills/axiom-ros2-system-architecture"
     },
@@ -432,6 +560,10 @@
     {
       "id": "axiom-rtos-architecture",
       "path": "skills/axiom-rtos-architecture"
+    },
+    {
+      "id": "axiom-rust-embedded",
+      "path": "skills/axiom-rust-embedded"
     },
     {
       "id": "axiom-safety-io-matrix",
@@ -458,12 +590,24 @@
       "path": "skills/axiom-scope-context-review"
     },
     {
+      "id": "axiom-secoc-can-auth",
+      "path": "skills/axiom-secoc-can-auth"
+    },
+    {
+      "id": "axiom-spacewire-link",
+      "path": "skills/axiom-spacewire-link"
+    },
+    {
       "id": "axiom-ssm-plan",
       "path": "skills/axiom-ssm-plan"
     },
     {
       "id": "axiom-ssm-plan-review",
       "path": "skills/axiom-ssm-plan-review"
+    },
+    {
+      "id": "axiom-startup-linker-scripts",
+      "path": "skills/axiom-startup-linker-scripts"
     },
     {
       "id": "axiom-static-analysis-triage",
@@ -486,6 +630,10 @@
       "path": "skills/axiom-tf-tree-spec-review"
     },
     {
+      "id": "axiom-threadx-integration",
+      "path": "skills/axiom-threadx-integration"
+    },
+    {
       "id": "axiom-threat-model",
       "path": "skills/axiom-threat-model"
     },
@@ -496,6 +644,10 @@
     {
       "id": "axiom-trace-analysis",
       "path": "skills/axiom-trace-analysis"
+    },
+    {
+      "id": "axiom-unece-r155-r156",
+      "path": "skills/axiom-unece-r155-r156"
     },
     {
       "id": "axiom-urdf-model-spec",
@@ -528,6 +680,14 @@
     {
       "id": "axiom-wireless-coexistence-plan-review",
       "path": "skills/axiom-wireless-coexistence-plan-review"
+    },
+    {
+      "id": "axiom-xcp-calibration",
+      "path": "skills/axiom-xcp-calibration"
+    },
+    {
+      "id": "axiom-zephyr-integration",
+      "path": "skills/axiom-zephyr-integration"
     },
     {
       "id": "axiom-zonal-architecture",

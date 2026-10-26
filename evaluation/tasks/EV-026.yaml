@@ -1,0 +1,8 @@
+# EV-026
+id: EV-026
+agent: implementation
+domain: aerospace
+platform: mpu
+prompt: SpaceWire link design.
+expect:
+  skills_contain: ['axiom-spacewire-link']

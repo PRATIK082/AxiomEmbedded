@@ -18,6 +18,11 @@ test = ["pytest>=8,<10"]
 mcp = ["mcp>=1.0"]             # official MCP Python SDK (P1 registry track)
 serve = ["fastapi>=0.110", "uvicorn>=0.29"]  # REST/A2A HTTP transport
 eval = ["pyyaml>=6.0", "pytest>=8,<10"]       # evaluation task runner
+can = ["python-can>=4.0", "cantools>=39.0"]   # CAN/DBC support (D3)
+serial = ["pyserial>=3.5"]                    # serial capture (D1/D5)
+pcap = ["scapy>=2.5"]                        # pcap analysis (D4)
+rag = ["sentence-transformers>=2.0"]          # local embeddings (D11)
+harness = ["rich>=13.0", "typer>=0.12"]      # chat TUI (G1)
 
 [project.scripts]
 axiom = "axiom_cli.main:main"

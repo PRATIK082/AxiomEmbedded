@@ -1,0 +1,8 @@
+# EV-013
+id: EV-013
+agent: implementation
+domain: aerospace
+platform: mpu
+prompt: ARINC 653 partition scheduling for avionics.
+expect:
+  skills_contain: ['axiom-arinc653-partition']

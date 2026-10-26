@@ -16,7 +16,7 @@ axiom:
   domain: robotics
   subdomain: robot-safety
   category: design
-  maturity: experimental
+  maturity: beta
   owner: axiom-embedded
   tags:
   - robot-safety

@@ -1,0 +1,19 @@
+id: axiom-secoc-can-auth
+version: 1.2.0
+contract_version: 1
+type: reusable-skill
+source_of_truth:
+  instructions: SKILL.md
+  contract: manifest.yaml
+facets:
+  domains:
+  - automotive
+  platforms:
+  - mcu
+standards:
+  - AUTOSAR SecOC
+  - ISO/SAE 21434
+axiom:
+  dotted_name: axiom.automotive.secoc_can_auth
+  maturity: experimental
+  category: design

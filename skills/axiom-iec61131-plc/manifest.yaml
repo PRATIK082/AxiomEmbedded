@@ -1,0 +1,19 @@
+id: axiom-iec61131-plc
+version: 1.2.0
+contract_version: 1
+type: reusable-skill
+source_of_truth:
+  instructions: SKILL.md
+  contract: manifest.yaml
+facets:
+  domains:
+  - industrial
+  platforms:
+  - plc
+  - mpu
+standards:
+  - IEC 61131-3
+axiom:
+  dotted_name: axiom.industrial.iec61131_plc
+  maturity: experimental
+  category: design

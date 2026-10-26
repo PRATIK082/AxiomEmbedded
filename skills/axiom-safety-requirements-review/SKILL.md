@@ -15,7 +15,7 @@ axiom:
   domain: industrial
   subdomain: safety
   category: review
-  maturity: experimental
+  maturity: beta
   owner: axiom-embedded
   tags: [assurance, review, requirements]
   related_skills: [axiom-safety-requirements]

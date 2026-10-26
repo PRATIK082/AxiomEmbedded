@@ -13,7 +13,7 @@ axiom:
   domain: robotics
   subdomain: integration
   category: integration
-  maturity: experimental
+  maturity: beta
   owner: axiom-embedded
   tags: [integration]
   related_skills: []

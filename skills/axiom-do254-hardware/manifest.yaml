@@ -1,0 +1,19 @@
+id: axiom-do254-hardware
+version: 1.2.0
+contract_version: 1
+type: reusable-skill
+source_of_truth:
+  instructions: SKILL.md
+  contract: manifest.yaml
+facets:
+  domains:
+  - aerospace
+  platforms:
+  - mcu
+  - fpga
+standards:
+  - DO-254
+axiom:
+  dotted_name: axiom.aerospace.do254_hardware
+  maturity: experimental
+  category: assurance

@@ -1,0 +1,8 @@
+# EV-018
+id: EV-018
+agent: implementation
+domain: embedded
+platform: mpu
+prompt: Zephyr RTOS bring-up on Nordic nRF52.
+expect:
+  skills_contain: ['axiom-embedded-cicd']

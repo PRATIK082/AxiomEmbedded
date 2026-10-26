@@ -1,0 +1,8 @@
+# EV-028
+id: EV-028
+agent: implementation
+domain: industrial
+platform: mpu
+prompt: PROFINET integration.
+expect:
+  skills_contain: ['axiom-profinet-integration']

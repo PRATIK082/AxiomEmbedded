@@ -1,0 +1,20 @@
+id: axiom-bootloader-ota
+version: 1.2.0
+contract_version: 1
+type: reusable-skill
+source_of_truth:
+  instructions: SKILL.md
+  contract: manifest.yaml
+facets:
+  domains:
+  - automotive
+  platforms:
+  - mcu
+  - mpu
+standards:
+  - ISO 26262:2018
+  - UNECE R156
+axiom:
+  dotted_name: axiom.automotive.bootloader_ota
+  maturity: experimental
+  category: design

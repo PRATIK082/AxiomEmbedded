@@ -1,0 +1,8 @@
+# EV-010
+id: EV-010
+agent: code-review
+domain: automotive
+platform: mcu
+prompt: Review AUTOSAR Classic BSW configuration for ARXML compliance.
+expect:
+  skills_contain: ['axiom-autosar-classic-bsw-integration']

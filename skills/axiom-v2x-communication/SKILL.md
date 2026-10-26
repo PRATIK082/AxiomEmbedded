@@ -13,7 +13,7 @@ axiom:
   domain: automotive
   subdomain: v2x
   category: design
-  maturity: experimental
+  maturity: beta
   owner: axiom-embedded
   tags: [v2x]
   related_skills: []

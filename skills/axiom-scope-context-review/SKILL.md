@@ -15,7 +15,7 @@ axiom:
   domain: industrial
   subdomain: assurance
   category: review
-  maturity: experimental
+  maturity: beta
   owner: axiom-embedded
   tags: [assurance, review]
   related_skills: [axiom-scope-context]

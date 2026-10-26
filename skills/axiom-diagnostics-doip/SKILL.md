@@ -13,7 +13,7 @@ axiom:
   domain: automotive
   subdomain: diagnostics
   category: integration
-  maturity: experimental
+  maturity: beta
   owner: axiom-embedded
   tags: [diagnostics]
   related_skills: []

@@ -15,7 +15,7 @@ axiom:
   domain: industrial
   subdomain: cybersecurity
   category: review
-  maturity: experimental
+  maturity: beta
   owner: axiom-embedded
   tags: [assurance, review, cybersecurity]
   related_skills: [axiom-threat-model]

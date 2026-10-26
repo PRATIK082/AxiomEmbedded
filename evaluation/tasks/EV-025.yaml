@@ -1,0 +1,8 @@
+# EV-025
+id: EV-025
+agent: implementation
+domain: aerospace
+platform: mpu
+prompt: ARINC 429 bus driver.
+expect:
+  skills_contain: ['axiom-arinc429-bus']

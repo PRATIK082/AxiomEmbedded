@@ -1,0 +1,19 @@
+id: axiom-iso-21434-tara
+version: 1.2.0
+contract_version: 1
+type: reusable-skill
+source_of_truth:
+  instructions: SKILL.md
+  contract: manifest.yaml
+facets:
+  domains:
+  - automotive
+  platforms:
+  - mcu
+  - mpu
+standards:
+  - ISO/SAE 21434
+axiom:
+  dotted_name: axiom.automotive.iso_21434_tara
+  maturity: experimental
+  category: security

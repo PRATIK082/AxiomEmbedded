@@ -1,0 +1,19 @@
+id: axiom-xcp-calibration
+version: 1.2.0
+contract_version: 1
+type: reusable-skill
+source_of_truth:
+  instructions: SKILL.md
+  contract: manifest.yaml
+facets:
+  domains:
+  - automotive
+  platforms:
+  - mcu
+  - mpu
+standards:
+  - ASAM MCD-1 XCP
+axiom:
+  dotted_name: axiom.automotive.xcp_calibration
+  maturity: experimental
+  category: design

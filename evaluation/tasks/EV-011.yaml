@@ -1,0 +1,8 @@
+# EV-011
+id: EV-011
+agent: safety
+domain: automotive
+platform: mcu
+prompt: ISO 26262 ASIL-D hazard analysis for brake controller.
+expect:
+  skills_contain: ['axiom-functional-safety']

@@ -1,0 +1,8 @@
+# EV-008
+id: EV-008
+agent: implementation
+domain: industrial
+platform: mpu
+prompt: Implement Modbus RTU server on STM32 with IEC 61508 SIL-2.
+expect:
+  skills_contain: ['axiom-iec61508-safety']

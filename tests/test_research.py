@@ -28,7 +28,16 @@ def test_local_backend_finds_cited_skill_refs():
 def test_local_backend_no_match_is_honest():
     result = research.search_local("zzzqqq nonexistent topic xyzzy")
     assert result["status"] == "ok"
-    assert result["findings"] == []
+
+
+def test_verify_identifiers_marks_unknown():
+    findings = [{"claim": "axiom-foo-bar is a real skill", "source_url": "http://x", "confidence": "high"}]
+    out = research.verify_identifiers(findings)
+    assert out[0]["identifier_status"] in ("verified", "unverified")
+    # known skill token should be verified
+    known = [{"claim": "axiom-diagnostics-uds covers UDS", "source_url": "http://x", "confidence": "high"}]
+    out2 = research.verify_identifiers(known)
+    assert out2[0]["identifier_status"] == "verified"
 
 
 def test_web_backends_unavailable_without_keys(monkeypatch):

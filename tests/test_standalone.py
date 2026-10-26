@@ -59,7 +59,9 @@ def test_eval_tasks_grade_green(tmp_path):
     from packages.eval.runner import grade, list_tasks
 
     ids = [t["id"] for t in list_tasks()]
-    assert ids == ["EV-001", "EV-002", "EV-003", "EV-004", "EV-005"]
+    assert len(ids) >= 30
+    for tid in ("EV-001", "EV-002", "EV-003", "EV-004", "EV-005"):
+        assert tid in ids
     assert grade("EV-001")["status"] == "ok"
     assert grade("EV-002", str(tmp_path))["status"] == "ok"
     assert grade("EV-003")["status"] == "ok"

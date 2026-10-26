@@ -16,7 +16,7 @@ axiom:
   domain: robotics
   subdomain: ai-data
   category: assessment
-  maturity: experimental
+  maturity: beta
   owner: axiom-embedded
   tags:
   - ai-data

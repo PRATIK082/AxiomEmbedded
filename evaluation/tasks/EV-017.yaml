@@ -1,0 +1,8 @@
+# EV-017
+id: EV-017
+agent: implementation
+domain: automotive
+platform: mcu
+prompt: FreeRTOS integration on STM32 with low power.
+expect:
+  skills_contain: ['axiom-freertos-integration', 'axiom-dma-isr-lowpower']

@@ -13,7 +13,7 @@ axiom:
   domain: platform
   subdomain: rtos
   category: architecture
-  maturity: experimental
+  maturity: beta
   owner: axiom-embedded
   tags: [rtos]
   related_skills: []

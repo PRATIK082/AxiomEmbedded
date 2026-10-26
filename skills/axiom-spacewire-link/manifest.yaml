@@ -1,0 +1,19 @@
+id: axiom-spacewire-link
+version: 1.2.0
+contract_version: 1
+type: reusable-skill
+source_of_truth:
+  instructions: SKILL.md
+  contract: manifest.yaml
+facets:
+  domains:
+  - aerospace
+  platforms:
+  - mpu
+  - soc
+standards:
+  - ECSS-E-ST-50-12C
+axiom:
+  dotted_name: axiom.aerospace.spacewire_link
+  maturity: experimental
+  category: design

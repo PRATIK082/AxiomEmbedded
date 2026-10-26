@@ -13,7 +13,7 @@ axiom:
   domain: automotive
   subdomain: zonal
   category: architecture
-  maturity: experimental
+  maturity: beta
   owner: axiom-embedded
   tags: [zonal]
   related_skills: []

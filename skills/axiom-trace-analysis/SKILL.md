@@ -13,7 +13,7 @@ axiom:
   domain: platform
   subdomain: observability
   category: verification
-  maturity: experimental
+  maturity: beta
   owner: axiom-embedded
   tags: [observability]
   related_skills: []

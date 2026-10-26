@@ -13,7 +13,7 @@ axiom:
   domain: automotive
   subdomain: cybersecurity
   category: security
-  maturity: experimental
+  maturity: beta
   owner: axiom-embedded
   tags: [cybersecurity]
   related_skills: []

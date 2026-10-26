@@ -13,7 +13,7 @@ axiom:
   domain: automotive
   subdomain: bms
   category: design
-  maturity: experimental
+  maturity: beta
   owner: axiom-embedded
   tags: [bms]
   related_skills: []

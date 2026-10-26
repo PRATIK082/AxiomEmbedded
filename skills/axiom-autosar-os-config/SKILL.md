@@ -13,7 +13,7 @@ axiom:
   domain: automotive
   subdomain: autosar-classic
   category: configuration
-  maturity: experimental
+  maturity: beta
   owner: axiom-embedded
   tags: [autosar-classic]
   related_skills: []

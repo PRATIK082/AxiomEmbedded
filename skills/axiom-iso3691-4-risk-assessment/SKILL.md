@@ -16,7 +16,7 @@ axiom:
   domain: industrial
   subdomain: compliance
   category: assessment
-  maturity: experimental
+  maturity: beta
   owner: axiom-embedded
   tags:
   - compliance

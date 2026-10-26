@@ -1853,11 +1853,401 @@
       "platforms": [
         "all"
       ]
+    },
+    "axiom-arinc429-bus": {
+      "description": "Designs ARINC 429 word/label allocation and receive/transmit handling.\n",
+      "domains": [
+        "aerospace"
+      ],
+      "platforms": [
+        "mcu",
+        "mpu"
+      ]
+    },
+    "axiom-arinc653-partition": {
+      "description": "Designs ARINC 653 partitions, health monitoring and inter-partition communication.\n",
+      "domains": [
+        "aerospace"
+      ],
+      "platforms": [
+        "mpu"
+      ]
+    },
+    "axiom-aspice-process": {
+      "description": "Maps project practices to Automotive SPICE process areas and base practices.\n",
+      "domains": [
+        "automotive"
+      ],
+      "platforms": [
+        "mcu",
+        "mpu"
+      ]
+    },
+    "axiom-bare-metal-nxp-s32": {
+      "description": "Bare-metal NXP S32K/S32G startup and peripheral setup.\n",
+      "domains": [
+        "all"
+      ],
+      "platforms": [
+        "mcu"
+      ]
+    },
+    "axiom-bare-metal-stm32": {
+      "description": "Bare-metal STM32 startup, clock, GPIO, UART, DMA and linker setup.\n",
+      "domains": [
+        "all"
+      ],
+      "platforms": [
+        "mcu"
+      ]
+    },
+    "axiom-bootloader-ota": {
+      "description": "Designs secure bootloader, A/B update, rollback and OTA campaign strategy for ECUs.\n",
+      "domains": [
+        "automotive"
+      ],
+      "platforms": [
+        "mcu",
+        "mpu"
+      ]
+    },
+    "axiom-dma-isr-lowpower": {
+      "description": "Designs DMA channels, ISR priorities and low-power modes.\n",
+      "domains": [
+        "all"
+      ],
+      "platforms": [
+        "mcu"
+      ]
+    },
+    "axiom-do178c-planning": {
+      "description": "Plans DO-178C software lifecycle data and objectives for airborne software.\n",
+      "domains": [
+        "aerospace"
+      ],
+      "platforms": [
+        "mcu",
+        "mpu"
+      ]
+    },
+    "axiom-do254-hardware": {
+      "description": "Reviews complex electronic hardware assurance against DO-254 objectives.\n",
+      "domains": [
+        "aerospace"
+      ],
+      "platforms": [
+        "fpga",
+        "mcu"
+      ]
+    },
+    "axiom-do326a-cyber": {
+      "description": "Applies DO-326A airworthiness security process to airborne systems.\n",
+      "domains": [
+        "aerospace"
+      ],
+      "platforms": [
+        "mpu"
+      ]
+    },
+    "axiom-embedded-linux-yocto": {
+      "description": "Builds and reviews Yocto-based embedded Linux images and layers.\n",
+      "domains": [
+        "all"
+      ],
+      "platforms": [
+        "mpu",
+        "soc"
+      ]
+    },
+    "axiom-ethercat-motion": {
+      "description": "Integrates EtherCAT slaves, PDO mapping and distributed clocks.\n",
+      "domains": [
+        "industrial"
+      ],
+      "platforms": [
+        "mcu",
+        "mpu"
+      ]
+    },
+    "axiom-flexray-network": {
+      "description": "Designs FlexRay static/dynamic segments, cluster parameters and sync nodes.\n",
+      "domains": [
+        "automotive"
+      ],
+      "platforms": [
+        "mcu"
+      ]
+    },
+    "axiom-freertos-integration": {
+      "description": "Integrates FreeRTOS tasks, queues, mutexes and tick configuration.\n",
+      "domains": [
+        "all"
+      ],
+      "platforms": [
+        "mcu"
+      ]
+    },
+    "axiom-iec61131-plc": {
+      "description": "Reviews PLC programming languages and scan-cycle design per IEC 61131-3.\n",
+      "domains": [
+        "industrial"
+      ],
+      "platforms": [
+        "mpu",
+        "plc"
+      ]
+    },
+    "axiom-iec61508-safety": {
+      "description": "Supports IEC 61508 safety lifecycle, SIL determination and evidence.\n",
+      "domains": [
+        "industrial"
+      ],
+      "platforms": [
+        "mcu",
+        "mpu"
+      ]
+    },
+    "axiom-iec62443-security": {
+      "description": "Applies IEC 62443 zones/conduits and security levels to industrial controllers.\n",
+      "domains": [
+        "industrial"
+      ],
+      "platforms": [
+        "mpu"
+      ]
+    },
+    "axiom-iso-21434-tara": {
+      "description": "Runs threat analysis and risk assessment aligned to ISO/SAE 21434.\n",
+      "domains": [
+        "automotive"
+      ],
+      "platforms": [
+        "mcu",
+        "mpu"
+      ]
+    },
+    "axiom-lin-network": {
+      "description": "Designs LIN schedules, signal packing and master/slave configuration.\n",
+      "domains": [
+        "automotive"
+      ],
+      "platforms": [
+        "mcu"
+      ]
+    },
+    "axiom-mcp-tool-backlog": {
+      "description": "Reviews pending MCP tool backlog and prioritizes implementation.\n",
+      "domains": [
+        "all"
+      ],
+      "platforms": [
+        "mcu",
+        "mpu"
+      ]
+    },
+    "axiom-microros-embedded": {
+      "description": "Integrates micro-ROS on MCUs with agent/transport and memory constraints.\n",
+      "domains": [
+        "robotics"
+      ],
+      "platforms": [
+        "mcu"
+      ]
+    },
+    "axiom-mil-sil-hil-testing": {
+      "description": "Plans model/SIL/HIL test campaigns and back-to-back comparison.\n",
+      "domains": [
+        "all"
+      ],
+      "platforms": [
+        "mcu",
+        "mpu"
+      ]
+    },
+    "axiom-mil1553-bus": {
+      "description": "Designs MIL-STD-1553 BC/RT/monitor terminal roles and message scheduling.\n",
+      "domains": [
+        "defense"
+      ],
+      "platforms": [
+        "mcu",
+        "mpu"
+      ]
+    },
+    "axiom-misra-c-cpp-review": {
+      "description": "Reviews C/C++ code against MISRA C:2012 / MISRA C++:2023 guidelines with deviation handling.\n",
+      "domains": [
+        "automotive"
+      ],
+      "platforms": [
+        "mcu",
+        "mpu"
+      ]
+    },
+    "axiom-modbus-protocol": {
+      "description": "Integrates Modbus RTU/TCP register maps and timing constraints.\n",
+      "domains": [
+        "industrial"
+      ],
+      "platforms": [
+        "mcu",
+        "mpu"
+      ]
+    },
+    "axiom-motion-control": {
+      "description": "Designs PID/cascade motion control, tuning and safety limits.\n",
+      "domains": [
+        "robotics"
+      ],
+      "platforms": [
+        "mcu",
+        "mpu"
+      ]
+    },
+    "axiom-obd-ii-diagnostics": {
+      "description": "Designs OBD-II PID support, readiness monitors and freeze-frame handling.\n",
+      "domains": [
+        "automotive"
+      ],
+      "platforms": [
+        "mcu",
+        "mpu"
+      ]
+    },
+    "axiom-opcua-server": {
+      "description": "Designs OPC UA address space, security policies and subscription handling.\n",
+      "domains": [
+        "industrial"
+      ],
+      "platforms": [
+        "mpu"
+      ]
+    },
+    "axiom-profinet-integration": {
+      "description": "Integrates PROFINET IO devices, GSDML and real-time classes.\n",
+      "domains": [
+        "industrial"
+      ],
+      "platforms": [
+        "mpu"
+      ]
+    },
+    "axiom-reqif-traceability": {
+      "description": "Imports/exports ReqIF requirements and links to code/tests.\n",
+      "domains": [
+        "all"
+      ],
+      "platforms": [
+        "mcu",
+        "mpu"
+      ]
+    },
+    "axiom-robot-safety": {
+      "description": "Applies collaborative-robot safety per ISO 10218/TS 15066.\n",
+      "domains": [
+        "robotics"
+      ],
+      "platforms": [
+        "mcu",
+        "mpu"
+      ]
+    },
+    "axiom-ros2-node-design": {
+      "description": "Designs ROS 2 nodes, topics, services, actions and QoS profiles.\n",
+      "domains": [
+        "robotics"
+      ],
+      "platforms": [
+        "mpu",
+        "soc"
+      ]
+    },
+    "axiom-rust-embedded": {
+      "description": "Embedded Rust with cortex-m, RTIC and probe-rs tooling.\n",
+      "domains": [
+        "all"
+      ],
+      "platforms": [
+        "mcu"
+      ]
+    },
+    "axiom-secoc-can-auth": {
+      "description": "Designs SecOC MAC/freshness-value schemes for authenticated CAN communication.\n",
+      "domains": [
+        "automotive"
+      ],
+      "platforms": [
+        "mcu"
+      ]
+    },
+    "axiom-spacewire-link": {
+      "description": "Designs SpaceWire links, routing and RMAP transactions for spacecraft.\n",
+      "domains": [
+        "aerospace"
+      ],
+      "platforms": [
+        "mpu",
+        "soc"
+      ]
+    },
+    "axiom-startup-linker-scripts": {
+      "description": "Reviews startup code and linker scripts for memory layout correctness.\n",
+      "domains": [
+        "all"
+      ],
+      "platforms": [
+        "mcu",
+        "mpu"
+      ]
+    },
+    "axiom-threadx-integration": {
+      "description": "Integrates Azure RTOS ThreadX threads and synchronization.\n",
+      "domains": [
+        "all"
+      ],
+      "platforms": [
+        "mcu"
+      ]
+    },
+    "axiom-unece-r155-r156": {
+      "description": "Maps cybersecurity-management and software-update systems to UNECE R155/R156.\n",
+      "domains": [
+        "automotive"
+      ],
+      "platforms": [
+        "mcu",
+        "mpu"
+      ]
+    },
+    "axiom-xcp-calibration": {
+      "description": "Designs XCP on CAN/Ethernet calibration sessions, DAQ lists and seed-key security.\n",
+      "domains": [
+        "automotive"
+      ],
+      "platforms": [
+        "mcu",
+        "mpu"
+      ]
+    },
+    "axiom-zephyr-integration": {
+      "description": "Integrates Zephyr devicetree, Kconfig and west build.\n",
+      "domains": [
+        "all"
+      ],
+      "platforms": [
+        "mcu"
+      ]
     }
   },
   "by_domain": {
     "aerospace": [
       "axiom-aerospace-defense-safety-review",
+      "axiom-arinc429-bus",
+      "axiom-arinc653-partition",
+      "axiom-do178c-planning",
+      "axiom-do254-hardware",
+      "axiom-do326a-cyber",
+      "axiom-spacewire-link",
       "fault-injection",
       "mpsoc",
       "safety"
@@ -1865,17 +2255,29 @@
     "all": [
       "architecture",
       "axiom-architecture-decision-records",
+      "axiom-bare-metal-nxp-s32",
+      "axiom-bare-metal-stm32",
+      "axiom-dma-isr-lowpower",
       "axiom-embedded-cicd",
       "axiom-embedded-firmware-bringup",
+      "axiom-embedded-linux-yocto",
+      "axiom-freertos-integration",
       "axiom-hil-test-planning",
       "axiom-interface-contract-design",
+      "axiom-mcp-tool-backlog",
       "axiom-memory-and-performance-analysis",
+      "axiom-mil-sil-hil-testing",
       "axiom-platform-architecture-review",
+      "axiom-reqif-traceability",
       "axiom-rtos-architecture",
+      "axiom-rust-embedded",
+      "axiom-startup-linker-scripts",
       "axiom-static-analysis-triage",
       "axiom-technical-debt-assessment",
       "axiom-test-automation",
+      "axiom-threadx-integration",
       "axiom-trace-analysis",
+      "axiom-zephyr-integration",
       "bare-metal",
       "bootloader",
       "build-system",
@@ -1929,6 +2331,7 @@
       "autosar",
       "axiom-adas-perception-pipeline",
       "axiom-adas-validation",
+      "axiom-aspice-process",
       "axiom-automotive-ethernet-someip",
       "axiom-automotive-release-readiness",
       "axiom-autosar-adaptive-deployment",
@@ -1939,13 +2342,22 @@
       "axiom-autosar-rte-design",
       "axiom-bms-design",
       "axiom-bms-diagnostics",
+      "axiom-bootloader-ota",
       "axiom-can-network-design",
       "axiom-can-stack-integration",
       "axiom-diagnostics-doip",
       "axiom-diagnostics-uds",
+      "axiom-flexray-network",
       "axiom-functional-safety",
+      "axiom-iso-21434-tara",
+      "axiom-lin-network",
+      "axiom-misra-c-cpp-review",
+      "axiom-obd-ii-diagnostics",
+      "axiom-secoc-can-auth",
+      "axiom-unece-r155-r156",
       "axiom-v2x-communication",
       "axiom-vehicle-cybersecurity",
+      "axiom-xcp-calibration",
       "axiom-zonal-architecture",
       "edge-ai",
       "embedded-linux",
@@ -1958,6 +2370,7 @@
     ],
     "defense": [
       "axiom-aerospace-defense-safety-review",
+      "axiom-mil1553-bus",
       "fault-injection",
       "mpsoc",
       "safety"
@@ -1979,12 +2392,16 @@
       "axiom-ansi-r1506-compliance-matrix-review",
       "axiom-declaration-of-conformity",
       "axiom-declaration-of-conformity-review",
+      "axiom-ethercat-motion",
       "axiom-hazard-risk",
       "axiom-hazard-risk-review",
+      "axiom-iec61131-plc",
+      "axiom-iec61508-safety",
       "axiom-iec62061-sil",
       "axiom-iec62061-sil-review",
       "axiom-iec62443-risk-assessment",
       "axiom-iec62443-risk-assessment-review",
+      "axiom-iec62443-security",
       "axiom-industrial-control-review",
       "axiom-iso12100-risk-assessment",
       "axiom-iso12100-risk-assessment-review",
@@ -1994,10 +2411,13 @@
       "axiom-loto-procedure-review",
       "axiom-machinery-safety-lifecycle-plan",
       "axiom-machinery-safety-lifecycle-plan-review",
+      "axiom-modbus-protocol",
+      "axiom-opcua-server",
       "axiom-operator-training-matrix",
       "axiom-operator-training-matrix-review",
       "axiom-ot-asset-inventory",
       "axiom-ot-asset-inventory-review",
+      "axiom-profinet-integration",
       "axiom-robot-sop",
       "axiom-robot-sop-review",
       "axiom-safety-requirements",
@@ -2053,8 +2473,10 @@
       "axiom-iso15066-biomechanical-limits-review",
       "axiom-iso9283-performance-test",
       "axiom-iso9283-performance-test-review",
+      "axiom-microros-embedded",
       "axiom-model-card",
       "axiom-model-card-review",
+      "axiom-motion-control",
       "axiom-nav2-config",
       "axiom-nav2-config-review",
       "axiom-operating-envelope",
@@ -2073,7 +2495,9 @@
       "axiom-robot-field-acceptance-review",
       "axiom-robot-hil-test-catalog",
       "axiom-robot-hil-test-catalog-review",
+      "axiom-robot-safety",
       "axiom-robotics-system-integration",
+      "axiom-ros2-node-design",
       "axiom-ros2-system-architecture",
       "axiom-ros2-system-architecture-review",
       "axiom-safety-io-matrix",
@@ -2175,6 +2599,9 @@
       "mcu",
       "rust-embedded"
     ],
+    "fpga": [
+      "axiom-do254-hardware"
+    ],
     "linux": [
       "automotive-middleware",
       "embedded-linux",
@@ -2193,63 +2620,94 @@
       "axiom-ansi-r1506-compliance-matrix",
       "axiom-ansi-r1506-compliance-matrix-review",
       "axiom-architecture-decision-records",
+      "axiom-arinc429-bus",
+      "axiom-aspice-process",
       "axiom-automotive-release-readiness",
       "axiom-autosar-classic-architecture",
       "axiom-autosar-classic-bsw-integration",
       "axiom-autosar-com-stack",
       "axiom-autosar-os-config",
       "axiom-autosar-rte-design",
+      "axiom-bare-metal-nxp-s32",
+      "axiom-bare-metal-stm32",
       "axiom-bms-design",
       "axiom-bms-diagnostics",
+      "axiom-bootloader-ota",
       "axiom-can-network-design",
       "axiom-can-stack-integration",
       "axiom-declaration-of-conformity",
       "axiom-declaration-of-conformity-review",
       "axiom-diagnostics-uds",
+      "axiom-dma-isr-lowpower",
+      "axiom-do178c-planning",
+      "axiom-do254-hardware",
       "axiom-embedded-cicd",
       "axiom-embedded-firmware-bringup",
+      "axiom-ethercat-motion",
+      "axiom-flexray-network",
+      "axiom-freertos-integration",
       "axiom-functional-safety",
       "axiom-hazard-risk",
       "axiom-hazard-risk-review",
       "axiom-hil-test-planning",
+      "axiom-iec61508-safety",
       "axiom-iec62061-sil",
       "axiom-iec62061-sil-review",
       "axiom-iec62443-risk-assessment",
       "axiom-iec62443-risk-assessment-review",
       "axiom-industrial-control-review",
       "axiom-interface-contract-design",
+      "axiom-iso-21434-tara",
       "axiom-iso12100-risk-assessment",
       "axiom-iso12100-risk-assessment-review",
       "axiom-iso3691-4-risk-assessment",
       "axiom-iso3691-4-risk-assessment-review",
+      "axiom-lin-network",
       "axiom-loto-procedure",
       "axiom-loto-procedure-review",
       "axiom-machinery-safety-lifecycle-plan",
       "axiom-machinery-safety-lifecycle-plan-review",
+      "axiom-mcp-tool-backlog",
       "axiom-memory-and-performance-analysis",
+      "axiom-microros-embedded",
+      "axiom-mil-sil-hil-testing",
+      "axiom-mil1553-bus",
+      "axiom-misra-c-cpp-review",
+      "axiom-modbus-protocol",
+      "axiom-motion-control",
+      "axiom-obd-ii-diagnostics",
       "axiom-operator-training-matrix",
       "axiom-operator-training-matrix-review",
       "axiom-ot-asset-inventory",
       "axiom-ot-asset-inventory-review",
       "axiom-platform-architecture-review",
+      "axiom-reqif-traceability",
+      "axiom-robot-safety",
       "axiom-robot-sop",
       "axiom-robot-sop-review",
       "axiom-rtos-architecture",
+      "axiom-rust-embedded",
       "axiom-safety-requirements",
       "axiom-safety-requirements-review",
       "axiom-scope-context",
       "axiom-scope-context-review",
+      "axiom-secoc-can-auth",
+      "axiom-startup-linker-scripts",
       "axiom-static-analysis-triage",
       "axiom-technical-debt-assessment",
       "axiom-test-automation",
+      "axiom-threadx-integration",
       "axiom-threat-model",
       "axiom-threat-model-review",
       "axiom-trace-analysis",
+      "axiom-unece-r155-r156",
       "axiom-vehicle-cybersecurity",
       "axiom-vnv-plan",
       "axiom-vnv-plan-review",
       "axiom-wireless-coexistence-plan",
       "axiom-wireless-coexistence-plan-review",
+      "axiom-xcp-calibration",
+      "axiom-zephyr-integration",
       "axiom-zonal-architecture",
       "axiom-zone-conduit-plan",
       "axiom-zone-conduit-plan-review",
@@ -2292,11 +2750,15 @@
       "axiom-ansi-r1506-compliance-matrix",
       "axiom-ansi-r1506-compliance-matrix-review",
       "axiom-architecture-decision-records",
+      "axiom-arinc429-bus",
+      "axiom-arinc653-partition",
+      "axiom-aspice-process",
       "axiom-automotive-ethernet-someip",
       "axiom-automotive-release-readiness",
       "axiom-autosar-adaptive-deployment",
       "axiom-behavior-tree-spec",
       "axiom-behavior-tree-spec-review",
+      "axiom-bootloader-ota",
       "axiom-cobot-hand-guiding",
       "axiom-cobot-hand-guiding-review",
       "axiom-dataset-documentation",
@@ -2305,23 +2767,31 @@
       "axiom-declaration-of-conformity-review",
       "axiom-diagnostics-doip",
       "axiom-diagnostics-uds",
+      "axiom-do178c-planning",
+      "axiom-do326a-cyber",
       "axiom-embedded-cicd",
+      "axiom-embedded-linux-yocto",
       "axiom-eoat-spec",
       "axiom-eoat-spec-review",
+      "axiom-ethercat-motion",
       "axiom-fleet-manager-architecture",
       "axiom-fleet-manager-architecture-review",
       "axiom-functional-safety",
       "axiom-hazard-risk",
       "axiom-hazard-risk-review",
       "axiom-hil-test-planning",
+      "axiom-iec61131-plc",
+      "axiom-iec61508-safety",
       "axiom-iec62061-sil",
       "axiom-iec62061-sil-review",
       "axiom-iec62443-risk-assessment",
       "axiom-iec62443-risk-assessment-review",
+      "axiom-iec62443-security",
       "axiom-industrial-control-review",
       "axiom-interface-contract-design",
       "axiom-interlock-estop-architecture",
       "axiom-interlock-estop-architecture-review",
+      "axiom-iso-21434-tara",
       "axiom-iso10218-compliance-matrix",
       "axiom-iso10218-compliance-matrix-review",
       "axiom-iso12100-risk-assessment",
@@ -2338,11 +2808,19 @@
       "axiom-loto-procedure-review",
       "axiom-machinery-safety-lifecycle-plan",
       "axiom-machinery-safety-lifecycle-plan-review",
+      "axiom-mcp-tool-backlog",
       "axiom-memory-and-performance-analysis",
+      "axiom-mil-sil-hil-testing",
+      "axiom-mil1553-bus",
+      "axiom-misra-c-cpp-review",
+      "axiom-modbus-protocol",
       "axiom-model-card",
       "axiom-model-card-review",
+      "axiom-motion-control",
       "axiom-nav2-config",
       "axiom-nav2-config-review",
+      "axiom-obd-ii-diagnostics",
+      "axiom-opcua-server",
       "axiom-operating-envelope",
       "axiom-operating-envelope-review",
       "axiom-operator-training-matrix",
@@ -2354,6 +2832,8 @@
       "axiom-pfl-plan",
       "axiom-pfl-plan-review",
       "axiom-platform-architecture-review",
+      "axiom-profinet-integration",
+      "axiom-reqif-traceability",
       "axiom-robot-acceptance-protocol",
       "axiom-robot-acceptance-protocol-review",
       "axiom-robot-cell-layout",
@@ -2364,9 +2844,11 @@
       "axiom-robot-field-acceptance-review",
       "axiom-robot-hil-test-catalog",
       "axiom-robot-hil-test-catalog-review",
+      "axiom-robot-safety",
       "axiom-robot-sop",
       "axiom-robot-sop-review",
       "axiom-robotics-system-integration",
+      "axiom-ros2-node-design",
       "axiom-ros2-system-architecture",
       "axiom-ros2-system-architecture-review",
       "axiom-safety-io-matrix",
@@ -2375,8 +2857,10 @@
       "axiom-safety-requirements-review",
       "axiom-scope-context",
       "axiom-scope-context-review",
+      "axiom-spacewire-link",
       "axiom-ssm-plan",
       "axiom-ssm-plan-review",
+      "axiom-startup-linker-scripts",
       "axiom-static-analysis-triage",
       "axiom-technical-debt-assessment",
       "axiom-test-automation",
@@ -2385,6 +2869,7 @@
       "axiom-threat-model",
       "axiom-threat-model-review",
       "axiom-trace-analysis",
+      "axiom-unece-r155-r156",
       "axiom-urdf-model-spec",
       "axiom-urdf-model-spec-review",
       "axiom-v2x-communication",
@@ -2393,6 +2878,7 @@
       "axiom-vnv-plan-review",
       "axiom-wireless-coexistence-plan",
       "axiom-wireless-coexistence-plan-review",
+      "axiom-xcp-calibration",
       "axiom-zonal-architecture",
       "axiom-zone-conduit-plan",
       "axiom-zone-conduit-plan-review",
@@ -2407,6 +2893,9 @@
       "robotics",
       "rtos",
       "rust-embedded"
+    ],
+    "plc": [
+      "axiom-iec61131-plc"
     ],
     "rtos": [
       "automotive-coding",
@@ -2430,6 +2919,7 @@
       "axiom-cobot-hand-guiding-review",
       "axiom-dataset-documentation",
       "axiom-dataset-documentation-review",
+      "axiom-embedded-linux-yocto",
       "axiom-eoat-spec",
       "axiom-eoat-spec-review",
       "axiom-fleet-manager-architecture",
@@ -2466,10 +2956,12 @@
       "axiom-robot-hil-test-catalog",
       "axiom-robot-hil-test-catalog-review",
       "axiom-robotics-system-integration",
+      "axiom-ros2-node-design",
       "axiom-ros2-system-architecture",
       "axiom-ros2-system-architecture-review",
       "axiom-safety-io-matrix",
       "axiom-safety-io-matrix-review",
+      "axiom-spacewire-link",
       "axiom-ssm-plan",
       "axiom-ssm-plan-review",
       "axiom-tf-tree-spec",
@@ -2495,7 +2987,13 @@
       "axiom-adas-validation"
     ],
     "aerospace-defense": [
-      "axiom-aerospace-defense-safety-review"
+      "axiom-aerospace-defense-safety-review",
+      "axiom-arinc429-bus",
+      "axiom-arinc653-partition",
+      "axiom-do178c-planning",
+      "axiom-do254-hardware",
+      "axiom-do326a-cyber",
+      "axiom-spacewire-link"
     ],
     "architecture": [
       "architecture",
@@ -2571,12 +3069,16 @@
       "axiom-ansi-r1506-compliance-matrix-review",
       "axiom-declaration-of-conformity",
       "axiom-declaration-of-conformity-review",
+      "axiom-ethercat-motion",
       "axiom-hazard-risk",
       "axiom-hazard-risk-review",
+      "axiom-iec61131-plc",
+      "axiom-iec61508-safety",
       "axiom-iec62061-sil",
       "axiom-iec62061-sil-review",
       "axiom-iec62443-risk-assessment",
       "axiom-iec62443-risk-assessment-review",
+      "axiom-iec62443-security",
       "axiom-industrial-control-review",
       "axiom-iso12100-risk-assessment",
       "axiom-iso12100-risk-assessment-review",
@@ -2586,10 +3088,13 @@
       "axiom-loto-procedure-review",
       "axiom-machinery-safety-lifecycle-plan",
       "axiom-machinery-safety-lifecycle-plan-review",
+      "axiom-modbus-protocol",
+      "axiom-opcua-server",
       "axiom-operator-training-matrix",
       "axiom-operator-training-matrix-review",
       "axiom-ot-asset-inventory",
       "axiom-ot-asset-inventory-review",
+      "axiom-profinet-integration",
       "axiom-robot-sop",
       "axiom-robot-sop-review",
       "axiom-safety-requirements",
@@ -2604,6 +3109,228 @@
       "axiom-wireless-coexistence-plan-review",
       "axiom-zone-conduit-plan",
       "axiom-zone-conduit-plan-review"
+    ],
+    "other": [
+      "adas",
+      "ai-validation",
+      "architecture",
+      "automotive-body",
+      "automotive-cockpit",
+      "automotive-coding",
+      "automotive-cybersecurity",
+      "automotive-diagnostics",
+      "automotive-middleware",
+      "automotive-networks",
+      "automotive-ota",
+      "automotive-spice",
+      "automotive-vcycle",
+      "autosar",
+      "axiom-adas-perception-pipeline",
+      "axiom-adas-validation",
+      "axiom-aerospace-defense-safety-review",
+      "axiom-ansi-r1506-compliance-matrix",
+      "axiom-ansi-r1506-compliance-matrix-review",
+      "axiom-architecture-decision-records",
+      "axiom-arinc429-bus",
+      "axiom-arinc653-partition",
+      "axiom-aspice-process",
+      "axiom-automotive-ethernet-someip",
+      "axiom-automotive-release-readiness",
+      "axiom-autosar-adaptive-deployment",
+      "axiom-autosar-classic-architecture",
+      "axiom-autosar-classic-bsw-integration",
+      "axiom-autosar-com-stack",
+      "axiom-autosar-os-config",
+      "axiom-autosar-rte-design",
+      "axiom-bare-metal-nxp-s32",
+      "axiom-bare-metal-stm32",
+      "axiom-behavior-tree-spec",
+      "axiom-behavior-tree-spec-review",
+      "axiom-bms-design",
+      "axiom-bms-diagnostics",
+      "axiom-bootloader-ota",
+      "axiom-can-network-design",
+      "axiom-can-stack-integration",
+      "axiom-cobot-hand-guiding",
+      "axiom-cobot-hand-guiding-review",
+      "axiom-dataset-documentation",
+      "axiom-dataset-documentation-review",
+      "axiom-declaration-of-conformity",
+      "axiom-declaration-of-conformity-review",
+      "axiom-diagnostics-doip",
+      "axiom-diagnostics-uds",
+      "axiom-dma-isr-lowpower",
+      "axiom-do178c-planning",
+      "axiom-do254-hardware",
+      "axiom-do326a-cyber",
+      "axiom-embedded-cicd",
+      "axiom-embedded-firmware-bringup",
+      "axiom-embedded-linux-yocto",
+      "axiom-eoat-spec",
+      "axiom-eoat-spec-review",
+      "axiom-ethercat-motion",
+      "axiom-fleet-manager-architecture",
+      "axiom-fleet-manager-architecture-review",
+      "axiom-flexray-network",
+      "axiom-freertos-integration",
+      "axiom-functional-safety",
+      "axiom-hazard-risk",
+      "axiom-hazard-risk-review",
+      "axiom-hil-test-planning",
+      "axiom-iec61131-plc",
+      "axiom-iec61508-safety",
+      "axiom-iec62061-sil",
+      "axiom-iec62061-sil-review",
+      "axiom-iec62443-risk-assessment",
+      "axiom-iec62443-risk-assessment-review",
+      "axiom-iec62443-security",
+      "axiom-industrial-control-review",
+      "axiom-interface-contract-design",
+      "axiom-interlock-estop-architecture",
+      "axiom-interlock-estop-architecture-review",
+      "axiom-iso-21434-tara",
+      "axiom-iso10218-compliance-matrix",
+      "axiom-iso10218-compliance-matrix-review",
+      "axiom-iso12100-risk-assessment",
+      "axiom-iso12100-risk-assessment-review",
+      "axiom-iso13849-plr",
+      "axiom-iso13849-plr-review",
+      "axiom-iso15066-biomechanical-limits",
+      "axiom-iso15066-biomechanical-limits-review",
+      "axiom-iso3691-4-risk-assessment",
+      "axiom-iso3691-4-risk-assessment-review",
+      "axiom-iso9283-performance-test",
+      "axiom-iso9283-performance-test-review",
+      "axiom-lin-network",
+      "axiom-loto-procedure",
+      "axiom-loto-procedure-review",
+      "axiom-machinery-safety-lifecycle-plan",
+      "axiom-machinery-safety-lifecycle-plan-review",
+      "axiom-mcp-tool-backlog",
+      "axiom-memory-and-performance-analysis",
+      "axiom-microros-embedded",
+      "axiom-mil-sil-hil-testing",
+      "axiom-mil1553-bus",
+      "axiom-misra-c-cpp-review",
+      "axiom-modbus-protocol",
+      "axiom-model-card",
+      "axiom-model-card-review",
+      "axiom-motion-control",
+      "axiom-nav2-config",
+      "axiom-nav2-config-review",
+      "axiom-obd-ii-diagnostics",
+      "axiom-opcua-server",
+      "axiom-operating-envelope",
+      "axiom-operating-envelope-review",
+      "axiom-operator-training-matrix",
+      "axiom-operator-training-matrix-review",
+      "axiom-ot-asset-inventory",
+      "axiom-ot-asset-inventory-review",
+      "axiom-perception-test-catalog",
+      "axiom-perception-test-catalog-review",
+      "axiom-pfl-plan",
+      "axiom-pfl-plan-review",
+      "axiom-platform-architecture-review",
+      "axiom-profinet-integration",
+      "axiom-reqif-traceability",
+      "axiom-robot-acceptance-protocol",
+      "axiom-robot-acceptance-protocol-review",
+      "axiom-robot-cell-layout",
+      "axiom-robot-cell-layout-review",
+      "axiom-robot-cell-scope",
+      "axiom-robot-cell-scope-review",
+      "axiom-robot-field-acceptance",
+      "axiom-robot-field-acceptance-review",
+      "axiom-robot-hil-test-catalog",
+      "axiom-robot-hil-test-catalog-review",
+      "axiom-robot-safety",
+      "axiom-robot-sop",
+      "axiom-robot-sop-review",
+      "axiom-robotics-system-integration",
+      "axiom-ros2-node-design",
+      "axiom-ros2-system-architecture",
+      "axiom-ros2-system-architecture-review",
+      "axiom-rtos-architecture",
+      "axiom-rust-embedded",
+      "axiom-safety-io-matrix",
+      "axiom-safety-io-matrix-review",
+      "axiom-safety-requirements",
+      "axiom-safety-requirements-review",
+      "axiom-scope-context",
+      "axiom-scope-context-review",
+      "axiom-secoc-can-auth",
+      "axiom-spacewire-link",
+      "axiom-ssm-plan",
+      "axiom-ssm-plan-review",
+      "axiom-startup-linker-scripts",
+      "axiom-static-analysis-triage",
+      "axiom-technical-debt-assessment",
+      "axiom-test-automation",
+      "axiom-tf-tree-spec",
+      "axiom-tf-tree-spec-review",
+      "axiom-threadx-integration",
+      "axiom-threat-model",
+      "axiom-threat-model-review",
+      "axiom-trace-analysis",
+      "axiom-unece-r155-r156",
+      "axiom-urdf-model-spec",
+      "axiom-urdf-model-spec-review",
+      "axiom-v2x-communication",
+      "axiom-vehicle-cybersecurity",
+      "axiom-vnv-plan",
+      "axiom-vnv-plan-review",
+      "axiom-wireless-coexistence-plan",
+      "axiom-wireless-coexistence-plan-review",
+      "axiom-xcp-calibration",
+      "axiom-zephyr-integration",
+      "axiom-zonal-architecture",
+      "axiom-zone-conduit-plan",
+      "axiom-zone-conduit-plan-review",
+      "bare-metal",
+      "bootloader",
+      "build-system",
+      "change-impact",
+      "code-review",
+      "configuration-management",
+      "coverage",
+      "debugging",
+      "documentation",
+      "drivers",
+      "edge-ai",
+      "embedded-c",
+      "embedded-cpp",
+      "embedded-linux",
+      "evidence",
+      "fault-injection",
+      "feature-development",
+      "git",
+      "hardware-architecture",
+      "hardware-bringup",
+      "implementation",
+      "integration-test",
+      "legacy-recovery",
+      "mcu",
+      "mpsoc",
+      "mpu",
+      "performance",
+      "project-audit",
+      "release",
+      "requirements",
+      "requirements-traceability",
+      "robotics",
+      "rtos",
+      "rust-embedded",
+      "safety",
+      "security",
+      "simulation",
+      "soc",
+      "software-architecture",
+      "static-analysis",
+      "system-test",
+      "test-automation",
+      "traceability",
+      "unit-test",
+      "validation"
     ],
     "release-process": [
       "automotive-coding",
@@ -2643,8 +3370,10 @@
       "axiom-iso15066-biomechanical-limits-review",
       "axiom-iso9283-performance-test",
       "axiom-iso9283-performance-test-review",
+      "axiom-microros-embedded",
       "axiom-model-card",
       "axiom-model-card-review",
+      "axiom-motion-control",
       "axiom-nav2-config",
       "axiom-nav2-config-review",
       "axiom-operating-envelope",
@@ -2663,7 +3392,9 @@
       "axiom-robot-field-acceptance-review",
       "axiom-robot-hil-test-catalog",
       "axiom-robot-hil-test-catalog-review",
+      "axiom-robot-safety",
       "axiom-robotics-system-integration",
+      "axiom-ros2-node-design",
       "axiom-ros2-system-architecture",
       "axiom-ros2-system-architecture-review",
       "axiom-safety-io-matrix",

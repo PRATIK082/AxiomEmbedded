@@ -1,0 +1,8 @@
+# EV-014
+id: EV-014
+agent: implementation
+domain: industrial
+platform: mpu
+prompt: OPC UA server for industrial gateway.
+expect:
+  skills_contain: ['axiom-opcua-server']

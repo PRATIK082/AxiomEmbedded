@@ -1,0 +1,20 @@
+id: axiom-misra-c-cpp-review
+version: 1.2.0
+contract_version: 1
+type: reusable-skill
+source_of_truth:
+  instructions: SKILL.md
+  contract: manifest.yaml
+facets:
+  domains:
+  - automotive
+  platforms:
+  - mcu
+  - mpu
+standards:
+  - MISRA C:2012
+  - MISRA C++:2023
+axiom:
+  dotted_name: axiom.automotive.misra_c_cpp_review
+  maturity: experimental
+  category: review

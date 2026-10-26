@@ -1,0 +1,8 @@
+# EV-023
+id: EV-023
+agent: implementation
+domain: aerospace
+platform: mpu
+prompt: DO-326A cybersecurity for avionics.
+expect:
+  skills_contain: ['axiom-do326a-cyber']

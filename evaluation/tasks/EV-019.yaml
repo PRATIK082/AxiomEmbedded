@@ -1,0 +1,8 @@
+# EV-019
+id: EV-019
+agent: implementation
+domain: embedded
+platform: mpu
+prompt: Rust embedded firmware for sensor node.
+expect:
+  skills_contain: ['axiom-memory-and-performance-analysis']

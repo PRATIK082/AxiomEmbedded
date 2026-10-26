@@ -16,7 +16,7 @@ axiom:
   domain: robotics
   subdomain: cell-integration
   category: verification
-  maturity: experimental
+  maturity: beta
   owner: axiom-embedded
   tags:
   - cell-integration

@@ -47,7 +47,7 @@ def test_suite_pairs_symmetric():
         ax = fm["axiom"]
         assert ax["category"] in CATEGORIES, (sid, ax["category"])
         assert list(fm["domains"]) == [ax["domain"]] and ax["domain"] in DOMAINS, sid
-        assert ax["maturity"] == "experimental", sid
+        assert ax["maturity"] == "beta", sid
         assert ax["review_required"] is True, sid
 
 

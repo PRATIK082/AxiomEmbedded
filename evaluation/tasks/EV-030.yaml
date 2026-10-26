@@ -1,0 +1,8 @@
+# EV-030
+id: EV-030
+agent: implementation
+domain: robotics
+platform: mpu
+prompt: Robot safety per ISO 10218.
+expect:
+  skills_contain: ['axiom-robot-safety']

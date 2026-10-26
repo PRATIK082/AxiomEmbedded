@@ -13,7 +13,7 @@ axiom:
   domain: cross-domain
   subdomain: architecture
   category: architecture
-  maturity: experimental
+  maturity: beta
   owner: axiom-embedded
   tags: [architecture]
   related_skills: []

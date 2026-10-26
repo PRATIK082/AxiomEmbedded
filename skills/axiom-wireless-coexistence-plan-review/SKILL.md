@@ -16,7 +16,7 @@ axiom:
   domain: industrial
   subdomain: ot-security
   category: assessment
-  maturity: experimental
+  maturity: beta
   owner: axiom-embedded
   tags:
   - ot-security

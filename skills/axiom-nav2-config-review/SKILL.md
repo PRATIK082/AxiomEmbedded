@@ -16,7 +16,7 @@ axiom:
   domain: robotics
   subdomain: motion-navigation
   category: design
-  maturity: experimental
+  maturity: beta
   owner: axiom-embedded
   tags:
   - motion-navigation

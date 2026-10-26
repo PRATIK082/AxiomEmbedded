@@ -1,0 +1,8 @@
+# EV-029
+id: EV-029
+agent: implementation
+domain: industrial
+platform: mpu
+prompt: Modbus protocol stack.
+expect:
+  skills_contain: ['axiom-modbus-protocol']

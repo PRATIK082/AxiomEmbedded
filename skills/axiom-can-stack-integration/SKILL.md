@@ -13,7 +13,7 @@ axiom:
   domain: automotive
   subdomain: networks
   category: integration
-  maturity: experimental
+  maturity: beta
   owner: axiom-embedded
   tags: [networks]
   related_skills: []

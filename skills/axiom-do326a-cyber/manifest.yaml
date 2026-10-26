@@ -1,0 +1,19 @@
+id: axiom-do326a-cyber
+version: 1.2.0
+contract_version: 1
+type: reusable-skill
+source_of_truth:
+  instructions: SKILL.md
+  contract: manifest.yaml
+facets:
+  domains:
+  - aerospace
+  platforms:
+  - mpu
+standards:
+  - DO-326A
+  - DO-356A
+axiom:
+  dotted_name: axiom.aerospace.do326a_cyber
+  maturity: experimental
+  category: security

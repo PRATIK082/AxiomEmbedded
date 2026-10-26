@@ -1,0 +1,18 @@
+id: axiom-dma-isr-lowpower
+version: 1.2.0
+contract_version: 1
+type: reusable-skill
+source_of_truth:
+  instructions: SKILL.md
+  contract: manifest.yaml
+facets:
+  domains:
+  - all
+  platforms:
+  - mcu
+standards:
+  []
+axiom:
+  dotted_name: axiom.all.dma_isr_lowpower
+  maturity: experimental
+  category: design

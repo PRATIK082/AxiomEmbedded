@@ -1,0 +1,8 @@
+# EV-009
+id: EV-009
+agent: implementation
+domain: robotics
+platform: mpu
+prompt: Design ROS2 node for motor control with micro-ROS.
+expect:
+  skills_contain: ['axiom-ros2-node-design', 'axiom-motion-control']

@@ -1,0 +1,8 @@
+# EV-024
+id: EV-024
+agent: implementation
+domain: defense
+platform: mpu
+prompt: MIL-STD-1553 bus interface.
+expect:
+  skills_contain: ['axiom-mil1553-bus']

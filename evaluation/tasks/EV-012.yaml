@@ -1,0 +1,8 @@
+# EV-012
+id: EV-012
+agent: implementation
+domain: automotive
+platform: mcu
+prompt: Implement SecOC CAN authentication for zone controller.
+expect:
+  skills_contain: ['axiom-secoc-can-auth']

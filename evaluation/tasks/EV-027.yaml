@@ -1,0 +1,8 @@
+# EV-027
+id: EV-027
+agent: implementation
+domain: industrial
+platform: mpu
+prompt: IEC 61131-3 PLC control.
+expect:
+  skills_contain: ['axiom-iec61131-plc']

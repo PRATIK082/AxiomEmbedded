@@ -1,0 +1,20 @@
+id: axiom-ethercat-motion
+version: 1.2.0
+contract_version: 1
+type: reusable-skill
+source_of_truth:
+  instructions: SKILL.md
+  contract: manifest.yaml
+facets:
+  domains:
+  - industrial
+  platforms:
+  - mcu
+  - mpu
+standards:
+  - IEC 61158
+  - EtherCAT
+axiom:
+  dotted_name: axiom.industrial.ethercat_motion
+  maturity: experimental
+  category: integration

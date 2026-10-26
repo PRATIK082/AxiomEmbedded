@@ -1,0 +1,18 @@
+id: axiom-arinc653-partition
+version: 1.2.0
+contract_version: 1
+type: reusable-skill
+source_of_truth:
+  instructions: SKILL.md
+  contract: manifest.yaml
+facets:
+  domains:
+  - aerospace
+  platforms:
+  - mpu
+standards:
+  - ARINC 653
+axiom:
+  dotted_name: axiom.aerospace.arinc653_partition
+  maturity: experimental
+  category: architecture

@@ -28,6 +28,10 @@ from packages.cicd import generate_cicd
 from packages.sbom import generate_sbom
 from packages.docs import run_doxygen
 from packages.plugins import list_plugins
+from packages.hooks import load_hooks, run_hooks, HookEvent
+from packages.verify import run_verify
+from packages.chat import chat_loop
+from packages.init import init_project
 from packages.skills.assurance import (build_hazard_artifact, build_threat_artifact,
                                       build_review, validate_artifact_file)
 from axiom_mcp.server import serve as mcp_serve
@@ -235,6 +239,168 @@ def docs_cmd(config: str | None, source: str) -> int:
 def plugins_cmd() -> int:
     print(json.dumps({"plugins": list_plugins()}, indent=2))
     return 0
+
+def security_scan_cmd(path: str) -> int:
+    from packages.security import scan_path
+    print(json.dumps(scan_path(path), indent=2))
+    return 0
+
+def compact_cmd(cap: int, threshold: float) -> int:
+    from packages.context.compaction import compact, Turn
+    turns = [Turn(role="user", content="placeholder context")]
+    plan = compact(turns, cap=cap, threshold=threshold)
+    print(json.dumps({"triggered": plan.triggered, "before_tokens": plan.before_tokens,
+                      "after_tokens": plan.after_tokens, "summary": plan.summary[:200]},
+                     indent=2))
+    return 0
+
+def hooks_list_cmd(root: str) -> int:
+    h = load_hooks(pathlib.Path(root))
+    print(json.dumps({"hooks": h, "events": HookEvent.all()}, indent=2))
+    return 0
+
+def hooks_run_cmd(event: str, root: str, tool: str | None, payload: str | None) -> int:
+    import json as _j
+    p = _j.loads(payload) if payload else {}
+    res = run_hooks(event, p, tool_name=tool, root=pathlib.Path(root))
+    print(json.dumps(res, indent=2))
+    return 0 if not res.get("blocked") else 1
+
+def clients_sync_cmd(check: bool = False, root: str | None = None) -> int:
+    import importlib.util
+    spec = importlib.util.spec_from_file_location("sync_clients", ROOT / "scripts" / "sync_clients.py")
+    mod = importlib.util.module_from_spec(spec)
+    spec.loader.exec_module(mod)
+    # invoke main with argv
+    argv = []
+    if check:
+        argv.append("--check")
+    if root:
+        argv += ["--root", root]
+    # call main() if exists
+    if hasattr(mod, "main"):
+        import sys as _sys
+        old = _sys.argv
+        _sys.argv = ["sync_clients.py"] + argv
+        try:
+            rc = mod.main()
+        finally:
+            _sys.argv = old
+        return rc or 0
+    return 0
+
+def verify_cmd(source: str, build_system: str, static_tool: str) -> int:
+    rep = run_verify(source, build_system, static_tool)
+    print(json.dumps(rep, indent=2))
+    return 0 if rep["status"] == "pass" else 1
+
+def chat_cmd(domain: str | None, platform: str | None) -> int:
+    return chat_loop(domain, platform)
+
+def memory_cmd(action: str, db: str, **kw) -> int:
+    from packages.memory import MemoryStore
+    store = MemoryStore(db)
+    try:
+        if action == "put":
+            rid = store.put_fact(kw["scope"], kw["key"], kw["value"])
+            print(json.dumps({"id": rid}, indent=2))
+        elif action == "get":
+            print(json.dumps(store.get_facts(kw.get("scope")), indent=2))
+        elif action == "search":
+            print(json.dumps(store.search_facts(kw["query"]), indent=2))
+        elif action == "sessions":
+            print(json.dumps(store.list_sessions(), indent=2))
+        elif action == "start-session":
+            store.start_session(kw["sid"])
+            print(json.dumps({"started": kw["sid"]}, indent=2))
+        elif action == "end-session":
+            store.end_session(kw["sid"], kw.get("summary", ""))
+            print(json.dumps({"ended": kw["sid"]}, indent=2))
+        return 0
+    finally:
+        store.close()
+
+def instincts_cmd(action: str, db: str, **kw) -> int:
+    from packages.instincts import InstinctStore
+    store = InstinctStore(db)
+    try:
+        if action == "add":
+            r = store.add(kw["id"], kw["trigger"], kw["action"],
+                          kw.get("confidence", 0.5), kw.get("scope", "project"), kw.get("project"))
+            print(json.dumps(r, indent=2))
+        elif action == "list":
+            print(json.dumps(store.list(kw.get("scope"), kw.get("project"),
+                                       kw.get("min_confidence", 0.0)), indent=2))
+        elif action == "promote":
+            print(json.dumps(store.promote(kw["id"], kw.get("threshold", 0.8)), indent=2))
+        return 0
+    finally:
+        store.close()
+
+def can_cmd(action: str, path: str) -> int:
+    from packages.can import parse_dbc
+    print(json.dumps(parse_dbc(path), indent=2, default=str))
+    return 0
+
+def svd_cmd(path: str) -> int:
+    from packages.svd import parse_svd
+    print(json.dumps(parse_svd(path), indent=2, default=str))
+    return 0
+
+def arxml_cmd(path: str) -> int:
+    from packages.arxml import validate_arxml
+    print(json.dumps(validate_arxml(path), indent=2))
+    return 0
+
+def pcap_cmd(path: str) -> int:
+    from packages.pcap import parse_pcap
+    print(json.dumps(parse_pcap(path), indent=2))
+    return 0
+
+def binary_cmd(action: str, elf: str) -> int:
+    from packages.binary_analysis import size_report, nm_symbols, objdump_sections
+    if action == "size":
+        print(json.dumps(size_report(elf), indent=2))
+    elif action == "nm":
+        print(json.dumps(nm_symbols(elf), indent=2))
+    elif action == "sections":
+        print(json.dumps(objdump_sections(elf), indent=2))
+    return 0
+
+
+def sigrok_cmd(action: str, **kw) -> int:
+    from packages import sigrok as _sigrok
+    if action == "devices":
+        print(json.dumps(_sigrok.list_devices(), indent=2))
+    elif action == "capture":
+        print(json.dumps(_sigrok.capture(kw["channels"], kw.get("samples", 1000),
+                                         kw.get("output"), kw.get("driver")), indent=2))
+    elif action == "decode":
+        print(json.dumps(_sigrok.decode(kw["protocol"], kw["input"]), indent=2))
+    return 0
+
+def rag_cmd(action: str, **kw) -> int:
+    from packages.rag import build_index, search
+    if action == "build":
+        idx = build_index(kw["roots"])
+        import pickle
+        Path(kw["output"]).write_bytes(pickle.dumps(idx))
+        print(json.dumps({"indexed_docs": idx["n"], "output": kw["output"]}, indent=2))
+        return 0
+    if action == "search":
+        import pickle
+        idx = pickle.loads(Path(kw["index"]).read_bytes())
+        print(json.dumps(search(idx, kw["query"], kw.get("top", 5)), indent=2))
+        return 0
+    return 1
+
+def init_cmd(path: str, domain: str | None, platform: str | None,
+             model: str | None, storage: str | None, yes: bool) -> int:
+    import sys as _sys
+    res = init_project(path, domain, platform, model, storage,
+                       non_interactive=yes or not _sys.stdin.isatty())
+    print(json.dumps(res, indent=2))
+    return 0 if res.get("status") == "ok" else 1
 
 def hazard_cmd(artifact_id: str, output: str, domain: str) -> int:
     doc = build_hazard_artifact(artifact_id, domain)
@@ -542,7 +708,26 @@ def main() -> int:
     ap.add_argument("--version", action="store_true", help="Print the axiom version and exit")
     sp = ap.add_subparsers(dest="cmd")
     sp.add_parser("version", help="Print the axiom version")
+    cl = sp.add_parser("clients", help="Sync per-client generated files")
+    cl_sub = cl.add_subparsers(dest="clients_cmd", required=True)
+    cls = cl_sub.add_parser("sync", help="Regenerate client files")
+    cls.add_argument("--check", action="store_true")
+    cls.add_argument("--root", default=None)
+    vf = sp.add_parser("verify", help="Run build+static+tests+size gate")
+    vf.add_argument("--source", default=".")
+    vf.add_argument("--build-system", default="cmake")
+    vf.add_argument("--static-tool", default="cppcheck")
+    ch = sp.add_parser("chat", help="Interactive Axiom chat REPL (engagement + planning)")
+    ch.add_argument("--domain", default=None)
+    ch.add_argument("--platform", default=None)
     sp.add_parser("doctor").add_argument("--skip-tests", action="store_true", help="Skip the pytest health check")
+    in_ = sp.add_parser("init", help="Initialize a new Axiom project (wizard)")
+    in_.add_argument("path", nargs="?", default=".")
+    in_.add_argument("--domain", default=None)
+    in_.add_argument("--platform", default=None)
+    in_.add_argument("--model", default=None)
+    in_.add_argument("--storage", default=None)
+    in_.add_argument("--yes", action="store_true", help="Non-interactive with defaults")
     sp.add_parser("repo-validate")
     repo = sp.add_parser("repo"); repo.add_argument("action", choices=["validate"])
     prof = sp.add_parser("profile"); prof_sub = prof.add_subparsers(dest="profile_cmd"); pv = prof_sub.add_parser("validate"); pv.add_argument("path")
@@ -594,6 +779,21 @@ def main() -> int:
     dc.add_argument("--source", default=".")
     pl = sp.add_parser("plugins", help="List installed axiom plugins (entry points)")
     pl.add_argument("action", nargs="?", default="list", choices=["list"])
+    sc = sp.add_parser("security", help="Security helpers (secret scanning)")
+    sc.add_argument("action", default="scan", nargs="?", choices=["scan"])
+    sc.add_argument("path", nargs="?", default=".")
+    cp = sp.add_parser("compact", help="Context compaction (B6)")
+    cp.add_argument("--cap", type=int, default=8000)
+    cp.add_argument("--threshold", type=float, default=0.5)
+    hk = sp.add_parser("hooks", help="Hook system (pre/post tool use, session, compact)")
+    hk_sub = hk.add_subparsers(dest="hooks_cmd", required=True)
+    hk_l = hk_sub.add_parser("list", help="List configured hooks")
+    hk_l.add_argument("--root", default=".")
+    hk_r = hk_sub.add_parser("run", help="Run hooks for an event")
+    hk_r.add_argument("event")
+    hk_r.add_argument("--root", default=".")
+    hk_r.add_argument("--tool", default=None)
+    hk_r.add_argument("--payload", default=None)
     ctx = sp.add_parser("context"); cs = ctx.add_subparsers(dest="context_cmd"); cc = cs.add_parser("select"); cc.add_argument("--index", default=".axiom/index.json"); cc.add_argument("--root", action="append", required=True); cc.add_argument("--hops", type=int, default=2); cc.add_argument("--max-files", type=int, default=24); cc.add_argument("--max-bytes", type=int, default=500000)
     im = sp.add_parser("impact"); im.add_argument("path")
     wf = sp.add_parser("workflow"); ws = wf.add_subparsers(dest="workflow_cmd"); wp = ws.add_parser("plan"); wp.add_argument("--profile", required=True); wp.add_argument("--entry")
@@ -708,8 +908,49 @@ def main() -> int:
     rq_i.add_argument("--domain", default="generic-embedded")
     rv = sp.add_parser("review", help="Validate review reports"); rv_sub = rv.add_subparsers(dest="review_cmd", required=True)
     rv_c = rv_sub.add_parser("check", help="Validate one review report file"); rv_c.add_argument("path")
+    mm = sp.add_parser("memory", help="Local SQLite memory store")
+    mm_sub = mm.add_subparsers(dest="mem_action", required=True)
+    mmp = mm_sub.add_parser("put"); mmp.add_argument("--db", default=".axiom/memory.db"); mmp.add_argument("--scope", required=True); mmp.add_argument("--key", required=True); mmp.add_argument("--value", required=True)
+    mmg = mm_sub.add_parser("get"); mmg.add_argument("--db", default=".axiom/memory.db"); mmg.add_argument("--scope", default=None)
+    mms = mm_sub.add_parser("search"); mms.add_argument("--db", default=".axiom/memory.db"); mms.add_argument("--query", required=True)
+    mmx = mm_sub.add_parser("sessions"); mmx.add_argument("--db", default=".axiom/memory.db")
+    # Top-level convenience alias (Track G2)
+    ss = sp.add_parser("session", help="Session management (list/resume)")
+    ss.add_argument("action", nargs="?", default="list", choices=["list", "resume"])
+    ss.add_argument("--db", default=".axiom/memory.db")
+    ss.add_argument("--sid", default=None)
+    mmss = mm_sub.add_parser("start-session"); mmss.add_argument("--db", default=".axiom/memory.db"); mmss.add_argument("--sid", required=True)
+    mmes = mm_sub.add_parser("end-session"); mmes.add_argument("--db", default=".axiom/memory.db"); mmes.add_argument("--sid", required=True); mmes.add_argument("--summary", default="")
+    ins2 = sp.add_parser("instincts", help="Instinct store (confidence-scored)")
+    ins_sub = ins2.add_subparsers(dest="inst_action", required=True)
+    ina = ins_sub.add_parser("add"); ina.add_argument("--db", default=".axiom/instincts.db"); ina.add_argument("--id", required=True); ina.add_argument("--trigger", required=True); ina.add_argument("--action", required=True); ina.add_argument("--confidence", type=float, default=0.5); ina.add_argument("--scope", default="project"); ina.add_argument("--project", default=None)
+    inl = ins_sub.add_parser("list"); inl.add_argument("--db", default=".axiom/instincts.db"); inl.add_argument("--scope", default=None); inl.add_argument("--project", default=None); inl.add_argument("--min-confidence", type=float, default=0.0)
+    inp = ins_sub.add_parser("promote"); inp.add_argument("--db", default=".axiom/instincts.db"); inp.add_argument("--id", required=True); inp.add_argument("--threshold", type=float, default=0.8)
+    cn = sp.add_parser("can", help="CAN/DBC helpers"); cn.add_argument("path")
+    sv = sp.add_parser("svd", help="SVD register-map parser"); sv.add_argument("path")
+    ax = sp.add_parser("arxml", help="ARXML validator"); ax.add_argument("path")
+    sq = sp.add_parser("sigrok", help="sigrok logic analyzer")
+    sq_sub = sq.add_subparsers(dest="sigrok_action", required=True)
+    sqd = sq_sub.add_parser("devices")
+    sqc = sq_sub.add_parser("capture"); sqc.add_argument("--channels", required=True); sqc.add_argument("--samples", type=int, default=1000); sqc.add_argument("--output", default=None); sqc.add_argument("--driver", default=None)
+    sqdec = sq_sub.add_parser("decode"); sqdec.add_argument("--protocol", required=True); sqdec.add_argument("--input", required=True)
+    pc = sp.add_parser("pcap", help="PCAP parser"); pc.add_argument("path")
+    bn = sp.add_parser("binary", help="Binary analysis (size/nm/sections)")
+    bn_sub = bn.add_subparsers(dest="binary_action", required=True)
+    bns = bn_sub.add_parser("size"); bns.add_argument("elf")
+    bnn = bn_sub.add_parser("nm"); bnn.add_argument("elf")
+    bnx = bn_sub.add_parser("sections"); bnx.add_argument("elf")
+    rg = sp.add_parser("rag", help="Local document RAG")
+    rg_sub = rg.add_subparsers(dest="rag_action", required=True)
+    rgb = rg_sub.add_parser("build"); rgb.add_argument("--root", dest="roots", action="append", default=["."]); rgb.add_argument("--output", default=".axiom/rag.pkl")
+    rgs = rg_sub.add_parser("search"); rgs.add_argument("--index", default=".axiom/rag.pkl"); rgs.add_argument("--query", required=True); rgs.add_argument("--top", type=int, default=5)
     args = ap.parse_args()
     if args.version: return version_cmd()
+    if args.cmd == "init": return init_cmd(args.path, args.domain, args.platform, args.model, args.storage, args.yes)
+    if args.cmd == "chat": return chat_cmd(args.domain, args.platform)
+    if args.cmd == "verify": return verify_cmd(args.source, args.build_system, args.static_tool)
+    if args.cmd == "clients" and args.clients_cmd == "sync":
+        return clients_sync_cmd(args.check, args.root)
     if args.cmd == "version": return version_cmd()
     if args.cmd == "doctor": return doctor(skip_tests=getattr(args, "skip_tests", False))
     if args.cmd == "repo-validate": return validate_repo()
@@ -743,6 +984,15 @@ def main() -> int:
         return docs_cmd(args.config, args.source)
     if args.cmd == "plugins":
         return plugins_cmd()
+    if args.cmd == "security":
+        return security_scan_cmd(args.path)
+    if args.cmd == "compact":
+        return compact_cmd(args.cap, args.threshold)
+    if args.cmd == "hooks":
+        if args.hooks_cmd == "list":
+            return hooks_list_cmd(args.root)
+        if args.hooks_cmd == "run":
+            return hooks_run_cmd(args.event, args.root, args.tool, args.payload)
     if args.cmd == "context" and args.context_cmd == "select": return context_select(args.index, args.root, args.hops, args.max_files, args.max_bytes)
     if args.cmd == "impact": return impact(args.path)
     if args.cmd == "workflow" and args.workflow_cmd == "plan": return workflow_plan(args.profile, args.entry)
@@ -800,6 +1050,67 @@ def main() -> int:
         print(json.dumps(rep, indent=2))
         return 0 if rep["valid"] and rep.get("kind") == "review-report" else 1
     if args.cmd == "serve": return http_serve(args.port)
+    if args.cmd == "memory":
+        a = args.mem_action
+        if a == "put":
+            return memory_cmd("put", args.db, scope=args.scope, key=args.key, value=args.value)
+        if a == "get":
+            return memory_cmd("get", args.db, scope=args.scope)
+        if a == "search":
+            return memory_cmd("search", args.db, query=args.query)
+        if a == "sessions":
+            return memory_cmd("sessions", args.db)
+        if a == "start-session":
+            return memory_cmd("start-session", args.db, sid=args.sid)
+        if a == "end-session":
+            return memory_cmd("end-session", args.db, sid=args.sid, summary=args.summary)
+    if args.cmd == "session":
+        if args.action == "list":
+            return memory_cmd("sessions", args.db)
+        if args.action == "resume":
+            if not args.sid:
+                print(json.dumps({"status": "error", "message": "--sid required for resume"}, indent=2))
+                return 1
+            store = None
+            from packages.memory import MemoryStore
+            store = MemoryStore(args.db)
+            print(json.dumps({"session": args.sid, "sessions": store.list_sessions()}, indent=2))
+            store.close()
+            return 0
+    if args.cmd == "instincts":
+        a = args.inst_action
+        if a == "add":
+            return instincts_cmd("add", args.db, id=args.id, trigger=args.trigger, action=args.action,
+                                  confidence=args.confidence, scope=args.scope, project=args.project)
+        if a == "list":
+            return instincts_cmd("list", args.db, scope=args.scope, project=args.project,
+                                  min_confidence=args.min_confidence)
+        if a == "promote":
+            return instincts_cmd("promote", args.db, id=args.id, threshold=args.threshold)
+    if args.cmd == "can":
+        return can_cmd("parse", args.path)
+    if args.cmd == "svd":
+        return svd_cmd(args.path)
+    if args.cmd == "arxml":
+        return arxml_cmd(args.path)
+    if args.cmd == "pcap":
+        return pcap_cmd(args.path)
+    if args.cmd == "binary":
+        return binary_cmd(args.binary_action, args.elf)
+    if args.cmd == "sigrok":
+        a = args.sigrok_action
+        if a == "devices":
+            return sigrok_cmd("devices")
+        if a == "capture":
+            return sigrok_cmd("capture", channels=args.channels, samples=args.samples,
+                              output=args.output, driver=args.driver)
+        if a == "decode":
+            return sigrok_cmd("decode", protocol=args.protocol, input=args.input)
+    if args.cmd == "rag":
+        if args.rag_action == "build":
+            return rag_cmd("build", roots=args.roots, output=args.output)
+        if args.rag_action == "search":
+            return rag_cmd("search", index=args.index, query=args.query, top=args.top)
     ap.print_help(); return 0
 
 if __name__ == "__main__":

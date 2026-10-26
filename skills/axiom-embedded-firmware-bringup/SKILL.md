@@ -13,7 +13,7 @@ axiom:
   domain: platform
   subdomain: bringup
   category: implementation
-  maturity: experimental
+  maturity: beta
   owner: axiom-embedded
   tags: [bringup]
   related_skills: []

@@ -14,7 +14,7 @@ def test_catalog_lists_every_skill():
     ids = [e["id"] for e in cat["skills"]]
     assert len(ids) == len(set(ids))
     axiom_ids = [i for i in ids if i.startswith("axiom-")]
-    assert len(axiom_ids) == 121
+    assert len(axiom_ids) == 161
     on_disk = {p.name for p in (ROOT / "skills").iterdir()
                if p.is_dir() and (p / "SKILL.md").exists()
                and not p.name.startswith(("_", "."))}

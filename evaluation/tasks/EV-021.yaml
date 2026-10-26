@@ -1,0 +1,8 @@
+# EV-021
+id: EV-021
+agent: safety
+domain: automotive
+platform: mcu
+prompt: UNECE R155/R156 cybersecurity management.
+expect:
+  skills_contain: ['axiom-unece-r155-r156']

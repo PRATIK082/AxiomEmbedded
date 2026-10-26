@@ -13,7 +13,7 @@ axiom:
   domain: automotive
   subdomain: release
   category: release
-  maturity: experimental
+  maturity: beta
   owner: axiom-embedded
   tags: [release]
   related_skills: []

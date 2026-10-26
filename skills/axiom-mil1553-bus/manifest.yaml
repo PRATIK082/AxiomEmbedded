@@ -1,0 +1,19 @@
+id: axiom-mil1553-bus
+version: 1.2.0
+contract_version: 1
+type: reusable-skill
+source_of_truth:
+  instructions: SKILL.md
+  contract: manifest.yaml
+facets:
+  domains:
+  - defense
+  platforms:
+  - mcu
+  - mpu
+standards:
+  - MIL-STD-1553
+axiom:
+  dotted_name: axiom.defense.mil1553_bus
+  maturity: experimental
+  category: design
