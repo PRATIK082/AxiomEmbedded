@@ -17,7 +17,7 @@ from collections import Counter
 
 import yaml
 
-ROOT = pathlib.Path(__file__).resolve().parents[2]
+from packages.paths import ROOT
 
 # Fix-defect workflow: 10 internal steps from the feature spec §3 (INTENT ..
 # PR). The harness executes; axiom emits the plan with context attached.
@@ -64,7 +64,15 @@ def _read_yaml(path: pathlib.Path) -> dict:
 
 
 def _skill_health() -> dict:
-    registry = json.loads((ROOT / "registries" / "skills.json").read_text(encoding="utf-8"))
+    p = ROOT / "registries" / "skills.json"
+    if not p.exists():
+        return {"total": 0, "versions": {}, "latest": "unknown",
+                "stale": [], "missing_manifest": []}
+    try:
+        registry = json.loads(p.read_text(encoding="utf-8"))
+    except Exception:
+        return {"total": 0, "versions": {}, "latest": "unknown",
+                "stale": [], "missing_manifest": []}
     ids = [s["id"] for s in registry.get("skills", [])]
     versions: dict[str, str] = {}
     missing_manifest: list[str] = []

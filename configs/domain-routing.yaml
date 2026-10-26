@@ -148,6 +148,7 @@ agent_binding:
     skill-orchestrator: feature-development
     skill-researcher: documentation
     skill-verifier: project-audit
+    git: git
   notes:
     - Agent identity never changes; only the loaded skill slice changes.
     - Core skill always loads; domain priority_skills load on top.

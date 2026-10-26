@@ -28,9 +28,14 @@ import sys
 
 from packages.installer import find_content_source, opencode_mcp_entry
 
-TESTED_MIN = (1, 18, 31)
-TESTED_MAX = (1, 18, 35)  # newest v1 surveyed; bump with docs/OPENCODE_COMPAT.md
-TESTED_LINE = "v1 (tested: 1.18.31; see docs/OPENCODE_COMPAT.md)"
+TESTED_MIN_V1 = (1, 18, 31)
+TESTED_MAX_V1 = (1, 18, 35)  # newest v1 surveyed; bump with docs/OPENCODE_COMPAT.md
+TESTED_MIN_V2 = (2, 1, 0)
+TESTED_MAX_V2 = (2, 1, 4)  # surveyed v2 (see docs/OPENCODE_COMPAT.md)
+TESTED_LINE = "v1 (tested: 1.18.31-1.18.35) / v2 (tested: 2.1.0-2.1.4)"
+# Backward-compatible names for the v1 tested range.
+TESTED_MIN = TESTED_MIN_V1
+TESTED_MAX = TESTED_MAX_V1
 OVERRIDE_ENV = "AXIOM_ALLOW_UNTESTED_OPENCODE"
 CONFIG_SCHEMA = "https://opencode.ai/config.json"
 
@@ -51,7 +56,7 @@ def parse_version(text: str) -> tuple[int, int, int] | None:
 
 
 def opencode_status(opencode_bin: str | None = None) -> dict:
-    """Detect OpenCode and classify compatibility (fail closed on majors).
+    """Detect OpenCode and classify compatibility for the v1/v2 lines.
 
     Returns a JSON-serialisable dict with ``state`` in
     ``ok | warn | fail`` plus human-readable ``detail``.
@@ -77,26 +82,35 @@ def opencode_status(opencode_bin: str | None = None) -> dict:
                 "detail": "could not parse `opencode --version` output"}
     label = ".".join(str(p) for p in version)
     override = os.environ.get(OVERRIDE_ENV) == "1"
-    if version[0] >= 2 and not override:
+    if version[0] not in (1, 2):
         return {
             "state": "fail",
             "binary": binary,
             "version": label,
-            "detail": (f"opencode {label} is outside the tested line ({TESTED_LINE}). "
-                       f"Axiom refuses to launch until v2 is surveyed; "
+            "detail": (f"opencode {label} is outside the tested major lines ({TESTED_LINE}). "
+                       f"Axiom refuses to launch until it is surveyed; "
                        f"override with {OVERRIDE_ENV}=1 at your own risk."),
         }
-    if version[0] >= 2 and override:
+
+    if version[0] == 1:
+        tested_min, tested_max = TESTED_MIN_V1, TESTED_MAX_V1
+        line_name = "v1"
+    else:
+        tested_min, tested_max = TESTED_MIN_V2, TESTED_MAX_V2
+        line_name = "v2"
+
+    if version[0] >= 2 and override and version > tested_max:
         return {"state": "warn", "binary": binary, "version": label,
                 "detail": f"opencode {label} untested ({OVERRIDE_ENV}=1 accepted risk)."}
-    if version < TESTED_MIN:
+
+    if version < tested_min:
         return {"state": "warn", "binary": binary, "version": label,
-                "detail": f"opencode {label} is older than the tested floor "
-                          f"{'.'.join(str(p) for p in TESTED_MIN)}; behaviour may differ."}
-    if version > TESTED_MAX:
+                "detail": f"opencode {label} is older than the tested {line_name} floor "
+                          f"{'.'.join(str(p) for p in tested_min)}; behaviour may differ."}
+    if version > tested_max:
         return {"state": "warn", "binary": binary, "version": label,
-                "detail": f"opencode {label} is a newer v1 than surveyed "
-                          f"({'.'.join(str(p) for p in TESTED_MAX)}); re-verify per docs/OPENCODE_COMPAT.md."}
+                "detail": f"opencode {label} is a newer {line_name} than surveyed "
+                          f"({'.'.join(str(p) for p in tested_max)}); re-verify per docs/OPENCODE_COMPAT.md."}
     return {"state": "ok", "binary": binary, "version": label,
             "detail": f"opencode {label} within the tested line."}
 

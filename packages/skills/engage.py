@@ -11,11 +11,17 @@ import pathlib
 
 import yaml
 
-ROOT = pathlib.Path(__file__).resolve().parents[2]
+from packages.paths import ROOT
 
 
 def load_index() -> dict:
-    return json.loads((ROOT / "registries" / "skill-index.json").read_text(encoding="utf-8"))
+    p = ROOT / "registries" / "skill-index.json"
+    if not p.exists():
+        return {"skills": {}, "by_group": {}}
+    try:
+        return json.loads(p.read_text(encoding="utf-8"))
+    except Exception:
+        return {"skills": {}, "by_group": {}}
 
 
 def _match(facets: list[str], wanted: str | None) -> bool:

@@ -196,7 +196,7 @@ def test_mcp_tools_registered():
                  "skill_pipeline", "link_skill", "uninstall", "update"):
         assert name in TOOLS, name
         assert TOOLS[name]["inputSchema"]["type"] == "object"
-    assert len(TOOLS) == 37
+    assert len(TOOLS) == 39
 
 
 def test_mcp_dispatch_checklist():

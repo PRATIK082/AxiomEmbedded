@@ -74,7 +74,9 @@ def _routing_keywords() -> dict | None:
 
         import yaml as _yaml
 
-        path = _pl.Path(__file__).resolve().parents[2] / "configs" / "domain-routing.yaml"
+        from packages.paths import ROOT as _ROOT
+
+        path = _ROOT / "configs" / "domain-routing.yaml"
         if not path.exists():
             return None
         data = _yaml.safe_load(path.read_text(encoding="utf-8")) or {}

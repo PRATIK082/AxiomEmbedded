@@ -24,10 +24,7 @@ class ContextSelector:
             if item in selected:
                 continue
             selected.append(item)
-            try:
-                queue.extend(self.graph.neighbors(item))
-            except TypeError:
-                queue.extend(self.graph.neighbors([item]))
+            queue.extend(self.graph.neighbors(item))
         return selected
 
 def select_from_index(index_path: str | Path, roots: list[str], budget: ContextBudget | None = None) -> list[str]:

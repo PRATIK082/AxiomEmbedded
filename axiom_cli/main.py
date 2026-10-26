@@ -12,6 +12,7 @@ from axiom_cli import __version__ as CLI_VERSION
 
 from packages.context.indexer import write_index
 from packages.context.selector import select_from_index, ContextBudget
+from packages.context.change_scope import git_changed_files
 from packages.workflow.entry import starting_phase
 from packages.workflow.stage import detect_stage, reconcile_stage
 from packages.workflow.engine import load as load_workflow
@@ -19,6 +20,16 @@ from packages.agents.router import route, detect_domain
 from packages.skills.engage import engage
 from packages.axiom_ops import get_status, plan_fix, plan_feature
 from packages.launcher import execute as oc_execute, opencode_status, RESEARCH_PREAMBLE
+from packages.toolchain import run_build, run_tests, run_coverage, run_static, capture_serial, flash
+from packages.requirements import import_requirements, write_requirements_artifact
+from packages.requirements.traceability import generate_matrix, write_matrix_csv
+from packages.release import generate_changelog
+from packages.cicd import generate_cicd
+from packages.sbom import generate_sbom
+from packages.docs import run_doxygen
+from packages.plugins import list_plugins
+from packages.skills.assurance import (build_hazard_artifact, build_threat_artifact,
+                                      build_review, validate_artifact_file)
 from axiom_mcp.server import serve as mcp_serve
 from packages.axiom_server.server import serve as http_serve
 
@@ -140,7 +151,124 @@ def context_select(index: str, roots: list[str], hops: int, max_files: int, max_
 def impact(path: str) -> int:
     p = pathlib.Path(path)
     data = _read_yaml(p) if p.suffix in {".yaml", ".yml"} else {}
-    print(json.dumps({"project": data.get("id", p.stem), "mode": data.get("lifecycle", "unknown"), "entry": data.get("entry", "unknown"), "next_phase": starting_phase(data.get("entry", "brownfield"))}, indent=2))
+    root = p.parent if p.is_file() else p
+    index_path = root / ".axiom" / "index.json"
+    changed = git_changed_files(root)
+    selected: list[str] = []
+    try:
+        if index_path.exists():
+            selected = select_from_index(str(index_path), changed or ["."], ContextBudget(max_files=24, max_bytes=500_000))
+        else:
+            count = write_index(root, index_path)
+            selected = select_from_index(str(index_path), changed or ["."], ContextBudget(max_files=24, max_bytes=500_000))
+    except Exception:
+        selected = changed
+    print(json.dumps({
+        "project": data.get("id", p.stem),
+        "mode": data.get("lifecycle", "unknown"),
+        "entry": data.get("entry", "unknown"),
+        "next_phase": starting_phase(data.get("entry", "brownfield")),
+        "changed_files": changed,
+        "affected_context": selected,
+    }, indent=2))
+    return 0
+
+def build_cmd(system: str, source: str, build_dir: str | None, target: str | None,
+              jobs: int) -> int:
+    res = run_build(system, source, build_dir, target, jobs)
+    print(json.dumps(res, indent=2))
+    # propagate failure exit code
+    failed = False
+    for v in (res.values() if isinstance(res, dict) else []):
+        if isinstance(v, dict) and v.get("status") in ("failed", "timeout", "error", "unavailable"):
+            failed = True
+    return 1 if failed else 0
+
+def test_cmd(framework: str, source: str) -> int:
+    res = run_tests(framework, source)
+    print(json.dumps(res, indent=2))
+    return 0 if res.get("status") in ("ok",) else 1
+
+def coverage_cmd(tool: str, source: str, threshold) -> int:
+    res = run_coverage(tool, source, threshold=threshold)
+    print(json.dumps(res, indent=2))
+    return 0 if res.get("status") in ("ok",) else 1
+
+def static_cmd(tool: str, source: str) -> int:
+    res = run_static(tool, source)
+    print(json.dumps(res, indent=2))
+    return 0 if res.get("status") in ("ok", "findings") else 1
+
+def serial_cmd(port: str, baud: int, duration: int, output: str | None) -> int:
+    res = capture_serial(port, baud, duration, output)
+    print(json.dumps(res, indent=2))
+    return 0 if res.get("status") == "ok" else 1
+
+def flash_cmd(tool: str, firmware: str) -> int:
+    res = flash(tool, firmware)
+    print(json.dumps(res, indent=2))
+    return 0 if res.get("status") == "ok" else 1
+
+def changelog_cmd(repo: str, output: str | None, version: str | None, since: str | None) -> int:
+    text = generate_changelog(repo, since, version)
+    if output:
+        pathlib.Path(output).write_text(text, encoding="utf-8")
+    else:
+        print(text)
+    return 0
+
+def cicd_cmd(kind: str, output: str) -> int:
+    p = generate_cicd(kind, output)
+    print(json.dumps({"generated": str(p)}, indent=2))
+    return 0
+
+def sbom_cmd(root: str, output: str) -> int:
+    p = generate_sbom(root, output)
+    print(json.dumps({"generated": str(p)}, indent=2))
+    return 0
+
+def docs_cmd(config: str | None, source: str) -> int:
+    res = run_doxygen(config, source)
+    print(json.dumps(res, indent=2))
+    return 0 if res.get("status") in ("ok", "unavailable") else 1
+
+def plugins_cmd() -> int:
+    print(json.dumps({"plugins": list_plugins()}, indent=2))
+    return 0
+
+def hazard_cmd(artifact_id: str, output: str, domain: str) -> int:
+    doc = build_hazard_artifact(artifact_id, domain)
+    import yaml as _yaml
+    p = pathlib.Path(output)
+    p.parent.mkdir(parents=True, exist_ok=True)
+    p.write_text(_yaml.safe_dump(doc, sort_keys=False), encoding="utf-8")
+    print(json.dumps({"artifact_id": artifact_id, "output": str(p)}, indent=2))
+    return 0
+
+def threat_cmd(artifact_id: str, output: str, domain: str) -> int:
+    doc = build_threat_artifact(artifact_id, domain)
+    import yaml as _yaml
+    p = pathlib.Path(output)
+    p.parent.mkdir(parents=True, exist_ok=True)
+    p.write_text(_yaml.safe_dump(doc, sort_keys=False), encoding="utf-8")
+    print(json.dumps({"artifact_id": artifact_id, "output": str(p)}, indent=2))
+    return 0
+
+def requirements_import_cmd(path: str, output: str, domain: str) -> int:
+    reqs = import_requirements(path)
+    out = write_requirements_artifact(reqs, output, domain)
+    print(json.dumps({"imported": len(reqs), "output": str(out)}, indent=2))
+    return 0
+
+def trace_generate_cmd(reqs_file: str, source: str, tests: str, output: str) -> int:
+    import yaml as _yaml
+    data = _yaml.safe_load(pathlib.Path(reqs_file).read_text(encoding="utf-8")) or {}
+    reqs = data.get("requirements", [])
+    src_files = [str(p) for p in pathlib.Path(source).rglob("*") if p.is_file()]
+    test_files = [str(p) for p in pathlib.Path(tests).rglob("*") if p.is_file()] if pathlib.Path(tests).exists() else []
+    rows = generate_matrix(reqs, test_files, src_files)
+    out = write_matrix_csv(rows, output)
+    print(json.dumps({"rows": len(rows), "output": str(out)}, indent=2))
     return 0
 
 def workflow_plan(profile: str, entry: str | None) -> int:
@@ -420,6 +548,52 @@ def main() -> int:
     prof = sp.add_parser("profile"); prof_sub = prof.add_subparsers(dest="profile_cmd"); pv = prof_sub.add_parser("validate"); pv.add_argument("path")
     an = sp.add_parser("analyze"); an.add_argument("path", nargs="?", default=".")
     graph = sp.add_parser("graph"); gs = graph.add_subparsers(dest="graph_cmd"); gb = gs.add_parser("build"); gb.add_argument("path", nargs="?", default="."); gb.add_argument("--output")
+    bd = sp.add_parser("build", help="Invoke a build system (cmake/make/ninja) and report diagnostics")
+    bd.add_argument("--system", default="cmake", choices=["cmake", "make", "ninja"])
+    bd.add_argument("--source", default=".")
+    bd.add_argument("--build-dir", default=None)
+    bd.add_argument("--target", default=None)
+    bd.add_argument("--jobs", type=int, default=4)
+    ts = sp.add_parser("test", help="Invoke a test runner (pytest/ceedling) and report results")
+    ts.add_argument("--framework", default="pytest", choices=["pytest", "ceedling", "unity"])
+    ts.add_argument("--source", default=".")
+    cv = sp.add_parser("coverage", help="Run coverage (gcovr) and report threshold")
+    cv.add_argument("--tool", default="gcovr", choices=["gcovr"])
+    cv.add_argument("--source", default=".")
+    cv.add_argument("--threshold", type=float, default=None)
+    st2 = sp.add_parser("static", help="Run static analysis (cppcheck/clang-tidy)")
+    st2.add_argument("--tool", default="cppcheck", choices=["cppcheck", "clang-tidy"])
+    st2.add_argument("--source", default=".")
+    sl = sp.add_parser("serial", help="Capture serial/UART output")
+    sl.add_argument("--port", required=True)
+    sl.add_argument("--baud", type=int, default=115200)
+    sl.add_argument("--duration", type=int, default=5)
+    sl.add_argument("--output", default=None)
+    fl = sp.add_parser("flash", help="Flash firmware via probe (approval required)")
+    fl.add_argument("--tool", default="openocd", choices=["openocd"])
+    fl.add_argument("--firmware", required=True)
+    hz = sp.add_parser("hazard", help="Scaffold a hazard-risk assurance artifact")
+    hz.add_argument("artifact_id"); hz.add_argument("--output", default="hazard.yaml")
+    hz.add_argument("--domain", default="industrial")
+    th = sp.add_parser("threat", help="Scaffold a threat-model assurance artifact")
+    th.add_argument("artifact_id"); th.add_argument("--output", default="threat.yaml")
+    th.add_argument("--domain", default="industrial")
+    cl = sp.add_parser("changelog", help="Generate changelog from git history")
+    cl.add_argument("--repo", default=".")
+    cl.add_argument("--output", default=None)
+    cl.add_argument("--version", default=None)
+    cl.add_argument("--since", default=None)
+    ci = sp.add_parser("cicd", help="Generate CI/CD pipeline templates")
+    ci.add_argument("--kind", default="github", choices=["github", "gitlab"])
+    ci.add_argument("--output", default=".")
+    sb = sp.add_parser("sbom", help="Generate SBOM (CycloneDX-lite)")
+    sb.add_argument("--root", default=".")
+    sb.add_argument("--output", default="sbom.json")
+    dc = sp.add_parser("docs", help="Generate documentation (Doxygen)")
+    dc.add_argument("--config", default=None)
+    dc.add_argument("--source", default=".")
+    pl = sp.add_parser("plugins", help="List installed axiom plugins (entry points)")
+    pl.add_argument("action", nargs="?", default="list", choices=["list"])
     ctx = sp.add_parser("context"); cs = ctx.add_subparsers(dest="context_cmd"); cc = cs.add_parser("select"); cc.add_argument("--index", default=".axiom/index.json"); cc.add_argument("--root", action="append", required=True); cc.add_argument("--hops", type=int, default=2); cc.add_argument("--max-files", type=int, default=24); cc.add_argument("--max-bytes", type=int, default=500000)
     im = sp.add_parser("impact"); im.add_argument("path")
     wf = sp.add_parser("workflow"); ws = wf.add_subparsers(dest="workflow_cmd"); wp = ws.add_parser("plan"); wp.add_argument("--profile", required=True); wp.add_argument("--entry")
@@ -524,6 +698,14 @@ def main() -> int:
     ar_v = ar_sub.add_parser("validate", help="Validate one artifact file"); ar_v.add_argument("path")
     tr = sp.add_parser("trace", help="Traceability checks over an artifact directory"); tr_sub = tr.add_subparsers(dest="trace_cmd", required=True)
     tr_c = tr_sub.add_parser("check", help="Check cross-artifact traceability"); tr_c.add_argument("path", nargs="?", default=".")
+    tr_g = tr_sub.add_parser("generate", help="Generate a traceability matrix CSV")
+    tr_g.add_argument("reqs_file"); tr_g.add_argument("--source", default=".")
+    tr_g.add_argument("--tests", default="."); tr_g.add_argument("--output", default="traceability.csv")
+    rq = sp.add_parser("requirements", help="Requirements management")
+    rq_sub = rq.add_subparsers(dest="req_cmd", required=True)
+    rq_i = rq_sub.add_parser("import", help="Import requirements from CSV/YAML/JSON")
+    rq_i.add_argument("path"); rq_i.add_argument("--output", default="requirements.yaml")
+    rq_i.add_argument("--domain", default="generic-embedded")
     rv = sp.add_parser("review", help="Validate review reports"); rv_sub = rv.add_subparsers(dest="review_cmd", required=True)
     rv_c = rv_sub.add_parser("check", help="Validate one review report file"); rv_c.add_argument("path")
     args = ap.parse_args()
@@ -535,6 +717,32 @@ def main() -> int:
     if args.cmd == "profile" and args.profile_cmd == "validate": return validate_profile(args.path)
     if args.cmd == "analyze": return analyze(args.path)
     if args.cmd == "graph" and args.graph_cmd == "build": return graph_build(args.path, args.output)
+    if args.cmd == "build":
+        return build_cmd(args.system, args.source, args.build_dir, args.target, args.jobs)
+    if args.cmd == "test":
+        return test_cmd(args.framework, args.source)
+    if args.cmd == "coverage":
+        return coverage_cmd(args.tool, args.source, args.threshold)
+    if args.cmd == "static":
+        return static_cmd(args.tool, args.source)
+    if args.cmd == "serial":
+        return serial_cmd(args.port, args.baud, args.duration, args.output)
+    if args.cmd == "flash":
+        return flash_cmd(args.tool, args.firmware)
+    if args.cmd == "hazard":
+        return hazard_cmd(args.artifact_id, args.output, args.domain)
+    if args.cmd == "threat":
+        return threat_cmd(args.artifact_id, args.output, args.domain)
+    if args.cmd == "changelog":
+        return changelog_cmd(args.repo, args.output, args.version, args.since)
+    if args.cmd == "cicd":
+        return cicd_cmd(args.kind, args.output)
+    if args.cmd == "sbom":
+        return sbom_cmd(args.root, args.output)
+    if args.cmd == "docs":
+        return docs_cmd(args.config, args.source)
+    if args.cmd == "plugins":
+        return plugins_cmd()
     if args.cmd == "context" and args.context_cmd == "select": return context_select(args.index, args.root, args.hops, args.max_files, args.max_bytes)
     if args.cmd == "impact": return impact(args.path)
     if args.cmd == "workflow" and args.workflow_cmd == "plan": return workflow_plan(args.profile, args.entry)
@@ -582,6 +790,10 @@ def main() -> int:
         rep = check_traceability(args.path)
         print(json.dumps(rep, indent=2))
         return 0 if rep["valid"] else 1
+    if args.cmd == "trace" and args.trace_cmd == "generate":
+        return trace_generate_cmd(args.reqs_file, args.source, args.tests, args.output)
+    if args.cmd == "requirements" and args.req_cmd == "import":
+        return requirements_import_cmd(args.path, args.output, args.domain)
     if args.cmd == "review" and args.review_cmd == "check":
         from packages.skills.assurance import validate_artifact_file
         rep = validate_artifact_file(args.path)

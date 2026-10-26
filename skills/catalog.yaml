@@ -2024,7 +2024,8 @@ skills:
   outputs:
   - report
   dependencies: []
-  related_skills: []
+  related_skills:
+  - git
   path: skills/change-impact
   enabled: true
 - id: code-review
@@ -2048,6 +2049,7 @@ skills:
   - axiom-platform-architecture-review
   - axiom-static-analysis-triage
   - axiom-technical-debt-assessment
+  - git
   path: skills/code-review
   enabled: true
   sub_skills:
@@ -2071,7 +2073,8 @@ skills:
   outputs:
   - report
   dependencies: []
-  related_skills: []
+  related_skills:
+  - git
   path: skills/configuration-management
   enabled: true
 - id: coverage
@@ -2116,6 +2119,7 @@ skills:
   dependencies: []
   related_skills:
   - axiom-trace-analysis
+  - git
   path: skills/debugging
   enabled: true
   sub_skills:
@@ -2139,6 +2143,7 @@ skills:
   dependencies: []
   related_skills:
   - axiom-architecture-decision-records
+  - git
   path: skills/documentation
   enabled: true
   sub_skills:
@@ -2308,6 +2313,32 @@ skills:
   dependencies: []
   related_skills: []
   path: skills/feature-development
+  enabled: true
+- id: git
+  name: axiom.legacy.git
+  title: git
+  version: 1.2.0
+  domain: all
+  subdomain: legacy
+  category: legacy
+  maturity: production
+  owner: axiom-embedded
+  tags:
+  - legacy
+  inputs:
+  - repository path
+  - objective
+  outputs:
+  - report
+  dependencies: []
+  related_skills:
+  - change-impact
+  - code-review
+  - configuration-management
+  - debugging
+  - documentation
+  - release
+  path: skills/git
   enabled: true
 - id: hardware-architecture
   name: axiom.legacy.hardware-architecture
@@ -2545,6 +2576,7 @@ skills:
   dependencies: []
   related_skills:
   - axiom-automotive-release-readiness
+  - git
   path: skills/release
   enabled: true
   sub_skills:

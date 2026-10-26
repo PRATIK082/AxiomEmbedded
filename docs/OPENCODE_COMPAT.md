@@ -23,6 +23,24 @@ launcher work in this phase confirms them against a pinned OpenCode.
   divergent until someone surveys `/v2/docs` the way this document
   surveys v1. Record v2 support as future work in ROADMAP, not as
   a Phase 2 deliverable.
+
+## v2 support update (2026-10-25)
+
+- Local OpenCode surveyed: **2.1.4** (`opencode --version`, npm
+  `@opencode/cli`).
+- Axiom now treats OpenCode **2.1.0-2.1.4** as a supported line in
+  addition to v1 **1.18.31-1.18.35**.
+- v2 uses a client/server model. Configuration environment variables
+  (`OPENCODE_CONFIG`, `OPENCODE_CONFIG_DIR`, `OPENCODE_CONFIG_CONTENT`)
+  are consumed by the `opencode` service process, not by short-lived
+  client commands. Axiom's isolated config is still written under
+  `~/.axiom/opencode/` and passed through the launcher environment.
+- For verification, use a private service (`opencode api --standalone`)
+  or `opencode debug config` against a service started with the
+  launcher environment; a client command alone may attach to an
+  already-running service.
+- v2 major versions outside 2.1.0-2.1.4 remain warn/fail-closed unless
+  `AXIOM_ALLOW_UNTESTED_OPENCODE=1` is set.
 - Changelog v1.18.31 → v1.18.35 contains **bugfixes only** (provider
   SDK bumps, macOS signing, timeout defaults, Copilot/ACPs fixes).
   No config-schema, CLI-flag, agent-frontmatter, command-frontmatter,

@@ -4,7 +4,7 @@ import pathlib
 import re
 import yaml
 
-ROOT = pathlib.Path(__file__).resolve().parents[2]
+from packages.paths import ROOT
 ID_RE = re.compile(r"^[a-z0-9][a-z0-9-]*$")
 VER_RE = re.compile(r"^\d+\.\d+\.\d+$")
 REQUIRED_FM = {"name", "description", "version", "domains", "platforms"}

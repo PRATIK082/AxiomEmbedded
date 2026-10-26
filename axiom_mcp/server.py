@@ -6,7 +6,7 @@ underlying implementation (``packages.*``), so CLI and MCP always agree.
 Each tool carries a JSON Schema ``inputSchema`` plus a plain-language
 description for model-driven clients.
 
-Envelope (same as ``packages.axiom_mcp``):
+Envelope (single MCP server, ``axiom_mcp``):
     {"jsonrpc": "2.0", "id": 1, "method": "tools/list", "params": {}}
     {"jsonrpc": "2.0", "id": 2, "method": "tools/call",
      "params": {"name": "engage", "arguments": {"domain": "automotive"}}}
@@ -337,6 +337,16 @@ def tool_analyze_trace(args: dict) -> dict:
     return axiom_sdk.analyze_trace(
         args.get("trace_path", ""), args.get("repo_path"))
 
+def tool_build(args: dict) -> dict:
+    from packages.toolchain import run_build
+    return run_build(args.get("system", "cmake"), args.get("source", "."),
+                     args.get("build_dir"), args.get("target"),
+                     int(args.get("jobs", 4)))
+
+def tool_test(args: dict) -> dict:
+    from packages.toolchain import run_tests
+    return run_tests(args.get("framework", "pytest"), args.get("source", "."))
+
 
 TOOLS: dict[str, dict] = {
     "version": {
@@ -385,6 +395,29 @@ TOOLS: dict[str, dict] = {
         "description": "Project impact summary: lifecycle mode, entry point, next phase (mirrors `axiom impact <project.yaml>`).",
         "inputSchema": _schema({"path": _str_prop("Path to project.yaml.")}, required=["path"]),
         "handler": tool_impact,
+    },
+    "build": {
+        "description": "Invoke a build system (cmake/make/ninja) and report parsed diagnostics (mirrors `axiom build`).",
+        "inputSchema": _schema(
+            {
+                "system": _opt_str_prop("Build system: cmake|make|ninja (default cmake)."),
+                "source": _opt_str_prop("Source directory (default .)."),
+                "build_dir": _opt_str_prop("Build directory."),
+                "target": _opt_str_prop("Build target."),
+                "jobs": {"type": "integer", "description": "Parallel jobs (default 4)."},
+            }
+        ),
+        "handler": tool_build,
+    },
+    "test": {
+        "description": "Invoke a test runner (pytest/ceedling) and report results (mirrors `axiom test`).",
+        "inputSchema": _schema(
+            {
+                "framework": _opt_str_prop("Test framework: pytest|ceedling|unity (default pytest)."),
+                "source": _opt_str_prop("Source directory (default .)."),
+            }
+        ),
+        "handler": tool_test,
     },
     "profile_validate": {
         "description": "Validate a profile YAML has required keys (mirrors `axiom profile validate <path>`).",

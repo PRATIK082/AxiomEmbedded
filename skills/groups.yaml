@@ -117,7 +117,7 @@ groups:
     match_any:
       - {id: [axiom-embedded-cicd, axiom-technical-debt-assessment,
                code-review, static-analysis, build-system, implementation,
-               feature-development]}
+               feature-development, git]}
   assurance:
     title: Assurance lifecycle (scope, hazard, requirements, V&V, threat)
     description: Builder plus independent-reviewer skills producing

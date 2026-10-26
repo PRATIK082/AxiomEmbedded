@@ -12,7 +12,7 @@ import pathlib
 
 import yaml
 
-ROOT = pathlib.Path(__file__).resolve().parents[2]
+from packages.paths import ROOT
 TASKS_DIR = ROOT / "evaluation" / "tasks"
 
 

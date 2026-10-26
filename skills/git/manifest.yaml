@@ -1,0 +1,31 @@
+id: git
+version: 1.2.0
+contract_version: 1
+type: reusable-skill
+standards_refs:
+- number: Git
+  version: '2.x'
+  clause: Reference manual for branching, merging, rebasing, tagging, and recovery
+  source_url: https://git-scm.com/docs
+- number: Conventional Commits
+  version: '1.0.0'
+  clause: Commit message structure and semantic versioning hints
+  source_url: https://www.conventionalcommits.org/en/v1.0.0/
+changelog:
+- version: 1.2.0
+  date: '2026-10-25'
+  summary: 'Skill packaging: agent-skills frontmatter for multi-harness discovery, domain/platform facets, engagement linkage'
+- version: 1.0.0
+  date: '2026-10-25'
+  summary: 'Initial git skill: branching, commits, history hygiene, merge/rebase, tags, recovery, safety gates.'
+source_of_truth:
+  instructions: SKILL.md
+  contract: manifest.yaml
+context:
+  graph_first: true
+  max_hops_default: 2
+facets:
+  domains:
+  - all
+  platforms:
+  - all

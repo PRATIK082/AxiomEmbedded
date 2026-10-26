@@ -11,7 +11,7 @@ import re
 
 import yaml
 
-ROOT = pathlib.Path(__file__).resolve().parents[2]
+from packages.paths import ROOT
 
 ENVELOPE_REQUIRED = ["artifact_id", "schema_version", "kind", "status", "domain",
                      "created_at", "updated_at", "author", "approval_status"]
@@ -179,6 +179,46 @@ def check_traceability(directory: str | pathlib.Path) -> dict:
             "counts": {"requirements": len(reqs), "hazards": len(hazards),
                        "tests": len(tests), "threats": len(threats),
                        "artifacts": len(arts)}}
+
+
+def build_hazard_artifact(artifact_id: str, domain: str = "industrial") -> dict:
+    now = utcnow()
+    return {
+        "artifact_id": artifact_id,
+        "schema_version": "1.0.0",
+        "kind": "hazard-risk",
+        "status": "draft",
+        "domain": domain,
+        "created_at": now,
+        "updated_at": now,
+        "author": "axiom",
+        "approval_status": "draft",
+        "hazards": [],
+        "assumptions": [],
+        "evidence": [],
+        "traceability": [],
+        "open_questions": [],
+    }
+
+
+def build_threat_artifact(artifact_id: str, domain: str = "industrial") -> dict:
+    now = utcnow()
+    return {
+        "artifact_id": artifact_id,
+        "schema_version": "1.0.0",
+        "kind": "threat-model",
+        "status": "draft",
+        "domain": domain,
+        "created_at": now,
+        "updated_at": now,
+        "author": "axiom",
+        "approval_status": "draft",
+        "threats": [],
+        "assumptions": [],
+        "evidence": [],
+        "traceability": [],
+        "open_questions": [],
+    }
 
 
 def build_review(target_artifact_id: str, findings: list[dict], reviewer: str = "independent-reviewer",
