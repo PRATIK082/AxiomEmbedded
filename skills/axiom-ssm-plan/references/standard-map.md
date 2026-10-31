@@ -1,4 +1,4 @@
-# Standard map — axiom-ssm-plan (original summaries, no normative text)
+# Standard map -- axiom-ssm-plan (original summaries, no normative text)
 
 | Standard | Edition | Clauses considered | Project use |
 |---|---|---|---|

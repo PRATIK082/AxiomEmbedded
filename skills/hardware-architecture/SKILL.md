@@ -28,7 +28,7 @@ data) software depends on.
 ## 1. Purpose and scope
 
 **Purpose.** Define electronics that meet functional, power, thermal, EMC, and
-cost requirements with margins — and hand software a truthful hardware model
+cost requirements with margins -- and hand software a truthful hardware model
 (datasheets, errata, memory maps, timing) instead of surprises.
 
 **In scope.** Requirements allocation to hardware, block diagrams and interface
@@ -52,12 +52,12 @@ against.
 
 ## 3. Design rules
 
-1. **Budget before schematic.** Power (rail × current with margin), thermal
-   (θJA paths, worst-case ambient), signal integrity (length/skew/impedance
+1. **Budget before schematic.** Power (rail x current with margin), thermal
+   (thetaJA paths, worst-case ambient), signal integrity (length/skew/impedance
    for DDR, USB, Ethernet), and BOM cost close before layout starts.
 2. **Datasheet-plus-errata is the contract.** Every active component ships
    with its errata reviewed and silicon bugs allocated (hardware workaround,
-   driver workaround per `drivers` §2, or accepted risk) — see
+   driver workaround per `drivers` S2, or accepted risk) -- see
    `hardware-bringup` for validation.
 3. **HSI document.** Memory map, register definitions, interrupt assignments,
    clock tree, reset sequencing, boot-mode strapping, and power-domain
@@ -69,9 +69,9 @@ against.
 
 ## 4. Review checkpoints (blocking)
 
-Concept/block review → schematic review (with software present for the HSI) →
-layout review (placement, stackup, return paths, EMC) → fabrication-release
-audit (BOM, alternates, lifecycle status) → bring-up report per
+Concept/block review -> schematic review (with software present for the HSI) ->
+layout review (placement, stackup, return paths, EMC) -> fabrication-release
+audit (BOM, alternates, lifecycle status) -> bring-up report per
 `hardware-bringup`. No checkpoint is skipped; waivers carry expiry and owner.
 
 ## 5. Release gates (blocking)
@@ -83,4 +83,4 @@ audit (BOM, alternates, lifecycle status) → bring-up report per
 
 ## 6. Verification of this skill (Phase 4 gate)
 
-- Standards cited with number + version + clause + URL (§2).
+- Standards cited with number + version + clause + URL (S2).

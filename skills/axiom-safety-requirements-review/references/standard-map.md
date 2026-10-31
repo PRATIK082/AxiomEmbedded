@@ -1,4 +1,4 @@
-# Standard map — axiom-safety-requirements-review
+# Standard map -- axiom-safety-requirements-review
 
 | Standard | Edition | Clauses considered | Project use |
 |---|---|---|---|

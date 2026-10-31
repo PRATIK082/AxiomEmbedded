@@ -24,7 +24,7 @@ Production-grade ROS1 (Noetic) knowledge for AI coding assistants.
 ## When to Use
 - Maintaining or extending existing ROS1 systems
 - Writing new ROS1 nodes/packages
-- Migrating ROS1 → ROS2
+- Migrating ROS1 -> ROS2
 - Debugging ROS1 systems
 
 ## Core Architecture Principles
@@ -38,7 +38,7 @@ Production-grade ROS1 (Noetic) knowledge for AI coding assistants.
 - Sensor data (high frequency, OK to drop old): `queue_size=1` to `5`, best-effort-ish.
 - Commands (must not miss): `queue_size=10+`, reliable.
 - Large data (point clouds, images): small queues to prevent memory bloat.
-- **NEVER use `queue_size=0` (infinite) for high-frequency topics** — causes memory leaks under load.
+- **NEVER use `queue_size=0` (infinite) for high-frequency topics** -- causes memory leaks under load.
 - Robot description, static maps, calibration: `latch=True`, `queue_size=1`.
 
 ### 3. Launch File Best Practices
@@ -82,14 +82,14 @@ Production-grade ROS1 (Noetic) knowledge for AI coding assistants.
 ## Package Structure
 ```
 my_package/
-├── CMakeLists.txt
-├── package.xml
-├── src/          (C++ nodes)
-├── scripts/      (Python nodes)
-├── launch/
-├── config/
-├── msg/ srv/ action/
-└── tests/
++-- CMakeLists.txt
++-- package.xml
++-- src/          (C++ nodes)
++-- scripts/      (Python nodes)
++-- launch/
++-- config/
++-- msg/ srv/ action/
++-- tests/
 ```
 
 ## Debugging Toolkit
@@ -99,7 +99,7 @@ my_package/
 - Bag files: `rosbag record/play/info`
 - Parameter: `rosparam list/get/set`
 
-## ROS1 → ROS2 Migration Checklist
+## ROS1 -> ROS2 Migration Checklist
 - [ ] Replace catkin with colcon/ament
 - [ ] Replace rospy/roscpp with rclpy/rclcpp
 - [ ] Replace launch XML with Python launch files

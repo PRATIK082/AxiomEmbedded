@@ -33,12 +33,12 @@ Production-grade ROS2 system bringup and deployment for AI coding assistants.
 - Remote monitoring and debugging
 
 ## The Robot Bringup Stack
-Hardware → Drivers → Perception → Application, each as a systemd service with explicit dependencies.
+Hardware -> Drivers -> Perception -> Application, each as a systemd service with explicit dependencies.
 
 ## systemd Service Units for ROS2
 - Basic unit: EnvironmentFile for ROS env, pre-start device check, ExecStart sourcing setup.bash, SIGINT for graceful shutdown, Restart=on-failure with rate limits.
 - Environment file: ROS_DISTRO, RMW_IMPLEMENTATION, ROS_DOMAIN_ID, CYCLONEDDS_URI, robot config.
-- Service dependencies: drivers → perception → application via After=/Requires=.
+- Service dependencies: drivers -> perception -> application via After=/Requires=.
 - Restart policies: Restart=on-failure, StartLimitBurst, StartLimitIntervalSec, RestartSec ramp-up.
 - Resource limits: MemoryMax, CPUQuota, rtprio for real-time drivers, ProtectSystem/ProtectHome.
 - Watchdog: WatchdogSec triggers restart; hardware watchdog reboots if systemd unresponsive.
@@ -51,9 +51,9 @@ Hardware → Drivers → Perception → Application, each as a systemd service w
 - Top-level bringup: includes all layers with conditionals (sim vs real, robot variants).
 
 ## Ordered Startup with Health Checks
-- Startup dependency graph: hardware → drivers → perception → application.
+- Startup dependency graph: hardware -> drivers -> perception -> application.
 - Health check scripts: verify devices present, wait for nodes/topics.
-- Lifecycle node orchestration: configure → activate in order.
+- Lifecycle node orchestration: configure -> activate in order.
 - Wait-for-topic pattern for synchronization.
 
 ## udev Rules for Deterministic Device Naming
@@ -81,7 +81,7 @@ Hardware → Drivers → Perception → Application, each as a systemd service w
 - Structured logging for production (event + fields).
 
 ## Graceful Shutdown Sequences
-- Signal handling: SIGINT (ROS2 handler) → safe state → cleanup → exit.
+- Signal handling: SIGINT (ROS2 handler) -> safe state -> cleanup -> exit.
 - Ordered shutdown via systemd Before=/After= (reverse of start).
 - Safe state on shutdown: stop motion, hold position, log.
 
@@ -97,13 +97,13 @@ Hardware → Drivers → Perception → Application, each as a systemd service w
 3. Restart=always without rate limiting (infinite restart loop).
 4. network.target instead of network-online.target.
 5. No log rotation (disk fills).
-6. Hardcoded device paths (/dev/ttyUSB0) — use udev symlinks.
-7. Running entire stack as root — use dedicated user.
+6. Hardcoded device paths (/dev/ttyUSB0) -- use udev symlinks.
+7. Running entire stack as root -- use dedicated user.
 8. No graceful shutdown handler.
 
 ## Bringup Checklist
 - [ ] systemd units with EnvironmentFile and explicit sourcing
-- [ ] Service dependencies ordered (hardware→drivers→perception→app)
+- [ ] Service dependencies ordered (hardware->drivers->perception->app)
 - [ ] Restart policies rate-limited with failure notification
 - [ ] udev rules for deterministic device names
 - [ ] Network configured (static IP, DDS discovery, firewall)

@@ -1,4 +1,4 @@
-# Standard map — axiom-dataset-documentation (original summaries, no normative text)
+# Standard map -- axiom-dataset-documentation (original summaries, no normative text)
 
 | Standard | Edition | Clauses considered | Project use |
 |---|---|---|---|

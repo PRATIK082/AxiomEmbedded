@@ -1,4 +1,4 @@
-# Standard map — axiom-vnv-plan
+# Standard map -- axiom-vnv-plan
 
 | Standard | Edition | Clauses considered | Project use |
 |---|---|---|---|

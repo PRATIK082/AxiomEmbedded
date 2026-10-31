@@ -1,4 +1,4 @@
-# Standard map — axiom-iec62443-risk-assessment (original summaries, no normative text)
+# Standard map -- axiom-iec62443-risk-assessment (original summaries, no normative text)
 
 | Standard | Edition | Clauses considered | Project use |
 |---|---|---|---|

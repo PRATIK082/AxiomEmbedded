@@ -36,7 +36,7 @@ manuals, safety-manual appendices), docs-as-code pipeline, review and approval
 workflows, versioning per release, and readability/accuracy standards.
 
 **Non-goals.** Marketing content and in-code comments (see
-`implementation` §3). Ends at a reviewed documentation set released with the
+`implementation` S3). Ends at a reviewed documentation set released with the
 product.
 
 ## 2. Normative sources (high confidence)
@@ -52,7 +52,7 @@ product.
 1. **Docs as code.** Sources in version control, reviewed in the same
    merge-request flow as code, built by CI; generated artifacts (PDFs, sites)
    are reproducible from tagged sources. Wiki-only knowledge is tribal
-   knowledge — migrate or lose it.
+   knowledge -- migrate or lose it.
 2. **Versioned with the product.** Each release ships its doc set; docs state
    the exact product version and baseline they describe. Stale version
    references are defects found by CI link/version checks, not by readers.
@@ -61,7 +61,7 @@ product.
    interface descriptions in prose docs drift and are forbidden as normative.
 4. **Safety-relevant docs reviewed.** Safety manuals, integration instructions,
    and assumptions-of-use documents follow the integrity level's independence
-   rules (`safety` §6) — a safety manual reviewed only by its author is not
+   rules (`safety` S6) -- a safety manual reviewed only by its author is not
    evidence.
 5. **Tested examples.** Code samples and procedures in docs are executed by CI
    (doctest-style or rig-run); untested examples rot and mislead.
@@ -75,7 +75,7 @@ product.
 
 ## 5. Verification of this skill (Phase 4 gate)
 
-- Standards carry number + version + clause + URL (§2).
+- Standards carry number + version + clause + URL (S2).
 
 
 
@@ -84,11 +84,11 @@ product.
 ### 7.1 Documentation levels
 | Level | Content | When Generated |
 |-------|---------|----------------|
-| L1 â€” Project | README, Architecture, Build, Hardware, Directory Structure | New project |
-| L2 â€” Module | Per-module design docs | New module created |
-| L3 â€” Interface | Interface contract docs | New interface created |
-| L4 â€” RTOS/ISR | TaskDesign, ISRDesign, EventFlow | `osThreadNew` or `IRQHandler` detected |
-| L5 â€” Control | ControlLoop, StateMachine, Estimator | State machine enum or control structures detected |
+| L1 -- Project | README, Architecture, Build, Hardware, Directory Structure | New project |
+| L2 -- Module | Per-module design docs | New module created |
+| L3 -- Interface | Interface contract docs | New interface created |
+| L4 -- RTOS/ISR | TaskDesign, ISRDesign, EventFlow | `osThreadNew` or `IRQHandler` detected |
+| L5 -- Control | ControlLoop, StateMachine, Estimator | State machine enum or control structures detected |
 
 ### 7.2 Project-level documentation (L1)
 Generate `README.md`, `docs/Architecture.md`, `docs/Build.md`, `docs/Hardware.md`, `docs/DirectoryStructure.md`.
@@ -97,7 +97,7 @@ README must contain: Project Overview, Features, Hardware Platform, Build Instru
 
 Architecture doc must describe the layer model with ASCII dependency diagram:
 ```
-app/ â†’ module/ â†’ interface/ â†’ bsp/ â†’ platform/
+app/ -> module/ -> interface/ -> bsp/ -> platform/
 ```
 
 Hardware doc must include a resource table (Peripheral, Interface, Target, Purpose) when GPIO/UART/SPI/I2C/CAN/PWM/ADC are referenced.

@@ -1,4 +1,4 @@
-# Standard map — axiom-declaration-of-conformity (original summaries, no normative text)
+# Standard map -- axiom-declaration-of-conformity (original summaries, no normative text)
 
 | Standard | Edition | Clauses considered | Project use |
 |---|---|---|---|

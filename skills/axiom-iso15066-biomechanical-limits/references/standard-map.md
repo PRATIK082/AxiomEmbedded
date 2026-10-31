@@ -1,4 +1,4 @@
-# Standard map — axiom-iso15066-biomechanical-limits (original summaries, no normative text)
+# Standard map -- axiom-iso15066-biomechanical-limits (original summaries, no normative text)
 
 | Standard | Edition | Clauses considered | Project use |
 |---|---|---|---|

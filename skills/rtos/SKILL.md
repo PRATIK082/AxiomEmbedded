@@ -19,7 +19,7 @@ axiom:
   - checklists/rtos-checklist.md
 ---
 
-# rtos — Real-time operating system capability (template replication 1)
+# rtos -- Real-time operating system capability (template replication 1)
 
 Reusable AxiomEmbedded capability for RTOS selection, configuration,
 scheduling analysis, and verification on MCU/MPU targets.
@@ -54,7 +54,7 @@ scheduling analysis, and verification on MCU/MPU targets.
 
 ## Time estimate
 
-- Selection + architecture: 2–3 days. Configuration + integration: 3–5 days. Timing verification: 3–5 days.
+- Selection + architecture: 2-3 days. Configuration + integration: 3-5 days. Timing verification: 3-5 days.
 
 ## Resources
 
@@ -82,7 +82,7 @@ scheduling analysis, and verification on MCU/MPU targets.
 
 - Fixed-priority preemptive by default; document every priority assignment against
   rate-monotonic or deadline-monotonic analysis.
-- Priority inheritance (or ceiling) on every mutex shared across priorities — no
+- Priority inheritance (or ceiling) on every mutex shared across priorities -- no
   unbounded priority inversion.
 - Prefer queues/message-passing over shared memory; guard shared state with
   explicit ownership (`rules/baseline.yaml`: no-implicit-state, explicit-error-handling).
@@ -92,7 +92,7 @@ scheduling analysis, and verification on MCU/MPU targets.
 
 ## Memory protection
 
-- FreeRTOS 202604 LTS claims fewer MPU regions — reserve the remainder for
+- FreeRTOS 202604 LTS claims fewer MPU regions -- reserve the remainder for
   application task isolation (kernel/flash, task stacks, peripheral guards).
 - Unprivileged tasks by default; privilege escalation only via audited gates.
 - Map claims to `rules/security.yaml` and the active domain overlay.
@@ -103,13 +103,13 @@ scheduling analysis, and verification on MCU/MPU targets.
 - Deadline-miss injection (`skills/fault-injection/`): overload, ISR storm, clock drift.
 - Watchdog strategy: task-aware (window/checkpoint) rather than a blind kick.
 - Coverage targets from `configs/skill-update.yaml`: ASIL A/DAL D 100% statement+branch;
-  ASIL B/DAL C adds recommended MC/DC; ASIL C–D/DAL A–B requires MC/DC.
+  ASIL B/DAL C adds recommended MC/DC; ASIL C-D/DAL A-B requires MC/DC.
 
 ## Build
 
 - `cmake_minimum_required(VERSION 3.20)`; presets for `debug`, `release`, `hil`.
 - Flags: `-Wall -Wextra -Werror` on gcc and clang.
-- FreeRTOS: pin the `202604.01-LTS` tag; Zephyr: pin West manifest revision — never float.
+- FreeRTOS: pin the `202604.01-LTS` tag; Zephyr: pin West manifest revision -- never float.
 - Static analysis in CI: MISRA checker + `rules/c.yaml` + `rules/embedded-baseline.yaml`.
 
 ## Test strategy
@@ -121,20 +121,20 @@ scheduling analysis, and verification on MCU/MPU targets.
 
 ## Traceability
 
-- `traceability-matrix.schema.json`: every SYS-xxx → RTOS-xxx → `src/` file → `test/` case → evidence id.
+- `traceability-matrix.schema.json`: every SYS-xxx -> RTOS-xxx -> `src/` file -> `test/` case -> evidence id.
 - No orphan task, no orphan test. `scripts/verify_skill.py --skill rtos` enforces presence.
 
 ## Compliance mapping (via domain overlays, not duplication)
 
-- Automotive: ISO 26262-6 software level (ASIL A–D); scheduling freedom-from-interference
+- Automotive: ISO 26262-6 software level (ASIL A-D); scheduling freedom-from-interference
   argued in the overlay, not here.
 - Aerospace/defense: DO-178C objectives per DAL; tool qualification via DO-330 where claimed.
 - Industrial: IEC 61508 SIL via `domains/` overlays. Never claim certification from this
-  heuristic skill — produce audit-ready evidence only.
+  heuristic skill -- produce audit-ready evidence only.
 
 ## Verification checklist (gate: all must pass)
 
-1. `scripts/verify_skill.py --skill rtos` → PASS.
+1. `scripts/verify_skill.py --skill rtos` -> PASS.
 2. CMake configure + build, gcc and clang, zero warnings.
 3. Unit + timing tests green at the required coverage.
 4. MISRA C:2025 scan: zero mandatory/required violations or deviated with rationale.
@@ -160,13 +160,13 @@ Each task owns exactly one functional domain. Forbidden: monolithic super-task m
 Periodic tasks must use fixed-rate scheduling (`osDelayUntil`/`vTaskDelayUntil`), not `osDelay` (which drifts by execution time).
 
 ### 7.4 Priority rules
-Assign priority by real-time criticality: Control Task (highest) â†’ Sensor Task â†’ Communication Task â†’ Service/Logging Task â†’ Idle. Control-related interrupts must have higher priority than communication interrupts.
+Assign priority by real-time criticality: Control Task (highest) -> Sensor Task -> Communication Task -> Service/Logging Task -> Idle. Control-related interrupts must have higher priority than communication interrupts.
 
 ### 7.5 Inter-task communication rules
 Shared data between tasks must never use bare global variables. Use:
-- Queue â€” for data streams (`imu_task â†’ [queue] â†’ control_task`).
-- Event flags â€” for state notification (DMA complete, data ready, GPS lock).
-- Mutex â€” for shared resources (flash, SD card, shared buffer). Do not use mutex as message-passing.
+- Queue -- for data streams (`imu_task -> [queue] -> control_task`).
+- Event flags -- for state notification (DMA complete, data ready, GPS lock).
+- Mutex -- for shared resources (flash, SD card, shared buffer). Do not use mutex as message-passing.
 ISR-to-task handoff via queue/event (`FromISR` APIs), not shared globals.
 
 ### 7.6 ISR cooperation rules
@@ -212,13 +212,13 @@ Protocol parsing, attitude estimation, PID/control law, Kalman filter, path plan
 ### 8.4 Execution time budget
 | ISR Type | Max recommended |
 |----------|-----------------|
-| GPIO | < 5 Âµs |
-| UART | < 10 Âµs |
-| SPI | < 10 Âµs |
-| DMA | < 10 Âµs |
-| I2C | < 15 Âµs |
-| CAN | < 20 Âµs |
-| Timer | < 20 Âµs |
+| GPIO | < 5 us |
+| UART | < 10 us |
+| SPI | < 10 us |
+| DMA | < 10 us |
+| I2C | < 15 us |
+| CAN | < 20 us |
+| Timer | < 20 us |
 No unbounded loops in ISR.
 
 ### 8.5 Strict rules
@@ -227,8 +227,8 @@ No unbounded loops in ISR.
 - Extensive floating-point math forbidden in ISR.
 - HAL blocking operations (`HAL_UART_Transmit` with timeout, `HAL_Delay`) forbidden; dispatch calls (`HAL_UART_IRQHandler`) allowed.
 - RTOS integration must use `FromISR` variants (`xQueueSendFromISR`, `vTaskNotifyGiveFromISR`, `xSemaphoreGiveFromISR`, `portYIELD_FROM_ISR`).
-- Interrupt priority reflects real-time criticality: Timer Control (highest) â†’ DMA â†’ SPI/I2C â†’ UART â†’ EXTI (lowest). Control interrupts higher than communication.
-- Shared data must use queue, double buffer, or event flag â€” not unstructured shared globals. Ring buffer for UART RX.
+- Interrupt priority reflects real-time criticality: Timer Control (highest) -> DMA -> SPI/I2C -> UART -> EXTI (lowest). Control interrupts higher than communication.
+- Shared data must use queue, double buffer, or event flag -- not unstructured shared globals. Ring buffer for UART RX.
 - Timer ISR: only system tick, periodic event flags, input capture timestamps, counter increment. No PID, telemetry, sensor fusion.
 
 ### 8.6 ISR patterns
@@ -238,7 +238,7 @@ No unbounded loops in ISR.
 - Ring buffer pattern (buffered UART RX)
 
 ### 8.7 Flight controller special rules
-Forbidden: running Mahony/PID inside IMU data-ready ISR (`IMU IRQ â†’ Mahony â†’ PID â†’ PWM` all in ISR). Required: `IMU IRQ â†’ [TaskNotify] â†’ Control Task (1 kHz) â†’ Mahony â†’ PID â†’ PWM`.
+Forbidden: running Mahony/PID inside IMU data-ready ISR (`IMU IRQ -> Mahony -> PID -> PWM` all in ISR). Required: `IMU IRQ -> [TaskNotify] -> Control Task (1 kHz) -> Mahony -> PID -> PWM`.
 
 ### 8.8 ISR validation checklist
 - [ ] ISR has single, clearly defined responsibility
@@ -251,7 +251,7 @@ Forbidden: running Mahony/PID inside IMU data-ready ISR (`IMU IRQ â†’ Mahon
 - [ ] No blocking calls in ISR
 - [ ] RTOS FromISR APIs used where applicable
 - [ ] Interrupt flag correctly cleared
-- [ ] Event notification or queue used for ISRâ†’task handoff
+- [ ] Event notification or queue used for ISR->task handoff
 - [ ] ISR responsibilities separated from task responsibilities
 - [ ] No business logic in ISR
 - [ ] DMA ISR defers processing to task context

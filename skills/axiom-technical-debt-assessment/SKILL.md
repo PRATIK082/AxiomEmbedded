@@ -37,7 +37,7 @@ axiom:
 ## Purpose
 Replace vibes ("the codebase is a mess") with a register: each debt item names its
 location, kind, principal (cost already paid in workarounds), interest rate (cost per
-release if left), contagion (what else it infects), and paydown cost — then ranks
+release if left), contagion (what else it infects), and paydown cost -- then ranks
 paydown by return so planning decisions are explicit and reviewable.
 
 ## When to Use
@@ -46,8 +46,8 @@ paydown by return so planning decisions are explicit and reviewable.
 - Recurring defects cluster in one area and workarounds are accumulating.
 
 ## When Not to Use
-- As a blame instrument; the register records items, owners, and plans — never fault.
-- When nothing will be funded; an unplanned register rots — timebox the assessment.
+- As a blame instrument; the register records items, owners, and plans -- never fault.
+- When nothing will be funded; an unplanned register rots -- timebox the assessment.
 
 ## Required Inputs
 - Repository path and scope (whole tree or named subsystems).
@@ -64,7 +64,7 @@ paydown by return so planning decisions are explicit and reviewable.
 1. Normalize scope, budget, and appetite; timebox the inventory pass.
 2. Inventory debt from code, tests, docs, and interviews: duplication, obsolete
    branches, missing tests, fragile builds, undocumented assumptions, deferred
-   decisions — one row each in `templates/debt-register.template.csv`.
+   decisions -- one row each in `templates/debt-register.template.csv`.
 3. Score each row: principal (S/M/L + note), interest per release, contagion count,
    paydown cost; safety/security-adjacent items flagged for human review.
 4. Rank by interest-per-cost; cut the paydown slice at the budget line; everything
@@ -104,9 +104,9 @@ run manifest.
   audit of 10% of rows against code.
 
 ## Common Failure Modes
-- Register becomes write-only → paydown slice per release or stop assessing.
-- Interest guessed, never observed → tie each interest claim to a defect or delay.
-- Debt used in performance conversations → guardrail violation; reset framing.
+- Register becomes write-only -> paydown slice per release or stop assessing.
+- Interest guessed, never observed -> tie each interest claim to a defect or delay.
+- Debt used in performance conversations -> guardrail violation; reset framing.
 
 ## Guardrails
 - No personal attributions of fault; no secrets in the register; no network calls.

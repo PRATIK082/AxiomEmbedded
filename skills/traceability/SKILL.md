@@ -27,8 +27,8 @@ the matrix that auditors actually read.
 
 ## 1. Purpose and scope
 
-**Purpose.** Maintain a gap-free, change-resilient link chain —
-need → system req → software req → design → code → test → evidence — so impact
+**Purpose.** Maintain a gap-free, change-resilient link chain --
+need -> system req -> software req -> design -> code -> test -> evidence -- so impact
 analysis is a query, not an excavation.
 
 **In scope.** Traceability information model, link creation and ownership,
@@ -42,15 +42,15 @@ suspect-link handling on change, and traceability audits.
 
 | # | Standard | Version / status | Clause / scope | Source |
 |---|----------|------------------|----------------|--------|
-| 1 | ISO/IEC/IEEE 29148 | 2018 | §6.4 traceability: bi-directional links, change propagation | `https://www.iso.org/standard/72089.html` |
+| 1 | ISO/IEC/IEEE 29148 | 2018 | S6.4 traceability: bi-directional links, change propagation | `https://www.iso.org/standard/72089.html` |
 | 2 | ISO 26262-8 | 2018 | Clause 6.4.2 work-product traceability through the safety lifecycle | `https://www.iso.org/standard/68390.html` |
-| 3 | DO-178C | 2011 | §5 traceability (requirements→design→code), §6 verification traceability | `https://www.rtca.org/products/software-considerations-in-airborne-systems-and-equipment-certification-do-178/` |
+| 3 | DO-178C | 2011 | S5 traceability (requirements->design->code), S6 verification traceability | `https://www.rtca.org/products/software-considerations-in-airborne-systems-and-equipment-certification-do-178/` |
 
 ## 3. Link model
 
 The canonical chain per `schemas/traceability-matrix.schema.json`:
 
-`sys_req → sw_req → code → test → evidence`
+`sys_req -> sw_req -> code -> test -> evidence`
 
 Rules:
 
@@ -60,16 +60,16 @@ Rules:
    the function, not the file. Coarse links hide gaps.
 3. **Safety links carry integrity.** Links touching ASIL/SIL/DAL artifacts
    record the level; decomposition links record the independence argument
-   reference (see `safety` §3.5).
-4. **No dangling ends.** Every requirement has ≥1 downstream test; every test
-   has ≥1 upstream requirement. Exploratory or characterization tests link to
+   reference (see `safety` S3.5).
+4. **No dangling ends.** Every requirement has >=1 downstream test; every test
+   has >=1 upstream requirement. Exploratory or characterization tests link to
    the design element they characterize.
 
 ## 4. Change propagation
 
 Any change to a linked artifact marks all connected links **suspect**
 automatically (tool-enforced where possible, checklist-enforced otherwise).
-Suspect links must be re-verified or re-linked before the next baseline —
+Suspect links must be re-verified or re-linked before the next baseline --
 shipping with suspect links is a blocking finding. This is the engine that
 makes `change-impact` analysis trustworthy.
 
@@ -81,7 +81,7 @@ makes `change-impact` analysis trustworthy.
    unbroken links.
 3. Matrix exported in the schema format and archived per release.
 4. Link-quality sampling: a sampled subset reviewed for finest-granularity
-   conformance (§3.2); systematic coarseness reopens the baseline.
+   conformance (S3.2); systematic coarseness reopens the baseline.
 
 ## 6. Verification of this skill (Phase 4 gate)
 

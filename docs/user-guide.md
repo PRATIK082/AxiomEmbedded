@@ -1,6 +1,6 @@
 # AxiomEmbedded User Guide
 
-Welcome to AxiomEmbedded v1.3.1 — an AI-native engineering platform for embedded
+Welcome to AxiomEmbedded v1.3.1 -- an AI-native engineering platform for embedded
 and cyber-physical systems. This guide covers **installation, every command
 with examples, the dashboard UI, all five interfaces, and using the skills in
 your own projects**.
@@ -13,8 +13,8 @@ your own projects**.
 4. [Dashboard UI](#4-dashboard-ui)
 5. [Using AxiomEmbedded in your own project](#5-using-axiomembedded-in-your-own-project)
 6. [Interfaces: REST, MCP, A2A, Python SDK](#6-interfaces-rest-mcp-a2a-python-sdk)
-7. [AI-client setup (Claude, opencode, Copilot, Cursor, …)](#7-ai-client-setup)
-8. [Interface × client matrix](#8-interface--client-matrix)
+7. [AI-client setup (Claude, opencode, Copilot, Cursor, ...)](#7-ai-client-setup)
+8. [Interface x client matrix](#8-interface--client-matrix)
 9. [Domain-aware agents: how they work and why](#9-domain-aware-agents-how-they-work-and-why)
 10. [Self-check, toolpacks and eval (CLI)](#10-self-check-toolpacks-and-eval-cli)
 11. [Using AxiomEmbedded in a UI](#11-using-axiomembedded-in-a-ui)
@@ -24,7 +24,7 @@ your own projects**.
 
 ## 1. Install
 
-**Prerequisites:** Python 3.11 or newer. No other dependencies — the runtime
+**Prerequisites:** Python 3.11 or newer. No other dependencies -- the runtime
 uses the standard library only (`PyYAML` + `pytest` are the only declared
 packages).
 
@@ -82,17 +82,17 @@ python -m axiom_cli run "add watchdog driver" --domain automotive --platform mcu
 python -m axiom_cli serve
 ```
 
-That's the whole loop: **status → engage → run → verify**.
+That's the whole loop: **status -> engage -> run -> verify**.
 
 ---
 
 ## 3. CLI reference with examples
 
 The binary is `axiom` (installed as a console script) or
-`python -m axiom_cli`. All examples below use `axiom` for brevity — substitute
+`python -m axiom_cli`. All examples below use `axiom` for brevity -- substitute
 `python -m axiom_cli` if the script isn't on your `PATH`.
 
-### 3.1 `axiom status` — terminal dashboard
+### 3.1 `axiom status` -- terminal dashboard
 
 ```powershell
 axiom status
@@ -112,7 +112,7 @@ Skills: 47 at v1.2.0  ####################
   tests        6
 
 NEEDS ATTENTION
-  None — all systems nominal.
+  None -- all systems nominal.
 
 RECOMMENDED: axiom run 'next feature'
 ```
@@ -122,7 +122,7 @@ RECOMMENDED: axiom run 'next feature'
 - `--format json` emits the same data for scripts/CI:
   `skills`, `inventory`, `needs_attention[]`, `recommended_next_action`.
 
-### 3.2 `axiom engage` — select skills for your domain + platform
+### 3.2 `axiom engage` -- select skills for your domain + platform
 
 ```powershell
 # Full slice for a car project on a microcontroller
@@ -151,19 +151,19 @@ Real output for `--domain robotics --platform soc` (abbreviated):
 
 How to use it:
 
-- `skills[]` — the exact skill folder names relevant to your project.
-- `profiles[]` — matching overlay profiles (e.g. `automotive-mcu` when one
+- `skills[]` -- the exact skill folder names relevant to your project.
+- `profiles[]` -- matching overlay profiles (e.g. `automotive-mcu` when one
   exists for your combo, plus the generic `skill-update-profile`).
-- `context_files[]` — the `SKILL.md` paths to load into your AI assistant.
-  Paste these into Claude/opencode/Copilot (see §7), or let
-  `install_skills.py` copy them for you (see §5.2).
+- `context_files[]` -- the `SKILL.md` paths to load into your AI assistant.
+  Paste these into Claude/opencode/Copilot (see S7), or let
+  `install_skills.py` copy them for you (see S5.2).
 
 Valid `--domain` values: `generic-embedded automotive aerospace defense iot
 industrial robotics`. Valid `--platform` values include `mcu mpu soc mpsoc
 linux rtos bare-metal arm riscv` (see `registries/skill-facets.yaml` for the
 full vocabulary).
 
-### 3.3 `axiom run` — turn a request into an execution plan
+### 3.3 `axiom run` -- turn a request into an execution plan
 
 ```powershell
 axiom run "add watchdog driver" --domain automotive --platform mcu
@@ -188,12 +188,12 @@ What it returns (structure, lists abbreviated):
 ```
 
 The model executing the phases is **your AI assistant** (Claude, opencode,
-Copilot…): paste the plan output into it together with the `context_files`
+Copilot...): paste the plan output into it together with the `context_files`
 from `engage`, and it works the phases. Anything in `approval_required_for`
-stops for a human — the plan never auto-pushes, auto-releases, or
+stops for a human -- the plan never auto-pushes, auto-releases, or
 auto-applies safety/security-critical changes.
 
-### 3.4 `axiom fix` / `axiom feature` — ready-made plan emitters
+### 3.4 `axiom fix` / `axiom feature` -- ready-made plan emitters
 
 ```powershell
 axiom fix BOOT-123 --domain automotive --platform mcu
@@ -220,7 +220,7 @@ Output is a JSON plan envelope:
 Feed the JSON to your assistant; it executes step by step and drops evidence
 under `docs/compliance/evidence/`.
 
-### 3.5 `axiom serve` — REST + A2A server and dashboard
+### 3.5 `axiom serve` -- REST + A2A server and dashboard
 
 ```powershell
 axiom serve                 # http://127.0.0.1:8765
@@ -228,17 +228,17 @@ axiom serve --port 8931     # custom port
 ```
 
 Keep it running in a terminal; open the URL in a browser for the dashboard
-(see §4). The same server answers the REST and A2A APIs (see §6). Stop with
+(see S4). The same server answers the REST and A2A APIs (see S6). Stop with
 `Ctrl+C`. The server binds to `127.0.0.1` (local only) by design.
 
-### 3.6 `axiom mcp` — Model Context Protocol server over stdio
+### 3.6 `axiom mcp` -- Model Context Protocol server over stdio
 
 ```powershell
 axiom mcp
 ```
 
-Speaks newline-delimited JSON-RPC 2.0 on stdin/stdout. You don't type into it —
-your MCP client (Claude Code, opencode, Cursor, …) spawns it. Exposed tools:
+Speaks newline-delimited JSON-RPC 2.0 on stdin/stdout. You don't type into it --
+your MCP client (Claude Code, opencode, Cursor, ...) spawns it. Exposed tools:
 
 | Tool | Purpose |
 |------|---------|
@@ -249,7 +249,7 @@ your MCP client (Claude Code, opencode, Cursor, …) spawns it. Exposed tools:
 | `read_skill` | Full `SKILL.md` body for one skill id |
 | `list_skills` / `list_profiles` | Inventory discovery |
 
-Minimal client config (`clients/mcp.json` exists in-repo as a portable template —
+Minimal client config (`clients/mcp.json` exists in-repo as a portable template --
 no hardcoded paths; run from the project root or install the `axiom` entry point):
 
 ```json
@@ -290,13 +290,13 @@ here so the reference is complete:
 | `profile` | `axiom profile --help` | Profile inspection |
 | `analyze` / `graph` / `context` / `impact` | `axiom impact --help` | Artifact-graph queries |
 | `workflow` / `route` | `axiom route "add driver"` | Route a request to a workflow |
-| `research` | `axiom research "question" --backend local` | Deep-research pipeline (see §3.8) |
+| `research` | `axiom research "question" --backend local` | Deep-research pipeline (see S3.8) |
 
 Run any of them with `--help` for flags.
 
 ### 3.8 Deep research (`axiom research`)
 
-Planner → searchers → verifier → synthesizer. `question` is split into up
+Planner -> searchers -> verifier -> synthesizer. `question` is split into up
 to `--max-subquestions` (default 3) focused sub-questions; each runs against
 the selected `--backend`, findings are deduped and uncited claims are
 rejected (listed honestly under Rejected), and the markdown report always
@@ -329,7 +329,7 @@ stdlib-generated HTML page (no JavaScript, no build step) with three cards:
 +----------------------------------------------------------+
 | AxiomEmbedded                                        [h1] |
 +----------------------------------------------------------+
-| PROJECT HEALTH: AxiomEmbedded — HEALTHY            [card] |
+| PROJECT HEALTH: AxiomEmbedded -- HEALTHY            [card] |
 |   Skills: 47 (latest v1.2.0)                             |
 |   +-----------------------+                              |
 |   | schemas      | 19     |  <- inventory table            |
@@ -341,7 +341,7 @@ stdlib-generated HTML page (no JavaScript, no build step) with three cards:
 |   +-----------------------+                              |
 +----------------------------------------------------------+
 | NEEDS ATTENTION                                    [card] |
-|   * None — all systems nominal.                          |
+|   * None -- all systems nominal.                          |
 |     (or: [HIGH] <id>: <title>                            |
 |      <suggested axiom command>)                           |
 +----------------------------------------------------------+
@@ -353,9 +353,9 @@ stdlib-generated HTML page (no JavaScript, no build step) with three cards:
 - **Card 1** mirrors `axiom status`: state, skill versions, inventory counts.
 - **Card 2** lists attention items (each with severity and the exact command
   to run) or "all systems nominal".
-- **Card 3** shows the single recommended command — copy-paste it into a
+- **Card 3** shows the single recommended command -- copy-paste it into a
   terminal.
-- Refresh the page to update (no auto-refresh by design — slice 2 candidate).
+- Refresh the page to update (no auto-refresh by design -- slice 2 candidate).
 
 ---
 
@@ -363,7 +363,7 @@ stdlib-generated HTML page (no JavaScript, no build step) with three cards:
 
 Pick the path that matches how much you want to adopt.
 
-### Path A — Copy skills into your AI assistant (simplest)
+### Path A -- Copy skills into your AI assistant (simplest)
 
 ```powershell
 # Install ALL skills for opencode (also: claude, codex, antigravity)
@@ -377,7 +377,7 @@ python scripts/install_skills.py --harness claude --dest C:\DroneProject\.claude
 Each installed skill is a folder with `SKILL.md` (now frontmatter-headed, so
 every harness auto-discovers it). Re-run after `git pull` to pick up updates.
 
-### Path B — Reference skills without copying (zero duplication)
+### Path B -- Reference skills without copying (zero duplication)
 
 1. Run `axiom engage --domain <yours> --platform <yours>` and keep the
    `context_files[]` list.
@@ -386,7 +386,7 @@ every harness auto-discovers it). Re-run after `git pull` to pick up updates.
    gates, and evidence conventions in your repo.
 3. For plans, paste the output of `axiom run` / `axiom fix` / `axiom feature`.
 
-### Path C — Drive it from your own code (SDK / REST)
+### Path C -- Drive it from your own code (SDK / REST)
 
 ```python
 import sys
@@ -398,7 +398,7 @@ plan = run_plan("add watchdog driver", domain="automotive", platform="mcu")
 health = get_status()  # same data as `axiom status --format json`
 ```
 
-Or over HTTP while `axiom serve` runs (curl examples in §6.1).
+Or over HTTP while `axiom serve` runs (curl examples in S6.1).
 
 ### Which skills does MY project need? (worked examples)
 
@@ -410,14 +410,14 @@ Or over HTTP while `axiom serve` runs (curl examples in §6.1).
 | Satellite payload (custom RTOS) | `engage --domain aerospace --platform mpu` | slice incl. `validation`, `fault-injection` |
 
 Process skills (`requirements`, `architecture`, `traceability`, `evidence`,
-…) are tagged `"all"` in the facets registry, so they appear in **every**
-slice — deliberately: every project needs requirements and traceability.
+...) are tagged `"all"` in the facets registry, so they appear in **every**
+slice -- deliberately: every project needs requirements and traceability.
 
 ---
 
 ## 6. Interfaces: REST, MCP, A2A, Python SDK
 
-One implementation (`packages/axiom_sdk`) sits behind all five interfaces —
+One implementation (`packages/axiom_sdk`) sits behind all five interfaces --
 they always agree (a test enforces this, see `tests/test_interfaces.py`).
 
 ### 6.1 REST (needs `axiom serve` running)
@@ -451,7 +451,7 @@ Missing body fields get HTTP 400 with an `{"error": ...}` message
 
 ### 6.2 MCP (needs an MCP client; no server process to manage)
 
-Point the client at `axiom mcp` via `clients/mcp.json` (see §3.6). Tools:
+Point the client at `axiom mcp` via `clients/mcp.json` (see S3.6). Tools:
 `engage`, `run_plan`, `get_status`, `plan_fix`, `plan_feature`,
 `read_skill`, `list_skills`, `list_profiles`. Example tool call the client
 sends over stdio:
@@ -491,7 +491,7 @@ list_profiles()                                     # ["automotive-mcu", "skill-
 ```
 
 Add `packages/` to `sys.path` (or `pip install -e .` and import from the
-repo) — there is no published PyPI package yet.
+repo) -- there is no published PyPI package yet.
 
 ---
 
@@ -501,36 +501,36 @@ repo) — there is no published PyPI package yet.
 |--------|---------------|--------------|
 | Claude Code / Claude Agent Skills | Copy skills (`install_skills.py --harness claude`) or MCP | `docs/using-skills.md` |
 | opencode | Copy skills (`--harness opencode`) or MCP server entry | `clients/mcp.json` |
-| Muse | Skills folder or MCP (MCP irregular on some plans — skills folder is the safe path) | `clients/COPILOT.md` |
+| Muse | Skills folder or MCP (MCP irregular on some plans -- skills folder is the safe path) | `clients/COPILOT.md` |
 | Cursor | Skills folder or MCP server entry | `clients/CURSOR.md` |
 | VS Code (any extension host) | MCP server entry, or REST while `serve` runs | `docs/client-matrix.md` |
 | Codex | Copy skills (`--harness codex`) | `docs/using-skills.md` |
 | Antigravity | Copy skills (`--harness antigravity`) | `docs/using-skills.md` |
-| Custom AI / local LLM | REST (`serve`) or SDK import | §6.1 / §6.4 |
-| Web app | REST (`serve`) | §6.1 |
-| Terminal / scripts | CLI directly | §3 |
+| Custom AI / local LLM | REST (`serve`) or SDK import | S6.1 / S6.4 |
+| Web app | REST (`serve`) | S6.1 |
+| Terminal / scripts | CLI directly | S3 |
 
 Detailed per-client notes live in `docs/using-skills.md` (skills install),
-`docs/client-matrix.md` (11 clients × 5 interfaces), `clients/COPILOT.md`,
+`docs/client-matrix.md` (11 clients x 5 interfaces), `clients/COPILOT.md`,
 and `clients/CURSOR.md`.
 
 ---
 
-## 8. Interface × client matrix
+## 8. Interface x client matrix
 
 Which interface to use with which client (full table: `docs/client-matrix.md`):
 
 | Client | CLI | REST | MCP | A2A | SDK |
 |--------|:---:|:----:|:---:|:---:|:---:|
-| Terminal / scripts | ✅ | ✅ | — | — | ✅ |
-| Web app | — | ✅ | — | ✅ | — |
-| Custom AI / local LLM | — | ✅ | ✅ | ✅ | ✅ |
-| Claude / GPT / Gemini agents | ✅ slice-install | ✅ | ✅ | ✅ | — |
-| Copilot | ✅ slice-install | ✅ | ⚠️ plan-dependent | — | — |
-| Cursor / VS Code | ✅ slice-install | ✅ | ✅ | — | — |
-| opencode / Codex / Antigravity | ✅ slice-install | ✅ | ✅ | — | — |
+| Terminal / scripts | [OK] | [OK] | -- | -- | [OK] |
+| Web app | -- | [OK] | -- | [OK] | -- |
+| Custom AI / local LLM | -- | [OK] | [OK] | [OK] | [OK] |
+| Claude / GPT / Gemini agents | [OK] slice-install | [OK] | [OK] | [OK] | -- |
+| Copilot | [OK] slice-install | [OK] | WARN plan-dependent | -- | -- |
+| Cursor / VS Code | [OK] slice-install | [OK] | [OK] | -- | -- |
+| opencode / Codex / Antigravity | [OK] slice-install | [OK] | [OK] | -- | -- |
 
-✅ = supported · ⚠️ = works with caveats (see client doc) · — = not applicable.
+[OK] = supported . WARN = works with caveats (see client doc) . -- = not applicable.
 
 ---
 
@@ -538,8 +538,8 @@ Which interface to use with which client (full table: `docs/client-matrix.md`):
 
 ### What it is
 
-Every specialist agent (`agents/*/AGENT.md` — `code-review`, `safety`,
-`security`, `implementation`, … 29 total, Tab-selectable in opencode/Claude)
+Every specialist agent (`agents/*/AGENT.md` -- `code-review`, `safety`,
+`security`, `implementation`, ... 29 total, Tab-selectable in opencode/Claude)
 keeps a **fixed identity** but adapts its **skill slice and checklists** to
 your project. A `code-review` stays a `code-review`; on an automotive project
 it reviews as automotive (MISRA + ISO 26262 + ASPICE), on a defense project as
@@ -550,30 +550,30 @@ defense (DO-178C-informed + IEC 61508 + hardening).
 Before any analysis each agent resolves your project context, in this order:
 
 1. **Explicit file (wins):** `./axiom.project.yaml` or `./.axiom/project.yaml`
-   — copy `axiom.project.yaml.example` and set `domain/platform/os/profile/standards`.
+   -- copy `axiom.project.yaml.example` and set `domain/platform/os/profile/standards`.
 2. **Repo signals:** file names + README scanned for domain markers
-   (`arxml/dbc` → automotive, `do-178/arinc` → aerospace, `plc/modbus` → industrial).
-3. **Prompt keywords:** your request text (`ASIL-D ECU…` → automotive, `ROS2 nav2…` → robotics, … all 8 domains).
-4. **Fallback:** `generic-embedded` — and the agent **asks you a clarification
+   (`arxml/dbc` -> automotive, `do-178/arinc` -> aerospace, `plc/modbus` -> industrial).
+3. **Prompt keywords:** your request text (`ASIL-D ECU...` -> automotive, `ROS2 nav2...` -> robotics, ... all 8 domains).
+4. **Fallback:** `generic-embedded` -- and the agent **asks you a clarification
    question** instead of guessing silently.
 
 Project signals and prompt signals are **unioned** (both skill slices load,
 core first, capped at 8 primary files so context stays small). The full
-agent × domain cross-map is generated at
+agent x domain cross-map is generated at
 `registries/agent-domain-matrix.json` from the single source
 `configs/domain-routing.yaml`.
 
-### Value add — why use it
+### Value add -- why use it
 
 - **No manual skill hunting:** Tab-select any agent; the right domain skills load themselves.
-- **Same agent, correct behavior:** review/analysis checklists match your industry (auto vs defense vs industrial vs robotics…).
+- **Same agent, correct behavior:** review/analysis checklists match your industry (auto vs defense vs industrial vs robotics...).
 - **Token-efficient:** core skill + priority skills load first; the rest stays deferred (max 8 files).
 - **Never silently wrong:** low-confidence or conflicting signals produce one clarification question, not a wrong review.
-- **Auditable verdicts:** safety/security agents must cite evidence or state what is missing — never a bare compliance claim.
+- **Auditable verdicts:** safety/security agents must cite evidence or state what is missing -- never a bare compliance claim.
 
 ### How it helps you (list)
 
-| You are… | It does for you |
+| You are... | It does for you |
 |---|---|
 | Automotive ECU developer | UDS/DoIP, CAN, AUTOSAR, functional-safety checklists auto-loaded |
 | Defense/aerospace engineer | Shared aerospace/defense safety review + hardening checks |
@@ -612,7 +612,7 @@ Strategy behind this: `docs/ecosystem/standalone-independence.md`. Install optio
 |---|---|---|
 | **opencode TUI** | `axiom oc tui` (isolated config) or Tab-select agents in your own opencode session | Agents are `mode: subagent`; Step 0 runs inside every agent |
 | **Claude Code / Codex / Cursor / VS Code** | Add the MCP server entry (`.mcp.json` shape) or copy the skill slice | Verify first with `axiom mcp --check` |
-| **Web dashboard** | `axiom serve --port 8765` → visit http://127.0.0.1:8765 | See §4 Dashboard UI |
+| **Web dashboard** | `axiom serve --port 8765` -> visit http://127.0.0.1:8765 | See S4 Dashboard UI |
 | **Docs site** | `mkdocs serve` (Material theme, deploys to GitHub Pages) | Entry page: `docs/index.md` |
 
 Slash commands in opencode: `/axiom-engage`, `/axiom-plan`, `/axiom-fix`,
@@ -625,17 +625,17 @@ Slash commands in opencode: `/axiom-engage`, `/axiom-plan`, `/axiom-fix`,
 | Symptom | Fix |
 |---------|-----|
 | `cp1252` / `UnicodeEncodeError` on Windows | `chcp 65001`, then re-run |
-| `axiom` command not found | Use `python -m axiom_cli …`, or re-run `pip install -e .` and check `PATH` |
-| `repo validate` FAILs | Run `python -m axiom_cli repo validate` output lists the file; usually a hand-edited manifest — compare with a sibling skill's `manifest.yaml` |
+| `axiom` command not found | Use `python -m axiom_cli ...`, or re-run `pip install -e .` and check `PATH` |
+| `repo validate` FAILs | Run `python -m axiom_cli repo validate` output lists the file; usually a hand-edited manifest -- compare with a sibling skill's `manifest.yaml` |
 | `serve` port in use | `axiom serve --port 8931` |
-| REST returns `missing 'request'` (400) | The POST body needs the named field — see §6.1 examples |
+| REST returns `missing 'request'` (400) | The POST body needs the named field -- see S6.1 examples |
 | REST returns `unknown skill: xyz` (404) | Check the id against `axiom engage` output or `GET /v1/skills` |
-| MCP client can't spawn server | Check the entry shape for your client (generic `{command, args}` vs OpenCode `{type: "local", command: [argv...]}` — see §3.6); test manually with `axiom mcp` (it waits on stdin — `Ctrl+C` to quit). The server echoes the client's `protocolVersion` in its `initialize` response. |
+| MCP client can't spawn server | Check the entry shape for your client (generic `{command, args}` vs OpenCode `{type: "local", command: [argv...]}` -- see S3.6); test manually with `axiom mcp` (it waits on stdin -- `Ctrl+C` to quit). The server echoes the client's `protocolVersion` in its `initialize` response. |
 | Tests fail after editing | `python -m pytest -q` shows which; interface tests assert all five surfaces agree, so update SDK first, then re-run |
 
 ---
 
 *Standards cited across skills: ISO 26262:2018, IEC 61508 Ed.2.0, DO-178C/DO-254,
 MISRA C:2025 / C++:2023, AUTOSAR R24-11/R25-11, Yocto 6.0/5.0 LTS, ROS 2
-Kilted/Jazzy/Humble, SPDX, UNECE R155/R156 — each with clause and source URL
-in the skill's §2 table. Architectural decisions: `docs/adr/0001`–`0006`.*
+Kilted/Jazzy/Humble, SPDX, UNECE R155/R156 -- each with clause and source URL
+in the skill's S2 table. Architectural decisions: `docs/adr/0001`-`0006`.*

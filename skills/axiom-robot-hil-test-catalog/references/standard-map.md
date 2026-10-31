@@ -1,4 +1,4 @@
-# Standard map — axiom-robot-hil-test-catalog (original summaries, no normative text)
+# Standard map -- axiom-robot-hil-test-catalog (original summaries, no normative text)
 
 | Standard | Edition | Clauses considered | Project use |
 |---|---|---|---|

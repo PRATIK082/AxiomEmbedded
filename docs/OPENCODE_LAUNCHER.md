@@ -21,16 +21,16 @@ and `--dry-run` (print resolved argv/env/config, execute nothing).
 
 By default the launcher sets, for the child process only:
 
-- `OPENCODE_CONFIG` → `~/.axiom/opencode/opencode.json` (Axiom-generated:
+- `OPENCODE_CONFIG` -> `~/.axiom/opencode/opencode.json` (Axiom-generated:
   optional `model` passthrough plus the `axiom` MCP entry). Only files
   under `~/.axiom/` are ever written; user config is never touched.
-- `OPENCODE_CONFIG_DIR` → the content source's `.opencode/` (agents,
+- `OPENCODE_CONFIG_DIR` -> the content source's `.opencode/` (agents,
   `/axiom-*` commands, policy plugin) when a source checkout is
   available; otherwise config-file isolation only, stated honestly.
 
 ## Providers, models, credentials
 
-Axiom keeps no model catalog — `--model provider/id` passes straight
+Axiom keeps no model catalog -- `--model provider/id` passes straight
 through to `opencode run`, and credentials stay in the operator's
 environment (e.g. `ANTHROPIC_API_KEY`), inherited by the child process.
 Local models work the same way: configure an OpenAI-compatible endpoint
@@ -42,7 +42,7 @@ then launch with `--no-isolate --model <local-model-id>`.
 `.opencode/plugins/axiom-policy.ts` (shipped by `axiom install
 --client opencode`) does three narrow things: it refuses reads of
 secrets files (`.env*`), it appends the Axiom working contract across
-session compaction, and — only when `AXIOM_TOOL_LOG` points at a path —
+session compaction, and -- only when `AXIOM_TOOL_LOG` points at a path --
 it appends redacted `{tool, session}` JSONL lines (never arguments or
 output). Behavior is covered by `tests/test_headless.py` and the
 `opencode-headless` CI workflow, which run keyless: config validation,

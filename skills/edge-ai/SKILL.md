@@ -22,7 +22,7 @@ axiom:
 
 Deploying machine-learning inference on resource-constrained targets: model
 selection and compression, framework and accelerator integration, memory and
-latency budgeting, on-device evaluation, and lifecycle monitoring — with
+latency budgeting, on-device evaluation, and lifecycle monitoring -- with
 safety-relevant deployments routed through `safety` and `ai-validation`.
 
 ## 1. Purpose and scope
@@ -52,12 +52,12 @@ with the `safety` lifecycle; this skill provides the deployment engineering.
 
 ## 3. Model optimization pipeline
 
-1. **Start from accuracy headroom.** Train or select with a 2–5 point accuracy
+1. **Start from accuracy headroom.** Train or select with a 2-5 point accuracy
    margin above the product requirement; quantization and pruning spend that
    margin. No margin, no compression without a requirement waiver.
 2. **Quantize deliberately.** Post-training INT8 quantization first; fall back
    to quantization-aware training when PTQ accuracy loss exceeds budget.
-   Record per-tensor dynamic range and the calibration dataset ID — the
+   Record per-tensor dynamic range and the calibration dataset ID -- the
    calibration set is a controlled artifact under `ai-validation` dataset rules.
 3. **Prune and distill when needed.** Structured pruning for NPU/DSP targets
    (unstructured sparsity rarely accelerates on embedded cores); distillation
@@ -75,18 +75,18 @@ with the `safety` lifecycle; this skill provides the deployment engineering.
 | SoC/MPSoC with vendor NPU | Vendor SDK via ONNX import | Quantization spec of the NPU toolchain is binding |
 
 **Rules.** The delegate's supported-op list gates model design: unsupported ops
-fall back to CPU and silently destroy latency budgets, so the op audit (§6.1)
+fall back to CPU and silently destroy latency budgets, so the op audit (S6.1)
 runs before any latency claim. Vendor toolchains are pinned like Yocto layers
-(see `embedded-linux` §3).
+(see `embedded-linux` S3).
 
-## 5. Budgeting — memory, latency, power
+## 5. Budgeting -- memory, latency, power
 
 1. **Memory.** Static arena sized from the runtime's recording allocator plus
    headroom; model flash + arena + input buffers + working scratch must fit
    with margin documented against the linker map. No heap growth at inference
    time.
 2. **Latency.** Worst-case measured on target at worst-case clock/thermal
-   corner, under full system load. Report p99/p100, not the mean — control
+   corner, under full system load. Report p99/p100, not the mean -- control
    loops consume the tail.
 3. **Power.** Energy per inference at the target duty cycle; NPU offload that
    halves latency but triples energy needs a system-level trade decision with
@@ -110,6 +110,6 @@ runs before any latency claim. Vendor toolchains are pinned like Yocto layers
 ## 7. Verification of this skill (Phase 4 gate)
 
 - Benchmark claims reference MLPerf Tiny methodology or a documented
-  equivalent (§2.1), never ad-hoc host timings.
+  equivalent (S2.1), never ad-hoc host timings.
 - Safety-relevant ML routes to `ai-validation` + `safety`; this skill alone
   never substantiates a safety claim.

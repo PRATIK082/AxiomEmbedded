@@ -1,4 +1,4 @@
-# Standard map — axiom-iso10218-compliance-matrix-review (original summaries, no normative text)
+# Standard map -- axiom-iso10218-compliance-matrix-review (original summaries, no normative text)
 
 | Standard | Edition | Clauses considered | Project use |
 |---|---|---|---|

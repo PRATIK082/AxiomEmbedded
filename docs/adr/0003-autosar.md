@@ -15,7 +15,7 @@ Replicate the template with AUTOSAR-specific content pinned to Phase 2
 research: Classic R24-11 baseline (R25-11 noted current, verify-before-cite),
 Adaptive R24-11, Foundation R24-11 safety requirements (Doc ID 986), Adaptive
 C++14 API [RS_AP_00114], SOME/IP Foundation R22-11 (Doc ID 696). SOME/IP daemon
-pattern for Classic↔Adaptive integration. MISRA C:2025 for Classic,
+pattern for Classic<->Adaptive integration. MISRA C:2025 for Classic,
 MISRA C++:2023 (stricter-wins) for Adaptive.
 
 ## Consequences

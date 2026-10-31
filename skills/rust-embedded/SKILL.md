@@ -22,7 +22,7 @@ axiom:
 
 Memory-safe firmware in Rust for MCU/MPU targets: ownership-based driver
 design, `no_std` ecosystem use, `unsafe` confinement with documented
-invariants, and interoperability with C codebases — with standards-status
+invariants, and interoperability with C codebases -- with standards-status
 honesty until MISRA Rust publishes.
 
 ## 1. Purpose and scope
@@ -61,15 +61,15 @@ complements `embedded-c`, it does not mandate replacement.
    and analysis support it. Panic paths are tested (trigger + observe safe
    behavior), never "cannot happen".
 3. **No `std` leakage.** `no_std` + `no_main`; `alloc` only with a proven
-   allocator and the same no-alloc-after-init rule as C/C++ (`rtos` §5).
+   allocator and the same no-alloc-after-init rule as C/C++ (`rtos` S5).
 
 ## 4. `unsafe` policy (the core of this skill)
 
 1. **Confinement.** `unsafe` appears only in low-level register access, FFI,
-   and vetted synchronization primitives — never in application logic.
+   and vetted synchronization primitives -- never in application logic.
 2. **Documented invariants.** Every `unsafe` block carries a `// SAFETY:`
    comment stating the invariant the author upholds (alignment, validity,
-   exclusive access, lifetime) — missing SAFETY comments are blocking findings.
+   exclusive access, lifetime) -- missing SAFETY comments are blocking findings.
 3. **Second-eyes review.** All `unsafe` code requires a second reviewer; new
    `unsafe` in safety-relevant paths additionally requires the rationale in an
    ADR and coverage in `safety` evidence.
@@ -79,12 +79,12 @@ complements `embedded-c`, it does not mandate replacement.
 
 ## 5. FFI and mixed C/Rust projects
 
-1. **Boundary ownership.** C↔Rust interfaces use `repr(C)`, ownership transfer
+1. **Boundary ownership.** C<->Rust interfaces use `repr(C)`, ownership transfer
    documented per function (who allocates, who frees, valid lifetimes);
    `bindgen` output reviewed, not blindly trusted.
 2. **Incremental adoption path.** New drivers in Rust behind `embedded-hal`
    traits; proven C drivers stay until a defect, portability, or safety case
-   motivates the rewrite — recorded per module, not as a big-bang mandate.
+   motivates the rewrite -- recorded per module, not as a big-bang mandate.
 
 ## 6. Review checklist deltas
 
@@ -94,5 +94,5 @@ toolchain drift (lockfile/toolchain diff in review).
 
 ## 7. Verification of this skill (Phase 4 gate)
 
-- MISRA Rust status honestly labeled unpublished (§2, §4 preamble).
+- MISRA Rust status honestly labeled unpublished (S2, S4 preamble).
 - Zero unreviewed `unsafe`; panic policy tested, not assumed.

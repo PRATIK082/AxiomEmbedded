@@ -132,10 +132,10 @@ Depth map filtering (bilateral, hole filling), depth-to-point-cloud conversion, 
 Filtering (voxel grid downsampling, statistical outlier removal), ICP registration, normal estimation.
 
 ### 7.7 Multi-sensor fusion
-Perception fusion architecture: sensor nodes â†’ fusion node â†’ world model. Camera+LiDAR fusion (projection, association). Multi-object tracking (Kalman/JPDA).
+Perception fusion architecture: sensor nodes -> fusion node -> world model. Camera+LiDAR fusion (projection, association). Multi-object tracking (Kalman/JPDA).
 
 ### 7.8 Perception latency budget
-Budget end-to-end: capture â†’ transfer â†’ preprocess â†’ inference â†’ postprocess â†’ publish. Target < 100ms for reactive control. Monitor and alert on budget exceeded.
+Budget end-to-end: capture -> transfer -> preprocess -> inference -> postprocess -> publish. Target < 100ms for reactive control. Monitor and alert on budget exceeded.
 
 ### 7.9 Perception anti-patterns
 1. Processing every frame when not needed (decimate).

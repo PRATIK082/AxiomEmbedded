@@ -35,13 +35,13 @@ the adjacent lifecycle stage:
 
 ## Deliberately out of scope for this cell
 
-- ISO 3691-4:2023 (driverless trucks/AMR) — the example cell is fixed; no
+- ISO 3691-4:2023 (driverless trucks/AMR) -- the example cell is fixed; no
   mobile platform. Add it if an AMR feed is introduced.
-- ISO 13482:2014 (personal-care robots) — wrong product class.
-- IEC 60204-1:2016 (electrical equipment of machines) — panel-build detail
+- ISO 13482:2014 (personal-care robots) -- wrong product class.
+- IEC 60204-1:2016 (electrical equipment of machines) -- panel-build detail
   below the assurance-artifact level; referenced by SR-001 rationale only.
 - Automotive (ISO 26262:2018, ISO/SAE 21434:2021), aerospace (DO-178C/DO-254),
-  defense (MIL-STD-882E) — covered by existing skills and the roadmap; they
+  defense (MIL-STD-882E) -- covered by existing skills and the roadmap; they
   extend this table in future verticals without changing the envelope.
 
 Official sources: iso.org, iec.ch. Future verticals extend the table above;

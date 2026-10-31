@@ -22,7 +22,7 @@ axiom:
 
 Production Linux for MPU/SoC/MPSoC targets: Yocto-built images, kernel and
 device-tree configuration, bootloader integration, OTA update, hardening, and
-real-time behavior — with licensing and long-term maintenance handled
+real-time behavior -- with licensing and long-term maintenance handled
 explicitly.
 
 ## 1. Purpose and scope
@@ -40,9 +40,9 @@ copyleft compliance), and LTS maintenance planning.
 and application-level development (covered by domain skills). This skill owns
 the platform the applications run on.
 
-**How to use.** Pick the Yocto LTS per §3, define the machine/BSP per §4,
-configure kernel and device tree per §5, wire boot and OTA per §6, harden per
-§7, and plan maintenance per §8.
+**How to use.** Pick the Yocto LTS per S3, define the machine/BSP per S4,
+configure kernel and device tree per S5, wire boot and OTA per S6, harden per
+S7, and plan maintenance per S8.
 
 ## 2. Normative sources (verified Phase 2, high confidence)
 
@@ -54,7 +54,7 @@ configure kernel and device tree per §5, wire boot and OTA per §6, harden per
 | 4 | U-Boot verified boot | Current (secure-boot / FIT signature framework) | Bootloader stage of the trust chain | `https://docs.u-boot.org/en/latest/usage/secure_boot.html` |
 | 5 | SPDX SBOM | ISO/IEC 5962:2021, SPDX 2.3/3.0 | License inventory and vulnerability tracking format | `https://spdx.dev/` |
 
-## 3. Distribution choice — Yocto LTS policy
+## 3. Distribution choice -- Yocto LTS policy
 
 | Release | Status | Support until | Use for |
 |---------|--------|---------------|---------|
@@ -69,11 +69,11 @@ configure kernel and device tree per §5, wire boot and OTA per §6, harden per
   review finding.
 - Pin `DISTRO`, machine, and all layer revisions in the build manifest
   (`kas`, repo manifest, or locked submodules). Unpinned floating layers are
-  not reproducible and fail the maintenance gate (§8).
+  not reproducible and fail the maintenance gate (S8).
 - Keep a vendor kernel only when mainline lacks required drivers; record the
   forward-port plan and rebase cadence in the BSP README.
 
-## 4. BSP structure — machine, kernel, device tree
+## 4. BSP structure -- machine, kernel, device tree
 
 1. **Machine definition.** One `MACHINE` per board revision with distinct
    device trees; never overload one machine with per-revision shell
@@ -95,7 +95,7 @@ configure kernel and device tree per §5, wire boot and OTA per §6, harden per
 1. **Decide RT need first.** Hard control loops (motor, power, motion) belong
    on an MCU or RTOS coprocessor (see `mcu`, `rtos`); Linux handles
    supervisory, networking, and HMI roles. If Linux itself has deadlines,
-   enable PREEMPT_RT (mainline since 6.12) and measure — never assume.
+   enable PREEMPT_RT (mainline since 6.12) and measure -- never assume.
 2. **Measure latency.** `cyclictest` under full load (network, storage, GPU)
    defines the achievable deadline; record max observed latency with
    configuration, load profile, and kernel version.
@@ -105,9 +105,9 @@ configure kernel and device tree per §5, wire boot and OTA per §6, harden per
 
 ## 6. Boot chain and OTA update
 
-1. **Verified boot.** ROM → U-Boot (FIT signature verification) → signed
-   kernel → dm-verity protected rootfs. Each stage verifies the next before
-   execution; verification failures halt or fall back — never continue
+1. **Verified boot.** ROM -> U-Boot (FIT signature verification) -> signed
+   kernel -> dm-verity protected rootfs. Each stage verifies the next before
+   execution; verification failures halt or fall back -- never continue
    unverified.
 2. **OTA design.** A/B partition scheme (or verified delta equivalent) with
    atomic switch, automatic rollback on failed self-test, and versioned
@@ -134,7 +134,7 @@ configure kernel and device tree per §5, wire boot and OTA per §6, harden per
 - Generate an SPDX SBOM per release build; track CVEs against it in CI.
 - Copyleft audit: identify GPL/LGPL components, publish required sources, and
   keep proprietary userspace out of GPL-linked kernel modules (no `EXPORT_SYMBOL_GPL`
-  abuse — legal review, not a technical workaround).
+  abuse -- legal review, not a technical workaround).
 
 ## 8. Maintenance gates (blocking)
 
@@ -150,6 +150,6 @@ configure kernel and device tree per §5, wire boot and OTA per §6, harden per
 
 ## 9. Verification of this skill (Phase 4 gate)
 
-- Yocto releases carry version + support window + URL (§2, §3).
-- No floating-layer or unverified-boot design passes review (§3, §6).
+- Yocto releases carry version + support window + URL (S2, S3).
+- No floating-layer or unverified-boot design passes review (S3, S6).
 - Licensing and CVE evidence in `schemas/compliance-evidence.schema.json`.

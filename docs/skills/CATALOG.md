@@ -40,6 +40,6 @@ Machine source: `skills/catalog.yaml` (88 skills). Facet index: `skills/registry
 *beta-leaning scaffolds with richer metadata; formally beta only after script+test+example acceptance (currently the 2 exemplars).
 
 ## Legacy skills (58, production)
-Pre-existing flat skills (`autosar`, `automotive-diagnostics`, `adas`, …),
+Pre-existing flat skills (`autosar`, `automotive-diagnostics`, `adas`, ...),
 preserved unchanged and listed in catalog.yaml as production/legacy.
 Mapping vs axiom-*: `docs/migration/EXISTING_CAPABILITY_MAPPING.md`.

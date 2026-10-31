@@ -19,7 +19,7 @@ axiom:
   - checklists/mcu-checklist.md
 ---
 
-# mcu — Microcontroller firmware capability (template skill)
+# mcu -- Microcontroller firmware capability (template skill)
 
 Reusable AxiomEmbedded capability for microcontroller selection, bring-up,
 bare-metal/RTOS firmware, drivers, and verification.
@@ -54,11 +54,11 @@ bare-metal/RTOS firmware, drivers, and verification.
 
 ## Time estimate
 
-- Selection + architecture: 2–3 days. Bring-up + drivers: 3–5 days. Verification: 3–5 days.
+- Selection + architecture: 2-3 days. Bring-up + drivers: 3-5 days. Verification: 3-5 days.
 
 ## Resources
 
-- Arm Cortex-M comparison table (cores M0–M7, TrustZone, MPU regions, DSP/FPU):
+- Arm Cortex-M comparison table (cores M0-M7, TrustZone, MPU regions, DSP/FPU):
   `https://developer.arm.com/-/media/Arm%20Developer%20Community/PDF/Cortex-A%20R%20M%20datasheets/Arm%20Cortex-M%20Comparison%20Table_v3.pdf`
 - MISRA C:2025 (latest; 2023 baseline consolidates MISRA C:2012 + amendments):
   `https://misra.org.uk/misra-c`
@@ -98,7 +98,7 @@ bare-metal/RTOS firmware, drivers, and verification.
 
 ## Drivers and HAL
 
-- One driver per peripheral: `init`, `deinit`, `ioctl/config`, explicit error codes —
+- One driver per peripheral: `init`, `deinit`, `ioctl/config`, explicit error codes --
   no implicit global state (`rules/baseline.yaml`: no-implicit-state, explicit-error-handling).
 - Prefer DMA + interrupts over polling; bound every ISR (max complexity 15,
   deterministic init, bounded resource use).
@@ -129,19 +129,19 @@ bare-metal/RTOS firmware, drivers, and verification.
 
 ## Traceability
 
-- `traceability-matrix.schema.json`: every SYS-xxx → SW-xxx → `src/` file → `test/` case → evidence id.
+- `traceability-matrix.schema.json`: every SYS-xxx -> SW-xxx -> `src/` file -> `test/` case -> evidence id.
 - No orphan code, no orphan tests. `scripts/verify_skill.py --skill mcu` enforces presence.
 
 ## Compliance mapping (via domain overlays, not duplication)
 
-- Automotive: ISO 26262:2018 Parts 1–10 (ASIL A–D); Edition 3 in DIS — track, do not cite as published.
-- Aerospace/defense: DO-178C core + DO-330/331/332/333 as technique requires; DAL A–E.
+- Automotive: ISO 26262:2018 Parts 1-10 (ASIL A-D); Edition 3 in DIS -- track, do not cite as published.
+- Aerospace/defense: DO-178C core + DO-330/331/332/333 as technique requires; DAL A-E.
 - Industrial/medical/rail: IEC 61508 SIL via `domains/` overlays; never claim
-  certification from this heuristic skill — produce audit-ready evidence only.
+  certification from this heuristic skill -- produce audit-ready evidence only.
 
 ## Verification checklist (gate: all must pass)
 
-1. `scripts/verify_skill.py --skill mcu` → PASS.
+1. `scripts/verify_skill.py --skill mcu` -> PASS.
 2. CMake configure + build, gcc and clang, zero warnings.
 3. Unit + integration tests green at the required coverage.
 4. MISRA C:2025 scan: zero mandatory/required violations or deviated with rationale.

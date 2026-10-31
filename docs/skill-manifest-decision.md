@@ -15,14 +15,14 @@ is a derived export, generated on demand, never stored.**
   (.opencode/.claude/copilot/GEMINI). Storing a second hand-written manifest
   would drift (this is exactly what the sync freshness gate guards against).
 - Only `agents/` use `manifest.json`, because `AGENT.md` files carry no
-  frontmatter contract — the opposite situation from skills.
+  frontmatter contract -- the opposite situation from skills.
 - `packages/skills/engage.py` discovers via `registries/skill-index.json`,
   itself synced from SKILL.md.
 
 ## The export (user's shape, plus axiom extras)
 `axiom skills manifest <id>` / MCP `skill_manifest` / SDK `skill_manifest()`
-emit exactly the requested keys — `id, version, applicable_domains,
-applicable_platforms, capabilities, category, evidence, inputs, outputs` —
+emit exactly the requested keys -- `id, version, applicable_domains,
+applicable_platforms, capabilities, category, evidence, inputs, outputs` --
 plus `derived_from` (provenance) and an `axiom` object (dotted_name,
 maturity, extends, related_skills, sub_skills, overlays, tools).
 Drift is impossible by construction (generated, not stored) and covered by

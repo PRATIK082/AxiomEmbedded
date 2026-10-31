@@ -1,7 +1,7 @@
 # Standalone Independence: tool + agent + MCP + PyPI package (ecosystem design)
 
 Status: design (track D). Goal: AxiomEmbedded becomes an independent,
-autonomous, standalone product — installed with one command, usable with any
+autonomous, standalone product -- installed with one command, usable with any
 model/host, distributed as a versioned Python package, listed on the MCP
 registry, extended via a plugin marketplace, documented on a public docs site.
 
@@ -13,7 +13,7 @@ interoperability.
 
 ## 1. Top open-source building blocks (free to use, verified Oct 2026)
 
-### A. Agent runtimes — interoperate, do NOT rebuild
+### A. Agent runtimes -- interoperate, do NOT rebuild
 | Tool | License | Stars/mass | Verdict for us |
 |---|---|---|---|
 | OpenCode (anomalyco/opencode) | MIT | ~199k, 75+ providers, TUI+desktop+IDE | Primary host: keep `sync_clients.py` mirrors + `axiom oc` launcher first-class |
@@ -25,7 +25,7 @@ interoperability.
 | Continue | Apache-2.0 | ~35k, local-model focus | Offline/air-gap story: local models + local tools |
 | gptme / RA.Aid / Pi / Crush / Reasonix | MIT/Apache-2.0 | small-large | Watch list; Pi's unified-LLM-API idea informs our provider-neutrality |
 
-### B. MCP layer — align + list
+### B. MCP layer -- align + list
 - **Official MCP Python SDK** (`modelcontextprotocol/python-sdk`, MIT) + **spec +
   registry** (`modelcontextprotocol/*`, 90k-star servers repo, 2k+ servers in
   registry, 80k in Glama). Action: migrate `axiom_mcp/server.py` onto the
@@ -35,7 +35,7 @@ interoperability.
   (uvx-runnable), sqlite/filesystem servers. Our `engage/run_plan/context`
   tools stay proprietary-moat; transport becomes stock.
 
-### C. Python packaging — one-command install
+### C. Python packaging -- one-command install
 - **uv** (Astral, MIT): `uv tool install axiom-embedded` as primary path;
   `hatchling` build backend (already associates well with `pyproject.toml`).
 - **pipx** as fallback; **shiv/pex** or PyInstaller for air-gapped single-file
@@ -43,7 +43,7 @@ interoperability.
 - Rule: runtime core = stdlib + PyYAML only; every other dep is an extra
   (`eval`, `serve`, `mcp`) so `pip install axiom-embedded` never breaks.
 
-### D. Embedded engineering tools — wrap as `axiom packs`, never reimplement
+### D. Embedded engineering tools -- wrap as `axiom packs`, never reimplement
 | Tool | License | Use |
 |---|---|---|
 | Cppcheck | GPL (safe: subprocess invocation, no linking) | MISRA-adjacent static checks pack |
@@ -56,18 +56,18 @@ interoperability.
 | Zephyr / FreeRTOS | Apache-2.0/MIT | RTOS reference-profile packs |
 | PlatformIO | Apache-2.0 | build-system pack inspiration |
 
-### E. Autonomy infrastructure — adopt patterns
+### E. Autonomy infrastructure -- adopt patterns
 - **Eval harness**: Terminal-Bench methodology (agent+model scored on terminal
-  tasks) → our `evaluation/` gets a task set + nightly scoreboard; SWE-bench
+  tasks) -> our `evaluation/` gets a task set + nightly scoreboard; SWE-bench
   Verified style for fix-defect tasks.
 - **Memory**: project-file memory (`axiom.project.yaml`) first; durable
-  cross-session memory later (Letta/mem0 pattern, Apache-2.0) — never opaque.
+  cross-session memory later (Letta/mem0 pattern, Apache-2.0) -- never opaque.
 - **Sandbox**: Docker/uvx isolation for `axiom run --apply` (already `oc --isolate`
   pattern); gVisor/bubblewrap for high-assurance sites.
 - **Observability**: Langfuse-style (Apache-2.0) run manifests already exist
   (`.axiom/runs`); add trace export.
 
-### F. Docs site — MkDocs Material (MIT)
+### F. Docs site -- MkDocs Material (MIT)
 Versioned docs, search, `mkdocs-click` CLI reference generated from
 `axiom --help`, skill catalog pages generated from `registries/skills.json`.
 ReadTheDocs or GitHub Pages hosting, free for OSS.
@@ -89,6 +89,6 @@ ReadTheDocs or GitHub Pages hosting, free for OSS.
 ## 3. Decisions needed (user commands next)
 1. Primary install vector: `uv tool` vs `pipx` vs both?
 2. MCP SDK migration now or after P0?
-3. Which toolpack first (recommend: Cppcheck + Unity/Ceedling — highest
+3. Which toolpack first (recommend: Cppcheck + Unity/Ceedling -- highest
    value, lowest license risk)?
 4. Docs hosting: GitHub Pages vs ReadTheDocs?

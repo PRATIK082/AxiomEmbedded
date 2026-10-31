@@ -30,8 +30,8 @@ before implementation commits cost.
 
 ## 1. Purpose and scope
 
-**Purpose.** Define a coherent structure — components, interfaces, behavior,
-and allocation — that satisfies functional, timing, safety, security, and
+**Purpose.** Define a coherent structure -- components, interfaces, behavior,
+and allocation -- that satisfies functional, timing, safety, security, and
 resource requirements with recorded rationale.
 
 **In scope.** Architecture views (functional, logical, technical, deployment),
@@ -54,37 +54,37 @@ project scheduling. Ends at an evaluated, baselined architecture with ADRs.
 
 ## 3. View discipline
 
-Produce exactly the views the system needs — no more, no fewer — but never
+Produce exactly the views the system needs -- no more, no fewer -- but never
 fewer than these four for anything above QM:
 
 1. **Functional/logical.** Components and data/control flow answering "what
-   does what"; maps 1:1 to system requirements (`requirements` §4).
+   does what"; maps 1:1 to system requirements (`requirements` S4).
 2. **Technical/software.** Tasks, processes, middleware, OS assignment (RTOS
    tasks per `rtos`, Linux services per `embedded-linux`, ROS nodes per
    `robotics`); timing budgets attached per path.
 3. **Deployment/hardware.** Allocation to MCU/MPU/SoC, buses, memories, power
    domains; resource budgets (flash, RAM, CPU, bandwidth) with margin policy
-   (≥20% at architecture freeze is the default bar).
+   (>=20% at architecture freeze is the default bar).
 4. **Interface view.** Every cross-component interface specified: signatures,
    protocols, timing contracts, error behavior, versioning. Unspecified
-   interfaces are the top architecture defect class — hunt them in review.
+   interfaces are the top architecture defect class -- hunt them in review.
 
 ## 4. Architecture rules
 
 1. **Layering enforced.** Application logic never touches registers, drivers
-   never embed policy (HAL boundary per `mcu` §6, BSW/RTE per `autosar`).
+   never embed policy (HAL boundary per `mcu` S6, BSW/RTE per `autosar`).
 2. **Freedom from interference by construction.** Mixed-criticality functions
    are partitioned in space (MPU/MMU) and time (schedule slots) at
-   architecture level — see `safety` §5, `rtos` §5.
+   architecture level -- see `safety` S5, `rtos` S5.
 3. **Error model explicit.** Each interface documents failure modes, detection,
    and handling (return codes, safe states, retries with bounds); "cannot
    fail" is not an error model.
 4. **Decisions recorded as ADRs.** Any decision affecting safety, security,
    timing, portability, or cost gets an ADR with context, options, decision,
-   and consequences — stored with the architecture, not in chat history.
+   and consequences -- stored with the architecture, not in chat history.
 5. **Risks prototyped.** Top technical risks (new bus, new NPU, unproven RT
    path) are retired by spike prototypes with measured results before detailed
-   design — the prototype report is architecture evidence.
+   design -- the prototype report is architecture evidence.
 
 ## 5. Baselining gates (blocking)
 
@@ -97,7 +97,7 @@ fewer than these four for anything above QM:
 ## 6. Verification of this skill (Phase 4 gate)
 
 - Architecture claims trace to requirements via the traceability matrix.
-- No implementation starts on an unevaluated architecture (§5).
+- No implementation starts on an unevaluated architecture (S5).
 
 
 
@@ -107,28 +107,28 @@ fewer than these four for anything above QM:
 Firmware projects must use:
 ```
 project/
-â”œâ”€â”€ app/
-â”œâ”€â”€ module/
-â”œâ”€â”€ interface/
-â”œâ”€â”€ bsp/
-â”œâ”€â”€ platform/
-â”œâ”€â”€ middleware/
-â”œâ”€â”€ docs/
-â”œâ”€â”€ tools/
-â””â”€â”€ tests/
+"oe"EUR"EUR app/
+"oe"EUR"EUR module/
+"oe"EUR"EUR interface/
+"oe"EUR"EUR bsp/
+"oe"EUR"EUR platform/
+"oe"EUR"EUR middleware/
+"oe"EUR"EUR docs/
+"oe"EUR"EUR tools/
+"""EUR"EUR tests/
 ```
-- `app/` â€” state machines, orchestration, startup, task creation. Must not contain register access, HAL calls, or peripheral drivers.
-- `module/` â€” business logic (motor, imu, control, telemetry, navigation, power). May depend only on `interface/`. Must not access HAL, CMSIS, GPIO/UART/SPI registers.
-- `interface/` â€” hardware abstraction contracts (gpio_if.h, uart_if.h, ...). Contracts only; no implementation.
-- `bsp/` â€” board-specific implementation (led, button, buzzer, oled, imu_board). Maps interfaces to hardware; may use platform.
-- `platform/` â€” vendor-specific code (platform/<target>/core, hal, cmsis, startup, linker). Contains CubeMX/HAL/CMSIS/startup/linker. Must never contain business logic.
-- `middleware/` â€” third-party (freertos, lwip, fatfs, usb). Isolated from application logic.
+- `app/` -- state machines, orchestration, startup, task creation. Must not contain register access, HAL calls, or peripheral drivers.
+- `module/` -- business logic (motor, imu, control, telemetry, navigation, power). May depend only on `interface/`. Must not access HAL, CMSIS, GPIO/UART/SPI registers.
+- `interface/` -- hardware abstraction contracts (gpio_if.h, uart_if.h, ...). Contracts only; no implementation.
+- `bsp/` -- board-specific implementation (led, button, buzzer, oled, imu_board). Maps interfaces to hardware; may use platform.
+- `platform/` -- vendor-specific code (platform/<target>/core, hal, cmsis, startup, linker). Contains CubeMX/HAL/CMSIS/startup/linker. Must never contain business logic.
+- `middleware/` -- third-party (freertos, lwip, fatfs, usb). Isolated from application logic.
 
 ### 7.2 Dependency rules
-Allowed direction (top-down only): `APP â†’ MODULE â†’ INTERFACE â†’ BSP â†’ PLATFORM`. Forbidden: `APP â†’ HAL`, `APP â†’ STM32_GPIO/UART`, `MODULE â†’ HAL`, `MODULE â†’ Register Access`, `MODULE â†’ CMSIS`, `MODULE â†’ FreeRTOS internals`, `PLATFORM â†’ MODULE`, `PLATFORM â†’ APP`, `BSP â†’ APP`. No circular dependencies.
+Allowed direction (top-down only): `APP -> MODULE -> INTERFACE -> BSP -> PLATFORM`. Forbidden: `APP -> HAL`, `APP -> STM32_GPIO/UART`, `MODULE -> HAL`, `MODULE -> Register Access`, `MODULE -> CMSIS`, `MODULE -> FreeRTOS internals`, `PLATFORM -> MODULE`, `PLATFORM -> APP`, `BSP -> APP`. No circular dependencies.
 
 ### 7.3 Platform isolation rules
-All MCU vendor files must reside inside `platform/<target>/` (e.g. `platform/stm32f407/`, `platform/esp32s3/`). Never place generated vendor code in project root. Forbidden at repo root: `/Core`, `/Drivers` â€” move into platform directory.
+All MCU vendor files must reside inside `platform/<target>/` (e.g. `platform/stm32f407/`, `platform/esp32s3/`). Never place generated vendor code in project root. Forbidden at repo root: `/Core`, `/Drivers` -- move into platform directory.
 
 ### 7.4 Interface rules
 Every hardware service must expose an interface (e.g. `uart_if_t` with function pointers). Modules interact only with interfaces; must not know UART instance, GPIO port, DMA channel, MCU family.
@@ -137,7 +137,7 @@ Every hardware service must expose an interface (e.g. `uart_if_t` with function 
 Each module owns one responsibility. Good: motor, imu, control, telemetry, storage. Bad: system_manager, all_in_one, utility, misc. Avoid god-modules.
 
 ### 7.6 RTOS separation
-RTOS task creation belongs to `app/`; business logic belongs to `module/`. Pattern: `TASK â†’ MODULE API â†’ INTERFACE â†’ DRIVER`.
+RTOS task creation belongs to `app/`; business logic belongs to `module/`. Pattern: `TASK -> MODULE API -> INTERFACE -> DRIVER`.
 
 ### 7.7 Architecture validation checklist
 - [ ] Project follows required directory layout

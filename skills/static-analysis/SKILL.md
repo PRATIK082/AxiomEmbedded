@@ -23,7 +23,7 @@ axiom:
 
 Configuring, running, and dispositioning static analysis (SAST, MISRA/CERT
 checkers, abstract interpretation, taint analysis) so findings become fixed
-defects or documented deviations — never ignored warnings.
+defects or documented deviations -- never ignored warnings.
 
 ## 1. Purpose and scope
 
@@ -46,26 +46,26 @@ record per change and per release.
 |---|----------|------------------|----------------|--------|
 | 1 | MISRA C | MISRA C:2025 (March 2025, current) | Enforceable subset for static checking | `https://misra.org.uk/` |
 | 2 | CERT C | Current | Taint, API-misuse, and secure-coding checkers | `https://wiki.sei.cmu.edu/confluence/display/c/SEI+CERT+C+Coding+Standard` |
-| 3 | ISO 26262-6 Software level | 2018 | Clause 9 verification: static analysis highly recommended ≥ ASIL B, required methods at C/D | `https://www.iso.org/standard/68389.html` |
+| 3 | ISO 26262-6 Software level | 2018 | Clause 9 verification: static analysis highly recommended >= ASIL B, required methods at C/D | `https://www.iso.org/standard/68389.html` |
 | 4 | CWE Top 25 / CVE linkage | Annual (MITRE) | Weakness taxonomy for finding classification and training feedback | `https://cwe.mitre.org/top25/` |
 
 ## 3. Toolchain rules
 
 1. **Layered checkers.** Compiler warnings (`-Wall -Wextra -Werror`, gcc +
-   clang) → MISRA/CERT checker → deep analyzer (abstract interpretation /
+   clang) -> MISRA/CERT checker -> deep analyzer (abstract interpretation /
    taint) for safety-critical paths. Each layer's scope is documented; gaps
    between layers are known, not assumed covered.
 2. **Qualified for the claim.** At ASIL C/D, analysis tools are qualified per
-   `safety` §6 (TCL/ASCL); the tool version, ruleset version, and
+   `safety` S6 (TCL/ASCL); the tool version, ruleset version, and
    configuration are release evidence.
 3. **Baseline honestly.** Legacy code gets a dated baseline of pre-existing
    findings with burn-down; new/changed code is zero-tolerance from day one.
-   Baselines shrink monotonically — growth blocks the release.
+   Baselines shrink monotonically -- growth blocks the release.
 
 ## 4. Triage and disposition
 
 Every finding ends in exactly one state: fixed, deviation (rule ID +
-rationale + impact review + approver + expiry per `implementation` §4), or
+rationale + impact review + approver + expiry per `implementation` S4), or
 false-positive with checker-version-specific justification (re-validated on
 tool upgrade). Triage SLAs scale with severity and integrity level; security
 taint findings follow `security` disclosure timelines. Suppression without a
@@ -80,5 +80,5 @@ deviation ID is a defect.
 
 ## 6. Verification of this skill (Phase 4 gate)
 
-- Standards cited with number + version + clause + URL (§2).
+- Standards cited with number + version + clause + URL (S2).
 - No unverified-clean claims: configuration and version always attached.

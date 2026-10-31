@@ -109,7 +109,7 @@ Follow Execution Workflow; record per-step evidence in the run manifest.
 ## 7. Robotics testing (production-grade)
 
 ### 7.1 The robotics testing pyramid
-Unit tests (pure functions, no ROS) â†’ component tests (ROS nodes in isolation) â†’ integration tests (launch files, multi-node) â†’ simulation tests (Gazebo/Isaac) â†’ hardware-in-the-loop tests â†’ field acceptance.
+Unit tests (pure functions, no ROS) -> component tests (ROS nodes in isolation) -> integration tests (launch files, multi-node) -> simulation tests (Gazebo/Isaac) -> hardware-in-the-loop tests -> field acceptance.
 
 ### 7.2 Unit testing ROS2 nodes with pytest
 Use rclpy test fixtures, launch a node in-process, publish/subscribe, assert on outputs. Test pure functions (kinematics, filtering) without ROS dependency.
@@ -133,12 +133,12 @@ Run in Gazebo/Isaac Sim; test perception, planning, control in realistic physics
 GitHub Actions: build matrix across ROS distros, run colcon test, launch_testing, lint (ament_lint), code coverage. Cache dependencies. Fail on warnings.
 
 ### 7.9 Testing anti-patterns
-1. Testing with `sleep()` â€” use event-driven waiting with timeout.
-2. Only testing happy path â€” test failures explicitly (sensor dropout, comm loss).
-3. Non-deterministic tests â€” fix random seeds, use deterministic simulation.
-4. No mock hardware â€” tests require real robot; use mocks.
-5. No golden files â€” regressions undetected.
-6. No CI â€” manual testing only.
+1. Testing with `sleep()` -- use event-driven waiting with timeout.
+2. Only testing happy path -- test failures explicitly (sensor dropout, comm loss).
+3. Non-deterministic tests -- fix random seeds, use deterministic simulation.
+4. No mock hardware -- tests require real robot; use mocks.
+5. No golden files -- regressions undetected.
+6. No CI -- manual testing only.
 
 ### 7.10 Testing checklist
 - [ ] Pure functions unit-tested (no ROS dependency)

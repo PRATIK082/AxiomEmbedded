@@ -1,4 +1,4 @@
-# Standard map — axiom-threat-model-review
+# Standard map -- axiom-threat-model-review
 
 | Standard | Edition | Clauses considered | Project use |
 |---|---|---|---|

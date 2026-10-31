@@ -1,4 +1,4 @@
-# Standard map — axiom-ros2-system-architecture-review (original summaries, no normative text)
+# Standard map -- axiom-ros2-system-architecture-review (original summaries, no normative text)
 
 | Standard | Edition | Clauses considered | Project use |
 |---|---|---|---|

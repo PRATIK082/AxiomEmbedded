@@ -1,4 +1,4 @@
-# Standard map — axiom-urdf-model-spec (original summaries, no normative text)
+# Standard map -- axiom-urdf-model-spec (original summaries, no normative text)
 
 | Standard | Edition | Clauses considered | Project use |
 |---|---|---|---|

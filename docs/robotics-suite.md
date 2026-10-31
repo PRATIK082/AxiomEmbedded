@@ -5,7 +5,7 @@
 verification; rerunning it rewrites generated files deterministically and
 appends only missing catalog/registry entries). All prose is original
 AxiomEmbedded content; standards are cited by number/title/edition/clause
-only — no normative text is reproduced.
+only -- no normative text is reproduced.
 
 ## Categories
 
@@ -20,7 +20,7 @@ only — no normative text is reproduced.
 
 ## Domains
 
-- `robotics` (26 pairs): robot-product engineering — middleware, navigation, cell integration, robot safety, AI data.
+- `robotics` (26 pairs): robot-product engineering -- middleware, navigation, cell integration, robot safety, AI data.
 - `industrial` (13 pairs): plant-side safety, OT security, compliance, procedures.
 
 Both domains are covered by the existing `robotics` / `industrial` skill
@@ -29,16 +29,16 @@ groups (rule-based views over the catalog), so no group changes were needed.
 ## Standards coverage (new families)
 
 ANSI/RIA R15.06, ISO 9283, ISO 3691-4, IEC 62657, ISO/IEC 23894, ISO/IEC
-23053, EU 2023/1230, ANSI Z244.1 — each registered under
+23053, EU 2023/1230, ANSI Z244.1 -- each registered under
 `standards/industrial/<family>.yaml` with identifiers and applicability
 metadata only.
 
 Five suite builders link into the assurance slice and back:
-robot-cell-scope ↔ axiom-scope-context,
-iso12100-risk-assessment ↔ axiom-hazard-risk,
-iso13849-plr ↔ axiom-safety-requirements,
-robot-hil-test-catalog ↔ axiom-vnv-plan,
-iec62443-risk-assessment + zone-conduit-plan ↔ axiom-threat-model.
+robot-cell-scope <-> axiom-scope-context,
+iso12100-risk-assessment <-> axiom-hazard-risk,
+iso13849-plr <-> axiom-safety-requirements,
+robot-hil-test-catalog <-> axiom-vnv-plan,
+iec62443-risk-assessment + zone-conduit-plan <-> axiom-threat-model.
 
 ## De-facto specs (no formal standard claimed)
 

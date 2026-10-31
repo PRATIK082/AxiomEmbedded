@@ -18,7 +18,7 @@ emitters, status measured from this repo's real data.
 - `axiom serve /` renders the single-screen HTML dashboard from the same
   `get_status()`; new `GET /v1/status`, `POST /v1/fix`, `POST /v1/feature`.
 - SDK re-exports the three functions; MCP gains `get_status`, `plan_fix`,
-  `plan_feature` tools — all interfaces stay in agreement.
+  `plan_feature` tools -- all interfaces stay in agreement.
 - Zero new dependencies (stdlib + PyYAML, per ADR-0005).
 
 ## Consequences
