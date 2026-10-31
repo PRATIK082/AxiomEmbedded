@@ -847,7 +847,7 @@ def serve(stdin=None, stdout=None) -> int:
             req = json.loads(line)
             result = dispatch(req.get("method", ""), req.get("params", {}))
             resp = {"jsonrpc": "2.0", "id": req.get("id"), "result": result}
-        except Exception as exc:  # noqa: BLE001 — errors cross the stdio boundary as responses
+        except Exception as exc:  # noqa: BLE001 -- errors cross the stdio boundary as responses
             resp = {
                 "jsonrpc": "2.0",
                 "id": None,

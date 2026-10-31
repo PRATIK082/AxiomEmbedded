@@ -6,7 +6,7 @@ Follow the repo `docs/skill-authoring-guide.md` plus these assurance rules.
 2. `SKILL.md` frontmatter: name, title, description, version, author, license,
    domains, platforms, plus the `axiom:` block with dotted_name, subdomain
    (`assurance`, `safety`, or `cybersecurity`), maturity, related_skills
-   (symmetric builder↔reviewer link), standards with edition/year.
+   (symmetric builder<->reviewer link), standards with edition/year.
 3. Body must contain Purpose, Workflow, and Acceptance sections.
 4. Declare every checklist/template/script path in the `axiom:` block; all
    declared files must exist.

@@ -1,7 +1,7 @@
 # Technology layer: generic
 
 Pointer layer per `Feature.md` for technology-neutral work. Canonical content
-lives in the process skills and the profile — this file only links them.
+lives in the process skills and the profile -- this file only links them.
 
 - Skills: `skills/requirements/`, `skills/architecture/`, `skills/implementation/` (all `platforms: [all]`)
 - Profile: `profiles/skill-update-profile.yaml`

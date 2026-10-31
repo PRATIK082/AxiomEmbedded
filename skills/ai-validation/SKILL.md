@@ -49,14 +49,14 @@ skill's gates.
 |---|----------|------------------|----------------|--------|
 | 1 | ISO/IEC 23894 AI risk management | 2023 | Risk lifecycle for AI systems, controls mapping | `https://www.iso.org/standard/77304.html` |
 | 2 | ISO/IEC 24029-x AI robustness | 24029-1:2021, 24029-2:2023 | Robustness assessment methods for neural networks | `https://www.iso.org/standard/79804.html` |
-| 3 | ISO/PAS 8800 Road vehicles — AI safety | 2024 (Publicly Available Specification) | Safety lifecycle for automotive AI/ML; use as guidance, note PAS status | `https://www.iso.org/standard/83303.html` |
+| 3 | ISO/PAS 8800 Road vehicles -- AI safety | 2024 (Publicly Available Specification) | Safety lifecycle for automotive AI/ML; use as guidance, note PAS status | `https://www.iso.org/standard/83303.html` |
 | 4 | MLPerf Tiny | v1.x | Independent benchmark methodology for embedded inference claims | `https://mlcommons.org/benchmarks/mlperf-tiny/` |
 
-> Status honesty. ISO/PAS 8800 is a PAS, not a full International Standard —
+> Status honesty. ISO/PAS 8800 is a PAS, not a full International Standard --
 > cite it as guidance and record the status in evidence. Never present PAS
 > conformance as certification.
 
-## 3. ODD — define the world first
+## 3. ODD -- define the world first
 
 1. **Write the ODD.** Enumerate operating conditions the ML component is
    validated for: lighting, weather, sensor variants, object classes, speeds,
@@ -64,7 +64,7 @@ skill's gates.
    the component's outputs are unvalidated by definition.
 2. **ODD drives data.** Every ODD dimension needs dataset coverage targets
    (minimum samples per slice) and explicit out-of-ODD handling: rejection,
-   fallback, or safe-state transition — tested, not assumed.
+   fallback, or safe-state transition -- tested, not assumed.
 3. **ODD is versioned.** ODD v1.2 pairs with dataset v3.1 and model v2.0;
    changing the ODD re-opens validation. The triple (ODD, dataset, model) is
    the validated unit.
@@ -78,12 +78,12 @@ skill's gates.
    counts; rare-but-critical slices (pedestrians at night, fault signatures)
    are oversampled deliberately and tracked.
 3. **Label quality.** Labeling procedure documented, inter-annotator agreement
-   measured on a sample, disputed labels adjudicated — label error is a
+   measured on a sample, disputed labels adjudicated -- label error is a
    quantified input to the acceptance argument, not background noise.
-4. **Calibration sets.** Quantization calibration data (see `edge-ai` §3) is a
+4. **Calibration sets.** Quantization calibration data (see `edge-ai` S3) is a
    controlled subset with its own version ID.
 
-## 5. Acceptance — statistics, robustness, uncertainty
+## 5. Acceptance -- statistics, robustness, uncertainty
 
 1. **Statistical acceptance.** Accuracy/safety metrics reported with confidence
    intervals at the required level; the sample size is justified before
@@ -98,7 +98,7 @@ skill's gates.
    relations are defects with severity ratings.
 4. **Uncertainty.** Where the architecture emits confidence, calibrate it
    (reliability diagrams) and define the low-confidence action: abstain,
-   escalate, or hand over — each path tested.
+   escalate, or hand over -- each path tested.
 
 ## 6. Deployment monitoring and drift response
 
@@ -107,8 +107,8 @@ skill's gates.
    before accuracy visibly degrades.
 2. **Field-data loop.** Production samples feed a quarantine set for periodic
    re-evaluation; confirmed drift opens a re-validation cycle (new ODD slice,
-   data, model version) — never silent retraining into production.
-3. **Model OTA.** Model updates follow the `embedded-linux` §6 OTA discipline:
+   data, model version) -- never silent retraining into production.
+3. **Model OTA.** Model updates follow the `embedded-linux` S6 OTA discipline:
    versioned, atomic, rollback-capable, with re-validation evidence attached
    to the update artifact.
 
@@ -122,10 +122,10 @@ skill's gates.
 4. Robustness envelope mapped with margins; metamorphic suites green.
 5. Uncertainty handling (abstain/escalate/handover) implemented and tested.
 6. Drift monitoring specified with thresholds and a re-validation procedure.
-7. Safety-relevant ML: evidence packaged per `safety` §7 with PAS-8800 status
+7. Safety-relevant ML: evidence packaged per `safety` S7 with PAS-8800 status
    honestly recorded.
 
 ## 8. Verification of this skill (Phase 4 gate)
 
-- PAS-status honesty (§2): no certification claims from guidance documents.
-- Test-data independence is auditable from provenance records (§4.1).
+- PAS-status honesty (S2): no certification claims from guidance documents.
+- Test-data independence is auditable from provenance records (S4.1).

@@ -1,4 +1,4 @@
-# Standard map — axiom-zone-conduit-plan-review (original summaries, no normative text)
+# Standard map -- axiom-zone-conduit-plan-review (original summaries, no normative text)
 
 | Standard | Edition | Clauses considered | Project use |
 |---|---|---|---|

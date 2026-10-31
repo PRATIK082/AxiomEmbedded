@@ -21,7 +21,7 @@ axiom:
 # Change-Impact skill
 
 Systematic analysis of proposed changes before approval: what is affected,
-what must be re-verified, and what the change costs — so baselines evolve
+what must be re-verified, and what the change costs -- so baselines evolve
 without silent breakage.
 
 ## 1. Purpose and scope
@@ -41,7 +41,7 @@ change record as a configuration item.
 | # | Standard | Version / status | Clause / scope | Source |
 |---|----------|------------------|----------------|--------|
 | 1 | ISO 26262-8 | 2018 | Clause 8 change management: request, analysis, decision, implementation | `https://www.iso.org/standard/68390.html` |
-| 2 | ISO 10007 Quality — configuration management | 2017 | Change control process, status accounting | `https://www.iso.org/standard/70400.html` |
+| 2 | ISO 10007 Quality -- configuration management | 2017 | Change control process, status accounting | `https://www.iso.org/standard/70400.html` |
 | 3 | IEEE 1042 Configuration management | 1987 (reaffirmed) | Change classification and control board practice | `https://standards.ieee.org/ieee/1042/4257/` |
 
 ## 3. Analysis method
@@ -49,13 +49,13 @@ change record as a configuration item.
 1. **Trace-driven blast radius.** Starting from the changed artifact, follow
    `traceability` links in both directions: upstream requirements affected,
    downstream design/code/tests/evidence invalidated (suspect links per
-   `traceability` §4). The trace query is attached to the change request.
+   `traceability` S4). The trace query is attached to the change request.
 2. **Expert review for the untraced.** Timing, performance, power, and emergent
-   behavior rarely trace cleanly — a reviewer from each affected discipline
+   behavior rarely trace cleanly -- a reviewer from each affected discipline
    signs the "no further impact" statement explicitly.
 3. **Safety/security trigger test.** Any change touching a safety-related
    requirement, safety mechanism, toolchain, or security boundary triggers
-   re-assessment scoping per `safety` §6 / `security` policy — the trigger
+   re-assessment scoping per `safety` S6 / `security` policy -- the trigger
    decision is recorded even when the answer is "no re-assessment needed."
 4. **Regression scope derived, not guessed.** Re-verification list = invalidated
    tests + interface neighbors + timing re-measurement where budgets exist.

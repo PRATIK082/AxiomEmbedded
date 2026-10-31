@@ -1,4 +1,4 @@
-# Standard map — axiom-hazard-risk
+# Standard map -- axiom-hazard-risk
 
 | Standard | Edition | Clauses considered | Project use |
 |---|---|---|---|

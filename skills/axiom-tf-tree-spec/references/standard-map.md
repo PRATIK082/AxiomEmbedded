@@ -1,4 +1,4 @@
-# Standard map — axiom-tf-tree-spec (original summaries, no normative text)
+# Standard map -- axiom-tf-tree-spec (original summaries, no normative text)
 
 | Standard | Edition | Clauses considered | Project use |
 |---|---|---|---|

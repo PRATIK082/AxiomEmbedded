@@ -1,7 +1,7 @@
 # Multi-agent skill workflow
 
 How multiple AI agents (or humans + AI) work on skills in parallel without
-stepping on each other — and without anyone memorizing update procedures.
+stepping on each other -- and without anyone memorizing update procedures.
 
 ## The one rule
 
@@ -41,7 +41,7 @@ step is now impossible: there is only one step.
    (or MCP `create_skill` with apply=true), then write original content.
 3. **Finish with the pipeline**: run `skills apply` (CLI) or `skill_pipeline`
    apply=true (MCP). Green = mergeable. Red = the report names the exact
-   file/field — fix and re-run.
+   file/field -- fix and re-run.
 4. **Merge gate**: a branch merges only when `skills apply --check`,
    `pytest`, and `doctor` are green. The pipeline is idempotent: re-running
    on a clean tree changes zero files, so concurrent agents can't corrupt
@@ -55,7 +55,7 @@ step is now impossible: there is only one step.
 Skills are consumers of the same pipeline, not just its product:
 
 - `run_skill` (CLI `skills run`, MCP) executes a skill as a structured
-  workflow with dry-run default — safe for an AI to propose, human to apply.
+  workflow with dry-run default -- safe for an AI to propose, human to apply.
 - Generator tools (`generate_checklist`, `generate_test_plan`,
   `generate_traceability_matrix`, `generate_report`, `review_configuration`,
   `analyze_trace`, `analyze_repository`) turn skill content into reviewable
@@ -67,10 +67,10 @@ Skills are consumers of the same pipeline, not just its product:
 
 ## Why no .py edits as skills grow
 
-- New skill → data files only. Discovery (catalog, index, mirrors, agent
+- New skill -> data files only. Discovery (catalog, index, mirrors, agent
   configs) is derived by the pipeline.
-- New domain/platform binding → frontmatter lists + pipeline. The install
+- New domain/platform binding -> frontmatter lists + pipeline. The install
   `--domains` filter reads the generated index, so it follows automatically.
-- New tool kind → one function in `packages/skill_tools.py` + one TOOLS
+- New tool kind -> one function in `packages/skill_tools.py` + one TOOLS
   entry + tests. This is the only case that touches framework code, and it
   is deliberately rare (7 generators cover all 35 axiom-* skills today).

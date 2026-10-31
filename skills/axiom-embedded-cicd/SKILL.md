@@ -85,7 +85,7 @@ artifacts, and an evidence package the release skill can consume.
   bypassed; move slow jobs to nightly, never delete their gates silently.
 - Secrets live in the CI secret store, never in files; workflows reference names only.
 - Flaky tests are quarantined with an owner and expiry, matching the triage skill's
-  waiver discipline — never silently skipped.
+  waiver discipline -- never silently skipped.
 - Release jobs run on protected branches with explicit approval; artifacts are
   immutable once published.
 
@@ -110,12 +110,12 @@ in the run manifest.
   trial run evidence inspected.
 
 ## Common Failure Modes
-- Floating toolchain breaks reproducibility → pin versions, hash container images.
-- Long push builds get skipped → enforce the time budget by tiering, not by hoping.
-- Artifact names collide across matrix axes → matrix values in every artifact name.
+- Floating toolchain breaks reproducibility -> pin versions, hash container images.
+- Long push builds get skipped -> enforce the time budget by tiering, not by hoping.
+- Artifact names collide across matrix axes -> matrix values in every artifact name.
 
 ## Guardrails
-- No secret values in workflow files, logs, or templates — names only.
+- No secret values in workflow files, logs, or templates -- names only.
 - No destructive steps (force-push, delete) in generated pipelines.
 
 ## References

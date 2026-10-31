@@ -1,4 +1,4 @@
-# Standard map — axiom-iso9283-performance-test-review (original summaries, no normative text)
+# Standard map -- axiom-iso9283-performance-test-review (original summaries, no normative text)
 
 | Standard | Edition | Clauses considered | Project use |
 |---|---|---|---|

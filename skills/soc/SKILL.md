@@ -28,8 +28,8 @@ thermal design, and a software-visible contract the BSP can actually implement.
 ## 1. Purpose and scope
 
 **Purpose.** Define and integrate SoC-based products where the differentiation
-is in the combination — application cores plus real-time cores, NPU/DSP,
-safety islands, and high-speed I/O — with all cross-domain interactions
+is in the combination -- application cores plus real-time cores, NPU/DSP,
+safety islands, and high-speed I/O -- with all cross-domain interactions
 specified.
 
 **In scope.** SoC selection and comparison, heterogeneous core allocation
@@ -56,14 +56,14 @@ to `mpsoc`.
 1. **Right core for the job.** Hard real-time and safety monitors on R-class
    / lockstep cores or the safety island; supervisory, networking, and HMI on
    A-cores under Linux; ML on NPU/DSP via the `edge-ai` delegate path. Every
-   software function names its core in the deployment view (`architecture` §3).
+   software function names its core in the deployment view (`architecture` S3).
 2. **Inter-core communication specified.** Shared-memory protocols, mailbox/IPI
    semantics, RPMsg or equivalent versioning, and endianness/cache-coherency
-   handling are interface artifacts (see `architecture` §3.4) — ad-hoc shared
+   handling are interface artifacts (see `architecture` S3.4) -- ad-hoc shared
    structs without a protocol owner are defects.
 3. **Freedom from interference across cores.** Safety-island isolation
    demonstrated (bus guardians, memory partitioning, independent clocks where
-   claimed); non-safety cores cannot stall safety paths — verified by
+   claimed); non-safety cores cannot stall safety paths -- verified by
    interference testing, not architecture slides.
 
 ## 4. Power, thermal, and firmware interfaces
@@ -76,7 +76,7 @@ to `mpsoc`.
    and ambient; throttling policy defined before it is discovered in the field
    (throttle points are requirements with verification, see `requirements`).
 3. **Firmware interfaces standard.** PSCI for CPU power states, SCMI for clocks
-   and power domains — custom SMC interfaces minimized and documented where
+   and power domains -- custom SMC interfaces minimized and documented where
    unavoidable. The BSP consumes these; it does not reimplement them.
 
 ## 5. Handoff gates (blocking)
@@ -89,5 +89,5 @@ to `mpsoc`.
 
 ## 6. Verification of this skill (Phase 4 gate)
 
-- Standards cited with number + version + URL (§2).
-- No tape-out or board spin without the §5 handoff artifacts.
+- Standards cited with number + version + URL (S2).
+- No tape-out or board spin without the S5 handoff artifacts.

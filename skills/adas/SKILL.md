@@ -20,10 +20,10 @@ axiom:
   - checklists/adas-checklist.md
 ---
 
-# adas — ADAS / Automated Driving capability
+# adas -- ADAS / Automated Driving capability
 
-Reusable AxiomEmbedded capability for SAE L0–L4 functions: sensing → perception →
-fusion → planning → control, with SOTIF (ISO 21448), functional safety (via `safety` +
+Reusable AxiomEmbedded capability for SAE L0-L4 functions: sensing -> perception ->
+fusion -> planning -> control, with SOTIF (ISO 21448), functional safety (via `safety` +
 `autosar`), Euro-NCAP assessment inputs, fleet data closed-loop, and scenario-based
 HIL verification (ASAM OpenSCENARIO / OpenDRIVE).
 
@@ -34,14 +34,14 @@ HIL verification (ASAM OpenSCENARIO / OpenDRIVE).
 
 ## Objectives
 
-- Architect a verifiable perception → planning → control chain with defined ODD,
+- Architect a verifiable perception -> planning -> control chain with defined ODD,
   interfaces, timing budgets, and degradation strategy.
 - Select camera / radar / lidar / ultrasonic + GNSS / IMU / HD-map inputs against
   range, resolution, weather, and ASIL/SOTIF needs.
 - Design multi-sensor fusion with uncertainty propagation and plausibility gating.
 - Derive SOTIF analysis (triggering conditions, misuse, performance insufficiencies).
-- Decompose ASIL requirements across redundant paths per ISO 26262-9 §5.
-- Build fleet data closed-loop: trigger → upload → label → retrain → redeploy → monitor.
+- Decompose ASIL requirements across redundant paths per ISO 26262-9 S5.
+- Build fleet data closed-loop: trigger -> upload -> label -> retrain -> redeploy -> monitor.
 - Verify by scenario-based MIL/SIL/HIL on OpenSCENARIO + OpenDRIVE assets.
 
 ## Prerequisites
@@ -63,8 +63,8 @@ HIL verification (ASAM OpenSCENARIO / OpenDRIVE).
 
 ## Time estimate
 
-- ODD + architecture + sensor selection: 5–10 days. Build: 10–20 days.
-  Closed-loop + scenario HIL + SOTIF validation: 10–20 days.
+- ODD + architecture + sensor selection: 5-10 days. Build: 10-20 days.
+  Closed-loop + scenario HIL + SOTIF validation: 10-20 days.
 
 ## Resources
 
@@ -84,9 +84,9 @@ HIL verification (ASAM OpenSCENARIO / OpenDRIVE).
    uncertainty + timestamp + frame ID; fusion/planning handle stale/conflicting/
    absent inputs by specified degradation, never silent extrapolation.
 3. **Redundancy must be diverse and independent** with common-cause argument per
-   ISO 26262-9 §5 recorded before credit.
-4. **SOTIF is not functional safety.** Faults → `safety`; insufficiencies/triggering
-   conditions/misuse → SOTIF activity. Both feed one safety case.
+   ISO 26262-9 S5 recorded before credit.
+4. **SOTIF is not functional safety.** Faults -> `safety`; insufficiencies/triggering
+   conditions/misuse -> SOTIF activity. Both feed one safety case.
 5. **Simulation never closes a claim alone.** Every SIL-passed scenario class needs
    HIL/vehicle confirmation sample + sim-to-real gap statement.
 6. **Dataset discipline.** Train/calibration/eval sets are controlled artifacts;
@@ -100,46 +100,46 @@ HIL verification (ASAM OpenSCENARIO / OpenDRIVE).
   quantized deployment follows `edge-ai`.
 - **Fusion:** EKF/UKF or factor-graph; association (Mahalanobis + Hungarian/JPDA-class);
   latency compensation.
-- **Planning:** route → behavior (FSM/BT) → motion (lattice/MPC-class); always outputs
+- **Planning:** route -> behavior (FSM/BT) -> motion (lattice/MPC-class); always outputs
   feasible fallback trajectory to MRM, not only nominal plan.
-- **Control:** lateral/longitudinal tracking with actuator limits, fault reaction ≤ FTTI,
+- **Control:** lateral/longitudinal tracking with actuator limits, fault reaction <= FTTI,
   handover semantics per SAE level.
 
 ## Integration and test strategy
 
-1. **Scenario pipeline:** OpenDRIVE + OpenSCENARIO → MIL → SIL → HIL → track/road.
+1. **Scenario pipeline:** OpenDRIVE + OpenSCENARIO -> MIL -> SIL -> HIL -> track/road.
    Sources: Euro-NCAP cases, SOTIF triggers, fleet-mined edge cases, fault injection.
-2. **SOTIF loop:** identify triggers → specify pass criteria → measure → add
-   scenarios/sensors/data → re-validate. Residual risk gated by human, never auto-closed.
+2. **SOTIF loop:** identify triggers -> specify pass criteria -> measure -> add
+   scenarios/sensors/data -> re-validate. Residual risk gated by human, never auto-closed.
 3. **NCAP-aware (not NCAP-claiming).** Map protocol cases to scenarios; ratings belong
    to Euro-NCAP, never to this skill's output.
-4. **Metrics (report all applicable):** perception — mAP/mIoU, precision/recall, MOTA/MOTP,
-   latency p99/p100; prediction — minADE/minFDE; planning/control — TTC, errors, jerk,
-   MRM success, takeover time; system — false-positive braking, interventions/1k km.
-5. **Fault injection:** sensor dropout/corrupt/frozen, skew, bus overload, overrun —
+4. **Metrics (report all applicable):** perception -- mAP/mIoU, precision/recall, MOTA/MOTP,
+   latency p99/p100; prediction -- minADE/minFDE; planning/control -- TTC, errors, jerk,
+   MRM success, takeover time; system -- false-positive braking, interventions/1k km.
+5. **Fault injection:** sensor dropout/corrupt/frozen, skew, bus overload, overrun --
    each to specified degradation path.
-6. **Closed-loop:** edge triggers → upload → labeling QA → retrain → shadow/A-B eval →
-   gated redeploy → drift monitoring. Every release records dataset IDs, code hash, eval delta.
+6. **Closed-loop:** edge triggers -> upload -> labeling QA -> retrain -> shadow/A-B eval ->
+   gated redeploy -> drift monitoring. Every release records dataset IDs, code hash, eval delta.
 
 ## Traceability
 
-- ODD → FSR → TSR → SwSR → `src/` → scenario ID → test result → evidence ID,
+- ODD -> FSR -> TSR -> SwSR -> `src/` -> scenario ID -> test result -> evidence ID,
   with ASIL and SOTIF tags. Scenarios by file + revision + seed; datasets by immutable ID.
 
 ## Compliance mapping (via overlays, not duplication)
 
-- ISO 26262:2018 (ASIL, Parts 3/4/6/9); ISO 21448:2022 (SOTIF) — metadata only.
+- ISO 26262:2018 (ASIL, Parts 3/4/6/9); ISO 21448:2022 (SOTIF) -- metadata only.
 - Euro-NCAP protocols as test-source mapping, not rating claims.
 - ASAM OpenSCENARIO / OpenDRIVE / OSI for tool-neutral interchange.
 - Never claim certification, homologation, or star rating.
 
 ## Verification checklist (gate: all must pass)
 
-1. `scripts/verify_skill.py --skill adas` → PASS.
+1. `scripts/verify_skill.py --skill adas` -> PASS.
 2. ODD written, versioned, referenced by every requirement/scenario.
 3. HARA + SOTIF analysis complete; decomposition independence accepted (human gate).
-4. Uncertainty interfaces on all perception→fusion→planning boundaries; stale/conflict tested.
-5. MIL→SIL→HIL campaign with coverage; sim-to-real gap recorded.
+4. Uncertainty interfaces on all perception->fusion->planning boundaries; stale/conflict tested.
+5. MIL->SIL->HIL campaign with coverage; sim-to-real gap recorded.
 6. Full metric report; regressions block release.
 7. Dataset/model lineage gap-free; drift hooks wired.
 8. Traceability gap-free; safety deltas flagged for human review.

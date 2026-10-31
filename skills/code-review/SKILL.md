@@ -25,7 +25,7 @@ axiom:
 
 Human peer review that finds what automation cannot: wrong requirements,
 missing error paths, concurrency hazards, untestable structure, and
-architecture drift — with a lightweight process engineers actually follow.
+architecture drift -- with a lightweight process engineers actually follow.
 
 ## 1. Purpose and scope
 
@@ -52,12 +52,12 @@ with recorded rationale.
 
 1. **Automate first.** Formatting, static analysis, and unit tests pass before
    human review starts; reviewers never check what CI can check.
-2. **Small changes.** Reviews cover ≤400 changed lines; larger changes are
+2. **Small changes.** Reviews cover <=400 changed lines; larger changes are
    split or reviewed in stacked parts with an architecture overview attached.
 3. **Checklist per class.** Driver changes check register/errata/timeouts
    (`drivers`); safety changes check traceability and independence (`safety`);
    concurrency changes check ownership and race freedom (`rtos`,
-   `implementation` §3.4). Generic "LGTM" on a checklist-gated change is a
+   `implementation` S3.4). Generic "LGTM" on a checklist-gated change is a
    process violation.
 4. **Independence scales with integrity.** ASIL C/D and DAL A/B changes require
    a reviewer independent of the author (different person, no shared
@@ -81,5 +81,5 @@ that miss logic defects, author-shopping for lenient reviewers, and post-merge
 
 ## 6. Verification of this skill (Phase 4 gate)
 
-- Standards cited with number + version + clause + URL (§2).
+- Standards cited with number + version + clause + URL (S2).
 - Review records are evidence per `evidence` taxonomy.

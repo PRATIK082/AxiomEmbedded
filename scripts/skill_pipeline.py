@@ -16,7 +16,7 @@ validator enforces existence + related-symmetry as hard errors.
 
 Design rule behind it: skills are DATA (SKILL.md + YAML + templates under
 skills/), never code. Adding or editing a skill must never require a .py
-change. Only adding a brand-new *tool kind* touches packages/*.py — and
+change. Only adding a brand-new *tool kind* touches packages/*.py -- and
 even then this pipeline picks it up with no per-skill edits.
 
 In --check mode every writer step runs against content hashes: if any
@@ -126,6 +126,22 @@ def _run(check: bool, enrich, sync_idx, clients, validate_all, record_steps: boo
                 record(name, "FAIL", str(exc))
                 ok = False
                 break
+
+    # ASCII cleanliness gate for skill files (no mojibake/junk glyphs).
+    try:
+        import importlib.util
+        spec = importlib.util.spec_from_file_location(
+            "check_skill_ascii", ROOT / "scripts" / "check_skill_ascii.py")
+        mod = importlib.util.module_from_spec(spec)
+        spec.loader.exec_module(mod)
+        findings = mod.scan(ROOT / "skills")
+        record("ascii-clean", "OK" if not findings else "FAIL",
+               "skills/ ASCII-clean" if not findings
+               else f"{len(findings)} non-ASCII line(s)")
+        ok = ok and (not findings)
+    except Exception as exc:  # noqa: BLE001
+        record("ascii-clean", "FAIL", str(exc))
+        ok = False
 
     try:
         rep = validate_all()

@@ -5,7 +5,7 @@
 # moving skill directories would break paths, mirrors, and links. A group
 # is a named rule evaluated against catalog.yaml entries; adding a skill
 # to a group means matching its rule (usually automatic via id_prefix /
-# subdomain) — never a .py change, never a file move.
+# subdomain) -- never a .py change, never a file move.
 #
 # Rule semantics: `match_any` is OR; each clause is AND across its keys,
 # OR within a key's list. Keys: id, id_prefix, domain, subdomain, tags,

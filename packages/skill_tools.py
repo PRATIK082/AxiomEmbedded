@@ -198,12 +198,12 @@ def generate_checklist(skill_id: str, output_path: str | None = None,
     gates = _gates(d)
     if not gates:
         return _err(f"skill has no checklist gates: {skill_id!r}")
-    lines = [f"# Review Checklist — {skill_id}",
+    lines = [f"# Review Checklist -- {skill_id}",
              f"_Source skill version {fm.get('version', '?')}; "
              f"{len(gates)} gate(s). Human review required for "
              "safety/security gates._", ""]
     for g in gates:
-        lines.append(f"- [ ] **{g['id']}** — {g['text']} `({g['source']})`")
+        lines.append(f"- [ ] **{g['id']}** -- {g['text']} `({g['source']})`")
     lines.append("")
     md = "\n".join(lines)
     res = _write(out, md)
@@ -232,7 +232,7 @@ def generate_test_plan(skill_id: str, output_path: str | None = None,
         return err
     fm, body = _frontmatter(d)
     steps = _workflow_steps(body)
-    lines = [f"# Test Plan — {skill_id}",
+    lines = [f"# Test Plan -- {skill_id}",
              f"_Derived from Execution Workflow "
              f"(skill version {fm.get('version', '?')})._",
              "", "| ID | Verification activity | Method | Evidence | Status |",
@@ -315,7 +315,7 @@ def generate_report(skill_id: str, run_dir: str | None = None,
         return err
     fm, _ = _frontmatter(d)
     gates = _gates(d)
-    lines = [f"# Report — {skill_id}",
+    lines = [f"# Report -- {skill_id}",
              f"_Skill version {fm.get('version', '?')}; "
              f"maturity {((fm.get('axiom') or {}).get('maturity', '?'))}._",
              ""]
@@ -367,7 +367,7 @@ def review_configuration(skill_id: str, config_path: str,
     """Deterministic structural review of a config file (read-only).
 
     Checks existence, size cap, YAML/JSON parseability, top-level keys,
-    and scans for secret-like assignments (line numbers only — values
+    and scans for secret-like assignments (line numbers only -- values
     are never echoed). Findings cross-reference the skill's gate ids.
     """
     d, err = _skill_dir(skill_id)

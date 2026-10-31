@@ -6,8 +6,8 @@ Date: 2026-10-03. Status: accepted.
 
 After ADR-0004 (packaging: frontmatter, facets/index, `engage`, `run`,
 multi-harness install), skills were consumable by file-aware harnesses only.
-Requested clients — Copilot, OpenCode, Claude/GPT/Gemini agents, Cursor,
-VS Code, custom AI, local LLM, web app, CLI — need protocol surfaces, not
+Requested clients -- Copilot, OpenCode, Claude/GPT/Gemini agents, Cursor,
+VS Code, custom AI, local LLM, web app, CLI -- need protocol surfaces, not
 just files. A prior build of this layer was lost (only `__pycache__` survived);
 this ADR rebuilds it against the committed tree.
 
@@ -15,11 +15,11 @@ this ADR rebuilds it against the committed tree.
 
 One implementation, five interfaces, zero new dependencies (stdlib + PyYAML):
 
-- `packages/axiom_sdk` — `engage_skills`, `run_plan`, `read_skill`,
+- `packages/axiom_sdk` -- `engage_skills`, `run_plan`, `read_skill`,
   `list_skills`, `list_profiles`. Single source of truth.
-- `packages/axiom_mcp/server.py` — newline-delimited JSON-RPC 2.0 over stdio;
+- `packages/axiom_mcp/server.py` -- newline-delimited JSON-RPC 2.0 over stdio;
   tools `engage`, `run_plan`, `read_skill`, `list_skills`, `list_profiles`.
-- `packages/axiom_server/server.py` — `ThreadingHTTPServer`: `GET /v1/skills`,
+- `packages/axiom_server/server.py` -- `ThreadingHTTPServer`: `GET /v1/skills`,
   `/v1/skills/{id}`, `/v1/profiles`, `/.well-known/agent.json` card;
   `POST /v1/engage`, `/v1/run`, `/v1/a2a/tasks` (task envelope).
 - CLI: `axiom mcp` (stdio server), `axiom serve --port` (default 8931).

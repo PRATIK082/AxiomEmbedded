@@ -29,7 +29,7 @@ prove the automation is load-bearing rather than decorative.
 ## 1. Purpose and scope
 
 **Purpose.** Every commit is tested the same way, on representative targets,
-with results that block merges — fast enough that engineers run the suite
+with results that block merges -- fast enough that engineers run the suite
 instead of routing around it.
 
 **In scope.** CI pipeline design (host + target stages), hardware-in-the-loop
@@ -53,7 +53,7 @@ skills own the content.
 1. **Two stages minimum.** Host stage (unit tests, static analysis, coverage)
    runs per commit in minutes; target stage (on-hardware or cycle-accurate
    simulation) runs per merge-request with console logs archived. Target
-   results block merging — advisory-only hardware tests decay into noise.
+   results block merging -- advisory-only hardware tests decay into noise.
 2. **Farm discipline.** Each farm board is a managed resource: exclusive
    allocation per job, power-cycle between runs, serial console captured to
    the job log, unhealthy boards auto-quarantined with alerts. Shared boards
@@ -63,7 +63,7 @@ skills own the content.
    flaky tests (which are tracked, not silently retried).
 4. **Fast feedback budget.** Host stage under 10 minutes default; target stage
    under 60 minutes default. Suites exceeding budget are split, parallelized,
-   or selected by change impact (see `change-impact`) — never left slow, since
+   or selected by change impact (see `change-impact`) -- never left slow, since
    slow suites get skipped.
 
 ## 4. Flaky-test policy (blocking)
@@ -71,7 +71,7 @@ skills own the content.
 A test failing intermittently without a code change is quarantined within 24h
 with an owner and a root-cause issue (timing assumption, shared state, farm
 health). Quarantined tests run informationally; unquarantined flakes fail the
-pipeline's credibility gate. Retry-without-diagnosis is forbidden — it converts
+pipeline's credibility gate. Retry-without-diagnosis is forbidden -- it converts
 signal into superstition.
 
 ## 5. Release gates (blocking)
@@ -82,5 +82,5 @@ signal into superstition.
 
 ## 6. Verification of this skill (Phase 4 gate)
 
-- Standards cited with number + version + clause + URL (§2).
+- Standards cited with number + version + clause + URL (S2).
 - No merged change without target-stage results or a recorded waiver.

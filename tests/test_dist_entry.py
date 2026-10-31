@@ -1,5 +1,5 @@
 # SPDX-License-Identifier: Apache-2.0
-"""Phase 1a: distribution entry points — version flag and doctor checks."""
+"""Phase 1a: distribution entry points -- version flag and doctor checks."""
 
 import json
 import pathlib

@@ -6,11 +6,11 @@ The migration direction is:
 
 ```text
 AxiomEmbedded  skill-centric
-       ↓
+       v
 AxiomEmbedded capability-centric
-       ↓
+       v
 Artifact graph + context engine
-       ↓
+       v
 Agent runtime + evidence ledger
 ```
 

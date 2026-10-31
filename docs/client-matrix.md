@@ -1,18 +1,18 @@
-# Client × interface matrix
+# Client x interface matrix
 
 | Client | MCP | A2A | REST | CLI | Python SDK |
 |--------|-----|-----|------|-----|------------|
-| Claude (Code / Agent) | ✅ `clients/mcp.json` | via REST | ✅ `/v1/*` | ✅ | ✅ |
-| OpenCode | ✅ `clients/mcp.json` | via REST | ✅ | ✅ hooks/commands | ✅ |
-| Codex (CLI) | — | via REST | ✅ | ✅ terminal | ✅ |
-| Antigravity | ✅ `clients/mcp.json` | via REST | ✅ | ✅ | ✅ |
-| Muse | ✅ MCP config | via REST | ✅ | ✅ terminal | ✅ |
-| Cursor | ✅ `clients/mcp.json` | via REST | ✅ | ✅ terminal | ✅ |
-| VS Code (MCP ext.) | ✅ `clients/mcp.json` | via REST | ✅ | ✅ integrated terminal | ✅ |
-| Custom AI agent | ✅ stdio JSON-RPC | ✅ `/v1/a2a/tasks` | ✅ | ✅ subprocess | ✅ direct import |
-| Local LLM harness | — | — | ✅ localhost | ✅ | ✅ direct import |
-| Web app | — | ✅ agent card `/.well-known/agent.json` | ✅ | — | — |
-| CLI / CI user | — | — | ✅ | ✅ `axiom engage/run/mcp/serve` | — |
+| Claude (Code / Agent) | [OK] `clients/mcp.json` | via REST | [OK] `/v1/*` | [OK] | [OK] |
+| OpenCode | [OK] `clients/mcp.json` | via REST | [OK] | [OK] hooks/commands | [OK] |
+| Codex (CLI) | -- | via REST | [OK] | [OK] terminal | [OK] |
+| Antigravity | [OK] `clients/mcp.json` | via REST | [OK] | [OK] | [OK] |
+| Muse | [OK] MCP config | via REST | [OK] | [OK] terminal | [OK] |
+| Cursor | [OK] `clients/mcp.json` | via REST | [OK] | [OK] terminal | [OK] |
+| VS Code (MCP ext.) | [OK] `clients/mcp.json` | via REST | [OK] | [OK] integrated terminal | [OK] |
+| Custom AI agent | [OK] stdio JSON-RPC | [OK] `/v1/a2a/tasks` | [OK] | [OK] subprocess | [OK] direct import |
+| Local LLM harness | -- | -- | [OK] localhost | [OK] | [OK] direct import |
+| Web app | -- | [OK] agent card `/.well-known/agent.json` | [OK] | -- | -- |
+| CLI / CI user | -- | -- | [OK] | [OK] `axiom engage/run/mcp/serve` | -- |
 
 Agreement guarantee: one implementation (`packages/axiom_sdk`) sits behind all
 five interfaces; `tests/test_interfaces.py` asserts SDK/CLI/MCP/REST/A2A return

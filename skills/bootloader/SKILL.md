@@ -52,13 +52,13 @@ update story proven on hardware.
 1. **Verify before jump.** Every stage verifies the next (hash at minimum,
    signature where keys exist) before transferring control. The application
    vector table and entry are sanity-checked (range, alignment, stack pointer
-   in RAM) — a corrupt image never gets control.
+   in RAM) -- a corrupt image never gets control.
 2. **Watchdog from reset.** Independent watchdog armed before any
    unbounded wait (flash erase, UART autobaud, USB enumeration); a hung
    bootloader resets into a known state instead of hanging the line.
 3. **Recovery always reachable.** A hardware-forced recovery path (button
    combo, double-tap reset into UF2/DFU/UART loader) exists that no software
-   update can erase — ROM-based where the silicon offers it.
+   update can erase -- ROM-based where the silicon offers it.
 
 ## 4. Update protocol
 
@@ -69,7 +69,7 @@ update story proven on hardware.
    older images; downgrade attacks fail closed with an auditable event.
 3. **Transport integrity.** Update images carry signatures end-to-end (server
    to bootloader); transport checksums (CRC) catch corruption, signatures
-   catch malice — both, always.
+   catch malice -- both, always.
 4. **Power-loss testing.** The release campaign cuts power at every phase
    (download, verify, swap, confirm) on hardware; each case boots to a
    working image. Untested phases are release blockers.
@@ -78,7 +78,7 @@ update story proven on hardware.
 
 Production signing keys live offline (HSM or equivalent); the bootloader ships
 only public keys in protected flash. Key rotation and revocation procedure is
-documented before first production signing — a leaked-key drill the team has
+documented before first production signing -- a leaked-key drill the team has
 run, not a paragraph written during the incident.
 
 ## 6. Release gates (blocking)
@@ -87,10 +87,10 @@ run, not a paragraph written during the incident.
 2. Trial/permanent slot discipline with self-test confirmation.
 3. Anti-rollback enforced and tested with a real downgrade attempt.
 4. Recovery path demonstrated from a deliberately corrupted application.
-5. Power-loss matrix green on hardware (§4.4).
+5. Power-loss matrix green on hardware (S4.4).
 6. Key custody and rotation procedure documented and drilled.
 
 ## 7. Verification of this skill (Phase 4 gate)
 
-- No update path can brick: proven by test (§4.4, §6.4), not by argument.
+- No update path can brick: proven by test (S4.4, S6.4), not by argument.
 - Keys and trust anchors reviewed per `security` policy.

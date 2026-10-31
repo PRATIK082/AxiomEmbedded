@@ -27,7 +27,7 @@ Rust firmware and embedded software.
 ## 1. Purpose and scope
 
 **Purpose.** Produce code that is correct, readable, statically clean, reviewed,
-and unit-verified — ready for integration (`integration-test`) with evidence
+and unit-verified -- ready for integration (`integration-test`) with evidence
 attached.
 
 **In scope.** Language-specific construction rules (C/C++/Rust), MISRA and CERT
@@ -46,16 +46,16 @@ software requirement, ends at a reviewed, statically clean, unit-tested commit.
 | 1 | MISRA C | MISRA C:2025 (March 2025, current); C:2023 baseline | Mandatory/required/advisory rules for safety-related C | `https://misra.org.uk/` |
 | 2 | MISRA C++ | MISRA C++:2023 (C++17, merged AUTOSAR C++) | Safety-related C++ subset | `https://misra.org.uk/` |
 | 3 | CERT C / C++ | Current rule sets | Secure-coding rules mapped by MISRA Addendum 3 (Jan 2025) | `https://wiki.sei.cmu.edu/confluence/display/c/SEI+CERT+C+Coding+Standard` |
-| 4 | MISRA Rust | In development (working group; guidelines emerging) | Track status; apply CERT-style discipline meanwhile — record status honestly | `https://misra.org.uk/misra-rust/` |
+| 4 | MISRA Rust | In development (working group; guidelines emerging) | Track status; apply CERT-style discipline meanwhile -- record status honestly | `https://misra.org.uk/misra-rust/` |
 
 > Version honesty. Cite MISRA C:2025 for new work; C:2023 baselines stay valid
 > for in-flight projects with a recorded migration decision. MISRA Rust is not
-> published — never claim compliance with it.
+> published -- never claim compliance with it.
 
 ## 3. Construction rules (language-neutral)
 
-1. **Small units.** Functions fit on a screen (≤60 lines default), single
-   purpose, ≤5 parameters; complexity ≤15 enforced by `rules/skill-update-gates.yaml`.
+1. **Small units.** Functions fit on a screen (<=60 lines default), single
+   purpose, <=5 parameters; complexity <=15 enforced by `rules/skill-update-gates.yaml`.
 2. **No hidden behavior.** No recursion in constrained targets, no dynamic
    allocation after init (see `mcu`, `rtos`), no unspecified evaluation-order
    dependence, all variables initialized at declaration.
@@ -64,7 +64,7 @@ software requirement, ends at a reviewed, statically clean, unit-tested commit.
    project's error taxonomy once (per module or globally) and use it uniformly.
 4. **Concurrency by design.** Shared state minimized; ISRs and tasks communicate
    via queues with ownership rules (see `rtos`); data races are treated as
-   defects, not timing quirks — verify with thread sanitizers or model checks
+   defects, not timing quirks -- verify with thread sanitizers or model checks
    where the target toolchain permits.
 5. **Testability built in.** Hardware dependencies injected behind interfaces
    (HAL mocks, link-time stubs); untestable-by-construction code requires a
@@ -76,7 +76,7 @@ software requirement, ends at a reviewed, statically clean, unit-tested commit.
    violations; the build fails on any finding (warnings-as-errors discipline
    per `configs/skill-update.yaml`: `-Wall -Wextra -Werror`, gcc + clang).
 2. **Deviations are documents.** Each deviation records rule ID, rationale,
-   safety/security impact review, expiry or review date, and approver — stored
+   safety/security impact review, expiry or review date, and approver -- stored
    in `schemas/compliance-evidence.schema.json` (`deviations`). Undocumented
    suppressions (`// NOLINT` without a deviation ID) are defects.
 3. **Rust posture.** Memory-safety by ownership; `unsafe` blocks minimized,
@@ -93,6 +93,6 @@ traced in the matrix.
 
 ## 6. Verification of this skill (Phase 4 gate)
 
-- Standards cited with number + version + clause + URL (§2); no MISRA-Rust
+- Standards cited with number + version + clause + URL (S2); no MISRA-Rust
   compliance claims.
-- Zero undocumented suppressions; every merge meets §5.
+- Zero undocumented suppressions; every merge meets S5.

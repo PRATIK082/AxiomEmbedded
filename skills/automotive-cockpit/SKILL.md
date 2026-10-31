@@ -1,6 +1,6 @@
 ---
 name: automotive-cockpit
-description: Digital cockpit — cluster/IVI/HUD, SoC plus hypervisor with QNX/AAOS/Linux, Qt/Kanzi HMI, audio/DSP, driver monitoring, ASIL-B cluster and cybersecurity. Use for clusters, infotainment, HUD programs.
+description: Digital cockpit -- cluster/IVI/HUD, SoC plus hypervisor with QNX/AAOS/Linux, Qt/Kanzi HMI, audio/DSP, driver monitoring, ASIL-B cluster and cybersecurity. Use for clusters, infotainment, HUD programs.
 version: 1.2.0
 domains: [automotive]
 platforms: [soc, mpsoc, mpu]
@@ -18,11 +18,11 @@ axiom:
   - checklists/automotive-cockpit-checklist.md
 ---
 
-# automotive-cockpit — Digital cockpit capability
+# automotive-cockpit -- Digital cockpit capability
 
 Reusable AxiomEmbedded capability for the digital cockpit: instrument cluster, IVI,
-HUD, and the shared SoC platform — hypervisor partitioning, QNX / AAOS / Linux guests,
-Qt/Kanzi HMI, audio/DSP pipelines, driver monitoring — with ASIL B(D)-class cluster
+HUD, and the shared SoC platform -- hypervisor partitioning, QNX / AAOS / Linux guests,
+Qt/Kanzi HMI, audio/DSP pipelines, driver monitoring -- with ASIL B(D)-class cluster
 safety (via `safety`) and vehicle cybersecurity (via `security`).
 
 > Domain overlay `domains/automotive/` is mandatory. Safety owned by `skills/safety/`;
@@ -57,31 +57,31 @@ safety (via `safety`) and vehicle cybersecurity (via `security`).
 
 ## Time estimate
 
-- Platform + partition design: 5–10 days. HMI/audio/DMS: 10–20 days.
-  Safety/cybersecurity verification + tuning: 10–15 days.
+- Platform + partition design: 5-10 days. HMI/audio/DMS: 10-20 days.
+  Safety/cybersecurity verification + tuning: 10-15 days.
 
 ## Resources
 
-- COVESA: `https://covesa.global/` — VSS: `https://covesa.github.io/vehicle_signal_specification/`
+- COVESA: `https://covesa.global/` -- VSS: `https://covesa.github.io/vehicle_signal_specification/`
 - AAOS: `https://source.android.com/docs/automotive`
 - QNX Neutrino/Hypervisor: `https://blackberry.qnx.com/en/products/foundation-platform/qnx-neutrino-rtos`
 - VirtIO 1.3: `https://docs.oasis-open.org/virtio/virtio/v1.3/virtio-v1.3.html`
-- Qt: `https://www.qt.io/` — Kanzi: `https://www.rightware.com/kanzi`
+- Qt: `https://www.qt.io/` -- Kanzi: `https://www.rightware.com/kanzi`
 - Khronos GL ES / Vulkan: `https://www.khronos.org/opengles/`
 - ISO/SAE 21434: `https://www.iso.org/standard/70918.html`
 - Euro-NCAP protocols: `https://www.euroncap.com/en/for-engineers/protocols/`
 
 ## Domain rules
 
-1. **Cluster path is safety-relevant; IVI is not — boundary is structural.** ASIL
+1. **Cluster path is safety-relevant; IVI is not -- boundary is structural.** ASIL
    tell-tales render through a dedicated independently verified path; IVI can never
    block, corrupt, or delay it.
 2. **Tell-tales first.** On boot/reset/guest-crash/GPU-fault the cluster shows correct
-   tell-tales within the specified time — animation never gates a safety display.
+   tell-tales within the specified time -- animation never gates a safety display.
 3. **Hypervisor discipline.** Pinned Type-1/hybrid hypervisor; display/GPU/audio/input/
    network shared only through specified virtio devices with budgets; pass-through allow-listed.
 4. **Guest discipline.** Safety guest hosts cluster + FFI monitors; rich guests host IVI;
-   cross-guest calls are versioned IDL — never raw shared-memory handshakes.
+   cross-guest calls are versioned IDL -- never raw shared-memory handshakes.
 5. **Audio never preempts safety.** eCall/chimes/warnings have deterministic priority
    and independent fallback; entertainment degrades first.
 6. **DMS is an escalation chain.** Outputs carry confidence + availability; occlusion/
@@ -97,7 +97,7 @@ safety (via `safety`) and vehicle cybersecurity (via `security`).
   Linux/Yocto for HUD/second-display. Versions pinned; CDD deltas recorded.
 - **Qt / Kanzi:** state-chart screens, startup storyboard under budget, 60 fps-class pacing
   with p99 reporting; safety widgets in cluster path only.
-- **Audio/DSP:** mics → AEC/NS → mixer → DSP → amps/A2B → speakers; eCall priority path.
+- **Audio/DSP:** mics -> AEC/NS -> mixer -> DSP -> amps/A2B -> speakers; eCall priority path.
 - **DMS:** IR camera + classifiers (via `edge-ai`), day/night/occlusion matrices.
 - **HUD:** optics + warping/latency budget, night dimming, AR registration (with `adas`).
 - **VSS integration:** IVI signals mapped to VSS trees; proprietary extensions namespaced.
@@ -105,29 +105,29 @@ safety (via `safety`) and vehicle cybersecurity (via `security`).
 ## Integration and test strategy
 
 - Boot campaign: cold/warm boot per guest to first tell-tale and interactive IVI;
-  guest-crash injection (kill rich OS → cluster unaffected).
+  guest-crash injection (kill rich OS -> cluster unaffected).
 - Display/HMI: frame-time p50/p99/p100, dropped-frame, thermal derating, tell-tale matrix, HUD alignment.
 - Audio: routing/priority under max DSP load, latency, A2B node-drop recovery.
 - DMS: day/night/glasses/occlusion matrices, escalation tests, false-alert rate.
-- FFI campaign with `safety`: IVI-side starvation, GPU overload, virtio flood — cluster holds.
+- FFI campaign with `safety`: IVI-side starvation, GPU overload, virtio flood -- cluster holds.
 - Cybersecurity with `security`: boot/OTA/diagnostic tests, fuzz on USB/BT/Wi-Fi, rollback/revocation.
 - Fault injection: thermal throttle, display-link loss, GPU hang, DSP fault, camera loss.
 
 ## Traceability
 
-- Requirement → guest/partition → `src/`/`hmi/` → virtio/config → `test/` → evidence ID,
+- Requirement -> guest/partition -> `src/`/`hmi/` -> virtio/config -> `test/` -> evidence ID,
   with ASIL B(D) and TARA threat tags. All platform/tool versions pinned with hashes.
 
 ## Compliance mapping (via overlays, not duplication)
 
-- ISO 26262:2018 for ASIL B(D) cluster path (Part 9 §5 decomposition, FFI) via `safety`;
-  ISO/SAE 21434 + UNECE R155/R156 for boot/OTA/diagnostics via `security` — metadata only.
+- ISO 26262:2018 for ASIL B(D) cluster path (Part 9 S5 decomposition, FFI) via `safety`;
+  ISO/SAE 21434 + UNECE R155/R156 for boot/OTA/diagnostics via `security` -- metadata only.
 - COVESA VSS; AOSP CDD for AAOS; VirtIO 1.x; Khronos GL/Vulkan baselines.
 
 ## Verification checklist (gate: all must pass)
 
-1. `scripts/verify_skill.py --skill automotive-cockpit` → PASS.
-2. Partition/FFI argument accepted (human gate); no QM→ASIL shortcut.
+1. `scripts/verify_skill.py --skill automotive-cockpit` -> PASS.
+2. Partition/FFI argument accepted (human gate); no QM->ASIL shortcut.
 3. Tell-tale-first proven within time budgets (boot/crash/GPU-fault campaigns).
 4. Frame-time/boot-time/audio-latency in budget at worst-case corner.
 5. DMS matrix + escalation green; false-alert rate reported.

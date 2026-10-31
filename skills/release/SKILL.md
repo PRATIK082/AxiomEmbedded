@@ -27,13 +27,13 @@ monitoring with a defined hotfix path.
 
 ## 1. Purpose and scope
 
-**Purpose.** Turn a verified baseline into a delivered product — signed,
-traceable, and monitored — with no unreviewed shortcuts between "tests pass"
+**Purpose.** Turn a verified baseline into a delivered product -- signed,
+traceable, and monitored -- with no unreviewed shortcuts between "tests pass"
 and "customer has it".
 
 **In scope.** Release planning and criteria, readiness reviews, artifact
 signing, distribution channels (factory flashing, OTA per
-`embedded-linux` §6, app-store equivalents), deployment verification,
+`embedded-linux` S6, app-store equivalents), deployment verification,
 post-release monitoring, and hotfix/emergency release procedure.
 
 **Non-goals.** Build mechanics (see `build-system`) and baseline creation (see
@@ -51,10 +51,10 @@ monitored product in the field.
 ## 3. Readiness review (blocking)
 
 No release without a recorded readiness decision covering: all verification
-complete per the integrity level (`safety` §6, V-model right arm), open
+complete per the integrity level (`safety` S6, V-model right arm), open
 defects triaged with severity and deferral rationale, SBOM/CVE status
-(`embedded-linux` §7, `security`), OTA/rollback tested on hardware
-(`bootloader`, `embedded-linux` §6), docs versioned (`documentation`),
+(`embedded-linux` S7, `security`), OTA/rollback tested on hardware
+(`bootloader`, `embedded-linux` S6), docs versioned (`documentation`),
 regulatory artifacts complete (homologation, safety case excerpts), and
 rollback/deployment runbooks rehearsed.
 
@@ -72,7 +72,7 @@ rollback/deployment runbooks rehearsed.
 
 ## 5. Hotfix path
 
-Emergency releases follow an accelerated — never skipped — pipeline:
+Emergency releases follow an accelerated -- never skipped -- pipeline:
 minimal-change branch from the release tag, targeted verification of the fix
 plus regression of affected areas, abbreviated but recorded readiness review,
 and a follow-up full release absorbing the hotfix. "Emergency" justifies
@@ -87,6 +87,6 @@ speed, never absence of evidence.
 
 ## 7. Verification of this skill (Phase 4 gate)
 
-- Standards carry number + version + clause + URL (§2, with released-vs-draft
+- Standards carry number + version + clause + URL (S2, with released-vs-draft
   honesty for SP 800-193).
 - No direct-to-fleet release without staged rollout evidence.

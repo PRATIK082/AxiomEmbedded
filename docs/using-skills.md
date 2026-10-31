@@ -8,7 +8,7 @@ auto-discovery. Facets are declared once in `registries/skill-facets.yaml`;
 
 ## Are domains and platforms interlinked?
 
-Yes — three ways, all generated from the same source:
+Yes -- three ways, all generated from the same source:
 
 1. **Skill facets.** Each skill lists its `domains` and `platforms`
    (`all` = matches any filter). See `registries/skill-facets.yaml`.
@@ -32,7 +32,7 @@ python -m axiom_cli engage
 ```
 
 Output lists the engaged `skills`, matching `profiles`, and the exact
-`context_files` (`skills/<id>/SKILL.md`) to load — load only those into the
+`context_files` (`skills/<id>/SKILL.md`) to load -- load only those into the
 model context, nothing else.
 
 ## Standalone agent run (opencode-like)

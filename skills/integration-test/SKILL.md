@@ -23,7 +23,7 @@ axiom:
 # Integration-Test skill
 
 Verification of unit interactions and HW/SW interfaces: module integration,
-driver/hardware integration, and subsystem integration up to HIL — the middle
+driver/hardware integration, and subsystem integration up to HIL -- the middle
 levels of the V-model right arm.
 
 ## 1. Purpose and scope
@@ -43,8 +43,8 @@ behavior (see `system-test`).
 
 | # | Standard | Version / status | Clause / scope | Source |
 |---|----------|------------------|----------------|--------|
-| 1 | ISO 26262-6 Software level | 2018 | §10 software integration and testing, Table 10 methods per ASIL | `https://www.iso.org/standard/68389.html` |
-| 2 | ISO 26262-4 System level | 2018 | §7 system integration, hardware-software interface verification | `https://www.iso.org/standard/68386.html` |
+| 1 | ISO 26262-6 Software level | 2018 | S10 software integration and testing, Table 10 methods per ASIL | `https://www.iso.org/standard/68389.html` |
+| 2 | ISO 26262-4 System level | 2018 | S7 system integration, hardware-software interface verification | `https://www.iso.org/standard/68386.html` |
 | 3 | ISTQB Certified Tester | CTFL v4.0 (2023); CT-ATLaS agile track | Integration test levels and entry/exit criteria | `https://www.istqb.org/certifications/certified-tester-foundation-level/` |
 
 ## 3. Integration strategy rules
@@ -54,22 +54,22 @@ behavior (see `system-test`).
    Big-bang integration is a planning defect.
 2. **Test the interface, not the units.** Integration cases target data flow,
    sequencing, error propagation, resource contention, and timing across the
-   boundary — re-running unit cases at this level wastes the rig.
+   boundary -- re-running unit cases at this level wastes the rig.
 3. **Hardware-in-the-loop early.** Driver and bus integration runs on target
    from the first increment (dev boards, then EVT hardware); host-only
    simulation of peripheral timing is not integration evidence.
 4. **Fault injection at boundaries.** Every interface test plan includes
-   corrupted data, timeouts, bus errors, and peer-reset cases — the failure
+   corrupted data, timeouts, bus errors, and peer-reset cases -- the failure
    modes units never see in isolation (feeds `fault-injection` campaigns).
 5. **Rig qualification.** HIL rigs are calibrated and versioned (hardware rev,
    fixture SW, scripts); a test failure must be attributable to product or rig
-   unambiguously — otherwise the rig, not the product, is debugged first.
+   unambiguously -- otherwise the rig, not the product, is debugged first.
 
 ## 4. Timing integration
 
-Measure end-to-end latencies across integrated paths (sensor → processing →
-actuator) under load; compare against budgets allocated in `architecture` §3
-and WCET analysis in `rtos` §5. Budget overruns at integration trigger
+Measure end-to-end latencies across integrated paths (sensor -> processing ->
+actuator) under load; compare against budgets allocated in `architecture` S3
+and WCET analysis in `rtos` S5. Budget overruns at integration trigger
 re-allocation with an ADR, not silent margin consumption.
 
 ## 5. Exit gates (blocking)

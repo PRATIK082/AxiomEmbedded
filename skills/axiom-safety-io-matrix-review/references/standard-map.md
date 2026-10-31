@@ -1,4 +1,4 @@
-# Standard map — axiom-safety-io-matrix-review (original summaries, no normative text)
+# Standard map -- axiom-safety-io-matrix-review (original summaries, no normative text)
 
 | Standard | Edition | Clauses considered | Project use |
 |---|---|---|---|

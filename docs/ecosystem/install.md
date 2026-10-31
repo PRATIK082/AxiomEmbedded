@@ -1,6 +1,6 @@
 # Install (standalone)
 
-Decision (design doc §3.1): **uv primary, pipx fallback**. Both install the
+Decision (design doc S3.1): **uv primary, pipx fallback**. Both install the
 same versioned `axiom-embedded` package; runtime core is stdlib + PyYAML only.
 
 ## uv (recommended)
@@ -35,4 +35,4 @@ axiom mcp --check            # MCP handshake + tool-inventory probe
 
 `axiom doctor` exits non-zero only on hard requirements (python >= 3.11,
 PyYAML, repo presence in checkouts); missing optional tools (cppcheck,
-renode, …) are reported as guidance by `axiom packs`, never as failures.
+renode, ...) are reported as guidance by `axiom packs`, never as failures.

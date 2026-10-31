@@ -1,5 +1,5 @@
 site_name: AxiomEmbedded
-site_description: Domain-neutral embedded engineering platform — agents, skills, MCP, evidence.
+site_description: Domain-neutral embedded engineering platform -- agents, skills, MCP, evidence.
 repo_url: https://github.com/PRATIK082/AxiomEmbedded
 theme:
   name: material

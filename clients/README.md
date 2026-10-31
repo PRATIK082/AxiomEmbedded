@@ -10,11 +10,11 @@ single implementation behind all of them, so behavior is identical everywhere.
 | GPT-based agent (Codex CLI, API) | MCP or REST | Codex: MCP via config; API agents: `POST 127.0.0.1:8765/v1/run` after `python -m axiom_cli serve` |
 | Gemini-based agent | MCP or REST | MCP server entry from `clients/mcp.json`; REST fallback as above |
 | GitHub Copilot (VS Code) | MCP | `.vscode/mcp.json`: copy `clients/mcp.json`; see `clients/COPILOT.md` |
-| Cursor-style IDE | MCP | Cursor Settings → MCP → add `clients/mcp.json` entry; see `clients/CURSOR.md` |
+| Cursor-style IDE | MCP | Cursor Settings -> MCP -> add `clients/mcp.json` entry; see `clients/CURSOR.md` |
 | VS Code (any extension) | MCP or Python SDK | MCP as above, or `from packages.axiom_sdk import engage, run_plan` in-repo |
 | Custom AI / agent framework | A2A or Python SDK | `GET /.well-known/agent.json` for the agent card, `POST /v1/a2a/tasks`; or import the SDK |
 | Local LLM (Ollama, llama.cpp) | REST or CLI | Serve once, call `/v1/run` from your runner; CLI `axiom engage/run` for scripts |
-| Web application | REST | `/v1/skills`, `/v1/engage`, `/v1/run` — see `docs/client-matrix.md` |
+| Web application | REST | `/v1/skills`, `/v1/engage`, `/v1/run` -- see `docs/client-matrix.md` |
 | CLI / scripts | CLI | `python -m axiom_cli engage|run|mcp|serve` |
 
 Tools exposed over MCP: `engage`, `run_plan`, `read_skill`, `list_skills`,

@@ -13,7 +13,7 @@ VALID_SIDS = {0x10, 0x11, 0x14, 0x19, 0x22, 0x23, 0x24, 0x27, 0x28, 0x29, 0x2A,
 
 def validate_service_row(sid: int, location: str) -> None:
     if sid not in VALID_SIDS:
-        raise ValueError(f"{location}: SID 0x{sid:02X} outside Rule 1 matrix — declare or reject explicitly")
+        raise ValueError(f"{location}: SID 0x{sid:02X} outside Rule 1 matrix -- declare or reject explicitly")
 
 
 def xlsx_row_to_service(row: dict, row_no: int, source: str) -> dict:

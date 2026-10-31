@@ -1,14 +1,14 @@
 # External packs: link, don't bundle
 
 Policy for third-party / independently-developed pip packs and CLI agents
-(e.g. ARXML/ODX/CDD/XLSX → internal-YAML diagnostic extractors, standard
+(e.g. ARXML/ODX/CDD/XLSX -> internal-YAML diagnostic extractors, standard
 script generators, auto bug-fix / code-review / code-update CLI agents).
 
 ## Plug-and-play selection by user need
 
-Tools are grouped by facet — domain-specific (automotive diag), compute-specific
+Tools are grouped by facet -- domain-specific (automotive diag), compute-specific
 (ecu/mcu/soc/mpsoc), standard-specific (ISO 14229-1, AUTOSAR DEXT), platform tooling
-(generic) — in `registries/tool-facets.yaml`, indexed to `registries/tool-index.json`
+(generic) -- in `registries/tool-facets.yaml`, indexed to `registries/tool-index.json`
 via `python scripts/build_tool_index.py`. The user picks what they need; axiom
 resolves the pack set plus pip installs plus skill-anchored agents:
 
@@ -17,7 +17,7 @@ axiom packs --domain automotive --platform mcu --standard "ISO 14229-1"
 ```
 
 `axiom packs` (= SDK `select_toolpacks` = MCP `packs` = REST `/v1/packs`)
-returns `{tools, install:[{tool, pip}], agents, skills, manifests}` — one call
+returns `{tools, install:[{tool, pip}], agents, skills, manifests}` -- one call
 from any interface, all four agree by construction. Adding a new pack category
 (domain, ECU/MCU/SoC, standard, platform) is three steps: append its facets,
 run the index builder, declare `dependencies:` in its bridge manifest.
@@ -28,9 +28,9 @@ run the index builder, declare `dependencies:` in its bridge manifest.
 repository and release cycle (own versioning, own AUTOSAR-version support
 matrix). In this repo, add only a thin **bridge**:
 
-- `tools/<bridge>/` — declares the pip dependency + entry point, validates
+- `tools/<bridge>/` -- declares the pip dependency + entry point, validates
   the pack's output against the canonical schema, records provenance.
-- `agents/<mapping>/` — binds an external CLI agent to one or more Axiom
+- `agents/<mapping>/` -- binds an external CLI agent to one or more Axiom
   skills, with permissions and approval gates.
 
 Rationale: bundling copies would freeze AUTOSAR-version support at merge
@@ -68,7 +68,7 @@ Required files:
 
 The bridge MUST fail closed with an actionable message when the pack is
 not installed (`pip install <pack>`), and MUST reject out-of-matrix output
-with element/row locations — never silently coerce.
+with element/row locations -- never silently coerce.
 
 ### 3. Agent mapping (`agents/<mapping>/`)
 
@@ -82,13 +82,13 @@ External CLI agents that modify code (auto bug-fix / update) MUST:
 - Declare `filesystem: write` (or `read` for review-only) and
   `git_push: false`, `release: false` in the manifest.
 - Load the governing skill(s) before invoking the CLI
-  (e.g. `automotive-diagnostics` Rules 1–2 for diag work).
+  (e.g. `automotive-diagnostics` Rules 1-2 for diag work).
 - Set `approval.required_for_sensitive_change: true` so safety/security
   deltas stop at the human gate per `configs/project.yaml`.
 
 ### 4. Reference example
 
-- Tool bridge: `tools/diag-extract-bridge/` (extract packs → canonical spec).
+- Tool bridge: `tools/diag-extract-bridge/` (extract packs -> canonical spec).
 - Agent mapping: `agents/diag-auto-review/` (external review/fix CLI
   bound to `automotive-diagnostics` + `code-review`).
 

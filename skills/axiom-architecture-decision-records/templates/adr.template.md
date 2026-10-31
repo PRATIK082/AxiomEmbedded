@@ -1,4 +1,4 @@
-# NNNN — Title
+# NNNN -- Title
 Date:
 Status: proposed # proposed | accepted | rejected | superseded
 Superseded-By: # NNNN when superseded
@@ -9,8 +9,8 @@ Approvers: []
 What problem forces a decision, and what constraints bound it.
 
 ## Options
-1. Option A — trade-offs.
-2. Option B — trade-offs.
+1. Option A -- trade-offs.
+2. Option B -- trade-offs.
 
 ## Decision
 The chosen option and why it wins.

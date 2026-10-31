@@ -1,4 +1,4 @@
-# Copy, rename, and fill. Unknown values stay UNKNOWN/OPEN — never invent.
+# Copy, rename, and fill. Unknown values stay UNKNOWN/OPEN -- never invent.
 artifact_id: SCOPE-001
 schema_version: 1.0.0
 kind: system-scope

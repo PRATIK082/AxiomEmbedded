@@ -28,7 +28,7 @@ and artifact provenance from source to flashable image.
 ## 1. Purpose and scope
 
 **Purpose.** Any engineer, on any machine, reproduces the identical binary
-from the same source revision — with zero warnings, pinned tools, and traced
+from the same source revision -- with zero warnings, pinned tools, and traced
 artifacts.
 
 **In scope.** CMake project structure (3.20+ floor), presets and toolchains,
@@ -37,7 +37,7 @@ cross-compilation files, compiler flag policy, dependency management
 matrices (gcc + clang, all target arches), SBOM/provenance generation, and
 build-performance budgets.
 
-**Non-goals.** Yocto distribution builds (see `embedded-linux` §3) and release
+**Non-goals.** Yocto distribution builds (see `embedded-linux` S3) and release
 signing ceremonies (see `release`). Ends at verified build artifacts with
 provenance.
 
@@ -61,7 +61,7 @@ provenance.
    manual steps.
 3. **Target separation.** One toolchain file per target triple; host tools and
    target firmware never share a build directory. Cross-compiling silently
-   with the host compiler is the classic build defect — the toolchain file
+   with the host compiler is the classic build defect -- the toolchain file
    asserts the compiler on configure.
 4. **Artifact provenance.** Every release artifact records source revision,
    toolchain versions, build flags, and SBOM; SLSA-style provenance attached
@@ -80,4 +80,4 @@ provenance.
 
 ## 5. Verification of this skill (Phase 4 gate)
 
-- Standards carry number + version + clause + URL (§2).
+- Standards carry number + version + clause + URL (S2).

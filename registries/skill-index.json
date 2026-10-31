@@ -514,7 +514,7 @@
       ]
     },
     "automotive-body": {
-      "description": "Body electronics \u2014 BCM, lighting, doors/seats/mirrors, HVAC, PEPS/keyless, LIN/CAN topology, low-power modes, EOL configuration. Use for body ECUs, LIN slaves, and EOL variant coding.",
+      "description": "Body electronics -- BCM, lighting, doors/seats/mirrors, HVAC, PEPS/keyless, LIN/CAN topology, low-power modes, EOL configuration. Use for body ECUs, LIN slaves, and EOL variant coding.",
       "domains": [
         "automotive"
       ],
@@ -538,7 +538,7 @@
       ]
     },
     "automotive-cockpit": {
-      "description": "Digital cockpit \u2014 cluster/IVI/HUD, SoC plus hypervisor with QNX/AAOS/Linux, Qt/Kanzi HMI, audio/DSP, driver monitoring, ASIL-B cluster and cybersecurity. Use for clusters, infotainment, HUD programs.",
+      "description": "Digital cockpit -- cluster/IVI/HUD, SoC plus hypervisor with QNX/AAOS/Linux, Qt/Kanzi HMI, audio/DSP, driver monitoring, ASIL-B cluster and cybersecurity. Use for clusters, infotainment, HUD programs.",
       "domains": [
         "automotive"
       ],
@@ -570,7 +570,7 @@
       ]
     },
     "automotive-middleware": {
-      "description": "SDV middleware selection and integration \u2014 ara::com, SOME/IP-SD, DDS, Zenoh, vsomeip, MQTT, TSN, zero-copy IPC, VSS/VSC. Use for service-oriented vehicle platforms, HPC/zone architectures, deterministic Ethernet.",
+      "description": "SDV middleware selection and integration -- ara::com, SOME/IP-SD, DDS, Zenoh, vsomeip, MQTT, TSN, zero-copy IPC, VSS/VSC. Use for service-oriented vehicle platforms, HPC/zone architectures, deterministic Ethernet.",
       "domains": [
         "automotive"
       ],

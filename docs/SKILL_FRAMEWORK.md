@@ -4,17 +4,17 @@ Production-grade, reusable, extensible skill framework for AxiomEmbedded.
 All content is original; no reference-repository text was used.
 
 ## Layout
-- `skills/catalog.yaml` — every skill (88): axiom-* workflow skills + legacy skills.
-- `skills/registry.yaml` — light index (dotted name, path, domain, maturity).
-- `skills/<id>/SKILL.md` — contract: legacy frontmatter
+- `skills/catalog.yaml` -- every skill (88): axiom-* workflow skills + legacy skills.
+- `skills/registry.yaml` -- light index (dotted name, path, domain, maturity).
+- `skills/<id>/SKILL.md` -- contract: legacy frontmatter
   (`name, description, version, domains, platforms`) + `axiom:` block
   (dotted_name, domain, subdomain, category, maturity, tags, related_skills,
   lifecycle, standards, artifact_types, mcp_tools, risk_level, review_required,
   safety_critical, inputs, outputs, required_tools, optional_tools,
   checklists/templates/scripts refs).
-- `skills/<id>/manifest.yaml` — packaging facets (keeps `test_skills_packaging` green).
-- `skills/_templates/` — SKILL/checklist/test-plan/traceability/script templates.
-- `packages/skills/{registry,loader,validator,runner}.py` — framework core.
+- `skills/<id>/manifest.yaml` -- packaging facets (keeps `test_skills_packaging` green).
+- `skills/_templates/` -- SKILL/checklist/test-plan/traceability/script templates.
+- `packages/skills/{registry,loader,validator,runner}.py` -- framework core.
 - `scripts/{validate_skills,create_skill,scaffold_axiom_skills,extend_catalog,sync_skill_index}.py`.
 
 ## Commands / tools
@@ -26,7 +26,7 @@ All content is original; no reference-repository text was used.
   (skill, version, timestamp, inputs, tools, decisions, files, warnings, checks).
 
 ## Maturity
-experimental (28 scaffolds) → beta (2 exemplars: bsw-integration, uds) →
+experimental (28 scaffolds) -> beta (2 exemplars: bsw-integration, uds) ->
 production only with validation + tests + docs + examples + acceptance process.
 
 ## Rules

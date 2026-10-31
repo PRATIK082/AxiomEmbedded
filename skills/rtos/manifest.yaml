@@ -1,5 +1,5 @@
 id: rtos
-version: 1.2.0
+version: 1.3.0
 contract_version: 1
 type: reusable-skill
 source_of_truth:
@@ -29,6 +29,9 @@ changelog:
   date: '2026-10-03'
   summary: 'Skill packaging: agent-skills frontmatter for multi-harness discovery,
     domain/platform facets, engagement linkage'
+- version: 1.3.0
+  date: '2026-10-31'
+  summary: 'Merged embedded firmware practice rules (project structure, dependency rules, C style, documentation levels, layered drivers, RTOS/ISR architecture) into skill content.'
 facets:
   domains:
   - all

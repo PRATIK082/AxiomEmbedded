@@ -565,7 +565,7 @@ def build() -> dict[str, int]:
                     "gates": [{"id": gid, "text": text} for gid, text in gates],
                 }, sort_keys=False), encoding="utf-8")
                 (d / "references" / "standard-map.md").write_text(
-                    f"# Standard map — {sid} (original summaries, no normative text)\n\n"
+                    f"# Standard map -- {sid} (original summaries, no normative text)\n\n"
                     + _map_rows(spec, is_reviewer) + "\n", encoding="utf-8")
                 (d / "templates" / template_name).write_text(yaml.safe_dump({
                     "artifact": spec["artifacts"][0], "skill": sid, "version": "0.1.0",

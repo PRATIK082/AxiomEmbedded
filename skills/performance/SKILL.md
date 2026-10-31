@@ -28,7 +28,7 @@ never trades away correctness, safety margins, or determinism silently.
 ## 1. Purpose and scope
 
 **Purpose.** Meet every timing deadline, throughput target, and resource budget
-with measured headroom — and prove it with numbers from hardware.
+with measured headroom -- and prove it with numbers from hardware.
 
 **In scope.** Performance budgeting (CPU, bus, memory bandwidth, power),
 WCET analysis and measurement, profiling on target, optimization techniques
@@ -36,7 +36,7 @@ WCET analysis and measurement, profiling on target, optimization techniques
 regression tracking in CI.
 
 **Non-goals.** Functional correctness (see `implementation`, test skills) and
-hard-real-time scheduling proofs (see `rtos` §5). Ends at met budgets with
+hard-real-time scheduling proofs (see `rtos` S5). Ends at met budgets with
 recorded margins and a regression tripwire.
 
 ## 2. Normative sources (high confidence)
@@ -50,11 +50,11 @@ recorded margins and a regression tripwire.
 ## 3. Budgeting rules
 
 1. **Budgets allocated top-down.** System deadlines decompose into per-task,
-   per-ISR, and per-transfer budgets at architecture time (`architecture` §3);
+   per-ISR, and per-transfer budgets at architecture time (`architecture` S3);
    unbudgeted paths are found by profiling, not by field failures.
 2. **WCET, not average.** Real-time claims use measured worst case at the
    worst-case corner (low voltage, high temperature, max clock drift) under
-   full system load — averages are for dashboards, WCET is for guarantees.
+   full system load -- averages are for dashboards, WCET is for guarantees.
 3. **Bandwidth is a budget too.** DMA, bus, and memory-bandwidth consumers are
    summed against the interconnect capacity (`soc`/`mpsoc` NoC budgets);
    cache effects measured, not modeled optimistically.
@@ -78,7 +78,7 @@ compiler flags project-wide and reviewed (`-O2` vs `-Os` vs `-O3` justified
 per binary). Optimizations that hurt determinism (speculative Davey paths,
 unbounded prefetch effects) or safety margins require `safety` review. Power
 optimizations (sleep modes, DVFS, clock gating) verified against latency
-budgets — a missed deadline from a sleep transition is a defect, not savings.
+budgets -- a missed deadline from a sleep transition is a defect, not savings.
 
 ## 6. Release gates (blocking)
 
@@ -89,5 +89,5 @@ budgets — a missed deadline from a sleep transition is a defect, not savings.
 
 ## 7. Verification of this skill (Phase 4 gate)
 
-- Timing claims measured on hardware at worst-case corner (§4), never host
+- Timing claims measured on hardware at worst-case corner (S4), never host
   extrapolations.

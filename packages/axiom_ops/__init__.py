@@ -2,7 +2,7 @@
 
 One implementation behind the terminal dashboard (`axiom status`), the
 `/` HTML dashboard on `axiom serve`, and the `axiom fix` / `axiom feature`
-plan emitters. All metrics are real repository data — no fixtures.
+plan emitters. All metrics are real repository data -- no fixtures.
 
 Design rule from the feature spec: the user sees status and next action;
 YAML paths, branch names, and matrix structures stay hidden unless
@@ -19,7 +19,7 @@ import yaml
 
 from packages.paths import ROOT
 
-# Fix-defect workflow: 10 internal steps from the feature spec §3 (INTENT ..
+# Fix-defect workflow: 10 internal steps from the feature spec S3 (INTENT ..
 # PR). The harness executes; axiom emits the plan with context attached.
 FIX_STEPS = [
     "intent",
@@ -34,7 +34,7 @@ FIX_STEPS = [
     "pr",
 ]
 
-# Add-feature workflow: 9 internal steps from the feature spec §3.
+# Add-feature workflow: 9 internal steps from the feature spec S3.
 FEATURE_STEPS = [
     "intent",
     "context",

@@ -1,4 +1,4 @@
-# Standard map — axiom-eoat-spec (original summaries, no normative text)
+# Standard map -- axiom-eoat-spec (original summaries, no normative text)
 
 | Standard | Edition | Clauses considered | Project use |
 |---|---|---|---|

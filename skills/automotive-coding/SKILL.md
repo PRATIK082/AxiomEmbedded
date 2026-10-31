@@ -18,12 +18,12 @@ axiom:
   - checklists/automotive-coding-checklist.md
 ---
 
-# automotive-coding — Automotive coding-standards enforcement
+# automotive-coding -- Automotive coding-standards enforcement
 
 Enforcement-first coding compliance for safety-related automotive C/C++:
 language-subset selection per ECU class, Mandatory/Required/Advisory disposition
 scaled by ASIL, static-analysis gating, and a formal deviation process that produces
-audit-ready evidence — never silent waivers.
+audit-ready evidence -- never silent waivers.
 
 > Metadata only. This skill cites standard identifiers, versions, categories, and process
 > requirements. It does not reproduce normative rule text. Engineers consult the licensed
@@ -36,7 +36,7 @@ audit-ready evidence — never silent waivers.
   ASIL-scaled Mandatory/Required/Advisory handling.
 - Harden with CERT C / CERT C++ and align with HIC++/JSF AV C++ where contracted.
 - Gate every change and release on analyzer evidence (compiler warnings + MISRA checker + deep analyzer).
-- Disposition every violation as fixed, formally deviated, or pinned false positive —
+- Disposition every violation as fixed, formally deviated, or pinned false positive --
   with traceability to code, ASIL, and approval.
 
 ## Prerequisites
@@ -59,8 +59,8 @@ audit-ready evidence — never silent waivers.
 
 ## Time estimate
 
-- Subset + matrix setup for one ECU class: 1–2 days. Analyzer bring-up + baseline: 2–4 days.
-  Per-release evidence pack: 0.5–1 day once steady-state.
+- Subset + matrix setup for one ECU class: 1-2 days. Analyzer bring-up + baseline: 2-4 days.
+  Per-release evidence pack: 0.5-1 day once steady-state.
 
 ## Resources
 
@@ -91,7 +91,7 @@ Selection rule: exactly one row per software component, recorded in the complian
 ## 2. Category model
 
 - **Mandatory:** never deviated; violation = defect, fix required.
-- **Required:** deviation only via formal procedure (§5) with hazard rationale and expiry.
+- **Required:** deviation only via formal procedure (S5) with hazard rationale and expiry.
 - **Advisory:** deviation with reviewer rationale; bulk-disposition by category forbidden.
 - **CERT/HIC++/JSF items** map into Required/Advisory handling per plan; security-taint
   findings escalate on security timelines regardless of category.
@@ -100,12 +100,12 @@ Selection rule: exactly one row per software component, recorded in the complian
 
 | ASIL | Mandatory | Required | Advisory | Analyzer gate |
 |------|-----------|----------|----------|---------------|
-| QM–A | Fix; blocks merge | Fix or deviate; blocks merge if undispositioned | Disposition per finding | Compiler wall + MISRA checker clean-or-deviated |
+| QM-A | Fix; blocks merge | Fix or deviate; blocks merge if undispositioned | Disposition per finding | Compiler wall + MISRA checker clean-or-deviated |
 | B | Fix; blocks merge + release | Fix preferred; deviation needs safety-review sign-off + expiry | Per finding; sampling audit per release | Above + `clang-tidy`/`cppcheck` + deep analyzer on changed safety paths |
-| C | Fix; blocks merge + release; root-cause note | Fix unless hazard analysis proves safe; dual approval; expiry ≤ one release | Per finding; 100% of new code sampled | Above + full deep-analyzer scan; tool qualification evidence current |
+| C | Fix; blocks merge + release; root-cause note | Fix unless hazard analysis proves safe; dual approval; expiry <= one release | Per finding; 100% of new code sampled | Above + full deep-analyzer scan; tool qualification evidence current |
 | D | Fix; blocks everything; escape = defect + corrective action | Fix; deviation only with independent assessor concurrence, time-bounded | Treated as Required (each justified) | All above + qualified-tool evidence; zero undispositioned at release |
 
-"Clean" always means *clean-or-formally-deviated with valid IDs* — never clean-by-suppression.
+"Clean" always means *clean-or-formally-deviated with valid IDs* -- never clean-by-suppression.
 Mixed-ASIL components enforce at the highest ASIL unless FFI is evidenced.
 
 ## 4. AUTOSAR / HIC++ / JSF / CERT alignment
@@ -117,11 +117,11 @@ Mixed-ASIL components enforce at the highest ASIL unless FFI is evidenced.
    never a substitute for MISRA evidence.
 4. **CERT C/C++:** mandatory checker layer for security-relevant code; findings dispositioned like MISRA.
 
-## 5. Deviation procedure (Required-grade; Advisory uses steps 1–3 + 6)
+## 5. Deviation procedure (Required-grade; Advisory uses steps 1-3 + 6)
 
 1. **File:** rule ID + version, locations, rationale, hazard/safety impact, ASIL, handling, expiry.
-2. **Bound:** single component or enumerated locations — never repository-wide blankets.
-3. **Review:** tech-lead (QM–A); + safety review (B); + dual approval (C); + independent assessor (D).
+2. **Bound:** single component or enumerated locations -- never repository-wide blankets.
+3. **Review:** tech-lead (QM-A); + safety review (B); + dual approval (C); + independent assessor (D).
 4. **Record:** deviation ID in register, referenced at each suppression site; suppression without ID is a defect.
 5. **Verify:** compensating verification named and linked in traceability matrix.
 6. **Expire:** re-verified or closed by expiry; stale deviations fail release. Tool upgrades re-validate false positives.
@@ -143,8 +143,8 @@ Compiler wall (gcc and clang, zero warnings):
 | 3. MISRA/CERT checker | Project MISRA checker | Ruleset version + suppression map | ASIL matrix |
 | 4. Deep analyzer | Coverity / Polyspace (or equiv.) | Analyzer project versioned | ASIL B+ changed paths; C/D full-scan per release |
 
-CI gates: per-change layers 1–3 on diff (zero *new* undispositioned findings);
-nightly full 1–4 on target-equivalent config; release full scan + register audit + tool-qual check.
+CI gates: per-change layers 1-3 on diff (zero *new* undispositioned findings);
+nightly full 1-4 on target-equivalent config; release full scan + register audit + tool-qual check.
 
 ## 7. Review checklist (coding-compliance delta)
 
@@ -156,19 +156,19 @@ nightly full 1–4 on target-equivalent config; release full scan + register aud
 
 ## 8. Traceability
 
-- Each source file → subset row ID → analyzer report ID → deviation IDs → test ID → evidence ID.
-- Standards cited as *identifier + version + category/ID only* with public landing URL — never rule prose.
+- Each source file -> subset row ID -> analyzer report ID -> deviation IDs -> test ID -> evidence ID.
+- Standards cited as *identifier + version + category/ID only* with public landing URL -- never rule prose.
 
 ## 9. Compliance mapping (via overlays, not duplication)
 
-- ISO 26262:2018 Parts 1–10, Part 6 software verification; ASIL A–D scaling.
+- ISO 26262:2018 Parts 1-10, Part 6 software verification; ASIL A-D scaling.
 - AUTOSAR Classic R24-11 / Adaptive R24-11 deltas owned by `autosar`; this skill owns only
   the coding-subset enforcement slice. Never claim certification from a heuristic check.
 
 ## 10. Verification checklist (gate: all must pass)
 
-1. `scripts/verify_skill.py --skill automotive-coding` → PASS.
-2. gcc + clang builds, zero warnings with the §6 wall.
+1. `scripts/verify_skill.py --skill automotive-coding` -> PASS.
+2. gcc + clang builds, zero warnings with the S6 wall.
 3. `clang-tidy` + `cppcheck` required sets clean-or-deviated.
 4. MISRA checker + deep analyzer clean-or-deviated per ASIL matrix; versions recorded.
 5. Deviation register complete; every suppression carries valid ID; no expired deviations.

@@ -1,4 +1,4 @@
-# Standard map — axiom-iso13849-plr-review (original summaries, no normative text)
+# Standard map -- axiom-iso13849-plr-review (original summaries, no normative text)
 
 | Standard | Edition | Clauses considered | Project use |
 |---|---|---|---|

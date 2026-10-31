@@ -1,4 +1,4 @@
-# Standard map — axiom-nav2-config-review (original summaries, no normative text)
+# Standard map -- axiom-nav2-config-review (original summaries, no normative text)
 
 | Standard | Edition | Clauses considered | Project use |
 |---|---|---|---|

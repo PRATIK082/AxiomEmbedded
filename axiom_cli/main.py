@@ -340,7 +340,7 @@ def status_cmd(format: str) -> int:
         for a in st["needs_attention"]:
             print(f"  [{a['severity'].upper()}] {a['id']}: {a['title']}")
     else:
-        print("  None — all systems nominal.")
+        print("  None -- all systems nominal.")
     print(f"\nRECOMMENDED: {st['recommended_next_action']}")
     return 0
 
@@ -658,7 +658,7 @@ def main() -> int:
             p.add_argument("--format", choices=["default", "json"], default=None)
             p.add_argument("--title", default=None)
         p.add_argument("--model", default=None, help="Model id passed through to opencode (provider/model)")
-        p.add_argument("--agent", default=None, help="OpenCode agent (tui/run) — research defaults to explore")
+        p.add_argument("--agent", default=None, help="OpenCode agent (tui/run) -- research defaults to explore")
         p.add_argument("--dir", default=None, help="Project directory for the session")
         p.add_argument("--source", default=None, help="Axiom content source dir (default: auto-detect checkout)")
         p.add_argument("--no-isolate", dest="isolate", action="store_false",

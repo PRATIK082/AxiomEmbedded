@@ -21,7 +21,7 @@ axiom:
 # Legacy-Recovery skill
 
 Taming inherited firmware: characterization testing, strangler refactoring,
-documentation archaeology, and incremental modernization — without stopping
+documentation archaeology, and incremental modernization -- without stopping
 product shipments or breaking undocumented-but-load-bearing behavior.
 
 ## 1. Purpose and scope
@@ -35,7 +35,7 @@ refactoring, toolchain modernization, dead-code removal with evidence, and
 knowledge capture from departing experts.
 
 **Non-goals.** Big-bang rewrites. A rewrite is a new project wearing the old
-name — this skill modernizes in place, incrementally, with the product still
+name -- this skill modernizes in place, incrementally, with the product still
 shipping.
 
 ## 2. Normative sources (high confidence)
@@ -50,7 +50,7 @@ shipping.
 
 1. **Assess before touching.** Inventory: does it build (which toolchain?),
    are there any tests, what docs exist, who understands it, what ships from
-   it. Record the baseline — recovery starts from evidence, not complaints.
+   it. Record the baseline -- recovery starts from evidence, not complaints.
 2. **Characterization tests first.** Write tests capturing current behavior at
    module boundaries before any refactor; these tests lock behavior so later
    changes are verifiable. A refactor without a characterization net is
@@ -60,7 +60,7 @@ shipping.
    traffic incrementally. Delete old code only when the new path owns all
    traffic with passing tests.
 4. **Modernize the platform.** Toolchain, build system (`build-system`), and
-   static analysis (`static-analysis`) come early — a clean build with
+   static analysis (`static-analysis`) come early -- a clean build with
    warnings-as-errors on legacy code quantifies the debt and prevents new debt.
 5. **Capture knowledge.** Structured interviews and code walkthroughs with
    outgoing experts produce decision records (ADRs) and module guides; every
@@ -83,4 +83,4 @@ shipping.
 
 ## 6. Verification of this skill (Phase 4 gate)
 
-- References carry version + scope + URL (§2).
+- References carry version + scope + URL (S2).

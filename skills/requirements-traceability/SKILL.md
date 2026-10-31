@@ -27,8 +27,8 @@ traceability audits that keep `traceability` policy alive in practice.
 
 ## 1. Purpose and scope
 
-**Purpose.** Keep the link chain (`sys_req → sw_req → code → test → evidence`)
-current across sprints, branches, and parallel teams — policy is set by
+**Purpose.** Keep the link chain (`sys_req -> sw_req -> code -> test -> evidence`)
+current across sprints, branches, and parallel teams -- policy is set by
 `traceability`; this skill runs the machinery.
 
 **In scope.** Requirements-tool workflows, in-IDE link creation, CI checks for
@@ -50,8 +50,8 @@ Starts where policy ends: daily execution.
 1. **Link in the workflow, not after.** Definition-of-done for any story/task
    includes its trace links; CI rejects merge requests with new unlinked
    artifacts (automate the check from `schemas/traceability-matrix.schema.json`).
-2. **Suspect triage daily.** The suspect-link queue from `traceability` §4 is
-   triaged in stand-up cadence: re-verify, re-link, or escalate — never older
+2. **Suspect triage daily.** The suspect-link queue from `traceability` S4 is
+   triaged in stand-up cadence: re-verify, re-link, or escalate -- never older
    than one sprint.
 3. **Branch strategy.** Trace data branches with code; merges reconcile link
    conflicts explicitly (both-sides-changed links re-reviewed, not

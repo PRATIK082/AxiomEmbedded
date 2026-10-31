@@ -22,7 +22,7 @@ axiom:
 # Requirements skill
 
 Elicitation, specification, and management of requirements for embedded and
-cyber-physical systems — the V-model left-arm foundation every downstream
+cyber-physical systems -- the V-model left-arm foundation every downstream
 artifact traces to.
 
 ## 1. Purpose and scope
@@ -56,11 +56,11 @@ condition + measurable criterion. Rules:
    (timing in ms, accuracy in %, current in mA). Unquantified adjectives
    ("fast", "robust", "user-friendly") are defects.
 3. **Verifiable method assigned at creation.** Each requirement declares its
-   verification method — test, analysis, inspection, or demonstration (see
+   verification method -- test, analysis, inspection, or demonstration (see
    `system-test`, `validation`). A requirement with no method is a draft,
    never baselined.
-4. **Traced both directions.** Stakeholder need → system requirement → software
-   requirement → architecture element → test case, recorded in
+4. **Traced both directions.** Stakeholder need -> system requirement -> software
+   requirement -> architecture element -> test case, recorded in
    `schemas/traceability-matrix.schema.json`. Orphan or childless requirements
    block baselining.
 5. **Change-controlled.** Baselined requirements change only via change request
@@ -70,14 +70,14 @@ condition + measurable criterion. Rules:
 ## 4. Allocation to embedded concerns
 
 System requirements allocate explicitly across the disciplines this program
-covers — each allocation names its owner skill:
+covers -- each allocation names its owner skill:
 
-- Timing/deadlines → `rtos` (§5 WCET) or `mcu` (bare-metal budgets)
-- Safety integrity → `safety` (§3 ASIL/SIL/DAL, §4 FSR/TSR/SwSR chain)
-- Security properties → `security` (threat model, secure boot per
-  `embedded-linux` §6)
-- Power/thermal envelopes → `mcu` / `hardware-architecture`
-- ML behavior bounds → `ai-validation` (ODD, §3)
+- Timing/deadlines -> `rtos` (S5 WCET) or `mcu` (bare-metal budgets)
+- Safety integrity -> `safety` (S3 ASIL/SIL/DAL, S4 FSR/TSR/SwSR chain)
+- Security properties -> `security` (threat model, secure boot per
+  `embedded-linux` S6)
+- Power/thermal envelopes -> `mcu` / `hardware-architecture`
+- ML behavior bounds -> `ai-validation` (ODD, S3)
 
 Unallocated system requirements are a blocking review finding.
 
@@ -92,5 +92,5 @@ Unallocated system requirements are a blocking review finding.
 
 ## 6. Verification of this skill (Phase 4 gate)
 
-- Normative sources carry number + version + clause + URL (§2).
-- No baselined requirement without method, allocation, and trace links (§3–§5).
+- Normative sources carry number + version + clause + URL (S2).
+- No baselined requirement without method, allocation, and trace links (S3-S5).

@@ -26,8 +26,8 @@ forbidden), template discipline, and MISRA C++:2023 conformance.
 
 ## 1. Purpose and scope
 
-**Purpose.** Use C++ where its abstractions earn their keep — type-safe
-drivers, compile-time configuration, testable interfaces — without paying in
+**Purpose.** Use C++ where its abstractions earn their keep -- type-safe
+drivers, compile-time configuration, testable interfaces -- without paying in
 unpredictability.
 
 **In scope.** C++17 subset selection, RAII and deterministic lifetimes,
@@ -62,7 +62,7 @@ Builds on `implementation` and `mcu`.
 4. **Virtuals by policy.** Static polymorphism (CRTP/concepts-style) default on
    hot paths; virtual dispatch allowed where the vtable cost is budgeted and
    the hierarchy is closed (no unbounded external subclassing in safety paths).
-5. **No heap after init** on constrained targets (same rule as C, `rtos` §5);
+5. **No heap after init** on constrained targets (same rule as C, `rtos` S5);
    containers are fixed-capacity (`std::array`, ring buffers) with
    bounds-checked access.
 
@@ -81,12 +81,12 @@ Builds on `implementation` and `mcu`.
 ## 5. Review checklist deltas
 
 Exception/RTTI flags in build, implicit conversions, slicing, virtual-in-ctor,
-static-init order across TUs, template bloat (map diff), `unsafe` missing —
+static-init order across TUs, template bloat (map diff), `unsafe` missing --
 no, that's Rust; instead: `reinterpret_cast` justification per use.
 
 ## 6. Verification of this skill (Phase 4 gate)
 
-- C++17 + MISRA C++:2023 cited with version + URL (§2); AUTOSAR C++14 cited
+- C++17 + MISRA C++:2023 cited with version + URL (S2); AUTOSAR C++14 cited
   only as superseded basis.
 - Build flags (`-fno-exceptions`, `-fno-rtti` where applicable) recorded and
   enforced in CI.

@@ -20,13 +20,13 @@ axiom:
   - checklists/automotive-spice-checklist.md
 ---
 
-# automotive-spice — Automotive SPICE v4.0 process capability
+# automotive-spice -- Automotive SPICE v4.0 process capability
 
 Reusable AxiomEmbedded capability for engineering automotive ECU / domain-controller
 software to an assessable Automotive SPICE v4.0 process.
 
 > Domain overlay pattern (see `skills/autosar/SKILL.md`, `skills/safety/SKILL.md`).
-> All process knowledge lives in this skill — never in core algorithms.
+> All process knowledge lives in this skill -- never in core algorithms.
 > This skill contains **standards metadata only** (number + version + clause + URL).
 > It contains **no normative text** from the PRM/PAM and **never claims certification**.
 > It produces audit-ready evidence for a qualified assessor to judge.
@@ -34,10 +34,10 @@ software to an assessable Automotive SPICE v4.0 process.
 ## Objectives
 
 - Scope an Automotive SPICE v4.0 assessment (VDA scope or extended) and target
-  capability level (CL1–CL3 typical; CL0 baseline explicit).
+  capability level (CL1-CL3 typical; CL0 baseline explicit).
 - Map each in-scope process to base practices (BP), work products (WP), and
   process outcomes per the PRM/PAM.
-- Establish bidirectional traceability SYS → SWE → tests → results with
+- Establish bidirectional traceability SYS -> SWE -> tests -> results with
   coverage and consistency checks.
 - Produce work-product evidence that satisfies PAM generic + specific practices
   at the targeted capability level.
@@ -64,7 +64,7 @@ software to an assessable Automotive SPICE v4.0 process.
 
 - `aspice/scope.md`: in-scope processes, target CL per process, exclusions
   with rationale, VDA-scope conformance statement.
-- `aspice/process-evidence-matrix.md`: per process x BP x WP → artifact path,
+- `aspice/process-evidence-matrix.md`: per process x BP x WP -> artifact path,
   owner, version/hash, assessment-ready status.
 - `traceability/` bidirectional chains: stakeholder/system/software/test
   populated per traceability rules, gap-free or with explicit gap register.
@@ -77,9 +77,9 @@ software to an assessable Automotive SPICE v4.0 process.
 
 ## Time estimate
 
-- VDA-scope scoping + gap self-assessment: 3–5 days. Work-product remediation
-  (CL1→CL2): 2–6 weeks depending on gaps. CL3 process-definition rollout:
-  4–12 weeks. Assessment prep pack + dry run: 3–5 days.
+- VDA-scope scoping + gap self-assessment: 3-5 days. Work-product remediation
+  (CL1->CL2): 2-6 weeks depending on gaps. CL3 process-definition rollout:
+  4-12 weeks. Assessment prep pack + dry run: 3-5 days.
 
 ## Resources
 
@@ -88,7 +88,7 @@ via VDA QMC distribution channels; verify version before citing.
 
 - VDA QMC Automotive SPICE portal (PAM/PRM v4.0 source, guidelines):
   `https://www.vda-qmc.de/en/automotive-spice/`
-- intacs — International Assessor Certification Scheme:
+- intacs -- International Assessor Certification Scheme:
   `https://www.intacs.info`
 - Automotive SPICE community reference (supplement, not normative):
   `https://automotivespice.com/`
@@ -102,12 +102,12 @@ via VDA QMC distribution channels; verify version before citing.
   `https://www.iso.org/standard/70918.html`
 
 > Version note. Automotive SPICE **v4.0 (Nov 2023)** is the citable PRM/PAM
-> baseline. v3.1 lineage (2017) is superseded — do not verify new work against
+> baseline. v3.1 lineage (2017) is superseded -- do not verify new work against
 > v3.1 unless the assessment contract explicitly pins it.
 
 ## Process areas
 
-### 1. System engineering — SYS.1–SYS.5
+### 1. System engineering -- SYS.1-SYS.5
 
 | ID | Process | Key outcomes / focus | Typical WPs |
 |----|---------|----------------------|-------------|
@@ -117,7 +117,7 @@ via VDA QMC distribution channels; verify version before citing.
 | SYS.4 | System Integration and Integration Test | Integrated system verified against architecture | Integration plan/report |
 | SYS.5 | System Qualification Test | System qualified against system requirements | Qualification plan/report |
 
-### 2. Software engineering — SWE.1–SWE.6
+### 2. Software engineering -- SWE.1-SWE.6
 
 | ID | Process | Key outcomes / focus | Typical WPs |
 |----|---------|----------------------|-------------|
@@ -128,11 +128,11 @@ via VDA QMC distribution channels; verify version before citing.
 | SWE.5 | Software Integration and Integration Test | Units integrated, tested | Integration test spec/report |
 | SWE.6 | Software Qualification Test | Integrated software tested vs requirements | Qualification test spec/report |
 
-Consistency rule: SWE.1 ↔ SYS.2/SYS.3; SWE.2 ↔ SYS.3; SWE.5/SWE.6 ↔ SWE.1/SWE.2.
+Consistency rule: SWE.1 <-> SYS.2/SYS.3; SWE.2 <-> SYS.3; SWE.5/SWE.6 <-> SWE.1/SWE.2.
 Every requirement must have at least one downstream test; every test must trace
 to at least one requirement.
 
-### 3. Supporting processes — SUP.1 / SUP.8 / SUP.9 / SUP.10
+### 3. Supporting processes -- SUP.1 / SUP.8 / SUP.9 / SUP.10
 
 | ID | Process | Non-negotiable evidence |
 |----|---------|--------------------------|
@@ -141,7 +141,7 @@ to at least one requirement.
 | SUP.9 | Problem Resolution Management | Problem reports with root cause, corrective action, closure verification |
 | SUP.10 | Change Request Management | Change requests with impact analysis, approval, regression evidence |
 
-### 4. Management processes — MAN.3 / MAN.5 / MAN.6
+### 4. Management processes -- MAN.3 / MAN.5 / MAN.6
 
 | ID | Process | Non-negotiable evidence |
 |----|---------|--------------------------|
@@ -169,14 +169,14 @@ SWE.6, SUP.1, SUP.8, SUP.9, SUP.10, MAN.3`.
 | CL4 | Predictable | + PA 4.1 + PA 4.2 |
 | CL5 | Innovating | + PA 5.1 + PA 5.2 |
 
-Rating scale: N (0–15%), P (>15–50%), L (>50–85%), F (>85–100%).
+Rating scale: N (0-15%), P (>15-50%), L (>50-85%), F (>85-100%).
 
 Rating rules:
 
 1. CL1 requires PA 1.1 rated L or F.
 2. CL2 requires PA 1.1 = F, PA 2.1 + PA 2.2 = L or F.
 3. CL3 requires PA 1.1 + PA 2.x = F, PA 3.1 + PA 3.2 = L or F.
-4. A single N or P at the required attribute caps the level — no rounding up.
+4. A single N or P at the required attribute caps the level -- no rounding up.
 5. Rate every BP/WP indicator individually before aggregating.
 6. Record rationale for every P/L boundary call.
 
@@ -186,18 +186,18 @@ Populate one row per in-scope process:
 
 | Process | BP (PAM ref, e.g. SWE.1.BP1) | Outcome satisfied | WP (PAM ref) | Artifact path + version/hash | Rating (N/P/L/F) |
 |---------|------------------------------|-------------------|-------------|-------------------------------|------------------|
-| SWE.1 | BP1: Specify software requirements | … | Requirements spec | `requirements/swe1-spec.md#<hash>` | L |
-| SWE.4 | BP1–BP5: unit test + static analysis | … | Test spec/report | `test/swe4-report.md#<hash>` | F |
-| SUP.9 | BP1–BP7: problem lifecycle | … | Problem report | `evidence/sup9/PR-xxx.md` | L |
+| SWE.1 | BP1: Specify software requirements | ... | Requirements spec | `requirements/swe1-spec.md#<hash>` | L |
+| SWE.4 | BP1-BP5: unit test + static analysis | ... | Test spec/report | `test/swe4-report.md#<hash>` | F |
+| SUP.9 | BP1-BP7: problem lifecycle | ... | Problem report | `evidence/sup9/PR-xxx.md` | L |
 
-Rules: reference BPs/WPs by PAM number only — never transcribe normative
+Rules: reference BPs/WPs by PAM number only -- never transcribe normative
 sentences. Empty cells are findings, not TBDs.
 
 ## Traceability & evidence rules
 
-1. **Bidirectional, no orphans.** Stakeholder → SYS.2 → SYS.3 → SWE.1 →
-   SWE.2 → SWE.3 → code → SWE.4/SWE.5/SWE.6/SYS.4/SYS.5 results.
-2. **Consistency-checked.** Requirements ↔ architecture ↔ design ↔ code ↔
+1. **Bidirectional, no orphans.** Stakeholder -> SYS.2 -> SYS.3 -> SWE.1 ->
+   SWE.2 -> SWE.3 -> code -> SWE.4/SWE.5/SWE.6/SYS.4/SYS.5 results.
+2. **Consistency-checked.** Requirements <-> architecture <-> design <-> code <->
    tests checked at each hand-off with review records.
 3. **Version-pinned.** Every trace link pins artifact version/hash and
    baseline ID from SUP.8. Floating `latest` links are nonconforming.
@@ -222,8 +222,8 @@ sentences. Empty cells are findings, not TBDs.
 
 | ASPICE process | ISO 26262:2018 linkage | ISO/SAE 21434:2021 linkage |
 |----------------|------------------------|----------------------------|
-| SYS.1–SYS.3, SWE.1–SWE.2 | Part 3 HARA, Part 4 system, Part 6 SW requirements/architecture | Concept/asset analysis, TARA inputs |
-| SWE.3–SWE.6, SYS.4–SYS.5 | Part 6 verification, Part 4 integration | Verification of security controls |
+| SYS.1-SYS.3, SWE.1-SWE.2 | Part 3 HARA, Part 4 system, Part 6 SW requirements/architecture | Concept/asset analysis, TARA inputs |
+| SWE.3-SWE.6, SYS.4-SYS.5 | Part 6 verification, Part 4 integration | Verification of security controls |
 | SUP.1 | Part 2 confirmation measures, Part 8 reviews | QA of security activities |
 | SUP.8/SUP.10 | Part 8 configuration/change management | Configuration control of security artifacts |
 | SUP.9 | Part 7 field monitoring | Vulnerability/incident handling |
@@ -235,7 +235,7 @@ or cybersecurity assurance claim.
 
 ## Verification checklist (gate: all must pass)
 
-1. `scripts/verify_skill.py --skill automotive-spice` → PASS.
+1. `scripts/verify_skill.py --skill automotive-spice` -> PASS.
 2. Scope sheet present; VDA-scope delta explicit; PRM/PAM v4.0 pinned.
 3. BP/WP mapping table complete; PAM refs are numbers only.
 4. Traceability matrix machine-checked bidirectional; zero orphans.
