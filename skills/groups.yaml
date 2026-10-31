@@ -78,7 +78,7 @@ groups:
                embedded-c, embedded-cpp, embedded-linux, rust-embedded,
                hardware-bringup, hardware-architecture, debugging,
                performance, edge-ai, ai-validation, fault-injection,
-               embedded-c]}
+               embedded-c, ros1, robot-bringup]}
   testing-verification:
     title: Test strategy and verification
     description: Test automation, static-analysis triage, SIL/HIL planning.

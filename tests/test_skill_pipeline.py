@@ -25,7 +25,7 @@ def test_pipeline_apply_idempotent():
     applied = axiom_sdk.skill_pipeline(check=False)
     assert applied["status"] == "ok", applied
     assert [s["step"] for s in applied["steps"]] == [
-        "enrich", "sync-index", "sync-clients", "validate"]
+        "enrich", "sync-index", "sync-clients", "ascii-clean", "validate"]
     after = axiom_sdk.skill_pipeline(check=True)
     assert after["status"] == "ok"
 

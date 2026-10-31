@@ -7,7 +7,7 @@ from packages import axiom_sdk as sdk
 def test_status_reports_all_skills():
     st = ops.get_status()
     assert st["project"] == "AxiomEmbedded"
-    assert st["skills"]["total"] == 180
+    assert st["skills"]["total"] == 182
     assert st["skills"]["latest"] == "1.3.0"
     assert st["recommended_next_action"]
 
@@ -28,7 +28,7 @@ def test_feature_plan_has_nine_steps():
 
 
 def test_sdk_reexports_ops():
-    assert sdk.get_status()["skills"]["total"] == 180
+    assert sdk.get_status()["skills"]["total"] == 182
     assert len(sdk.plan_fix("ISSUE-1")["steps"]) == 10
     assert len(sdk.plan_feature("FEATURE-1")["steps"]) == 9
 

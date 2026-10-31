@@ -666,8 +666,16 @@
       "path": "skills/requirements-traceability"
     },
     {
+      "id": "robot-bringup",
+      "path": "skills/robot-bringup"
+    },
+    {
       "id": "robotics",
       "path": "skills/robotics"
+    },
+    {
+      "id": "ros1",
+      "path": "skills/ros1"
     },
     {
       "id": "rtos",

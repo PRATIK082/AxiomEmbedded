@@ -47,7 +47,7 @@ _TOKEN_RE = re.compile(r"[a-z0-9]+(?:[-_/][a-z0-9]+)*")
 _STOPWORDS = frozenset({
     "the", "a", "an", "and", "or", "of", "for", "in", "on", "to", "with",
     "what", "which", "how", "is", "are", "be", "by", "vs", "compare",
-    "between", "do", "does",
+    "between", "do", "does", "topic",
 })
 
 

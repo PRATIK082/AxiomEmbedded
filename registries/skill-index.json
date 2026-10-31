@@ -1853,6 +1853,26 @@
       "platforms": [
         "all"
       ]
+    },
+    "robot-bringup": {
+      "description": "ROS2 system bringup: systemd services, launch composition, udev rules, network/DDS config, watchdogs, logging, graceful shutdown, remote monitoring. Use when deploying or operating robots in production.",
+      "domains": [
+        "all"
+      ],
+      "platforms": [
+        "linux",
+        "ros2"
+      ]
+    },
+    "ros1": {
+      "description": "ROS1 (Noetic) development: node/topic/launch design, TF, actionlib, nodelets, pitfalls, and ROS1-to-ROS2 migration. Use when maintaining or extending ROS1 systems.",
+      "domains": [
+        "all"
+      ],
+      "platforms": [
+        "linux",
+        "ros1"
+      ]
     }
   },
   "by_domain": {
@@ -1901,6 +1921,8 @@
       "release",
       "requirements",
       "requirements-traceability",
+      "robot-bringup",
+      "ros1",
       "rtos",
       "rust-embedded",
       "security",
@@ -2179,7 +2201,9 @@
       "automotive-middleware",
       "embedded-linux",
       "mpu",
-      "robotics"
+      "robot-bringup",
+      "robotics",
+      "ros1"
     ],
     "mcu": [
       "ai-validation",
@@ -2408,6 +2432,12 @@
       "rtos",
       "rust-embedded"
     ],
+    "ros1": [
+      "ros1"
+    ],
+    "ros2": [
+      "robot-bringup"
+    ],
     "rtos": [
       "automotive-coding",
       "axiom-rtos-architecture",
@@ -2558,6 +2588,8 @@
       "mpsoc",
       "mpu",
       "performance",
+      "robot-bringup",
+      "ros1",
       "rtos",
       "rust-embedded",
       "soc"
