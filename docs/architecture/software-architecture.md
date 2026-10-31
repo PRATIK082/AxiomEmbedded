@@ -15,7 +15,7 @@ Companion docs: `docs/architecture/overview.md` (concept model),
    reachable from one surface is reachable from all.
 2. **Skills are data, framework is code.** A skill is `SKILL.md` frontmatter
    + YAML + templates + deterministic scripts. Adding/editing/rebinding a
-   skill never requires a `.py` change — derivation does the rest.
+   skill never requires a `.py` change -- derivation does the rest.
 3. **Single source, derived mirrors.** `SKILL.md` frontmatter = per-skill
    facts; `skills/catalog.yaml` = registry + skill graph; everything else
    (`registries/*.json`, `.opencode|.claude` mirrors, `GEMINI.md`,
@@ -28,38 +28,38 @@ Companion docs: `docs/architecture/overview.md` (concept model),
 ## 2. System map
 
 ```text
-                         ┌──────────────────────────────┐
-   users/AI clients ─────│  SURFACES (thin, typed)      │
-                         │  axiom_cli (argparse)        │
-                         │  axiom_mcp (stdio JSON-RPC)  │── 10 AI clients
-                         │  axiom_server (REST + A2A)   │── web apps / agents
-                         └──────────────┬───────────────┘
-                                        │ delegates
-                         ┌──────────────▼───────────────┐
-                         │  packages/axiom_sdk          │  single impl
-                         │  engage/run/plan/compose/    │  + APPROVAL gates
-                         │  skills CRUD + generators    │
-                         └──┬──────────┬───────────┬────┘
-                            │          │           │
-            ┌───────────────▼──┐ ┌─────▼──────┐ ┌──▼────────────────┐
-            │ SKILL FRAMEWORK  │ │  CONTENT   │ │  PROJECT INTEL    │
-            │ skills/{registry │ │ skills/93  │ │ agents/router     │
-            │  loader,valid-   │ │ agents/29  │ │ context/* (graph, │
-            │  ator,runner,    │ │ domains/15 │ │  select, impact)  │
-            │  engage,groups}  │ │ platforms/ │ │ workflow/*, core/*│
-            │ skill_tools (7   │ │ profiles/  │ │ toolpacks/select  │
-            │  generators)     │ │ workflows/ │ │ compose/mindmap   │
-            │ installer (10    │ │ schemas/   │ │ axiom_ops (status │
-            │  clients + life- │ │ catalog+   │ │  fix/feature)     │
-            │  cycle)          │ │ groups.yaml│ │                   │
-            └───────────────▲──┘ └─────▲──────┘ └───────────────────┘
-                            │          │
-                  ┌─────────┴──────────┴─────────┐
-                  │  PIPELINE (one command)      │
-                  │  skills apply: enrich →      │
-                  │  index → clients → validate  │
-                  │  + pre-commit, nightly drift │
-                  └──────────────────────────────┘
+                         +------------------------------+
+   users/AI clients -----|  SURFACES (thin, typed)      |
+                         |  axiom_cli (argparse)        |
+                         |  axiom_mcp (stdio JSON-RPC)  |-- 10 AI clients
+                         |  axiom_server (REST + A2A)   |-- web apps / agents
+                         +--------------+---------------+
+                                        | delegates
+                         +--------------v---------------+
+                         |  packages/axiom_sdk          |  single impl
+                         |  engage/run/plan/compose/    |  + APPROVAL gates
+                         |  skills CRUD + generators    |
+                         +--+----------+-----------+----+
+                            |          |           |
+            +---------------v--+ +-----v------+ +--v----------------+
+            | SKILL FRAMEWORK  | |  CONTENT   | |  PROJECT INTEL    |
+            | skills/{registry | | skills/93  | | agents/router     |
+            |  loader,valid-   | | agents/29  | | context/* (graph, |
+            |  ator,runner,    | | domains/15 | |  select, impact)  |
+            |  engage,groups}  | | platforms/ | | workflow/*, core/*|
+            | skill_tools (7   | | profiles/  | | toolpacks/select  |
+            |  generators)     | | workflows/ | | compose/mindmap   |
+            | installer (10    | | schemas/   | | axiom_ops (status |
+            |  clients + life- | | catalog+   | |  fix/feature)     |
+            |  cycle)          | | groups.yaml| |                   |
+            +---------------^--+ +-----^------+ +-------------------+
+                            |          |
+                  +---------+----------+---------+
+                  |  PIPELINE (one command)      |
+                  |  skills apply: enrich ->      |
+                  |  index -> clients -> validate  |
+                  |  + pre-commit, nightly drift |
+                  +------------------------------+
 ```
 
 ## 3. Components and contracts
@@ -68,13 +68,13 @@ Companion docs: `docs/architecture/overview.md` (concept model),
 
 | Surface | Entry | Contract | Notes |
 |---|---|---|---|
-| CLI | `axiom` → `axiom_cli.main:main` | argparse, JSON to stdout, exit codes | `skills`, `install/update/uninstall`, `engage`, `run/fix/feature`, `oc`, `serve`, `mcp`, `route`, `packs`, `compose`, `stage`, `status`, `research`, `doctor` |
-| MCP | `axiom mcp` → `axiom_mcp.server` (33 kB, **37 tools**) | stdio JSON-RPC 2.0, `inputSchema` per tool | every tool = SDK call + envelope; check-only defaults |
-| REST/A2A | `axiom serve` → `packages/axiom_server.server` | stdlib `http.server`; `/v1/*`, `/.well-known/agent.json`, `/v1/a2a/tasks` | read + plan only; no write endpoints yet (§6.4) |
+| CLI | `axiom` -> `axiom_cli.main:main` | argparse, JSON to stdout, exit codes | `skills`, `install/update/uninstall`, `engage`, `run/fix/feature`, `oc`, `serve`, `mcp`, `route`, `packs`, `compose`, `stage`, `status`, `research`, `doctor` |
+| MCP | `axiom mcp` -> `axiom_mcp.server` (33 kB, **37 tools**) | stdio JSON-RPC 2.0, `inputSchema` per tool | every tool = SDK call + envelope; check-only defaults |
+| REST/A2A | `axiom serve` -> `packages/axiom_server.server` | stdlib `http.server`; `/v1/*`, `/.well-known/agent.json`, `/v1/a2a/tasks` | read + plan only; no write endpoints yet (S6.4) |
 
 ### 3.2 SDK (`packages/axiom_sdk`)
 
-Re-export façade + `APPROVAL_REQUIRED_FOR` gate list (push, release,
+Re-export facade + `APPROVAL_REQUIRED_FOR` gate list (push, release,
 destructive, safety/security-critical). Owns: `engage_skills`,
 `select_toolpacks`, `compose_mindmap`, `run_plan`, `read_skill`,
 `list/search_skills`, `skill_manifest` (derived), `run_skill`,
@@ -88,10 +88,10 @@ destructive, safety/security-critical). Owns: `engage_skills`,
 |---|---|
 | `registry.py` | `load_catalog`, `check_catalog` (duplicate IDs, missing fields, bad refs, **unknown related/extends/sub-skills and related-asymmetry are hard errors**), `set_link` (graph edits with auto back-links) |
 | `loader.py` | safe frontmatter parse, version/tags/IO/file-ref validation, `mcp_tools` checked against live `TOOLS` |
-| `validator.py` | `validate_all()` — SKILL.md + referenced files + catalog integrity |
-| `runner.py` | structured run + manifest (inputs, tools, decisions, files, warnings, checks) → `.axiom/runs/…`, resolves extends-chains + overlays |
-| `engage.py` | `engage(domain, platform, group, limit)` — facet match over `skill-index.json`, caps + `truncated` paging envelope |
-| `groups.py` | rule-based views over `groups.yaml` (OR-of-AND match on id/prefix/domain/subdomain/tags/maturity); **100% coverage invariant** (every enabled skill in ≥1 group) |
+| `validator.py` | `validate_all()` -- SKILL.md + referenced files + catalog integrity |
+| `runner.py` | structured run + manifest (inputs, tools, decisions, files, warnings, checks) -> `.axiom/runs/...`, resolves extends-chains + overlays |
+| `engage.py` | `engage(domain, platform, group, limit)` -- facet match over `skill-index.json`, caps + `truncated` paging envelope |
+| `groups.py` | rule-based views over `groups.yaml` (OR-of-AND match on id/prefix/domain/subdomain/tags/maturity); **100% coverage invariant** (every enabled skill in >=1 group) |
 
 ### 3.4 Content layer (data, versioned)
 
@@ -104,14 +104,14 @@ destructive, safety/security-critical). Owns: `engage_skills`,
 
 ### 3.5 Pipeline & self-handling (`scripts/`, CI)
 
-`skill_pipeline.py` = `enrich → sync_index → sync_clients → validate`
+`skill_pipeline.py` = `enrich -> sync_index -> sync_clients -> validate`
 (idempotent; `--check` hash-compares generated bytes). Enforced by:
 pre-commit hook (local), `skill-validation.yml` (per-PR), `nightly-drift.yml`
 (03:17 UTC cron + manual). Merge gate documented in `CONTRIBUTING.md`.
 
 ### 3.6 Installer (`packages/installer.py`)
 
-`install/update/uninstall × 10 clients` (opencode, claude, codex, gemini,
+`install/update/uninstall x 10 clients` (opencode, claude, codex, gemini,
 copilot, cursor, cline, aider, kilo, openhands). Merge-never-clobber;
 `--domains`/`--groups` filters read the generated index (data-driven, no
 per-skill code). Aider/Kilo hand-managed YAML/JSONC fall back to snippet
@@ -119,16 +119,16 @@ notes; OpenHands is global-only by vendor design.
 
 ## 4. Key data flows
 
-- **Skill change:** edit SKILL.md → `skills apply` → catalog facets →
-  `skill-index.json` (+`by_domain/by_platform/by_group`) → mirrors →
+- **Skill change:** edit SKILL.md -> `skills apply` -> catalog facets ->
+  `skill-index.json` (+`by_domain/by_platform/by_group`) -> mirrors ->
   validate. One command, zero hand-derived files.
-- **Agent session:** `engage(domain, platform, group, limit)` → skill slice
-  + `context_files` → `route(intent)` → agent contract → `run_skill`
-  (dry-run) → generators → `skill_report`.
-- **Install:** index → domain/group filter → per-client merge →
+- **Agent session:** `engage(domain, platform, group, limit)` -> skill slice
+  + `context_files` -> `route(intent)` -> agent contract -> `run_skill`
+  (dry-run) -> generators -> `skill_report`.
+- **Install:** index -> domain/group filter -> per-client merge ->
   `{written, merged, skipped, notes}` envelope.
-- **Run governance:** SDK approval gates → OpenCode `permission:`
-  frontmatter (same policy, both sides) → run manifests as audit trail.
+- **Run governance:** SDK approval gates -> OpenCode `permission:`
+  frontmatter (same policy, both sides) -> run manifests as audit trail.
 
 ## 5. Cross-cutting concerns
 
@@ -141,9 +141,9 @@ trace samples; negative tests for malformed skills), observability
 ## 6. Known debt (acknowledged, not hidden)
 
 1. **Legacy MCP shim:** `packages/axiom_mcp/server.py` (5 tools, old
-   envelope) is superseded by `axiom_mcp/server.py` (37 tools) — nothing
+   envelope) is superseded by `axiom_mcp/server.py` (37 tools) -- nothing
    imports it except its own docstring example. *Fix: delete or re-export.*
-2. **REST/A2A is read+plan only** — no `POST /v1/skills/apply`,
+2. **REST/A2A is read+plan only** -- no `POST /v1/skills/apply`,
    `link`, or generator endpoints; MCP is ahead of HTTP.
 3. **4 skill-task agents have empty `purpose`** in manifests (rely on
    `writes_enabled`); OPENCODE.md taxonomy documents the workaround.
@@ -156,18 +156,18 @@ trace samples; negative tests for malformed skills), observability
 
 Each item lists *why it fits now* (foundation already present).
 
-### 7.1 Skill ecosystem (content scale → 1000+)
+### 7.1 Skill ecosystem (content scale -> 1000+)
 
 - **External skill packs:** loader already supports "explicit-config-only"
-  external packs — add `skills/sources.yaml` (URL + pin + signature) and a
+  external packs -- add `skills/sources.yaml` (URL + pin + signature) and a
   `skills fetch` command reusing pipeline validation. Groups keep packs
   navigable.
 - **Skill versioning & deprecation:** catalog has `version` + `maturity`
-  per skill — add `deprecated_by` graph edge + runner warnings + `skills
+  per skill -- add `deprecated_by` graph edge + runner warnings + `skills
   outdated` command.
 - **Golden-file evals per skill:** extend `tests/` convention so every
-  beta→production promotion requires fixture in/out pairs run in CI.
-- **Staged maturity automation:** promote experimental→beta→production by
+  beta->production promotion requires fixture in/out pairs run in CI.
+- **Staged maturity automation:** promote experimental->beta->production by
   checklist evidence instead of hand edits.
 
 ### 7.2 Runtime & execution
@@ -184,16 +184,16 @@ Each item lists *why it fits now* (foundation already present).
 
 ### 7.3 Retrieval & intelligence
 
-- **Semantic skill search:** `search_skills` is BM25/keyword today — add
+- **Semantic skill search:** `search_skills` is BM25/keyword today -- add
   embedding index (opt-in, local) while keeping deterministic filters.
-- **Trace→skill feedback loop:** `analyze_trace` findings auto-suggest
+- **Trace->skill feedback loop:** `analyze_trace` findings auto-suggest
   skill workflow steps; store as run-manifest annotations.
 - **Cross-repo workspaces:** engage over multiple checkouts with one
   groups view (industrial fleet / vehicle platform use case).
 
 ### 7.4 Governance & release
 
-- **Signed releases & SBOM:** `pip` + `MANIFEST.in` exist — add sigstore
+- **Signed releases & SBOM:** `pip` + `MANIFEST.in` exist -- add sigstore
   signing, SBOM generation, and provenance in `FINAL_IMPLEMENTATION_REPORT`
   style per release.
 - **Compliance evidence packs:** compose safety/security run manifests +
@@ -204,21 +204,21 @@ Each item lists *why it fits now* (foundation already present).
 
 ### 7.5 Developer experience
 
-- **Single-surface parity tests:** assert CLI≡MCP≡REST arg-for-arg
+- **Single-surface parity tests:** assert CLI=MCP=REST arg-for-arg
   (today by convention + spot tests).
 - **Interactive `skills doctor`:** explain *why* a skill fails validation
   and offer the exact fix command.
 - **Client capability probes:** installer detects each client's MCP
   version/features and degrades honestly (like the aider/kilo notes).
 - **Web UI (optional, late):** read-only catalog/group/run browser over
-  the REST API — surfaces already exist; UI adds no new backend.
+  the REST API -- surfaces already exist; UI adds no new backend.
 
 ### 7.6 Suggested build order
 
-1. Delete legacy MCP shim + REST write endpoints (debt first, §6.1–6.2).
+1. Delete legacy MCP shim + REST write endpoints (debt first, S6.1-6.2).
 2. `deprecated_by` + `skills outdated` (cheap, high value at scale).
-3. Golden-file evals gate for beta→production.
+3. Golden-file evals gate for beta->production.
 4. External packs (`sources.yaml` + `fetch`).
-5. Sandbox backend + job IDs (needs 3–4's determinism story first).
+5. Sandbox backend + job IDs (needs 3-4's determinism story first).
 6. Semantic search + SBOM/signing in parallel.
 7. Web UI last (all APIs stable by then).

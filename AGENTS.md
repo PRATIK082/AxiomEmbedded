@@ -17,7 +17,7 @@ Do not preload the whole repository. Prefer `axiom_cli` graph/index/context comm
 
 ## Required workflow
 
-**Discover → Plan → Select context → Change → Verify → Evidence → Review → Commit/PR.**
+**Discover -> Plan -> Select context -> Change -> Verify -> Evidence -> Review -> Commit/PR.**
 
 A code change is incomplete until the appropriate verification and evidence artifacts are updated.
 

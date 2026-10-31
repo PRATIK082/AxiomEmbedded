@@ -24,14 +24,14 @@
 
 ## Agent onboarding files
 
-- `AGENTS.md` — portable repository contract
-- `CLAUDE.md` — lightweight compatibility pointer
-- `GEMINI.md` — lightweight compatibility pointer
-- `.github/copilot-instructions.md` — GitHub Copilot repository-wide instructions
-- `.github/instructions/` — path-specific Copilot instructions
-- `.github/prompts/` — reusable Copilot prompts
-- `.github/agents/` — Copilot custom-agent definitions
-- `opencode.json` — OpenCode instruction/permission baseline
+- `AGENTS.md` -- portable repository contract
+- `CLAUDE.md` -- lightweight compatibility pointer
+- `GEMINI.md` -- lightweight compatibility pointer
+- `.github/copilot-instructions.md` -- GitHub Copilot repository-wide instructions
+- `.github/instructions/` -- path-specific Copilot instructions
+- `.github/prompts/` -- reusable Copilot prompts
+- `.github/agents/` -- Copilot custom-agent definitions
+- `opencode.json` -- OpenCode instruction/permission baseline
 
 ## Repository policy
 
