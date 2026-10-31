@@ -3,7 +3,7 @@ name: axiom-adas-perception-pipeline
 title: ADAS Perception Pipeline Design
 description: >
   Designs sensor-abstraction, perception interfaces and object-model contracts for ADAS pipelines.
-version: 1.2.0
+version: 1.3.0
 author: PRATIK PATIL
 license: Apache-2.0
 domains: [automotive]
@@ -103,3 +103,57 @@ Follow Execution Workflow; record per-step evidence in the run manifest.
 
 ## References
 - Authoritative standard identifiers listed in catalog; landing URLs only, no normative text.
+
+
+
+## 7. Robot perception (production-grade)
+
+### 7.1 Sensor landscape
+Sensor types: cameras (RGB/depth/stereo), LiDAR (2D/3D), IMU, radar, ultrasonic, force/torque. Characteristics: framerate, latency, accuracy, field of view, range, environmental robustness. Common hardware: RealSense, OAK-D, Velodyne, Ouster, ZED, Kinect.
+
+### 7.2 Camera models and calibration
+Pinhole camera model: intrinsics (fx, fy, cx, cy), distortion (k1,k2,p1,p2,k3). Intrinsic calibration via checkerboard/charuco. Extrinsic calibration (camera-to-camera, camera-to-LiDAR). Hand-eye calibration (camera-to-robot). Validate calibration quality (reprojection error < 0.5px).
+
+### 7.3 Sensor streaming best practices
+- Decouple capture from processing (separate threads, bounded queues).
+- Bounded buffers with drop policy (never unbounded).
+- Timestamp at capture time, not processing time.
+- Event-driven or spin with wall clock (not sleep-based timing).
+- Multi-sensor synchronization: hardware trigger or software sync (message_filters approximate time).
+- Streaming anti-patterns: capture+process in same thread, unbounded buffer, sleep for timing, timestamp at processing time.
+
+### 7.4 RGB processing pipelines
+Image undistortion, object detection integration (YOLO/RT-DETR), fiducial marker detection (AprilTag/ArUco), semantic segmentation for manipulation.
+
+### 7.5 Depth processing
+Depth map filtering (bilateral, hole filling), depth-to-point-cloud conversion, RGBD alignment (extrinsic calibration).
+
+### 7.6 Point cloud processing
+Filtering (voxel grid downsampling, statistical outlier removal), ICP registration, normal estimation.
+
+### 7.7 Multi-sensor fusion
+Perception fusion architecture: sensor nodes â†’ fusion node â†’ world model. Camera+LiDAR fusion (projection, association). Multi-object tracking (Kalman/JPDA).
+
+### 7.8 Perception latency budget
+Budget end-to-end: capture â†’ transfer â†’ preprocess â†’ inference â†’ postprocess â†’ publish. Target < 100ms for reactive control. Monitor and alert on budget exceeded.
+
+### 7.9 Perception anti-patterns
+1. Processing every frame when not needed (decimate).
+2. Not validating depth values (check range, NaN, inf).
+3. Assuming cameras are calibrated (load actual calibration).
+4. Ignoring sensor warmup (discard initial frames).
+5. Single-pixel depth sampling (use neighborhood median).
+6. Not handling coordinate frame transforms (explicit frame tracking with tf2).
+
+### 7.10 Production perception checklist
+- [ ] Sensor drivers publish with correct QoS and timestamps
+- [ ] Calibration loaded and validated (reprojection error)
+- [ ] Capture decoupled from processing (bounded queues)
+- [ ] Depth values validated before use
+- [ ] Coordinate frames tracked explicitly (tf2)
+- [ ] Sensor warmup handled
+- [ ] Latency budget monitored
+- [ ] Degradation on sensor failure (fallback)
+- [ ] Multi-sensor fusion tested
+- [ ] Perception outputs validated against ground truth
+

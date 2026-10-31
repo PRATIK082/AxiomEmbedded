@@ -1,5 +1,5 @@
 id: robotics
-version: 1.2.0
+version: 1.3.0
 contract_version: 1
 type: reusable-skill
 standards_refs:
@@ -16,6 +16,9 @@ standards_refs:
   clause: Maintenance baseline
   source_url: https://docs.ros.org/en/humble/
 changelog:
+- version: 1.3.0
+  date: '2026-10-31'
+  summary: 'Merged production-grade robotics content (software principles, design patterns, ROS2 node/QoS, system architecture/DDS/build/docker/web, perception, testing) from robotics-agent-skills reference.'
 - version: 1.1.0
   date: 2026-10-03
   summary: Deep-update expansion with distro policy, interface-first architecture,
