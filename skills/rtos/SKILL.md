@@ -1,7 +1,7 @@
 ---
 name: rtos
 description: RTOS selection, scheduling/IPC rules, MPU partitioning, WCET verification. Use for FreeRTOS/Zephyr/ThreadX designs or timing analysis.
-version: 1.2.0
+version: 1.3.0
 domains: [all]
 platforms: [mcu, mpu, rtos]
 axiom:
@@ -142,3 +142,121 @@ scheduling analysis, and verification on MCU/MPU targets.
 6. Scheduling/timing deltas flagged for human review before PR (safety-relevant).
 
 Load task-specific domain/platform/rule overlays before execution.
+
+
+
+## 7. RTOS task architecture rules
+
+### 7.1 One task, one responsibility
+Each task owns exactly one functional domain. Forbidden: monolithic super-task mixing sensor read, PID, OLED, UART, flash in one loop. Decompose into sensor_task, control_task, telemetry_task, logger_task.
+
+### 7.2 Task classification
+- **Acquisition task** (imu_task, adc_task, encoder_task, gps_task): acquire raw data, publish via queue/event. Must not contain control algorithms, logging, or protocol processing.
+- **Control task** (attitude_task, motor_control_task, balance_task): compute control outputs, enforce timing via `osDelayUntil`/`vTaskDelayUntil`. Must not contain SPI/I2C register access, display refresh, file I/O.
+- **Communication task** (uart_task, can_task, usb_task, ethernet_task): protocol encoding/decoding, buffer management, forward data to queues. Must not contain control law or business logic.
+- **Service task** (logger_task, storage_task, monitor_task, health_check_task): background housekeeping, health monitoring, logging. Must not contain real-time control or sensor acquisition.
+
+### 7.3 Scheduling rules
+Periodic tasks must use fixed-rate scheduling (`osDelayUntil`/`vTaskDelayUntil`), not `osDelay` (which drifts by execution time).
+
+### 7.4 Priority rules
+Assign priority by real-time criticality: Control Task (highest) â†’ Sensor Task â†’ Communication Task â†’ Service/Logging Task â†’ Idle. Control-related interrupts must have higher priority than communication interrupts.
+
+### 7.5 Inter-task communication rules
+Shared data between tasks must never use bare global variables. Use:
+- Queue â€” for data streams (`imu_task â†’ [queue] â†’ control_task`).
+- Event flags â€” for state notification (DMA complete, data ready, GPS lock).
+- Mutex â€” for shared resources (flash, SD card, shared buffer). Do not use mutex as message-passing.
+ISR-to-task handoff via queue/event (`FromISR` APIs), not shared globals.
+
+### 7.6 ISR cooperation rules
+ISRs must be minimal. Allowed: set event flag, send to queue (ISR-safe API), release semaphore (ISR-safe), start DMA. Forbidden in ISR: `printf`, `malloc`/`free`, floating-point math, protocol parsing, control algorithm math, blocking calls. DMA post-processing runs in task context, not ISR.
+
+### 7.7 Resource ownership rules
+Every hardware resource has exactly one owning task. Multiple tasks must not write the same UART directly; route through a single owner via queue.
+
+### 7.8 Watchdog rules
+Every RTOS project must include a watchdog/health-monitor: task liveness heartbeats, queue depth checks, stack high-water marks.
+
+### 7.9 Timing documentation
+Document per periodic task: Task, Hz, Priority, Stack, WCET (worst-case execution time).
+
+### 7.10 RTOS validation checklist
+- [ ] Each task has single, clearly defined responsibility
+- [ ] No super-tasks mixing acquisition, control, communication
+- [ ] Periodic tasks use `osDelayUntil`/`vTaskDelayUntil`
+- [ ] Priorities assigned by real-time criticality
+- [ ] ISRs contain no printf, malloc, float math, protocol parsing, control logic
+- [ ] ISR-to-task handoff via queue or event
+- [ ] Inter-task communication uses queues/events/mutexes, not bare extern globals
+- [ ] Control loops not coupled to communication timing
+- [ ] DMA post-processing in task context
+- [ ] Each hardware resource has single owning task
+- [ ] Watchdog/health monitor exists
+- [ ] Timing parameters (period, priority, stack, WCET) documented
+
+### 7.11 Auto-fix strategy
+Identify task responsibility overlap or ISR overreach; split monolithic tasks; replace bare global sharing with queues/events/mutexes; move heavy ISR work into task context via deferred processing; introduce resource ownership model; reassign priorities; regenerate RTOS architecture and task documentation.
+
+## 8. ISR design rules (Fast In, Fast Out)
+
+### 8.1 Core principle
+ISRs capture events; tasks process business logic. ISRs measured in microseconds.
+
+### 8.2 Allowed in ISR (event capture only)
+Read hardware status register, clear interrupt flag, capture timestamp, copy bounded data to buffer, set event flag, send to queue, give semaphore, start DMA, wake task, increment bounded counter.
+
+### 8.3 Forbidden in ISR (business processing)
+Protocol parsing, attitude estimation, PID/control law, Kalman filter, path planning/navigation, file system ops, flash write/erase, network processing, display refresh, logging, complex loops with non-constant bounds, blocking calls.
+
+### 8.4 Execution time budget
+| ISR Type | Max recommended |
+|----------|-----------------|
+| GPIO | < 5 Âµs |
+| UART | < 10 Âµs |
+| SPI | < 10 Âµs |
+| DMA | < 10 Âµs |
+| I2C | < 15 Âµs |
+| CAN | < 20 Âµs |
+| Timer | < 20 Âµs |
+No unbounded loops in ISR.
+
+### 8.5 Strict rules
+- `printf` strictly forbidden in ISR (blocking, non-deterministic, not reentrant).
+- `malloc`/`calloc`/`realloc`/`free` forbidden in ISR.
+- Extensive floating-point math forbidden in ISR.
+- HAL blocking operations (`HAL_UART_Transmit` with timeout, `HAL_Delay`) forbidden; dispatch calls (`HAL_UART_IRQHandler`) allowed.
+- RTOS integration must use `FromISR` variants (`xQueueSendFromISR`, `vTaskNotifyGiveFromISR`, `xSemaphoreGiveFromISR`, `portYIELD_FROM_ISR`).
+- Interrupt priority reflects real-time criticality: Timer Control (highest) â†’ DMA â†’ SPI/I2C â†’ UART â†’ EXTI (lowest). Control interrupts higher than communication.
+- Shared data must use queue, double buffer, or event flag â€” not unstructured shared globals. Ring buffer for UART RX.
+- Timer ISR: only system tick, periodic event flags, input capture timestamps, counter increment. No PID, telemetry, sensor fusion.
+
+### 8.6 ISR patterns
+- Flag pattern (single binary event)
+- Queue pattern (data streaming)
+- Event pattern (task notification)
+- Ring buffer pattern (buffered UART RX)
+
+### 8.7 Flight controller special rules
+Forbidden: running Mahony/PID inside IMU data-ready ISR (`IMU IRQ â†’ Mahony â†’ PID â†’ PWM` all in ISR). Required: `IMU IRQ â†’ [TaskNotify] â†’ Control Task (1 kHz) â†’ Mahony â†’ PID â†’ PWM`.
+
+### 8.8 ISR validation checklist
+- [ ] ISR has single, clearly defined responsibility
+- [ ] ISR execution time bounded and predictable
+- [ ] No complex loops with variable bounds
+- [ ] No protocol parsing in ISR
+- [ ] No control algorithm computation in ISR
+- [ ] No printf or logging in ISR
+- [ ] No malloc/free or heap operations in ISR
+- [ ] No blocking calls in ISR
+- [ ] RTOS FromISR APIs used where applicable
+- [ ] Interrupt flag correctly cleared
+- [ ] Event notification or queue used for ISRâ†’task handoff
+- [ ] ISR responsibilities separated from task responsibilities
+- [ ] No business logic in ISR
+- [ ] DMA ISR defers processing to task context
+- [ ] if RTOS: portYIELD_FROM_ISR() called when task wake requested
+
+### 8.9 Auto-fix strategy
+Identify heavy operations in ISR; move into task context; replace direct shared-variable communication with queue/event/ring buffer; replace blocking APIs with non-blocking or FromISR variants; introduce ring buffer for serial data; recalculate worst-case interrupt latency; revalidate.
+

@@ -1,7 +1,7 @@
 ---
 name: architecture
 description: System/software architecture views, interface contracts, allocation, and evaluation. Use when structuring a system, defining ICDs/APIs, or reviewing layering.
-version: 1.2.0
+version: 1.3.0
 domains: [all]
 platforms: [all]
 axiom:
@@ -98,3 +98,60 @@ fewer than these four for anything above QM:
 
 - Architecture claims trace to requirements via the traceability matrix.
 - No implementation starts on an unevaluated architecture (§5).
+
+
+
+## 7. Firmware project structure and dependency rules
+
+### 7.1 Mandatory project layout
+Firmware projects must use:
+```
+project/
+â”œâ”€â”€ app/
+â”œâ”€â”€ module/
+â”œâ”€â”€ interface/
+â”œâ”€â”€ bsp/
+â”œâ”€â”€ platform/
+â”œâ”€â”€ middleware/
+â”œâ”€â”€ docs/
+â”œâ”€â”€ tools/
+â””â”€â”€ tests/
+```
+- `app/` â€” state machines, orchestration, startup, task creation. Must not contain register access, HAL calls, or peripheral drivers.
+- `module/` â€” business logic (motor, imu, control, telemetry, navigation, power). May depend only on `interface/`. Must not access HAL, CMSIS, GPIO/UART/SPI registers.
+- `interface/` â€” hardware abstraction contracts (gpio_if.h, uart_if.h, ...). Contracts only; no implementation.
+- `bsp/` â€” board-specific implementation (led, button, buzzer, oled, imu_board). Maps interfaces to hardware; may use platform.
+- `platform/` â€” vendor-specific code (platform/<target>/core, hal, cmsis, startup, linker). Contains CubeMX/HAL/CMSIS/startup/linker. Must never contain business logic.
+- `middleware/` â€” third-party (freertos, lwip, fatfs, usb). Isolated from application logic.
+
+### 7.2 Dependency rules
+Allowed direction (top-down only): `APP â†’ MODULE â†’ INTERFACE â†’ BSP â†’ PLATFORM`. Forbidden: `APP â†’ HAL`, `APP â†’ STM32_GPIO/UART`, `MODULE â†’ HAL`, `MODULE â†’ Register Access`, `MODULE â†’ CMSIS`, `MODULE â†’ FreeRTOS internals`, `PLATFORM â†’ MODULE`, `PLATFORM â†’ APP`, `BSP â†’ APP`. No circular dependencies.
+
+### 7.3 Platform isolation rules
+All MCU vendor files must reside inside `platform/<target>/` (e.g. `platform/stm32f407/`, `platform/esp32s3/`). Never place generated vendor code in project root. Forbidden at repo root: `/Core`, `/Drivers` â€” move into platform directory.
+
+### 7.4 Interface rules
+Every hardware service must expose an interface (e.g. `uart_if_t` with function pointers). Modules interact only with interfaces; must not know UART instance, GPIO port, DMA channel, MCU family.
+
+### 7.5 Module rules
+Each module owns one responsibility. Good: motor, imu, control, telemetry, storage. Bad: system_manager, all_in_one, utility, misc. Avoid god-modules.
+
+### 7.6 RTOS separation
+RTOS task creation belongs to `app/`; business logic belongs to `module/`. Pattern: `TASK â†’ MODULE API â†’ INTERFACE â†’ DRIVER`.
+
+### 7.7 Architecture validation checklist
+- [ ] Project follows required directory layout
+- [ ] No HAL usage in `app/`
+- [ ] No HAL usage in `module/`
+- [ ] No register access outside `platform/`
+- [ ] No CubeMX code outside `platform/`
+- [ ] All peripherals abstracted through interfaces
+- [ ] No circular dependencies
+- [ ] No business logic inside BSP
+- [ ] No business logic inside platform
+- [ ] Modules have single responsibility
+- [ ] Interfaces contain declarations only
+- [ ] Dependency direction is correct
+
+If violations found: report, explain harm, suggest corrected architecture, refactor.
+
