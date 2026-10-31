@@ -1,7 +1,7 @@
 # OS layer: NuttX
 
 Pointer layer per `Feature.md`. Canonical content lives in the skill and the
-platform overlay — this file only links them. Single source of truth:
+platform overlay -- this file only links them. Single source of truth:
 `registries/skill-facets.yaml` + `registries/skill-index.json`.
 
 - Skills: `skills/rtos/` (scheduling/timing), `skills/embedded-linux/` (POSIX userspace discipline)

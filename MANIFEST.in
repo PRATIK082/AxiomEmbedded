@@ -1,7 +1,7 @@
 # Ship the content trees in the sdist so `pip install` from a tarball still
 # finds skills/agents/registries next to the code. Wheels only carry the
 # Python packages (see pyproject allowlist); a bare wheel install therefore
-# registers the MCP server only — pass --source DIR for full content.
+# registers the MCP server only -- pass --source DIR for full content.
 
 graft skills
 graft agents

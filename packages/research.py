@@ -14,7 +14,7 @@ binary, no keys, and no network:
   Without ``TAVILY_API_KEY`` / ``BRAVE_API_KEY`` / ``SEARXNG_URL`` they
   report ``unavailable`` honestly instead of fabricating findings.
 
-Guards (audit §Phase 3): every report ends with SAFETY_NOTICE (a passing
+Guards (audit SPhase 3): every report ends with SAFETY_NOTICE (a passing
 check is not certification); standards text is paraphrase-only (local
 findings quote at most QUOTE_LIMIT characters and carry identifiers,
 never normative prose).
@@ -260,7 +260,7 @@ def synthesize(question: str, per_question: list[dict],
         backend = entry.get("backend", "?")
         status = entry.get("status", "?")
         note = entry.get("reason", f"{len(entry.get('findings', []))} raw findings")
-        lines.append(f"- `{backend}`: {status} — {note}")
+        lines.append(f"- `{backend}`: {status} -- {note}")
     lines.append("")
     lines.append("## Findings")
     if not accepted:
@@ -274,7 +274,7 @@ def synthesize(question: str, per_question: list[dict],
                                     str(finding.get("version", "")),
                                     str(finding.get("clause", ""))) if p).strip()
         if meta:
-            cite = f"{meta} — {cite}" if cite else meta
+            cite = f"{meta} -- {cite}" if cite else meta
         if cite:
             lines.append(f"  Source: {cite}")
     lines.append("")

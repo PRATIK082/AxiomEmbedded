@@ -99,7 +99,7 @@ def set_link(kind: str, skill_id: str, values: list[str],
     """Edit the skill graph directly in catalog.yaml (single source).
 
     Replaces the old links.yaml workflow: no second file, no derivation
-    step — edit, then run `axiom skills apply` to propagate + validate.
+    step -- edit, then run `axiom skills apply` to propagate + validate.
     `related_skills` edits auto-maintain the back-link (symmetry is a
     validation error, so this keeps the tree green in one call).
     """

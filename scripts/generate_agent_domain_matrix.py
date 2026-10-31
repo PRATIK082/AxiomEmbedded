@@ -8,7 +8,7 @@ Sources (hand-edited only):
   registries/skill-index.json (skill facets + by_group views)
 
 Output (generated, do not edit by hand):
-  registries/agent-domain-matrix.json — agent x domain -> skills/platforms/standards/profiles
+  registries/agent-domain-matrix.json -- agent x domain -> skills/platforms/standards/profiles
 
 Usage:
   python scripts/generate_agent_domain_matrix.py        # regenerate in place

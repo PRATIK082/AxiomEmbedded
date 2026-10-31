@@ -38,7 +38,7 @@ runtime:
   clarification_question: "I detected conflicting project signals (repo={repo_domain}, prompt={prompt_domain}). Which domain should I use for this run? Reply: {candidates}."
   # Token efficiency: agents load core + primary now, defer the rest.
   # primary_cap bounds SKILL.md files opened before analysis; deferred skills
-  # are consulted only on demand (named section) — never bulk-loaded.
+  # are consulted only on demand (named section) -- never bulk-loaded.
   token_budget: {primary_cap: 8, group_cap: 12, max_context_files: 8}
   # Production-grade output contract: every agent run ends with this verdict
   # block so deployments/consumers get a machine-checkable result.

@@ -6,7 +6,7 @@ supported AUTOSAR versions) into the internal canonical YAML/JSON
 (`schemas/uds-test-spec.schema.json`).
 
 The pack below is an exemplar (`acme-diag-extract`). Substitute any real
-pack implementing the same entry-point contract — the bridge is unchanged.
+pack implementing the same entry-point contract -- the bridge is unchanged.
 
 ## Install (external pack, independent release cycle)
 
