@@ -1,4 +1,4 @@
-# AxiomEmbedded — MCP client matrix (10 clients)
+# AxiomEmbedded -- MCP client matrix (10 clients)
 
 `axiom install --client <name>` wires all of these automatically
 (`--global` for user scope, `--domains d1,d2` / `--groups g1,g2` for scoped
@@ -30,7 +30,7 @@ Fallback: `{"command": "python", "args": ["-m", "axiom_cli", "mcp"]}`.
 Clients that copy no skill files still get full skill access: `search_skills`,
 `engage`, `read_skill`, and `run_skill` run server-side over MCP.
 
-## Manual fallback — Aider
+## Manual fallback -- Aider
 
 If `.aider.conf.yml` already exists the installer keeps it untouched. Add:
 
@@ -41,7 +41,7 @@ mcp-servers:
     args: [mcp]
 ```
 
-## Manual fallback — Kilo Code
+## Manual fallback -- Kilo Code
 
 If the `kilo.jsonc` already exists the installer keeps it untouched (JSONC
 comments are not machine-mergeable). Add under the `mcp` key:

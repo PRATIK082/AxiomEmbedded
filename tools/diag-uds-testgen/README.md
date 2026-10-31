@@ -1,9 +1,9 @@
 # diag-uds-testgen
 
-Deterministic reference generator for the `automotive-diagnostics` skill (Rules 5–7).
+Deterministic reference generator for the `automotive-diagnostics` skill (Rules 5-7).
 
 Converts a canonical UDS test-spec (YAML/JSON, see `schemas/uds-test-spec.schema.json`)
-— produced by adapters from DEXT/ARXML, ODX/PDX, CDD, XLS/XLSX, or OTX sequence oracles —
+-- produced by adapters from DEXT/ARXML, ODX/PDX, CDD, XLS/XLSX, or OTX sequence oracles --
 into a full per-service positive + negative test matrix plus validation outline,
 traceability CSV, and provenance sidecar.
 

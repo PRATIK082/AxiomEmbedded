@@ -42,7 +42,7 @@ coverage reporting as evidence.
 
 | # | Standard | Version / status | Clause / scope | Source |
 |---|----------|------------------|----------------|--------|
-| 1 | ISO 26262-6 | 2018 | §9/Table 9 coverage criteria per ASIL; highly recommended MC/DC at ASIL D | `https://www.iso.org/standard/68389.html` |
+| 1 | ISO 26262-6 | 2018 | S9/Table 9 coverage criteria per ASIL; highly recommended MC/DC at ASIL D | `https://www.iso.org/standard/68389.html` |
 | 2 | DO-178C + CAST position papers | 2011; FAA CAST-10 on MC/DC | MC/DC objective for DAL A/B, analysis of masked evaluations | `https://www.rtca.org/products/software-considerations-in-airborne-systems-and-equipment-certification-do-178/` |
 | 3 | LLVM source-based code coverage | Current | Instrumentation methodology for C/C++ (gcov-compatible reporting) | `https://clang.llvm.org/docs/SourceBasedCodeCoverage.html` |
 
@@ -50,7 +50,7 @@ coverage reporting as evidence.
 
 | Level | Primary metric | Supporting metric |
 |-------|---------------|-------------------|
-| Unit (`unit-test`) | Statement + branch 100% (§4 there) | MC/DC where required; function/call coverage |
+| Unit (`unit-test`) | Statement + branch 100% (S4 there) | MC/DC where required; function/call coverage |
 | Integration | Interface coverage: every interface exercised incl. error paths | Requirement coverage of integration requirements |
 | System (`system-test`) | Requirement coverage 100% | Code coverage informational (finds dead code, never a pass criterion) |
 
@@ -64,7 +64,7 @@ coverage reporting as evidence.
    add tests that expose them.
 3. **Generated-code caution.** Autocode and inlined defensive checks inflate
    condition counts; coverage is measured on the verified artifact (object
-   code coverage where the integrity plan requires it, per DO-178C §6.4.4.3 /
+   code coverage where the integrity plan requires it, per DO-178C S6.4.4.3 /
    26262-6 Table 9 note).
 
 ## 5. Exclusion discipline (blocking)
@@ -77,8 +77,8 @@ re-reviewed.
 
 ## 6. Exit gates (blocking)
 
-1. Per-level targets met (§3) with tool-generated reports archived.
-2. Zero unjustified gaps; exclusions conform to §5.
+1. Per-level targets met (S3) with tool-generated reports archived.
+2. Zero unjustified gaps; exclusions conform to S5.
 3. MC/DC at required levels with masking analysis where applicable.
 4. Coverage deltas on every PR: no merge reduces coverage without a linked
    justification.
@@ -86,4 +86,4 @@ re-reviewed.
 ## 7. Verification of this skill (Phase 4 gate)
 
 - Reports are tool artifacts with versions recorded, not hand-written tables.
-- Exclusion registry audited for §5 conformance.
+- Exclusion registry audited for S5 conformance.

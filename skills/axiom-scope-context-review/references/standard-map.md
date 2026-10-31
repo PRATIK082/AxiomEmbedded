@@ -1,4 +1,4 @@
-# Standard map — axiom-scope-context-review
+# Standard map -- axiom-scope-context-review
 
 | Standard | Edition | Clauses considered | Project use |
 |---|---|---|---|

@@ -16,7 +16,7 @@ MAP = {
 }
 
 def main() -> int:
-    ap = argparse.ArgumentParser(description="Print external AxiomEmbedded →AxiomEmbedded migration mappings")
+    ap = argparse.ArgumentParser(description="Print external AxiomEmbedded ->AxiomEmbedded migration mappings")
     ap.add_argument("--source", required=True, help="External AxiomEmbedded  checkout or extracted source directory")
     args = ap.parse_args()
     root = Path(args.source)

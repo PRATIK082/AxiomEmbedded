@@ -1,4 +1,4 @@
-# Standard map — axiom-loto-procedure-review (original summaries, no normative text)
+# Standard map -- axiom-loto-procedure-review (original summaries, no normative text)
 
 | Standard | Edition | Clauses considered | Project use |
 |---|---|---|---|

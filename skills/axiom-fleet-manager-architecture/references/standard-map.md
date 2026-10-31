@@ -1,4 +1,4 @@
-# Standard map — axiom-fleet-manager-architecture (original summaries, no normative text)
+# Standard map -- axiom-fleet-manager-architecture (original summaries, no normative text)
 
 | Standard | Edition | Clauses considered | Project use |
 |---|---|---|---|

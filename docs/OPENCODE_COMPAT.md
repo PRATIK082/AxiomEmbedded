@@ -41,7 +41,7 @@ launcher work in this phase confirms them against a pinned OpenCode.
   already-running service.
 - v2 major versions outside 2.1.0-2.1.4 remain warn/fail-closed unless
   `AXIOM_ALLOW_UNTESTED_OPENCODE=1` is set.
-- Changelog v1.18.31 → v1.18.35 contains **bugfixes only** (provider
+- Changelog v1.18.31 -> v1.18.35 contains **bugfixes only** (provider
   SDK bumps, macOS signing, timeout defaults, Copilot/ACPs fixes).
   No config-schema, CLI-flag, agent-frontmatter, command-frontmatter,
   plugin-hook, or MCP-config breaking changes were found in that
@@ -58,7 +58,7 @@ launcher work in this phase confirms them against a pinned OpenCode.
 
 ## Integration surface (v1, verified against docs)
 
-### Headless execution — the launcher primitive
+### Headless execution -- the launcher primitive
 
 - `opencode run [message..]` is the supported non-interactive entry
   point for scripting and automation.
@@ -72,7 +72,7 @@ launcher work in this phase confirms them against a pinned OpenCode.
 - TUI launch is plain `opencode [project]` with `--model`, `--agent`,
   `--prompt`, `--auto` flags.
 
-### Isolated config — the key launcher mechanism
+### Isolated config -- the key launcher mechanism
 
 - `OPENCODE_CONFIG` (custom config file path) and
   `OPENCODE_CONFIG_DIR` (custom directory searched for
@@ -81,8 +81,8 @@ launcher work in this phase confirms them against a pinned OpenCode.
   Axiom-owned config without touching the user's own setup.
 - `OPENCODE_CONFIG_CONTENT` (inline JSON) allows runtime overrides.
 - Config sources merge (not replace) in precedence order:
-  remote → global → `OPENCODE_CONFIG` → project → `.opencode` dirs →
-  inline → managed. The launcher must assume the user's global/project
+  remote -> global -> `OPENCODE_CONFIG` -> project -> `.opencode` dirs ->
+  inline -> managed. The launcher must assume the user's global/project
   config still merges in; Axiom-owned agents/commands ship via
   `OPENCODE_CONFIG_DIR`, and Axiom defaults that must win go inline
   via `OPENCODE_CONFIG_CONTENT`.
@@ -91,7 +91,7 @@ launcher work in this phase confirms them against a pinned OpenCode.
 - Auth material lives outside our config (`~/.local/share/opencode/auth.json`
   via `/connect`); the launcher never writes credentials.
 
-### Providers and models — passthrough, no Axiom registry
+### Providers and models -- passthrough, no Axiom registry
 
 - Model selection is always `provider/model` (`--model`,
   `model`/`small_model` config keys, per-agent and per-command
@@ -114,7 +114,7 @@ launcher work in this phase confirms them against a pinned OpenCode.
   `AZURE_RESOURCE_NAME`) works because the launcher execs OpenCode
   in-process-environment.
 
-### Agents — OpenCode-native subagents with allowlists
+### Agents -- OpenCode-native subagents with allowlists
 
 - Markdown agents in `.opencode/agents/` (or
   `~/.config/opencode/agents/`, or `OPENCODE_CONFIG_DIR/agents/`);
@@ -133,12 +133,12 @@ launcher work in this phase confirms them against a pinned OpenCode.
   subagents an agent may invoke (denied subagents disappear from the
   Task tool description).
 - Legacy agent `tools:` map is **deprecated** in favor of
-  `permission:` — Axiom generates `permission:` only.
+  `permission:` -- Axiom generates `permission:` only.
 - `subagent_depth` (default 1), `steps`, `temperature`, `hidden`
   (subagents only), `default_agent` (must be primary) complete the
   surface the launcher needs.
 
-### Slash commands — `/axiom-*` mapping confirmed
+### Slash commands -- `/axiom-*` mapping confirmed
 
 - Markdown commands in `.opencode/commands/` (also global and
   `OPENCODE_CONFIG_DIR` locations); filename becomes `/name`;
@@ -146,11 +146,11 @@ launcher work in this phase confirms them against a pinned OpenCode.
   body is the template with `$ARGUMENTS` / `$1..$N`, `` !`cmd` ``
   shell injection, `@file` references.
 - `subtask: true` forces subagent invocation without polluting primary
-  context — the mapping for research-style `/axiom-*` commands.
+  context -- the mapping for research-style `/axiom-*` commands.
 - Custom commands can override built-ins; Axiom uses the `axiom-`
   prefix and must never shadow built-ins.
 
-### Hooks — TypeScript plugins
+### Hooks -- TypeScript plugins
 
 - Local plugins: `.opencode/plugins/*.js|ts` (also global and
   `OPENCODE_CONFIG_DIR`), auto-loaded at startup; npm plugins via
@@ -163,11 +163,11 @@ launcher work in this phase confirms them against a pinned OpenCode.
   (policy gates, e.g. deny `.env` reads), `permission.asked/replied`,
   `session.created/compacted/error/idle`, `command.executed`,
   `file.edited`, `experimental.session.compacting` (domain context
-  that survives compaction — directly useful for Axiom traceability).
+  that survives compaction -- directly useful for Axiom traceability).
 - The repo already carries `@opencode-ai/plugin` 1.18.31 in
   `.opencode/` (found in Phase 0 audit), matching the pinned v1 line.
 
-### MCP — axiom_mcp wiring confirmed
+### MCP -- axiom_mcp wiring confirmed
 
 - Local MCP: `mcp.<name> = {type: "local", command: [...], cwd,
   environment, enabled, timeout}`; remote: `{type: "remote", url,
@@ -176,11 +176,11 @@ launcher work in this phase confirms them against a pinned OpenCode.
   enable per agent (`agent.<name>.tools` / permission globs).
   MCP tools are namespaced `<server>_*`.
 - Phase 1 `axiom_mcp` (stdio, 21 tools) plugs in as one `local`
-  entry: `command: ["axiom", "mcp"]` (or `python -m` fallback —
+  entry: `command: ["axiom", "mcp"]` (or `python -m` fallback --
   same rule as the Phase 1 installer).
 - `opencode mcp list/add/auth/debug` manage servers at runtime.
 - Verified keyless against 1.18.31 (Phase 2c): config validation
-  rejects the generic `{command, args}` split — OpenCode requires
+  rejects the generic `{command, args}` split -- OpenCode requires
   strict `{type: "local", command: [...], enabled: ...}` (fixed in
   sync/installer/launcher); the `initialize` result must carry
   `{protocolVersion, capabilities, serverInfo}` (fixed in

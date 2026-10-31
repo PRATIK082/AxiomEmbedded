@@ -1,4 +1,4 @@
-[![AxiomEmbedded — Open AI-Native Engineering Platform for Embedded & Cyber-Physical Systems](https://raw.githubusercontent.com/PRATIK082/AxiomEmbedded/main/docs/images/project-overview.png)](https://github.com/PRATIK082/AxiomEmbedded)
+[![AxiomEmbedded -- Open AI-Native Engineering Platform for Embedded & Cyber-Physical Systems](https://raw.githubusercontent.com/PRATIK082/AxiomEmbedded/main/docs/images/project-overview.png)](https://github.com/PRATIK082/AxiomEmbedded)
 
 <!-- gallery: future header images/GIFs go here, same linked-image pattern with main-pinned raw URLs. -->
 
@@ -11,31 +11,31 @@ AxiomEmbedded is an open, domain-neutral engineering platform for building, anal
 ## The central architecture
 
 ```text
-┌─────────────────────────────────────────────────────────────┐
-│                    AI ENGINEERING AGENTS                    │
-├─────────────────────────────────────────────────────────────┤
-│ Requirement │ Architecture │ Code │ Test │ Review │ Debug  │
-├─────────────────────────────────────────────────────────────┤
-│                    V-CYCLE ENGINE                           │
-├─────────────────────────────────────────────────────────────┤
-│ Requirements │ Design │ Implement │ Verify │ Validate      │
-├─────────────────────────────────────────────────────────────┤
-│                 ENGINEERING KNOWLEDGE BASE                   │
-├─────────────────────────────────────────────────────────────┤
-│ Standards │ Rules │ Checklists │ Templates │ Patterns       │
-├─────────────────────────────────────────────────────────────┤
-│                 DOMAIN SKILL PACKS                           │
-├─────────────────────────────────────────────────────────────┤
-│ Automotive │ Aerospace │ Defense │ Industrial │ Robotics     │
-├─────────────────────────────────────────────────────────────┤
-│                PLATFORM SKILL PACKS                         │
-├─────────────────────────────────────────────────────────────┤
-│ MCU │ MPU │ MPSoC │ RTOS │ Linux │ Bare-metal │ FPGA        │
-├─────────────────────────────────────────────────────────────┤
-│                 TOOL / AUTOMATION LAYER                      │
-├─────────────────────────────────────────────────────────────┤
-│ Python │ CMake │ Git │ CI/CD │ GCC │ Clang │ QEMU │ GDB     │
-└─────────────────────────────────────────────────────────────┘
++-------------------------------------------------------------+
+|                    AI ENGINEERING AGENTS                    |
++-------------------------------------------------------------+
+| Requirement | Architecture | Code | Test | Review | Debug  |
++-------------------------------------------------------------+
+|                    V-CYCLE ENGINE                           |
++-------------------------------------------------------------+
+| Requirements | Design | Implement | Verify | Validate      |
++-------------------------------------------------------------+
+|                 ENGINEERING KNOWLEDGE BASE                   |
++-------------------------------------------------------------+
+| Standards | Rules | Checklists | Templates | Patterns       |
++-------------------------------------------------------------+
+|                 DOMAIN SKILL PACKS                           |
++-------------------------------------------------------------+
+| Automotive | Aerospace | Defense | Industrial | Robotics     |
++-------------------------------------------------------------+
+|                PLATFORM SKILL PACKS                         |
++-------------------------------------------------------------+
+| MCU | MPU | MPSoC | RTOS | Linux | Bare-metal | FPGA        |
++-------------------------------------------------------------+
+|                 TOOL / AUTOMATION LAYER                      |
++-------------------------------------------------------------+
+| Python | CMake | Git | CI/CD | GCC | Clang | QEMU | GDB     |
++-------------------------------------------------------------+
 ```
 
 ## What it covers
@@ -55,59 +55,59 @@ AxiomEmbedded is an open, domain-neutral engineering platform for building, anal
 ## Core idea
 
 ```text
-                         ┌───────────────────────┐
-                         │       USERS           │
-                         │ Engineers / Teams     │
-                         └───────────┬───────────┘
-                                     │
-                     ┌───────────────┼────────────────┐
-                     ↓               ↓                ↓
+                         +-----------------------+
+                         |       USERS           |
+                         | Engineers / Teams     |
+                         +-----------+-----------+
+                                     |
+                     +---------------+----------------+
+                     v               v                v
                  Copilot          OpenCode         Web/CLI
-                     │               │                │
-                     └───────────────┼────────────────┘
-                                     ↓
-                          ┌────────────────────┐
-                          │ Agent Interop      │
-                          │ MCP / A2A / API    │
-                          └─────────┬──────────┘
-                                    ↓
-                          ┌────────────────────┐
-                          │ AGENT RUNTIME      │
-                          └─────────┬──────────┘
-                                    ↓
-                    ┌───────────────┼───────────────┐
-                    ↓               ↓               ↓
+                     |               |                |
+                     +---------------+----------------+
+                                     v
+                          +--------------------+
+                          | Agent Interop      |
+                          | MCP / A2A / API    |
+                          +---------+----------+
+                                    v
+                          +--------------------+
+                          | AGENT RUNTIME      |
+                          +---------+----------+
+                                    v
+                    +---------------+---------------+
+                    v               v               v
                Engineering       Domain           Tool
                  Agents          Agents           Agents
-                    │               │               │
-                    └───────────────┼───────────────┘
-                                    ↓
-                          ┌────────────────────┐
-                          │ CONTEXT ENGINE     │
-                          │ Graph + Index      │
-                          └─────────┬──────────┘
-                                    ↓
-            ┌───────────────────────┼────────────────────────┐
-            ↓                       ↓                        ↓
+                    |               |               |
+                    +---------------+---------------+
+                                    v
+                          +--------------------+
+                          | CONTEXT ENGINE     |
+                          | Graph + Index      |
+                          +---------+----------+
+                                    v
+            +-----------------------+------------------------+
+            v                       v                        v
        Requirements            Architecture              Code
-            │                       │                        │
-            └───────────────────────┼────────────────────────┘
-                                    ↓
-                          ┌────────────────────┐
-                          │ WORKFLOW ENGINE    │
-                          └─────────┬──────────┘
-                                    ↓
+            |                       |                        |
+            +-----------------------+------------------------+
+                                    v
+                          +--------------------+
+                          | WORKFLOW ENGINE    |
+                          +---------+----------+
+                                    v
                    V / Agile / Brownfield / Maintenance
-                                    ↓
-                          ┌────────────────────┐
-                          │ VERIFICATION       │
-                          │ TEST / ANALYSIS    │
-                          └─────────┬──────────┘
-                                    ↓
-                          ┌────────────────────┐
-                          │ EVIDENCE ENGINE    │
-                          └─────────┬──────────┘
-                                    ↓
+                                    v
+                          +--------------------+
+                          | VERIFICATION       |
+                          | TEST / ANALYSIS    |
+                          +---------+----------+
+                                    v
+                          +--------------------+
+                          | EVIDENCE ENGINE    |
+                          +---------+----------+
+                                    v
                                Git / CI / PR
 ```
 
@@ -184,8 +184,8 @@ axiom oc research "question" # research-framed headless run via the explore agen
 axiom oc run "task" --dry-run # print argv/env without executing
 ```
 
-Deep research without leaving the terminal (planner → searchers →
-verifier → synthesizer with citations; `auto` uses OpenCode subagents when
+Deep research without leaving the terminal (planner -> searchers ->
+verifier -> synthesizer with citations; `auto` uses OpenCode subagents when
 available, otherwise the keyless local backend):
 
 ```bash
@@ -196,7 +196,7 @@ axiom research "question" --format markdown --output report.md
 ## Axiom Skill Framework
 
 Thirty-five original `axiom-*` workflow skills (automotive, embedded, robotics,
-industrial, aerospace, cross-domain) plus the 58 existing skills — one tree,
+industrial, aerospace, cross-domain) plus the 58 existing skills -- one tree,
 one catalog (`skills/catalog.yaml`), 16 rule-based groups (`skills/groups.yaml`):
 
 ```bash
@@ -223,7 +223,7 @@ and `docs/skills/GROUPS.md`.
 
 | Component | Supported |
 |---|---|
-| Python | ≥ 3.11 (PyYAML only; pytest for tests) |
+| Python | >= 3.11 (PyYAML only; pytest for tests) |
 | OpenCode (live `axiom oc` / research) | v1 tested 1.18.31-1.18.35; v2.1.0-2.1.4 supported via `packages/launcher.py` (see `docs/OPENCODE_COMPAT.md`) |
 | Install | `pipx install axiom-embedded` (or `pip install axiom-embedded`) |
 | AI clients | 10 clients (opencode/claude/codex/gemini/copilot/cursor/cline/aider/kilo/openhands) via `axiom install --client` |

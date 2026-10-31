@@ -22,7 +22,7 @@ axiom:
 
 Single-core, no-OS firmware on MCU targets: reset-to-main structure, interrupt
 design, super-loop and static-schedule architectures, and bringing a board from
-first power-on to a deterministic main loop — the foundation under `mcu`,
+first power-on to a deterministic main loop -- the foundation under `mcu`,
 `drivers`, and `bootloader`.
 
 ## 1. Purpose and scope
@@ -37,7 +37,7 @@ time-triggered static schedules, sleep/idle power discipline, and linker-map
 evidence of fit.
 
 **Non-goals.** RTOS scheduling (see `rtos`), Linux userspace (see
-`embedded-linux`). This skill ends where an RTOS or OS takes over — and
+`embedded-linux`). This skill ends where an RTOS or OS takes over -- and
 documents that handoff.
 
 ## 2. Normative sources (high confidence)
@@ -55,9 +55,9 @@ documents that handoff.
    reviewed; the vector table is verified against the reference manual
    (position, handlers, reserved slots).
 2. **Clock before peripherals.** System clock tree configured and measured
-   first; peripheral init order follows dependencies (power → clock → GPIO →
-   bus → device). Every init function returns status; `main` halts visibly on
-   init failure — never proceeds half-initialized.
+   first; peripheral init order follows dependencies (power -> clock -> GPIO ->
+   bus -> device). Every init function returns status; `main` halts visibly on
+   init failure -- never proceeds half-initialized.
 3. **Fault handlers that speak.** HardFault/MemManage/BusFault/UsageFault
    capture stacked registers, fault status registers, and a breadcrumb trail
    into retained RAM or backup registers before reset. A fault handler that
@@ -92,9 +92,9 @@ wakes investigated, never polled away.
 3. ISR durations and worst-case latency measured and recorded.
 4. Shared main/ISR data audited for races.
 5. Linker map proves fit with margin; no heap use after init.
-6. MISRA/static-analysis clean with deviations documented (`implementation` §4).
+6. MISRA/static-analysis clean with deviations documented (`implementation` S4).
 
 ## 7. Verification of this skill (Phase 4 gate)
 
-- Timing claims are measured on target (§4.3, §5), never estimated.
-- Fault handlers produce diagnostics (§3.3), never silent loops.
+- Timing claims are measured on target (S4.3, S5), never estimated.
+- Fault handlers produce diagnostics (S3.3), never silent loops.

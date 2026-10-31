@@ -27,7 +27,7 @@ sign-off.
 
 ## 1. Purpose and scope
 
-**Purpose.** Make every claim verifiable by an independent party months later —
+**Purpose.** Make every claim verifiable by an independent party months later --
 no evidence, no claim, no release.
 
 **In scope.** Evidence taxonomy (reviews, analyses, test reports, tool outputs,
@@ -43,7 +43,7 @@ lifecycle skill). This skill governs their packaging and integrity.
 | # | Standard | Version / status | Clause / scope | Source |
 |---|----------|------------------|----------------|--------|
 | 1 | ISO 26262-8 | 2018 | Clause 10 documentation: work-product identification, versioning, approval records | `https://www.iso.org/standard/68390.html` |
-| 2 | DO-178C | 2011 | §11 software life-cycle data: plans, standards, verification results, configuration index | `https://www.rtca.org/products/software-considerations-in-airborne-systems-and-equipment-certification-do-178/` |
+| 2 | DO-178C | 2011 | S11 software life-cycle data: plans, standards, verification results, configuration index | `https://www.rtca.org/products/software-considerations-in-airborne-systems-and-equipment-certification-do-178/` |
 | 3 | ISO/IEC/IEEE 15289 | 2019 | Content of life-cycle information items (reviews, reports, plans) | `https://www.iso.org/standard/73196.html` |
 
 ## 3. Evidence taxonomy
@@ -53,7 +53,7 @@ lifecycle skill). This skill governs their packaging and integrity.
 | Review records | Requirement/architecture/code review minutes with dispositions | Human sign-off + tool export |
 | Analysis results | FMEDA, FTA, WCET, timing, static-analysis reports | Tool output, version-pinned tool |
 | Test results | Unit/integration/system/validation reports with environment | CI artifacts + hardware records |
-| Tool qualification | TCL/TQL reports, validation suites | `safety` §6 / DO-330 process |
+| Tool qualification | TCL/TQL reports, validation suites | `safety` S6 / DO-330 process |
 | Approvals | Baselines, waivers, deviation approvals, assessment reports | Named approver + date, never anonymous |
 
 ## 4. Integrity rules
@@ -62,10 +62,10 @@ lifecycle skill). This skill governs their packaging and integrity.
    replace the tool artifact (coverage XML, test logs, analyzer reports).
    Record tool name + version with every artifact.
 2. **Immutable once approved.** Approved evidence is read-only; superseding
-   requires a new version with a change reason — silent edits to evidence are a
+   requires a new version with a change reason -- silent edits to evidence are a
    process violation.
 3. **Retention planned.** Retention periods defined per artifact class at
-   project start (product lifetime + regulatory tail, typically 10–15 years
+   project start (product lifetime + regulatory tail, typically 10-15 years
    automotive); storage format must remain readable (PDF/A or plain-text
    formats, no proprietary-only binaries).
 4. **Schema-conformant.** Machine-readable evidence validates against

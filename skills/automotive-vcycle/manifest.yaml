@@ -9,7 +9,7 @@ context:
   graph_first: true
   max_hops_default: 2
 standards_refs:
-- number: ISO 26262 Road vehicles — Functional safety
+- number: ISO 26262 Road vehicles -- Functional safety
   version: '2018'
   clause: Part 3 concept, Part 4 system, Part 6 software, Part 8 supporting processes
   source_url: https://www.iso.org/standard/68383.html

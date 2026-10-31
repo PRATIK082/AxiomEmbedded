@@ -1,4 +1,4 @@
-# Axiom embedded CI pipeline fragment — adapt tiers, matrix, and gates per repo.
+# Axiom embedded CI pipeline fragment -- adapt tiers, matrix, and gates per repo.
 # Tiers: push (fast, host-only) / nightly (full matrix + target) / release (gated).
 name: axiom-embedded-ci
 on:

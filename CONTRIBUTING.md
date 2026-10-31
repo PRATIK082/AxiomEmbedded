@@ -12,16 +12,16 @@
 Every PR touching `skills/`, `agents/`, `registries/`, or
 `packages/skills/*` must be green on:
 
-- `python scripts/skill_pipeline.py --check` (link→enrich→index→clients→validate)
+- `python scripts/skill_pipeline.py --check` (link->enrich->index->clients->validate)
 - `python -m pytest -q`
 - `python -m axiom_cli doctor`
 
 Install the pre-commit hook once (`pip install pre-commit && pre-commit
 install`) so the gate runs locally before every commit. The `nightly-drift`
 workflow re-runs the same checks on schedule to catch drift that bypasses
-PRs. If the gate is red, run `axiom skills apply` and re-push — never
+PRs. If the gate is red, run `axiom skills apply` and re-push -- never
 hand-edit generated files. Tracked generated files are `registries/*.json`,
 `opencode.json`, `.mcp.json`, `GEMINI.md`, `.github/copilot-instructions.md`;
 the client mirrors under `.opencode/`, `.claude/` and `.claude-plugin/` are
-untracked build outputs — rebuild them with `python scripts/sync_clients.py`
+untracked build outputs -- rebuild them with `python scripts/sync_clients.py`
 after cloning instead of committing them.

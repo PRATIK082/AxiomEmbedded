@@ -3,7 +3,7 @@ name: axiom-test-automation
 title: Embedded Test Automation
 description: >
   Designs unit/integration test strategy, automation hooks and coverage expectations for embedded repos.
-version: 1.2.0
+version: 1.3.0
 author: PRATIK PATIL
 license: Apache-2.0
 domains: [all]
@@ -103,3 +103,51 @@ Follow Execution Workflow; record per-step evidence in the run manifest.
 
 ## References
 - Authoritative standard identifiers listed in catalog; landing URLs only, no normative text.
+
+
+
+## 7. Robotics testing (production-grade)
+
+### 7.1 The robotics testing pyramid
+Unit tests (pure functions, no ROS) -> component tests (ROS nodes in isolation) -> integration tests (launch files, multi-node) -> simulation tests (Gazebo/Isaac) -> hardware-in-the-loop tests -> field acceptance.
+
+### 7.2 Unit testing ROS2 nodes with pytest
+Use rclpy test fixtures, launch a node in-process, publish/subscribe, assert on outputs. Test pure functions (kinematics, filtering) without ROS dependency.
+
+### 7.3 Property-based testing with Hypothesis
+Generate random inputs for kinematics, transforms, filters; check invariants (orthonormality, range, monotonicity).
+
+### 7.4 Integration testing with launch_testing
+Launch a full system, wait for nodes/topics, run assertions, tear down. Use `launch_testing` with `@pytest.mark.launch_test`.
+
+### 7.5 Mock hardware patterns
+Abstract hardware behind interfaces; inject mocks for unit testing. Mock sensors publish synthetic data; mock actuators record commands.
+
+### 7.6 Golden file testing (trajectory regression)
+Record expected trajectories/outputs; compare new runs against golden files with tolerance. Detect regressions in planning/control.
+
+### 7.7 Simulation testing
+Run in Gazebo/Isaac Sim; test perception, planning, control in realistic physics. Use for regression and edge cases.
+
+### 7.8 CI/CD pipeline for robotics
+GitHub Actions: build matrix across ROS distros, run colcon test, launch_testing, lint (ament_lint), code coverage. Cache dependencies. Fail on warnings.
+
+### 7.9 Testing anti-patterns
+1. Testing with `sleep()` -- use event-driven waiting with timeout.
+2. Only testing happy path -- test failures explicitly (sensor dropout, comm loss).
+3. Non-deterministic tests -- fix random seeds, use deterministic simulation.
+4. No mock hardware -- tests require real robot; use mocks.
+5. No golden files -- regressions undetected.
+6. No CI -- manual testing only.
+
+### 7.10 Testing checklist
+- [ ] Pure functions unit-tested (no ROS dependency)
+- [ ] ROS nodes tested with pytest + launch_testing
+- [ ] Mock hardware used for unit/integration tests
+- [ ] Golden files for trajectory regression
+- [ ] Simulation tests for perception/planning/control
+- [ ] CI/CD runs tests on every PR
+- [ ] Failure cases explicitly tested
+- [ ] Tests are deterministic (fixed seeds)
+- [ ] Coverage tracked and reported
+

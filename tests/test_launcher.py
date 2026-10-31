@@ -1,5 +1,5 @@
 # SPDX-License-Identifier: Apache-2.0
-"""Phase 2a: `axiom oc` launcher — version gate, isolated config, dry-run."""
+"""Phase 2a: `axiom oc` launcher -- version gate, isolated config, dry-run."""
 
 import json
 import pathlib

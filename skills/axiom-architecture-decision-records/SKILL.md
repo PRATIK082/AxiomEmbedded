@@ -35,9 +35,9 @@ axiom:
 # Axiom Architecture Decision Records
 
 ## Purpose
-Capture each significant architectural choice as a small, reviewable record —
+Capture each significant architectural choice as a small, reviewable record --
 context, options considered, the decision, its consequences, and what would reopen
-it — kept under version control with an index and supersede chains, so future
+it -- kept under version control with an index and supersede chains, so future
 engineers inherit reasoning instead of archaeology.
 
 ## When to Use
@@ -79,8 +79,8 @@ engineers inherit reasoning instead of archaeology.
 
 ## Decision Rules
 - One decision per ADR; a record deciding two things is two records.
-- Status vocabulary is fixed: proposed → accepted | rejected | superseded
-  (by named successor); no "deferred forever" — deferred carries a revisit date.
+- Status vocabulary is fixed: proposed -> accepted | rejected | superseded
+  (by named successor); no "deferred forever" -- deferred carries a revisit date.
 - Safety/security-relevant ADRs require a named human approver outside the author.
 - Never rewrite a superseded ADR in place; append the successor link and freeze it.
 
@@ -105,10 +105,10 @@ in the run manifest.
   chains); checklist gates green.
 
 ## Common Failure Modes
-- ADR written after the code shipped as decoration → require decision date ≤
+- ADR written after the code shipped as decoration -> require decision date <=
   implementation date, or mark as reconstructive explicitly.
-- Options section lists strawmen → reject drafts whose alternatives no one would pick.
-- Index rots (files without index rows) → index regeneration check in CI.
+- Options section lists strawmen -> reject drafts whose alternatives no one would pick.
+- Index rots (files without index rows) -> index regeneration check in CI.
 
 ## Guardrails
 - No secrets in ADRs; no network calls; no compliance claims beyond "reviewed against".

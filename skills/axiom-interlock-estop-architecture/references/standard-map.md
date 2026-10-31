@@ -1,4 +1,4 @@
-# Standard map — axiom-interlock-estop-architecture (original summaries, no normative text)
+# Standard map -- axiom-interlock-estop-architecture (original summaries, no normative text)
 
 | Standard | Edition | Clauses considered | Project use |
 |---|---|---|---|

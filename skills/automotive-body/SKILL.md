@@ -1,6 +1,6 @@
 ---
 name: automotive-body
-description: Body electronics — BCM, lighting, doors/seats/mirrors, HVAC, PEPS/keyless, LIN/CAN topology, low-power modes, EOL configuration. Use for body ECUs, LIN slaves, and EOL variant coding.
+description: Body electronics -- BCM, lighting, doors/seats/mirrors, HVAC, PEPS/keyless, LIN/CAN topology, low-power modes, EOL configuration. Use for body ECUs, LIN slaves, and EOL variant coding.
 version: 1.2.0
 domains: [automotive]
 platforms: [mcu, autosar-classic]
@@ -19,7 +19,7 @@ axiom:
   - checklists/automotive-body-checklist.md
 ---
 
-# automotive-body — Body electronics capability
+# automotive-body -- Body electronics capability
 
 Reusable AxiomEmbedded capability for body-domain ECUs: BCM, exterior/interior
 lighting, door/seat/mirror control, HVAC, PEPS/keyless, LIN/CAN topology, low-power
@@ -54,8 +54,8 @@ and wake-up management, and EOL configuration and variant coding.
 
 ## Time estimate
 
-- Topology + power-state design: 3–5 days. Feature development: 5–15 days.
-  Integration + power/EOL verification: 5–10 days.
+- Topology + power-state design: 3-5 days. Feature development: 5-15 days.
+  Integration + power/EOL verification: 5-10 days.
 
 ## Resources
 
@@ -101,13 +101,13 @@ and wake-up management, and EOL configuration and variant coding.
 - Power campaign: sleep entry/exit, wake-source matrix, quiescent per ECU/vehicle, soak, load-shed order.
 - PEPS campaign with `security`: zone mapping, relay-attack resistance, key-learning authorization.
 - Lighting/closure: diagnostics coverage per channel, anti-pinch force measurement, HVAC sweeps.
-- EOL rig: flash → code → pair → learn → readback → checksum on every variant;
+- EOL rig: flash -> code -> pair -> learn -> readback -> checksum on every variant;
   mis-coded-vehicle injection must be caught by readback.
 - Fault injection: LIN break/short, CAN bus-off, slave loss, FET overtemp, low-battery, EOL abort.
 
 ## Traceability
 
-- SYS → BSW/SwSR → SW-C/`src/` → schedule/matrix entry → `test/` → evidence ID,
+- SYS -> BSW/SwSR -> SW-C/`src/` -> schedule/matrix entry -> `test/` -> evidence ID,
   with variant tags. Topology artifacts (LDF, DBC, ARXML) by version/hash; EOL tables by checksum.
 
 ## Compliance mapping (via overlays, not duplication)
@@ -118,7 +118,7 @@ and wake-up management, and EOL configuration and variant coding.
 
 ## Verification checklist (gate: all must pass)
 
-1. `scripts/verify_skill.py --skill automotive-body` → PASS.
+1. `scripts/verify_skill.py --skill automotive-body` -> PASS.
 2. Topology pinned; no phantom nodes.
 3. Build clean (gcc + clang, zero warnings); MISRA deviations rationale-recorded.
 4. Rest-bus/load-box HIL green; bus-load and schedule conformance in budget.

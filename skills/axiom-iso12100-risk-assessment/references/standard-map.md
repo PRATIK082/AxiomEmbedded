@@ -1,4 +1,4 @@
-# Standard map — axiom-iso12100-risk-assessment (original summaries, no normative text)
+# Standard map -- axiom-iso12100-risk-assessment (original summaries, no normative text)
 
 | Standard | Edition | Clauses considered | Project use |
 |---|---|---|---|

@@ -1,4 +1,4 @@
-# AxiomEmbedded Audit — installability + standalone use
+# AxiomEmbedded Audit -- installability + standalone use
 
 Date: 2026-10-09. Scope: README, AGENTS.md, PROJECT_SPEC.md, ROADMAP.md,
 pyproject.toml, axiom_cli/, agents/, skills/, tools/, integrations/, clients/.
@@ -44,11 +44,11 @@ Method: direct file reads (no code executed). No code changed in this step.
   `registries/skills.json`, `registries/skill-index.json`,
   `registries/skill-facets.yaml` exist. Skill bodies are substantive
   (e.g. `embedded-c` cites ISO C17 / MISRA C:2025 / CERT C by reference + URL,
-  no normative text vendored — compliant with the safety rule).
+  no normative text vendored -- compliant with the safety rule).
 - **Tools layer (`tools/`, 10 dirs):** `change-impact`, `coverage-ingestor`,
   `dependency-analyzer`, `documentation-generator`, `report-generator`,
   `repository-analyzer`, `source-parser`, `static-analysis-aggregator`,
-  `test-generator`, `traceability-checker` — directories exist (content audit
+  `test-generator`, `traceability-checker` -- directories exist (content audit
   per-tool not done; CLI `analyze`/`graph build` use `packages/context`, not
   `tools/` directly).
 - **Client onboarding pointers (real, minimal):** root `AGENTS.md` (portable
@@ -77,30 +77,30 @@ Method: direct file reads (no code executed). No code changed in this step.
   (3 lines), `integrations/copilot/README.md` (3 lines),
   `integrations/a2a/README.md` (3 lines) describe wiring that has no code behind it.
 - `integrations/llm/provider.py` is a `Protocol` + `UnconfiguredProvider` that
-  raises on use — no OpenAI/Anthropic/Gemini client, no streaming, retries, or
+  raises on use -- no OpenAI/Anthropic/Gemini client, no streaming, retries, or
   token accounting.
 - `REPOSITORY_INVENTORY.md` claims `.github/copilot-instructions.md`,
   `.github/instructions/`, `.github/prompts/`, `.github/agents/` exist; glob for
-  `.github/**/*` returned nothing — either absent or not visible to the tool.
+  `.github/**/*` returned nothing -- either absent or not visible to the tool.
   Likewise `.opencode/**/*` glob returned nothing (no generated
   `.opencode/{agents,skills}` present). Treat both as missing until proven otherwise.
-- ROADMAP 0.3–1.0 items (persistent index, C/C++ adapters, workflow state machine,
+- ROADMAP 0.3-1.0 items (persistent index, C/C++ adapters, workflow state machine,
   schema-driven CLI/API, MCP skill packaging, A2A exchange, eval harness) and
   `docs/client-matrix.md` "agreement guarantee" beyond the 42-skill test are
   roadmap/spec text, not enforced behavior.
-- Safety boundary: README §"Safety and certification boundary" text exists, but no
+- Safety boundary: README S"Safety and certification boundary" text exists, but no
   mechanism appends it to generated reports or blocks compliance claims in output.
 
 ## 3. What is missing for install and standalone use
 
-### Phase 1 — Distribution (all missing unless noted)
+### Phase 1 -- Distribution (all missing unless noted)
 1. `pipx install .` + `axiom` entry: declared in pyproject but never tested here;
    no install test, no `--version`, doctor has no install-health checks.
    `clients/mcp.json` hardcodes `"cwd": "C:/D/Project/GitHub/AxiomEmbedded"`,
    which breaks on any other machine.
 2. Top-level `axiom_mcp/` stdio server exposing **every** CLI command
    (`analyze`, `graph build`, `context select`, `impact`, `profile validate`,
-   `research`) as typed tools with JSON schemas: missing — only
+   `research`) as typed tools with JSON schemas: missing -- only
    `packages/axiom_mcp` with 5 tools and `params: [...]` name lists (no JSON
    Schema types/descriptions/required) exists.
 3. `skills/` + `agents/` as single source of truth: content exists, but
@@ -115,7 +115,7 @@ Method: direct file reads (no code executed). No code changed in this step.
 4. `axiom install --client <opencode|claude|codex|gemini|copilot> [--global]`:
    no such subcommand; no per-client installer; no temp-project test per client.
 
-### Phase 2 — Standalone runtime (original spec) / OpenCode launcher (amendment)
+### Phase 2 -- Standalone runtime (original spec) / OpenCode launcher (amendment)
 - Original-spec items are entirely absent: no `axiom_runtime/` (LLM client, agent
   loop, built-in read/write/edit/glob/grep/shell/git tools, permission model, audit
   log, sessions/compaction, REPL/slash commands, headless `--json` execution),
@@ -131,19 +131,19 @@ Method: direct file reads (no code executed). No code changed in this step.
   hooks plugins (evidence writer, protected-path guard, redacted tool-call log),
   no headless integration test against `examples/brownfield-c-project` in CI.
 
-### Phase 3 — Deep research (missing under both specs)
+### Phase 3 -- Deep research (missing under both specs)
 - No `axiom_research/` or `axiom research` command, no research MCP tool or skill,
-  no planner→searchers→fetch→verifier→synthesizer pipeline, no search backends
+  no planner->searchers->fetch->verifier->synthesizer pipeline, no search backends
   (SearXNG/Brave/Tavily/no-key fallback), no citation/confidence/evidence-graph
   writer, no standards-paraphrase-only guard, no safety-notice injection.
 - The closing deep-research task (OpenCode vs Claude Code vs Codex CLI vs Gemini
   CLI feature comparison with official-docs-only citations) has no tooling behind
   it; it must be done manually with web sources.
 
-### Phase 4 — Docs and release (missing)
+### Phase 4 -- Docs and release (missing)
 - README quick start still documents `python -m axiom_cli ...` only (no
-  `pipx install axiom-embedded` → `axiom doctor` → `axiom` flow, no per-client
-  install, no launcher→OpenCode→MCP→artifact-graph diagram, no Compatibility
+  `pipx install axiom-embedded` -> `axiom doctor` -> `axiom` flow, no per-client
+  install, no launcher->OpenCode->MCP->artifact-graph diagram, no Compatibility
   table). CHANGELOG (single `0.1.0` line), ROADMAP (no "custom runtime deferred"
   note), PROJECT_SPEC, VERSION bump, PyPI publish, and release tag are all pending.
 

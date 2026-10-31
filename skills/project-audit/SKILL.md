@@ -22,11 +22,11 @@ axiom:
 
 Independent health checks of embedded projects: process conformance, artifact
 completeness, traceability integrity, risk exposure, and the findings report
-that drives corrective action — including this program's own skill audits.
+that drives corrective action -- including this program's own skill audits.
 
 ## 1. Purpose and scope
 
-**Purpose.** Answer "how healthy is this project, really?" with evidence —
+**Purpose.** Answer "how healthy is this project, really?" with evidence --
 before a customer, assessor, or field failure asks harder questions.
 
 **In scope.** Audit planning (criteria, scope, sampling), artifact audits
@@ -35,7 +35,7 @@ process-conformance checks against the project's own workflow, risk and
 technical-debt assessment, findings classification, and corrective-action
 tracking to closure.
 
-**Non-goals.** Certification assessments (see `safety` §7, `security`) and
+**Non-goals.** Certification assessments (see `safety` S7, `security`) and
 financial auditing. Ends at a findings report with agreed actions, owners, and
 dates.
 
@@ -60,7 +60,7 @@ dates.
 3. **Evidence over assertion.** Every finding cites the artifact, revision,
    and clause violated; every pass cites the evidence checked. The
    `scripts/audit_skills.py` gap analysis in this program is an example of a
-   repeatable artifact audit — machine-run, versioned, and re-runnable.
+   repeatable artifact audit -- machine-run, versioned, and re-runnable.
 4. **Classify and track.** Findings graded (blocking / major / minor) with
    owners and due dates; corrective actions verified by re-audit of the
    specific finding, not by blanket assurance.
@@ -69,7 +69,7 @@ dates.
 
 Auditors are independent of the audited work (no self-audit of own code or
 plans); safety/security findings require the integrity level's independence
-(`safety` §6). Independence is declared in the audit plan, not assumed.
+(`safety` S6). Independence is declared in the audit plan, not assumed.
 
 ## 5. Release gates (blocking)
 
@@ -79,6 +79,6 @@ plans); safety/security findings require the integrity level's independence
 
 ## 6. Verification of this skill (Phase 4 gate)
 
-- Standards carry number + version + clause + URL (§2).
-- This program's own audits (`artifacts/gap-analysis/`) satisfy §3 as
+- Standards carry number + version + clause + URL (S2).
+- This program's own audits (`artifacts/gap-analysis/`) satisfy S3 as
   applied examples.

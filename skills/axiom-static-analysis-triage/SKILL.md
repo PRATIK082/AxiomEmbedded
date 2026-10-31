@@ -49,7 +49,7 @@ verdict is produced. Ships a deterministic classifier script so re-runs are iden
 ## When Not to Use
 - As proof of absence of defects or of standards compliance; triage organizes
   findings, it does not certify code.
-- When the checker configuration itself is unreviewed — pin tool version and rule
+- When the checker configuration itself is unreviewed -- pin tool version and rule
   set first.
 
 ## Required Inputs
@@ -110,9 +110,9 @@ dispositions in the run manifest.
   spot-check 10% of false-positive claims against code.
 
 ## Common Failure Modes
-- Checker version drift between runs → pin version + rule set; record both in manifest.
-- Suppression comments without expiry → convert to log waivers or flag as findings.
-- Baseline committed with generated code included → scope baseline to owned sources.
+- Checker version drift between runs -> pin version + rule set; record both in manifest.
+- Suppression comments without expiry -> convert to log waivers or flag as findings.
+- Baseline committed with generated code included -> scope baseline to owned sources.
 
 ## Guardrails
 - No secrets in logs; findings excerpts stay within the repo; no network calls.

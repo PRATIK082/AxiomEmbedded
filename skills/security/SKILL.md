@@ -33,11 +33,11 @@ signed updates, least-privilege runtime, and a monitored vulnerability posture
 from first customer ship through end of support.
 
 **In scope.** Threat modeling (STRIDE per interface), secure-element/TEE use,
-secure boot chains (with `bootloader`, `embedded-linux` §6), cryptography
+secure boot chains (with `bootloader`, `embedded-linux` S6), cryptography
 selection and key lifecycle, hardening baselines, SBOM/CVE monitoring, incident
 response and coordinated disclosure.
 
-**Non-goals.** Functional safety (see `safety` — coordinate, don't conflate)
+**Non-goals.** Functional safety (see `safety` -- coordinate, don't conflate)
 and cloud-backend security beyond the device interface. Ends at a maintained,
 monitored device security posture with evidence.
 
@@ -55,22 +55,22 @@ monitored device security posture with evidence.
 1. **Model per interface.** Every external interface (network, BLE, USB,
    debug, OTA, physical) gets STRIDE analysis with trust boundaries drawn;
    unmodeled interfaces are review findings.
-2. **Rank by impact × exposure.** Safety-impacting threats coordinate with the
+2. **Rank by impact x exposure.** Safety-impacting threats coordinate with the
    `safety` HARA; remotely-exploitable + safety-impacting threats top the
    mitigation backlog.
 3. **Abuse cases as requirements.** Each accepted threat yields security
    requirements with verification methods (pen test, fuzz, code review) traced
-   in the matrix — threats without derived requirements are wishes.
+   in the matrix -- threats without derived requirements are wishes.
 
 ## 4. Technical baseline
 
-1. **Secure boot + signed updates.** Verify-before-jump (`bootloader` §3),
-   anti-rollback, offline production keys with rotation drills — no exceptions
+1. **Secure boot + signed updates.** Verify-before-jump (`bootloader` S3),
+   anti-rollback, offline production keys with rotation drills -- no exceptions
    for development variants that can reach customers.
 2. **Cryptography.** Named algorithms with parameters (e.g. ECDSA-P256,
    AES-256-GCM, X25519); no custom ciphers, no hardcoded keys, no ECB mode;
    keys in secure storage (secure element/OTP/TEE), unique per device.
-3. **Hardening.** Follows `embedded-linux` §7 on Linux targets; on MCU targets:
+3. **Hardening.** Follows `embedded-linux` S7 on Linux targets; on MCU targets:
    readout protection enabled, debug interfaces locked or authenticated,
    unused peripherals clock-gated, stack guards and MPU regions on.
 4. **Fuzz the parsers.** Every external-input parser (protocol decoders, image
@@ -79,10 +79,10 @@ monitored device security posture with evidence.
 
 ## 5. Lifecycle and disclosure
 
-1. **SBOM + CVE watch.** SPDX SBOM per release (`embedded-linux` §7); automated
+1. **SBOM + CVE watch.** SPDX SBOM per release (`embedded-linux` S7); automated
    CVE monitoring with SLA-based triage; documented waivers carry expiry dates.
 2. **Coordinated disclosure.** Published contact, response SLAs, and a
-   patch-delivery path via the OTA mechanism — tested before the first
+   patch-delivery path via the OTA mechanism -- tested before the first
    incident, not invented during it.
 3. **EOL security.** End-of-support date communicated; devices beyond support
    fail safe (function without cloud) and the residual-risk statement is
@@ -99,5 +99,5 @@ monitored device security posture with evidence.
 
 ## 7. Verification of this skill (Phase 4 gate)
 
-- Security claims cite standards with number + version + URL (§2).
-- Safety-impacting threats coordinated with `safety`, never siloed (§3.2).
+- Security claims cite standards with number + version + URL (S2).
+- Safety-impacting threats coordinated with `safety`, never siloed (S3.2).

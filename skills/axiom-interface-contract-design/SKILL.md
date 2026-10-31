@@ -35,9 +35,9 @@ axiom:
 # Axiom Interface Contract Design
 
 ## Purpose
-Define exact, versioned contracts for every interface a component exposes or consumes —
+Define exact, versioned contracts for every interface a component exposes or consumes --
 function signatures, message/signal layouts, service operations, timing and error
-semantics — so integration failures become contract violations caught at review time,
+semantics -- so integration failures become contract violations caught at review time,
 not debug sessions. Produces an interface contract plus a compatibility report against
 the actual implementation.
 
@@ -50,7 +50,7 @@ the actual implementation.
 ## When Not to Use
 - As certification evidence on its own; contracts support, but never replace,
   qualified safety/security review.
-- When no consumer or producer can be named — a contract with one side is fiction.
+- When no consumer or producer can be named -- a contract with one side is fiction.
 
 ## Required Inputs
 - Repository path and the target interface files (headers, IDLs, DBC/ARXML extracts,
@@ -75,20 +75,20 @@ the actual implementation.
    rationale per rule.
 5. Check compatibility: compare the draft contract against producers and consumers;
    every mismatch becomes a finding with severity, evidence location, and action.
-6. Generate the traceability rows (requirement → contract element → test) via
+6. Generate the traceability rows (requirement -> contract element -> test) via
    `generate_traceability_matrix` or by hand for small surfaces.
 7. Dry-run review with owners; apply; re-run `validate_skill`.
 
 ## Tool Invocations
 - `run_skill` with structured context; dry-run before writing contracts into the repo.
-- `generate_traceability_matrix` for requirement → element → test rows.
+- `generate_traceability_matrix` for requirement -> element -> test rows.
 - `validate_skill` must pass before the contract is declared binding.
 
 ## Decision Rules
 - Synchronous call only when the caller can tolerate the worst-case blocking time;
   otherwise async with explicit queue-depth and overflow policy.
 - Every contract carries a version and a changelog; breaking changes bump major and
-  require consumer sign-off — no silent widening of ranges or reordering of fields.
+  require consumer sign-off -- no silent widening of ranges or reordering of fields.
 - Error behavior is part of the contract: timeouts, invalid values, and init-order
   violations each map to a specified response, never to undefined behavior.
 - Safety-related signals additionally require range plausibility and stale-data
@@ -116,10 +116,10 @@ mismatches found) in the run manifest.
   schema; consumer-owner review recorded.
 
 ## Common Failure Modes
-- Undocumented units or byte order → require unit/endianness on every field; reject
+- Undocumented units or byte order -> require unit/endianness on every field; reject
   unit-less contracts.
-- "Temporary" backdoor access bypassing the contract → list as a finding with removal date.
-- Version drift between doc and code → single-source rule: code annotations generate
+- "Temporary" backdoor access bypassing the contract -> list as a finding with removal date.
+- Version drift between doc and code -> single-source rule: code annotations generate
   the doc, or the doc is checked against code in CI.
 
 ## Guardrails

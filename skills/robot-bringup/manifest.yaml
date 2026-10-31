@@ -1,0 +1,25 @@
+id: robot-bringup
+version: 1.0.0
+contract_version: 1
+type: reusable-skill
+standards_refs:
+- number: systemd
+  version: v252+
+  clause: Service management baseline
+  source_url: https://www.freedesktop.org/software/systemd/man/
+source_of_truth:
+  instructions: SKILL.md
+  contract: manifest.yaml
+context:
+  graph_first: true
+  max_hops_default: 2
+facets:
+  domains:
+  - all
+  platforms:
+  - linux
+  - ros2
+changelog:
+- version: 1.0.0
+  date: '2026-10-31'
+  summary: 'Initial skill: ROS2 system bringup (systemd, launch composition, udev, watchdog, logging, graceful shutdown).'

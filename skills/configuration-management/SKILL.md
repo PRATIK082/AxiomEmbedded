@@ -21,7 +21,7 @@ axiom:
 # Configuration-Management skill
 
 Version control, baselines, branching, and configuration identification for
-embedded products — so any shipped binary maps to an exact, reproducible
+embedded products -- so any shipped binary maps to an exact, reproducible
 source configuration.
 
 ## 1. Purpose and scope
@@ -53,14 +53,14 @@ branching strategy, baseline and tag discipline, configuration identification
    recorded, never an unexplained zip.
 2. **Baselines immutable.** Release baselines are tags on exact revisions
    including submodule/manifest pins; history after a baseline never rewrites
-   it. Rebuild-from-tag is demonstrated, not assumed (see `build-system` §4).
+   it. Rebuild-from-tag is demonstrated, not assumed (see `build-system` S4).
 3. **Branching with purpose.** `main` always builds and passes host tests;
    feature branches short-lived; release branches frozen except for
    safety/security fixes with impact analysis (see `change-impact`).
 4. **Configuration identification.** Each CI (firmware image, BSP, calibration
    set, compliance pack) has an ID, version, and status; the shipped product's
    CI list is part of the release record (see `release`) and the safety case
-   where applicable (`safety` §7).
+   where applicable (`safety` S7).
 5. **Status accounting.** Dashboards answer at any time: what changed since
    baseline X, which change requests are open, which CIs are affected. Audits
    (functional + physical configuration audits) run per release.
@@ -73,4 +73,4 @@ branching strategy, baseline and tag discipline, configuration identification
 
 ## 5. Verification of this skill (Phase 4 gate)
 
-- Standards carry number + version + clause + URL (§2).
+- Standards carry number + version + clause + URL (S2).

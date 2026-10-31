@@ -8,7 +8,7 @@
     POST /v1/run                  {"request","domain","platform"} -> plan
     POST /v1/a2a/tasks            A2A task envelope {"id","intent":{...}} -> plan
 
-Every handler delegates to packages.axiom_sdk — the single implementation.
+Every handler delegates to packages.axiom_sdk -- the single implementation.
 
 Usage:
     python -m axiom_cli serve --port 8931
@@ -123,12 +123,12 @@ def dashboard_html() -> str:
     recommended = st.get("recommended_next_action", "")
     rows = "".join(
         f"<li><b>{a.get('id', '')}</b> [{a.get('severity', '')}] "
-        f"{a.get('title', '')} — {a.get('action', '')}</li>"
+        f"{a.get('title', '')} -- {a.get('action', '')}</li>"
         for a in attention
-    ) or "<li>None — repository is healthy.</li>"
+    ) or "<li>None -- repository is healthy.</li>"
     return (
         "<!doctype html><html><head><meta charset='utf-8'>"
-        "<title>AxiomEmbedded — status</title></head><body>"
+        "<title>AxiomEmbedded -- status</title></head><body>"
         f"<h1>AxiomEmbedded</h1><p>State: {st.get('state', '')}</p>"
         f"<p>Skills: {skills.get('total', 0)} "
         f"(latest {skills.get('latest', '')})</p>"

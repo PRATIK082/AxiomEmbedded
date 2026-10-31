@@ -21,7 +21,7 @@ axiom:
   - checklists/automotive-networks-checklist.md
 ---
 
-# automotive-networks — In-vehicle networking capability
+# automotive-networks -- In-vehicle networking capability
 
 Reusable AxiomEmbedded capability for selecting, describing, and verifying in-vehicle
 networks: CAN-FD/XL, LIN, FlexRay, and 100/1000BASE-T1 Ethernet with TSN, plus
@@ -55,8 +55,8 @@ gateway/routing design, busload/timing analysis, and description-file discipline
 
 ## Time estimate
 
-- Topology + selection + description files: 3–5 days. Gateway + timing analysis: 3–5 days.
-  Measurement + hardening + evidence: 3–5 days.
+- Topology + selection + description files: 3-5 days. Gateway + timing analysis: 3-5 days.
+  Measurement + hardening + evidence: 3-5 days.
 
 ## Resources (public landing pages only)
 
@@ -69,7 +69,7 @@ gateway/routing design, busload/timing analysis, and description-file discipline
 - ISO 13400 (DoIP bearer): `https://www.iso.org/search.html?q=13400`
 - ISO 14229 (diagnostics context): `https://www.iso.org/search.html?q=14229`
 
-## Rule 1 — Network selection matrix
+## Rule 1 -- Network selection matrix
 
 | Need | Select | Do not select | Record |
 | ---- | ------ | ------------- | ------ |
@@ -77,39 +77,39 @@ gateway/routing design, busload/timing analysis, and description-file discipline
 | Real-time control, FD headroom | CAN-FD (ISO 11898-1) | CAN-XL before PHY/toolchain proven | bit-rate pair, SIC choice |
 | Higher CAN throughput, greenfield | CAN-XL (ISO 11898-1/-2 scope) | XL mixed with legacy untested | XL-capable subset list |
 | Deterministic backbone (legacy) | FlexRay (static+dynamic segments) | new FlexRay where Ethernet fits | cycle, slot map |
-| Camera/ADAS/backbone ≥100 Mbit/s | 100/1000BASE-T1 + TSN where bounded latency needed | raw UDP without time-sync design | link speed, TSN profile, sync domain |
+| Camera/ADAS/backbone >=100 Mbit/s | 100/1000BASE-T1 + TSN where bounded latency needed | raw UDP without time-sync design | link speed, TSN profile, sync domain |
 | Cross-domain bridging | gateway ECU with routing matrix | repeater bridging without filtering | routing table + latency budget |
 
 Rule: every bus choice cites one matrix row + rejected alternatives; unrecorded buses do not ship.
 
-## Rule 2 — Description-file discipline
+## Rule 2 -- Description-file discipline
 
-1. One source of truth per bus: CAN → DBC and/or ARXML/FIBEX; LIN → LDF;
-   FlexRay → FIBEX/ARXML; Ethernet → ARXML. Generated code embeds
+1. One source of truth per bus: CAN -> DBC and/or ARXML/FIBEX; LIN -> LDF;
+   FlexRay -> FIBEX/ARXML; Ethernet -> ARXML. Generated code embeds
    `source file + version + hash`; hand edits to generated files fail the gate.
 2. Entries carry: sender, receivers, period/event rule, DLC/MTU fit, NM/diagnostic flag,
    ASIL/security tag pointer.
-3. Change rule: bus-database change → regenerate → diff review → timing re-analysis →
+3. Change rule: bus-database change -> regenerate -> diff review -> timing re-analysis ->
    routing re-test. No silent DBC/LDF edits.
 
-## Rule 3 — Gateway and routing rules
+## Rule 3 -- Gateway and routing rules
 
-1. Routing table explicit: per-PDU/signal source → gateway → destinations, with period,
+1. Routing table explicit: per-PDU/signal source -> gateway -> destinations, with period,
    timeout, default-value policy.
 2. Diagnostic routing isolates functional addressing scope; gateway never floods functional
    requests across buses with mismatched NM state.
-3. Timing budget per routed path: gateway residence + destination queuing ≤ allocated share
+3. Timing budget per routed path: gateway residence + destination queuing <= allocated share
    of end-to-end deadline; overflow resolves to specified loss/default, never silent delay.
 4. SecOC/signature boundaries preserved across routing; no weaker re-authentication.
 
-## Rule 4 — Busload and timing analysis
+## Rule 4 -- Busload and timing analysis
 
 1. Budget before build: steady-state + worst-case (burst, NM wake, diagnostics, OTA staging)
    busload per bus. Thresholds are project requirements, not universal constants.
 2. Worst-case latency proven for every safety/security-relevant frame: analysis bound +
    measured trace under defined worst-case stimulus.
 3. Error-injection minimum: CAN bit/stuff-error, LIN checksum/schedule violation, FlexRay
-   sync-loss, Ethernet frame-loss/duplication and time-sync loss — each maps to specified
+   sync-loss, Ethernet frame-loss/duplication and time-sync loss -- each maps to specified
    detection/default path.
 
 ## Integration and test strategy
@@ -121,11 +121,11 @@ Rule: every bus choice cites one matrix row + rejected alternatives; unrecorded 
 - Ethernet: PHY-interop smoke, time-sync convergence, TSN schedule adherence,
   TC8-recognised negative cases per project scope.
 - Fault injection: babbling node, bus-off, LIN checksum fail, FlexRay cold-start loss,
-  Ethernet storm — each to specified degraded mode.
+  Ethernet storm -- each to specified degraded mode.
 
 ## Traceability
 
-- Requirement → bus/PDU/signal → description-file element → `src/` consumer → `test/` capture → evidence id.
+- Requirement -> bus/PDU/signal -> description-file element -> `src/` consumer -> `test/` capture -> evidence id.
 - Standards cited as number + version + identifier only; bus-database files with name + version + hash.
 
 ## Compliance mapping (via overlays, not duplication)
@@ -136,7 +136,7 @@ Rule: every bus choice cites one matrix row + rejected alternatives; unrecorded 
 
 ## Verification checklist (gate: all must pass)
 
-1. `scripts/verify_skill.py --skill automotive-networks` → PASS.
+1. `scripts/verify_skill.py --skill automotive-networks` -> PASS.
 2. Selection matrix covers every bus; rejected alternatives recorded.
 3. Description files pinned with version + hash; generated code traces to source.
 4. Busload + worst-case latency proven by analysis and measurement.

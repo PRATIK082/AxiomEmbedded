@@ -123,7 +123,7 @@ Ends at an auditable, recoverable repository state.
 
 ## 7. Verification of this skill (Phase 4 gate)
 
-- Sources cited with version and URL (§2).
+- Sources cited with version and URL (S2).
 - Branching/commit/tag rules are testable by repository policy checks.
 - Recovery procedures are documented and exercised in at least one drill.
 - No normative text copied; citations are identifiers/URLs only.

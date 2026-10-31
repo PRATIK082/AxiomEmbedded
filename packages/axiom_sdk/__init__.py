@@ -1,4 +1,4 @@
-"""AxiomEmbedded Python SDK — single implementation behind every interface.
+"""AxiomEmbedded Python SDK -- single implementation behind every interface.
 
 All other surfaces (MCP server, REST/A2A server, CLI additions) delegate to
 these functions so SDK/CLI/MCP/REST/A2A always agree. Stdlib + PyYAML only.

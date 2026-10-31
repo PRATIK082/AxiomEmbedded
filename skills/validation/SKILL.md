@@ -21,7 +21,7 @@ axiom:
 # Validation skill
 
 Confirmation that the right system was built: stakeholder acceptance in the
-real operational context against needs and intended use — beyond verification's
+real operational context against needs and intended use -- beyond verification's
 "built right" (see `system-test`).
 
 ## 1. Purpose and scope
@@ -42,7 +42,7 @@ checks. Starts at an integrated system, ends at stakeholder acceptance.
 | # | Standard | Version / status | Clause / scope | Source |
 |---|----------|------------------|----------------|--------|
 | 1 | ISO/IEC/IEEE 15288 | 2023 | Validation process: confirming stakeholder requirements achieved in operation | `https://www.iso.org/standard/81702.html` |
-| 2 | ISO 26262-4 | 2018 | §9 vehicle integration and testing including validation at vehicle level | `https://www.iso.org/standard/68386.html` |
+| 2 | ISO 26262-4 | 2018 | S9 vehicle integration and testing including validation at vehicle level | `https://www.iso.org/standard/68386.html` |
 | 3 | IEC 62366-1 Medical usability | 2015 + AMD 2020 | Usability engineering for safety-related operator interaction (adopt pattern beyond medical) | `https://webstore.iec.ch/en/publication/6728` |
 
 ## 3. Validation rules
@@ -55,13 +55,13 @@ checks. Starts at an integrated system, ends at stakeholder acceptance.
    field conditions. Lab-only validation is a review finding.
 3. **Usability is safety-relevant.** Operator error paths (wrong sequence,
    misread display, alarm fatigue) are validated scenarios wherever humans
-   interact with safety functions — IEC 62366 pattern: identify use errors,
+   interact with safety functions -- IEC 62366 pattern: identify use errors,
    mitigate by design, verify mitigations.
 4. **Gaps feed requirements.** Every validation finding that is "working as
    specified but wrong for the user" opens a requirements change (see
-   `requirements` §5, `change-impact`), not a test waiver.
+   `requirements` S5, `change-impact`), not a test waiver.
 5. **Acceptance criteria pre-registered.** Pass/fail thresholds and the
-   acceptance authority are recorded before the campaign — never negotiated
+   acceptance authority are recorded before the campaign -- never negotiated
    after results.
 
 ## 4. Exit gates (blocking)
