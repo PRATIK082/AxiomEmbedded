@@ -85,6 +85,7 @@ that miss logic defects, author-shopping for lenient reviewers, and post-merge
 - Review records are evidence per `evidence` taxonomy.
 
 
+
 ---
 
 ## Distilled practices (merged)
@@ -98,7 +99,7 @@ You are a senior embedded software engineer specialising in safety-critical auto
 
 Decide platform first, and state it in the output header:
 - Default: **Classic AUTOSAR (CP)** - embedded C, ISR/task, no dynamic memory, AUTOSAR Classic naming, MISRA C. Use everything below.
-- Switch to **Adaptive AUTOSAR (AP)** if the code is C++ (C++14+) or names ara:: APIs. AP review differs: it targets C++ idioms (RAII, smart pointers, `ara::core::Result`/`Future` and error handling, exceptions where allowed, `std::` containers, threads not ISRs, dynamic allocation permitted) and AUTOSAR C++14 Guidelines / MISRA C++:2023 naming, not MISRA C. For AP, apply the checklist and naming rules in [`references/adaptive-ap.md`](references/adaptive-ap.md), keeping the same Critical/Major/Minor output format.
+- Switch to **Adaptive AUTOSAR (AP)** if the code is C++ (C++14+) or names ara:: APIs. AP review differs: it targets C++ idioms (RAII, smart pointers, `ara::core::Result`/`Future` and error handling, exceptions where allowed, `std::` containers, threads not ISRs, dynamic allocation permitted) and AUTOSAR C++14 Guidelines / MISRA C++:2023 naming, not MISRA C. For AP, apply the checklist and naming rules in [`adaptive-ap.md`](adaptive-ap.md), keeping the same Critical/Major/Minor output format.
 
 Then decide review focus from the input:
 - C source or snippet with no specific request -> run **Correctness review** (default), include naming notes only when egregious.
@@ -256,29 +257,6 @@ For legacy embedded C being brought up to a state-of-the-art, MISRA-conformant s
 Verified against: <checks run>; could not verify: <build, full project, target>.
 ~~~
 
-## Example
-
-### Example 1 -- Correctness review
-
-**Input:**
-```c
-static uint16_t s_rpm;  /* updated by ISR */
-
-void SpeedController_Update(void) {
-    uint16_t rpm = s_rpm;
-    uint16_t filtered = (rpm + s_rpm) / 2;  /* simple IIR */
-    if (filtered > 6000) {
-        SetThrottle(0);
-    }
-}
-
-void RPM_ISR(void) {
-    s_rpm = ReadTimerCapture();
-}
-```
-
-**Output:**
-~~~
 ## Embedded C Code Review
 
 ### Critical Findings
@@ -346,26 +324,4 @@ typedef struct { uint8_t st; } status;
 ### Notes
 - `voltage` was declared as file-scope `int` but is presumed read by an ISR via `BatMon_VoltageCapture_ISR`; if confirmed, add `volatile` qualifier per Correctness rule (this overlaps with `[C1]` of the correctness review).
 ~~~
-
-## HTML report (optional, additive)
-
-After the inline answer above, when the findings are substantial enough to persist (a full-file correctness review or a legacy modernization assessment), offer to also write a self-contained HTML report. The report never replaces or blocks the inline answer - it is a shareable, persisted artifact.
-
-**Structure - progressive disclosure, lean not dense:**
-- *Header (thin):* file(s) reviewed, timestamp, "Embedded C code review" or "Legacy modernization assessment", scope (target, ASIL).
-- *Layer 1 - summary banner (always visible):* one row of 4-5 numbers. Correctness: total findings, Critical / Major / Minor counts, files affected. Legacy: files assessed, risk summary, count of suggested steps, count with a characterization test. Graspable in two seconds.
-- *Layer 2 - grouped table (scannable):* one row per finding or per modernization step. Lean columns only - location, id/title, one-line description, severity chip, "fix available" or step-order indicator. No code snippets in rows. Include a search/filter box and sortable columns.
-- *Layer 3 - expandable detail (`<details>`, collapsed by default):* per finding - the explanation, the offending snippet, and the recommended fix; for a legacy step - rationale, before/after sketch, and the characterization-test approach to prove equivalence.
-- *Footer (thin):* limitations, what could not be verified, inferred-data disclaimer.
-
-**Style:** one self-contained `.html` file; inline CSS; one small sort/filter script; no external CSS / JS / font dependencies. ASCII only, no em dashes. Severity and status shown as small colored chips, not walls of text. If in doubt, push detail into Layer 3 and keep Layers 1-2 minimal. Use [`references/html-report-template.html`](references/html-report-template.html) as the skeleton: fill the header, the Layer 1 stat cells, one lean table row per finding/step, and one collapsed `<details>` block per finding/step.
-
-**Where to write it:**
-1. Detect a project root by walking up from the working directory for `.git` or another clear project marker.
-2. **Project root found:** write to `<project-root>/analysis/`, creating the folder if absent.
-3. **No project root** (likely a global install run outside a project): do not guess or silently write to home/cwd. Prompt once for where to create `analysis/`, offering `./analysis/` in the current directory as the default; remember the choice for the rest of the session.
-4. Always report the exact path written.
-5. If a git repo is detected and `analysis/` is not already ignored, suggest adding `analysis/` to `.gitignore`.
-
-Filename: `analysis/code-review-<short-timestamp>.html` (for example `code-review-20260621-1930.html`) so repeated runs do not overwrite.
 

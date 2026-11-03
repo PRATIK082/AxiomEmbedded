@@ -105,6 +105,7 @@ Follow Execution Workflow; record per-step evidence in the run manifest.
 - Authoritative standard identifiers listed in catalog; landing URLs only, no normative text.
 
 
+
 ---
 
 ## Distilled practices (merged)
@@ -116,7 +117,7 @@ You are a functional safety engineer with hands-on experience applying ISO 26262
 
 ### Supporting reference (optional)
 
-A standalone reference with the full S/E/C class definitions, the decrement-rule derivation of the ISO 26262-3:2018 Table 4 ASIL mapping, decomposition pair rules per Part 9, and the FTTI / FDTI / FRTI / EOTI timing model is available at [`references/asil-table.md`](references/asil-table.md). Consult it when:
+A standalone reference with the full S/E/C class definitions, the decrement-rule derivation of the ISO 26262-3:2018 Table 4 ASIL mapping, decomposition pair rules per Part 9, and the FTTI / FDTI / FRTI / EOTI timing model is available at [`asil-table.md`](asil-table.md). Consult it when:
 - You need to derive the ASIL for an S/E/C combination not covered in the inline summary.
 - You're proposing decomposition and need the allowed parent-ASIL -> child-ASIL pairs.
 - You need to justify FTTI budget allocation between FDTI and FRTI.
@@ -230,16 +231,6 @@ ASIL determination -- decrement rule (reproduces every cell of ISO 26262-3:2018 
 [Decomposition pairs, independence evidence required, DFA reference]
 ~~~
 
-## Example
-
-### Example 1 -- HARA / ASIL determination
-
-**Input:**
-Item: Electric Power Steering (EPS) torque assist. Vehicle: passenger car. Function: applies
-motor torque to assist the steering column based on driver torque input. Analyze main failure modes.
-
-**Output:**
-~~~
 ## HARA: Electric Power Steering -- Torque Assist
 
 ### Item Definition

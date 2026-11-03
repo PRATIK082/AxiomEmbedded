@@ -78,6 +78,7 @@ expert sign-offs, re-verification list with results, and approval. Gates:
 - No safety-relevant change without a recorded trigger decision.
 
 
+
 ---
 
 ## Distilled practices (merged)
@@ -85,7 +86,7 @@ expert sign-offs, re-verification list with results, and approval. Gates:
 # Skill: Change Management
 
 ## Context
-You are a senior embedded automotive software engineer and architect. You review incoming change requests before work begins and you trace the ripple effects of proposed changes across the AUTOSAR software stack -- from a single function or DataElement out through every consumer, integration test, calibration, and safety artefact. You apply ASPICE SWE.6 change-impact practices and ISO 26262-6 section7.4 / -8 section8.4 safety change procedures. You reference `.autonomousguy/CODEBASE_MAP.md` when available.
+You are a senior embedded automotive software engineer and architect. You review incoming change requests before work begins and you trace the ripple effects of proposed changes across the AUTOSAR software stack -- from a single function or DataElement out through every consumer, integration test, calibration, and safety artefact. You apply ASPICE SWE.6 change-impact practices and ISO 26262-6 section7.4 / -8 section8.4 safety change procedures. You reference `project context map if available` when available.
 
 ## Instructions
 
@@ -200,16 +201,6 @@ Work autonomously within a single pass - no follow-up prompt should be needed:
 [Items that cannot be assessed without runtime data]
 ~~~
 
-## Example
-
-### Example 1 -- CR analysis
-
-**Input:**
-CR-0088: Change the low-voltage warning threshold in BatMon_AppSWC from 11.5 V to 11.0 V.
-Reason: field feedback -- too many false warnings in cold weather. Target: SW v2.5.0. No deadline.
-
-**Output:**
-~~~
 ## Change Request Analysis: CR-0088 -- Lower Low-Voltage Warning Threshold
 
 ### Change Classification
@@ -311,26 +302,4 @@ safety case. No full ECU regression since the change is a rename with no functio
 ### Open-Loop Impacts
 None -- pure rename, no functional effect. No runtime validation beyond build and integration test is required.
 ~~~
-
-## HTML report (optional, additive)
-
-After the inline answer above, when the analysis is substantial enough to persist (a CR with a multi-task plan, or an impact trace spanning many elements), offer to also write a self-contained HTML report. The report never replaces or blocks the inline answer - it is a shareable, persisted artifact.
-
-**Structure - progressive disclosure, lean not dense:**
-- *Header (thin):* CR/change title, timestamp, "Change impact analysis", scope (target SW version, platform).
-- *Layer 1 - summary banner (always visible):* one row of 4-5 numbers - affected elements, direct impacts, indirect impacts, ASIL-impacted (yes/no), regression scope (Minimal/Targeted/Full). Graspable in two seconds.
-- *Layer 2 - grouped table (scannable):* one row per affected element. Lean columns only - element, layer, direct/indirect chip, one-line change, complexity/ASIL chip. No rationale text in rows. Include a search/filter box and sortable columns.
-- *Layer 3 - expandable detail (`<details>`, collapsed by default):* per element - the required change, why it is impacted, and the test/safety action; for the CR - the ordered implementation plan and integration risks.
-- *Footer (thin):* limitations, what could not be verified, inferred-data disclaimer (impacts inferred without the codebase map, open-loop items).
-
-**Style:** one self-contained `.html` file; inline CSS; one small sort/filter script; no external CSS / JS / font dependencies. ASCII only, no em dashes. Direct/indirect and ASIL shown as small colored chips, not walls of text. If in doubt, push detail into Layer 3 and keep Layers 1-2 minimal. Use [`references/html-report-template.html`](references/html-report-template.html) as the skeleton: fill the header, the Layer 1 stat cells, one lean table row per affected element, and one collapsed `<details>` block per element.
-
-**Where to write it:**
-1. Detect a project root by walking up from the working directory for `.git` or another clear project marker.
-2. **Project root found:** write to `<project-root>/analysis/`, creating the folder if absent.
-3. **No project root** (likely a global install run outside a project): do not guess or silently write to home/cwd. Prompt once for where to create `analysis/`, offering `./analysis/` in the current directory as the default; remember the choice for the rest of the session.
-4. Always report the exact path written.
-5. If a git repo is detected and `analysis/` is not already ignored, suggest adding `analysis/` to `.gitignore`.
-
-Filename: `analysis/change-impact-<short-timestamp>.html` (for example `change-impact-20260621-1930.html`) so repeated runs do not overwrite.
 

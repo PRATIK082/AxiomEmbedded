@@ -96,6 +96,7 @@ Unallocated system requirements are a blocking review finding.
 - No baselined requirement without method, allocation, and trace links (S3-S5).
 
 
+
 ---
 
 ## Distilled practices (merged)
@@ -252,15 +253,6 @@ Work autonomously within a single pass - no follow-up prompt should be needed:
 - SW-REQ-xxx [ASIL-B]: no test case -- CRITICAL: ISO 26262-6 section9 requires verification evidence
 ~~~
 
-## Example
-
-### Example 1 -- Elicitation
-
-**Input:**
-"The battery monitoring module should keep an eye on the 12V battery voltage. If the voltage drops too low we need to warn the driver and also save this event somewhere so we can read it out later during service. Also make sure it doesn't drain the battery itself."
-
-**Output:**
-~~~
 ## Elicited Requirements: Battery Monitoring Module (BATMON)
 
 ### Requirements

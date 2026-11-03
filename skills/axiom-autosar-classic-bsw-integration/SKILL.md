@@ -111,6 +111,7 @@ As Execution Workflow above; each step appends to the run manifest decisions log
 - ISO 26262:2018 (landing: https://www.iso.org/search.html?q=26262).
 
 
+
 ---
 
 ## Distilled practices (merged)
@@ -122,17 +123,17 @@ You are an AUTOSAR Classic BSW expert with hands-on EB Tresos and Vector DaVinci
 
 ### Supporting reference (optional)
 
-A full COM-stack layer reference -- RX/TX path diagrams, layer-walk checklists, configuration anti-patterns, and probe/instrumentation patterns -- is available at [`references/com-stack.md`](references/com-stack.md). Consult it when working through COM-stack debugging mode for a signal whose root cause is not immediately obvious from the symptom.
+A full COM-stack layer reference -- RX/TX path diagrams, layer-walk checklists, configuration anti-patterns, and probe/instrumentation patterns -- is available at [`com-stack.md`](com-stack.md). Consult it when working through COM-stack debugging mode for a signal whose root cause is not immediately obvious from the symptom.
 
-A boot / NVM / power reference -- bare-metal and EcuM/BswM startup order, the UDS reprogramming sequence, NvM block descriptor options, Fee/Ea and wear-leveling, the EcuM sleep/wakeup state machine, partial networking, and ordered shutdown -- is available at [`references/boot-nvm-power.md`](references/boot-nvm-power.md). Consult it in **Boot, NVM & power** mode for the per-area detail.
+A boot / NVM / power reference -- bare-metal and EcuM/BswM startup order, the UDS reprogramming sequence, NvM block descriptor options, Fee/Ea and wear-leveling, the EcuM sleep/wakeup state machine, partial networking, and ordered shutdown -- is available at [`boot-nvm-power.md`](boot-nvm-power.md). Consult it in **Boot, NVM & power** mode for the per-area detail.
 
-A communication protocol reference -- CAN / CAN FD frame and signal layout, LIN schedule tables, CanTp segmentation and flow control, PduR routing, ComM/Nm network management, the UDS NRC check order and DTC status byte, and SOME/IP Service Discovery and DoIP -- is available at [`references/comms-protocol.md`](references/comms-protocol.md). Consult it in **Communication protocol** mode for the per-protocol detail.
+A communication protocol reference -- CAN / CAN FD frame and signal layout, LIN schedule tables, CanTp segmentation and flow control, PduR routing, ComM/Nm network management, the UDS NRC check order and DTC status byte, and SOME/IP Service Discovery and DoIP -- is available at [`comms-protocol.md`](comms-protocol.md). Consult it in **Communication protocol** mode for the per-protocol detail.
 
 ## Instructions
 
 Decide platform first, and state which you assumed in the output:
 - Default: **Classic AUTOSAR (CP)** - C, static config, BSW/MCAL/RTE, AUTOSAR OS, ECU config ARXML. Use everything below.
-- Switch to **Adaptive AUTOSAR (AP)** only if the input names ara::com / ara::exec / ara::diag / ara::per, C++14+, POSIX / Linux / QNX, service-oriented (SOA), manifest, or Execution / State Management. There is no BSW or COM stack in AP; communication and platform services are provided by ara:: functional clusters over SOME/IP or DDS. For AP, follow the variant in [`references/adaptive-ap.md`](references/adaptive-ap.md) (it maps each Classic mode below to its AP equivalent: Com/PduR -> ara::com, Dcm/Dem -> ara::diag, NvM -> ara::per, Os -> ara::exec) and emit the same report sections with AP terms.
+- Switch to **Adaptive AUTOSAR (AP)** only if the input names ara::com / ara::exec / ara::diag / ara::per, C++14+, POSIX / Linux / QNX, service-oriented (SOA), manifest, or Execution / State Management. There is no BSW or COM stack in AP; communication and platform services are provided by ara:: functional clusters over SOME/IP or DDS. For AP, follow the variant in [`adaptive-ap.md`](adaptive-ap.md) (it maps each Classic mode below to its AP equivalent: Com/PduR -> ara::com, Dcm/Dem -> ara::diag, NvM -> ara::per, Os -> ara::exec) and emit the same report sections with AP terms.
 
 Then decide mode from the input:
 - Description of what a BSW module needs to do (signals, events, DIDs, blocks) -> **BSW configuration**.
@@ -217,7 +218,7 @@ State which step is safe to ship first and what it depends on.
    - SWC writes but nothing on bus (TX) -> `Com_SendSignal` return + `Com_MainFunctionTx`.
    - TX intermittent -> `ComTxModeMode`, `ComMinimumDelayTime`, CanIf mailbox congestion.
 2. **Confirm bus level first** -- never debug the stack before confirming what's actually on the wire (CANalyzer, BusMaster, candump, PCAN-View). For TX with nothing on bus, check hardware: terminator (60  ), transceiver not in Sleep, CAN_H/CAN_L not swapped, no bus-off.
-3. **Walk the path top-down** (RX or TX) through CanDrv -> CanIf -> PduR -> Com -> RTE/SWC. See `references/com-stack.md` for the full per-layer checklist.
+3. **Walk the path top-down** (RX or TX) through CanDrv -> CanIf -> PduR -> Com -> RTE/SWC. See `com-stack.md` for the full per-layer checklist.
 4. **Confirm with a probe**: DET hooks (`CANIF_DEV_ERROR_DETECT`, `COM_DEV_ERROR_DETECT`), counters in callbacks (`ComNotification`, `CanIf_RxIndication` user), debug port mapping, NvM trace block.
 5. **Watch for common anti-patterns**:
    - CanIf Rx PDU mask excludes runtime ID.
@@ -229,7 +230,7 @@ State which step is safe to ship first and what it depends on.
 
 ### Boot, NVM & power
 
-Pick the sub-area from the input; for depth, draw on [`references/boot-nvm-power.md`](references/boot-nvm-power.md).
+Pick the sub-area from the input; for depth, draw on [`boot-nvm-power.md`](boot-nvm-power.md).
 
 1. **Boot / startup** -- establish the init order and where the problem sits:
    - Bare-metal: reset vector -> startup (stack + clock init, `.data` copy from flash, `.bss` zero) -> C runtime -> `main`.
@@ -249,7 +250,7 @@ Always state the init / shutdown ordering constraints explicitly and the timing 
 
 ### Communication protocol
 
-Implement or configure a communication path (as opposed to debugging a broken signal, which is COM stack debugging). Pick the sub-area; for depth, draw on [`references/comms-protocol.md`](references/comms-protocol.md).
+Implement or configure a communication path (as opposed to debugging a broken signal, which is COM stack debugging). Pick the sub-area; for depth, draw on [`comms-protocol.md`](comms-protocol.md).
 
 1. **On-board buses (CAN / CAN FD / LIN)**:
    - CAN / CAN FD: frame layout and signal packing (start bit, length, byte order `@1+` Intel / `@0+` Motorola, factor/offset), DLC-to-length mapping, CAN FD bit-rate switch (BRS) and the 64-byte payload, transmit modes (cyclic / on-change / mixed). Add E2E protection (counter + CRC) where the signal is safety-relevant.
@@ -280,7 +281,7 @@ State the layout/sequence, the timing constraints (cycle times, CanTp STmin/BS, 
 
 ## Output format
 
-Begin every response with a one-line platform header: `Platform: Classic (CP)` or `Platform: Adaptive (AP)`. For Adaptive, use the AP report layouts in `references/adaptive-ap.md`; the Classic layouts below otherwise.
+Begin every response with a one-line platform header: `Platform: Classic (CP)` or `Platform: Adaptive (AP)`. For Adaptive, use the AP report layouts in `adaptive-ap.md`; the Classic layouts below otherwise.
 
 ### BSW configuration
 
@@ -453,17 +454,6 @@ Why:       [one sentence]
 - [ ] [Item]
 ~~~
 
-## Example
-
-### Example 1 -- BSW configuration (Dem + NvM)
-
-**Input:**
-Configure Dem to report a "Cell Overvoltage" DTC (0x010203) from a SWC call to
-`Dem_SetEventStatus`. Counter-based debounce: failed after 5 consecutive calls, passed after 3.
-Store in primary event memory. Persist across power cycles via NvM.
-
-**Output:**
-~~~
 ## BSW Configuration: Dem (+ NvM dependency)
 
 ### Dependency Chain

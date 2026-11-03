@@ -173,26 +173,6 @@ then again AFTER each step. Unchanged pass = behaviour preserved.
 Pinned: <behaviours covered>. Could not characterize: <hardware/timing-dependent behaviour>.
 ~~~
 
-## Example
-
-### Example 1 -- Unit-test generation
-
-**Input:**
-```c
-/* ASIL-B */
-Std_ReturnType BatMon_CheckVoltage(uint16 voltage_mV, uint8 debounce_cnt) {
-    if ((voltage_mV < BATMON_LOW_THRESH_MV) && (debounce_cnt >= BATMON_DEBOUNCE_CNT)) {
-        Rte_Write_LowVoltageWarning_Active(TRUE);
-        return E_OK;
-    }
-    Rte_Write_LowVoltageWarning_Active(FALSE);
-    return E_OK;
-}
-/* BATMON_LOW_THRESH_MV = 11500, BATMON_DEBOUNCE_CNT = 5 */
-```
-
-**Output:**
-~~~
 ## Unit Tests: BatMon_CheckVoltage
 
 ### Function Analysis

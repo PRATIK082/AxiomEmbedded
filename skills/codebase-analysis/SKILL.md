@@ -34,7 +34,7 @@ Work autonomously within a single pass - no follow-up prompt should be needed:
 ### 0. Detect platform first
 Decide whether the repo is Classic or Adaptive AUTOSAR before mapping, and record it in the map's ECU Overview:
 - **Classic (CP)** signals (default): `.arxml` ECU/SWC config, `Rte_*` calls, BSW module config (EB Tresos `.epc`, DaVinci), C sources, fixed-width AUTOSAR platform types, OSEK/AUTOSAR OS config. Use steps 1-6 below as written.
-- **Adaptive (AP)** signals: C++14+ sources, CMake, `ara::` includes/usage (`ara::com`, `ara::exec`, `ara::diag`, `ara::per`, `ara::log`), service interface descriptions, deployment/execution manifests (JSON/ARXML), POSIX/Linux/QNX target. If AP, switch to the Adaptive mapping in [`references/adaptive-ap.md`](references/adaptive-ap.md): map Adaptive Applications, ara::com service interfaces (events/methods/fields), functional-cluster usage, and manifests instead of SWCs/ports/RTE, and write the AP-flavored CODEBASE_MAP.md structure from that file.
+- **Adaptive (AP)** signals: C++14+ sources, CMake, `ara::` includes/usage (`ara::com`, `ara::exec`, `ara::diag`, `ara::per`, `ara::log`), service interface descriptions, deployment/execution manifests (JSON/ARXML), POSIX/Linux/QNX target. If AP, switch to the Adaptive mapping in [`adaptive-ap.md`](adaptive-ap.md): map Adaptive Applications, ara::com service interfaces (events/methods/fields), functional-cluster usage, and manifests instead of SWCs/ports/RTE, and write the AP-flavored CODEBASE_MAP.md structure from that file.
 - **Mixed** (CP and AP coexisting, e.g. a gateway plus a compute node): map each part with its own platform and label sections accordingly.
 
 ### 1. Discover repository structure
@@ -95,7 +95,7 @@ Flag findings worth attention:
 - Inconsistent naming (mixing C99 `_t` types with AUTOSAR platform types in SWC code).
 
 ### 6. Write the map
-Output the full analysis to `.autonomousguy/CODEBASE_MAP.md` using the structure below. Print a one-screen summary to the console.
+Output the full analysis to `project context map if available` using the structure below. Print a one-screen summary to the console.
 
 ## Input expected
 - Access to the full repository (run from the workspace root).
@@ -103,7 +103,7 @@ Output the full analysis to `.autonomousguy/CODEBASE_MAP.md` using the structure
 
 ## Output format
 
-Write `.autonomousguy/CODEBASE_MAP.md` with this structure:
+Write `project context map if available` with this structure:
 
 ~~~markdown
 # Codebase Map -- <Project Name>
@@ -202,16 +202,6 @@ Plain-text box-and-arrow notation. Boxes are `[SWC / module]`. Arrows are `--sig
 2. [MAJOR] ...
 3. [INFO] ...
 ~~~
-
-## Example
-
-**Input:** Repository for a Body Control Unit (BCU). CMake build, EB Tresos, AUTOSAR Classic 4.3, ARM Cortex-M MCU. Requirements managed in DOORS, exported as `requirements/bcu.csv`. Highest ASIL on the ECU: B (brake lights, per SG-BRAKELT-01).
-
-**Output (excerpt written to `.autonomousguy/CODEBASE_MAP.md`):**
-
-~~~markdown
-# Codebase Map -- BCU_ECU
-Generated: 2026-06-17
 
 ## ECU Overview
 Body Control Unit for a passenger vehicle. Hosts exterior lighting (low beam, high beam,
@@ -533,26 +523,4 @@ DIAGNOSTICS
 4. **[INFO]** `HighBeam_AppSWC` requirement SW-REQ-HIBEAM-004 ("auto-suppress above vehicle speed signal valid") has no test case referenced in `requirements/bcu.csv` -- flag to the traceability skill.
 5. **[INFO]** `LightDiag_ServiceSWC` Dem event IDs are referenced by macro name but their numeric assignment lives in `Dem_Cfg.h` (generated). After regeneration the macro list should be cross-checked.
 ~~~
-
-## HTML report (optional, additive)
-
-`.autonomousguy/CODEBASE_MAP.md` is always the primary artifact. In addition, when the map is substantial, offer to write a self-contained HTML companion report - a scannable view of the component index and architectural concerns. It never replaces the Markdown map.
-
-**Structure - progressive disclosure, lean not dense:**
-- *Header (thin):* project name, timestamp, "Codebase analysis", scope (platform CP/AP/Mixed, AUTOSAR release).
-- *Layer 1 - summary banner (always visible):* one row of 4-5 numbers - components mapped, BSW modules used, architectural concerns, untraced components (no SWR), highest ASIL present. Graspable in two seconds.
-- *Layer 2 - grouped table (scannable):* one row per architectural concern (or per component). Lean columns only - location, component/area, one-line description, severity chip (Critical/Major/Info), "has fix/action" indicator. No detail text in rows. Include a search/filter box and sortable columns.
-- *Layer 3 - expandable detail (`<details>`, collapsed by default):* per concern - the explanation, the evidence (file:line), and the recommended action; per component - its ports, dependencies, and RTE surface.
-- *Footer (thin):* limitations, what could not be verified, inferred-data disclaimer (ports inferred from RTE call sites, etc.).
-
-**Style:** one self-contained `.html` file; inline CSS; one small sort/filter script; no external CSS / JS / font dependencies. ASCII only, no em dashes. Severity and status shown as small colored chips, not walls of text. If in doubt, push detail into Layer 3 and keep Layers 1-2 minimal. Use [`references/html-report-template.html`](references/html-report-template.html) as the skeleton: fill the header, the Layer 1 stat cells, one lean table row per concern/component, and one collapsed `<details>` block per concern/component.
-
-**Where to write it:**
-1. Detect a project root by walking up from the working directory for `.git` or another clear project marker.
-2. **Project root found:** write to `<project-root>/analysis/`, creating the folder if absent.
-3. **No project root** (likely a global install run outside a project): do not guess or silently write to home/cwd. Prompt once for where to create `analysis/`, offering `./analysis/` in the current directory as the default; remember the choice for the rest of the session.
-4. Always report the exact path written.
-5. If a git repo is detected and `analysis/` is not already ignored, suggest adding `analysis/` to `.gitignore`.
-
-Filename: `analysis/codebase-analysis-<short-timestamp>.html` (for example `codebase-analysis-20260621-1930.html`) so repeated runs do not overwrite.
 
