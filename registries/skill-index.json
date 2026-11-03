@@ -1873,6 +1873,33 @@
         "linux",
         "ros1"
       ]
+    },
+    "axiom-mil-sil-hil-testing": {
+      "description": "Merged skill (distilled practices).",
+      "domains": [
+        "all"
+      ],
+      "platforms": [
+        "all"
+      ]
+    },
+    "axiom-misra-c-cpp-review": {
+      "description": "Merged skill (distilled practices).",
+      "domains": [
+        "all"
+      ],
+      "platforms": [
+        "all"
+      ]
+    },
+    "codebase-analysis": {
+      "description": "Codebase analysis: scan repo, map SWCs/BSW/RTE/signal flow/ASIL zones into CODEBASE_MAP.md.",
+      "domains": [
+        "all"
+      ],
+      "platforms": [
+        "all"
+      ]
     }
   },
   "by_domain": {
@@ -1890,6 +1917,8 @@
       "axiom-hil-test-planning",
       "axiom-interface-contract-design",
       "axiom-memory-and-performance-analysis",
+      "axiom-mil-sil-hil-testing",
+      "axiom-misra-c-cpp-review",
       "axiom-platform-architecture-review",
       "axiom-rtos-architecture",
       "axiom-static-analysis-triage",
@@ -1901,6 +1930,7 @@
       "build-system",
       "change-impact",
       "code-review",
+      "codebase-analysis",
       "configuration-management",
       "coverage",
       "debugging",
@@ -2129,9 +2159,12 @@
       "automotive-cybersecurity",
       "automotive-spice",
       "automotive-vcycle",
+      "axiom-mil-sil-hil-testing",
+      "axiom-misra-c-cpp-review",
       "build-system",
       "change-impact",
       "code-review",
+      "codebase-analysis",
       "configuration-management",
       "coverage",
       "debugging",
@@ -2570,11 +2603,14 @@
       "axiom-embedded-firmware-bringup",
       "axiom-hil-test-planning",
       "axiom-memory-and-performance-analysis",
+      "axiom-mil-sil-hil-testing",
+      "axiom-misra-c-cpp-review",
       "axiom-rtos-architecture",
       "axiom-test-automation",
       "axiom-trace-analysis",
       "bare-metal",
       "bootloader",
+      "codebase-analysis",
       "debugging",
       "drivers",
       "edge-ai",

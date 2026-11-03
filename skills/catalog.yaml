@@ -3154,6 +3154,58 @@ skills:
   - validate_skill
   risk_level: medium
   review_required: true
+- id: axiom-mil-sil-hil-testing
+  name: axiom.legacy.axiom-mil-sil-hil-testing
+  title: axiom-mil-sil-hil-testing
+  version: 1.3.0
+  domain: all
+  subdomain: legacy
+  category: legacy
+  maturity: production
+  owner: axiom-embedded
+  tags:
+  - legacy
+  inputs:
+  - repository path
+  - objective
+  outputs:
+  - report
+  dependencies: []
+  related_skills: []
+  path: skills/axiom-mil-sil-hil-testing
+  enabled: true
+  lifecycle: []
+  standards: []
+  artifact_types: []
+  mcp_tools: []
+  risk_level: medium
+  review_required: []
+- id: axiom-misra-c-cpp-review
+  name: axiom.legacy.axiom-misra-c-cpp-review
+  title: axiom-misra-c-cpp-review
+  version: 1.3.0
+  domain: all
+  subdomain: legacy
+  category: legacy
+  maturity: production
+  owner: axiom-embedded
+  tags:
+  - legacy
+  inputs:
+  - repository path
+  - objective
+  outputs:
+  - report
+  dependencies: []
+  related_skills: []
+  path: skills/axiom-misra-c-cpp-review
+  enabled: true
+  lifecycle: []
+  standards: []
+  artifact_types: []
+  mcp_tools: []
+  risk_level: medium
+  review_required: []
 - id: axiom-model-card
   name: axiom.robotics.model.card
   title: Model Card
@@ -5764,6 +5816,26 @@ skills:
   - axiom-platform-architecture-review
   - axiom-static-analysis-triage
   - axiom-technical-debt-assessment
+- id: codebase-analysis
+  name: axiom.legacy.codebase-analysis
+  title: codebase-analysis
+  version: 1.3.0
+  domain: all
+  subdomain: legacy
+  category: legacy
+  maturity: production
+  owner: axiom-embedded
+  tags:
+  - legacy
+  inputs:
+  - repository path
+  - objective
+  outputs:
+  - report
+  dependencies: []
+  related_skills: []
+  path: skills/codebase-analysis
+  enabled: true
 - id: configuration-management
   name: axiom.legacy.configuration-management
   title: configuration-management

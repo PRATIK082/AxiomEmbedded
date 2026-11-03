@@ -308,6 +308,14 @@ skills:
   path: skills/axiom-memory-and-performance-analysis
   domain: platform
   maturity: experimental
+- name: axiom.legacy.axiom-mil-sil-hil-testing
+  path: skills/axiom-mil-sil-hil-testing
+  domain: all
+  maturity: production
+- name: axiom.legacy.axiom-misra-c-cpp-review
+  path: skills/axiom-misra-c-cpp-review
+  domain: all
+  maturity: production
 - name: axiom.robotics.model.card
   path: skills/axiom-model-card
   domain: robotics
@@ -558,6 +566,10 @@ skills:
   maturity: production
 - name: axiom.legacy.code-review
   path: skills/code-review
+  domain: all
+  maturity: production
+- name: axiom.legacy.codebase-analysis
+  path: skills/codebase-analysis
   domain: all
   maturity: production
 - name: axiom.legacy.configuration-management
