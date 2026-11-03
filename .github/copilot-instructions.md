@@ -18,7 +18,7 @@ Surface the plan first; never execute pushes, releases, destructive
 commands, or safety/security-critical changes without recorded human
 approval. Never claim certification or compliance from a heuristic check.
 
-## Skills (182)
+## Skills (185)
 
 - `adas` -- ADAS/AD perception-to-control pipeline, sensor fusion, SOTIF and ASIL decomposition, Euro-NCAP, data closed-loop, OpenSCENARIO/OpenDRIVE HIL. Use for L0-L4 driver assistance and automated driving.
 - `ai-validation` -- ODD discipline, dataset independence, statistical acceptance, drift monitoring. Use when assuring ML components or arguing AI safety.
@@ -124,6 +124,8 @@ approval. Never claim certification or compliance from a heuristic check.
 - `axiom-machinery-safety-lifecycle-plan-review` -- Plans the machinery safety lifecycle: milestones, review gates, and evidence deliverables from concept through decommissioning.
 - `axiom-memory-and-performance-analysis` -- Analyzes memory classification, stack/heap budgets and performance hotspots against project budgets.
 
+- `axiom-mil-sil-hil-testing` -- Merged skill (distilled practices).
+- `axiom-misra-c-cpp-review` -- Merged skill (distilled practices).
 - `axiom-model-card` -- Authors model cards for robotics ML models: intended use, metrics, limits, failure modes, and deployment caveats.
 - `axiom-model-card-review` -- Authors model cards for robotics ML models: intended use, metrics, limits, failure modes, and deployment caveats.
 - `axiom-nav2-config` -- Designs Nav2 planner/controller/costmap configuration with deterministic parameter records and behavior-tree plugin selection.
@@ -205,6 +207,7 @@ approval. Never claim certification or compliance from a heuristic check.
 - `build-system` -- Warnings-as-errors builds, pinning, toolchain separation, SLSA provenance. Use when setting up CMake builds or reproducible toolchains.
 - `change-impact` -- Trace-driven blast-radius analysis and safety trigger tests for changes. Use when assessing a change request or planning a hotfix.
 - `code-review` -- Peer-review practice with checklists, size limits, and independence rules. Use when reviewing changes or setting up review policy.
+- `codebase-analysis` -- Codebase analysis: scan repo, map SWCs/BSW/RTE/signal flow/ASIL zones into CODEBASE_MAP.md.
 - `configuration-management` -- Version-everything, immutable baselines, and CI identification. Use when setting up version control, baselines, or audits.
 - `coverage` -- Structural coverage metrics per level, MC/DC practice, and exclusion discipline. Use when measuring or arguing test completeness.
 - `debugging` -- Reproduce-isolate-root-cause method with silicon testimony and mandatory regression tests. Use when hunting field or lab failures.

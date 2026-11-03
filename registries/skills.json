@@ -310,6 +310,14 @@
       "path": "skills/axiom-memory-and-performance-analysis"
     },
     {
+      "id": "axiom-mil-sil-hil-testing",
+      "path": "skills/axiom-mil-sil-hil-testing"
+    },
+    {
+      "id": "axiom-misra-c-cpp-review",
+      "path": "skills/axiom-misra-c-cpp-review"
+    },
+    {
       "id": "axiom-model-card",
       "path": "skills/axiom-model-card"
     },
@@ -560,6 +568,10 @@
     {
       "id": "code-review",
       "path": "skills/code-review"
+    },
+    {
+      "id": "codebase-analysis",
+      "path": "skills/codebase-analysis"
     },
     {
       "id": "configuration-management",
