@@ -1,0 +1,11 @@
+gates:
+  - id: scope
+    text: Scope, inputs, prerequisites recorded
+  - id: method
+    text: Workflow steps executed with evidence
+  - id: validation
+    text: Scripts + checklist gates green
+  - id: traceability
+    text: Links complete
+  - id: review
+    text: Human review done for safety/security output

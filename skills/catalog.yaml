@@ -1619,6 +1619,59 @@ skills:
   - validate_skill
   risk_level: high
   review_required: true
+- id: axiom-digital-filtering
+  name: axiom.generic-embedded.sensor.digital.filtering
+  title: Digital Filtering for Sensor Data
+  version: 1.2.0
+  domain: generic-embedded
+  subdomain: sensor
+  category: implementation
+  maturity: experimental
+  owner: axiom-embedded
+  tags:
+  - filtering
+  - iir
+  - fir
+  - median
+  - fixed-point
+  inputs:
+  - repository path
+  - target files
+  - objective
+  - constraints
+  outputs:
+  - run report
+  - run manifest
+  dependencies: []
+  related_skills:
+  - axiom-multi-sensor-synchronization
+  - axiom-sensor-acquisition
+  - axiom-sensor-calibration
+  - axiom-sensor-diagnostics
+  - unit-test
+  path: skills/axiom-digital-filtering
+  enabled: true
+  lifecycle:
+  - requirements
+  - architecture
+  - design
+  - implementation
+  - integration
+  - verification
+  - validation
+  - release
+  standards: []
+  artifact_types:
+  - filter design note
+  - filter test vectors
+  mcp_tools:
+  - run_skill
+  - validate_skill
+  risk_level: medium
+  review_required: true
+  safety_critical: false
+  extends: null
+  sub_skills: []
 - id: axiom-embedded-cicd
   name: axiom.legacy.axiom-embedded-cicd
   title: Embedded CI-CD Pipeline Design
@@ -1683,6 +1736,10 @@ skills:
   - run manifest
   dependencies: []
   related_skills:
+  - axiom-framework-arduino
+  - axiom-framework-esp-idf
+  - axiom-framework-zephyr
+  - axiom-hardware-aware-checks
   - bootloader
   - drivers
   - hardware-bringup
@@ -1882,6 +1939,161 @@ skills:
   - validate_skill
   risk_level: high
   review_required: true
+- id: axiom-framework-arduino
+  name: axiom.platform.framework.arduino
+  title: Arduino Framework Engineering
+  version: 1.2.0
+  domain: platform
+  subdomain: arduino
+  category: implementation
+  maturity: experimental
+  owner: axiom-embedded
+  tags:
+  - framework
+  - arduino
+  - mcu
+  inputs:
+  - repository path
+  - target files
+  - objective
+  - constraints
+  - board profile
+  outputs:
+  - run report
+  - run manifest
+  dependencies: []
+  related_skills:
+  - axiom-hardware-aware-checks
+  - axiom-embedded-firmware-bringup
+  path: skills/axiom-framework-arduino
+  enabled: true
+  lifecycle:
+  - requirements
+  - architecture
+  - design
+  - implementation
+  - integration
+  - verification
+  - validation
+  - release
+  standards: []
+  artifact_types:
+  - sketch
+  - board profile
+  - build script
+  - debug notes
+  mcp_tools:
+  - run_skill
+  - validate_skill
+  risk_level: medium
+  review_required: true
+  safety_critical: false
+  extends: null
+  sub_skills: []
+- id: axiom-framework-esp-idf
+  name: axiom.platform.framework.esp_idf
+  title: ESP-IDF Framework Engineering
+  version: 1.2.0
+  domain: platform
+  subdomain: esp-idf
+  category: implementation
+  maturity: experimental
+  owner: axiom-embedded
+  tags:
+  - framework
+  - esp-idf
+  - esp32
+  inputs:
+  - repository path
+  - target files
+  - objective
+  - constraints
+  - target profile
+  outputs:
+  - run report
+  - run manifest
+  dependencies: []
+  related_skills:
+  - axiom-hardware-aware-checks
+  - axiom-embedded-firmware-bringup
+  path: skills/axiom-framework-esp-idf
+  enabled: true
+  lifecycle:
+  - requirements
+  - architecture
+  - design
+  - implementation
+  - integration
+  - verification
+  - validation
+  - release
+  standards: []
+  artifact_types:
+  - component
+  - CMake project
+  - partition table
+  - OTA plan
+  - debug notes
+  mcp_tools:
+  - run_skill
+  - validate_skill
+  risk_level: medium
+  review_required: true
+  safety_critical: false
+  extends: null
+  sub_skills: []
+- id: axiom-framework-zephyr
+  name: axiom.platform.framework.zephyr
+  title: Zephyr RTOS Framework Engineering
+  version: 1.2.0
+  domain: platform
+  subdomain: zephyr
+  category: implementation
+  maturity: experimental
+  owner: axiom-embedded
+  tags:
+  - framework
+  - zephyr
+  - rtos
+  inputs:
+  - repository path
+  - target files
+  - objective
+  - constraints
+  - board profile
+  outputs:
+  - run report
+  - run manifest
+  dependencies: []
+  related_skills:
+  - axiom-hardware-aware-checks
+  - axiom-embedded-firmware-bringup
+  path: skills/axiom-framework-zephyr
+  enabled: true
+  lifecycle:
+  - requirements
+  - architecture
+  - design
+  - implementation
+  - integration
+  - verification
+  - validation
+  - release
+  standards: []
+  artifact_types:
+  - devicetree overlay
+  - Kconfig
+  - west project
+  - driver
+  - test suite
+  mcp_tools:
+  - run_skill
+  - validate_skill
+  risk_level: medium
+  review_required: true
+  safety_critical: false
+  extends: null
+  sub_skills: []
 - id: axiom-functional-safety
   name: axiom.automotive.functional.safety
   title: Functional Safety Workflow
@@ -1928,6 +2140,61 @@ skills:
   - validate_skill
   risk_level: safety-critical
   review_required: true
+- id: axiom-hardware-aware-checks
+  name: axiom.platform.hardware_aware_checks
+  title: Hardware-Aware Pre-Generation Checks for Firmware
+  version: 1.2.0
+  domain: platform
+  subdomain: hardware-checks
+  category: verification
+  maturity: experimental
+  owner: axiom-embedded
+  tags:
+  - hardware
+  - checks
+  - pre-generation
+  inputs:
+  - repository path
+  - target files
+  - objective
+  - constraints
+  - hardware profile
+  outputs:
+  - run report
+  - run manifest
+  - check report
+  dependencies: []
+  related_skills:
+  - axiom-embedded-firmware-bringup
+  - axiom-framework-arduino
+  - axiom-framework-esp-idf
+  - axiom-framework-zephyr
+  - hardware-architecture
+  - hardware-bringup
+  path: skills/axiom-hardware-aware-checks
+  enabled: true
+  lifecycle:
+  - requirements
+  - architecture
+  - design
+  - implementation
+  - integration
+  - verification
+  - validation
+  - release
+  standards: []
+  artifact_types:
+  - hardware profile
+  - pre-generation check report
+  - assumption log
+  mcp_tools:
+  - run_skill
+  - validate_skill
+  risk_level: medium
+  review_required: true
+  safety_critical: false
+  extends: null
+  sub_skills: []
 - id: axiom-hazard-risk
   name: axiom.assurance.hazard_risk
   title: Hazard Analysis and Risk Assessment
@@ -2060,6 +2327,60 @@ skills:
   - validate_skill
   risk_level: medium
   review_required: true
+- id: axiom-hmi-and-actuators
+  name: axiom.platform.hmi.actuators
+  title: HMI and Actuators Engineering
+  version: 1.2.0
+  domain: platform
+  subdomain: hmi
+  category: implementation
+  maturity: experimental
+  owner: axiom-embedded
+  tags:
+  - hmi
+  - actuators
+  - keypad
+  - display
+  - motor
+  - relay
+  - estop
+  inputs:
+  - repository path
+  - target files
+  - objective
+  - constraints
+  outputs:
+  - run report
+  - run manifest
+  dependencies: []
+  related_skills:
+  - drivers
+  - safety
+  - axiom-interlock-estop-architecture
+  path: skills/axiom-hmi-and-actuators
+  enabled: true
+  lifecycle:
+  - requirements
+  - architecture
+  - design
+  - implementation
+  - integration
+  - verification
+  - validation
+  - release
+  standards: []
+  artifact_types:
+  - HMI/actuator interface spec
+  - safety I/O matrix
+  - verification report
+  mcp_tools:
+  - run_skill
+  - validate_skill
+  risk_level: high
+  review_required: true
+  safety_critical: false
+  extends: null
+  sub_skills: []
 - id: axiom-iec62061-sil
   name: axiom.industrial.iec62061.sil
   title: IEC 62061 SIL Determination
@@ -2345,6 +2666,7 @@ skills:
   - e-stop topology
   dependencies: []
   related_skills:
+  - axiom-hmi-and-actuators
   - axiom-interlock-estop-architecture-review
   path: skills/axiom-interlock-estop-architecture
   enabled: true
@@ -3171,7 +3493,8 @@ skills:
   outputs:
   - report
   dependencies: []
-  related_skills: []
+  related_skills:
+  - axiom-validation-levels
   path: skills/axiom-mil-sil-hil-testing
   enabled: true
   lifecycle: []
@@ -3288,6 +3611,58 @@ skills:
   - validate_skill
   risk_level: medium
   review_required: true
+- id: axiom-multi-sensor-synchronization
+  name: axiom.generic-embedded.sensor.multi.sensor.synchronization
+  title: Multi-Sensor Synchronization
+  version: 1.2.0
+  domain: generic-embedded
+  subdomain: sensor
+  category: implementation
+  maturity: experimental
+  owner: axiom-embedded
+  tags:
+  - synchronization
+  - multi-sensor
+  - fusion
+  - trigger
+  - clock-domain
+  inputs:
+  - repository path
+  - target files
+  - objective
+  - constraints
+  outputs:
+  - run report
+  - run manifest
+  dependencies: []
+  related_skills:
+  - axiom-sensor-acquisition
+  - axiom-sampling-timestamping
+  - axiom-sensor-diagnostics
+  - axiom-digital-filtering
+  path: skills/axiom-multi-sensor-synchronization
+  enabled: true
+  lifecycle:
+  - requirements
+  - architecture
+  - design
+  - implementation
+  - integration
+  - verification
+  - validation
+  - release
+  standards: []
+  artifact_types:
+  - sync design
+  - timing alignment evidence
+  mcp_tools:
+  - run_skill
+  - validate_skill
+  risk_level: medium
+  review_required: true
+  safety_critical: false
+  extends: null
+  sub_skills: []
 - id: axiom-nav2-config
   name: axiom.robotics.nav2.config
   title: Nav2 Configuration
@@ -3722,6 +4097,56 @@ skills:
   - validate_skill
   risk_level: high
   review_required: true
+- id: axiom-peripheral-timers
+  name: axiom.platform.peripheral.timers
+  title: Peripheral Timers, PWM and RTC Engineering
+  version: 1.2.0
+  domain: platform
+  subdomain: timers
+  category: implementation
+  maturity: experimental
+  owner: axiom-embedded
+  tags:
+  - timers
+  - pwm
+  - rtc
+  - counters
+  inputs:
+  - repository path
+  - target files
+  - objective
+  - constraints
+  outputs:
+  - run report
+  - run manifest
+  dependencies: []
+  related_skills:
+  - drivers
+  - mcu
+  - performance
+  path: skills/axiom-peripheral-timers
+  enabled: true
+  lifecycle:
+  - requirements
+  - architecture
+  - design
+  - implementation
+  - integration
+  - verification
+  - validation
+  - release
+  standards: []
+  artifact_types:
+  - timer configuration record
+  - timing verification report
+  mcp_tools:
+  - run_skill
+  - validate_skill
+  risk_level: medium
+  review_required: true
+  safety_critical: false
+  extends: null
+  sub_skills: []
 - id: axiom-pfl-plan
   name: axiom.robotics.pfl.plan
   title: Power-and-Force-Limiting Plan
@@ -4726,6 +5151,59 @@ skills:
   - ISO 14118:2017
   - IEC 62061:2021
   - IEC 61508:2010
+- id: axiom-sampling-timestamping
+  name: axiom.generic-embedded.sensor.sampling.timestamping
+  title: Sampling and Timestamping
+  version: 1.2.0
+  domain: generic-embedded
+  subdomain: sensor
+  category: implementation
+  maturity: experimental
+  owner: axiom-embedded
+  tags:
+  - sampling
+  - timestamping
+  - timer
+  - jitter
+  - ring-buffer
+  inputs:
+  - repository path
+  - target files
+  - objective
+  - constraints
+  outputs:
+  - run report
+  - run manifest
+  dependencies: []
+  related_skills:
+  - axiom-multi-sensor-synchronization
+  - axiom-sensor-acquisition
+  - axiom-sensor-diagnostics
+  - axiom-sensor-driver-integration
+  - performance
+  path: skills/axiom-sampling-timestamping
+  enabled: true
+  lifecycle:
+  - requirements
+  - architecture
+  - design
+  - implementation
+  - integration
+  - verification
+  - validation
+  - release
+  standards: []
+  artifact_types:
+  - sampling plan
+  - timing evidence
+  mcp_tools:
+  - run_skill
+  - validate_skill
+  risk_level: medium
+  review_required: true
+  safety_critical: false
+  extends: null
+  sub_skills: []
 - id: axiom-scope-context
   name: axiom.assurance.scope_context
   title: System Scope and Operating Context Definition
@@ -4799,6 +5277,226 @@ skills:
   - ISO 12100:2010
   - ISO 10218-2:2011
   - ISO 11161:2007
+- id: axiom-sensor-acquisition
+  name: axiom.generic-embedded.sensor.acquisition
+  title: Sensor Data Acquisition
+  version: 1.2.0
+  domain: generic-embedded
+  subdomain: sensor
+  category: implementation
+  maturity: experimental
+  owner: axiom-embedded
+  tags:
+  - sensor
+  - acquisition
+  - sampling
+  - timestamping
+  inputs:
+  - repository path
+  - target files
+  - objective
+  - constraints
+  outputs:
+  - run report
+  - run manifest
+  dependencies: []
+  related_skills:
+  - axiom-sensor-driver-integration
+  - axiom-sampling-timestamping
+  - axiom-sensor-calibration
+  - axiom-digital-filtering
+  - axiom-sensor-diagnostics
+  - axiom-multi-sensor-synchronization
+  - drivers
+  - unit-test
+  - validation
+  - performance
+  path: skills/axiom-sensor-acquisition
+  enabled: true
+  lifecycle:
+  - requirements
+  - architecture
+  - design
+  - implementation
+  - integration
+  - verification
+  - validation
+  - release
+  standards: []
+  artifact_types:
+  - sensor acquisition design note
+  - acquisition evidence bundle
+  mcp_tools:
+  - run_skill
+  - validate_skill
+  risk_level: medium
+  review_required: true
+  safety_critical: false
+  extends: null
+  sub_skills: []
+- id: axiom-sensor-calibration
+  name: axiom.generic-embedded.sensor.calibration
+  title: Sensor Calibration
+  version: 1.2.0
+  domain: generic-embedded
+  subdomain: sensor
+  category: implementation
+  maturity: experimental
+  owner: axiom-embedded
+  tags:
+  - calibration
+  - offset
+  - gain
+  - nvm
+  - temperature-compensation
+  inputs:
+  - repository path
+  - target files
+  - objective
+  - constraints
+  outputs:
+  - run report
+  - run manifest
+  dependencies: []
+  related_skills:
+  - axiom-sensor-acquisition
+  - axiom-digital-filtering
+  - axiom-sensor-diagnostics
+  - validation
+  path: skills/axiom-sensor-calibration
+  enabled: true
+  lifecycle:
+  - requirements
+  - architecture
+  - design
+  - implementation
+  - integration
+  - verification
+  - validation
+  - release
+  standards: []
+  artifact_types:
+  - calibration procedure
+  - calibration record
+  - nvm layout
+  mcp_tools:
+  - run_skill
+  - validate_skill
+  risk_level: medium
+  review_required: true
+  safety_critical: false
+  extends: null
+  sub_skills: []
+- id: axiom-sensor-diagnostics
+  name: axiom.generic-embedded.sensor.diagnostics
+  title: Sensor Diagnostics
+  version: 1.2.0
+  domain: generic-embedded
+  subdomain: sensor
+  category: implementation
+  maturity: experimental
+  owner: axiom-embedded
+  tags:
+  - diagnostics
+  - fault-detection
+  - degraded-mode
+  - watchdog
+  inputs:
+  - repository path
+  - target files
+  - objective
+  - constraints
+  outputs:
+  - run report
+  - run manifest
+  dependencies: []
+  related_skills:
+  - axiom-sensor-acquisition
+  - axiom-sensor-driver-integration
+  - axiom-sampling-timestamping
+  - axiom-sensor-calibration
+  - axiom-digital-filtering
+  - axiom-multi-sensor-synchronization
+  - validation
+  - fault-injection
+  path: skills/axiom-sensor-diagnostics
+  enabled: true
+  lifecycle:
+  - requirements
+  - architecture
+  - design
+  - implementation
+  - integration
+  - verification
+  - validation
+  - release
+  standards: []
+  artifact_types:
+  - diagnostics design
+  - fault injection report
+  mcp_tools:
+  - run_skill
+  - validate_skill
+  risk_level: medium
+  review_required: true
+  safety_critical: false
+  extends: null
+  sub_skills: []
+- id: axiom-sensor-driver-integration
+  name: axiom.generic-embedded.sensor.driver.integration
+  title: Sensor Driver Integration
+  version: 1.2.0
+  domain: generic-embedded
+  subdomain: sensor
+  category: implementation
+  maturity: experimental
+  owner: axiom-embedded
+  tags:
+  - sensor
+  - driver
+  - i2c
+  - spi
+  - uart
+  - register-map
+  inputs:
+  - repository path
+  - target files
+  - objective
+  - constraints
+  outputs:
+  - run report
+  - run manifest
+  dependencies: []
+  related_skills:
+  - axiom-sampling-timestamping
+  - axiom-sensor-acquisition
+  - axiom-sensor-diagnostics
+  - drivers
+  - unit-test
+  path: skills/axiom-sensor-driver-integration
+  enabled: true
+  lifecycle:
+  - requirements
+  - architecture
+  - design
+  - implementation
+  - integration
+  - verification
+  - validation
+  - release
+  standards: []
+  artifact_types:
+  - device driver
+  - register map header
+  - integration evidence
+  mcp_tools:
+  - run_skill
+  - validate_skill
+  risk_level: medium
+  review_required: true
+  safety_critical: false
+  extends: null
+  sub_skills: []
 - id: axiom-ssm-plan
   name: axiom.robotics.ssm.plan
   title: Speed-and-Separation-Monitoring Plan
@@ -4931,6 +5629,58 @@ skills:
   risk_level: medium
   review_required: true
   extends: static-analysis
+- id: axiom-storage-and-memory
+  name: axiom.platform.storage.memory
+  title: Non-Volatile Storage and Memory Engineering
+  version: 1.2.0
+  domain: platform
+  subdomain: storage
+  category: implementation
+  maturity: experimental
+  owner: axiom-embedded
+  tags:
+  - storage
+  - flash
+  - eeprom
+  - filesystem
+  - wear-leveling
+  inputs:
+  - repository path
+  - target files
+  - objective
+  - constraints
+  outputs:
+  - run report
+  - run manifest
+  dependencies: []
+  related_skills:
+  - bootloader
+  - drivers
+  - hardware-bringup
+  path: skills/axiom-storage-and-memory
+  enabled: true
+  lifecycle:
+  - requirements
+  - architecture
+  - design
+  - implementation
+  - integration
+  - verification
+  - validation
+  - release
+  standards: []
+  artifact_types:
+  - storage architecture
+  - endurance test plan
+  - data-integrity report
+  mcp_tools:
+  - run_skill
+  - validate_skill
+  risk_level: high
+  review_required: true
+  safety_critical: false
+  extends: null
+  sub_skills: []
 - id: axiom-technical-debt-assessment
   name: axiom.legacy.axiom-technical-debt-assessment
   title: Technical Debt Assessment
@@ -5355,6 +6105,60 @@ skills:
   - validate_skill
   risk_level: medium
   review_required: true
+- id: axiom-validation-levels
+  name: axiom.platform.validation.levels
+  title: Validation Levels and Evidence Framework
+  version: 1.2.0
+  domain: platform
+  subdomain: validation
+  category: verification
+  maturity: experimental
+  owner: axiom-embedded
+  tags:
+  - validation
+  - verification
+  - hil
+  - simulation
+  - testing
+  inputs:
+  - repository path
+  - target files
+  - objective
+  - constraints
+  outputs:
+  - run report
+  - run manifest
+  dependencies: []
+  related_skills:
+  - validation
+  - simulation
+  - test-automation
+  - integration-test
+  - axiom-mil-sil-hil-testing
+  path: skills/axiom-validation-levels
+  enabled: true
+  lifecycle:
+  - requirements
+  - architecture
+  - design
+  - implementation
+  - integration
+  - verification
+  - validation
+  - release
+  standards: []
+  artifact_types:
+  - validation plan
+  - evidence package
+  - acceptance report
+  mcp_tools:
+  - run_skill
+  - validate_skill
+  risk_level: medium
+  review_required: true
+  safety_critical: false
+  extends: null
+  sub_skills: []
 - id: axiom-vehicle-cybersecurity
   name: axiom.automotive.vehicle.cybersecurity
   title: Vehicle Cybersecurity Workflow
@@ -5740,6 +6544,7 @@ skills:
   dependencies: []
   related_skills:
   - axiom-embedded-firmware-bringup
+  - axiom-storage-and-memory
   path: skills/bootloader
   enabled: true
   sub_skills:
@@ -5947,6 +6752,11 @@ skills:
   dependencies: []
   related_skills:
   - axiom-embedded-firmware-bringup
+  - axiom-hmi-and-actuators
+  - axiom-peripheral-timers
+  - axiom-sensor-acquisition
+  - axiom-sensor-driver-integration
+  - axiom-storage-and-memory
   path: skills/drivers
   enabled: true
   sub_skills:
@@ -6071,7 +6881,8 @@ skills:
   outputs:
   - report
   dependencies: []
-  related_skills: []
+  related_skills:
+  - axiom-sensor-diagnostics
   path: skills/fault-injection
   enabled: true
 - id: feature-development
@@ -6137,7 +6948,8 @@ skills:
   outputs:
   - report
   dependencies: []
-  related_skills: []
+  related_skills:
+  - axiom-hardware-aware-checks
   path: skills/hardware-architecture
   enabled: true
 - id: hardware-bringup
@@ -6159,6 +6971,8 @@ skills:
   dependencies: []
   related_skills:
   - axiom-embedded-firmware-bringup
+  - axiom-hardware-aware-checks
+  - axiom-storage-and-memory
   path: skills/hardware-bringup
   enabled: true
   sub_skills:
@@ -6203,6 +7017,7 @@ skills:
   related_skills:
   - axiom-hil-test-planning
   - axiom-test-automation
+  - axiom-validation-levels
   path: skills/integration-test
   enabled: true
   sub_skills:
@@ -6247,6 +7062,7 @@ skills:
   dependencies: []
   related_skills:
   - axiom-embedded-firmware-bringup
+  - axiom-peripheral-timers
   path: skills/mcu
   enabled: true
   sub_skills:
@@ -6313,6 +7129,9 @@ skills:
   dependencies: []
   related_skills:
   - axiom-memory-and-performance-analysis
+  - axiom-peripheral-timers
+  - axiom-sampling-timestamping
+  - axiom-sensor-acquisition
   path: skills/performance
   enabled: true
   sub_skills:
@@ -6532,6 +7351,7 @@ skills:
   dependencies: []
   related_skills:
   - axiom-functional-safety
+  - axiom-hmi-and-actuators
   - axiom-safety-requirements
   path: skills/safety
   enabled: true
@@ -6580,6 +7400,7 @@ skills:
   dependencies: []
   related_skills:
   - axiom-hil-test-planning
+  - axiom-validation-levels
   path: skills/simulation
   enabled: true
   sub_skills:
@@ -6696,6 +7517,7 @@ skills:
   related_skills:
   - axiom-embedded-cicd
   - axiom-test-automation
+  - axiom-validation-levels
   path: skills/test-automation
   enabled: true
   sub_skills:
@@ -6742,6 +7564,9 @@ skills:
   - report
   dependencies: []
   related_skills:
+  - axiom-digital-filtering
+  - axiom-sensor-acquisition
+  - axiom-sensor-driver-integration
   - axiom-test-automation
   path: skills/unit-test
   enabled: true
@@ -6764,6 +7589,10 @@ skills:
   outputs:
   - report
   dependencies: []
-  related_skills: []
+  related_skills:
+  - axiom-sensor-acquisition
+  - axiom-sensor-calibration
+  - axiom-sensor-diagnostics
+  - axiom-validation-levels
   path: skills/validation
   enabled: true

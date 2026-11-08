@@ -79,3 +79,9 @@ checks. Starts at an integrated system, ends at stakeholder acceptance.
 
 - Acceptance criteria pre-date results (audit the timestamps).
 - No lab-only validation accepted for operator-facing functions.
+
+
+## Validation levels (added 2026)
+- Distinguish source-level, build, static analysis, host-based, simulation, HIL, physical acceptance.
+- See xiom-validation-levels for per-level prerequisites, procedure, evidence.
+- Never report compilation as hardware correctness.

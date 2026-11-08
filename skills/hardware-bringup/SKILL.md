@@ -86,3 +86,9 @@ bring-up report.
 ## 6. Verification of this skill (Phase 4 gate)
 
 - References carry number + version + scope + URL (S2).
+
+
+## Wiring and integration verification (added 2026)
+- Wiring verification checklist before power-on; annotated diagrams as evidence.
+- Deviation log for any change from reference design.
+- Cross-ref: xiom-hardware-aware-checks, xiom-validation-levels.

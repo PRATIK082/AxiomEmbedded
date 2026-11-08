@@ -1900,6 +1900,202 @@
       "platforms": [
         "all"
       ]
+    },
+    "axiom-digital-filtering": {
+      "description": "Applies digital filters to sensor data: moving average, IIR low-pass, FIR, median, outlier rejection and saturation, with fixed-point and latency considerations and verification on known signals.\n",
+      "domains": [
+        "automotive",
+        "generic-embedded",
+        "industrial",
+        "iot",
+        "robotics"
+      ],
+      "platforms": [
+        "mcu",
+        "mpsoc",
+        "mpu",
+        "soc"
+      ]
+    },
+    "axiom-framework-arduino": {
+      "description": "Engineering guide for Arduino framework projects: core and library model, sketch structure, pin mapping, Serial, Wire/SPI, interrupts, timers, memory constraints on AVR, portability limits, build via arduino-cli, debugging, and safety/security notes. Hardware-aware: board selection and pin constrain",
+      "domains": [
+        "all"
+      ],
+      "platforms": [
+        "mcu"
+      ]
+    },
+    "axiom-framework-esp-idf": {
+      "description": "Engineering guide for ESP-IDF projects: component model, CMake build, FreeRTOS tasks, HAL and drivers, GPIO/UART/SPI/I2C, NVS, partition tables, OTA, logging, debugging with JTAG/OpenOCD, build/flash/monitor, memory, power management, and security (secure boot and flash encryption). Hardware-aware: ",
+      "domains": [
+        "all"
+      ],
+      "platforms": [
+        "mcu",
+        "soc"
+      ]
+    },
+    "axiom-framework-zephyr": {
+      "description": "Engineering guide for Zephyr RTOS projects: devicetree, Kconfig, west build and flash, drivers API, workqueues, threads, power management, logging, shell, testing with ztest, and portability across boards. Hardware-aware: board definitions and pin constraints.\n",
+      "domains": [
+        "all"
+      ],
+      "platforms": [
+        "mcu",
+        "mpu",
+        "soc"
+      ]
+    },
+    "axiom-hardware-aware-checks": {
+      "description": "Performs pre-generation checks for firmware projects against a declared hardware profile: target MCU/MPU/SoC, board, architecture, peripherals, pin assignments, clock configuration, memory, OS, framework, toolchain, external components, electrical constraints, interfaces, timing, and debug interface",
+      "domains": [
+        "all"
+      ],
+      "platforms": [
+        "mcu",
+        "mpsoc",
+        "mpu",
+        "soc"
+      ]
+    },
+    "axiom-hmi-and-actuators": {
+      "description": "Engineers human-machine interfaces and actuators: keypad matrix scanning and debouncing, LCD1602/OLED displays, LEDs, active/passive buzzers, DC/stepper/servo motors, encoders, relays, interlocks and e-stop, with electrical and timing constraints and verification.\n",
+      "domains": [
+        "all"
+      ],
+      "platforms": [
+        "mcu",
+        "mpu",
+        "soc"
+      ]
+    },
+    "axiom-multi-sensor-synchronization": {
+      "description": "Synchronizes multiple sensors across shared triggers, aligned timestamps, clock domains and fusion timing with deterministic sampling and resource arbitration.\n",
+      "domains": [
+        "automotive",
+        "generic-embedded",
+        "industrial",
+        "iot",
+        "robotics"
+      ],
+      "platforms": [
+        "mcu",
+        "mpsoc",
+        "mpu",
+        "soc"
+      ]
+    },
+    "axiom-peripheral-timers": {
+      "description": "Engineers MCU timers, counters, PWM, capture/compare and RTC subsystems: modes, prescalers, deterministic intervals, overflow handling, watchdog interaction, interrupt latency, calibration, and platform differences (AVR/ESP32/Zephyr), verified on hardware.\n",
+      "domains": [
+        "all"
+      ],
+      "platforms": [
+        "bare-metal",
+        "mcu",
+        "rtos"
+      ]
+    },
+    "axiom-sampling-timestamping": {
+      "description": "Selects sampling rates and timer-driven schedules, captures monotonic timestamps, manages jitter and ring buffers, and handles overrun for deterministic embedded acquisition.\n",
+      "domains": [
+        "automotive",
+        "generic-embedded",
+        "industrial",
+        "iot",
+        "robotics"
+      ],
+      "platforms": [
+        "mcu",
+        "mpsoc",
+        "mpu",
+        "soc"
+      ]
+    },
+    "axiom-sensor-acquisition": {
+      "description": "Scope and methodology for acquiring sensor data in embedded systems: interface selection, sampling, conversion, timestamping, buffering and publication with typed errors and evidence.\n",
+      "domains": [
+        "automotive",
+        "generic-embedded",
+        "industrial",
+        "iot",
+        "robotics"
+      ],
+      "platforms": [
+        "mcu",
+        "mpsoc",
+        "mpu",
+        "soc"
+      ]
+    },
+    "axiom-sensor-calibration": {
+      "description": "Plans and executes sensor calibration: offset and gain, factory and field procedures, two-point calibration, temperature compensation, NVM storage, validation and drift tracking without fabricating constants.\n",
+      "domains": [
+        "automotive",
+        "generic-embedded",
+        "industrial",
+        "iot",
+        "robotics"
+      ],
+      "platforms": [
+        "mcu",
+        "mpsoc",
+        "mpu",
+        "soc"
+      ]
+    },
+    "axiom-sensor-diagnostics": {
+      "description": "Detects sensor faults (stuck-at, out-of-range, timeout, CRC error, communication loss), supports degraded mode and watchdogs, and provides fault-injection testing and evidence.\n",
+      "domains": [
+        "automotive",
+        "generic-embedded",
+        "industrial",
+        "iot",
+        "robotics"
+      ],
+      "platforms": [
+        "mcu",
+        "mpsoc",
+        "mpu",
+        "soc"
+      ]
+    },
+    "axiom-sensor-driver-integration": {
+      "description": "Integrates a sensor chip over I2C, SPI, UART or 1-Wire into a layered device driver with register encapsulation, context structs, identification, typed errors and mockable bus seams.\n",
+      "domains": [
+        "automotive",
+        "generic-embedded",
+        "industrial",
+        "iot",
+        "robotics"
+      ],
+      "platforms": [
+        "mcu",
+        "mpsoc",
+        "mpu",
+        "soc"
+      ]
+    },
+    "axiom-storage-and-memory": {
+      "description": "Engineers non-volatile storage: internal flash, EEPROM/emulated EEPROM, external SPI NOR flash, SD cards, wear leveling, power-fail safety, atomic writes, file systems (FAT/LittleFS), endurance and verification.\n",
+      "domains": [
+        "all"
+      ],
+      "platforms": [
+        "mcu",
+        "mpu"
+      ]
+    },
+    "axiom-validation-levels": {
+      "description": "Distinguishes source-level, build, static analysis, host-based, simulation, HIL and physical board acceptance validation; defines prerequisites, equipment, procedure, expected results, failure conditions, measurements, evidence format and limitations for each. Never reports compile success as hardwa",
+      "domains": [
+        "all"
+      ],
+      "platforms": [
+        "mcu",
+        "mpu"
+      ]
     }
   },
   "by_domain": {
@@ -1914,17 +2110,25 @@
       "axiom-architecture-decision-records",
       "axiom-embedded-cicd",
       "axiom-embedded-firmware-bringup",
+      "axiom-framework-arduino",
+      "axiom-framework-esp-idf",
+      "axiom-framework-zephyr",
+      "axiom-hardware-aware-checks",
       "axiom-hil-test-planning",
+      "axiom-hmi-and-actuators",
       "axiom-interface-contract-design",
       "axiom-memory-and-performance-analysis",
       "axiom-mil-sil-hil-testing",
       "axiom-misra-c-cpp-review",
+      "axiom-peripheral-timers",
       "axiom-platform-architecture-review",
       "axiom-rtos-architecture",
       "axiom-static-analysis-triage",
+      "axiom-storage-and-memory",
       "axiom-technical-debt-assessment",
       "axiom-test-automation",
       "axiom-trace-analysis",
+      "axiom-validation-levels",
       "bare-metal",
       "bootloader",
       "build-system",
@@ -1995,7 +2199,14 @@
       "axiom-can-stack-integration",
       "axiom-diagnostics-doip",
       "axiom-diagnostics-uds",
+      "axiom-digital-filtering",
       "axiom-functional-safety",
+      "axiom-multi-sensor-synchronization",
+      "axiom-sampling-timestamping",
+      "axiom-sensor-acquisition",
+      "axiom-sensor-calibration",
+      "axiom-sensor-diagnostics",
+      "axiom-sensor-driver-integration",
       "axiom-v2x-communication",
       "axiom-vehicle-cybersecurity",
       "axiom-zonal-architecture",
@@ -2016,6 +2227,13 @@
     ],
     "generic-embedded": [
       "ai-validation",
+      "axiom-digital-filtering",
+      "axiom-multi-sensor-synchronization",
+      "axiom-sampling-timestamping",
+      "axiom-sensor-acquisition",
+      "axiom-sensor-calibration",
+      "axiom-sensor-diagnostics",
+      "axiom-sensor-driver-integration",
       "edge-ai",
       "embedded-linux",
       "fault-injection",
@@ -2031,6 +2249,7 @@
       "axiom-ansi-r1506-compliance-matrix-review",
       "axiom-declaration-of-conformity",
       "axiom-declaration-of-conformity-review",
+      "axiom-digital-filtering",
       "axiom-hazard-risk",
       "axiom-hazard-risk-review",
       "axiom-iec62061-sil",
@@ -2046,6 +2265,7 @@
       "axiom-loto-procedure-review",
       "axiom-machinery-safety-lifecycle-plan",
       "axiom-machinery-safety-lifecycle-plan-review",
+      "axiom-multi-sensor-synchronization",
       "axiom-operator-training-matrix",
       "axiom-operator-training-matrix-review",
       "axiom-ot-asset-inventory",
@@ -2054,8 +2274,13 @@
       "axiom-robot-sop-review",
       "axiom-safety-requirements",
       "axiom-safety-requirements-review",
+      "axiom-sampling-timestamping",
       "axiom-scope-context",
       "axiom-scope-context-review",
+      "axiom-sensor-acquisition",
+      "axiom-sensor-calibration",
+      "axiom-sensor-diagnostics",
+      "axiom-sensor-driver-integration",
       "axiom-threat-model",
       "axiom-threat-model-review",
       "axiom-vnv-plan",
@@ -2076,6 +2301,13 @@
     ],
     "iot": [
       "ai-validation",
+      "axiom-digital-filtering",
+      "axiom-multi-sensor-synchronization",
+      "axiom-sampling-timestamping",
+      "axiom-sensor-acquisition",
+      "axiom-sensor-calibration",
+      "axiom-sensor-diagnostics",
+      "axiom-sensor-driver-integration",
       "edge-ai",
       "embedded-linux",
       "mcu",
@@ -2089,6 +2321,7 @@
       "axiom-cobot-hand-guiding-review",
       "axiom-dataset-documentation",
       "axiom-dataset-documentation-review",
+      "axiom-digital-filtering",
       "axiom-eoat-spec",
       "axiom-eoat-spec-review",
       "axiom-fleet-manager-architecture",
@@ -2107,6 +2340,7 @@
       "axiom-iso9283-performance-test-review",
       "axiom-model-card",
       "axiom-model-card-review",
+      "axiom-multi-sensor-synchronization",
       "axiom-nav2-config",
       "axiom-nav2-config-review",
       "axiom-operating-envelope",
@@ -2132,8 +2366,13 @@
       "axiom-safety-io-matrix-review",
       "axiom-safety-requirements",
       "axiom-safety-requirements-review",
+      "axiom-sampling-timestamping",
       "axiom-scope-context",
       "axiom-scope-context-review",
+      "axiom-sensor-acquisition",
+      "axiom-sensor-calibration",
+      "axiom-sensor-diagnostics",
+      "axiom-sensor-driver-integration",
       "axiom-ssm-plan",
       "axiom-ssm-plan-review",
       "axiom-tf-tree-spec",
@@ -2224,6 +2463,7 @@
     "bare-metal": [
       "automotive-coding",
       "axiom-embedded-firmware-bringup",
+      "axiom-peripheral-timers",
       "bare-metal",
       "embedded-c",
       "embedded-cpp",
@@ -2263,12 +2503,18 @@
       "axiom-declaration-of-conformity",
       "axiom-declaration-of-conformity-review",
       "axiom-diagnostics-uds",
+      "axiom-digital-filtering",
       "axiom-embedded-cicd",
       "axiom-embedded-firmware-bringup",
+      "axiom-framework-arduino",
+      "axiom-framework-esp-idf",
+      "axiom-framework-zephyr",
       "axiom-functional-safety",
+      "axiom-hardware-aware-checks",
       "axiom-hazard-risk",
       "axiom-hazard-risk-review",
       "axiom-hil-test-planning",
+      "axiom-hmi-and-actuators",
       "axiom-iec62061-sil",
       "axiom-iec62061-sil-review",
       "axiom-iec62443-risk-assessment",
@@ -2284,24 +2530,33 @@
       "axiom-machinery-safety-lifecycle-plan",
       "axiom-machinery-safety-lifecycle-plan-review",
       "axiom-memory-and-performance-analysis",
+      "axiom-multi-sensor-synchronization",
       "axiom-operator-training-matrix",
       "axiom-operator-training-matrix-review",
       "axiom-ot-asset-inventory",
       "axiom-ot-asset-inventory-review",
+      "axiom-peripheral-timers",
       "axiom-platform-architecture-review",
       "axiom-robot-sop",
       "axiom-robot-sop-review",
       "axiom-rtos-architecture",
       "axiom-safety-requirements",
       "axiom-safety-requirements-review",
+      "axiom-sampling-timestamping",
       "axiom-scope-context",
       "axiom-scope-context-review",
+      "axiom-sensor-acquisition",
+      "axiom-sensor-calibration",
+      "axiom-sensor-diagnostics",
+      "axiom-sensor-driver-integration",
       "axiom-static-analysis-triage",
+      "axiom-storage-and-memory",
       "axiom-technical-debt-assessment",
       "axiom-test-automation",
       "axiom-threat-model",
       "axiom-threat-model-review",
       "axiom-trace-analysis",
+      "axiom-validation-levels",
       "axiom-vehicle-cybersecurity",
       "axiom-vnv-plan",
       "axiom-vnv-plan-review",
@@ -2326,6 +2581,14 @@
       "adas",
       "ai-validation",
       "automotive-cockpit",
+      "axiom-digital-filtering",
+      "axiom-hardware-aware-checks",
+      "axiom-multi-sensor-synchronization",
+      "axiom-sampling-timestamping",
+      "axiom-sensor-acquisition",
+      "axiom-sensor-calibration",
+      "axiom-sensor-diagnostics",
+      "axiom-sensor-driver-integration",
       "edge-ai",
       "embedded-linux",
       "hardware-architecture",
@@ -2362,15 +2625,19 @@
       "axiom-declaration-of-conformity-review",
       "axiom-diagnostics-doip",
       "axiom-diagnostics-uds",
+      "axiom-digital-filtering",
       "axiom-embedded-cicd",
       "axiom-eoat-spec",
       "axiom-eoat-spec-review",
       "axiom-fleet-manager-architecture",
       "axiom-fleet-manager-architecture-review",
+      "axiom-framework-zephyr",
       "axiom-functional-safety",
+      "axiom-hardware-aware-checks",
       "axiom-hazard-risk",
       "axiom-hazard-risk-review",
       "axiom-hil-test-planning",
+      "axiom-hmi-and-actuators",
       "axiom-iec62061-sil",
       "axiom-iec62061-sil-review",
       "axiom-iec62443-risk-assessment",
@@ -2398,6 +2665,7 @@
       "axiom-memory-and-performance-analysis",
       "axiom-model-card",
       "axiom-model-card-review",
+      "axiom-multi-sensor-synchronization",
       "axiom-nav2-config",
       "axiom-nav2-config-review",
       "axiom-operating-envelope",
@@ -2430,11 +2698,17 @@
       "axiom-safety-io-matrix-review",
       "axiom-safety-requirements",
       "axiom-safety-requirements-review",
+      "axiom-sampling-timestamping",
       "axiom-scope-context",
       "axiom-scope-context-review",
+      "axiom-sensor-acquisition",
+      "axiom-sensor-calibration",
+      "axiom-sensor-diagnostics",
+      "axiom-sensor-driver-integration",
       "axiom-ssm-plan",
       "axiom-ssm-plan-review",
       "axiom-static-analysis-triage",
+      "axiom-storage-and-memory",
       "axiom-technical-debt-assessment",
       "axiom-test-automation",
       "axiom-tf-tree-spec",
@@ -2445,6 +2719,7 @@
       "axiom-urdf-model-spec",
       "axiom-urdf-model-spec-review",
       "axiom-v2x-communication",
+      "axiom-validation-levels",
       "axiom-vehicle-cybersecurity",
       "axiom-vnv-plan",
       "axiom-vnv-plan-review",
@@ -2473,6 +2748,7 @@
     ],
     "rtos": [
       "automotive-coding",
+      "axiom-peripheral-timers",
       "axiom-rtos-architecture",
       "embedded-c",
       "embedded-cpp",
@@ -2493,10 +2769,15 @@
       "axiom-cobot-hand-guiding-review",
       "axiom-dataset-documentation",
       "axiom-dataset-documentation-review",
+      "axiom-digital-filtering",
       "axiom-eoat-spec",
       "axiom-eoat-spec-review",
       "axiom-fleet-manager-architecture",
       "axiom-fleet-manager-architecture-review",
+      "axiom-framework-esp-idf",
+      "axiom-framework-zephyr",
+      "axiom-hardware-aware-checks",
+      "axiom-hmi-and-actuators",
       "axiom-interlock-estop-architecture",
       "axiom-interlock-estop-architecture-review",
       "axiom-iso10218-compliance-matrix",
@@ -2509,6 +2790,7 @@
       "axiom-iso9283-performance-test-review",
       "axiom-model-card",
       "axiom-model-card-review",
+      "axiom-multi-sensor-synchronization",
       "axiom-nav2-config",
       "axiom-nav2-config-review",
       "axiom-operating-envelope",
@@ -2533,6 +2815,11 @@
       "axiom-ros2-system-architecture-review",
       "axiom-safety-io-matrix",
       "axiom-safety-io-matrix-review",
+      "axiom-sampling-timestamping",
+      "axiom-sensor-acquisition",
+      "axiom-sensor-calibration",
+      "axiom-sensor-diagnostics",
+      "axiom-sensor-driver-integration",
       "axiom-ssm-plan",
       "axiom-ssm-plan-review",
       "axiom-tf-tree-spec",
@@ -2601,13 +2888,21 @@
     "embedded-core": [
       "ai-validation",
       "axiom-embedded-firmware-bringup",
+      "axiom-framework-arduino",
+      "axiom-framework-esp-idf",
+      "axiom-framework-zephyr",
+      "axiom-hardware-aware-checks",
       "axiom-hil-test-planning",
+      "axiom-hmi-and-actuators",
       "axiom-memory-and-performance-analysis",
       "axiom-mil-sil-hil-testing",
       "axiom-misra-c-cpp-review",
+      "axiom-peripheral-timers",
       "axiom-rtos-architecture",
+      "axiom-storage-and-memory",
       "axiom-test-automation",
       "axiom-trace-analysis",
+      "axiom-validation-levels",
       "bare-metal",
       "bootloader",
       "codebase-analysis",
@@ -2629,6 +2924,23 @@
       "rtos",
       "rust-embedded",
       "soc"
+    ],
+    "embedded-sensors-peripherals": [
+      "axiom-digital-filtering",
+      "axiom-framework-arduino",
+      "axiom-framework-esp-idf",
+      "axiom-framework-zephyr",
+      "axiom-hardware-aware-checks",
+      "axiom-hmi-and-actuators",
+      "axiom-multi-sensor-synchronization",
+      "axiom-peripheral-timers",
+      "axiom-sampling-timestamping",
+      "axiom-sensor-acquisition",
+      "axiom-sensor-calibration",
+      "axiom-sensor-diagnostics",
+      "axiom-sensor-driver-integration",
+      "axiom-storage-and-memory",
+      "axiom-validation-levels"
     ],
     "energy": [
       "axiom-bms-design",
