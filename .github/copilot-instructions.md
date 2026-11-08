@@ -18,7 +18,7 @@ Surface the plan first; never execute pushes, releases, destructive
 commands, or safety/security-critical changes without recorded human
 approval. Never claim certification or compliance from a heuristic check.
 
-## Skills (185)
+## Skills (200)
 
 - `adas` -- ADAS/AD perception-to-control pipeline, sensor fusion, SOTIF and ASIL decomposition, Euro-NCAP, data closed-loop, OpenSCENARIO/OpenDRIVE HIL. Use for L0-L4 driver assistance and automated driving.
 - `ai-validation` -- ODD discipline, dataset independence, statistical acceptance, drift monitoring. Use when assuring ML components or arguing AI safety.
@@ -80,6 +80,8 @@ approval. Never claim certification or compliance from a heuristic check.
 
 - `axiom-diagnostics-uds` -- Designs UDS service coverage, session/security posture and negative-response matrices, and validates them with a deterministic checker script.
 
+- `axiom-digital-filtering` -- Applies digital filters to sensor data: moving average, IIR low-pass, FIR, median, outlier rejection and saturation, with fixed-point and latency considerations and verification on known signals.
+
 - `axiom-embedded-cicd` -- Designs deterministic CI/CD pipelines for embedded repositories: build matrix, static checks, unit/integration tests, artifact versioning, and evidence packaging, delivered as a reviewable workflow fragment plus gate checklist.
 
 - `axiom-embedded-firmware-bringup` -- Brings up firmware on a new MCU/board (clock, memory, drivers, bootloader handoff) with a deterministic checklist.
@@ -88,13 +90,23 @@ approval. Never claim certification or compliance from a heuristic check.
 - `axiom-eoat-spec-review` -- Specifies end-of-arm tooling: gripper forces, tool-change interface, vacuum/magnetic retention, and retained-risk assumptions.
 - `axiom-fleet-manager-architecture` -- Architects fleet-manager task assignment, traffic rules, map/zone interfaces, and deadlock handling for multi-AMR operation.
 - `axiom-fleet-manager-architecture-review` -- Architects fleet-manager task assignment, traffic rules, map/zone interfaces, and deadlock handling for multi-AMR operation.
+- `axiom-framework-arduino` -- Engineering guide for Arduino framework projects: core and library model, sketch structure, pin mapping, Serial, Wire/SPI, interrupts, timers, memory constraints on AVR, portability limits, build via arduino-cli, debugging, and safety/security notes. Hardware-aware: board selection and pin constraints. Does not assume Arduino is appropriate for all products.
+
+- `axiom-framework-esp-idf` -- Engineering guide for ESP-IDF projects: component model, CMake build, FreeRTOS tasks, HAL and drivers, GPIO/UART/SPI/I2C, NVS, partition tables, OTA, logging, debugging with JTAG/OpenOCD, build/flash/monitor, memory, power management, and security (secure boot and flash encryption). Hardware-aware: target and pin constraints.
+
+- `axiom-framework-zephyr` -- Engineering guide for Zephyr RTOS projects: devicetree, Kconfig, west build and flash, drivers API, workqueues, threads, power management, logging, shell, testing with ztest, and portability across boards. Hardware-aware: board definitions and pin constraints.
+
 - `axiom-functional-safety` -- Supports HARA, safety goals, FSR/TSR derivation, FMEA/FTA templates and verification-evidence structure for safety-related work.
+
+- `axiom-hardware-aware-checks` -- Performs pre-generation checks for firmware projects against a declared hardware profile: target MCU/MPU/SoC, board, architecture, peripherals, pin assignments, clock configuration, memory, OS, framework, toolchain, external components, electrical constraints, interfaces, timing, and debug interfaces. Detects pin, peripheral, DMA, and clock conflicts, resource exhaustion, unsupported peripherals, invalid framework combinations, voltage and timing incompatibility. Never invents missing hardware data; records assumptions and open questions. Produces a check report with evidence.
 
 - `axiom-hazard-risk` -- Use when a team must identify system hazards and assess risk for an embedded or cyber-physical product. Trigger phrases include "perform hazard analysis", "create a risk assessment", "identify system hazards", and "assess safety risks".
 
 - `axiom-hazard-risk-review` -- Use when an independent review of a hazard-risk artifact is required. Trigger phrases include "review hazard analysis", "audit risk assessment", and "check hazard coverage".
 
 - `axiom-hil-test-planning` -- Plans SIL/HIL campaigns including plant models, fault injection and pass/fail criteria.
+
+- `axiom-hmi-and-actuators` -- Engineers human-machine interfaces and actuators: keypad matrix scanning and debouncing, LCD1602/OLED displays, LEDs, active/passive buzzers, DC/stepper/servo motors, encoders, relays, interlocks and e-stop, with electrical and timing constraints and verification.
 
 - `axiom-iec62061-sil` -- Determines SIL targets per safety function and writes software/system safety requirements with verification criteria.
 - `axiom-iec62061-sil-review` -- Determines SIL targets per safety function and writes software/system safety requirements with verification criteria.
@@ -128,6 +140,8 @@ approval. Never claim certification or compliance from a heuristic check.
 - `axiom-misra-c-cpp-review` -- Merged skill (distilled practices).
 - `axiom-model-card` -- Authors model cards for robotics ML models: intended use, metrics, limits, failure modes, and deployment caveats.
 - `axiom-model-card-review` -- Authors model cards for robotics ML models: intended use, metrics, limits, failure modes, and deployment caveats.
+- `axiom-multi-sensor-synchronization` -- Synchronizes multiple sensors across shared triggers, aligned timestamps, clock domains and fusion timing with deterministic sampling and resource arbitration.
+
 - `axiom-nav2-config` -- Designs Nav2 planner/controller/costmap configuration with deterministic parameter records and behavior-tree plugin selection.
 - `axiom-nav2-config-review` -- Designs Nav2 planner/controller/costmap configuration with deterministic parameter records and behavior-tree plugin selection.
 - `axiom-operating-envelope` -- Defines the operating envelope: spaces, modes, speed/force boundaries, and permitted transitions between collaborative and automatic operation.
@@ -138,6 +152,8 @@ approval. Never claim certification or compliance from a heuristic check.
 - `axiom-ot-asset-inventory-review` -- Inventories OT assets: devices, firmware versions, protocols, network attachment, and ownership for security management.
 - `axiom-perception-test-catalog` -- Catalogs perception tests: scenarios, ground-truth method, metrics, pass thresholds, and dataset traceability.
 - `axiom-perception-test-catalog-review` -- Catalogs perception tests: scenarios, ground-truth method, metrics, pass thresholds, and dataset traceability.
+- `axiom-peripheral-timers` -- Engineers MCU timers, counters, PWM, capture/compare and RTC subsystems: modes, prescalers, deterministic intervals, overflow handling, watchdog interaction, interrupt latency, calibration, and platform differences (AVR/ESP32/Zephyr), verified on hardware.
+
 - `axiom-pfl-plan` -- Designs the power-and-force-limiting regime: contact scenarios, force/pressure thresholds, and measurement verification points.
 - `axiom-pfl-plan-review` -- Designs the power-and-force-limiting regime: contact scenarios, force/pressure thresholds, and measurement verification points.
 - `axiom-platform-architecture-review` -- Reviews embedded platform architecture (requirements-to-design traceability, interface contracts, ADRs, tech-debt) for any domain.
@@ -166,13 +182,25 @@ approval. Never claim certification or compliance from a heuristic check.
 
 - `axiom-safety-requirements-review` -- Use when an independent review of safety requirements is required. Trigger phrases include "review safety requirements", "audit requirement coverage", and "check requirements traceability".
 
+- `axiom-sampling-timestamping` -- Selects sampling rates and timer-driven schedules, captures monotonic timestamps, manages jitter and ring buffers, and handles overrun for deterministic embedded acquisition.
+
 - `axiom-scope-context` -- Use when an engineering team must define system scope, operating context, and boundaries for an embedded or cyber-physical product. Trigger phrases include "define system scope", "capture operating context", "set system boundaries", and "scope the robot cell".
 
 - `axiom-scope-context-review` -- Use when an independent review of a system-scope artifact is required. Trigger phrases include "review system scope", "audit operating context", and "check scope boundaries".
 
+- `axiom-sensor-acquisition` -- Scope and methodology for acquiring sensor data in embedded systems: interface selection, sampling, conversion, timestamping, buffering and publication with typed errors and evidence.
+
+- `axiom-sensor-calibration` -- Plans and executes sensor calibration: offset and gain, factory and field procedures, two-point calibration, temperature compensation, NVM storage, validation and drift tracking without fabricating constants.
+
+- `axiom-sensor-diagnostics` -- Detects sensor faults (stuck-at, out-of-range, timeout, CRC error, communication loss), supports degraded mode and watchdogs, and provides fault-injection testing and evidence.
+
+- `axiom-sensor-driver-integration` -- Integrates a sensor chip over I2C, SPI, UART or 1-Wire into a layered device driver with register encapsulation, context structs, identification, typed errors and mockable bus seams.
+
 - `axiom-ssm-plan` -- Designs speed-and-separation monitoring: protective zones, speed mapping, sensor coverage claims, and stop-performance budgets.
 - `axiom-ssm-plan-review` -- Designs speed-and-separation monitoring: protective zones, speed mapping, sensor coverage claims, and stop-performance budgets.
 - `axiom-static-analysis-triage` -- Triages static-analysis findings (MISRA, CERT, generic checkers) with a deterministic classifier script: buckets severity, tracks baselines and waivers, and produces a reviewable triage log with gate verdicts.
+
+- `axiom-storage-and-memory` -- Engineers non-volatile storage: internal flash, EEPROM/emulated EEPROM, external SPI NOR flash, SD cards, wear leveling, power-fail safety, atomic writes, file systems (FAT/LittleFS), endurance and verification.
 
 - `axiom-technical-debt-assessment` -- Inventories technical debt as a scored register (principal, interest, contagion, paydown cost), prioritizes paydown with explicit trade-offs, and produces a reviewable paydown plan tied to releases.
 
@@ -189,6 +217,8 @@ approval. Never claim certification or compliance from a heuristic check.
 - `axiom-urdf-model-spec` -- Specifies the URDF model: links, joints, limits, inertial placeholders, visual/collision geometry policy, and check procedures.
 - `axiom-urdf-model-spec-review` -- Specifies the URDF model: links, joints, limits, inertial placeholders, visual/collision geometry policy, and check procedures.
 - `axiom-v2x-communication` -- Models V2X messages, latency/security considerations and simulation hooks with a message test strategy.
+
+- `axiom-validation-levels` -- Distinguishes source-level, build, static analysis, host-based, simulation, HIL and physical board acceptance validation; defines prerequisites, equipment, procedure, expected results, failure conditions, measurements, evidence format and limitations for each. Never reports compile success as hardware proof.
 
 - `axiom-vehicle-cybersecurity` -- Runs a TARA-aligned cybersecurity workflow (threat model, secure boot/diag, key management, IDS/OTA concepts) producing reviewable evidence.
 

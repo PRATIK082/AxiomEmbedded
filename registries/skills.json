@@ -170,6 +170,10 @@
       "path": "skills/axiom-diagnostics-uds"
     },
     {
+      "id": "axiom-digital-filtering",
+      "path": "skills/axiom-digital-filtering"
+    },
+    {
       "id": "axiom-embedded-cicd",
       "path": "skills/axiom-embedded-cicd"
     },
@@ -194,8 +198,24 @@
       "path": "skills/axiom-fleet-manager-architecture-review"
     },
     {
+      "id": "axiom-framework-arduino",
+      "path": "skills/axiom-framework-arduino"
+    },
+    {
+      "id": "axiom-framework-esp-idf",
+      "path": "skills/axiom-framework-esp-idf"
+    },
+    {
+      "id": "axiom-framework-zephyr",
+      "path": "skills/axiom-framework-zephyr"
+    },
+    {
       "id": "axiom-functional-safety",
       "path": "skills/axiom-functional-safety"
+    },
+    {
+      "id": "axiom-hardware-aware-checks",
+      "path": "skills/axiom-hardware-aware-checks"
     },
     {
       "id": "axiom-hazard-risk",
@@ -208,6 +228,10 @@
     {
       "id": "axiom-hil-test-planning",
       "path": "skills/axiom-hil-test-planning"
+    },
+    {
+      "id": "axiom-hmi-and-actuators",
+      "path": "skills/axiom-hmi-and-actuators"
     },
     {
       "id": "axiom-iec62061-sil",
@@ -326,6 +350,10 @@
       "path": "skills/axiom-model-card-review"
     },
     {
+      "id": "axiom-multi-sensor-synchronization",
+      "path": "skills/axiom-multi-sensor-synchronization"
+    },
+    {
       "id": "axiom-nav2-config",
       "path": "skills/axiom-nav2-config"
     },
@@ -364,6 +392,10 @@
     {
       "id": "axiom-perception-test-catalog-review",
       "path": "skills/axiom-perception-test-catalog-review"
+    },
+    {
+      "id": "axiom-peripheral-timers",
+      "path": "skills/axiom-peripheral-timers"
     },
     {
       "id": "axiom-pfl-plan",
@@ -458,12 +490,32 @@
       "path": "skills/axiom-safety-requirements-review"
     },
     {
+      "id": "axiom-sampling-timestamping",
+      "path": "skills/axiom-sampling-timestamping"
+    },
+    {
       "id": "axiom-scope-context",
       "path": "skills/axiom-scope-context"
     },
     {
       "id": "axiom-scope-context-review",
       "path": "skills/axiom-scope-context-review"
+    },
+    {
+      "id": "axiom-sensor-acquisition",
+      "path": "skills/axiom-sensor-acquisition"
+    },
+    {
+      "id": "axiom-sensor-calibration",
+      "path": "skills/axiom-sensor-calibration"
+    },
+    {
+      "id": "axiom-sensor-diagnostics",
+      "path": "skills/axiom-sensor-diagnostics"
+    },
+    {
+      "id": "axiom-sensor-driver-integration",
+      "path": "skills/axiom-sensor-driver-integration"
     },
     {
       "id": "axiom-ssm-plan",
@@ -476,6 +528,10 @@
     {
       "id": "axiom-static-analysis-triage",
       "path": "skills/axiom-static-analysis-triage"
+    },
+    {
+      "id": "axiom-storage-and-memory",
+      "path": "skills/axiom-storage-and-memory"
     },
     {
       "id": "axiom-technical-debt-assessment",
@@ -516,6 +572,10 @@
     {
       "id": "axiom-v2x-communication",
       "path": "skills/axiom-v2x-communication"
+    },
+    {
+      "id": "axiom-validation-levels",
+      "path": "skills/axiom-validation-levels"
     },
     {
       "id": "axiom-vehicle-cybersecurity",

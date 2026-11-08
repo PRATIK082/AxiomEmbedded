@@ -126,3 +126,12 @@ groups:
       - {id_prefix: [axiom-scope-, axiom-hazard-, axiom-safety-,
                       axiom-vnv-, axiom-threat-]}
       - {subdomain: [assurance]}
+  embedded-sensors-peripherals:
+    title: Embedded sensors, peripherals and frameworks
+    description: Sensor acquisition, hardware-aware checks, frameworks,
+      peripheral timers, storage, HMI/actuators, validation levels.
+    match_any:
+      - {id_prefix: [axiom-sensor-, axiom-hardware-aware-, axiom-framework-,
+                      axiom-peripheral-, axiom-storage-, axiom-hmi-,
+                      axiom-validation-levels, axiom-multi-sensor-]}
+      - {id: [axiom-digital-filtering, axiom-sampling-timestamping]}

@@ -84,3 +84,11 @@ audit (BOM, alternates, lifecycle status) -> bring-up report per
 ## 6. Verification of this skill (Phase 4 gate)
 
 - Standards cited with number + version + clause + URL (S2).
+
+
+## Hardware-aware engineering (added 2026)
+- Pin multiplexing: document alternate functions and conflicts before code generation.
+- Electrical compatibility: voltage levels, logic thresholds, pull-ups/pull-downs, termination.
+- Power budget: includes inrush, worst-case load, and sleep current targets.
+- DMA/interrupt priority and resource arbitration documented.
+- Cross-ref: xiom-hardware-aware-checks, drivers.
