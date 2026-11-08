@@ -1,0 +1,24 @@
+id: axiom-sensor-diagnostics
+version: 1.2.0
+contract_version: 1
+type: reusable-skill
+source_of_truth:
+  instructions: SKILL.md
+  contract: manifest.yaml
+facets:
+  domains:
+  - generic-embedded
+  - iot
+  - industrial
+  - automotive
+  - robotics
+  platforms:
+  - mcu
+  - mpu
+  - soc
+  - mpsoc
+standards: []
+axiom:
+  dotted_name: axiom.generic-embedded.sensor.diagnostics
+  maturity: experimental
+  category: implementation

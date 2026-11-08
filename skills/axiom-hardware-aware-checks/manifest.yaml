@@ -1,0 +1,21 @@
+id: axiom-hardware-aware-checks
+version: 1.2.0
+contract_version: 1
+type: reusable-skill
+source_of_truth:
+  instructions: SKILL.md
+  contract: manifest.yaml
+facets:
+  domains:
+  - all
+  platforms:
+  - mcu
+  - mpu
+  - soc
+  - mpsoc
+standards:
+  []
+axiom:
+  dotted_name: axiom.platform.hardware_aware_checks
+  maturity: experimental
+  category: verification

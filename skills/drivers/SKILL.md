@@ -178,3 +178,62 @@ Every bus interface must be mockable (function-pointer struct) so device drivers
 ### 7.13 Auto-fix strategy
 Identify HAL/register leakage; extract bus operations into `spi_if_t`/`i2c_if_t`; move register constants into `_reg.h`; encapsulate global state into context struct; replace magic error codes with `error_t`; remove DMA/IRQ/RTOS dependencies; separate control algorithms into `module/`.
 
+## 8. Peripheral engineering specifics
+
+### 8.1 GPIO
+- Configure mode (input/output/alternate/analog), pull-up/pull-down, speed/drive strength, and initial state before enabling the peripheral.
+- Debounce mechanical inputs in software (sample + integrate) or hardware; never rely on a single read.
+- Document pin assignment and check conflicts before code generation (see `axiom-hardware-aware-checks`).
+
+### 8.2 UART
+- Frame parameters (baud, data bits, parity, stop bits) recorded per link; baud derived from clock with error budget.
+- Flow control (RTS/CTS) when throughput or latency demands; timeouts on every receive.
+- Ring-buffered, non-blocking RX with ISR that only moves bytes; protocol parsing above the driver.
+
+### 8.3 SPI
+- Mode (CPOL/CPHA), bit order, clock divider documented; CS handling explicit (software or hardware).
+- Full-duplex transfer helper; half-duplex devices use read/write phases with CS held.
+- Verify timing with logic analyzer for new devices; capture as release evidence.
+
+### 8.4 I2C
+- Clock stretch handling; pull-up sizing for bus capacitance and speed.
+- Address probe and NACK handling; retry policy lives above the driver.
+- Multi-master only when required; otherwise single master with documented arbitration.
+
+### 8.5 Timers and PWM
+- Prescaler and reload derived from clock with margin; overflow/underflow handling.
+- PWM frequency/duty resolution tradeoff documented; glitch-free updates.
+- Input capture for measurement; output compare for deterministic events.
+
+### 8.6 ADC
+- Reference voltage, resolution, sampling time, and conversion trigger documented.
+- Averaging/oversampling policy; calibration (offset/gain) applied in a defined layer.
+- DMA for high-rate sampling; buffer ownership explicit.
+
+### 8.7 RTC
+- Clock source selection (LSE/LSI) with accuracy note; backup domain handling.
+- Time representation (UTC vs local) decided at architecture level; conversion isolated.
+
+### 8.8 Storage and NVM
+- Wear leveling for flash-backed storage; atomic write with power-fail safety.
+- File system selection justified (FAT vs LittleFS) by footprint and reliability.
+- Endurance and retention documented from manufacturer data (never invented).
+
+### 8.9 HMI and actuators
+- Keypad matrix scanning with ghosting handling; debounce per key.
+- Display init sequence from datasheet; refresh budget.
+- Motor/relay actuation through safe-state interlocks; e-stop overrides software.
+
+### 8.10 Bus termination and electrical compatibility
+- Termination (CAN, RS-485) per network design; I2C pull-ups per bus capacitance.
+- Voltage-level compatibility verified before connection; level shifters documented.
+- Power budget includes inrush and worst-case load.
+
+## 9. Related skills
+
+- `mcu`, `embedded-c`, `hardware-architecture`, `bare-metal`, `rtos`
+- `axiom-sensor-acquisition`, `axiom-hardware-aware-checks`,
+  `axiom-peripheral-timers`, `axiom-storage-and-memory`,
+  `axiom-hmi-and-actuators`, `axiom-validation-levels`
+- `unit-test`, `integration-test`, `validation`, `debugging`
+

@@ -303,3 +303,10 @@ processData(data);
 3. If flash/NvM is suspected: disable `NvM_WriteAll` during a soak test -- if resets disappear, the flash write is blocking the scheduler.
 ~~~
 
+
+
+## Hardware-aware debugging (added 2026)
+- Watchdog resets: capture reset reason, last task, stack trace; add regression test.
+- Brownout/power: verify supply margins, inrush, and decoupling.
+- Auto compile-and-retry is a build aid only; never report compile as hardware proof.
+- Cross-ref: xiom-validation-levels, xiom-hardware-aware-checks.

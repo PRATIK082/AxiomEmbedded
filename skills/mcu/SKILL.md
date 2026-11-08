@@ -149,3 +149,12 @@ bare-metal/RTOS firmware, drivers, and verification.
 6. Safety/security deltas flagged for human review before PR.
 
 Load task-specific domain/platform/rule overlays before execution.
+
+## Embedded hardware specifics (added 2026)
+- Clock tree: document source, PLL, prescalers, peripheral gates; verify sleep current.
+- DMA: channel allocation table; cache maintenance on cached targets; error IRQ wired.
+- Interrupts: priority assignment justified against latency budget; handler duration measured.
+- Low-power: mode entry/exit, wake sources, retained state, current targets from datasheet.
+- NVM/flash: programming voltage, erase granularity, wear, power-fail safety.
+- Vendor SDK: use documented HAL; do not bypass without errata justification.
+- Cross-ref: `drivers`, `axiom-hardware-aware-checks`, `axiom-peripheral-timers`, `axiom-storage-and-memory`, `axiom-hardware-aware-checks`.

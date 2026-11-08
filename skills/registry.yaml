@@ -168,6 +168,10 @@ skills:
   path: skills/axiom-diagnostics-uds
   domain: automotive
   maturity: beta
+- name: axiom.generic-embedded.sensor.digital.filtering
+  path: skills/axiom-digital-filtering
+  domain: generic-embedded
+  maturity: experimental
 - name: axiom.legacy.axiom-embedded-cicd
   path: skills/axiom-embedded-cicd
   domain: all
@@ -192,9 +196,25 @@ skills:
   path: skills/axiom-fleet-manager-architecture-review
   domain: robotics
   maturity: experimental
+- name: axiom.platform.framework.arduino
+  path: skills/axiom-framework-arduino
+  domain: platform
+  maturity: experimental
+- name: axiom.platform.framework.esp_idf
+  path: skills/axiom-framework-esp-idf
+  domain: platform
+  maturity: experimental
+- name: axiom.platform.framework.zephyr
+  path: skills/axiom-framework-zephyr
+  domain: platform
+  maturity: experimental
 - name: axiom.automotive.functional.safety
   path: skills/axiom-functional-safety
   domain: automotive
+  maturity: experimental
+- name: axiom.platform.hardware_aware_checks
+  path: skills/axiom-hardware-aware-checks
+  domain: platform
   maturity: experimental
 - name: axiom.assurance.hazard_risk
   path: skills/axiom-hazard-risk
@@ -206,6 +226,10 @@ skills:
   maturity: experimental
 - name: axiom.platform.hil.test.planning
   path: skills/axiom-hil-test-planning
+  domain: platform
+  maturity: experimental
+- name: axiom.platform.hmi.actuators
+  path: skills/axiom-hmi-and-actuators
   domain: platform
   maturity: experimental
 - name: axiom.industrial.iec62061.sil
@@ -324,6 +348,10 @@ skills:
   path: skills/axiom-model-card-review
   domain: robotics
   maturity: experimental
+- name: axiom.generic-embedded.sensor.multi.sensor.synchronization
+  path: skills/axiom-multi-sensor-synchronization
+  domain: generic-embedded
+  maturity: experimental
 - name: axiom.robotics.nav2.config
   path: skills/axiom-nav2-config
   domain: robotics
@@ -363,6 +391,10 @@ skills:
 - name: axiom.robotics.perception.test.catalog
   path: skills/axiom-perception-test-catalog-review
   domain: robotics
+  maturity: experimental
+- name: axiom.platform.peripheral.timers
+  path: skills/axiom-peripheral-timers
+  domain: platform
   maturity: experimental
 - name: axiom.robotics.pfl.plan
   path: skills/axiom-pfl-plan
@@ -456,6 +488,10 @@ skills:
   path: skills/axiom-safety-requirements-review
   domain: industrial
   maturity: experimental
+- name: axiom.generic-embedded.sensor.sampling.timestamping
+  path: skills/axiom-sampling-timestamping
+  domain: generic-embedded
+  maturity: experimental
 - name: axiom.assurance.scope_context
   path: skills/axiom-scope-context
   domain: industrial
@@ -463,6 +499,22 @@ skills:
 - name: axiom.assurance.scope_context_review
   path: skills/axiom-scope-context-review
   domain: industrial
+  maturity: experimental
+- name: axiom.generic-embedded.sensor.acquisition
+  path: skills/axiom-sensor-acquisition
+  domain: generic-embedded
+  maturity: experimental
+- name: axiom.generic-embedded.sensor.calibration
+  path: skills/axiom-sensor-calibration
+  domain: generic-embedded
+  maturity: experimental
+- name: axiom.generic-embedded.sensor.diagnostics
+  path: skills/axiom-sensor-diagnostics
+  domain: generic-embedded
+  maturity: experimental
+- name: axiom.generic-embedded.sensor.driver.integration
+  path: skills/axiom-sensor-driver-integration
+  domain: generic-embedded
   maturity: experimental
 - name: axiom.robotics.ssm.plan
   path: skills/axiom-ssm-plan
@@ -476,6 +528,10 @@ skills:
   path: skills/axiom-static-analysis-triage
   domain: all
   maturity: production
+- name: axiom.platform.storage.memory
+  path: skills/axiom-storage-and-memory
+  domain: platform
+  maturity: experimental
 - name: axiom.legacy.axiom-technical-debt-assessment
   path: skills/axiom-technical-debt-assessment
   domain: all
@@ -515,6 +571,10 @@ skills:
 - name: axiom.automotive.v2x.communication
   path: skills/axiom-v2x-communication
   domain: automotive
+  maturity: experimental
+- name: axiom.platform.validation.levels
+  path: skills/axiom-validation-levels
+  domain: platform
   maturity: experimental
 - name: axiom.automotive.vehicle.cybersecurity
   path: skills/axiom-vehicle-cybersecurity
