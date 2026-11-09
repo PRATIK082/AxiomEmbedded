@@ -1,15 +1,17 @@
 ---
 name: axiom-mil-sil-hil-testing
-description: 'Merged skill (distilled practices).'
+description: Merged skill (distilled practices).
 version: 1.3.0
-domains: [all]
-platforms: [all]
+domains:
+- all
+platforms:
+- all
 axiom:
   dotted_name: axiom.legacy.axiom-mil-sil-hil-testing
   domain: all
   subdomain: legacy
   category: legacy
-  maturity: beta
+  maturity: production
   owner: axiom-embedded
   tags:
   - legacy
@@ -19,6 +21,15 @@ axiom:
   mcp_tools: []
   risk_level: medium
   review_required: []
+  inputs:
+  - repository path
+  - objective
+  - constraints
+  outputs:
+  - run report
+  - run manifest
+  safety_critical: false
+  related_skills: []
 ---
 
 # Skill: Embedded Testing

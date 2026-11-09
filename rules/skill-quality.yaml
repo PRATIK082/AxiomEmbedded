@@ -1,0 +1,32 @@
+group: skill-quality
+version: 1.0.0
+rules:
+  - id: skill-contract-fields-present
+    severity: blocking
+    automated: true
+    description: Every beta/production skill must declare inputs, outputs, risk_level, review_required, safety_critical, lifecycle, artifact_types, related_skills in axiom block
+  - id: skill-description-quality
+    severity: blocking
+    automated: true
+    description: Description must be third-person, 20-1024 chars, include what and when trigger clause, no vague terms
+  - id: skill-progressive-disclosure
+    severity: warning
+    automated: true
+    description: SKILL.md body must be <=500 lines; references one level deep; offload detail to references/
+  - id: skill-eval-coverage
+    severity: blocking
+    automated: true
+    description: Production skills must have >=3 evaluation scenarios under skills/<id>/tests/evals.json
+  - id: skill-provenance
+    severity: warning
+    automated: true
+    description: Adopted skills must record metadata.source upstream link in manifest.yaml
+  - id: skill-naming-convention
+    severity: blocking
+    automated: true
+    description: Skill ids follow axiom-<domain>-<capability> (kebab-case) or documented legacy exception
+  - id: skill-safety-gating
+    severity: blocking
+    automated: true
+    description: safety_critical: true requires review_required: true and an impact assessment before apply
+PY

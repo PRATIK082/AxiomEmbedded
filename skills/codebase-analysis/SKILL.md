@@ -1,18 +1,43 @@
 ---
 name: codebase-analysis
-description: 'Codebase analysis: scan repo, map SWCs/BSW/RTE/signal flow/ASIL zones into CODEBASE_MAP.md.'
+description: 'Codebase analysis: scan repo, map SWCs/BSW/RTE/signal flow/ASIL zones
+  into CODEBASE_MAP.md.'
 version: 1.3.0
-domains: [all]
-platforms: [all]
+domains:
+- all
+platforms:
+- all
 axiom:
   dotted_name: axiom.legacy.codebase-analysis
   domain: all
   subdomain: legacy
   category: legacy
-  maturity: beta
+  maturity: production
   owner: axiom-embedded
   tags:
   - legacy
+  inputs:
+  - repository path
+  - objective
+  - constraints
+  outputs:
+  - run report
+  - run manifest
+  risk_level: medium
+  review_required: true
+  safety_critical: false
+  lifecycle:
+  - discover
+  - plan
+  - implement
+  - verify
+  - evidence
+  artifact_types:
+  - report
+  - manifest
+  related_skills: []
+  standards: []
+  mcp_tools: []
 ---
 
 # Skill: Codebase Analysis

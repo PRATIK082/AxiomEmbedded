@@ -1,35 +1,69 @@
 ---
 name: axiom-embedded-cicd
 title: Embedded CI-CD Pipeline Design
-description: >
-  Designs deterministic CI/CD pipelines for embedded repositories: build matrix,
-  static checks, unit/integration tests, artifact versioning, and evidence
+description: 'Designs deterministic CI/CD pipelines for embedded repositories: build
+  matrix, static checks, unit/integration tests, artifact versioning, and evidence
   packaging, delivered as a reviewable workflow fragment plus gate checklist.
+
+  '
 version: 1.2.0
 author: PRATIK PATIL
 license: Apache-2.0
-domains: [all]
-platforms: [mcu, mpu]
+domains:
+- all
+platforms:
+- mcu
+- mpu
 axiom:
   dotted_name: axiom.cross-domain.embedded.cicd
   domain: cross-domain
   subdomain: delivery
   category: release
-  maturity: experimental
+  maturity: production
   owner: axiom-embedded
-  tags: [cicd, pipeline, build, release, evidence]
-  related_skills: [axiom-test-automation, axiom-automotive-release-readiness, axiom-hil-test-planning]
-  lifecycle: [implementation, integration, verification, validation, release]
+  tags:
+  - cicd
+  - pipeline
+  - build
+  - release
+  - evidence
+  related_skills:
+  - axiom-test-automation
+  - axiom-automotive-release-readiness
+  - axiom-hil-test-planning
+  lifecycle:
+  - implementation
+  - integration
+  - verification
+  - validation
+  - release
   standards: []
-  artifact_types: [pipeline definition, gate checklist, evidence package]
-  mcp_tools: [run_skill, validate_skill, generate_checklist, generate_report, review_configuration]
+  artifact_types:
+  - pipeline definition
+  - gate checklist
+  - evidence package
+  mcp_tools:
+  - run_skill
+  - validate_skill
+  - generate_checklist
+  - generate_report
+  - review_configuration
   risk_level: medium
   review_required: true
   safety_critical: false
-  inputs: [repository path, target files, objective, constraints]
-  outputs: [run report, run manifest]
-  required_tools: [validate_skill]
-  optional_tools: [run_skill, review_configuration]
+  inputs:
+  - repository path
+  - target files
+  - objective
+  - constraints
+  outputs:
+  - run report
+  - run manifest
+  required_tools:
+  - validate_skill
+  optional_tools:
+  - run_skill
+  - review_configuration
 ---
 
 # Axiom Embedded CI-CD Pipeline Design

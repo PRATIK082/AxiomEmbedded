@@ -1,15 +1,25 @@
 ---
 name: axiom-sensor-acquisition
 title: Sensor Data Acquisition
-description: >
-  Scope and methodology for acquiring sensor data in embedded systems: interface
-  selection, sampling, conversion, timestamping, buffering and publication with
-  typed errors and evidence.
+description: 'Scope and methodology for acquiring sensor data in embedded systems:
+  interface selection, sampling, conversion, timestamping, buffering and publication
+  with typed errors and evidence.
+
+  '
 version: 1.2.0
 author: PRATIK PATIL
 license: Apache-2.0
-domains: [generic-embedded, iot, industrial, automotive, robotics]
-platforms: [mcu, mpu, soc, mpsoc]
+domains:
+- generic-embedded
+- iot
+- industrial
+- automotive
+- robotics
+platforms:
+- mcu
+- mpu
+- soc
+- mpsoc
 axiom:
   dotted_name: axiom.generic-embedded.sensor.acquisition
   domain: generic-embedded
@@ -17,19 +27,53 @@ axiom:
   category: implementation
   maturity: experimental
   owner: axiom-embedded
-  tags: [sensor, acquisition, sampling, timestamping]
-  related_skills: [axiom-sensor-driver-integration, axiom-sampling-timestamping, axiom-sensor-calibration, axiom-digital-filtering, axiom-sensor-diagnostics, axiom-multi-sensor-synchronization, drivers, unit-test, validation, performance]
-  lifecycle: [requirements, architecture, design, implementation, integration, verification, validation, release]
+  tags:
+  - sensor
+  - acquisition
+  - sampling
+  - timestamping
+  related_skills:
+  - axiom-sensor-driver-integration
+  - axiom-sampling-timestamping
+  - axiom-sensor-calibration
+  - axiom-digital-filtering
+  - axiom-sensor-diagnostics
+  - axiom-multi-sensor-synchronization
+  - drivers
+  - unit-test
+  - validation
+  - performance
+  lifecycle:
+  - requirements
+  - architecture
+  - design
+  - implementation
+  - integration
+  - verification
+  - validation
+  - release
   standards: []
-  artifact_types: [sensor acquisition design note, acquisition evidence bundle]
-  mcp_tools: [run_skill, validate_skill]
+  artifact_types:
+  - sensor acquisition design note
+  - acquisition evidence bundle
+  mcp_tools:
+  - run_skill
+  - validate_skill
   risk_level: medium
   review_required: true
   safety_critical: false
-  inputs: [repository path, target files, objective, constraints]
-  outputs: [run report, run manifest]
-  required_tools: [validate_skill]
-  optional_tools: [run_skill]
+  inputs:
+  - repository path
+  - target files
+  - objective
+  - constraints
+  outputs:
+  - run report
+  - run manifest
+  required_tools:
+  - validate_skill
+  optional_tools:
+  - run_skill
 ---
 
 # Axiom Sensor Data Acquisition

@@ -1,9 +1,12 @@
 ---
 name: simulation
-description: MIL-SIL-HIL progression, back-to-back evidence, scenario discipline. Use when testing without hardware or qualifying models.
+description: MIL-SIL-HIL progression, back-to-back evidence, scenario discipline.
+  Use when testing without hardware or qualifying models.
 version: 1.2.0
-domains: [all]
-platforms: [all]
+domains:
+- all
+platforms:
+- all
 axiom:
   dotted_name: axiom.legacy.simulation
   domain: all
@@ -17,6 +20,27 @@ axiom:
   - axiom-hil-test-planning
   checklists:
   - checklists/simulation-checklist.md
+  inputs:
+  - repository path
+  - objective
+  - constraints
+  outputs:
+  - run report
+  - run manifest
+  risk_level: medium
+  review_required: true
+  safety_critical: false
+  lifecycle:
+  - discover
+  - plan
+  - implement
+  - verify
+  - evidence
+  artifact_types:
+  - report
+  - manifest
+  standards: []
+  mcp_tools: []
 ---
 
 # Simulation skill

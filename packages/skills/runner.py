@@ -21,7 +21,8 @@ def _safe_rel(p: str) -> pathlib.Path:
 
 def run_skill(skill_id: str, repo_path: str = ".", target_files: list[str] | None = None,
               objective: str = "", constraints: str = "",
-              output_dir: str | None = None, dry_run: bool = True) -> dict:
+              output_dir: str | None = None, dry_run: bool = True,
+              mode: str = "run", approval_token: str | None = None) -> dict:
     if not ID_RE.match(skill_id):
         raise ValueError(f"invalid skill id: {skill_id!r}")
     s = load_skill(skill_id)
@@ -72,6 +73,29 @@ def run_skill(skill_id: str, repo_path: str = ".", target_files: list[str] | Non
     # Discover checker scripts shipped with the skill.
     skill_dir = ROOT / "skills" / skill_id
     checkers = sorted((skill_dir / "scripts").glob("check_*.py")) if (skill_dir / "scripts").is_dir() else []
+    ax = fm.get("axiom", {}) or {}
+    safety_critical = ax.get("safety_critical") is True
+    # Plan mode: emit + validate a structured plan, no execution.
+    if mode == "plan":
+        plan_errors = []
+        if not objective:
+            plan_errors.append("objective is required for plan mode")
+        if not targets:
+            plan_errors.append("target_files is required for plan mode")
+        plan = dict(manifest)
+        plan["mode"] = "plan"
+        plan["safety_critical"] = safety_critical
+        plan["approval_required"] = safety_critical
+        plandir = (pathlib.Path(output_dir) if output_dir else pathlib.Path(repo_path)) / ".axiom" / "plans" / ts / skill_id
+        plandir.mkdir(parents=True, exist_ok=True)
+        (plandir / "plan.json").write_text(json.dumps(plan, indent=2), encoding="utf-8")
+        return {"status": "plan", "valid": not plan_errors, "errors": plan_errors,
+                "plan_path": str(plandir / "plan.json"), "manifest": plan,
+                "summary": f"{skill_id}: plan {'valid' if not plan_errors else 'INVALID'}"}
+    # Safety gate: safety-critical skills require approval_token to apply.
+    if safety_critical and not dry_run and not approval_token:
+        return {"status": "approval-required", "manifest": manifest,
+                "summary": f"{skill_id}: safety_critical requires approval_token"}
     if dry_run:
         for c in checkers:
             manifest["decisions"].append(f"would run checker: {c.relative_to(ROOT)}")
@@ -116,5 +140,7 @@ def run_skill(skill_id: str, repo_path: str = ".", target_files: list[str] | Non
     manifest["acceptance_checks"] = ["report.md written", "run-manifest.json written"]
     if checkers:
         manifest["acceptance_checks"].append(f"checkers rc={checker_rc}")
-    return {"status": "ok", "manifest": manifest, "run_dir": str(rundir),
-            "summary": f"{skill_id}: wrote 2 files to {rundir}"}
+    status = "ok" if checker_rc == 0 else "failed-checks"
+    return {"status": status, "manifest": manifest, "run_dir": str(rundir),
+            "checker_rc": checker_rc,
+            "summary": f"{skill_id}: wrote 2 files to {rundir} (rc={checker_rc})"}

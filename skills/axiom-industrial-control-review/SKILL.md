@@ -1,13 +1,18 @@
 ---
 name: axiom-industrial-control-review
 title: Industrial Control Review
-description: >
-  Reviews PLC/fieldbus/OPC-UA control designs and functional-safety touchpoints for industrial controllers.
+description: 'Reviews PLC/fieldbus/OPC-UA control designs and functional-safety touchpoints
+  for industrial controllers.
+
+  '
 version: 1.2.0
 author: PRATIK PATIL
 license: Apache-2.0
-domains: [industrial]
-platforms: [mcu, mpu]
+domains:
+- industrial
+platforms:
+- mcu
+- mpu
 axiom:
   dotted_name: axiom.industrial.industrial.control.review
   domain: industrial
@@ -15,19 +20,40 @@ axiom:
   category: review
   maturity: experimental
   owner: axiom-embedded
-  tags: [control]
+  tags:
+  - control
   related_skills: []
-  lifecycle: [requirements, architecture, design, implementation, integration, verification, validation, release]
-  standards: [IEC 61508]
-  artifact_types: [control review]
-  mcp_tools: [run_skill, validate_skill]
+  lifecycle:
+  - requirements
+  - architecture
+  - design
+  - implementation
+  - integration
+  - verification
+  - validation
+  - release
+  standards:
+  - IEC 61508
+  artifact_types:
+  - control review
+  mcp_tools:
+  - run_skill
+  - validate_skill
   risk_level: high
   review_required: true
   safety_critical: false
-  inputs: [repository path, target files, objective, constraints]
-  outputs: [run report, run manifest]
-  required_tools: [validate_skill]
-  optional_tools: [run_skill]
+  inputs:
+  - repository path
+  - target files
+  - objective
+  - constraints
+  outputs:
+  - run report
+  - run manifest
+  required_tools:
+  - validate_skill
+  optional_tools:
+  - run_skill
 ---
 
 # Axiom Industrial Control Review

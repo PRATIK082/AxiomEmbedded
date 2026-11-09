@@ -1,9 +1,12 @@
 ---
 name: performance
-description: Top-down budgets, WCET measurement, profile-before-patch, CI tripwires. Use when meeting latency, throughput, or determinism targets.
+description: Top-down budgets, WCET measurement, profile-before-patch, CI tripwires.
+  Use when meeting latency, throughput, or determinism targets.
 version: 1.2.0
-domains: [all]
-platforms: [all]
+domains:
+- all
+platforms:
+- all
 axiom:
   dotted_name: axiom.legacy.performance
   domain: all
@@ -17,6 +20,27 @@ axiom:
   - axiom-memory-and-performance-analysis
   checklists:
   - checklists/performance-checklist.md
+  inputs:
+  - repository path
+  - objective
+  - constraints
+  outputs:
+  - run report
+  - run manifest
+  risk_level: medium
+  review_required: true
+  safety_critical: false
+  lifecycle:
+  - discover
+  - plan
+  - implement
+  - verify
+  - evidence
+  artifact_types:
+  - report
+  - manifest
+  standards: []
+  mcp_tools: []
 ---
 
 # Performance skill

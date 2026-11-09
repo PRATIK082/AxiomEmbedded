@@ -1,16 +1,20 @@
 ---
 name: axiom-hazard-risk
 title: Hazard Analysis and Risk Assessment
-description: >
-  Use when a team must identify system hazards and assess risk for an
-  embedded or cyber-physical product. Trigger phrases include "perform hazard
-  analysis", "create a risk assessment", "identify system hazards", and
-  "assess safety risks".
+description: 'Use when a team must identify system hazards and assess risk for an
+  embedded or cyber-physical product. Trigger phrases include "perform hazard analysis",
+  "create a risk assessment", "identify system hazards", and "assess safety risks".
+
+  '
 version: 1.2.0
 author: AxiomEmbedded
 license: Apache-2.0
-domains: [industrial, robotics]
-platforms: [mcu, mpu]
+domains:
+- industrial
+- robotics
+platforms:
+- mcu
+- mpu
 axiom:
   dotted_name: axiom.assurance.hazard_risk
   domain: industrial
@@ -18,22 +22,48 @@ axiom:
   category: analysis
   maturity: experimental
   owner: axiom-embedded
-  tags: [assurance, safety, hazard]
-  related_skills: [axiom-hazard-risk-review]
-  lifecycle: [requirements, architecture, verification]
-  standards: [ISO 12100:2010, ISO 10218-1:2011, ISO 10218-2:2011, ISO/TS 15066:2016, ISO 13849-1:2023, ISO 13850:2015, ISO 14118:2017]
-  artifact_types: [hazard analysis, risk assessment]
-  mcp_tools: [run_skill, validate_skill]
+  tags:
+  - assurance
+  - safety
+  - hazard
+  related_skills:
+  - axiom-hazard-risk-review
+  lifecycle:
+  - requirements
+  - architecture
+  - verification
+  standards:
+  - ISO 12100:2010
+  - ISO 10218-1:2011
+  - ISO 10218-2:2011
+  - ISO/TS 15066:2016
+  - ISO 13849-1:2023
+  - ISO 13850:2015
+  - ISO 14118:2017
+  artifact_types:
+  - hazard analysis
+  - risk assessment
+  mcp_tools:
+  - run_skill
+  - validate_skill
   risk_level: high
   review_required: true
   safety_critical: true
-  inputs: [system-scope artifact, incident history]
-  outputs: [hazard-risk artifact]
-  required_tools: [validate_skill]
-  optional_tools: [run_skill]
-  checklists: [checklists/hazard-checklist.md]
-  templates: [templates/hazard-risk.template.yaml]
-  scripts: [scripts/check_hazard_risk.py]
+  inputs:
+  - system-scope artifact
+  - incident history
+  outputs:
+  - hazard-risk artifact
+  required_tools:
+  - validate_skill
+  optional_tools:
+  - run_skill
+  checklists:
+  - checklists/hazard-checklist.md
+  templates:
+  - templates/hazard-risk.template.yaml
+  scripts:
+  - scripts/check_hazard_risk.py
 ---
 
 # Axiom Hazard Analysis and Risk Assessment (builder)

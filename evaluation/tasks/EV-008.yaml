@@ -1,0 +1,8 @@
+id: EV-008
+agent: security
+domain: all
+platform: mcu
+prompt: Threat-model an IoT firmware update mechanism.
+expect:
+  skills_contain: [axiom-security-threat-model, axiom-security-best-practices]
+  clarifies: false

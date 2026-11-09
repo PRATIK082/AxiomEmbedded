@@ -1,9 +1,16 @@
 ---
 name: adas
-description: ADAS/AD perception-to-control pipeline, sensor fusion, SOTIF and ASIL decomposition, Euro-NCAP, data closed-loop, OpenSCENARIO/OpenDRIVE HIL. Use for L0-L4 driver assistance and automated driving.
+description: ADAS/AD perception-to-control pipeline, sensor fusion, SOTIF and ASIL
+  decomposition, Euro-NCAP, data closed-loop, OpenSCENARIO/OpenDRIVE HIL. Use for
+  L0-L4 driver assistance and automated driving.
 version: 1.2.0
-domains: [automotive]
-platforms: [mpu, soc, mpsoc, autosar-adaptive]
+domains:
+- automotive
+platforms:
+- mpu
+- soc
+- mpsoc
+- autosar-adaptive
 axiom:
   dotted_name: axiom.legacy.adas
   domain: automotive
@@ -18,6 +25,27 @@ axiom:
   - axiom-adas-validation
   checklists:
   - checklists/adas-checklist.md
+  inputs:
+  - repository path
+  - objective
+  - constraints
+  outputs:
+  - run report
+  - run manifest
+  risk_level: medium
+  review_required: true
+  safety_critical: false
+  lifecycle:
+  - discover
+  - plan
+  - implement
+  - verify
+  - evidence
+  artifact_types:
+  - report
+  - manifest
+  standards: []
+  mcp_tools: []
 ---
 
 # adas -- ADAS / Automated Driving capability

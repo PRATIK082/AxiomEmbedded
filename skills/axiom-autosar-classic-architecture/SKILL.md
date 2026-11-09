@@ -1,13 +1,19 @@
 ---
 name: axiom-autosar-classic-architecture
 title: AUTOSAR Classic Architecture Review
-description: >
-  Reviews AUTOSAR Classic platform architecture choices, layering, and release baselines for an ECU project and produces an architecture decision record with findings.
+description: 'Reviews AUTOSAR Classic platform architecture choices, layering, and
+  release baselines for an ECU project and produces an architecture decision record
+  with findings.
+
+  '
 version: 1.2.0
 author: PRATIK PATIL
 license: Apache-2.0
-domains: [automotive]
-platforms: [mcu, autosar-classic]
+domains:
+- automotive
+platforms:
+- mcu
+- autosar-classic
 axiom:
   dotted_name: axiom.automotive.autosar.classic.architecture
   domain: automotive
@@ -15,19 +21,42 @@ axiom:
   category: architecture
   maturity: beta
   owner: axiom-embedded
-  tags: [autosar-classic]
+  tags:
+  - autosar-classic
   related_skills: []
-  lifecycle: [requirements, architecture, design, implementation, integration, verification, validation, release]
-  standards: [AUTOSAR Classic R24-11, ISO 26262:2018]
-  artifact_types: [architecture decision record, layering review]
-  mcp_tools: [run_skill, validate_skill]
+  lifecycle:
+  - requirements
+  - architecture
+  - design
+  - implementation
+  - integration
+  - verification
+  - validation
+  - release
+  standards:
+  - AUTOSAR Classic R24-11
+  - ISO 26262:2018
+  artifact_types:
+  - architecture decision record
+  - layering review
+  mcp_tools:
+  - run_skill
+  - validate_skill
   risk_level: high
   review_required: true
   safety_critical: false
-  inputs: [repository path, target files, objective, constraints]
-  outputs: [run report, run manifest]
-  required_tools: [validate_skill]
-  optional_tools: [run_skill]
+  inputs:
+  - repository path
+  - target files
+  - objective
+  - constraints
+  outputs:
+  - run report
+  - run manifest
+  required_tools:
+  - validate_skill
+  optional_tools:
+  - run_skill
 ---
 
 # Axiom AUTOSAR Classic Architecture Review

@@ -1,9 +1,12 @@
 ---
 name: project-audit
-description: Criteria-first audits, sampling, independence, re-audit closure. Use when auditing projects, suppliers, or compliance readiness.
+description: Criteria-first audits, sampling, independence, re-audit closure. Use
+  when auditing projects, suppliers, or compliance readiness.
 version: 1.2.0
-domains: [all]
-platforms: [all]
+domains:
+- all
+platforms:
+- all
 axiom:
   dotted_name: axiom.legacy.project-audit
   domain: all
@@ -16,6 +19,27 @@ axiom:
   related_skills: []
   checklists:
   - checklists/project-audit-checklist.md
+  inputs:
+  - repository path
+  - objective
+  - constraints
+  outputs:
+  - run report
+  - run manifest
+  risk_level: medium
+  review_required: true
+  safety_critical: false
+  lifecycle:
+  - discover
+  - plan
+  - implement
+  - verify
+  - evidence
+  artifact_types:
+  - report
+  - manifest
+  standards: []
+  mcp_tools: []
 ---
 
 # Project-Audit skill

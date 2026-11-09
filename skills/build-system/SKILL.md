@@ -1,9 +1,12 @@
 ---
 name: build-system
-description: Warnings-as-errors builds, pinning, toolchain separation, SLSA provenance. Use when setting up CMake builds or reproducible toolchains.
+description: Warnings-as-errors builds, pinning, toolchain separation, SLSA provenance.
+  Use when setting up CMake builds or reproducible toolchains.
 version: 1.2.0
-domains: [all]
-platforms: [all]
+domains:
+- all
+platforms:
+- all
 axiom:
   dotted_name: axiom.legacy.build-system
   domain: all
@@ -17,6 +20,27 @@ axiom:
   - axiom-embedded-cicd
   checklists:
   - checklists/build-system-checklist.md
+  inputs:
+  - repository path
+  - objective
+  - constraints
+  outputs:
+  - run report
+  - run manifest
+  risk_level: medium
+  review_required: true
+  safety_critical: false
+  lifecycle:
+  - discover
+  - plan
+  - implement
+  - verify
+  - evidence
+  artifact_types:
+  - report
+  - manifest
+  standards: []
+  mcp_tools: []
 ---
 
 # Build-System skill

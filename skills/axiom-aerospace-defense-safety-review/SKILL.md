@@ -1,13 +1,18 @@
 ---
 name: axiom-aerospace-defense-safety-review
 title: Aerospace and Defense Safety Review
-description: >
-  Reviews safety-critical embedded designs against DO-178C/DO-254-style objectives and evidence expectations.
+description: 'Reviews safety-critical embedded designs against DO-178C/DO-254-style
+  objectives and evidence expectations.
+
+  '
 version: 1.2.0
 author: PRATIK PATIL
 license: Apache-2.0
-domains: [aerospace]
-platforms: [mcu, mpu]
+domains:
+- aerospace
+platforms:
+- mcu
+- mpu
 axiom:
   dotted_name: axiom.aerospace.aerospace.defense.safety.review
   domain: aerospace
@@ -15,19 +20,41 @@ axiom:
   category: review
   maturity: experimental
   owner: axiom-embedded
-  tags: [safety]
+  tags:
+  - safety
   related_skills: []
-  lifecycle: [requirements, architecture, design, implementation, integration, verification, validation, release]
-  standards: [DO-178C, DO-254]
-  artifact_types: [safety review]
-  mcp_tools: [run_skill, validate_skill]
+  lifecycle:
+  - requirements
+  - architecture
+  - design
+  - implementation
+  - integration
+  - verification
+  - validation
+  - release
+  standards:
+  - DO-178C
+  - DO-254
+  artifact_types:
+  - safety review
+  mcp_tools:
+  - run_skill
+  - validate_skill
   risk_level: safety-critical
   review_required: true
   safety_critical: true
-  inputs: [repository path, target files, objective, constraints]
-  outputs: [run report, run manifest]
-  required_tools: [validate_skill]
-  optional_tools: [run_skill]
+  inputs:
+  - repository path
+  - target files
+  - objective
+  - constraints
+  outputs:
+  - run report
+  - run manifest
+  required_tools:
+  - validate_skill
+  optional_tools:
+  - run_skill
 ---
 
 # Axiom Aerospace and Defense Safety Review

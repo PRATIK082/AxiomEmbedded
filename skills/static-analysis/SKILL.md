@@ -1,9 +1,12 @@
 ---
 name: static-analysis
-description: Checker layering, qualification, baselines, and triage for MISRA/CERT findings. Use when configuring analyzers or clearing violation backlogs.
+description: Checker layering, qualification, baselines, and triage for MISRA/CERT
+  findings. Use when configuring analyzers or clearing violation backlogs.
 version: 1.2.0
-domains: [all]
-platforms: [all]
+domains:
+- all
+platforms:
+- all
 axiom:
   dotted_name: axiom.legacy.static-analysis
   domain: all
@@ -17,6 +20,27 @@ axiom:
   - axiom-static-analysis-triage
   checklists:
   - checklists/static-analysis-checklist.md
+  inputs:
+  - repository path
+  - objective
+  - constraints
+  outputs:
+  - run report
+  - run manifest
+  risk_level: medium
+  review_required: true
+  safety_critical: false
+  lifecycle:
+  - discover
+  - plan
+  - implement
+  - verify
+  - evidence
+  artifact_types:
+  - report
+  - manifest
+  standards: []
+  mcp_tools: []
 ---
 
 # Static-Analysis skill

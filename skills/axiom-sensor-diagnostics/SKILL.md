@@ -1,15 +1,25 @@
 ---
 name: axiom-sensor-diagnostics
 title: Sensor Diagnostics
-description: >
-  Detects sensor faults (stuck-at, out-of-range, timeout, CRC error,
-  communication loss), supports degraded mode and watchdogs, and provides
-  fault-injection testing and evidence.
+description: 'Detects sensor faults (stuck-at, out-of-range, timeout, CRC error, communication
+  loss), supports degraded mode and watchdogs, and provides fault-injection testing
+  and evidence.
+
+  '
 version: 1.2.0
 author: PRATIK PATIL
 license: Apache-2.0
-domains: [generic-embedded, iot, industrial, automotive, robotics]
-platforms: [mcu, mpu, soc, mpsoc]
+domains:
+- generic-embedded
+- iot
+- industrial
+- automotive
+- robotics
+platforms:
+- mcu
+- mpu
+- soc
+- mpsoc
 axiom:
   dotted_name: axiom.generic-embedded.sensor.diagnostics
   domain: generic-embedded
@@ -17,19 +27,51 @@ axiom:
   category: implementation
   maturity: experimental
   owner: axiom-embedded
-  tags: [diagnostics, fault-detection, degraded-mode, watchdog]
-  related_skills: [axiom-sensor-acquisition, axiom-sensor-driver-integration, axiom-sampling-timestamping, axiom-sensor-calibration, axiom-digital-filtering, axiom-multi-sensor-synchronization, validation, fault-injection]
-  lifecycle: [requirements, architecture, design, implementation, integration, verification, validation, release]
+  tags:
+  - diagnostics
+  - fault-detection
+  - degraded-mode
+  - watchdog
+  related_skills:
+  - axiom-sensor-acquisition
+  - axiom-sensor-driver-integration
+  - axiom-sampling-timestamping
+  - axiom-sensor-calibration
+  - axiom-digital-filtering
+  - axiom-multi-sensor-synchronization
+  - validation
+  - fault-injection
+  lifecycle:
+  - requirements
+  - architecture
+  - design
+  - implementation
+  - integration
+  - verification
+  - validation
+  - release
   standards: []
-  artifact_types: [diagnostics design, fault injection report]
-  mcp_tools: [run_skill, validate_skill]
+  artifact_types:
+  - diagnostics design
+  - fault injection report
+  mcp_tools:
+  - run_skill
+  - validate_skill
   risk_level: medium
   review_required: true
   safety_critical: false
-  inputs: [repository path, target files, objective, constraints]
-  outputs: [run report, run manifest]
-  required_tools: [validate_skill]
-  optional_tools: [run_skill]
+  inputs:
+  - repository path
+  - target files
+  - objective
+  - constraints
+  outputs:
+  - run report
+  - run manifest
+  required_tools:
+  - validate_skill
+  optional_tools:
+  - run_skill
 ---
 
 # Axiom Sensor Diagnostics

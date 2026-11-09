@@ -1,13 +1,18 @@
 ---
 name: axiom-automotive-release-readiness
 title: Automotive Release Readiness
-description: >
-  Gates ECU/software release readiness with evidence packaging, open-finding triage and sign-off checklists.
+description: 'Gates ECU/software release readiness with evidence packaging, open-finding
+  triage and sign-off checklists.
+
+  '
 version: 1.2.0
 author: PRATIK PATIL
 license: Apache-2.0
-domains: [automotive]
-platforms: [mcu, mpu]
+domains:
+- automotive
+platforms:
+- mcu
+- mpu
 axiom:
   dotted_name: axiom.automotive.automotive.release.readiness
   domain: automotive
@@ -15,19 +20,41 @@ axiom:
   category: release
   maturity: experimental
   owner: axiom-embedded
-  tags: [release]
+  tags:
+  - release
   related_skills: []
-  lifecycle: [requirements, architecture, design, implementation, integration, verification, validation, release]
-  standards: [Automotive SPICE]
-  artifact_types: [release gate report, evidence package]
-  mcp_tools: [run_skill, validate_skill]
+  lifecycle:
+  - requirements
+  - architecture
+  - design
+  - implementation
+  - integration
+  - verification
+  - validation
+  - release
+  standards:
+  - Automotive SPICE
+  artifact_types:
+  - release gate report
+  - evidence package
+  mcp_tools:
+  - run_skill
+  - validate_skill
   risk_level: high
   review_required: true
   safety_critical: false
-  inputs: [repository path, target files, objective, constraints]
-  outputs: [run report, run manifest]
-  required_tools: [validate_skill]
-  optional_tools: [run_skill]
+  inputs:
+  - repository path
+  - target files
+  - objective
+  - constraints
+  outputs:
+  - run report
+  - run manifest
+  required_tools:
+  - validate_skill
+  optional_tools:
+  - run_skill
 ---
 
 # Axiom Automotive Release Readiness

@@ -1,9 +1,17 @@
 ---
 name: safety
-description: Functional-safety lifecycle with ASIL/SIL/DAL mapping, HARA chains, and sign-off gates. Use for safety goals, integrity levels, or safety cases.
+description: Functional-safety lifecycle with ASIL/SIL/DAL mapping, HARA chains, and
+  sign-off gates. Use for safety goals, integrity levels, or safety cases.
 version: 1.2.0
-domains: [generic-embedded, automotive, aerospace, defense, industrial, robotics]
-platforms: [all]
+domains:
+- generic-embedded
+- automotive
+- aerospace
+- defense
+- industrial
+- robotics
+platforms:
+- all
 axiom:
   dotted_name: axiom.legacy.safety
   domain: generic-embedded
@@ -18,6 +26,27 @@ axiom:
   - axiom-safety-requirements
   checklists:
   - checklists/safety-checklist.md
+  inputs:
+  - repository path
+  - objective
+  - constraints
+  outputs:
+  - run report
+  - run manifest
+  risk_level: medium
+  review_required: true
+  safety_critical: false
+  lifecycle:
+  - discover
+  - plan
+  - implement
+  - verify
+  - evidence
+  artifact_types:
+  - report
+  - manifest
+  standards: []
+  mcp_tools: []
 ---
 
 # Safety skill

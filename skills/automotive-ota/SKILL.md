@@ -1,9 +1,15 @@
 ---
 name: automotive-ota
-description: SOTA/FOTA campaigns per UNECE R156/SUMS, A/B + delta updates, UCM, rollback, backend-to-vehicle chain. Use for updateable fleets or type-approval evidence.
+description: SOTA/FOTA campaigns per UNECE R156/SUMS, A/B + delta updates, UCM, rollback,
+  backend-to-vehicle chain. Use for updateable fleets or type-approval evidence.
 version: 1.2.0
-domains: [automotive]
-platforms: [mcu, mpu, autosar-classic, autosar-adaptive]
+domains:
+- automotive
+platforms:
+- mcu
+- mpu
+- autosar-classic
+- autosar-adaptive
 axiom:
   dotted_name: axiom.legacy.automotive-ota
   domain: automotive
@@ -18,6 +24,27 @@ axiom:
   - axiom-zonal-architecture
   checklists:
   - checklists/automotive-ota-checklist.md
+  inputs:
+  - repository path
+  - objective
+  - constraints
+  outputs:
+  - run report
+  - run manifest
+  risk_level: medium
+  review_required: true
+  safety_critical: false
+  lifecycle:
+  - discover
+  - plan
+  - implement
+  - verify
+  - evidence
+  artifact_types:
+  - report
+  - manifest
+  standards: []
+  mcp_tools: []
 ---
 
 # automotive-ota -- Software update and campaign capability

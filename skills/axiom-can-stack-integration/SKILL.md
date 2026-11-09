@@ -1,13 +1,18 @@
 ---
 name: axiom-can-stack-integration
 title: CAN Stack Integration
-description: >
-  Integrates and checks CAN driver/CanIf/CanTp stacks including baud-rate, mailbox, and error-handling configuration.
+description: 'Integrates and checks CAN driver/CanIf/CanTp stacks including baud-rate,
+  mailbox, and error-handling configuration.
+
+  '
 version: 1.2.0
 author: PRATIK PATIL
 license: Apache-2.0
-domains: [automotive]
-platforms: [mcu, autosar-classic]
+domains:
+- automotive
+platforms:
+- mcu
+- autosar-classic
 axiom:
   dotted_name: axiom.automotive.can.stack.integration
   domain: automotive
@@ -15,19 +20,40 @@ axiom:
   category: integration
   maturity: experimental
   owner: axiom-embedded
-  tags: [networks]
+  tags:
+  - networks
   related_skills: []
-  lifecycle: [requirements, architecture, design, implementation, integration, verification, validation, release]
-  standards: [ISO 11898]
-  artifact_types: [stack integration report]
-  mcp_tools: [run_skill, validate_skill]
+  lifecycle:
+  - requirements
+  - architecture
+  - design
+  - implementation
+  - integration
+  - verification
+  - validation
+  - release
+  standards:
+  - ISO 11898
+  artifact_types:
+  - stack integration report
+  mcp_tools:
+  - run_skill
+  - validate_skill
   risk_level: medium
   review_required: true
   safety_critical: false
-  inputs: [repository path, target files, objective, constraints]
-  outputs: [run report, run manifest]
-  required_tools: [validate_skill]
-  optional_tools: [run_skill]
+  inputs:
+  - repository path
+  - target files
+  - objective
+  - constraints
+  outputs:
+  - run report
+  - run manifest
+  required_tools:
+  - validate_skill
+  optional_tools:
+  - run_skill
 ---
 
 # Axiom CAN Stack Integration

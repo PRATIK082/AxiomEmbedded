@@ -1,9 +1,12 @@
 ---
 name: test-automation
-description: Host+target CI stages, farm discipline, flaky quarantine, feedback budgets. Use when building embedded CI pipelines or HIL farms.
+description: Host+target CI stages, farm discipline, flaky quarantine, feedback budgets.
+  Use when building embedded CI pipelines or HIL farms.
 version: 1.2.0
-domains: [all]
-platforms: [all]
+domains:
+- all
+platforms:
+- all
 axiom:
   dotted_name: axiom.legacy.test-automation
   domain: all
@@ -18,6 +21,27 @@ axiom:
   - axiom-test-automation
   checklists:
   - checklists/test-automation-checklist.md
+  inputs:
+  - repository path
+  - objective
+  - constraints
+  outputs:
+  - run report
+  - run manifest
+  risk_level: medium
+  review_required: true
+  safety_critical: false
+  lifecycle:
+  - discover
+  - plan
+  - implement
+  - verify
+  - evidence
+  artifact_types:
+  - report
+  - manifest
+  standards: []
+  mcp_tools: []
 ---
 
 # Test-Automation skill

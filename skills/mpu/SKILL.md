@@ -1,9 +1,17 @@
 ---
 name: mpu
-description: MPU-based design - selection from measured load, ECC/DDR, power sequencing, debug-by-design. Use when moving to application processors.
+description: MPU-based design - selection from measured load, ECC/DDR, power sequencing,
+  debug-by-design. Use when moving to application processors.
 version: 1.2.0
-domains: [generic-embedded, automotive, industrial, iot, robotics]
-platforms: [mpu, linux]
+domains:
+- generic-embedded
+- automotive
+- industrial
+- iot
+- robotics
+platforms:
+- mpu
+- linux
 axiom:
   dotted_name: axiom.legacy.mpu
   domain: generic-embedded
@@ -16,6 +24,27 @@ axiom:
   related_skills: []
   checklists:
   - checklists/mpu-checklist.md
+  inputs:
+  - repository path
+  - objective
+  - constraints
+  outputs:
+  - run report
+  - run manifest
+  risk_level: medium
+  review_required: true
+  safety_critical: false
+  lifecycle:
+  - discover
+  - plan
+  - implement
+  - verify
+  - evidence
+  artifact_types:
+  - report
+  - manifest
+  standards: []
+  mcp_tools: []
 ---
 
 # MPU skill

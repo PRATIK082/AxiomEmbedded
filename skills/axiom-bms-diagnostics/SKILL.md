@@ -1,13 +1,17 @@
 ---
 name: axiom-bms-diagnostics
 title: BMS Diagnostics and HIL Test Design
-description: >
-  Designs BMS fault handling and HIL test campaigns covering cell, contactor, thermal and isolation faults.
+description: 'Designs BMS fault handling and HIL test campaigns covering cell, contactor,
+  thermal and isolation faults.
+
+  '
 version: 1.2.0
 author: PRATIK PATIL
 license: Apache-2.0
-domains: [automotive]
-platforms: [mcu]
+domains:
+- automotive
+platforms:
+- mcu
 axiom:
   dotted_name: axiom.automotive.bms.diagnostics
   domain: automotive
@@ -15,19 +19,40 @@ axiom:
   category: verification
   maturity: experimental
   owner: axiom-embedded
-  tags: [bms]
+  tags:
+  - bms
   related_skills: []
-  lifecycle: [requirements, architecture, design, implementation, integration, verification, validation, release]
-  standards: [ISO 26262:2018]
-  artifact_types: [HIL test plan]
-  mcp_tools: [run_skill, validate_skill]
+  lifecycle:
+  - requirements
+  - architecture
+  - design
+  - implementation
+  - integration
+  - verification
+  - validation
+  - release
+  standards:
+  - ISO 26262:2018
+  artifact_types:
+  - HIL test plan
+  mcp_tools:
+  - run_skill
+  - validate_skill
   risk_level: high
   review_required: true
   safety_critical: false
-  inputs: [repository path, target files, objective, constraints]
-  outputs: [run report, run manifest]
-  required_tools: [validate_skill]
-  optional_tools: [run_skill]
+  inputs:
+  - repository path
+  - target files
+  - objective
+  - constraints
+  outputs:
+  - run report
+  - run manifest
+  required_tools:
+  - validate_skill
+  optional_tools:
+  - run_skill
 ---
 
 # Axiom BMS Diagnostics and HIL Test Design

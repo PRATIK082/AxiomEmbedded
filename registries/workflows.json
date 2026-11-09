@@ -2,8 +2,8 @@
   "schema_version": "1.0",
   "workflows": [
     {
-      "id": "greenfield",
-      "path": "workflows/greenfield.yaml"
+      "id": "architecture-change",
+      "path": "workflows/architecture-change.yaml"
     },
     {
       "id": "brownfield",
@@ -14,28 +14,32 @@
       "path": "workflows/defect-fix.yaml"
     },
     {
-      "id": "feature-change",
-      "path": "workflows/feature-change.yaml"
-    },
-    {
-      "id": "architecture-change",
-      "path": "workflows/architecture-change.yaml"
-    },
-    {
-      "id": "security-patch",
-      "path": "workflows/security-patch.yaml"
+      "id": "embedded-skills-deep-update",
+      "path": "workflows/embedded-skills-deep-update.yaml"
     },
     {
       "id": "emergency-change",
       "path": "workflows/emergency-change.yaml"
     },
     {
-      "id": "standards-migration",
-      "path": "workflows/standards-migration.yaml"
+      "id": "feature-change",
+      "path": "workflows/feature-change.yaml"
+    },
+    {
+      "id": "greenfield",
+      "path": "workflows/greenfield.yaml"
     },
     {
       "id": "maintenance",
       "path": "workflows/maintenance.yaml"
+    },
+    {
+      "id": "security-patch",
+      "path": "workflows/security-patch.yaml"
+    },
+    {
+      "id": "standards-migration",
+      "path": "workflows/standards-migration.yaml"
     }
   ]
 }

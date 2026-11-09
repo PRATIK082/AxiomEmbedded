@@ -1,9 +1,14 @@
 ---
 name: bootloader
-description: Verify-before-jump boot, A/B slots, anti-rollback, key custody. Use when building secure updateable bootloaders.
+description: Verify-before-jump boot, A/B slots, anti-rollback, key custody. Use when
+  building secure updateable bootloaders.
 version: 1.2.0
-domains: [all]
-platforms: [mcu, mpu, soc]
+domains:
+- all
+platforms:
+- mcu
+- mpu
+- soc
 axiom:
   dotted_name: axiom.legacy.bootloader
   domain: all
@@ -17,6 +22,27 @@ axiom:
   - axiom-embedded-firmware-bringup
   checklists:
   - checklists/bootloader-checklist.md
+  inputs:
+  - repository path
+  - objective
+  - constraints
+  outputs:
+  - run report
+  - run manifest
+  risk_level: medium
+  review_required: true
+  safety_critical: false
+  lifecycle:
+  - discover
+  - plan
+  - implement
+  - verify
+  - evidence
+  artifact_types:
+  - report
+  - manifest
+  standards: []
+  mcp_tools: []
 ---
 
 # Bootloader skill

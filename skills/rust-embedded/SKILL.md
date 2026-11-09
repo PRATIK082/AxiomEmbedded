@@ -1,9 +1,15 @@
 ---
 name: rust-embedded
-description: no_std setup, unsafe-review policy, FFI ownership rules. Use when writing Rust firmware or mixing Rust with C.
+description: no_std setup, unsafe-review policy, FFI ownership rules. Use when writing
+  Rust firmware or mixing Rust with C.
 version: 1.2.0
-domains: [all]
-platforms: [mcu, mpu, bare-metal, rtos]
+domains:
+- all
+platforms:
+- mcu
+- mpu
+- bare-metal
+- rtos
 axiom:
   dotted_name: axiom.legacy.rust-embedded
   domain: all
@@ -16,6 +22,27 @@ axiom:
   related_skills: []
   checklists:
   - checklists/rust-embedded-checklist.md
+  inputs:
+  - repository path
+  - objective
+  - constraints
+  outputs:
+  - run report
+  - run manifest
+  risk_level: medium
+  review_required: true
+  safety_critical: false
+  lifecycle:
+  - discover
+  - plan
+  - implement
+  - verify
+  - evidence
+  artifact_types:
+  - report
+  - manifest
+  standards: []
+  mcp_tools: []
 ---
 
 # Rust-Embedded skill

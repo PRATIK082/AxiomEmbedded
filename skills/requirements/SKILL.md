@@ -1,9 +1,12 @@
 ---
 name: requirements
-description: Elicitation and baselining of verifiable requirements with methods, allocation, and traceability. Use when writing specs, SHALL statements, or baselining scope.
+description: Elicitation and baselining of verifiable requirements with methods, allocation,
+  and traceability. Use when writing specs, SHALL statements, or baselining scope.
 version: 1.2.0
-domains: [all]
-platforms: [all]
+domains:
+- all
+platforms:
+- all
 axiom:
   dotted_name: axiom.legacy.requirements
   domain: all
@@ -17,6 +20,27 @@ axiom:
   - axiom-platform-architecture-review
   checklists:
   - checklists/requirements-checklist.md
+  inputs:
+  - repository path
+  - objective
+  - constraints
+  outputs:
+  - run report
+  - run manifest
+  risk_level: medium
+  review_required: true
+  safety_critical: false
+  lifecycle:
+  - discover
+  - plan
+  - implement
+  - verify
+  - evidence
+  artifact_types:
+  - report
+  - manifest
+  standards: []
+  mcp_tools: []
 ---
 
 # Requirements skill

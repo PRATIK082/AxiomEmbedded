@@ -1,13 +1,18 @@
 ---
 name: axiom-embedded-firmware-bringup
 title: Embedded Firmware Bring-up
-description: >
-  Brings up firmware on a new MCU/board (clock, memory, drivers, bootloader handoff) with a deterministic checklist.
+description: 'Brings up firmware on a new MCU/board (clock, memory, drivers, bootloader
+  handoff) with a deterministic checklist.
+
+  '
 version: 1.2.0
 author: PRATIK PATIL
 license: Apache-2.0
-domains: [all]
-platforms: [mcu, bare-metal]
+domains:
+- all
+platforms:
+- mcu
+- bare-metal
 axiom:
   dotted_name: axiom.platform.embedded.firmware.bringup
   domain: platform
@@ -15,19 +20,40 @@ axiom:
   category: implementation
   maturity: experimental
   owner: axiom-embedded
-  tags: [bringup]
+  tags:
+  - bringup
   related_skills: []
-  lifecycle: [requirements, architecture, design, implementation, integration, verification, validation, release]
+  lifecycle:
+  - requirements
+  - architecture
+  - design
+  - implementation
+  - integration
+  - verification
+  - validation
+  - release
   standards: []
-  artifact_types: [bring-up checklist, bring-up report]
-  mcp_tools: [run_skill, validate_skill]
+  artifact_types:
+  - bring-up checklist
+  - bring-up report
+  mcp_tools:
+  - run_skill
+  - validate_skill
   risk_level: medium
   review_required: true
   safety_critical: false
-  inputs: [repository path, target files, objective, constraints]
-  outputs: [run report, run manifest]
-  required_tools: [validate_skill]
-  optional_tools: [run_skill]
+  inputs:
+  - repository path
+  - target files
+  - objective
+  - constraints
+  outputs:
+  - run report
+  - run manifest
+  required_tools:
+  - validate_skill
+  optional_tools:
+  - run_skill
 ---
 
 # Axiom Embedded Firmware Bring-up

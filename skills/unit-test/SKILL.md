@@ -1,9 +1,12 @@
 ---
 name: unit-test
-description: Host/target unit testing with mocks, coverage per integrity level, and done criteria. Use when writing module tests or setting coverage targets.
+description: Host/target unit testing with mocks, coverage per integrity level, and
+  done criteria. Use when writing module tests or setting coverage targets.
 version: 1.2.0
-domains: [all]
-platforms: [all]
+domains:
+- all
+platforms:
+- all
 axiom:
   dotted_name: axiom.legacy.unit-test
   domain: all
@@ -17,6 +20,27 @@ axiom:
   - axiom-test-automation
   checklists:
   - checklists/unit-test-checklist.md
+  inputs:
+  - repository path
+  - objective
+  - constraints
+  outputs:
+  - run report
+  - run manifest
+  risk_level: medium
+  review_required: true
+  safety_critical: false
+  lifecycle:
+  - discover
+  - plan
+  - implement
+  - verify
+  - evidence
+  artifact_types:
+  - report
+  - manifest
+  standards: []
+  mcp_tools: []
 ---
 
 # Unit-Test skill

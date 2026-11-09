@@ -1,9 +1,15 @@
 ---
 name: embedded-cpp
-description: Bounded C++17 subset, no-exceptions/RTTI policy, RAII drivers. Use when writing C++ firmware or HALs.
+description: Bounded C++17 subset, no-exceptions/RTTI policy, RAII drivers. Use when
+  writing C++ firmware or HALs.
 version: 1.2.0
-domains: [all]
-platforms: [mcu, mpu, bare-metal, rtos]
+domains:
+- all
+platforms:
+- mcu
+- mpu
+- bare-metal
+- rtos
 axiom:
   dotted_name: axiom.legacy.embedded-cpp
   domain: all
@@ -16,6 +22,27 @@ axiom:
   related_skills: []
   checklists:
   - checklists/embedded-cpp-checklist.md
+  inputs:
+  - repository path
+  - objective
+  - constraints
+  outputs:
+  - run report
+  - run manifest
+  risk_level: medium
+  review_required: true
+  safety_critical: false
+  lifecycle:
+  - discover
+  - plan
+  - implement
+  - verify
+  - evidence
+  artifact_types:
+  - report
+  - manifest
+  standards: []
+  mcp_tools: []
 ---
 
 # Embedded-C++ skill

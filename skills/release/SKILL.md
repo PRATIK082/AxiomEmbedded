@@ -1,9 +1,12 @@
 ---
 name: release
-description: Readiness reviews, signing, staged rollout, and hotfix paths. Use when shipping firmware/software or planning OTA releases.
+description: Readiness reviews, signing, staged rollout, and hotfix paths. Use when
+  shipping firmware/software or planning OTA releases.
 version: 1.2.0
-domains: [all]
-platforms: [all]
+domains:
+- all
+platforms:
+- all
 axiom:
   dotted_name: axiom.legacy.release
   domain: all
@@ -17,6 +20,27 @@ axiom:
   - axiom-automotive-release-readiness
   checklists:
   - checklists/release-checklist.md
+  inputs:
+  - repository path
+  - objective
+  - constraints
+  outputs:
+  - run report
+  - run manifest
+  risk_level: medium
+  review_required: true
+  safety_critical: false
+  lifecycle:
+  - discover
+  - plan
+  - implement
+  - verify
+  - evidence
+  artifact_types:
+  - report
+  - manifest
+  standards: []
+  mcp_tools: []
 ---
 
 # Release skill

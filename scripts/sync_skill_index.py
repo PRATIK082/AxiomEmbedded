@@ -17,19 +17,23 @@ def main() -> int:
     sj_p = ROOT / "registries" / "skills.json"
     sj = json.loads(sj_p.read_text(encoding="utf-8"))
     have = {e["id"] for e in sj["skills"]}
+    # remove disabled skills from index
+    disabled = {e["id"] for e in cat["skills"] if not e.get("enabled", True)}
+    for sid in disabled:
+        idx["skills"].pop(sid, None)
+        sj["skills"] = [x for x in sj["skills"] if x["id"] != sid]
     for e in cat["skills"]:
+        if not e.get("enabled", True):
+            continue
         fm = yaml.safe_load(
             (ROOT / e["path"] / "SKILL.md").read_text(encoding="utf-8").split("---\n", 2)[1])
-        # catalog domain_overlays/platform_overlays extend the frontmatter facets:
-        # a shared skill (e.g. aerospace+defense safety review) must engage in
-        # every overlaid domain, not just its primary domain.
         domains = sorted(set(fm.get("domains", []) or []) | set(e.get("domain_overlays", []) or []))
         platforms = sorted(set(fm.get("platforms", []) or []) | set(e.get("platform_overlays", []) or []))
         entry = {"description": str(fm.get("description", ""))[:300],
                  "domains": domains,
                  "platforms": platforms}
         idx["skills"][e["id"]] = entry
-        if e["id"] not in have:
+        if e["id"] not in have and e["id"] not in disabled:
             sj["skills"].append({"id": e["id"], "path": e["path"]})
     # rebuild facets
     by_d: dict[str, list] = {}

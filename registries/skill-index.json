@@ -2096,33 +2096,386 @@
         "mcu",
         "mpu"
       ]
+    },
+    "axiom-skill-creator": {
+      "description": "Skill Creator (with eval loop and description optimization) workflow for platform. Use when skill creator (with eval loop and description optimization) tasks arise in platform projects.\n",
+      "domains": [
+        "platform"
+      ],
+      "platforms": [
+        "mcu"
+      ]
+    },
+    "axiom-mcp-builder": {
+      "description": "MCP Server Builder workflow for platform. Use when mcp server builder tasks arise in platform projects.\n",
+      "domains": [
+        "platform"
+      ],
+      "platforms": [
+        "mcu"
+      ]
+    },
+    "axiom-tool-schema-design": {
+      "description": "Tool Schema Design workflow for platform. Use when tool schema design tasks arise in platform projects.\n",
+      "domains": [
+        "platform"
+      ],
+      "platforms": [
+        "mcu"
+      ]
+    },
+    "axiom-agent-evaluation": {
+      "description": "Agent Evaluation workflow for platform. Use when agent evaluation tasks arise in platform projects.\n",
+      "domains": [
+        "platform"
+      ],
+      "platforms": [
+        "mcu"
+      ]
+    },
+    "axiom-agent-observability": {
+      "description": "Agent Observability workflow for platform. Use when agent observability tasks arise in platform projects.\n",
+      "domains": [
+        "platform"
+      ],
+      "platforms": [
+        "mcu"
+      ]
+    },
+    "axiom-human-in-the-loop": {
+      "description": "Human-in-the-Loop Orchestration workflow for platform. Use when human-in-the-loop orchestration tasks arise in platform projects.\n",
+      "domains": [
+        "platform"
+      ],
+      "platforms": [
+        "mcu"
+      ]
+    },
+    "axiom-multi-agent-orchestration": {
+      "description": "Multi-Agent Orchestration workflow for platform. Use when multi-agent orchestration tasks arise in platform projects.\n",
+      "domains": [
+        "platform"
+      ],
+      "platforms": [
+        "mcu"
+      ]
+    },
+    "axiom-prompt-injection-defense": {
+      "description": "Prompt Injection Defense workflow for all. Use when prompt injection defense tasks arise in all projects.\n",
+      "domains": [
+        "all"
+      ],
+      "platforms": [
+        "mcu"
+      ]
+    },
+    "axiom-agent-red-teaming": {
+      "description": "Agent Red Teaming workflow for all. Use when agent red teaming tasks arise in all projects.\n",
+      "domains": [
+        "all"
+      ],
+      "platforms": [
+        "mcu"
+      ]
+    },
+    "axiom-skills-purge": {
+      "description": "Skills Catalog Hygiene (Purge) workflow for platform. Use when skills catalog hygiene (purge) tasks arise in platform projects.\n",
+      "domains": [
+        "platform"
+      ],
+      "platforms": [
+        "mcu"
+      ]
+    },
+    "axiom-diagnosing-bugs": {
+      "description": "Diagnosing Bugs (systematic root cause) workflow for all. Use when diagnosing bugs (systematic root cause) tasks arise in all projects.\n",
+      "domains": [
+        "all"
+      ],
+      "platforms": [
+        "mcu"
+      ]
+    },
+    "axiom-improve-codebase-architecture": {
+      "description": "Improve Codebase Architecture workflow for all. Use when improve codebase architecture tasks arise in all projects.\n",
+      "domains": [
+        "all"
+      ],
+      "platforms": [
+        "mcu"
+      ]
+    },
+    "axiom-clean-ai-slop": {
+      "description": "Clean AI Slop workflow for all. Use when clean ai slop tasks arise in all projects.\n",
+      "domains": [
+        "all"
+      ],
+      "platforms": [
+        "mcu"
+      ]
+    },
+    "axiom-git-commit-plan": {
+      "description": "Git Commit Plan (bisectable series) workflow for all. Use when git commit plan (bisectable series) tasks arise in all projects.\n",
+      "domains": [
+        "all"
+      ],
+      "platforms": [
+        "mcu"
+      ]
+    },
+    "axiom-code-explainer": {
+      "description": "Code Explainer (illustrated) workflow for all. Use when code explainer (illustrated) tasks arise in all projects.\n",
+      "domains": [
+        "all"
+      ],
+      "platforms": [
+        "mcu"
+      ]
+    },
+    "axiom-agents-md-generator": {
+      "description": "AGENTS.md Generator workflow for all. Use when agents.md generator tasks arise in all projects.\n",
+      "domains": [
+        "all"
+      ],
+      "platforms": [
+        "mcu"
+      ]
+    },
+    "axiom-api-design": {
+      "description": "API Design Review workflow for all. Use when api design review tasks arise in all projects.\n",
+      "domains": [
+        "all"
+      ],
+      "platforms": [
+        "mcu"
+      ]
+    },
+    "axiom-cto-advisor": {
+      "description": "CTO Advisor (tech debt, DORA, scaling) workflow for all. Use when cto advisor (tech debt, dora, scaling) tasks arise in all projects.\n",
+      "domains": [
+        "all"
+      ],
+      "platforms": [
+        "mcu"
+      ]
+    },
+    "axiom-security-best-practices": {
+      "description": "Security Best Practices workflow for all. Use when security best practices tasks arise in all projects.\n",
+      "domains": [
+        "all"
+      ],
+      "platforms": [
+        "mcu"
+      ]
+    },
+    "axiom-security-threat-model": {
+      "description": "Security Threat Model workflow for all. Use when security threat model tasks arise in all projects.\n",
+      "domains": [
+        "all"
+      ],
+      "platforms": [
+        "mcu"
+      ]
+    },
+    "axiom-security-ownership-map": {
+      "description": "Security Ownership Map workflow for all. Use when security ownership map tasks arise in all projects.\n",
+      "domains": [
+        "all"
+      ],
+      "platforms": [
+        "mcu"
+      ]
+    },
+    "axiom-mcp-security-testing": {
+      "description": "MCP Security Testing workflow for all. Use when mcp security testing tasks arise in all projects.\n",
+      "domains": [
+        "all"
+      ],
+      "platforms": [
+        "mcu"
+      ]
+    },
+    "axiom-doc-coauthoring": {
+      "description": "Document Co-authoring workflow for all. Use when document co-authoring tasks arise in all projects.\n",
+      "domains": [
+        "all"
+      ],
+      "platforms": [
+        "mcu"
+      ]
+    },
+    "axiom-document-skills": {
+      "description": "Document Skills (pdf/docx/xlsx/pptx) workflow for all. Use when document skills (pdf/docx/xlsx/pptx) tasks arise in all projects.\n",
+      "domains": [
+        "all"
+      ],
+      "platforms": [
+        "mcu"
+      ]
+    },
+    "axiom-frontend-design": {
+      "description": "Frontend Design workflow for all. Use when frontend design tasks arise in all projects.\n",
+      "domains": [
+        "all"
+      ],
+      "platforms": [
+        "mcu"
+      ]
+    },
+    "axiom-context-engineering": {
+      "description": "Context Engineering (prompt budget) workflow for platform. Use when context engineering (prompt budget) tasks arise in platform projects.\n",
+      "domains": [
+        "platform"
+      ],
+      "platforms": [
+        "mcu"
+      ]
+    },
+    "axiom-skill-seekers": {
+      "description": "Skill Seekers (doc to SKILL conversion) workflow for platform. Use when skill seekers (doc to skill conversion) tasks arise in platform projects.\n",
+      "domains": [
+        "platform"
+      ],
+      "platforms": [
+        "mcu"
+      ]
+    },
+    "axiom-aerospace-do178c-workflow": {
+      "description": "DO-178C Software Lifecycle Workflow workflow for aerospace. Use when do-178c software lifecycle workflow tasks arise in aerospace projects.\n",
+      "domains": [
+        "aerospace"
+      ],
+      "platforms": [
+        "mcu"
+      ]
+    },
+    "axiom-aerospace-do254-hardware": {
+      "description": "DO-254 Hardware Design Assurance workflow for aerospace. Use when do-254 hardware design assurance tasks arise in aerospace projects.\n",
+      "domains": [
+        "aerospace"
+      ],
+      "platforms": [
+        "mcu"
+      ]
+    },
+    "axiom-space-radiation-hardening": {
+      "description": "Space Radiation Hardening workflow for aerospace. Use when space radiation hardening tasks arise in aerospace projects.\n",
+      "domains": [
+        "aerospace"
+      ],
+      "platforms": [
+        "mcu"
+      ]
+    },
+    "axiom-medical-iec62304-lifecycle": {
+      "description": "IEC 62304 Medical Software Lifecycle workflow for industrial. Use when iec 62304 medical software lifecycle tasks arise in industrial projects.\n",
+      "domains": [
+        "industrial"
+      ],
+      "platforms": [
+        "mcu"
+      ]
+    },
+    "axiom-rail-en50128-safety": {
+      "description": "EN 50128 Rail Software Safety workflow for industrial. Use when en 50128 rail software safety tasks arise in industrial projects.\n",
+      "domains": [
+        "industrial"
+      ],
+      "platforms": [
+        "mcu"
+      ]
+    },
+    "axiom-energy-grid-interface": {
+      "description": "Energy Grid Interface (smart inverter) workflow for industrial. Use when energy grid interface (smart inverter) tasks arise in industrial projects.\n",
+      "domains": [
+        "industrial"
+      ],
+      "platforms": [
+        "mcu"
+      ]
+    },
+    "axiom-iot-connectivity-stack": {
+      "description": "IoT Connectivity Stack workflow for generic-embedded. Use when iot connectivity stack tasks arise in generic-embedded projects.\n",
+      "domains": [
+        "generic-embedded"
+      ],
+      "platforms": [
+        "mcu"
+      ]
+    },
+    "axiom-semiconductor-test-coverage": {
+      "description": "Semiconductor Test Coverage workflow for generic-embedded. Use when semiconductor test coverage tasks arise in generic-embedded projects.\n",
+      "domains": [
+        "generic-embedded"
+      ],
+      "platforms": [
+        "mcu"
+      ]
+    },
+    "axiom-telecom-5g-modem-integration": {
+      "description": "5G Modem Integration workflow for generic-embedded. Use when 5g modem integration tasks arise in generic-embedded projects.\n",
+      "domains": [
+        "generic-embedded"
+      ],
+      "platforms": [
+        "mcu"
+      ]
+    },
+    "axiom-cross-domain-traceability": {
+      "description": "Cross-Domain Traceability workflow for cross-domain. Use when cross-domain traceability tasks arise in cross-domain projects.\n",
+      "domains": [
+        "cross-domain"
+      ],
+      "platforms": [
+        "mcu"
+      ]
     }
   },
   "by_domain": {
     "aerospace": [
       "axiom-aerospace-defense-safety-review",
+      "axiom-aerospace-do178c-workflow",
+      "axiom-aerospace-do254-hardware",
+      "axiom-space-radiation-hardening",
       "fault-injection",
       "mpsoc",
       "safety"
     ],
     "all": [
       "architecture",
+      "axiom-agent-red-teaming",
+      "axiom-agents-md-generator",
+      "axiom-api-design",
       "axiom-architecture-decision-records",
+      "axiom-clean-ai-slop",
+      "axiom-code-explainer",
+      "axiom-cto-advisor",
+      "axiom-diagnosing-bugs",
+      "axiom-doc-coauthoring",
+      "axiom-document-skills",
       "axiom-embedded-cicd",
       "axiom-embedded-firmware-bringup",
       "axiom-framework-arduino",
       "axiom-framework-esp-idf",
       "axiom-framework-zephyr",
+      "axiom-frontend-design",
+      "axiom-git-commit-plan",
       "axiom-hardware-aware-checks",
       "axiom-hil-test-planning",
       "axiom-hmi-and-actuators",
+      "axiom-improve-codebase-architecture",
       "axiom-interface-contract-design",
+      "axiom-mcp-security-testing",
       "axiom-memory-and-performance-analysis",
       "axiom-mil-sil-hil-testing",
       "axiom-misra-c-cpp-review",
       "axiom-peripheral-timers",
       "axiom-platform-architecture-review",
+      "axiom-prompt-injection-defense",
       "axiom-rtos-architecture",
+      "axiom-security-best-practices",
+      "axiom-security-ownership-map",
+      "axiom-security-threat-model",
       "axiom-static-analysis-triage",
       "axiom-storage-and-memory",
       "axiom-technical-debt-assessment",
@@ -2219,6 +2572,9 @@
       "safety",
       "soc"
     ],
+    "cross-domain": [
+      "axiom-cross-domain-traceability"
+    ],
     "defense": [
       "axiom-aerospace-defense-safety-review",
       "fault-injection",
@@ -2228,12 +2584,15 @@
     "generic-embedded": [
       "ai-validation",
       "axiom-digital-filtering",
+      "axiom-iot-connectivity-stack",
       "axiom-multi-sensor-synchronization",
       "axiom-sampling-timestamping",
+      "axiom-semiconductor-test-coverage",
       "axiom-sensor-acquisition",
       "axiom-sensor-calibration",
       "axiom-sensor-diagnostics",
       "axiom-sensor-driver-integration",
+      "axiom-telecom-5g-modem-integration",
       "edge-ai",
       "embedded-linux",
       "fault-injection",
@@ -2250,6 +2609,7 @@
       "axiom-declaration-of-conformity",
       "axiom-declaration-of-conformity-review",
       "axiom-digital-filtering",
+      "axiom-energy-grid-interface",
       "axiom-hazard-risk",
       "axiom-hazard-risk-review",
       "axiom-iec62061-sil",
@@ -2265,11 +2625,13 @@
       "axiom-loto-procedure-review",
       "axiom-machinery-safety-lifecycle-plan",
       "axiom-machinery-safety-lifecycle-plan-review",
+      "axiom-medical-iec62304-lifecycle",
       "axiom-multi-sensor-synchronization",
       "axiom-operator-training-matrix",
       "axiom-operator-training-matrix-review",
       "axiom-ot-asset-inventory",
       "axiom-ot-asset-inventory-review",
+      "axiom-rail-en50128-safety",
       "axiom-robot-sop",
       "axiom-robot-sop-review",
       "axiom-safety-requirements",
@@ -2312,6 +2674,18 @@
       "embedded-linux",
       "mcu",
       "mpu"
+    ],
+    "platform": [
+      "axiom-agent-evaluation",
+      "axiom-agent-observability",
+      "axiom-context-engineering",
+      "axiom-human-in-the-loop",
+      "axiom-mcp-builder",
+      "axiom-multi-agent-orchestration",
+      "axiom-skill-creator",
+      "axiom-skill-seekers",
+      "axiom-skills-purge",
+      "axiom-tool-schema-design"
     ],
     "robotics": [
       "ai-validation",
@@ -2487,8 +2861,15 @@
       "automotive-ota",
       "autosar",
       "axiom-aerospace-defense-safety-review",
+      "axiom-aerospace-do178c-workflow",
+      "axiom-aerospace-do254-hardware",
+      "axiom-agent-evaluation",
+      "axiom-agent-observability",
+      "axiom-agent-red-teaming",
+      "axiom-agents-md-generator",
       "axiom-ansi-r1506-compliance-matrix",
       "axiom-ansi-r1506-compliance-matrix-review",
+      "axiom-api-design",
       "axiom-architecture-decision-records",
       "axiom-automotive-release-readiness",
       "axiom-autosar-classic-architecture",
@@ -2500,27 +2881,41 @@
       "axiom-bms-diagnostics",
       "axiom-can-network-design",
       "axiom-can-stack-integration",
+      "axiom-clean-ai-slop",
+      "axiom-code-explainer",
+      "axiom-context-engineering",
+      "axiom-cross-domain-traceability",
+      "axiom-cto-advisor",
       "axiom-declaration-of-conformity",
       "axiom-declaration-of-conformity-review",
+      "axiom-diagnosing-bugs",
       "axiom-diagnostics-uds",
       "axiom-digital-filtering",
+      "axiom-doc-coauthoring",
+      "axiom-document-skills",
       "axiom-embedded-cicd",
       "axiom-embedded-firmware-bringup",
+      "axiom-energy-grid-interface",
       "axiom-framework-arduino",
       "axiom-framework-esp-idf",
       "axiom-framework-zephyr",
+      "axiom-frontend-design",
       "axiom-functional-safety",
+      "axiom-git-commit-plan",
       "axiom-hardware-aware-checks",
       "axiom-hazard-risk",
       "axiom-hazard-risk-review",
       "axiom-hil-test-planning",
       "axiom-hmi-and-actuators",
+      "axiom-human-in-the-loop",
       "axiom-iec62061-sil",
       "axiom-iec62061-sil-review",
       "axiom-iec62443-risk-assessment",
       "axiom-iec62443-risk-assessment-review",
+      "axiom-improve-codebase-architecture",
       "axiom-industrial-control-review",
       "axiom-interface-contract-design",
+      "axiom-iot-connectivity-stack",
       "axiom-iso12100-risk-assessment",
       "axiom-iso12100-risk-assessment-review",
       "axiom-iso3691-4-risk-assessment",
@@ -2529,7 +2924,11 @@
       "axiom-loto-procedure-review",
       "axiom-machinery-safety-lifecycle-plan",
       "axiom-machinery-safety-lifecycle-plan-review",
+      "axiom-mcp-builder",
+      "axiom-mcp-security-testing",
+      "axiom-medical-iec62304-lifecycle",
       "axiom-memory-and-performance-analysis",
+      "axiom-multi-agent-orchestration",
       "axiom-multi-sensor-synchronization",
       "axiom-operator-training-matrix",
       "axiom-operator-training-matrix-review",
@@ -2537,6 +2936,8 @@
       "axiom-ot-asset-inventory-review",
       "axiom-peripheral-timers",
       "axiom-platform-architecture-review",
+      "axiom-prompt-injection-defense",
+      "axiom-rail-en50128-safety",
       "axiom-robot-sop",
       "axiom-robot-sop-review",
       "axiom-rtos-architecture",
@@ -2545,16 +2946,26 @@
       "axiom-sampling-timestamping",
       "axiom-scope-context",
       "axiom-scope-context-review",
+      "axiom-security-best-practices",
+      "axiom-security-ownership-map",
+      "axiom-security-threat-model",
+      "axiom-semiconductor-test-coverage",
       "axiom-sensor-acquisition",
       "axiom-sensor-calibration",
       "axiom-sensor-diagnostics",
       "axiom-sensor-driver-integration",
+      "axiom-skill-creator",
+      "axiom-skill-seekers",
+      "axiom-skills-purge",
+      "axiom-space-radiation-hardening",
       "axiom-static-analysis-triage",
       "axiom-storage-and-memory",
       "axiom-technical-debt-assessment",
+      "axiom-telecom-5g-modem-integration",
       "axiom-test-automation",
       "axiom-threat-model",
       "axiom-threat-model-review",
+      "axiom-tool-schema-design",
       "axiom-trace-analysis",
       "axiom-validation-levels",
       "axiom-vehicle-cybersecurity",
@@ -2845,11 +3256,44 @@
       "axiom-adas-validation"
     ],
     "aerospace-defense": [
-      "axiom-aerospace-defense-safety-review"
+      "axiom-aerospace-defense-safety-review",
+      "axiom-aerospace-do178c-workflow",
+      "axiom-aerospace-do254-hardware",
+      "axiom-space-radiation-hardening"
+    ],
+    "ai-agent-engineering": [
+      "axiom-agent-evaluation",
+      "axiom-agent-observability",
+      "axiom-agent-red-teaming",
+      "axiom-agents-md-generator",
+      "axiom-api-design",
+      "axiom-clean-ai-slop",
+      "axiom-code-explainer",
+      "axiom-context-engineering",
+      "axiom-cto-advisor",
+      "axiom-diagnosing-bugs",
+      "axiom-doc-coauthoring",
+      "axiom-document-skills",
+      "axiom-frontend-design",
+      "axiom-git-commit-plan",
+      "axiom-human-in-the-loop",
+      "axiom-improve-codebase-architecture",
+      "axiom-mcp-builder",
+      "axiom-mcp-security-testing",
+      "axiom-multi-agent-orchestration",
+      "axiom-prompt-injection-defense",
+      "axiom-security-best-practices",
+      "axiom-security-ownership-map",
+      "axiom-security-threat-model",
+      "axiom-skill-creator",
+      "axiom-skill-seekers",
+      "axiom-skills-purge",
+      "axiom-tool-schema-design"
     ],
     "architecture": [
       "architecture",
       "axiom-architecture-decision-records",
+      "axiom-cross-domain-traceability",
       "axiom-interface-contract-design",
       "axiom-platform-architecture-review",
       "software-architecture"
@@ -2887,20 +3331,41 @@
     ],
     "embedded-core": [
       "ai-validation",
+      "axiom-aerospace-defense-safety-review",
+      "axiom-aerospace-do178c-workflow",
+      "axiom-aerospace-do254-hardware",
+      "axiom-agent-evaluation",
+      "axiom-agent-observability",
+      "axiom-context-engineering",
+      "axiom-cross-domain-traceability",
       "axiom-embedded-firmware-bringup",
+      "axiom-energy-grid-interface",
       "axiom-framework-arduino",
       "axiom-framework-esp-idf",
       "axiom-framework-zephyr",
       "axiom-hardware-aware-checks",
       "axiom-hil-test-planning",
       "axiom-hmi-and-actuators",
+      "axiom-human-in-the-loop",
+      "axiom-iot-connectivity-stack",
+      "axiom-mcp-builder",
+      "axiom-medical-iec62304-lifecycle",
       "axiom-memory-and-performance-analysis",
       "axiom-mil-sil-hil-testing",
       "axiom-misra-c-cpp-review",
+      "axiom-multi-agent-orchestration",
       "axiom-peripheral-timers",
+      "axiom-rail-en50128-safety",
       "axiom-rtos-architecture",
+      "axiom-semiconductor-test-coverage",
+      "axiom-skill-creator",
+      "axiom-skill-seekers",
+      "axiom-skills-purge",
+      "axiom-space-radiation-hardening",
       "axiom-storage-and-memory",
+      "axiom-telecom-5g-modem-integration",
       "axiom-test-automation",
+      "axiom-tool-schema-design",
       "axiom-trace-analysis",
       "axiom-validation-levels",
       "bare-metal",
@@ -2951,6 +3416,7 @@
       "axiom-ansi-r1506-compliance-matrix-review",
       "axiom-declaration-of-conformity",
       "axiom-declaration-of-conformity-review",
+      "axiom-energy-grid-interface",
       "axiom-hazard-risk",
       "axiom-hazard-risk-review",
       "axiom-iec62061-sil",
@@ -2966,10 +3432,12 @@
       "axiom-loto-procedure-review",
       "axiom-machinery-safety-lifecycle-plan",
       "axiom-machinery-safety-lifecycle-plan-review",
+      "axiom-medical-iec62304-lifecycle",
       "axiom-operator-training-matrix",
       "axiom-operator-training-matrix-review",
       "axiom-ot-asset-inventory",
       "axiom-ot-asset-inventory-review",
+      "axiom-rail-en50128-safety",
       "axiom-robot-sop",
       "axiom-robot-sop-review",
       "axiom-safety-requirements",

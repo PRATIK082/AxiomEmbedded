@@ -1,13 +1,18 @@
 ---
 name: axiom-autosar-adaptive-deployment
 title: AUTOSAR Adaptive Deployment
-description: >
-  Designs Adaptive service deployment (ara::com manifests, execution/state management, persistency, time sync) with a deployment checklist.
+description: 'Designs Adaptive service deployment (ara::com manifests, execution/state
+  management, persistency, time sync) with a deployment checklist.
+
+  '
 version: 1.2.0
 author: PRATIK PATIL
 license: Apache-2.0
-domains: [automotive]
-platforms: [mpu, autosar-adaptive]
+domains:
+- automotive
+platforms:
+- mpu
+- autosar-adaptive
 axiom:
   dotted_name: axiom.automotive.autosar.adaptive.deployment
   domain: automotive
@@ -15,19 +20,41 @@ axiom:
   category: deployment
   maturity: experimental
   owner: axiom-embedded
-  tags: [autosar-adaptive]
+  tags:
+  - autosar-adaptive
   related_skills: []
-  lifecycle: [requirements, architecture, design, implementation, integration, verification, validation, release]
-  standards: [AUTOSAR Adaptive R24-11]
-  artifact_types: [deployment manifest review, deployment checklist]
-  mcp_tools: [run_skill, validate_skill]
+  lifecycle:
+  - requirements
+  - architecture
+  - design
+  - implementation
+  - integration
+  - verification
+  - validation
+  - release
+  standards:
+  - AUTOSAR Adaptive R24-11
+  artifact_types:
+  - deployment manifest review
+  - deployment checklist
+  mcp_tools:
+  - run_skill
+  - validate_skill
   risk_level: high
   review_required: true
   safety_critical: false
-  inputs: [repository path, target files, objective, constraints]
-  outputs: [run report, run manifest]
-  required_tools: [validate_skill]
-  optional_tools: [run_skill]
+  inputs:
+  - repository path
+  - target files
+  - objective
+  - constraints
+  outputs:
+  - run report
+  - run manifest
+  required_tools:
+  - validate_skill
+  optional_tools:
+  - run_skill
 ---
 
 # Axiom AUTOSAR Adaptive Deployment

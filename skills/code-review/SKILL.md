@@ -1,9 +1,12 @@
 ---
 name: code-review
-description: Peer-review practice with checklists, size limits, and independence rules. Use when reviewing changes or setting up review policy.
+description: Peer-review practice with checklists, size limits, and independence rules.
+  Use when reviewing changes or setting up review policy.
 version: 1.2.0
-domains: [all]
-platforms: [all]
+domains:
+- all
+platforms:
+- all
 axiom:
   dotted_name: axiom.legacy.code-review
   domain: all
@@ -19,6 +22,27 @@ axiom:
   - axiom-technical-debt-assessment
   checklists:
   - checklists/code-review-checklist.md
+  inputs:
+  - repository path
+  - objective
+  - constraints
+  outputs:
+  - run report
+  - run manifest
+  risk_level: medium
+  review_required: true
+  safety_critical: false
+  lifecycle:
+  - discover
+  - plan
+  - implement
+  - verify
+  - evidence
+  artifact_types:
+  - report
+  - manifest
+  standards: []
+  mcp_tools: []
 ---
 
 # Code-Review skill

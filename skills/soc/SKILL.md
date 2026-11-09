@@ -1,9 +1,16 @@
 ---
 name: soc
-description: Heterogeneous SoC allocation across A/R cores, NPUs, safety islands, power/thermal. Use when architecting multi-core SoC products.
+description: Heterogeneous SoC allocation across A/R cores, NPUs, safety islands,
+  power/thermal. Use when architecting multi-core SoC products.
 version: 1.2.0
-domains: [generic-embedded, automotive, industrial, robotics]
-platforms: [soc, mpsoc]
+domains:
+- generic-embedded
+- automotive
+- industrial
+- robotics
+platforms:
+- soc
+- mpsoc
 axiom:
   dotted_name: axiom.legacy.soc
   domain: generic-embedded
@@ -17,6 +24,27 @@ axiom:
   - axiom-zonal-architecture
   checklists:
   - checklists/soc-checklist.md
+  inputs:
+  - repository path
+  - objective
+  - constraints
+  outputs:
+  - run report
+  - run manifest
+  risk_level: medium
+  review_required: true
+  safety_critical: false
+  lifecycle:
+  - discover
+  - plan
+  - implement
+  - verify
+  - evidence
+  artifact_types:
+  - report
+  - manifest
+  standards: []
+  mcp_tools: []
 ---
 
 # SoC skill

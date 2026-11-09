@@ -1,9 +1,12 @@
 ---
 name: coverage
-description: Structural coverage metrics per level, MC/DC practice, and exclusion discipline. Use when measuring or arguing test completeness.
+description: Structural coverage metrics per level, MC/DC practice, and exclusion
+  discipline. Use when measuring or arguing test completeness.
 version: 1.2.0
-domains: [all]
-platforms: [all]
+domains:
+- all
+platforms:
+- all
 axiom:
   dotted_name: axiom.legacy.coverage
   domain: all
@@ -17,6 +20,27 @@ axiom:
   - axiom-test-automation
   checklists:
   - checklists/coverage-checklist.md
+  inputs:
+  - repository path
+  - objective
+  - constraints
+  outputs:
+  - run report
+  - run manifest
+  risk_level: medium
+  review_required: true
+  safety_critical: false
+  lifecycle:
+  - discover
+  - plan
+  - implement
+  - verify
+  - evidence
+  artifact_types:
+  - report
+  - manifest
+  standards: []
+  mcp_tools: []
 ---
 
 # Coverage skill

@@ -4,8 +4,9 @@ import json
 import pathlib
 import yaml
 
-from packages.skills.loader import validate_skill_doc
+from packages.skills.loader import validate_skill_doc, load_skill
 from packages.skills.registry import load_catalog, check_catalog
+import yaml as _yaml
 
 from packages.paths import ROOT
 
@@ -17,7 +18,36 @@ def validate_all(catalog_path: pathlib.Path | None = None) -> dict:
                  if p.is_dir() and (p / "SKILL.md").exists()
                  and not p.name.startswith(("_", ".")))
     for sid in ids:
-        results.append(validate_skill_doc(sid))
+        r = validate_skill_doc(sid)
+        # manifest.yaml validation
+        merrs = []
+        mp = skills_dir / sid / "manifest.yaml"
+        if not mp.exists():
+            merrs.append("manifest.yaml missing")
+        else:
+            try:
+                man = _yaml.safe_load(mp.read_text(encoding="utf-8")) or {}
+            except Exception as exc:
+                man = {}
+                merrs.append(f"manifest.yaml parse error: {exc}")
+            if man:
+                if man.get("id") and man.get("id") != sid:
+                    merrs.append(f"manifest id {man.get('id')!r} != {sid!r}")
+                if man.get("version") and man.get("version") != r and False:
+                    pass
+                # version parity with SKILL.md frontmatter
+                try:
+                    fm_ver = load_skill(sid)["frontmatter"].get("version")
+                    if man.get("version") and fm_ver and man.get("version") != fm_ver:
+                        merrs.append(f"manifest version {man.get('version')!r} != SKILL.md {fm_ver!r}")
+                except Exception:
+                    pass
+                if not man.get("contract_version"):
+                    merrs.append("manifest missing contract_version")
+        if merrs:
+            r["errors"] = r["errors"] + [f"manifest: {e}" for e in merrs]
+            r["valid"] = False
+        results.append(r)
     catalog_report = None
     cp = pathlib.Path(catalog_path) if catalog_path else ROOT / "skills" / "catalog.yaml"
     if cp.exists():

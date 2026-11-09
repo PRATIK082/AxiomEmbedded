@@ -1,13 +1,18 @@
 ---
 name: axiom-can-network-design
 title: CAN Network Design
-description: >
-  Designs CAN/CAN-FD network topology, identifier allocation, bus-load budgets and timing assumptions from DBC-level inputs.
+description: 'Designs CAN/CAN-FD network topology, identifier allocation, bus-load
+  budgets and timing assumptions from DBC-level inputs.
+
+  '
 version: 1.2.0
 author: PRATIK PATIL
 license: Apache-2.0
-domains: [automotive]
-platforms: [mcu, autosar-classic]
+domains:
+- automotive
+platforms:
+- mcu
+- autosar-classic
 axiom:
   dotted_name: axiom.automotive.can.network.design
   domain: automotive
@@ -15,19 +20,41 @@ axiom:
   category: design
   maturity: beta
   owner: axiom-embedded
-  tags: [networks]
+  tags:
+  - networks
   related_skills: []
-  lifecycle: [requirements, architecture, design, implementation, integration, verification, validation, release]
-  standards: [ISO 11898]
-  artifact_types: [network design, bus-load budget]
-  mcp_tools: [run_skill, validate_skill]
+  lifecycle:
+  - requirements
+  - architecture
+  - design
+  - implementation
+  - integration
+  - verification
+  - validation
+  - release
+  standards:
+  - ISO 11898
+  artifact_types:
+  - network design
+  - bus-load budget
+  mcp_tools:
+  - run_skill
+  - validate_skill
   risk_level: medium
   review_required: true
   safety_critical: false
-  inputs: [repository path, target files, objective, constraints]
-  outputs: [run report, run manifest]
-  required_tools: [validate_skill]
-  optional_tools: [run_skill]
+  inputs:
+  - repository path
+  - target files
+  - objective
+  - constraints
+  outputs:
+  - run report
+  - run manifest
+  required_tools:
+  - validate_skill
+  optional_tools:
+  - run_skill
 ---
 
 # Axiom CAN Network Design
