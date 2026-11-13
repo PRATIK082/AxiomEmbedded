@@ -1,17 +1,16 @@
 ---
 name: axiom-robot-cell-scope
 title: Robot Cell Scope Definition
-description: 'Defines robot-cell scope: equipment list, boundaries, external interfaces,
-  and integrator versus user responsibilities. Use when robot cell scope tasks arise
-  in robotics projects.'
+description: >
+  Defines robot-cell scope: equipment list, boundaries, external interfaces, and
+  integrator versus user responsibilities. Use when robot cell scope tasks arise
+  in robotics projects.
 version: 1.2.0
 author: PRATIK PATIL
 license: Apache-2.0
-domains:
-- robotics
-platforms:
-- mpu
-- soc
+domains: [robotics]
+platforms: [mpu, soc]
+
 axiom:
   dotted_name: axiom.robotics.robot.cell.scope
   domain: robotics
@@ -19,48 +18,24 @@ axiom:
   category: design
   maturity: experimental
   owner: axiom-embedded
-  tags:
-  - cell-integration
-  - robot
-  related_skills:
-  - axiom-robot-cell-scope-review
-  - axiom-scope-context
-  lifecycle:
-  - requirements
-  - architecture
-  - design
-  - implementation
-  - integration
-  - verification
-  - validation
-  - release
-  standards:
-  - ISO 10218-2:2011
-  - ISO 11161:2007
-  artifact_types:
-  - cell scope
-  - responsibility matrix
-  mcp_tools:
-  - run_skill
-  - validate_skill
+  tags: [cell-integration, robot]
+
+  related_skills: [axiom-robot-cell-scope-review, axiom-scope-context]
+  checklists: [checklists/review.yaml]
+  templates: [templates/robot-cell-scope.template.yaml]
+
+  lifecycle: [requirements, architecture, design, implementation, integration, verification, validation, release]
+  standards: ["ISO 10218-2:2011", "ISO 11161:2007"]
+  artifact_types: [cell scope, responsibility matrix]
+  mcp_tools: [run_skill, validate_skill]
+
   risk_level: high
   review_required: true
   safety_critical: false
-  checklists:
-  - checklists/review.yaml
-  templates:
-  - templates/robot-cell-scope.template.yaml
-  inputs:
-  - stakeholder notes
-  - site survey
-  - equipment list
-  outputs:
-  - cell scope
-  - responsibility matrix
-  required_tools:
-  - validate_skill
-  optional_tools:
-  - run_skill
+  inputs: [stakeholder notes, site survey, equipment list]
+  outputs: [cell scope, responsibility matrix]
+  required_tools: [validate_skill]
+  optional_tools: [run_skill]
 ---
 # Axiom Robot Cell Scope Definition
 

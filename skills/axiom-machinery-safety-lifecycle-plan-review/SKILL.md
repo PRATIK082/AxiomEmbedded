@@ -1,17 +1,16 @@
 ---
 name: axiom-machinery-safety-lifecycle-plan-review
 title: Machinery Safety Lifecycle Plan Review
-description: 'Plans the machinery safety lifecycle: milestones, review gates, and
-  evidence deliverables from concept through decommissioning. Use when machinery safety
-  lifecycle plan review tasks arise in industrial projects.'
+description: >
+  Plans the machinery safety lifecycle: milestones, review gates, and evidence
+  deliverables from concept through decommissioning. Use when machinery safety
+  lifecycle plan review tasks arise in industrial projects.
 version: 1.2.0
 author: PRATIK PATIL
 license: Apache-2.0
-domains:
-- industrial
-platforms:
-- mcu
-- mpu
+domains: [industrial]
+platforms: [mcu, mpu]
+
 axiom:
   dotted_name: axiom.industrial.machinery.safety.lifecycle.plan
   domain: industrial
@@ -19,47 +18,24 @@ axiom:
   category: compliance
   maturity: experimental
   owner: axiom-embedded
-  tags:
-  - compliance
-  - machinery
-  related_skills:
-  - axiom-machinery-safety-lifecycle-plan
-  lifecycle:
-  - requirements
-  - architecture
-  - design
-  - implementation
-  - integration
-  - verification
-  - validation
-  - release
-  standards:
-  - ISO 12100:2010
-  - EU 2023/1230
-  artifact_types:
-  - lifecycle plan
-  - evidence-gate list
-  mcp_tools:
-  - run_skill
-  - validate_skill
+  tags: [compliance, machinery]
+
+  related_skills: [axiom-machinery-safety-lifecycle-plan]
+  checklists: [checklists/review.yaml]
+  templates: [templates/machinery-safety-lifecycle-plan.template.yaml]
+
+  lifecycle: [requirements, architecture, design, implementation, integration, verification, validation, release]
+  standards: ["ISO 12100:2010", EU 2023/1230]
+  artifact_types: [lifecycle plan, evidence-gate list]
+  mcp_tools: [run_skill, validate_skill]
+
   risk_level: high
   review_required: true
   safety_critical: false
-  checklists:
-  - checklists/review.yaml
-  templates:
-  - templates/machinery-safety-lifecycle-plan.template.yaml
-  inputs:
-  - project phases
-  - machine scope
-  - regulatory path
-  outputs:
-  - lifecycle plan
-  - evidence-gate list
-  required_tools:
-  - validate_skill
-  optional_tools:
-  - run_skill
+  inputs: [project phases, machine scope, regulatory path]
+  outputs: [lifecycle plan, evidence-gate list]
+  required_tools: [validate_skill]
+  optional_tools: [run_skill]
 ---
 # Axiom Machinery Safety Lifecycle Plan Review
 

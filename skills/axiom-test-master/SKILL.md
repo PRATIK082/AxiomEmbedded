@@ -1,45 +1,34 @@
 ---
 name: axiom-test-master
 title: Test Master
-description: 'Test Master workflow for all. Use when test master tasks arise in all
+description: >
+  Test Master workflow for all. Use when test master tasks arise in all
   projects.
-
-  '
 version: 1.2.0
 author: PRATIK082
 license: Apache-2.0
-domains:
-- all
-platforms:
-- mcu
+domains: [all]
+platforms: [mcu]
+
 axiom:
   dotted_name: axiom.all.test.master
   domain: all
   maturity: experimental
+
+  related_skills: []
+
+  lifecycle: [discover, plan, implement, verify, evidence]
+  standards: []
+  artifact_types: [report, manifest]
+  mcp_tools: []
+
+  risk_level: medium
   review_required: true
   safety_critical: false
-  inputs:
-  - repository path
-  - objective
-  - constraints
-  outputs:
-  - run report
-  - run manifest
-  risk_level: medium
-  lifecycle:
-  - discover
-  - plan
-  - implement
-  - verify
-  - evidence
-  artifact_types:
-  - report
-  - manifest
-  related_skills: []
+  inputs: [repository path, objective, constraints]
+  outputs: [run report, run manifest]
   required_tools: []
   optional_tools: []
-  mcp_tools: []
-  standards: []
 ---
 # Axiom Test Master
 

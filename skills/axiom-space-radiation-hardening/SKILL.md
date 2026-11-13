@@ -1,43 +1,32 @@
 ---
 name: axiom-space-radiation-hardening
 title: Space Radiation Hardening
-description: 'Space Radiation Hardening workflow for aerospace. Use when space radiation
+description: >
+  Space Radiation Hardening workflow for aerospace. Use when space radiation
   hardening tasks arise in aerospace projects.
-
-  '
 version: 1.2.0
 author: PRATIK082
 license: Apache-2.0
-domains:
-- aerospace
-platforms:
-- mcu
+domains: [aerospace]
+platforms: [mcu]
+
 axiom:
   dotted_name: axiom.aerospace.space.radiation.hardening
   domain: aerospace
   maturity: experimental
+
+  related_skills: []
+
+  lifecycle: [discover, plan, implement, verify, evidence]
+  standards: []
+  artifact_types: [report, manifest]
+  mcp_tools: []
+
+  risk_level: medium
   review_required: true
   safety_critical: false
-  inputs:
-  - repository path
-  - objective
-  - constraints
-  outputs:
-  - run report
-  - run manifest
-  risk_level: medium
-  lifecycle:
-  - discover
-  - plan
-  - implement
-  - verify
-  - evidence
-  artifact_types:
-  - report
-  - manifest
-  related_skills: []
-  standards: []
-  mcp_tools: []
+  inputs: [repository path, objective, constraints]
+  outputs: [run report, run manifest]
   required_tools: []
   optional_tools: []
 ---

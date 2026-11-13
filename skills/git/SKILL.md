@@ -1,14 +1,14 @@
 ---
 name: git
-description: Git workflow discipline for clean history, safe branching, review-ready
-  commits, controlled merges/rebases, tags, and recovery. Use when creating branches,
-  committing, merging, rebasing, tagging, syncing remotes, or recovering repository
-  state.
+description: >
+  Git workflow discipline for clean history, safe branching, review-ready
+  commits, controlled merges/rebases, tags, and recovery. Use when creating
+  branches, committing, merging, rebasing, tagging, syncing remotes, or
+  recovering repository state.
 version: 1.2.0
-domains:
-- all
-platforms:
-- all
+domains: [all]
+platforms: [all]
+
 axiom:
   dotted_name: axiom.legacy.git
   domain: all
@@ -16,40 +16,21 @@ axiom:
   category: legacy
   maturity: production
   owner: axiom-embedded
-  tags:
-  - legacy
-  - git
-  - version-control
-  related_skills:
-  - configuration-management
-  - change-impact
-  - release
-  - code-review
-  - debugging
-  - documentation
-  checklists:
-  - checklists/git-checklist.md
-  inputs:
-  - repository path
-  - objective
-  - constraints
-  outputs:
-  - run report
-  - run manifest
+  tags: [legacy, git, version-control]
+
+  related_skills: [configuration-management, change-impact, release, code-review, debugging, documentation]
+  checklists: [checklists/git-checklist.md]
+
+  lifecycle: [discover, plan, implement, verify, evidence]
+  standards: []
+  artifact_types: [report, manifest]
+  mcp_tools: []
+
   risk_level: medium
   review_required: true
   safety_critical: false
-  lifecycle:
-  - discover
-  - plan
-  - implement
-  - verify
-  - evidence
-  artifact_types:
-  - report
-  - manifest
-  standards: []
-  mcp_tools: []
+  inputs: [repository path, objective, constraints]
+  outputs: [run report, run manifest]
   required_tools: []
   optional_tools: []
 ---

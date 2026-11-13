@@ -1,17 +1,16 @@
 ---
 name: axiom-ros2-system-architecture-review
 title: ROS 2 System Architecture Review
-description: 'Architects the ROS 2 system: node graph, topics/services/actions, QoS
-  choices, executors, and lifecycle management. Use when ros2 system architecture
-  review tasks arise in robotics projects.'
+description: >
+  Architects the ROS 2 system: node graph, topics/services/actions, QoS choices,
+  executors, and lifecycle management. Use when ros2 system architecture review
+  tasks arise in robotics projects.
 version: 1.2.0
 author: PRATIK PATIL
 license: Apache-2.0
-domains:
-- robotics
-platforms:
-- mpu
-- soc
+domains: [robotics]
+platforms: [mpu, soc]
+
 axiom:
   dotted_name: axiom.robotics.ros2.system.architecture
   domain: robotics
@@ -19,45 +18,24 @@ axiom:
   category: design
   maturity: experimental
   owner: axiom-embedded
-  tags:
-  - middleware
-  - ros2
-  related_skills:
-  - axiom-ros2-system-architecture
-  lifecycle:
-  - requirements
-  - architecture
-  - design
-  - implementation
-  - integration
-  - verification
-  - validation
-  - release
+  tags: [middleware, ros2]
+
+  related_skills: [axiom-ros2-system-architecture]
+  checklists: [checklists/review.yaml]
+  templates: [templates/ros2-system-architecture.template.yaml]
+
+  lifecycle: [requirements, architecture, design, implementation, integration, verification, validation, release]
   standards: []
-  artifact_types:
-  - node-graph architecture
-  - interface contract
-  mcp_tools:
-  - run_skill
-  - validate_skill
+  artifact_types: [node-graph architecture, interface contract]
+  mcp_tools: [run_skill, validate_skill]
+
   risk_level: medium
   review_required: true
   safety_critical: false
-  checklists:
-  - checklists/review.yaml
-  templates:
-  - templates/ros2-system-architecture.template.yaml
-  inputs:
-  - functional requirements
-  - sensor/actuator list
-  - compute budget
-  outputs:
-  - node-graph architecture
-  - interface contract
-  required_tools:
-  - validate_skill
-  optional_tools:
-  - run_skill
+  inputs: [functional requirements, sensor/actuator list, compute budget]
+  outputs: [node-graph architecture, interface contract]
+  required_tools: [validate_skill]
+  optional_tools: [run_skill]
 ---
 # Axiom ROS 2 System Architecture Review
 

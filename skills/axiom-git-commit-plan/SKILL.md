@@ -1,43 +1,32 @@
 ---
 name: axiom-git-commit-plan
 title: Git Commit Plan (bisectable series)
-description: 'Git Commit Plan (bisectable series) workflow for all. Use when git commit
-  plan (bisectable series) tasks arise in all projects.
-
-  '
+description: >
+  Git Commit Plan (bisectable series) workflow for all. Use when git commit plan
+  (bisectable series) tasks arise in all projects.
 version: 1.2.0
 author: PRATIK082
 license: Apache-2.0
-domains:
-- all
-platforms:
-- mcu
+domains: [all]
+platforms: [mcu]
+
 axiom:
   dotted_name: axiom.all.git.commit.plan
   domain: all
   maturity: experimental
+
+  related_skills: []
+
+  lifecycle: [discover, plan, implement, verify, evidence]
+  standards: []
+  artifact_types: [report, manifest]
+  mcp_tools: []
+
+  risk_level: medium
   review_required: true
   safety_critical: false
-  inputs:
-  - repository path
-  - objective
-  - constraints
-  outputs:
-  - run report
-  - run manifest
-  risk_level: medium
-  lifecycle:
-  - discover
-  - plan
-  - implement
-  - verify
-  - evidence
-  artifact_types:
-  - report
-  - manifest
-  related_skills: []
-  standards: []
-  mcp_tools: []
+  inputs: [repository path, objective, constraints]
+  outputs: [run report, run manifest]
   required_tools: []
   optional_tools: []
 ---

@@ -1,15 +1,12 @@
 ---
 name: hardware-bringup
-description: Power-to-bootloader staging, golden captures, deviation logs. Use when
+description: >
+  Power-to-bootloader staging, golden captures, deviation logs. Use when
   powering new boards or debugging no-boot failures.
 version: 1.2.0
-domains:
-- all
-platforms:
-- mcu
-- mpu
-- soc
-- mpsoc
+domains: [all]
+platforms: [mcu, mpu, soc, mpsoc]
+
 axiom:
   dotted_name: axiom.legacy.hardware-bringup
   domain: all
@@ -17,33 +14,21 @@ axiom:
   category: legacy
   maturity: production
   owner: axiom-embedded
-  tags:
-  - legacy
-  related_skills:
-  - axiom-embedded-firmware-bringup
-  checklists:
-  - checklists/hardware-bringup-checklist.md
-  inputs:
-  - repository path
-  - objective
-  - constraints
-  outputs:
-  - run report
-  - run manifest
+  tags: [legacy]
+
+  related_skills: [axiom-embedded-firmware-bringup]
+  checklists: [checklists/hardware-bringup-checklist.md]
+
+  lifecycle: [discover, plan, implement, verify, evidence]
+  standards: []
+  artifact_types: [report, manifest]
+  mcp_tools: []
+
   risk_level: medium
   review_required: true
   safety_critical: false
-  lifecycle:
-  - discover
-  - plan
-  - implement
-  - verify
-  - evidence
-  artifact_types:
-  - report
-  - manifest
-  standards: []
-  mcp_tools: []
+  inputs: [repository path, objective, constraints]
+  outputs: [run report, run manifest]
   required_tools: []
   optional_tools: []
 ---

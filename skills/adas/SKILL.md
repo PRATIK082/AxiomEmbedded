@@ -1,17 +1,14 @@
 ---
 name: adas
-description: ADAS/AD perception-to-control pipeline, sensor fusion, SOTIF and ASIL
-  decomposition, Euro-NCAP, data closed-loop, OpenSCENARIO/OpenDRIVE HIL. Use for
-  L0-L4 driver assistance and automated driving. Use when adas tasks arise in automotive
-  projects.
+description: >
+  ADAS/AD perception-to-control pipeline, sensor fusion, SOTIF and ASIL
+  decomposition, Euro-NCAP, data closed-loop, OpenSCENARIO/OpenDRIVE HIL. Use
+  for L0-L4 driver assistance and automated driving. Use when adas tasks arise
+  in automotive projects.
 version: 1.2.0
-domains:
-- automotive
-platforms:
-- mpu
-- soc
-- mpsoc
-- autosar-adaptive
+domains: [automotive]
+platforms: [mpu, soc, mpsoc, autosar-adaptive]
+
 axiom:
   dotted_name: axiom.legacy.adas
   domain: automotive
@@ -19,34 +16,21 @@ axiom:
   category: legacy
   maturity: production
   owner: axiom-embedded
-  tags:
-  - legacy
-  related_skills:
-  - axiom-adas-perception-pipeline
-  - axiom-adas-validation
-  checklists:
-  - checklists/adas-checklist.md
-  inputs:
-  - repository path
-  - objective
-  - constraints
-  outputs:
-  - run report
-  - run manifest
+  tags: [legacy]
+
+  related_skills: [axiom-adas-perception-pipeline, axiom-adas-validation]
+  checklists: [checklists/adas-checklist.md]
+
+  lifecycle: [discover, plan, implement, verify, evidence]
+  standards: []
+  artifact_types: [report, manifest]
+  mcp_tools: []
+
   risk_level: medium
   review_required: true
   safety_critical: false
-  lifecycle:
-  - discover
-  - plan
-  - implement
-  - verify
-  - evidence
-  artifact_types:
-  - report
-  - manifest
-  standards: []
-  mcp_tools: []
+  inputs: [repository path, objective, constraints]
+  outputs: [run report, run manifest]
   required_tools: []
   optional_tools: []
 ---

@@ -1,17 +1,16 @@
 ---
 name: axiom-loto-procedure
 title: Lockout/Tagout Procedure
-description: 'Writes lockout/tagout procedures: energy sources, isolation points,
-  lock application order, and zero-energy verification steps. Use when loto procedure
-  tasks arise in industrial projects.'
+description: >
+  Writes lockout/tagout procedures: energy sources, isolation points, lock
+  application order, and zero-energy verification steps. Use when loto procedure
+  tasks arise in industrial projects.
 version: 1.2.0
 author: PRATIK PATIL
 license: Apache-2.0
-domains:
-- industrial
-platforms:
-- mcu
-- mpu
+domains: [industrial]
+platforms: [mcu, mpu]
+
 axiom:
   dotted_name: axiom.industrial.loto.procedure
   domain: industrial
@@ -19,47 +18,24 @@ axiom:
   category: procedure
   maturity: experimental
   owner: axiom-embedded
-  tags:
-  - cell-integration
-  - loto
-  related_skills:
-  - axiom-loto-procedure-review
-  lifecycle:
-  - requirements
-  - architecture
-  - design
-  - implementation
-  - integration
-  - verification
-  - validation
-  - release
-  standards:
-  - ISO 14118:2017
-  - ANSI Z244.1-2016
-  artifact_types:
-  - LOTO procedure
-  - isolation-point map
-  mcp_tools:
-  - run_skill
-  - validate_skill
+  tags: [cell-integration, loto]
+
+  related_skills: [axiom-loto-procedure-review]
+  checklists: [checklists/review.yaml]
+  templates: [templates/loto-procedure.template.yaml]
+
+  lifecycle: [requirements, architecture, design, implementation, integration, verification, validation, release]
+  standards: ["ISO 14118:2017", ANSI Z244.1-2016]
+  artifact_types: [LOTO procedure, isolation-point map]
+  mcp_tools: [run_skill, validate_skill]
+
   risk_level: high
   review_required: true
   safety_critical: false
-  checklists:
-  - checklists/review.yaml
-  templates:
-  - templates/loto-procedure.template.yaml
-  inputs:
-  - energy-source survey
-  - cell layout
-  - maintenance tasks
-  outputs:
-  - LOTO procedure
-  - isolation-point map
-  required_tools:
-  - validate_skill
-  optional_tools:
-  - run_skill
+  inputs: [energy-source survey, cell layout, maintenance tasks]
+  outputs: [LOTO procedure, isolation-point map]
+  required_tools: [validate_skill]
+  optional_tools: [run_skill]
 ---
 # Axiom Lockout/Tagout Procedure
 

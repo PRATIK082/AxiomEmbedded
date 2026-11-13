@@ -1,43 +1,32 @@
 ---
 name: axiom-energy-grid-interface
 title: Energy Grid Interface (smart inverter)
-description: 'Energy Grid Interface (smart inverter) workflow for industrial. Use
-  when energy grid interface (smart inverter) tasks arise in industrial projects.
-
-  '
+description: >
+  Energy Grid Interface (smart inverter) workflow for industrial. Use when
+  energy grid interface (smart inverter) tasks arise in industrial projects.
 version: 1.2.0
 author: PRATIK082
 license: Apache-2.0
-domains:
-- industrial
-platforms:
-- mcu
+domains: [industrial]
+platforms: [mcu]
+
 axiom:
   dotted_name: axiom.industrial.energy.grid.interface
   domain: industrial
   maturity: experimental
+
+  related_skills: []
+
+  lifecycle: [discover, plan, implement, verify, evidence]
+  standards: []
+  artifact_types: [report, manifest]
+  mcp_tools: []
+
+  risk_level: medium
   review_required: true
   safety_critical: false
-  inputs:
-  - repository path
-  - objective
-  - constraints
-  outputs:
-  - run report
-  - run manifest
-  risk_level: medium
-  lifecycle:
-  - discover
-  - plan
-  - implement
-  - verify
-  - evidence
-  artifact_types:
-  - report
-  - manifest
-  related_skills: []
-  standards: []
-  mcp_tools: []
+  inputs: [repository path, objective, constraints]
+  outputs: [run report, run manifest]
   required_tools: []
   optional_tools: []
 ---

@@ -1,17 +1,16 @@
 ---
 name: axiom-cobot-hand-guiding
 title: Cobot Hand-Guiding Design
-description: 'Designs hand-guiding collaborative operation: enabling-device logic,
-  reduced-speed limits, mode transitions, and stop behavior. Use when cobot hand guiding
-  tasks arise in robotics projects.'
+description: >
+  Designs hand-guiding collaborative operation: enabling-device logic,
+  reduced-speed limits, mode transitions, and stop behavior. Use when cobot hand
+  guiding tasks arise in robotics projects.
 version: 1.2.0
 author: PRATIK PATIL
 license: Apache-2.0
-domains:
-- robotics
-platforms:
-- mpu
-- soc
+domains: [robotics]
+platforms: [mpu, soc]
+
 axiom:
   dotted_name: axiom.robotics.cobot.hand.guiding
   domain: robotics
@@ -19,47 +18,24 @@ axiom:
   category: design
   maturity: experimental
   owner: axiom-embedded
-  tags:
-  - robot-safety
-  - cobot
-  related_skills:
-  - axiom-cobot-hand-guiding-review
-  lifecycle:
-  - requirements
-  - architecture
-  - design
-  - implementation
-  - integration
-  - verification
-  - validation
-  - release
-  standards:
-  - ISO/TS 15066:2016
-  - ISO 10218-1:2011
-  artifact_types:
-  - hand-guiding design
-  - speed-limit table
-  mcp_tools:
-  - run_skill
-  - validate_skill
+  tags: [robot-safety, cobot]
+
+  related_skills: [axiom-cobot-hand-guiding-review]
+  checklists: [checklists/review.yaml]
+  templates: [templates/cobot-hand-guiding.template.yaml]
+
+  lifecycle: [requirements, architecture, design, implementation, integration, verification, validation, release]
+  standards: ["ISO/TS 15066:2016", "ISO 10218-1:2011"]
+  artifact_types: [hand-guiding design, speed-limit table]
+  mcp_tools: [run_skill, validate_skill]
+
   risk_level: safety-critical
   review_required: true
   safety_critical: true
-  checklists:
-  - checklists/review.yaml
-  templates:
-  - templates/cobot-hand-guiding.template.yaml
-  inputs:
-  - cobot model
-  - task list
-  - risk assessment
-  outputs:
-  - hand-guiding design
-  - speed-limit table
-  required_tools:
-  - validate_skill
-  optional_tools:
-  - run_skill
+  inputs: [cobot model, task list, risk assessment]
+  outputs: [hand-guiding design, speed-limit table]
+  required_tools: [validate_skill]
+  optional_tools: [run_skill]
 ---
 # Axiom Cobot Hand-Guiding Design
 

@@ -1,20 +1,17 @@
 ---
 name: axiom-safety-requirements
 title: Safety Requirements Derivation
-description: 'Use when safety requirements must be derived from hazards and scope
-  for an embedded product. Trigger phrases include "derive safety requirements", "write
-  safety goals", "map hazards to requirements", and "safety requirements specification".
-
-  '
+description: >
+  Use when safety requirements must be derived from hazards and scope for an
+  embedded product. Trigger phrases include "derive safety requirements", "write
+  safety goals", "map hazards to requirements", and "safety requirements
+  specification".
 version: 1.2.0
 author: AxiomEmbedded
 license: Apache-2.0
-domains:
-- industrial
-- robotics
-platforms:
-- mcu
-- mpu
+domains: [industrial, robotics]
+platforms: [mcu, mpu]
+
 axiom:
   dotted_name: axiom.assurance.safety_requirements
   domain: industrial
@@ -22,47 +19,26 @@ axiom:
   category: requirements
   maturity: experimental
   owner: axiom-embedded
-  tags:
-  - assurance
-  - safety
-  - requirements
-  related_skills:
-  - axiom-safety-requirements-review
-  lifecycle:
-  - requirements
-  - architecture
-  standards:
-  - ISO 12100:2010
-  - ISO 13849-1:2023
-  - ISO 13850:2015
-  - ISO 14118:2017
-  - IEC 62061:2021
-  - IEC 61508:2010
-  artifact_types:
-  - safety requirements
-  mcp_tools:
-  - run_skill
-  - validate_skill
+  tags: [assurance, safety, requirements]
+
+  related_skills: [axiom-safety-requirements-review]
+  checklists: [checklists/requirements-checklist.md]
+  templates: [templates/safety-requirements.template.yaml]
+  scripts: [scripts/check_safety_requirements.py]
+
+  lifecycle: [requirements, architecture]
+  standards: ["ISO 12100:2010", "ISO 13849-1:2023", "ISO 13850:2015", "ISO 14118:2017", "IEC 62061:2021", "IEC 61508:2010"]
+  artifact_types: [safety requirements]
+  mcp_tools: [run_skill, validate_skill]
+
   risk_level: high
   review_required: true
   safety_critical: true
-  inputs:
-  - hazard-risk artifact
-  - system-scope artifact
-  outputs:
-  - safety-requirements artifact
-  required_tools:
-  - validate_skill
-  optional_tools:
-  - run_skill
-  checklists:
-  - checklists/requirements-checklist.md
-  templates:
-  - templates/safety-requirements.template.yaml
-  scripts:
-  - scripts/check_safety_requirements.py
+  inputs: [hazard-risk artifact, system-scope artifact]
+  outputs: [safety-requirements artifact]
+  required_tools: [validate_skill]
+  optional_tools: [run_skill]
 ---
-
 # Axiom Safety Requirements Derivation (builder)
 
 ## Purpose

@@ -1,43 +1,32 @@
 ---
 name: axiom-prompt-injection-defense
 title: Prompt Injection Defense
-description: 'Prompt Injection Defense workflow for all. Use when prompt injection
-  defense tasks arise in all projects.
-
-  '
+description: >
+  Prompt Injection Defense workflow for all. Use when prompt injection defense
+  tasks arise in all projects.
 version: 1.2.0
 author: PRATIK082
 license: Apache-2.0
-domains:
-- all
-platforms:
-- mcu
+domains: [all]
+platforms: [mcu]
+
 axiom:
   dotted_name: axiom.all.prompt.injection.defense
   domain: all
   maturity: experimental
+
+  related_skills: []
+
+  lifecycle: [discover, plan, implement, verify, evidence]
+  standards: []
+  artifact_types: [report, manifest]
+  mcp_tools: []
+
+  risk_level: medium
   review_required: true
   safety_critical: false
-  inputs:
-  - repository path
-  - objective
-  - constraints
-  outputs:
-  - run report
-  - run manifest
-  risk_level: medium
-  lifecycle:
-  - discover
-  - plan
-  - implement
-  - verify
-  - evidence
-  artifact_types:
-  - report
-  - manifest
-  related_skills: []
-  standards: []
-  mcp_tools: []
+  inputs: [repository path, objective, constraints]
+  outputs: [run report, run manifest]
   required_tools: []
   optional_tools: []
 ---

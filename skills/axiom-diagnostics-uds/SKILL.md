@@ -1,19 +1,16 @@
 ---
 name: axiom-diagnostics-uds
 title: UDS Diagnostics Design and Validation
-description: Designs UDS service coverage, session/security posture and negative-response
-  matrices, and validates them with a deterministic checker script. Use when diagnostics
-  uds tasks arise in automotive projects.
+description: >
+  Designs UDS service coverage, session/security posture and negative-response
+  matrices, and validates them with a deterministic checker script. Use when
+  diagnostics uds tasks arise in automotive projects.
 version: 1.2.0
 author: PRATIK PATIL
 license: Apache-2.0
-domains:
-- automotive
-platforms:
-- mcu
-- mpu
-- autosar-classic
-- autosar-adaptive
+domains: [automotive]
+platforms: [mcu, mpu, autosar-classic, autosar-adaptive]
+
 axiom:
   dotted_name: axiom.automotive.diagnostics.uds
   domain: automotive
@@ -21,45 +18,22 @@ axiom:
   category: verification
   maturity: beta
   owner: axiom-embedded
-  tags:
-  - diagnostics
-  related_skills:
-  - axiom-diagnostics-doip
-  - axiom-autosar-classic-bsw-integration
-  lifecycle:
-  - requirements
-  - architecture
-  - design
-  - implementation
-  - integration
-  - verification
-  - validation
-  - release
-  standards:
-  - ISO 14229-1
-  - ISO 26262:2018
-  artifact_types:
-  - diagnostic requirements
-  - service matrix
-  - validation report
-  mcp_tools:
-  - run_skill
-  - validate_skill
+  tags: [diagnostics]
+
+  related_skills: [axiom-diagnostics-doip, axiom-autosar-classic-bsw-integration]
+
+  lifecycle: [requirements, architecture, design, implementation, integration, verification, validation, release]
+  standards: [ISO 14229-1, "ISO 26262:2018"]
+  artifact_types: [diagnostic requirements, service matrix, validation report]
+  mcp_tools: [run_skill, validate_skill]
+
   risk_level: high
   review_required: true
   safety_critical: false
-  inputs:
-  - repository path
-  - target files
-  - objective
-  - constraints
-  outputs:
-  - run report
-  - run manifest
-  required_tools:
-  - validate_skill
-  optional_tools:
-  - run_skill
+  inputs: [repository path, target files, objective, constraints]
+  outputs: [run report, run manifest]
+  required_tools: [validate_skill]
+  optional_tools: [run_skill]
 ---
 # Axiom UDS Diagnostics Design and Validation (exemplar)
 

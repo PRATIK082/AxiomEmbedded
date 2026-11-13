@@ -1,17 +1,16 @@
 ---
 name: axiom-ot-asset-inventory-review
 title: OT Asset Inventory Review
-description: 'Inventories OT assets: devices, firmware versions, protocols, network
-  attachment, and ownership for security management. Use when ot asset inventory review
-  tasks arise in industrial projects.'
+description: >
+  Inventories OT assets: devices, firmware versions, protocols, network
+  attachment, and ownership for security management. Use when ot asset inventory
+  review tasks arise in industrial projects.
 version: 1.2.0
 author: PRATIK PATIL
 license: Apache-2.0
-domains:
-- industrial
-platforms:
-- mcu
-- mpu
+domains: [industrial]
+platforms: [mcu, mpu]
+
 axiom:
   dotted_name: axiom.industrial.ot.asset.inventory
   domain: industrial
@@ -19,47 +18,24 @@ axiom:
   category: assessment
   maturity: experimental
   owner: axiom-embedded
-  tags:
-  - ot-security
-  - ot
-  related_skills:
-  - axiom-ot-asset-inventory
-  lifecycle:
-  - requirements
-  - architecture
-  - design
-  - implementation
-  - integration
-  - verification
-  - validation
-  - release
-  standards:
-  - IEC 62443-2-1:2010
-  - IEC 62443-3-2:2020
-  artifact_types:
-  - OT asset inventory
-  - ownership register
-  mcp_tools:
-  - run_skill
-  - validate_skill
+  tags: [ot-security, ot]
+
+  related_skills: [axiom-ot-asset-inventory]
+  checklists: [checklists/review.yaml]
+  templates: [templates/ot-asset-inventory.template.yaml]
+
+  lifecycle: [requirements, architecture, design, implementation, integration, verification, validation, release]
+  standards: ["IEC 62443-2-1:2010", "IEC 62443-3-2:2020"]
+  artifact_types: [OT asset inventory, ownership register]
+  mcp_tools: [run_skill, validate_skill]
+
   risk_level: medium
   review_required: true
   safety_critical: false
-  checklists:
-  - checklists/review.yaml
-  templates:
-  - templates/ot-asset-inventory.template.yaml
-  inputs:
-  - network diagrams
-  - device lists
-  - scan results
-  outputs:
-  - OT asset inventory
-  - ownership register
-  required_tools:
-  - validate_skill
-  optional_tools:
-  - run_skill
+  inputs: [network diagrams, device lists, scan results]
+  outputs: [OT asset inventory, ownership register]
+  required_tools: [validate_skill]
+  optional_tools: [run_skill]
 ---
 # Axiom OT Asset Inventory Review
 

@@ -1,17 +1,16 @@
 ---
 name: axiom-nav2-config-review
 title: Nav2 Configuration Review
-description: Designs Nav2 planner/controller/costmap configuration with deterministic
-  parameter records and behavior-tree plugin selection. Use when nav2 config review
-  tasks arise in robotics projects.
+description: >
+  Designs Nav2 planner/controller/costmap configuration with deterministic
+  parameter records and behavior-tree plugin selection. Use when nav2 config
+  review tasks arise in robotics projects.
 version: 1.2.0
 author: PRATIK PATIL
 license: Apache-2.0
-domains:
-- robotics
-platforms:
-- mpu
-- soc
+domains: [robotics]
+platforms: [mpu, soc]
+
 axiom:
   dotted_name: axiom.robotics.nav2.config
   domain: robotics
@@ -19,45 +18,24 @@ axiom:
   category: design
   maturity: experimental
   owner: axiom-embedded
-  tags:
-  - motion-navigation
-  - nav2
-  related_skills:
-  - axiom-nav2-config
-  lifecycle:
-  - requirements
-  - architecture
-  - design
-  - implementation
-  - integration
-  - verification
-  - validation
-  - release
+  tags: [motion-navigation, nav2]
+
+  related_skills: [axiom-nav2-config]
+  checklists: [checklists/review.yaml]
+  templates: [templates/nav2-config.template.yaml]
+
+  lifecycle: [requirements, architecture, design, implementation, integration, verification, validation, release]
   standards: []
-  artifact_types:
-  - Nav2 parameter set
-  - costmap review
-  mcp_tools:
-  - run_skill
-  - validate_skill
+  artifact_types: [Nav2 parameter set, costmap review]
+  mcp_tools: [run_skill, validate_skill]
+
   risk_level: medium
   review_required: true
   safety_critical: false
-  checklists:
-  - checklists/review.yaml
-  templates:
-  - templates/nav2-config.template.yaml
-  inputs:
-  - robot footprint
-  - map data
-  - behavior requirements
-  outputs:
-  - Nav2 parameter set
-  - costmap review
-  required_tools:
-  - validate_skill
-  optional_tools:
-  - run_skill
+  inputs: [robot footprint, map data, behavior requirements]
+  outputs: [Nav2 parameter set, costmap review]
+  required_tools: [validate_skill]
+  optional_tools: [run_skill]
 ---
 # Axiom Nav2 Configuration Review
 

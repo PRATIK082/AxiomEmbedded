@@ -1,24 +1,17 @@
 ---
 name: axiom-sensor-calibration
 title: Sensor Calibration
-description: 'Plans and executes sensor calibration: offset and gain, factory and
-  field procedures, two-point calibration, temperature compensation, NVM storage,
-  validation and drift tracking without fabricating constants. Use when sensor calibration
-  tasks arise in generic-embedded projects.'
+description: >
+  Plans and executes sensor calibration: offset and gain, factory and field
+  procedures, two-point calibration, temperature compensation, NVM storage,
+  validation and drift tracking without fabricating constants. Use when sensor
+  calibration tasks arise in generic-embedded projects.
 version: 1.2.0
 author: PRATIK PATIL
 license: Apache-2.0
-domains:
-- generic-embedded
-- iot
-- industrial
-- automotive
-- robotics
-platforms:
-- mcu
-- mpu
-- soc
-- mpsoc
+domains: [generic-embedded, iot, industrial, automotive, robotics]
+platforms: [mcu, mpu, soc, mpsoc]
+
 axiom:
   dotted_name: axiom.generic-embedded.sensor.calibration
   domain: generic-embedded
@@ -26,49 +19,22 @@ axiom:
   category: implementation
   maturity: experimental
   owner: axiom-embedded
-  tags:
-  - calibration
-  - offset
-  - gain
-  - nvm
-  - temperature-compensation
-  related_skills:
-  - axiom-sensor-acquisition
-  - axiom-digital-filtering
-  - axiom-sensor-diagnostics
-  - validation
-  lifecycle:
-  - requirements
-  - architecture
-  - design
-  - implementation
-  - integration
-  - verification
-  - validation
-  - release
+  tags: [calibration, offset, gain, nvm, temperature-compensation]
+
+  related_skills: [axiom-sensor-acquisition, axiom-digital-filtering, axiom-sensor-diagnostics, validation]
+
+  lifecycle: [requirements, architecture, design, implementation, integration, verification, validation, release]
   standards: []
-  artifact_types:
-  - calibration procedure
-  - calibration record
-  - nvm layout
-  mcp_tools:
-  - run_skill
-  - validate_skill
+  artifact_types: [calibration procedure, calibration record, nvm layout]
+  mcp_tools: [run_skill, validate_skill]
+
   risk_level: medium
   review_required: true
   safety_critical: false
-  inputs:
-  - repository path
-  - target files
-  - objective
-  - constraints
-  outputs:
-  - run report
-  - run manifest
-  required_tools:
-  - validate_skill
-  optional_tools:
-  - run_skill
+  inputs: [repository path, target files, objective, constraints]
+  outputs: [run report, run manifest]
+  required_tools: [validate_skill]
+  optional_tools: [run_skill]
 ---
 # Axiom Sensor Calibration
 

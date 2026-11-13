@@ -1,15 +1,12 @@
 ---
 name: robotics
-description: ROS 2 distro policy, interface-first nodes, real-time paths, simulation-first
+description: >
+  ROS 2 distro policy, interface-first nodes, real-time paths, simulation-first
   testing. Use when building robot behaviors on embedded compute.
 version: 1.3.0
-domains:
-- robotics
-- industrial
-platforms:
-- mpu
-- soc
-- linux
+domains: [robotics, industrial]
+platforms: [mpu, soc, linux]
+
 axiom:
   dotted_name: axiom.legacy.robotics
   domain: robotics
@@ -17,33 +14,21 @@ axiom:
   category: legacy
   maturity: production
   owner: axiom-embedded
-  tags:
-  - legacy
-  related_skills:
-  - axiom-robotics-system-integration
-  checklists:
-  - checklists/robotics-checklist.md
-  inputs:
-  - repository path
-  - objective
-  - constraints
-  outputs:
-  - run report
-  - run manifest
+  tags: [legacy]
+
+  related_skills: [axiom-robotics-system-integration]
+  checklists: [checklists/robotics-checklist.md]
+
+  lifecycle: [discover, plan, implement, verify, evidence]
+  standards: []
+  artifact_types: [report, manifest]
+  mcp_tools: []
+
   risk_level: medium
   review_required: true
   safety_critical: false
-  lifecycle:
-  - discover
-  - plan
-  - implement
-  - verify
-  - evidence
-  artifact_types:
-  - report
-  - manifest
-  standards: []
-  mcp_tools: []
+  inputs: [repository path, objective, constraints]
+  outputs: [run report, run manifest]
   required_tools: []
   optional_tools: []
 ---

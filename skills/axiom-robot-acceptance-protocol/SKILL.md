@@ -1,17 +1,16 @@
 ---
 name: axiom-robot-acceptance-protocol
 title: Robot Acceptance Protocol
-description: 'Defines the acceptance protocol: FAT/SAT stages, test criteria, performance
-  sampling, and sign-off evidence. Use when robot acceptance protocol tasks arise
-  in robotics projects.'
+description: >
+  Defines the acceptance protocol: FAT/SAT stages, test criteria, performance
+  sampling, and sign-off evidence. Use when robot acceptance protocol tasks
+  arise in robotics projects.
 version: 1.2.0
 author: PRATIK PATIL
 license: Apache-2.0
-domains:
-- robotics
-platforms:
-- mpu
-- soc
+domains: [robotics]
+platforms: [mpu, soc]
+
 axiom:
   dotted_name: axiom.robotics.robot.acceptance.protocol
   domain: robotics
@@ -19,47 +18,24 @@ axiom:
   category: verification
   maturity: experimental
   owner: axiom-embedded
-  tags:
-  - cell-integration
-  - robot
-  related_skills:
-  - axiom-robot-acceptance-protocol-review
-  lifecycle:
-  - requirements
-  - architecture
-  - design
-  - implementation
-  - integration
-  - verification
-  - validation
-  - release
-  standards:
-  - ISO 10218-2:2011
-  - ISO 9283:1998
-  artifact_types:
-  - acceptance protocol
-  - sign-off record
-  mcp_tools:
-  - run_skill
-  - validate_skill
+  tags: [cell-integration, robot]
+
+  related_skills: [axiom-robot-acceptance-protocol-review]
+  checklists: [checklists/review.yaml]
+  templates: [templates/robot-acceptance-protocol.template.yaml]
+
+  lifecycle: [requirements, architecture, design, implementation, integration, verification, validation, release]
+  standards: ["ISO 10218-2:2011", "ISO 9283:1998"]
+  artifact_types: [acceptance protocol, sign-off record]
+  mcp_tools: [run_skill, validate_skill]
+
   risk_level: high
   review_required: true
   safety_critical: false
-  checklists:
-  - checklists/review.yaml
-  templates:
-  - templates/robot-acceptance-protocol.template.yaml
-  inputs:
-  - contract requirements
-  - cell design
-  - safety functions
-  outputs:
-  - acceptance protocol
-  - sign-off record
-  required_tools:
-  - validate_skill
-  optional_tools:
-  - run_skill
+  inputs: [contract requirements, cell design, safety functions]
+  outputs: [acceptance protocol, sign-off record]
+  required_tools: [validate_skill]
+  optional_tools: [run_skill]
 ---
 # Axiom Robot Acceptance Protocol
 

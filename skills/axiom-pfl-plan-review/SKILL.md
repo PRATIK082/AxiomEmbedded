@@ -1,17 +1,16 @@
 ---
 name: axiom-pfl-plan-review
 title: Power-and-Force-Limiting Plan Review
-description: 'Designs the power-and-force-limiting regime: contact scenarios, force/pressure
-  thresholds, and measurement verification points. Use when pfl plan review tasks
-  arise in robotics projects.'
+description: >
+  Designs the power-and-force-limiting regime: contact scenarios, force/pressure
+  thresholds, and measurement verification points. Use when pfl plan review
+  tasks arise in robotics projects.
 version: 1.2.0
 author: PRATIK PATIL
 license: Apache-2.0
-domains:
-- robotics
-platforms:
-- mpu
-- soc
+domains: [robotics]
+platforms: [mpu, soc]
+
 axiom:
   dotted_name: axiom.robotics.pfl.plan
   domain: robotics
@@ -19,46 +18,24 @@ axiom:
   category: design
   maturity: experimental
   owner: axiom-embedded
-  tags:
-  - robot-safety
-  - pfl
-  related_skills:
-  - axiom-pfl-plan
-  lifecycle:
-  - requirements
-  - architecture
-  - design
-  - implementation
-  - integration
-  - verification
-  - validation
-  - release
-  standards:
-  - ISO/TS 15066:2016
-  artifact_types:
-  - PFL plan
-  - contact-scenario table
-  mcp_tools:
-  - run_skill
-  - validate_skill
+  tags: [robot-safety, pfl]
+
+  related_skills: [axiom-pfl-plan]
+  checklists: [checklists/review.yaml]
+  templates: [templates/pfl-plan.template.yaml]
+
+  lifecycle: [requirements, architecture, design, implementation, integration, verification, validation, release]
+  standards: ["ISO/TS 15066:2016"]
+  artifact_types: [PFL plan, contact-scenario table]
+  mcp_tools: [run_skill, validate_skill]
+
   risk_level: safety-critical
   review_required: true
   safety_critical: true
-  checklists:
-  - checklists/review.yaml
-  templates:
-  - templates/pfl-plan.template.yaml
-  inputs:
-  - collaborative tasks
-  - biomechanical limits
-  - payload data
-  outputs:
-  - PFL plan
-  - contact-scenario table
-  required_tools:
-  - validate_skill
-  optional_tools:
-  - run_skill
+  inputs: [collaborative tasks, biomechanical limits, payload data]
+  outputs: [PFL plan, contact-scenario table]
+  required_tools: [validate_skill]
+  optional_tools: [run_skill]
 ---
 # Axiom Power-and-Force-Limiting Plan Review
 

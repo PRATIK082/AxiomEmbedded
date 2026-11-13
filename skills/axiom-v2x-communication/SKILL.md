@@ -1,16 +1,16 @@
 ---
 name: axiom-v2x-communication
 title: V2X Communication Design
-description: Models V2X messages, latency/security considerations and simulation hooks
-  with a message test strategy. Use when v2x communication tasks arise in automotive
+description: >
+  Models V2X messages, latency/security considerations and simulation hooks with
+  a message test strategy. Use when v2x communication tasks arise in automotive
   projects.
 version: 1.2.0
 author: PRATIK PATIL
 license: Apache-2.0
-domains:
-- automotive
-platforms:
-- mpu
+domains: [automotive]
+platforms: [mpu]
+
 axiom:
   dotted_name: axiom.automotive.v2x.communication
   domain: automotive
@@ -18,41 +18,22 @@ axiom:
   category: design
   maturity: experimental
   owner: axiom-embedded
-  tags:
-  - v2x
+  tags: [v2x]
+
   related_skills: []
-  lifecycle:
-  - requirements
-  - architecture
-  - design
-  - implementation
-  - integration
-  - verification
-  - validation
-  - release
-  standards:
-  - ETSI ITS-G5
-  artifact_types:
-  - message model
-  - test strategy
-  mcp_tools:
-  - run_skill
-  - validate_skill
+
+  lifecycle: [requirements, architecture, design, implementation, integration, verification, validation, release]
+  standards: [ETSI ITS-G5]
+  artifact_types: [message model, test strategy]
+  mcp_tools: [run_skill, validate_skill]
+
   risk_level: medium
   review_required: true
   safety_critical: false
-  inputs:
-  - repository path
-  - target files
-  - objective
-  - constraints
-  outputs:
-  - run report
-  - run manifest
-  required_tools:
-  - validate_skill
-  optional_tools:
-  - run_skill
+  inputs: [repository path, target files, objective, constraints]
+  outputs: [run report, run manifest]
+  required_tools: [validate_skill]
+  optional_tools: [run_skill]
 ---
 # Axiom V2X Communication Design
 

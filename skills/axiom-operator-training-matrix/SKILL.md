@@ -1,17 +1,16 @@
 ---
 name: axiom-operator-training-matrix
 title: Operator Training Matrix
-description: Matrices roles to required training modules, refresh intervals, and competence
-  evidence for robot-cell personnel. Use when operator training matrix tasks arise
-  in industrial projects.
+description: >
+  Matrices roles to required training modules, refresh intervals, and competence
+  evidence for robot-cell personnel. Use when operator training matrix tasks
+  arise in industrial projects.
 version: 1.2.0
 author: PRATIK PATIL
 license: Apache-2.0
-domains:
-- industrial
-platforms:
-- mcu
-- mpu
+domains: [industrial]
+platforms: [mcu, mpu]
+
 axiom:
   dotted_name: axiom.industrial.operator.training.matrix
   domain: industrial
@@ -19,47 +18,24 @@ axiom:
   category: procedure
   maturity: experimental
   owner: axiom-embedded
-  tags:
-  - cell-integration
-  - operator
-  related_skills:
-  - axiom-operator-training-matrix-review
-  lifecycle:
-  - requirements
-  - architecture
-  - design
-  - implementation
-  - integration
-  - verification
-  - validation
-  - release
-  standards:
-  - ISO 10218-2:2011
-  - ISO 12100:2010
-  artifact_types:
-  - training matrix
-  - competence record template
-  mcp_tools:
-  - run_skill
-  - validate_skill
+  tags: [cell-integration, operator]
+
+  related_skills: [axiom-operator-training-matrix-review]
+  checklists: [checklists/review.yaml]
+  templates: [templates/operator-training-matrix.template.yaml]
+
+  lifecycle: [requirements, architecture, design, implementation, integration, verification, validation, release]
+  standards: ["ISO 10218-2:2011", "ISO 12100:2010"]
+  artifact_types: [training matrix, competence record template]
+  mcp_tools: [run_skill, validate_skill]
+
   risk_level: medium
   review_required: true
   safety_critical: false
-  checklists:
-  - checklists/review.yaml
-  templates:
-  - templates/operator-training-matrix.template.yaml
-  inputs:
-  - role list
-  - task risk levels
-  - regulatory duties
-  outputs:
-  - training matrix
-  - competence record template
-  required_tools:
-  - validate_skill
-  optional_tools:
-  - run_skill
+  inputs: [role list, task risk levels, regulatory duties]
+  outputs: [training matrix, competence record template]
+  required_tools: [validate_skill]
+  optional_tools: [run_skill]
 ---
 # Axiom Operator Training Matrix
 

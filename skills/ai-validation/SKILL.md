@@ -1,19 +1,12 @@
 ---
 name: ai-validation
-description: ODD discipline, dataset independence, statistical acceptance, drift monitoring.
-  Use when assuring ML components or arguing AI safety.
+description: >
+  ODD discipline, dataset independence, statistical acceptance, drift
+  monitoring. Use when assuring ML components or arguing AI safety.
 version: 1.2.0
-domains:
-- generic-embedded
-- automotive
-- industrial
-- iot
-- robotics
-platforms:
-- mcu
-- mpu
-- soc
-- mpsoc
+domains: [generic-embedded, automotive, industrial, iot, robotics]
+platforms: [mcu, mpu, soc, mpsoc]
+
 axiom:
   dotted_name: axiom.legacy.ai-validation
   domain: generic-embedded
@@ -21,32 +14,21 @@ axiom:
   category: legacy
   maturity: production
   owner: axiom-embedded
-  tags:
-  - legacy
+  tags: [legacy]
+
   related_skills: []
-  checklists:
-  - checklists/ai-validation-checklist.md
-  inputs:
-  - repository path
-  - objective
-  - constraints
-  outputs:
-  - run report
-  - run manifest
+  checklists: [checklists/ai-validation-checklist.md]
+
+  lifecycle: [discover, plan, implement, verify, evidence]
+  standards: []
+  artifact_types: [report, manifest]
+  mcp_tools: []
+
   risk_level: medium
   review_required: true
   safety_critical: false
-  lifecycle:
-  - discover
-  - plan
-  - implement
-  - verify
-  - evidence
-  artifact_types:
-  - report
-  - manifest
-  standards: []
-  mcp_tools: []
+  inputs: [repository path, objective, constraints]
+  outputs: [run report, run manifest]
   required_tools: []
   optional_tools: []
 ---

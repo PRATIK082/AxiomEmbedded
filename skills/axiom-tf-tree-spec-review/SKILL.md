@@ -1,17 +1,16 @@
 ---
 name: axiom-tf-tree-spec-review
 title: TF Tree Specification Review
-description: 'Specifies the TF frame tree: frame ids, parentage, update rates, static
-  versus dynamic authority, and validation checks. Use when tf tree spec review tasks
-  arise in robotics projects.'
+description: >
+  Specifies the TF frame tree: frame ids, parentage, update rates, static versus
+  dynamic authority, and validation checks. Use when tf tree spec review tasks
+  arise in robotics projects.
 version: 1.2.0
 author: PRATIK PATIL
 license: Apache-2.0
-domains:
-- robotics
-platforms:
-- mpu
-- soc
+domains: [robotics]
+platforms: [mpu, soc]
+
 axiom:
   dotted_name: axiom.robotics.tf.tree.spec
   domain: robotics
@@ -19,45 +18,24 @@ axiom:
   category: design
   maturity: experimental
   owner: axiom-embedded
-  tags:
-  - middleware
-  - tf
-  related_skills:
-  - axiom-tf-tree-spec
-  lifecycle:
-  - requirements
-  - architecture
-  - design
-  - implementation
-  - integration
-  - verification
-  - validation
-  - release
+  tags: [middleware, tf]
+
+  related_skills: [axiom-tf-tree-spec]
+  checklists: [checklists/review.yaml]
+  templates: [templates/tf-tree-spec.template.yaml]
+
+  lifecycle: [requirements, architecture, design, implementation, integration, verification, validation, release]
   standards: []
-  artifact_types:
-  - TF-tree spec
-  - frame table
-  mcp_tools:
-  - run_skill
-  - validate_skill
+  artifact_types: [TF-tree spec, frame table]
+  mcp_tools: [run_skill, validate_skill]
+
   risk_level: medium
   review_required: true
   safety_critical: false
-  checklists:
-  - checklists/review.yaml
-  templates:
-  - templates/tf-tree-spec.template.yaml
-  inputs:
-  - kinematic chain
-  - sensor mounts
-  - map frame policy
-  outputs:
-  - TF-tree spec
-  - frame table
-  required_tools:
-  - validate_skill
-  optional_tools:
-  - run_skill
+  inputs: [kinematic chain, sensor mounts, map frame policy]
+  outputs: [TF-tree spec, frame table]
+  required_tools: [validate_skill]
+  optional_tools: [run_skill]
 ---
 # Axiom TF Tree Specification Review
 

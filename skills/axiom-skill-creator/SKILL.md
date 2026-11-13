@@ -1,44 +1,33 @@
 ---
 name: axiom-skill-creator
 title: Skill Creator (with eval loop and description optimization)
-description: 'Skill Creator (with eval loop and description optimization) workflow
-  for platform. Use when skill creator (with eval loop and description optimization)
+description: >
+  Skill Creator (with eval loop and description optimization) workflow for
+  platform. Use when skill creator (with eval loop and description optimization)
   tasks arise in platform projects.
-
-  '
 version: 1.2.0
 author: PRATIK082
 license: Apache-2.0
-domains:
-- platform
-platforms:
-- mcu
+domains: [platform]
+platforms: [mcu]
+
 axiom:
   dotted_name: axiom.platform.skill.creator
   domain: platform
   maturity: experimental
+
+  related_skills: []
+
+  lifecycle: [discover, plan, implement, verify, evidence]
+  standards: []
+  artifact_types: [report, manifest]
+  mcp_tools: []
+
+  risk_level: medium
   review_required: true
   safety_critical: false
-  inputs:
-  - repository path
-  - objective
-  - constraints
-  outputs:
-  - run report
-  - run manifest
-  risk_level: medium
-  lifecycle:
-  - discover
-  - plan
-  - implement
-  - verify
-  - evidence
-  artifact_types:
-  - report
-  - manifest
-  related_skills: []
-  standards: []
-  mcp_tools: []
+  inputs: [repository path, objective, constraints]
+  outputs: [run report, run manifest]
   required_tools: []
   optional_tools: []
 ---

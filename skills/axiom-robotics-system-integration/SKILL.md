@@ -1,16 +1,16 @@
 ---
 name: axiom-robotics-system-integration
 title: Robotics System Integration
-description: Integrates ROS 2 nodes, sensor fusion and motion-control interfaces with
-  contract checks. Use when robotics system integration tasks arise in robotics projects.
+description: >
+  Integrates ROS 2 nodes, sensor fusion and motion-control interfaces with
+  contract checks. Use when robotics system integration tasks arise in robotics
+  projects.
 version: 1.2.0
 author: PRATIK PATIL
 license: Apache-2.0
-domains:
-- robotics
-platforms:
-- mpu
-- soc
+domains: [robotics]
+platforms: [mpu, soc]
+
 axiom:
   dotted_name: axiom.robotics.robotics.system.integration
   domain: robotics
@@ -18,39 +18,22 @@ axiom:
   category: integration
   maturity: experimental
   owner: axiom-embedded
-  tags:
-  - integration
+  tags: [integration]
+
   related_skills: []
-  lifecycle:
-  - requirements
-  - architecture
-  - design
-  - implementation
-  - integration
-  - verification
-  - validation
-  - release
+
+  lifecycle: [requirements, architecture, design, implementation, integration, verification, validation, release]
   standards: []
-  artifact_types:
-  - integration review
-  mcp_tools:
-  - run_skill
-  - validate_skill
+  artifact_types: [integration review]
+  mcp_tools: [run_skill, validate_skill]
+
   risk_level: medium
   review_required: true
   safety_critical: false
-  inputs:
-  - repository path
-  - target files
-  - objective
-  - constraints
-  outputs:
-  - run report
-  - run manifest
-  required_tools:
-  - validate_skill
-  optional_tools:
-  - run_skill
+  inputs: [repository path, target files, objective, constraints]
+  outputs: [run report, run manifest]
+  required_tools: [validate_skill]
+  optional_tools: [run_skill]
 ---
 # Axiom Robotics System Integration
 

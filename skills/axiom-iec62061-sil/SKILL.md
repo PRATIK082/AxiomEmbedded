@@ -1,17 +1,16 @@
 ---
 name: axiom-iec62061-sil
 title: IEC 62061 SIL Determination
-description: Determines SIL targets per safety function and writes software/system
-  safety requirements with verification criteria. Use when iec62061 sil tasks arise
-  in industrial projects.
+description: >
+  Determines SIL targets per safety function and writes software/system safety
+  requirements with verification criteria. Use when iec62061 sil tasks arise in
+  industrial projects.
 version: 1.2.0
 author: PRATIK PATIL
 license: Apache-2.0
-domains:
-- industrial
-platforms:
-- mcu
-- mpu
+domains: [industrial]
+platforms: [mcu, mpu]
+
 axiom:
   dotted_name: axiom.industrial.iec62061.sil
   domain: industrial
@@ -19,47 +18,24 @@ axiom:
   category: assessment
   maturity: experimental
   owner: axiom-embedded
-  tags:
-  - compliance
-  - iec62061
-  related_skills:
-  - axiom-iec62061-sil-review
-  lifecycle:
-  - requirements
-  - architecture
-  - design
-  - implementation
-  - integration
-  - verification
-  - validation
-  - release
-  standards:
-  - IEC 62061:2021
-  - IEC 61508:2010
-  artifact_types:
-  - SIL determination
-  - safety requirements specification
-  mcp_tools:
-  - run_skill
-  - validate_skill
+  tags: [compliance, iec62061]
+
+  related_skills: [axiom-iec62061-sil-review]
+  checklists: [checklists/review.yaml]
+  templates: [templates/iec62061-sil.template.yaml]
+
+  lifecycle: [requirements, architecture, design, implementation, integration, verification, validation, release]
+  standards: ["IEC 62061:2021", "IEC 61508:2010"]
+  artifact_types: [SIL determination, safety requirements specification]
+  mcp_tools: [run_skill, validate_skill]
+
   risk_level: safety-critical
   review_required: true
   safety_critical: true
-  checklists:
-  - checklists/review.yaml
-  templates:
-  - templates/iec62061-sil.template.yaml
-  inputs:
-  - hazard list
-  - severity/exposure data
-  - architecture sketch
-  outputs:
-  - SIL determination
-  - safety requirements specification
-  required_tools:
-  - validate_skill
-  optional_tools:
-  - run_skill
+  inputs: [hazard list, severity/exposure data, architecture sketch]
+  outputs: [SIL determination, safety requirements specification]
+  required_tools: [validate_skill]
+  optional_tools: [run_skill]
 ---
 # Axiom IEC 62061 SIL Determination
 

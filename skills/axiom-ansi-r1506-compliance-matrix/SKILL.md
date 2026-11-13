@@ -1,17 +1,16 @@
 ---
 name: axiom-ansi-r1506-compliance-matrix
 title: ANSI/RIA R15.06 Compliance Matrix
-description: Builds a clause-by-claim compliance matrix for ANSI/RIA R15.06 robot-system
-  safety, aligned to ISO 10218, with an evidence pointer per claim. Use when ansi
-  r1506 compliance matrix tasks arise in industrial projects.
+description: >
+  Builds a clause-by-claim compliance matrix for ANSI/RIA R15.06 robot-system
+  safety, aligned to ISO 10218, with an evidence pointer per claim. Use when
+  ansi r1506 compliance matrix tasks arise in industrial projects.
 version: 1.2.0
 author: PRATIK PATIL
 license: Apache-2.0
-domains:
-- industrial
-platforms:
-- mcu
-- mpu
+domains: [industrial]
+platforms: [mcu, mpu]
+
 axiom:
   dotted_name: axiom.industrial.ansi.r1506.compliance.matrix
   domain: industrial
@@ -19,48 +18,24 @@ axiom:
   category: compliance
   maturity: experimental
   owner: axiom-embedded
-  tags:
-  - compliance
-  - ansi
-  related_skills:
-  - axiom-ansi-r1506-compliance-matrix-review
-  lifecycle:
-  - requirements
-  - architecture
-  - design
-  - implementation
-  - integration
-  - verification
-  - validation
-  - release
-  standards:
-  - ANSI/RIA R15.06-2012
-  - ISO 10218-1:2011
-  - ISO 10218-2:2011
-  artifact_types:
-  - compliance matrix
-  - evidence index
-  mcp_tools:
-  - run_skill
-  - validate_skill
+  tags: [compliance, ansi]
+
+  related_skills: [axiom-ansi-r1506-compliance-matrix-review]
+  checklists: [checklists/review.yaml]
+  templates: [templates/ansi-r1506-compliance-matrix.template.yaml]
+
+  lifecycle: [requirements, architecture, design, implementation, integration, verification, validation, release]
+  standards: [ANSI/RIA R15.06-2012, "ISO 10218-1:2011", "ISO 10218-2:2011"]
+  artifact_types: [compliance matrix, evidence index]
+  mcp_tools: [run_skill, validate_skill]
+
   risk_level: high
   review_required: true
   safety_critical: false
-  checklists:
-  - checklists/review.yaml
-  templates:
-  - templates/ansi-r1506-compliance-matrix.template.yaml
-  inputs:
-  - requirement list
-  - design evidence
-  - prior audit findings
-  outputs:
-  - compliance matrix
-  - open-claim list
-  required_tools:
-  - validate_skill
-  optional_tools:
-  - run_skill
+  inputs: [requirement list, design evidence, prior audit findings]
+  outputs: [compliance matrix, open-claim list]
+  required_tools: [validate_skill]
+  optional_tools: [run_skill]
 ---
 # Axiom ANSI/RIA R15.06 Compliance Matrix
 

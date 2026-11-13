@@ -1,17 +1,16 @@
 ---
 name: axiom-iso15066-biomechanical-limits
 title: ISO/TS 15066 Biomechanical Limits
-description: Records applicable body-region force/pressure limits and transfers them
-  into PFL thresholds and measurement points. Use when iso15066 biomechanical limits
+description: >
+  Records applicable body-region force/pressure limits and transfers them into
+  PFL thresholds and measurement points. Use when iso15066 biomechanical limits
   tasks arise in robotics projects.
 version: 1.2.0
 author: PRATIK PATIL
 license: Apache-2.0
-domains:
-- robotics
-platforms:
-- mpu
-- soc
+domains: [robotics]
+platforms: [mpu, soc]
+
 axiom:
   dotted_name: axiom.robotics.iso15066.biomechanical.limits
   domain: robotics
@@ -19,46 +18,24 @@ axiom:
   category: assessment
   maturity: experimental
   owner: axiom-embedded
-  tags:
-  - robot-safety
-  - iso15066
-  related_skills:
-  - axiom-iso15066-biomechanical-limits-review
-  lifecycle:
-  - requirements
-  - architecture
-  - design
-  - implementation
-  - integration
-  - verification
-  - validation
-  - release
-  standards:
-  - ISO/TS 15066:2016
-  artifact_types:
-  - biomechanical limit set
-  - threshold transfer table
-  mcp_tools:
-  - run_skill
-  - validate_skill
+  tags: [robot-safety, iso15066]
+
+  related_skills: [axiom-iso15066-biomechanical-limits-review]
+  checklists: [checklists/review.yaml]
+  templates: [templates/iso15066-biomechanical-limits.template.yaml]
+
+  lifecycle: [requirements, architecture, design, implementation, integration, verification, validation, release]
+  standards: ["ISO/TS 15066:2016"]
+  artifact_types: [biomechanical limit set, threshold transfer table]
+  mcp_tools: [run_skill, validate_skill]
+
   risk_level: high
   review_required: true
   safety_critical: false
-  checklists:
-  - checklists/review.yaml
-  templates:
-  - templates/iso15066-biomechanical-limits.template.yaml
-  inputs:
-  - contact scenarios
-  - body regions exposed
-  - payload data
-  outputs:
-  - biomechanical limit set
-  - threshold transfer table
-  required_tools:
-  - validate_skill
-  optional_tools:
-  - run_skill
+  inputs: [contact scenarios, body regions exposed, payload data]
+  outputs: [biomechanical limit set, threshold transfer table]
+  required_tools: [validate_skill]
+  optional_tools: [run_skill]
 ---
 # Axiom ISO/TS 15066 Biomechanical Limits
 

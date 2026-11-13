@@ -1,43 +1,32 @@
 ---
 name: axiom-cto-advisor
 title: CTO Advisor (tech debt, DORA, scaling)
-description: 'CTO Advisor (tech debt, DORA, scaling) workflow for all. Use when cto
-  advisor (tech debt, dora, scaling) tasks arise in all projects.
-
-  '
+description: >
+  CTO Advisor (tech debt, DORA, scaling) workflow for all. Use when cto advisor
+  (tech debt, dora, scaling) tasks arise in all projects.
 version: 1.2.0
 author: PRATIK082
 license: Apache-2.0
-domains:
-- all
-platforms:
-- mcu
+domains: [all]
+platforms: [mcu]
+
 axiom:
   dotted_name: axiom.all.cto.advisor
   domain: all
   maturity: experimental
+
+  related_skills: []
+
+  lifecycle: [discover, plan, implement, verify, evidence]
+  standards: []
+  artifact_types: [report, manifest]
+  mcp_tools: []
+
+  risk_level: medium
   review_required: true
   safety_critical: false
-  inputs:
-  - repository path
-  - objective
-  - constraints
-  outputs:
-  - run report
-  - run manifest
-  risk_level: medium
-  lifecycle:
-  - discover
-  - plan
-  - implement
-  - verify
-  - evidence
-  artifact_types:
-  - report
-  - manifest
-  related_skills: []
-  standards: []
-  mcp_tools: []
+  inputs: [repository path, objective, constraints]
+  outputs: [run report, run manifest]
   required_tools: []
   optional_tools: []
 ---

@@ -1,17 +1,16 @@
 ---
 name: axiom-model-card-review
 title: Model Card Review
-description: 'Authors model cards for robotics ML models: intended use, metrics, limits,
-  failure modes, and deployment caveats. Use when model card review tasks arise in
-  robotics projects.'
+description: >
+  Authors model cards for robotics ML models: intended use, metrics, limits,
+  failure modes, and deployment caveats. Use when model card review tasks arise
+  in robotics projects.
 version: 1.2.0
 author: PRATIK PATIL
 license: Apache-2.0
-domains:
-- robotics
-platforms:
-- mpu
-- soc
+domains: [robotics]
+platforms: [mpu, soc]
+
 axiom:
   dotted_name: axiom.robotics.model.card
   domain: robotics
@@ -19,44 +18,24 @@ axiom:
   category: documentation
   maturity: experimental
   owner: axiom-embedded
-  tags:
-  - ai-data
-  - model
-  related_skills:
-  - axiom-model-card
-  lifecycle:
-  - requirements
-  - architecture
-  - design
-  - implementation
-  - integration
-  - verification
-  - validation
-  - release
-  standards:
-  - ISO/IEC 23894:2023
-  artifact_types:
-  - model card
-  mcp_tools:
-  - run_skill
-  - validate_skill
+  tags: [ai-data, model]
+
+  related_skills: [axiom-model-card]
+  checklists: [checklists/review.yaml]
+  templates: [templates/model-card.template.yaml]
+
+  lifecycle: [requirements, architecture, design, implementation, integration, verification, validation, release]
+  standards: ["ISO/IEC 23894:2023"]
+  artifact_types: [model card]
+  mcp_tools: [run_skill, validate_skill]
+
   risk_level: medium
   review_required: true
   safety_critical: false
-  checklists:
-  - checklists/review.yaml
-  templates:
-  - templates/model-card.template.yaml
-  inputs:
-  - model identifier
-  - eval results
-  - deployment context
-  outputs:
-  - model card
-  required_tools:
-  - validate_skill
-  optional_tools:
-  - run_skill
+  inputs: [model identifier, eval results, deployment context]
+  outputs: [model card]
+  required_tools: [validate_skill]
+  optional_tools: [run_skill]
 ---
 # Axiom Model Card Review
 

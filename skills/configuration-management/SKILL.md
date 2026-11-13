@@ -1,12 +1,12 @@
 ---
 name: configuration-management
-description: Version-everything, immutable baselines, and CI identification. Use when
+description: >
+  Version-everything, immutable baselines, and CI identification. Use when
   setting up version control, baselines, or audits.
 version: 1.2.0
-domains:
-- all
-platforms:
-- all
+domains: [all]
+platforms: [all]
+
 axiom:
   dotted_name: axiom.legacy.configuration-management
   domain: all
@@ -14,32 +14,21 @@ axiom:
   category: legacy
   maturity: production
   owner: axiom-embedded
-  tags:
-  - legacy
+  tags: [legacy]
+
   related_skills: []
-  checklists:
-  - checklists/configuration-management-checklist.md
-  inputs:
-  - repository path
-  - objective
-  - constraints
-  outputs:
-  - run report
-  - run manifest
+  checklists: [checklists/configuration-management-checklist.md]
+
+  lifecycle: [discover, plan, implement, verify, evidence]
+  standards: []
+  artifact_types: [report, manifest]
+  mcp_tools: []
+
   risk_level: medium
   review_required: true
   safety_critical: false
-  lifecycle:
-  - discover
-  - plan
-  - implement
-  - verify
-  - evidence
-  artifact_types:
-  - report
-  - manifest
-  standards: []
-  mcp_tools: []
+  inputs: [repository path, objective, constraints]
+  outputs: [run report, run manifest]
   required_tools: []
   optional_tools: []
 ---

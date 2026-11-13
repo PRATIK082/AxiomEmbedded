@@ -1,17 +1,17 @@
 ---
 name: axiom-autosar-classic-bsw-integration
 title: AUTOSAR Classic BSW Integration
-description: Integrates and reviews AUTOSAR Classic BSW configuration (ARXML/BMD/RTE/OS/COM/PduR/CanIf/CanTp/Dcm/Dem/NvM/EcuM)
-  and produces an integration report with severity-ranked findings and a validation
-  matrix. Use when autosar classic bsw integration tasks arise in automotive projects.
+description: >
+  Integrates and reviews AUTOSAR Classic BSW configuration
+  (ARXML/BMD/RTE/OS/COM/PduR/CanIf/CanTp/Dcm/Dem/NvM/EcuM) and produces an
+  integration report with severity-ranked findings and a validation matrix. Use
+  when autosar classic bsw integration tasks arise in automotive projects.
 version: 1.2.0
 author: PRATIK PATIL
 license: Apache-2.0
-domains:
-- automotive
-platforms:
-- mcu
-- autosar-classic
+domains: [automotive]
+platforms: [mcu, autosar-classic]
+
 axiom:
   dotted_name: axiom.automotive.autosar.classic.bsw.integration
   domain: automotive
@@ -19,46 +19,22 @@ axiom:
   category: integration
   maturity: beta
   owner: axiom-embedded
-  tags:
-  - autosar-classic
-  related_skills:
-  - axiom-autosar-classic-architecture
-  - axiom-autosar-rte-design
-  - axiom-autosar-os-config
-  lifecycle:
-  - requirements
-  - architecture
-  - design
-  - implementation
-  - integration
-  - verification
-  - validation
-  - release
-  standards:
-  - AUTOSAR Classic R24-11
-  - ISO 26262:2018
-  artifact_types:
-  - integration report
-  - validation matrix
-  - configuration-change plan
-  mcp_tools:
-  - run_skill
-  - validate_skill
+  tags: [autosar-classic]
+
+  related_skills: [axiom-autosar-classic-architecture, axiom-autosar-rte-design, axiom-autosar-os-config]
+
+  lifecycle: [requirements, architecture, design, implementation, integration, verification, validation, release]
+  standards: [AUTOSAR Classic R24-11, "ISO 26262:2018"]
+  artifact_types: [integration report, validation matrix, configuration-change plan]
+  mcp_tools: [run_skill, validate_skill]
+
   risk_level: high
   review_required: true
   safety_critical: false
-  inputs:
-  - repository path
-  - target files
-  - objective
-  - constraints
-  outputs:
-  - run report
-  - run manifest
-  required_tools:
-  - validate_skill
-  optional_tools:
-  - run_skill
+  inputs: [repository path, target files, objective, constraints]
+  outputs: [run report, run manifest]
+  required_tools: [validate_skill]
+  optional_tools: [run_skill]
 ---
 # Axiom AUTOSAR Classic BSW Integration (exemplar)
 

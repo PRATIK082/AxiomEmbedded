@@ -1,24 +1,17 @@
 ---
 name: axiom-digital-filtering
 title: Digital Filtering for Sensor Data
-description: 'Applies digital filters to sensor data: moving average, IIR low-pass,
-  FIR, median, outlier rejection and saturation, with fixed-point and latency considerations
-  and verification on known signals. Use when digital filtering tasks arise in generic-embedded
-  projects.'
+description: >
+  Applies digital filters to sensor data: moving average, IIR low-pass, FIR,
+  median, outlier rejection and saturation, with fixed-point and latency
+  considerations and verification on known signals. Use when digital filtering
+  tasks arise in generic-embedded projects.
 version: 1.2.0
 author: PRATIK PATIL
 license: Apache-2.0
-domains:
-- generic-embedded
-- iot
-- industrial
-- automotive
-- robotics
-platforms:
-- mcu
-- mpu
-- soc
-- mpsoc
+domains: [generic-embedded, iot, industrial, automotive, robotics]
+platforms: [mcu, mpu, soc, mpsoc]
+
 axiom:
   dotted_name: axiom.generic-embedded.sensor.digital.filtering
   domain: generic-embedded
@@ -26,48 +19,22 @@ axiom:
   category: implementation
   maturity: experimental
   owner: axiom-embedded
-  tags:
-  - filtering
-  - iir
-  - fir
-  - median
-  - fixed-point
-  related_skills:
-  - axiom-sensor-acquisition
-  - axiom-sensor-calibration
-  - axiom-sensor-diagnostics
-  - unit-test
-  lifecycle:
-  - requirements
-  - architecture
-  - design
-  - implementation
-  - integration
-  - verification
-  - validation
-  - release
+  tags: [filtering, iir, fir, median, fixed-point]
+
+  related_skills: [axiom-sensor-acquisition, axiom-sensor-calibration, axiom-sensor-diagnostics, unit-test]
+
+  lifecycle: [requirements, architecture, design, implementation, integration, verification, validation, release]
   standards: []
-  artifact_types:
-  - filter design note
-  - filter test vectors
-  mcp_tools:
-  - run_skill
-  - validate_skill
+  artifact_types: [filter design note, filter test vectors]
+  mcp_tools: [run_skill, validate_skill]
+
   risk_level: medium
   review_required: true
   safety_critical: false
-  inputs:
-  - repository path
-  - target files
-  - objective
-  - constraints
-  outputs:
-  - run report
-  - run manifest
-  required_tools:
-  - validate_skill
-  optional_tools:
-  - run_skill
+  inputs: [repository path, target files, objective, constraints]
+  outputs: [run report, run manifest]
+  required_tools: [validate_skill]
+  optional_tools: [run_skill]
 ---
 # Axiom Digital Filtering for Sensor Data
 

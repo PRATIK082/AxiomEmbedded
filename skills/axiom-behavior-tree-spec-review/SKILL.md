@@ -1,17 +1,16 @@
 ---
 name: axiom-behavior-tree-spec-review
 title: Behavior-Tree Specification Review
-description: 'Specifies behavior-tree structure for a robot task controller: node
-  types, blackboard keys, tick semantics, and failure-handling contracts. Use when
-  behavior tree spec review tasks arise in robotics projects.'
+description: >
+  Specifies behavior-tree structure for a robot task controller: node types,
+  blackboard keys, tick semantics, and failure-handling contracts. Use when
+  behavior tree spec review tasks arise in robotics projects.
 version: 1.2.0
 author: PRATIK PATIL
 license: Apache-2.0
-domains:
-- robotics
-platforms:
-- mpu
-- soc
+domains: [robotics]
+platforms: [mpu, soc]
+
 axiom:
   dotted_name: axiom.robotics.behavior.tree.spec
   domain: robotics
@@ -19,45 +18,24 @@ axiom:
   category: design
   maturity: experimental
   owner: axiom-embedded
-  tags:
-  - middleware
-  - behavior
-  related_skills:
-  - axiom-behavior-tree-spec
-  lifecycle:
-  - requirements
-  - architecture
-  - design
-  - implementation
-  - integration
-  - verification
-  - validation
-  - release
+  tags: [middleware, behavior]
+
+  related_skills: [axiom-behavior-tree-spec]
+  checklists: [checklists/review.yaml]
+  templates: [templates/behavior-tree-spec.template.yaml]
+
+  lifecycle: [requirements, architecture, design, implementation, integration, verification, validation, release]
   standards: []
-  artifact_types:
-  - behavior-tree spec
-  - node contract table
-  mcp_tools:
-  - run_skill
-  - validate_skill
+  artifact_types: [behavior-tree spec, node contract table]
+  mcp_tools: [run_skill, validate_skill]
+
   risk_level: medium
   review_required: true
   safety_critical: false
-  checklists:
-  - checklists/review.yaml
-  templates:
-  - templates/behavior-tree-spec.template.yaml
-  inputs:
-  - task description
-  - existing tree or pseudocode
-  - interface list
-  outputs:
-  - behavior-tree spec
-  - node contract table
-  required_tools:
-  - validate_skill
-  optional_tools:
-  - run_skill
+  inputs: [task description, existing tree or pseudocode, interface list]
+  outputs: [behavior-tree spec, node contract table]
+  required_tools: [validate_skill]
+  optional_tools: [run_skill]
 ---
 # Axiom Behavior-Tree Specification Review
 

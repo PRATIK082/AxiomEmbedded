@@ -1,17 +1,16 @@
 ---
 name: axiom-iso9283-performance-test
 title: ISO 9283 Performance Test
-description: 'Specifies pose-accuracy and path-repeatability tests: test poses, loads,
-  speeds, measurement method, and acceptance thresholds. Use when iso9283 performance
-  test tasks arise in robotics projects.'
+description: >
+  Specifies pose-accuracy and path-repeatability tests: test poses, loads,
+  speeds, measurement method, and acceptance thresholds. Use when iso9283
+  performance test tasks arise in robotics projects.
 version: 1.2.0
 author: PRATIK PATIL
 license: Apache-2.0
-domains:
-- robotics
-platforms:
-- mpu
-- soc
+domains: [robotics]
+platforms: [mpu, soc]
+
 axiom:
   dotted_name: axiom.robotics.iso9283.performance.test
   domain: robotics
@@ -19,46 +18,24 @@ axiom:
   category: verification
   maturity: experimental
   owner: axiom-embedded
-  tags:
-  - cell-integration
-  - iso9283
-  related_skills:
-  - axiom-iso9283-performance-test-review
-  lifecycle:
-  - requirements
-  - architecture
-  - design
-  - implementation
-  - integration
-  - verification
-  - validation
-  - release
-  standards:
-  - ISO 9283:1998
-  artifact_types:
-  - performance test spec
-  - threshold table
-  mcp_tools:
-  - run_skill
-  - validate_skill
+  tags: [cell-integration, iso9283]
+
+  related_skills: [axiom-iso9283-performance-test-review]
+  checklists: [checklists/review.yaml]
+  templates: [templates/iso9283-performance-test.template.yaml]
+
+  lifecycle: [requirements, architecture, design, implementation, integration, verification, validation, release]
+  standards: ["ISO 9283:1998"]
+  artifact_types: [performance test spec, threshold table]
+  mcp_tools: [run_skill, validate_skill]
+
   risk_level: medium
   review_required: true
   safety_critical: false
-  checklists:
-  - checklists/review.yaml
-  templates:
-  - templates/iso9283-performance-test.template.yaml
-  inputs:
-  - robot model
-  - accuracy requirements
-  - measurement equipment
-  outputs:
-  - performance test spec
-  - threshold table
-  required_tools:
-  - validate_skill
-  optional_tools:
-  - run_skill
+  inputs: [robot model, accuracy requirements, measurement equipment]
+  outputs: [performance test spec, threshold table]
+  required_tools: [validate_skill]
+  optional_tools: [run_skill]
 ---
 # Axiom ISO 9283 Performance Test
 

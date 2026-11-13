@@ -1,12 +1,12 @@
 ---
 name: software-architecture
-description: Embedded software layering, concurrency design, and variability without
-  forks. Use when structuring firmware/software tasks, partitions, or product lines.
+description: >
+  Embedded software layering, concurrency design, and variability without forks.
+  Use when structuring firmware/software tasks, partitions, or product lines.
 version: 1.3.0
-domains:
-- all
-platforms:
-- all
+domains: [all]
+platforms: [all]
+
 axiom:
   dotted_name: axiom.legacy.software-architecture
   domain: all
@@ -14,33 +14,21 @@ axiom:
   category: legacy
   maturity: production
   owner: axiom-embedded
-  tags:
-  - legacy
-  related_skills:
-  - axiom-platform-architecture-review
-  checklists:
-  - checklists/software-architecture-checklist.md
-  inputs:
-  - repository path
-  - objective
-  - constraints
-  outputs:
-  - run report
-  - run manifest
+  tags: [legacy]
+
+  related_skills: [axiom-platform-architecture-review]
+  checklists: [checklists/software-architecture-checklist.md]
+
+  lifecycle: [discover, plan, implement, verify, evidence]
+  standards: []
+  artifact_types: [report, manifest]
+  mcp_tools: []
+
   risk_level: medium
   review_required: true
   safety_critical: false
-  lifecycle:
-  - discover
-  - plan
-  - implement
-  - verify
-  - evidence
-  artifact_types:
-  - report
-  - manifest
-  standards: []
-  mcp_tools: []
+  inputs: [repository path, objective, constraints]
+  outputs: [run report, run manifest]
   required_tools: []
   optional_tools: []
 ---

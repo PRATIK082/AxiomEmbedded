@@ -1,14 +1,14 @@
 ---
 name: automotive-vcycle
-description: End-to-end automotive V-Cycle lifecycle from stakeholder requirements
-  to vehicle validation. Use for V-Model planning, MIL/SIL/HIL gates, ASPICE/ISO 26262
-  alignment, or agile-hybrid programs. Use when automotive vcycle tasks arise in automotive
-  projects.
+description: >
+  End-to-end automotive V-Cycle lifecycle from stakeholder requirements to
+  vehicle validation. Use for V-Model planning, MIL/SIL/HIL gates, ASPICE/ISO
+  26262 alignment, or agile-hybrid programs. Use when automotive vcycle tasks
+  arise in automotive projects.
 version: 1.2.0
-domains:
-- automotive
-platforms:
-- all
+domains: [automotive]
+platforms: [all]
+
 axiom:
   dotted_name: axiom.legacy.automotive-vcycle
   domain: automotive
@@ -16,34 +16,21 @@ axiom:
   category: legacy
   maturity: production
   owner: axiom-embedded
-  tags:
-  - legacy
-  related_skills:
-  - axiom-hil-test-planning
-  - axiom-test-automation
-  checklists:
-  - checklists/automotive-vcycle-checklist.md
-  inputs:
-  - repository path
-  - objective
-  - constraints
-  outputs:
-  - run report
-  - run manifest
+  tags: [legacy]
+
+  related_skills: [axiom-hil-test-planning, axiom-test-automation]
+  checklists: [checklists/automotive-vcycle-checklist.md]
+
+  lifecycle: [discover, plan, implement, verify, evidence]
+  standards: []
+  artifact_types: [report, manifest]
+  mcp_tools: []
+
   risk_level: medium
   review_required: true
   safety_critical: false
-  lifecycle:
-  - discover
-  - plan
-  - implement
-  - verify
-  - evidence
-  artifact_types:
-  - report
-  - manifest
-  standards: []
-  mcp_tools: []
+  inputs: [repository path, objective, constraints]
+  outputs: [run report, run manifest]
   required_tools: []
   optional_tools: []
 ---

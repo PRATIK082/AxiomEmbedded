@@ -1,17 +1,16 @@
 ---
 name: axiom-robot-sop-review
 title: Robot Standard Operating Procedure Review
-description: 'Writes standard operating procedures: startup, mode changes, fault recovery,
-  and shutdown for robot-cell operators. Use when robot sop review tasks arise in
-  industrial projects.'
+description: >
+  Writes standard operating procedures: startup, mode changes, fault recovery,
+  and shutdown for robot-cell operators. Use when robot sop review tasks arise
+  in industrial projects.
 version: 1.2.0
 author: PRATIK PATIL
 license: Apache-2.0
-domains:
-- industrial
-platforms:
-- mcu
-- mpu
+domains: [industrial]
+platforms: [mcu, mpu]
+
 axiom:
   dotted_name: axiom.industrial.robot.sop
   domain: industrial
@@ -19,47 +18,24 @@ axiom:
   category: procedure
   maturity: experimental
   owner: axiom-embedded
-  tags:
-  - cell-integration
-  - robot
-  related_skills:
-  - axiom-robot-sop
-  lifecycle:
-  - requirements
-  - architecture
-  - design
-  - implementation
-  - integration
-  - verification
-  - validation
-  - release
-  standards:
-  - ISO 10218-2:2011
-  - ISO 12100:2010
-  artifact_types:
-  - SOP set
-  - fault-recovery cards
-  mcp_tools:
-  - run_skill
-  - validate_skill
+  tags: [cell-integration, robot]
+
+  related_skills: [axiom-robot-sop]
+  checklists: [checklists/review.yaml]
+  templates: [templates/robot-sop.template.yaml]
+
+  lifecycle: [requirements, architecture, design, implementation, integration, verification, validation, release]
+  standards: ["ISO 10218-2:2011", "ISO 12100:2010"]
+  artifact_types: [SOP set, fault-recovery cards]
+  mcp_tools: [run_skill, validate_skill]
+
   risk_level: medium
   review_required: true
   safety_critical: false
-  checklists:
-  - checklists/review.yaml
-  templates:
-  - templates/robot-sop.template.yaml
-  inputs:
-  - operating envelope
-  - control design
-  - incident history
-  outputs:
-  - SOP set
-  - fault-recovery cards
-  required_tools:
-  - validate_skill
-  optional_tools:
-  - run_skill
+  inputs: [operating envelope, control design, incident history]
+  outputs: [SOP set, fault-recovery cards]
+  required_tools: [validate_skill]
+  optional_tools: [run_skill]
 ---
 # Axiom Robot Standard Operating Procedure Review
 

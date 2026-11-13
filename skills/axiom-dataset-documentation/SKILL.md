@@ -1,17 +1,16 @@
 ---
 name: axiom-dataset-documentation
 title: Dataset Documentation
-description: 'Documents robotics datasets: provenance, licensing, splits, labeling
-  protocol, sensor calibration notes, and known biases. Use when dataset documentation
-  tasks arise in robotics projects.'
+description: >
+  Documents robotics datasets: provenance, licensing, splits, labeling protocol,
+  sensor calibration notes, and known biases. Use when dataset documentation
+  tasks arise in robotics projects.
 version: 1.2.0
 author: PRATIK PATIL
 license: Apache-2.0
-domains:
-- robotics
-platforms:
-- mpu
-- soc
+domains: [robotics]
+platforms: [mpu, soc]
+
 axiom:
   dotted_name: axiom.robotics.dataset.documentation
   domain: robotics
@@ -19,47 +18,24 @@ axiom:
   category: documentation
   maturity: experimental
   owner: axiom-embedded
-  tags:
-  - ai-data
-  - dataset
-  related_skills:
-  - axiom-dataset-documentation-review
-  lifecycle:
-  - requirements
-  - architecture
-  - design
-  - implementation
-  - integration
-  - verification
-  - validation
-  - release
-  standards:
-  - ISO/IEC 23894:2023
-  - ISO/IEC 23053:2022
-  artifact_types:
-  - dataset card
-  - labeling protocol
-  mcp_tools:
-  - run_skill
-  - validate_skill
+  tags: [ai-data, dataset]
+
+  related_skills: [axiom-dataset-documentation-review]
+  checklists: [checklists/review.yaml]
+  templates: [templates/dataset-documentation.template.yaml]
+
+  lifecycle: [requirements, architecture, design, implementation, integration, verification, validation, release]
+  standards: ["ISO/IEC 23894:2023", "ISO/IEC 23053:2022"]
+  artifact_types: [dataset card, labeling protocol]
+  mcp_tools: [run_skill, validate_skill]
+
   risk_level: medium
   review_required: true
   safety_critical: false
-  checklists:
-  - checklists/review.yaml
-  templates:
-  - templates/dataset-documentation.template.yaml
-  inputs:
-  - dataset location
-  - collection notes
-  - license terms
-  outputs:
-  - dataset card
-  - labeling protocol
-  required_tools:
-  - validate_skill
-  optional_tools:
-  - run_skill
+  inputs: [dataset location, collection notes, license terms]
+  outputs: [dataset card, labeling protocol]
+  required_tools: [validate_skill]
+  optional_tools: [run_skill]
 ---
 # Axiom Dataset Documentation
 

@@ -1,19 +1,12 @@
 ---
 name: embedded-linux
-description: Yocto LTS policy, BSP structure, verified boot, OTA, hardening. Use when
+description: >
+  Yocto LTS policy, BSP structure, verified boot, OTA, hardening. Use when
   shipping Linux on MPU/SoC products.
 version: 1.2.0
-domains:
-- generic-embedded
-- automotive
-- industrial
-- iot
-- robotics
-platforms:
-- mpu
-- soc
-- mpsoc
-- linux
+domains: [generic-embedded, automotive, industrial, iot, robotics]
+platforms: [mpu, soc, mpsoc, linux]
+
 axiom:
   dotted_name: axiom.legacy.embedded-linux
   domain: generic-embedded
@@ -21,32 +14,21 @@ axiom:
   category: legacy
   maturity: production
   owner: axiom-embedded
-  tags:
-  - legacy
+  tags: [legacy]
+
   related_skills: []
-  checklists:
-  - checklists/embedded-linux-checklist.md
-  inputs:
-  - repository path
-  - objective
-  - constraints
-  outputs:
-  - run report
-  - run manifest
+  checklists: [checklists/embedded-linux-checklist.md]
+
+  lifecycle: [discover, plan, implement, verify, evidence]
+  standards: []
+  artifact_types: [report, manifest]
+  mcp_tools: []
+
   risk_level: medium
   review_required: true
   safety_critical: false
-  lifecycle:
-  - discover
-  - plan
-  - implement
-  - verify
-  - evidence
-  artifact_types:
-  - report
-  - manifest
-  standards: []
-  mcp_tools: []
+  inputs: [repository path, objective, constraints]
+  outputs: [run report, run manifest]
   required_tools: []
   optional_tools: []
 ---

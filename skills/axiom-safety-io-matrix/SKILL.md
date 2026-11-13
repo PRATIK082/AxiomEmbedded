@@ -1,17 +1,16 @@
 ---
 name: axiom-safety-io-matrix
 title: Safety I/O Matrix
-description: 'Maps safety inputs and outputs to controllers: test pulses, discrepancy
-  monitoring, and proof-test intervals. Use when safety io matrix tasks arise in robotics
-  projects.'
+description: >
+  Maps safety inputs and outputs to controllers: test pulses, discrepancy
+  monitoring, and proof-test intervals. Use when safety io matrix tasks arise in
+  robotics projects.
 version: 1.2.0
 author: PRATIK PATIL
 license: Apache-2.0
-domains:
-- robotics
-platforms:
-- mpu
-- soc
+domains: [robotics]
+platforms: [mpu, soc]
+
 axiom:
   dotted_name: axiom.robotics.safety.io.matrix
   domain: robotics
@@ -19,47 +18,24 @@ axiom:
   category: design
   maturity: experimental
   owner: axiom-embedded
-  tags:
-  - robot-safety
-  - safety
-  related_skills:
-  - axiom-safety-io-matrix-review
-  lifecycle:
-  - requirements
-  - architecture
-  - design
-  - implementation
-  - integration
-  - verification
-  - validation
-  - release
-  standards:
-  - ISO 13849-1:2023
-  - IEC 62061:2021
-  artifact_types:
-  - safety I/O matrix
-  - proof-test schedule
-  mcp_tools:
-  - run_skill
-  - validate_skill
+  tags: [robot-safety, safety]
+
+  related_skills: [axiom-safety-io-matrix-review]
+  checklists: [checklists/review.yaml]
+  templates: [templates/safety-io-matrix.template.yaml]
+
+  lifecycle: [requirements, architecture, design, implementation, integration, verification, validation, release]
+  standards: ["ISO 13849-1:2023", "IEC 62061:2021"]
+  artifact_types: [safety I/O matrix, proof-test schedule]
+  mcp_tools: [run_skill, validate_skill]
+
   risk_level: safety-critical
   review_required: true
   safety_critical: true
-  checklists:
-  - checklists/review.yaml
-  templates:
-  - templates/safety-io-matrix.template.yaml
-  inputs:
-  - safety-function list
-  - controller spec
-  - wiring design
-  outputs:
-  - safety I/O matrix
-  - proof-test schedule
-  required_tools:
-  - validate_skill
-  optional_tools:
-  - run_skill
+  inputs: [safety-function list, controller spec, wiring design]
+  outputs: [safety I/O matrix, proof-test schedule]
+  required_tools: [validate_skill]
+  optional_tools: [run_skill]
 ---
 # Axiom Safety I/O Matrix
 

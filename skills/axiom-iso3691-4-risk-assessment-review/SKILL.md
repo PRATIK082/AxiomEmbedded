@@ -1,17 +1,16 @@
 ---
 name: axiom-iso3691-4-risk-assessment-review
 title: ISO 3691-4 Risk Assessment Review
-description: 'Runs risk assessment for driverless-truck deployment: operating zones,
-  detection performance, braking, and traffic interaction. Use when iso3691 4 risk
-  assessment review tasks arise in industrial projects.'
+description: >
+  Runs risk assessment for driverless-truck deployment: operating zones,
+  detection performance, braking, and traffic interaction. Use when iso3691 4
+  risk assessment review tasks arise in industrial projects.
 version: 1.2.0
 author: PRATIK PATIL
 license: Apache-2.0
-domains:
-- industrial
-platforms:
-- mcu
-- mpu
+domains: [industrial]
+platforms: [mcu, mpu]
+
 axiom:
   dotted_name: axiom.industrial.iso3691.4.risk.assessment
   domain: industrial
@@ -19,47 +18,24 @@ axiom:
   category: assessment
   maturity: experimental
   owner: axiom-embedded
-  tags:
-  - compliance
-  - iso3691
-  related_skills:
-  - axiom-iso3691-4-risk-assessment
-  lifecycle:
-  - requirements
-  - architecture
-  - design
-  - implementation
-  - integration
-  - verification
-  - validation
-  - release
-  standards:
-  - ISO 3691-4:2023
-  - ISO 12100:2010
-  artifact_types:
-  - AMR risk assessment
-  - detection-requirement set
-  mcp_tools:
-  - run_skill
-  - validate_skill
+  tags: [compliance, iso3691]
+
+  related_skills: [axiom-iso3691-4-risk-assessment]
+  checklists: [checklists/review.yaml]
+  templates: [templates/iso3691-4-risk-assessment.template.yaml]
+
+  lifecycle: [requirements, architecture, design, implementation, integration, verification, validation, release]
+  standards: ["ISO 3691-4:2023", "ISO 12100:2010"]
+  artifact_types: [AMR risk assessment, detection-requirement set]
+  mcp_tools: [run_skill, validate_skill]
+
   risk_level: high
   review_required: true
   safety_critical: false
-  checklists:
-  - checklists/review.yaml
-  templates:
-  - templates/iso3691-4-risk-assessment.template.yaml
-  inputs:
-  - site layout
-  - truck specification
-  - traffic plan
-  outputs:
-  - AMR risk assessment
-  - detection-requirement set
-  required_tools:
-  - validate_skill
-  optional_tools:
-  - run_skill
+  inputs: [site layout, truck specification, traffic plan]
+  outputs: [AMR risk assessment, detection-requirement set]
+  required_tools: [validate_skill]
+  optional_tools: [run_skill]
 ---
 # Axiom ISO 3691-4 Risk Assessment Review
 

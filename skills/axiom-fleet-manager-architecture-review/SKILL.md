@@ -1,17 +1,16 @@
 ---
 name: axiom-fleet-manager-architecture-review
 title: Fleet-Manager Architecture Review
-description: Architects fleet-manager task assignment, traffic rules, map/zone interfaces,
-  and deadlock handling for multi-AMR operation. Use when fleet manager architecture
-  review tasks arise in robotics projects.
+description: >
+  Architects fleet-manager task assignment, traffic rules, map/zone interfaces,
+  and deadlock handling for multi-AMR operation. Use when fleet manager
+  architecture review tasks arise in robotics projects.
 version: 1.2.0
 author: PRATIK PATIL
 license: Apache-2.0
-domains:
-- robotics
-platforms:
-- mpu
-- soc
+domains: [robotics]
+platforms: [mpu, soc]
+
 axiom:
   dotted_name: axiom.robotics.fleet.manager.architecture
   domain: robotics
@@ -19,46 +18,24 @@ axiom:
   category: design
   maturity: experimental
   owner: axiom-embedded
-  tags:
-  - motion-navigation
-  - fleet
-  related_skills:
-  - axiom-fleet-manager-architecture
-  lifecycle:
-  - requirements
-  - architecture
-  - design
-  - implementation
-  - integration
-  - verification
-  - validation
-  - release
-  standards:
-  - ISO 3691-4:2023
-  artifact_types:
-  - fleet architecture
-  - traffic-rule set
-  mcp_tools:
-  - run_skill
-  - validate_skill
+  tags: [motion-navigation, fleet]
+
+  related_skills: [axiom-fleet-manager-architecture]
+  checklists: [checklists/review.yaml]
+  templates: [templates/fleet-manager-architecture.template.yaml]
+
+  lifecycle: [requirements, architecture, design, implementation, integration, verification, validation, release]
+  standards: ["ISO 3691-4:2023"]
+  artifact_types: [fleet architecture, traffic-rule set]
+  mcp_tools: [run_skill, validate_skill]
+
   risk_level: high
   review_required: true
   safety_critical: false
-  checklists:
-  - checklists/review.yaml
-  templates:
-  - templates/fleet-manager-architecture.template.yaml
-  inputs:
-  - fleet size
-  - site map
-  - mission list
-  outputs:
-  - fleet architecture
-  - traffic-rule set
-  required_tools:
-  - validate_skill
-  optional_tools:
-  - run_skill
+  inputs: [fleet size, site map, mission list]
+  outputs: [fleet architecture, traffic-rule set]
+  required_tools: [validate_skill]
+  optional_tools: [run_skill]
 ---
 # Axiom Fleet-Manager Architecture Review
 

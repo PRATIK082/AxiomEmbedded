@@ -1,17 +1,16 @@
 ---
 name: axiom-operating-envelope-review
 title: Operating Envelope Definition Review
-description: 'Defines the operating envelope: spaces, modes, speed/force boundaries,
-  and permitted transitions between collaborative and automatic operation. Use when
-  operating envelope review tasks arise in robotics projects.'
+description: >
+  Defines the operating envelope: spaces, modes, speed/force boundaries, and
+  permitted transitions between collaborative and automatic operation. Use when
+  operating envelope review tasks arise in robotics projects.
 version: 1.2.0
 author: PRATIK PATIL
 license: Apache-2.0
-domains:
-- robotics
-platforms:
-- mpu
-- soc
+domains: [robotics]
+platforms: [mpu, soc]
+
 axiom:
   dotted_name: axiom.robotics.operating.envelope
   domain: robotics
@@ -19,47 +18,24 @@ axiom:
   category: design
   maturity: experimental
   owner: axiom-embedded
-  tags:
-  - cell-integration
-  - operating
-  related_skills:
-  - axiom-operating-envelope
-  lifecycle:
-  - requirements
-  - architecture
-  - design
-  - implementation
-  - integration
-  - verification
-  - validation
-  - release
-  standards:
-  - ISO 10218-2:2011
-  - ISO/TS 15066:2016
-  artifact_types:
-  - operating envelope
-  - mode-transition table
-  mcp_tools:
-  - run_skill
-  - validate_skill
+  tags: [cell-integration, operating]
+
+  related_skills: [axiom-operating-envelope]
+  checklists: [checklists/review.yaml]
+  templates: [templates/operating-envelope.template.yaml]
+
+  lifecycle: [requirements, architecture, design, implementation, integration, verification, validation, release]
+  standards: ["ISO 10218-2:2011", "ISO/TS 15066:2016"]
+  artifact_types: [operating envelope, mode-transition table]
+  mcp_tools: [run_skill, validate_skill]
+
   risk_level: high
   review_required: true
   safety_critical: false
-  checklists:
-  - checklists/review.yaml
-  templates:
-  - templates/operating-envelope.template.yaml
-  inputs:
-  - cell layout
-  - task list
-  - risk assessment
-  outputs:
-  - operating envelope
-  - mode-transition table
-  required_tools:
-  - validate_skill
-  optional_tools:
-  - run_skill
+  inputs: [cell layout, task list, risk assessment]
+  outputs: [operating envelope, mode-transition table]
+  required_tools: [validate_skill]
+  optional_tools: [run_skill]
 ---
 # Axiom Operating Envelope Definition Review
 

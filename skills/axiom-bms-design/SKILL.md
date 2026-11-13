@@ -1,16 +1,16 @@
 ---
 name: axiom-bms-design
 title: BMS Control Design
-description: Designs cell modeling assumptions, SOC/SOH method selection, contactor/precharge,
-  insulation monitoring and thermal strategy for battery systems. Use when bms design
-  tasks arise in automotive projects.
+description: >
+  Designs cell modeling assumptions, SOC/SOH method selection,
+  contactor/precharge, insulation monitoring and thermal strategy for battery
+  systems. Use when bms design tasks arise in automotive projects.
 version: 1.2.0
 author: PRATIK PATIL
 license: Apache-2.0
-domains:
-- automotive
-platforms:
-- mcu
+domains: [automotive]
+platforms: [mcu]
+
 axiom:
   dotted_name: axiom.automotive.bms.design
   domain: automotive
@@ -18,41 +18,22 @@ axiom:
   category: design
   maturity: experimental
   owner: axiom-embedded
-  tags:
-  - bms
+  tags: [bms]
+
   related_skills: []
-  lifecycle:
-  - requirements
-  - architecture
-  - design
-  - implementation
-  - integration
-  - verification
-  - validation
-  - release
-  standards:
-  - ISO 26262:2018
-  artifact_types:
-  - BMS design review
-  - fault-handling table
-  mcp_tools:
-  - run_skill
-  - validate_skill
+
+  lifecycle: [requirements, architecture, design, implementation, integration, verification, validation, release]
+  standards: ["ISO 26262:2018"]
+  artifact_types: [BMS design review, fault-handling table]
+  mcp_tools: [run_skill, validate_skill]
+
   risk_level: high
   review_required: true
   safety_critical: false
-  inputs:
-  - repository path
-  - target files
-  - objective
-  - constraints
-  outputs:
-  - run report
-  - run manifest
-  required_tools:
-  - validate_skill
-  optional_tools:
-  - run_skill
+  inputs: [repository path, target files, objective, constraints]
+  outputs: [run report, run manifest]
+  required_tools: [validate_skill]
+  optional_tools: [run_skill]
 ---
 # Axiom BMS Control Design
 

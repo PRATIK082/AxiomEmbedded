@@ -1,11 +1,14 @@
 ---
 name: axiom-misra-c-cpp-review
-description: "Reviews C/C++ code against MISRA C:2012/C:2023 and MISRA C++:2023 guidelines: decidable rules, required/advisory classification, deviations, and evidence packaging. Use when preparing safety-critical code for review or certification support."
+description: >
+  Reviews C/C++ code against MISRA C:2012/C:2023 and MISRA C++:2023 guidelines:
+  decidable rules, required/advisory classification, deviations, and evidence
+  packaging. Use when preparing safety-critical code for review or certification
+  support.
 version: 1.3.0
-domains:
-- all
-platforms:
-- all
+domains: [all]
+platforms: [all]
+
 axiom:
   dotted_name: axiom.legacy.axiom-misra-c-cpp-review
   domain: all
@@ -13,23 +16,20 @@ axiom:
   category: legacy
   maturity: production
   owner: axiom-embedded
-  tags:
-  - legacy
+  tags: [legacy]
+
+  related_skills: []
+
   lifecycle: [requirements, design, implementation, verification, validation]
   standards: []
   artifact_types: [test-report, evidence-pack]
   mcp_tools: []
+
   risk_level: medium
   review_required: []
-  inputs:
-  - repository path
-  - objective
-  - constraints
-  outputs:
-  - run report
-  - run manifest
   safety_critical: false
-  related_skills: []
+  inputs: [repository path, objective, constraints]
+  outputs: [run report, run manifest]
   required_tools: []
   optional_tools: []
 ---

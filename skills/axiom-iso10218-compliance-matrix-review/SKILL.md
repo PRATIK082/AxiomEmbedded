@@ -1,17 +1,16 @@
 ---
 name: axiom-iso10218-compliance-matrix-review
 title: ISO 10218 Compliance Matrix Review
-description: Builds a clause-by-claim compliance matrix for ISO 10218-1 and ISO 10218-2
-  with an evidence pointer per claim. Use when iso10218 compliance matrix review tasks
-  arise in robotics projects.
+description: >
+  Builds a clause-by-claim compliance matrix for ISO 10218-1 and ISO 10218-2
+  with an evidence pointer per claim. Use when iso10218 compliance matrix review
+  tasks arise in robotics projects.
 version: 1.2.0
 author: PRATIK PATIL
 license: Apache-2.0
-domains:
-- robotics
-platforms:
-- mpu
-- soc
+domains: [robotics]
+platforms: [mpu, soc]
+
 axiom:
   dotted_name: axiom.robotics.iso10218.compliance.matrix
   domain: robotics
@@ -19,47 +18,24 @@ axiom:
   category: compliance
   maturity: experimental
   owner: axiom-embedded
-  tags:
-  - compliance
-  - iso10218
-  related_skills:
-  - axiom-iso10218-compliance-matrix
-  lifecycle:
-  - requirements
-  - architecture
-  - design
-  - implementation
-  - integration
-  - verification
-  - validation
-  - release
-  standards:
-  - ISO 10218-1:2011
-  - ISO 10218-2:2011
-  artifact_types:
-  - compliance matrix
-  - evidence index
-  mcp_tools:
-  - run_skill
-  - validate_skill
+  tags: [compliance, iso10218]
+
+  related_skills: [axiom-iso10218-compliance-matrix]
+  checklists: [checklists/review.yaml]
+  templates: [templates/iso10218-compliance-matrix.template.yaml]
+
+  lifecycle: [requirements, architecture, design, implementation, integration, verification, validation, release]
+  standards: ["ISO 10218-1:2011", "ISO 10218-2:2011"]
+  artifact_types: [compliance matrix, evidence index]
+  mcp_tools: [run_skill, validate_skill]
+
   risk_level: high
   review_required: true
   safety_critical: false
-  checklists:
-  - checklists/review.yaml
-  templates:
-  - templates/iso10218-compliance-matrix.template.yaml
-  inputs:
-  - requirement list
-  - design evidence
-  - risk assessment
-  outputs:
-  - compliance matrix
-  - open-claim list
-  required_tools:
-  - validate_skill
-  optional_tools:
-  - run_skill
+  inputs: [requirement list, design evidence, risk assessment]
+  outputs: [compliance matrix, open-claim list]
+  required_tools: [validate_skill]
+  optional_tools: [run_skill]
 ---
 # Axiom ISO 10218 Compliance Matrix Review
 

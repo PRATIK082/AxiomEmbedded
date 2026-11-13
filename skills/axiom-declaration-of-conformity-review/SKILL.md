@@ -1,17 +1,16 @@
 ---
 name: axiom-declaration-of-conformity-review
 title: Declaration of Conformity Pack Review
-description: 'Assembles the declaration-of-conformity evidence pack: applicable legislation,
-  standards applied, responsible person, and artifact pointers. Use when declaration
-  of conformity review tasks arise in industrial projects.'
+description: >
+  Assembles the declaration-of-conformity evidence pack: applicable legislation,
+  standards applied, responsible person, and artifact pointers. Use when
+  declaration of conformity review tasks arise in industrial projects.
 version: 1.2.0
 author: PRATIK PATIL
 license: Apache-2.0
-domains:
-- industrial
-platforms:
-- mcu
-- mpu
+domains: [industrial]
+platforms: [mcu, mpu]
+
 axiom:
   dotted_name: axiom.industrial.declaration.of.conformity
   domain: industrial
@@ -19,47 +18,24 @@ axiom:
   category: compliance
   maturity: experimental
   owner: axiom-embedded
-  tags:
-  - compliance
-  - declaration
-  related_skills:
-  - axiom-declaration-of-conformity
-  lifecycle:
-  - requirements
-  - architecture
-  - design
-  - implementation
-  - integration
-  - verification
-  - validation
-  - release
-  standards:
-  - EU 2023/1230
-  - ISO 12100:2010
-  artifact_types:
-  - conformity pack
-  - standards-applied list
-  mcp_tools:
-  - run_skill
-  - validate_skill
+  tags: [compliance, declaration]
+
+  related_skills: [axiom-declaration-of-conformity]
+  checklists: [checklists/review.yaml]
+  templates: [templates/declaration-of-conformity.template.yaml]
+
+  lifecycle: [requirements, architecture, design, implementation, integration, verification, validation, release]
+  standards: [EU 2023/1230, "ISO 12100:2010"]
+  artifact_types: [conformity pack, standards-applied list]
+  mcp_tools: [run_skill, validate_skill]
+
   risk_level: high
   review_required: true
   safety_critical: false
-  checklists:
-  - checklists/review.yaml
-  templates:
-  - templates/declaration-of-conformity.template.yaml
-  inputs:
-  - machine scope
-  - risk assessment
-  - test evidence
-  outputs:
-  - conformity pack
-  - standards-applied list
-  required_tools:
-  - validate_skill
-  optional_tools:
-  - run_skill
+  inputs: [machine scope, risk assessment, test evidence]
+  outputs: [conformity pack, standards-applied list]
+  required_tools: [validate_skill]
+  optional_tools: [run_skill]
 ---
 # Axiom Declaration of Conformity Pack Review
 

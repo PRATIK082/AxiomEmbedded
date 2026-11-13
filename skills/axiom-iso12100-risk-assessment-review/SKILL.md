@@ -1,17 +1,16 @@
 ---
 name: axiom-iso12100-risk-assessment-review
 title: ISO 12100 Risk Assessment Review
-description: Runs hazard identification, risk estimation, and risk-reduction recording
-  for machinery per ISO 12100, with residual-risk statements. Use when iso12100 risk
+description: >
+  Runs hazard identification, risk estimation, and risk-reduction recording for
+  machinery per ISO 12100, with residual-risk statements. Use when iso12100 risk
   assessment review tasks arise in industrial projects.
 version: 1.2.0
 author: PRATIK PATIL
 license: Apache-2.0
-domains:
-- industrial
-platforms:
-- mcu
-- mpu
+domains: [industrial]
+platforms: [mcu, mpu]
+
 axiom:
   dotted_name: axiom.industrial.iso12100.risk.assessment
   domain: industrial
@@ -19,46 +18,24 @@ axiom:
   category: assessment
   maturity: experimental
   owner: axiom-embedded
-  tags:
-  - compliance
-  - iso12100
-  related_skills:
-  - axiom-iso12100-risk-assessment
-  lifecycle:
-  - requirements
-  - architecture
-  - design
-  - implementation
-  - integration
-  - verification
-  - validation
-  - release
-  standards:
-  - ISO 12100:2010
-  artifact_types:
-  - risk assessment
-  - residual-risk register
-  mcp_tools:
-  - run_skill
-  - validate_skill
+  tags: [compliance, iso12100]
+
+  related_skills: [axiom-iso12100-risk-assessment]
+  checklists: [checklists/review.yaml]
+  templates: [templates/iso12100-risk-assessment.template.yaml]
+
+  lifecycle: [requirements, architecture, design, implementation, integration, verification, validation, release]
+  standards: ["ISO 12100:2010"]
+  artifact_types: [risk assessment, residual-risk register]
+  mcp_tools: [run_skill, validate_skill]
+
   risk_level: high
   review_required: true
   safety_critical: false
-  checklists:
-  - checklists/review.yaml
-  templates:
-  - templates/iso12100-risk-assessment.template.yaml
-  inputs:
-  - machine limits
-  - task list
-  - incident history
-  outputs:
-  - risk assessment
-  - residual-risk register
-  required_tools:
-  - validate_skill
-  optional_tools:
-  - run_skill
+  inputs: [machine limits, task list, incident history]
+  outputs: [risk assessment, residual-risk register]
+  required_tools: [validate_skill]
+  optional_tools: [run_skill]
 ---
 # Axiom ISO 12100 Risk Assessment Review
 

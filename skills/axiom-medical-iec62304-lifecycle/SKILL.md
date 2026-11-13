@@ -1,43 +1,32 @@
 ---
 name: axiom-medical-iec62304-lifecycle
 title: IEC 62304 Medical Software Lifecycle
-description: 'IEC 62304 Medical Software Lifecycle workflow for industrial. Use when
-  iec 62304 medical software lifecycle tasks arise in industrial projects.
-
-  '
+description: >
+  IEC 62304 Medical Software Lifecycle workflow for industrial. Use when iec
+  62304 medical software lifecycle tasks arise in industrial projects.
 version: 1.2.0
 author: PRATIK082
 license: Apache-2.0
-domains:
-- industrial
-platforms:
-- mcu
+domains: [industrial]
+platforms: [mcu]
+
 axiom:
   dotted_name: axiom.industrial.medical.iec62304.lifecycle
   domain: industrial
   maturity: experimental
+
+  related_skills: []
+
+  lifecycle: [discover, plan, implement, verify, evidence]
+  standards: []
+  artifact_types: [report, manifest]
+  mcp_tools: []
+
+  risk_level: medium
   review_required: true
   safety_critical: false
-  inputs:
-  - repository path
-  - objective
-  - constraints
-  outputs:
-  - run report
-  - run manifest
-  risk_level: medium
-  lifecycle:
-  - discover
-  - plan
-  - implement
-  - verify
-  - evidence
-  artifact_types:
-  - report
-  - manifest
-  related_skills: []
-  standards: []
-  mcp_tools: []
+  inputs: [repository path, objective, constraints]
+  outputs: [run report, run manifest]
   required_tools: []
   optional_tools: []
 ---

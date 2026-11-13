@@ -1,17 +1,16 @@
 ---
 name: axiom-diagnostics-doip
 title: DoIP Diagnostics Integration
-description: Integrates DoIP discovery, routing activation and diagnostic transport
-  for Ethernet ECUs with tester-workflow checks. Use when diagnostics doip tasks arise
-  in automotive projects.
+description: >
+  Integrates DoIP discovery, routing activation and diagnostic transport for
+  Ethernet ECUs with tester-workflow checks. Use when diagnostics doip tasks
+  arise in automotive projects.
 version: 1.2.0
 author: PRATIK PATIL
 license: Apache-2.0
-domains:
-- automotive
-platforms:
-- mpu
-- autosar-adaptive
+domains: [automotive]
+platforms: [mpu, autosar-adaptive]
+
 axiom:
   dotted_name: axiom.automotive.diagnostics.doip
   domain: automotive
@@ -19,40 +18,22 @@ axiom:
   category: integration
   maturity: experimental
   owner: axiom-embedded
-  tags:
-  - diagnostics
+  tags: [diagnostics]
+
   related_skills: []
-  lifecycle:
-  - requirements
-  - architecture
-  - design
-  - implementation
-  - integration
-  - verification
-  - validation
-  - release
-  standards:
-  - ISO 13400-2
-  artifact_types:
-  - DoIP integration review
-  mcp_tools:
-  - run_skill
-  - validate_skill
+
+  lifecycle: [requirements, architecture, design, implementation, integration, verification, validation, release]
+  standards: [ISO 13400-2]
+  artifact_types: [DoIP integration review]
+  mcp_tools: [run_skill, validate_skill]
+
   risk_level: medium
   review_required: true
   safety_critical: false
-  inputs:
-  - repository path
-  - target files
-  - objective
-  - constraints
-  outputs:
-  - run report
-  - run manifest
-  required_tools:
-  - validate_skill
-  optional_tools:
-  - run_skill
+  inputs: [repository path, target files, objective, constraints]
+  outputs: [run report, run manifest]
+  required_tools: [validate_skill]
+  optional_tools: [run_skill]
 ---
 # Axiom DoIP Diagnostics Integration
 

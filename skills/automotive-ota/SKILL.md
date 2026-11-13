@@ -1,16 +1,13 @@
 ---
 name: automotive-ota
-description: SOTA/FOTA campaigns per UNECE R156/SUMS, A/B + delta updates, UCM, rollback,
-  backend-to-vehicle chain. Use for updateable fleets or type-approval evidence. Use
-  when automotive ota tasks arise in automotive projects.
+description: >
+  SOTA/FOTA campaigns per UNECE R156/SUMS, A/B + delta updates, UCM, rollback,
+  backend-to-vehicle chain. Use for updateable fleets or type-approval evidence.
+  Use when automotive ota tasks arise in automotive projects.
 version: 1.2.0
-domains:
-- automotive
-platforms:
-- mcu
-- mpu
-- autosar-classic
-- autosar-adaptive
+domains: [automotive]
+platforms: [mcu, mpu, autosar-classic, autosar-adaptive]
+
 axiom:
   dotted_name: axiom.legacy.automotive-ota
   domain: automotive
@@ -18,34 +15,21 @@ axiom:
   category: legacy
   maturity: production
   owner: axiom-embedded
-  tags:
-  - legacy
-  related_skills:
-  - axiom-automotive-release-readiness
-  - axiom-zonal-architecture
-  checklists:
-  - checklists/automotive-ota-checklist.md
-  inputs:
-  - repository path
-  - objective
-  - constraints
-  outputs:
-  - run report
-  - run manifest
+  tags: [legacy]
+
+  related_skills: [axiom-automotive-release-readiness, axiom-zonal-architecture]
+  checklists: [checklists/automotive-ota-checklist.md]
+
+  lifecycle: [discover, plan, implement, verify, evidence]
+  standards: []
+  artifact_types: [report, manifest]
+  mcp_tools: []
+
   risk_level: medium
   review_required: true
   safety_critical: false
-  lifecycle:
-  - discover
-  - plan
-  - implement
-  - verify
-  - evidence
-  artifact_types:
-  - report
-  - manifest
-  standards: []
-  mcp_tools: []
+  inputs: [repository path, objective, constraints]
+  outputs: [run report, run manifest]
   required_tools: []
   optional_tools: []
 ---

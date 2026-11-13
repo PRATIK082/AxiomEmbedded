@@ -1,17 +1,16 @@
 ---
 name: axiom-interlock-estop-architecture
 title: Interlock and E-Stop Architecture
-description: 'Architects the interlock chain and e-stop topology: channels, stop categories,
-  restart behavior, and defeat monitoring. Use when interlock estop architecture tasks
-  arise in robotics projects.'
+description: >
+  Architects the interlock chain and e-stop topology: channels, stop categories,
+  restart behavior, and defeat monitoring. Use when interlock estop architecture
+  tasks arise in robotics projects.
 version: 1.2.0
 author: PRATIK PATIL
 license: Apache-2.0
-domains:
-- robotics
-platforms:
-- mpu
-- soc
+domains: [robotics]
+platforms: [mpu, soc]
+
 axiom:
   dotted_name: axiom.robotics.interlock.estop.architecture
   domain: robotics
@@ -19,48 +18,24 @@ axiom:
   category: design
   maturity: experimental
   owner: axiom-embedded
-  tags:
-  - robot-safety
-  - interlock
-  related_skills:
-  - axiom-interlock-estop-architecture-review
-  lifecycle:
-  - requirements
-  - architecture
-  - design
-  - implementation
-  - integration
-  - verification
-  - validation
-  - release
-  standards:
-  - ISO 14118:2017
-  - ISO 13850:2015
-  - ISO 13849-1:2023
-  artifact_types:
-  - interlock architecture
-  - e-stop topology
-  mcp_tools:
-  - run_skill
-  - validate_skill
+  tags: [robot-safety, interlock]
+
+  related_skills: [axiom-interlock-estop-architecture-review]
+  checklists: [checklists/review.yaml]
+  templates: [templates/interlock-estop-architecture.template.yaml]
+
+  lifecycle: [requirements, architecture, design, implementation, integration, verification, validation, release]
+  standards: ["ISO 14118:2017", "ISO 13850:2015", "ISO 13849-1:2023"]
+  artifact_types: [interlock architecture, e-stop topology]
+  mcp_tools: [run_skill, validate_skill]
+
   risk_level: safety-critical
   review_required: true
   safety_critical: true
-  checklists:
-  - checklists/review.yaml
-  templates:
-  - templates/interlock-estop-architecture.template.yaml
-  inputs:
-  - cell layout
-  - safety-function list
-  - risk assessment
-  outputs:
-  - interlock architecture
-  - e-stop topology
-  required_tools:
-  - validate_skill
-  optional_tools:
-  - run_skill
+  inputs: [cell layout, safety-function list, risk assessment]
+  outputs: [interlock architecture, e-stop topology]
+  required_tools: [validate_skill]
+  optional_tools: [run_skill]
 ---
 # Axiom Interlock and E-Stop Architecture
 

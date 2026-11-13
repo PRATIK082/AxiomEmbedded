@@ -1,19 +1,18 @@
 ---
 name: axiom-hmi-and-actuators
 title: HMI and Actuators Engineering
-description: 'Engineers human-machine interfaces and actuators: keypad matrix scanning
-  and debouncing, LCD1602/OLED displays, LEDs, active/passive buzzers, DC/stepper/servo
-  motors, encoders, relays, interlocks and e-stop, with electrical and timing constraints
-  and verification. Use when hmi and actuators tasks arise in all projects.'
+description: >
+  Engineers human-machine interfaces and actuators: keypad matrix scanning and
+  debouncing, LCD1602/OLED displays, LEDs, active/passive buzzers,
+  DC/stepper/servo motors, encoders, relays, interlocks and e-stop, with
+  electrical and timing constraints and verification. Use when hmi and actuators
+  tasks arise in all projects.
 version: 1.2.0
 author: PRATIK PATIL
 license: Apache-2.0
-domains:
-- all
-platforms:
-- mcu
-- mpu
-- soc
+domains: [all]
+platforms: [mcu, mpu, soc]
+
 axiom:
   dotted_name: axiom.platform.hmi.actuators
   domain: platform
@@ -21,52 +20,23 @@ axiom:
   category: implementation
   maturity: experimental
   owner: axiom-embedded
-  tags:
-  - hmi
-  - actuators
-  - keypad
-  - display
-  - motor
-  - relay
-  - estop
-  related_skills:
-  - drivers
-  - safety
-  - axiom-interlock-estop-architecture
-  lifecycle:
-  - requirements
-  - architecture
-  - design
-  - implementation
-  - integration
-  - verification
-  - validation
-  - release
+  tags: [hmi, actuators, keypad, display, motor, relay, estop]
+
+  related_skills: [drivers, safety, axiom-interlock-estop-architecture]
+  checklists: [checklists/review.yaml]
+
+  lifecycle: [requirements, architecture, design, implementation, integration, verification, validation, release]
   standards: []
-  artifact_types:
-  - HMI/actuator interface spec
-  - safety I/O matrix
-  - verification report
-  mcp_tools:
-  - run_skill
-  - validate_skill
+  artifact_types: [HMI/actuator interface spec, safety I/O matrix, verification report]
+  mcp_tools: [run_skill, validate_skill]
+
   risk_level: high
   review_required: true
   safety_critical: false
-  inputs:
-  - repository path
-  - target files
-  - objective
-  - constraints
-  outputs:
-  - run report
-  - run manifest
-  required_tools:
-  - validate_skill
-  optional_tools:
-  - run_skill
-  checklists:
-  - checklists/review.yaml
+  inputs: [repository path, target files, objective, constraints]
+  outputs: [run report, run manifest]
+  required_tools: [validate_skill]
+  optional_tools: [run_skill]
 ---
 # Axiom HMI and Actuators Engineering
 

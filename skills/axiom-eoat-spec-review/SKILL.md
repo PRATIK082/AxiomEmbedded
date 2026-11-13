@@ -1,17 +1,16 @@
 ---
 name: axiom-eoat-spec-review
 title: End-of-Arm Tooling Specification Review
-description: 'Specifies end-of-arm tooling: gripper forces, tool-change interface,
-  vacuum/magnetic retention, and retained-risk assumptions. Use when eoat spec review
-  tasks arise in robotics projects.'
+description: >
+  Specifies end-of-arm tooling: gripper forces, tool-change interface,
+  vacuum/magnetic retention, and retained-risk assumptions. Use when eoat spec
+  review tasks arise in robotics projects.
 version: 1.2.0
 author: PRATIK PATIL
 license: Apache-2.0
-domains:
-- robotics
-platforms:
-- mpu
-- soc
+domains: [robotics]
+platforms: [mpu, soc]
+
 axiom:
   dotted_name: axiom.robotics.eoat.spec
   domain: robotics
@@ -19,47 +18,24 @@ axiom:
   category: design
   maturity: experimental
   owner: axiom-embedded
-  tags:
-  - cell-integration
-  - eoat
-  related_skills:
-  - axiom-eoat-spec
-  lifecycle:
-  - requirements
-  - architecture
-  - design
-  - implementation
-  - integration
-  - verification
-  - validation
-  - release
-  standards:
-  - ISO 10218-1:2011
-  - ISO 10218-2:2011
-  artifact_types:
-  - EOAT spec
-  - gripper force budget
-  mcp_tools:
-  - run_skill
-  - validate_skill
+  tags: [cell-integration, eoat]
+
+  related_skills: [axiom-eoat-spec]
+  checklists: [checklists/review.yaml]
+  templates: [templates/eoat-spec.template.yaml]
+
+  lifecycle: [requirements, architecture, design, implementation, integration, verification, validation, release]
+  standards: ["ISO 10218-1:2011", "ISO 10218-2:2011"]
+  artifact_types: [EOAT spec, gripper force budget]
+  mcp_tools: [run_skill, validate_skill]
+
   risk_level: high
   review_required: true
   safety_critical: false
-  checklists:
-  - checklists/review.yaml
-  templates:
-  - templates/eoat-spec.template.yaml
-  inputs:
-  - workpiece data
-  - cycle-time target
-  - robot payload
-  outputs:
-  - EOAT spec
-  - gripper force budget
-  required_tools:
-  - validate_skill
-  optional_tools:
-  - run_skill
+  inputs: [workpiece data, cycle-time target, robot payload]
+  outputs: [EOAT spec, gripper force budget]
+  required_tools: [validate_skill]
+  optional_tools: [run_skill]
 ---
 # Axiom End-of-Arm Tooling Specification Review
 

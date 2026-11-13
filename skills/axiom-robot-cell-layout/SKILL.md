@@ -1,17 +1,16 @@
 ---
 name: axiom-robot-cell-layout
 title: Robot Cell Layout
-description: 'Lays out the robot cell: fences, gates, light curtains, operator stations,
-  material flow, and maintenance access. Use when robot cell layout tasks arise in
-  robotics projects.'
+description: >
+  Lays out the robot cell: fences, gates, light curtains, operator stations,
+  material flow, and maintenance access. Use when robot cell layout tasks arise
+  in robotics projects.
 version: 1.2.0
 author: PRATIK PATIL
 license: Apache-2.0
-domains:
-- robotics
-platforms:
-- mpu
-- soc
+domains: [robotics]
+platforms: [mpu, soc]
+
 axiom:
   dotted_name: axiom.robotics.robot.cell.layout
   domain: robotics
@@ -19,47 +18,24 @@ axiom:
   category: design
   maturity: experimental
   owner: axiom-embedded
-  tags:
-  - cell-integration
-  - robot
-  related_skills:
-  - axiom-robot-cell-layout-review
-  lifecycle:
-  - requirements
-  - architecture
-  - design
-  - implementation
-  - integration
-  - verification
-  - validation
-  - release
-  standards:
-  - ISO 10218-2:2011
-  - ISO 11161:2007
-  artifact_types:
-  - cell layout
-  - safeguarding schedule
-  mcp_tools:
-  - run_skill
-  - validate_skill
+  tags: [cell-integration, robot]
+
+  related_skills: [axiom-robot-cell-layout-review]
+  checklists: [checklists/review.yaml]
+  templates: [templates/robot-cell-layout.template.yaml]
+
+  lifecycle: [requirements, architecture, design, implementation, integration, verification, validation, release]
+  standards: ["ISO 10218-2:2011", "ISO 11161:2007"]
+  artifact_types: [cell layout, safeguarding schedule]
+  mcp_tools: [run_skill, validate_skill]
+
   risk_level: high
   review_required: true
   safety_critical: false
-  checklists:
-  - checklists/review.yaml
-  templates:
-  - templates/robot-cell-layout.template.yaml
-  inputs:
-  - equipment list
-  - floor plan
-  - task sequence
-  outputs:
-  - cell layout
-  - safeguarding schedule
-  required_tools:
-  - validate_skill
-  optional_tools:
-  - run_skill
+  inputs: [equipment list, floor plan, task sequence]
+  outputs: [cell layout, safeguarding schedule]
+  required_tools: [validate_skill]
+  optional_tools: [run_skill]
 ---
 # Axiom Robot Cell Layout
 

@@ -1,12 +1,12 @@
 ---
 name: evidence
-description: Evidence taxonomy, integrity rules, and packaging for assessments. Use
-  when assembling assurance cases or audit packs.
+description: >
+  Evidence taxonomy, integrity rules, and packaging for assessments. Use when
+  assembling assurance cases or audit packs.
 version: 1.2.0
-domains:
-- all
-platforms:
-- all
+domains: [all]
+platforms: [all]
+
 axiom:
   dotted_name: axiom.legacy.evidence
   domain: all
@@ -14,33 +14,21 @@ axiom:
   category: legacy
   maturity: production
   owner: axiom-embedded
-  tags:
-  - legacy
-  related_skills:
-  - axiom-automotive-release-readiness
-  checklists:
-  - checklists/evidence-checklist.md
-  inputs:
-  - repository path
-  - objective
-  - constraints
-  outputs:
-  - run report
-  - run manifest
+  tags: [legacy]
+
+  related_skills: [axiom-automotive-release-readiness]
+  checklists: [checklists/evidence-checklist.md]
+
+  lifecycle: [discover, plan, implement, verify, evidence]
+  standards: []
+  artifact_types: [report, manifest]
+  mcp_tools: []
+
   risk_level: medium
   review_required: true
   safety_critical: false
-  lifecycle:
-  - discover
-  - plan
-  - implement
-  - verify
-  - evidence
-  artifact_types:
-  - report
-  - manifest
-  standards: []
-  mcp_tools: []
+  inputs: [repository path, objective, constraints]
+  outputs: [run report, run manifest]
   required_tools: []
   optional_tools: []
 ---

@@ -1,16 +1,12 @@
 ---
 name: fault-injection
-description: FMEA-derived fault lists, SWIFI/HWIFI levels, and SPFM/LFM accounting.
-  Use when proving safe-state behavior under faults.
+description: >
+  FMEA-derived fault lists, SWIFI/HWIFI levels, and SPFM/LFM accounting. Use
+  when proving safe-state behavior under faults.
 version: 1.2.0
-domains:
-- generic-embedded
-- automotive
-- aerospace
-- defense
-- industrial
-platforms:
-- all
+domains: [generic-embedded, automotive, aerospace, defense, industrial]
+platforms: [all]
+
 axiom:
   dotted_name: axiom.legacy.fault-injection
   domain: generic-embedded
@@ -18,32 +14,21 @@ axiom:
   category: legacy
   maturity: production
   owner: axiom-embedded
-  tags:
-  - legacy
+  tags: [legacy]
+
   related_skills: []
-  checklists:
-  - checklists/fault-injection-checklist.md
-  inputs:
-  - repository path
-  - objective
-  - constraints
-  outputs:
-  - run report
-  - run manifest
+  checklists: [checklists/fault-injection-checklist.md]
+
+  lifecycle: [discover, plan, implement, verify, evidence]
+  standards: []
+  artifact_types: [report, manifest]
+  mcp_tools: []
+
   risk_level: medium
   review_required: true
   safety_critical: false
-  lifecycle:
-  - discover
-  - plan
-  - implement
-  - verify
-  - evidence
-  artifact_types:
-  - report
-  - manifest
-  standards: []
-  mcp_tools: []
+  inputs: [repository path, objective, constraints]
+  outputs: [run report, run manifest]
   required_tools: []
   optional_tools: []
 ---

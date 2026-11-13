@@ -1,13 +1,13 @@
 ---
 name: automotive-spice
-description: Automotive SPICE v4.0 process capability (PRM/PAM, CL0-5, VDA scope,
-  N/P/L/F rating). Use for ASPICE gap analysis, traceability, work-product evidence,
-  or assessment prep. Use when automotive spice tasks arise in automotive projects.
+description: >
+  Automotive SPICE v4.0 process capability (PRM/PAM, CL0-5, VDA scope, N/P/L/F
+  rating). Use for ASPICE gap analysis, traceability, work-product evidence, or
+  assessment prep. Use when automotive spice tasks arise in automotive projects.
 version: 1.2.0
-domains:
-- automotive
-platforms:
-- all
+domains: [automotive]
+platforms: [all]
+
 axiom:
   dotted_name: axiom.legacy.automotive-spice
   domain: automotive
@@ -15,34 +15,21 @@ axiom:
   category: legacy
   maturity: production
   owner: axiom-embedded
-  tags:
-  - legacy
-  related_skills:
-  - axiom-automotive-release-readiness
-  - axiom-test-automation
-  checklists:
-  - checklists/automotive-spice-checklist.md
-  inputs:
-  - repository path
-  - objective
-  - constraints
-  outputs:
-  - run report
-  - run manifest
+  tags: [legacy]
+
+  related_skills: [axiom-automotive-release-readiness, axiom-test-automation]
+  checklists: [checklists/automotive-spice-checklist.md]
+
+  lifecycle: [discover, plan, implement, verify, evidence]
+  standards: []
+  artifact_types: [report, manifest]
+  mcp_tools: []
+
   risk_level: medium
   review_required: true
   safety_critical: false
-  lifecycle:
-  - discover
-  - plan
-  - implement
-  - verify
-  - evidence
-  artifact_types:
-  - report
-  - manifest
-  standards: []
-  mcp_tools: []
+  inputs: [repository path, objective, constraints]
+  outputs: [run report, run manifest]
   required_tools: []
   optional_tools: []
 ---

@@ -1,13 +1,13 @@
 ---
 name: architecture
-description: System/software architecture views, interface contracts, allocation,
-  and evaluation. Use when structuring a system, defining ICDs/APIs, or reviewing
+description: >
+  System/software architecture views, interface contracts, allocation, and
+  evaluation. Use when structuring a system, defining ICDs/APIs, or reviewing
   layering.
 version: 1.3.0
-domains:
-- all
-platforms:
-- all
+domains: [all]
+platforms: [all]
+
 axiom:
   dotted_name: axiom.legacy.architecture
   domain: all
@@ -15,35 +15,21 @@ axiom:
   category: legacy
   maturity: production
   owner: axiom-embedded
-  tags:
-  - legacy
-  related_skills:
-  - axiom-architecture-decision-records
-  - axiom-interface-contract-design
-  - axiom-platform-architecture-review
-  checklists:
-  - checklists/architecture-checklist.md
-  inputs:
-  - repository path
-  - objective
-  - constraints
-  outputs:
-  - run report
-  - run manifest
+  tags: [legacy]
+
+  related_skills: [axiom-architecture-decision-records, axiom-interface-contract-design, axiom-platform-architecture-review]
+  checklists: [checklists/architecture-checklist.md]
+
+  lifecycle: [discover, plan, implement, verify, evidence]
+  standards: []
+  artifact_types: [report, manifest]
+  mcp_tools: []
+
   risk_level: medium
   review_required: true
   safety_critical: false
-  lifecycle:
-  - discover
-  - plan
-  - implement
-  - verify
-  - evidence
-  artifact_types:
-  - report
-  - manifest
-  standards: []
-  mcp_tools: []
+  inputs: [repository path, objective, constraints]
+  outputs: [run report, run manifest]
   required_tools: []
   optional_tools: []
 ---

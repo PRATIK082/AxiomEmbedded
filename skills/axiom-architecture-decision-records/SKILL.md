@@ -1,18 +1,17 @@
 ---
 name: axiom-architecture-decision-records
 title: Architecture Decision Records
-description: Authors and reviews Architecture Decision Records (context, options,
-  decision, consequences, compliance notes) with numbering, supersede chains, and
-  review gates, so architectural choices stay traceable across the product lifecycle.
+description: >
+  Authors and reviews Architecture Decision Records (context, options, decision,
+  consequences, compliance notes) with numbering, supersede chains, and review
+  gates, so architectural choices stay traceable across the product lifecycle.
   Use when architecture decision records tasks arise in all projects.
 version: 1.2.0
 author: PRATIK PATIL
 license: Apache-2.0
-domains:
-- all
-platforms:
-- mcu
-- mpu
+domains: [all]
+platforms: [mcu, mpu]
+
 axiom:
   dotted_name: axiom.cross-domain.architecture.decision.records
   domain: cross-domain
@@ -20,47 +19,22 @@ axiom:
   category: architecture
   maturity: production
   owner: axiom-embedded
-  tags:
-  - adr
-  - architecture
-  - traceability
-  - review
-  related_skills:
-  - axiom-platform-architecture-review
-  - axiom-interface-contract-design
-  - axiom-technical-debt-assessment
-  lifecycle:
-  - requirements
-  - architecture
-  - design
-  - implementation
-  - release
-  - operations
+  tags: [adr, architecture, traceability, review]
+
+  related_skills: [axiom-platform-architecture-review, axiom-interface-contract-design, axiom-technical-debt-assessment]
+
+  lifecycle: [requirements, architecture, design, implementation, release, operations]
   standards: []
-  artifact_types:
-  - ADR
-  - ADR index
-  mcp_tools:
-  - run_skill
-  - validate_skill
-  - generate_checklist
-  - generate_report
+  artifact_types: [ADR, ADR index]
+  mcp_tools: [run_skill, validate_skill, generate_checklist, generate_report]
+
   risk_level: low
   review_required: true
   safety_critical: false
-  inputs:
-  - repository path
-  - target files
-  - objective
-  - constraints
-  outputs:
-  - run report
-  - run manifest
-  required_tools:
-  - validate_skill
-  optional_tools:
-  - run_skill
-  - generate_report
+  inputs: [repository path, target files, objective, constraints]
+  outputs: [run report, run manifest]
+  required_tools: [validate_skill]
+  optional_tools: [run_skill, generate_report]
 ---
 # Axiom Architecture Decision Records
 

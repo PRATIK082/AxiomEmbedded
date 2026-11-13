@@ -1,17 +1,16 @@
 ---
 name: axiom-wireless-coexistence-plan-review
 title: Wireless Coexistence Plan Review
-description: 'Plans wireless coexistence: spectrum survey, interference budgets, channel
-  planning, and fallback behavior on link loss. Use when wireless coexistence plan
-  review tasks arise in industrial projects.'
+description: >
+  Plans wireless coexistence: spectrum survey, interference budgets, channel
+  planning, and fallback behavior on link loss. Use when wireless coexistence
+  plan review tasks arise in industrial projects.
 version: 1.2.0
 author: PRATIK PATIL
 license: Apache-2.0
-domains:
-- industrial
-platforms:
-- mcu
-- mpu
+domains: [industrial]
+platforms: [mcu, mpu]
+
 axiom:
   dotted_name: axiom.industrial.wireless.coexistence.plan
   domain: industrial
@@ -19,47 +18,24 @@ axiom:
   category: assessment
   maturity: experimental
   owner: axiom-embedded
-  tags:
-  - ot-security
-  - wireless
-  related_skills:
-  - axiom-wireless-coexistence-plan
-  lifecycle:
-  - requirements
-  - architecture
-  - design
-  - implementation
-  - integration
-  - verification
-  - validation
-  - release
-  standards:
-  - IEC 62657:2017
-  - IEC 62443-3-3:2013
-  artifact_types:
-  - coexistence plan
-  - channel plan
-  mcp_tools:
-  - run_skill
-  - validate_skill
+  tags: [ot-security, wireless]
+
+  related_skills: [axiom-wireless-coexistence-plan]
+  checklists: [checklists/review.yaml]
+  templates: [templates/wireless-coexistence-plan.template.yaml]
+
+  lifecycle: [requirements, architecture, design, implementation, integration, verification, validation, release]
+  standards: ["IEC 62657:2017", "IEC 62443-3-3:2013"]
+  artifact_types: [coexistence plan, channel plan]
+  mcp_tools: [run_skill, validate_skill]
+
   risk_level: medium
   review_required: true
   safety_critical: false
-  checklists:
-  - checklists/review.yaml
-  templates:
-  - templates/wireless-coexistence-plan.template.yaml
-  inputs:
-  - wireless inventory
-  - spectrum survey
-  - criticality ranking
-  outputs:
-  - coexistence plan
-  - channel plan
-  required_tools:
-  - validate_skill
-  optional_tools:
-  - run_skill
+  inputs: [wireless inventory, spectrum survey, criticality ranking]
+  outputs: [coexistence plan, channel plan]
+  required_tools: [validate_skill]
+  optional_tools: [run_skill]
 ---
 # Axiom Wireless Coexistence Plan Review
 

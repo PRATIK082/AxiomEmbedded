@@ -1,17 +1,16 @@
 ---
 name: axiom-adas-perception-pipeline
 title: ADAS Perception Pipeline Design
-description: Designs sensor-abstraction, perception interfaces and object-model contracts
-  for ADAS pipelines. Use when adas perception pipeline tasks arise in automotive
-  projects.
+description: >
+  Designs sensor-abstraction, perception interfaces and object-model contracts
+  for ADAS pipelines. Use when adas perception pipeline tasks arise in
+  automotive projects.
 version: 1.3.0
 author: PRATIK PATIL
 license: Apache-2.0
-domains:
-- automotive
-platforms:
-- mpu
-- soc
+domains: [automotive]
+platforms: [mpu, soc]
+
 axiom:
   dotted_name: axiom.automotive.adas.perception.pipeline
   domain: automotive
@@ -19,40 +18,22 @@ axiom:
   category: design
   maturity: experimental
   owner: axiom-embedded
-  tags:
-  - adas
+  tags: [adas]
+
   related_skills: []
-  lifecycle:
-  - requirements
-  - architecture
-  - design
-  - implementation
-  - integration
-  - verification
-  - validation
-  - release
-  standards:
-  - ISO 26262:2018
-  artifact_types:
-  - perception interface contract
-  mcp_tools:
-  - run_skill
-  - validate_skill
+
+  lifecycle: [requirements, architecture, design, implementation, integration, verification, validation, release]
+  standards: ["ISO 26262:2018"]
+  artifact_types: [perception interface contract]
+  mcp_tools: [run_skill, validate_skill]
+
   risk_level: high
   review_required: true
   safety_critical: false
-  inputs:
-  - repository path
-  - target files
-  - objective
-  - constraints
-  outputs:
-  - run report
-  - run manifest
-  required_tools:
-  - validate_skill
-  optional_tools:
-  - run_skill
+  inputs: [repository path, target files, objective, constraints]
+  outputs: [run report, run manifest]
+  required_tools: [validate_skill]
+  optional_tools: [run_skill]
 ---
 # Axiom ADAS Perception Pipeline Design
 

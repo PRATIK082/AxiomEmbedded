@@ -1,17 +1,16 @@
 ---
 name: axiom-iec62443-risk-assessment-review
 title: IEC 62443 Risk Assessment Review
-description: 'Runs an OT cyber-risk assessment: consequence analysis, threat scenarios,
-  SL-target proposal, and mitigation mapping. Use when iec62443 risk assessment review
-  tasks arise in industrial projects.'
+description: >
+  Runs an OT cyber-risk assessment: consequence analysis, threat scenarios,
+  SL-target proposal, and mitigation mapping. Use when iec62443 risk assessment
+  review tasks arise in industrial projects.
 version: 1.2.0
 author: PRATIK PATIL
 license: Apache-2.0
-domains:
-- industrial
-platforms:
-- mcu
-- mpu
+domains: [industrial]
+platforms: [mcu, mpu]
+
 axiom:
   dotted_name: axiom.industrial.iec62443.risk.assessment
   domain: industrial
@@ -19,47 +18,24 @@ axiom:
   category: assessment
   maturity: experimental
   owner: axiom-embedded
-  tags:
-  - ot-security
-  - iec62443
-  related_skills:
-  - axiom-iec62443-risk-assessment
-  lifecycle:
-  - requirements
-  - architecture
-  - design
-  - implementation
-  - integration
-  - verification
-  - validation
-  - release
-  standards:
-  - IEC 62443-3-2:2020
-  - IEC 62443-3-3:2013
-  artifact_types:
-  - OT risk assessment
-  - SL-target proposal
-  mcp_tools:
-  - run_skill
-  - validate_skill
+  tags: [ot-security, iec62443]
+
+  related_skills: [axiom-iec62443-risk-assessment]
+  checklists: [checklists/review.yaml]
+  templates: [templates/iec62443-risk-assessment.template.yaml]
+
+  lifecycle: [requirements, architecture, design, implementation, integration, verification, validation, release]
+  standards: ["IEC 62443-3-2:2020", "IEC 62443-3-3:2013"]
+  artifact_types: [OT risk assessment, SL-target proposal]
+  mcp_tools: [run_skill, validate_skill]
+
   risk_level: high
   review_required: true
   safety_critical: false
-  checklists:
-  - checklists/review.yaml
-  templates:
-  - templates/iec62443-risk-assessment.template.yaml
-  inputs:
-  - zone sketch
-  - asset inventory
-  - threat model
-  outputs:
-  - OT risk assessment
-  - SL-target proposal
-  required_tools:
-  - validate_skill
-  optional_tools:
-  - run_skill
+  inputs: [zone sketch, asset inventory, threat model]
+  outputs: [OT risk assessment, SL-target proposal]
+  required_tools: [validate_skill]
+  optional_tools: [run_skill]
 ---
 # Axiom IEC 62443 Risk Assessment Review
 

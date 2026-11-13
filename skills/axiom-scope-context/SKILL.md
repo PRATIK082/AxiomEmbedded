@@ -1,21 +1,17 @@
 ---
 name: axiom-scope-context
 title: System Scope and Operating Context Definition
-description: 'Use when an engineering team must define system scope, operating context,
-  and boundaries for an embedded or cyber-physical product. Trigger phrases include
-  "define system scope", "capture operating context", "set system boundaries", and
-  "scope the robot cell".
-
-  '
+description: >
+  Use when an engineering team must define system scope, operating context, and
+  boundaries for an embedded or cyber-physical product. Trigger phrases include
+  "define system scope", "capture operating context", "set system boundaries",
+  and "scope the robot cell".
 version: 1.2.0
 author: AxiomEmbedded
 license: Apache-2.0
-domains:
-- industrial
-- robotics
-platforms:
-- mcu
-- mpu
+domains: [industrial, robotics]
+platforms: [mcu, mpu]
+
 axiom:
   dotted_name: axiom.assurance.scope_context
   domain: industrial
@@ -23,44 +19,26 @@ axiom:
   category: requirements
   maturity: experimental
   owner: axiom-embedded
-  tags:
-  - assurance
-  - scope
-  related_skills:
-  - axiom-scope-context-review
-  lifecycle:
-  - requirements
-  - architecture
-  standards:
-  - ISO 12100:2010
-  - ISO 10218-2:2011
-  - ISO 11161:2007
-  artifact_types:
-  - system scope
-  mcp_tools:
-  - run_skill
-  - validate_skill
+  tags: [assurance, scope]
+
+  related_skills: [axiom-scope-context-review]
+  checklists: [checklists/scope-checklist.md]
+  templates: [templates/scope.template.yaml]
+  scripts: [scripts/check_scope.py]
+
+  lifecycle: [requirements, architecture]
+  standards: ["ISO 12100:2010", "ISO 10218-2:2011", "ISO 11161:2007"]
+  artifact_types: [system scope]
+  mcp_tools: [run_skill, validate_skill]
+
   risk_level: medium
   review_required: true
   safety_critical: false
-  inputs:
-  - stakeholder notes
-  - site survey
-  - interface list
-  outputs:
-  - system-scope artifact
-  required_tools:
-  - validate_skill
-  optional_tools:
-  - run_skill
-  checklists:
-  - checklists/scope-checklist.md
-  templates:
-  - templates/scope.template.yaml
-  scripts:
-  - scripts/check_scope.py
+  inputs: [stakeholder notes, site survey, interface list]
+  outputs: [system-scope artifact]
+  required_tools: [validate_skill]
+  optional_tools: [run_skill]
 ---
-
 # Axiom System Scope and Operating Context (builder)
 
 ## Purpose

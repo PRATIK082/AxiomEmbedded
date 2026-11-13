@@ -1,43 +1,32 @@
 ---
 name: axiom-telecom-5g-modem-integration
 title: 5G Modem Integration
-description: '5G Modem Integration workflow for generic-embedded. Use when 5g modem
+description: >
+  5G Modem Integration workflow for generic-embedded. Use when 5g modem
   integration tasks arise in generic-embedded projects.
-
-  '
 version: 1.2.0
 author: PRATIK082
 license: Apache-2.0
-domains:
-- generic-embedded
-platforms:
-- mcu
+domains: [generic-embedded]
+platforms: [mcu]
+
 axiom:
   dotted_name: axiom.generic-embedded.telecom.5g.modem.integration
   domain: generic-embedded
   maturity: experimental
+
+  related_skills: []
+
+  lifecycle: [discover, plan, implement, verify, evidence]
+  standards: []
+  artifact_types: [report, manifest]
+  mcp_tools: []
+
+  risk_level: medium
   review_required: true
   safety_critical: false
-  inputs:
-  - repository path
-  - objective
-  - constraints
-  outputs:
-  - run report
-  - run manifest
-  risk_level: medium
-  lifecycle:
-  - discover
-  - plan
-  - implement
-  - verify
-  - evidence
-  artifact_types:
-  - report
-  - manifest
-  related_skills: []
-  standards: []
-  mcp_tools: []
+  inputs: [repository path, objective, constraints]
+  outputs: [run report, run manifest]
   required_tools: []
   optional_tools: []
 ---

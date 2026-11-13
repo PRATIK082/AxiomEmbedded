@@ -1,43 +1,32 @@
 ---
 name: axiom-skill-seekers
 title: Skill Seekers (doc to SKILL conversion)
-description: 'Skill Seekers (doc to SKILL conversion) workflow for platform. Use when
-  skill seekers (doc to skill conversion) tasks arise in platform projects.
-
-  '
+description: >
+  Skill Seekers (doc to SKILL conversion) workflow for platform. Use when skill
+  seekers (doc to skill conversion) tasks arise in platform projects.
 version: 1.2.0
 author: PRATIK082
 license: Apache-2.0
-domains:
-- platform
-platforms:
-- mcu
+domains: [platform]
+platforms: [mcu]
+
 axiom:
   dotted_name: axiom.platform.skill.seekers
   domain: platform
   maturity: experimental
+
+  related_skills: []
+
+  lifecycle: [discover, plan, implement, verify, evidence]
+  standards: []
+  artifact_types: [report, manifest]
+  mcp_tools: []
+
+  risk_level: medium
   review_required: true
   safety_critical: false
-  inputs:
-  - repository path
-  - objective
-  - constraints
-  outputs:
-  - run report
-  - run manifest
-  risk_level: medium
-  lifecycle:
-  - discover
-  - plan
-  - implement
-  - verify
-  - evidence
-  artifact_types:
-  - report
-  - manifest
-  related_skills: []
-  standards: []
-  mcp_tools: []
+  inputs: [repository path, objective, constraints]
+  outputs: [run report, run manifest]
   required_tools: []
   optional_tools: []
 ---

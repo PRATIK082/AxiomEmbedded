@@ -1,16 +1,15 @@
 ---
 name: axiom-hil-test-planning
 title: HIL Test Planning
-description: Plans SIL/HIL campaigns including plant models, fault injection and pass/fail
+description: >
+  Plans SIL/HIL campaigns including plant models, fault injection and pass/fail
   criteria. Use when hil test planning tasks arise in all projects.
 version: 1.2.0
 author: PRATIK PATIL
 license: Apache-2.0
-domains:
-- all
-platforms:
-- mcu
-- mpu
+domains: [all]
+platforms: [mcu, mpu]
+
 axiom:
   dotted_name: axiom.platform.hil.test.planning
   domain: platform
@@ -18,39 +17,22 @@ axiom:
   category: verification
   maturity: experimental
   owner: axiom-embedded
-  tags:
-  - testing
+  tags: [testing]
+
   related_skills: []
-  lifecycle:
-  - requirements
-  - architecture
-  - design
-  - implementation
-  - integration
-  - verification
-  - validation
-  - release
+
+  lifecycle: [requirements, architecture, design, implementation, integration, verification, validation, release]
   standards: []
-  artifact_types:
-  - HIL test plan
-  mcp_tools:
-  - run_skill
-  - validate_skill
+  artifact_types: [HIL test plan]
+  mcp_tools: [run_skill, validate_skill]
+
   risk_level: medium
   review_required: true
   safety_critical: false
-  inputs:
-  - repository path
-  - target files
-  - objective
-  - constraints
-  outputs:
-  - run report
-  - run manifest
-  required_tools:
-  - validate_skill
-  optional_tools:
-  - run_skill
+  inputs: [repository path, target files, objective, constraints]
+  outputs: [run report, run manifest]
+  required_tools: [validate_skill]
+  optional_tools: [run_skill]
 ---
 # Axiom HIL Test Planning
 

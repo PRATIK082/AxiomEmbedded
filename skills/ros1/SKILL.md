@@ -1,14 +1,13 @@
 ---
 name: ros1
-description: 'ROS1 (Noetic) development: node/topic/launch design, TF, actionlib,
-  nodelets, pitfalls, and ROS1-to-ROS2 migration. Use when maintaining or extending
-  ROS1 systems.'
+description: >
+  ROS1 (Noetic) development: node/topic/launch design, TF, actionlib, nodelets,
+  pitfalls, and ROS1-to-ROS2 migration. Use when maintaining or extending ROS1
+  systems.
 version: 1.3.0
-domains:
-- all
-platforms:
-- linux
-- ros1
+domains: [all]
+platforms: [linux, ros1]
+
 axiom:
   dotted_name: axiom.legacy.ros1
   domain: all
@@ -16,32 +15,20 @@ axiom:
   category: legacy
   maturity: production
   owner: axiom-embedded
-  tags:
-  - legacy
-  - ros
-  - ros1
-  inputs:
-  - repository path
-  - objective
-  - constraints
-  outputs:
-  - run report
-  - run manifest
+  tags: [legacy, ros, ros1]
+
+  related_skills: []
+
+  lifecycle: [discover, plan, implement, verify, evidence]
+  standards: []
+  artifact_types: [report, manifest]
+  mcp_tools: []
+
   risk_level: medium
   review_required: true
   safety_critical: false
-  lifecycle:
-  - discover
-  - plan
-  - implement
-  - verify
-  - evidence
-  artifact_types:
-  - report
-  - manifest
-  related_skills: []
-  standards: []
-  mcp_tools: []
+  inputs: [repository path, objective, constraints]
+  outputs: [run report, run manifest]
   required_tools: []
   optional_tools: []
 ---

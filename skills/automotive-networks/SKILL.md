@@ -1,16 +1,13 @@
 ---
 name: automotive-networks
-description: CAN-FD/XL, LIN, FlexRay, 100/1000BASE-T1 Ethernet + TSN, gateways, busload/timing,
-  DBC/ARXML/LDF/FIBEX. Use for topology, routing, or timing analysis. Use when automotive
-  networks tasks arise in automotive projects.
+description: >
+  CAN-FD/XL, LIN, FlexRay, 100/1000BASE-T1 Ethernet + TSN, gateways,
+  busload/timing, DBC/ARXML/LDF/FIBEX. Use for topology, routing, or timing
+  analysis. Use when automotive networks tasks arise in automotive projects.
 version: 1.2.0
-domains:
-- automotive
-platforms:
-- mcu
-- mpu
-- autosar-classic
-- autosar-adaptive
+domains: [automotive]
+platforms: [mcu, mpu, autosar-classic, autosar-adaptive]
+
 axiom:
   dotted_name: axiom.legacy.automotive-networks
   domain: automotive
@@ -18,35 +15,21 @@ axiom:
   category: legacy
   maturity: production
   owner: axiom-embedded
-  tags:
-  - legacy
-  related_skills:
-  - axiom-automotive-ethernet-someip
-  - axiom-can-network-design
-  - axiom-can-stack-integration
-  checklists:
-  - checklists/automotive-networks-checklist.md
-  inputs:
-  - repository path
-  - objective
-  - constraints
-  outputs:
-  - run report
-  - run manifest
+  tags: [legacy]
+
+  related_skills: [axiom-automotive-ethernet-someip, axiom-can-network-design, axiom-can-stack-integration]
+  checklists: [checklists/automotive-networks-checklist.md]
+
+  lifecycle: [discover, plan, implement, verify, evidence]
+  standards: []
+  artifact_types: [report, manifest]
+  mcp_tools: []
+
   risk_level: medium
   review_required: true
   safety_critical: false
-  lifecycle:
-  - discover
-  - plan
-  - implement
-  - verify
-  - evidence
-  artifact_types:
-  - report
-  - manifest
-  standards: []
-  mcp_tools: []
+  inputs: [repository path, objective, constraints]
+  outputs: [run report, run manifest]
   required_tools: []
   optional_tools: []
 ---

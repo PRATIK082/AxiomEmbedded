@@ -1,19 +1,14 @@
 ---
 name: automotive-coding
-description: MISRA C:2025 / MISRA C++:2023 / AUTOSAR C++14 enforcement, CERT C/C++
-  hardening, analyzer gating and deviation control. Use for ASIL-rated C/C++ ECUs
-  requiring audit-ready coding-compliance evidence. Use when automotive coding tasks
-  arise in automotive projects.
+description: >
+  MISRA C:2025 / MISRA C++:2023 / AUTOSAR C++14 enforcement, CERT C/C++
+  hardening, analyzer gating and deviation control. Use for ASIL-rated C/C++
+  ECUs requiring audit-ready coding-compliance evidence. Use when automotive
+  coding tasks arise in automotive projects.
 version: 1.2.0
-domains:
-- automotive
-platforms:
-- mcu
-- mpu
-- autosar-classic
-- autosar-adaptive
-- bare-metal
-- rtos
+domains: [automotive]
+platforms: [mcu, mpu, autosar-classic, autosar-adaptive, bare-metal, rtos]
+
 axiom:
   dotted_name: axiom.legacy.automotive-coding
   domain: automotive
@@ -21,32 +16,21 @@ axiom:
   category: legacy
   maturity: production
   owner: axiom-embedded
-  tags:
-  - legacy
+  tags: [legacy]
+
   related_skills: []
-  checklists:
-  - checklists/automotive-coding-checklist.md
-  inputs:
-  - repository path
-  - objective
-  - constraints
-  outputs:
-  - run report
-  - run manifest
+  checklists: [checklists/automotive-coding-checklist.md]
+
+  lifecycle: [discover, plan, implement, verify, evidence]
+  standards: []
+  artifact_types: [report, manifest]
+  mcp_tools: []
+
   risk_level: medium
   review_required: true
   safety_critical: false
-  lifecycle:
-  - discover
-  - plan
-  - implement
-  - verify
-  - evidence
-  artifact_types:
-  - report
-  - manifest
-  standards: []
-  mcp_tools: []
+  inputs: [repository path, objective, constraints]
+  outputs: [run report, run manifest]
   required_tools: []
   optional_tools: []
 ---

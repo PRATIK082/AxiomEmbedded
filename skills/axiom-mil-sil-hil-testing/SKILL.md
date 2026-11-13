@@ -1,11 +1,14 @@
 ---
 name: axiom-mil-sil-hil-testing
-description: "Model/Software/Hardware-in-the-Loop testing strategy: test bench setup, plant models, real-time execution, fault injection, and acceptance criteria for embedded control software. Use when planning MIL/SIL/HIL campaigns or qualifying control algorithms."
+description: >
+  Model/Software/Hardware-in-the-Loop testing strategy: test bench setup, plant
+  models, real-time execution, fault injection, and acceptance criteria for
+  embedded control software. Use when planning MIL/SIL/HIL campaigns or
+  qualifying control algorithms.
 version: 1.3.0
-domains:
-- all
-platforms:
-- all
+domains: [all]
+platforms: [all]
+
 axiom:
   dotted_name: axiom.legacy.axiom-mil-sil-hil-testing
   domain: all
@@ -13,23 +16,20 @@ axiom:
   category: legacy
   maturity: production
   owner: axiom-embedded
-  tags:
-  - legacy
+  tags: [legacy]
+
+  related_skills: []
+
   lifecycle: [requirements, design, implementation, verification, validation]
   standards: []
   artifact_types: [test-report, evidence-pack]
   mcp_tools: []
+
   risk_level: medium
   review_required: []
-  inputs:
-  - repository path
-  - objective
-  - constraints
-  outputs:
-  - run report
-  - run manifest
   safety_critical: false
-  related_skills: []
+  inputs: [repository path, objective, constraints]
+  outputs: [run report, run manifest]
   required_tools: []
   optional_tools: []
 ---

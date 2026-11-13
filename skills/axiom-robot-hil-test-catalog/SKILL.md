@@ -1,17 +1,16 @@
 ---
 name: axiom-robot-hil-test-catalog
 title: Robot HIL Test Catalog
-description: 'Catalogs hardware-in-the-loop tests for robot safety functions: fault
-  injection, timing measurement, and coverage mapping. Use when robot hil test catalog
-  tasks arise in robotics projects.'
+description: >
+  Catalogs hardware-in-the-loop tests for robot safety functions: fault
+  injection, timing measurement, and coverage mapping. Use when robot hil test
+  catalog tasks arise in robotics projects.
 version: 1.2.0
 author: PRATIK PATIL
 license: Apache-2.0
-domains:
-- robotics
-platforms:
-- mpu
-- soc
+domains: [robotics]
+platforms: [mpu, soc]
+
 axiom:
   dotted_name: axiom.robotics.robot.hil.test.catalog
   domain: robotics
@@ -19,48 +18,24 @@ axiom:
   category: assessment
   maturity: experimental
   owner: axiom-embedded
-  tags:
-  - cell-integration
-  - robot
-  related_skills:
-  - axiom-robot-hil-test-catalog-review
-  - axiom-vnv-plan
-  lifecycle:
-  - requirements
-  - architecture
-  - design
-  - implementation
-  - integration
-  - verification
-  - validation
-  - release
-  standards:
-  - ISO 13849-2:2012
-  - ISO 10218-2:2011
-  artifact_types:
-  - HIL test catalog
-  - coverage map
-  mcp_tools:
-  - run_skill
-  - validate_skill
+  tags: [cell-integration, robot]
+
+  related_skills: [axiom-robot-hil-test-catalog-review, axiom-vnv-plan]
+  checklists: [checklists/review.yaml]
+  templates: [templates/robot-hil-test-catalog.template.yaml]
+
+  lifecycle: [requirements, architecture, design, implementation, integration, verification, validation, release]
+  standards: ["ISO 13849-2:2012", "ISO 10218-2:2011"]
+  artifact_types: [HIL test catalog, coverage map]
+  mcp_tools: [run_skill, validate_skill]
+
   risk_level: high
   review_required: true
   safety_critical: false
-  checklists:
-  - checklists/review.yaml
-  templates:
-  - templates/robot-hil-test-catalog.template.yaml
-  inputs:
-  - safety-function list
-  - HIL rig capability
-  - V&V plan
-  outputs:
-  - HIL test catalog
-  - coverage map
-  required_tools:
-  - validate_skill
-  optional_tools:
-  - run_skill
+  inputs: [safety-function list, HIL rig capability, "V&V plan"]
+  outputs: [HIL test catalog, coverage map]
+  required_tools: [validate_skill]
+  optional_tools: [run_skill]
 ---
 # Axiom Robot HIL Test Catalog
 

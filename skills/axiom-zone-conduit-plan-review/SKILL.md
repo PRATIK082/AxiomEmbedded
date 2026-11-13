@@ -1,17 +1,16 @@
 ---
 name: axiom-zone-conduit-plan-review
 title: Zone and Conduit Plan Review
-description: Partitions the OT network into zones and conduits with security-level
-  targets, conduit requirements, and firewall rules. Use when zone conduit plan review
+description: >
+  Partitions the OT network into zones and conduits with security-level targets,
+  conduit requirements, and firewall rules. Use when zone conduit plan review
   tasks arise in industrial projects.
 version: 1.2.0
 author: PRATIK PATIL
 license: Apache-2.0
-domains:
-- industrial
-platforms:
-- mcu
-- mpu
+domains: [industrial]
+platforms: [mcu, mpu]
+
 axiom:
   dotted_name: axiom.industrial.zone.conduit.plan
   domain: industrial
@@ -19,46 +18,24 @@ axiom:
   category: design
   maturity: experimental
   owner: axiom-embedded
-  tags:
-  - ot-security
-  - zone
-  related_skills:
-  - axiom-zone-conduit-plan
-  lifecycle:
-  - requirements
-  - architecture
-  - design
-  - implementation
-  - integration
-  - verification
-  - validation
-  - release
-  standards:
-  - IEC 62443-3-2:2020
-  artifact_types:
-  - zone/conduit plan
-  - conduit requirement set
-  mcp_tools:
-  - run_skill
-  - validate_skill
+  tags: [ot-security, zone]
+
+  related_skills: [axiom-zone-conduit-plan]
+  checklists: [checklists/review.yaml]
+  templates: [templates/zone-conduit-plan.template.yaml]
+
+  lifecycle: [requirements, architecture, design, implementation, integration, verification, validation, release]
+  standards: ["IEC 62443-3-2:2020"]
+  artifact_types: [zone/conduit plan, conduit requirement set]
+  mcp_tools: [run_skill, validate_skill]
+
   risk_level: high
   review_required: true
   safety_critical: false
-  checklists:
-  - checklists/review.yaml
-  templates:
-  - templates/zone-conduit-plan.template.yaml
-  inputs:
-  - network diagrams
-  - risk assessment
-  - asset inventory
-  outputs:
-  - zone/conduit plan
-  - conduit requirement set
-  required_tools:
-  - validate_skill
-  optional_tools:
-  - run_skill
+  inputs: [network diagrams, risk assessment, asset inventory]
+  outputs: [zone/conduit plan, conduit requirement set]
+  required_tools: [validate_skill]
+  optional_tools: [run_skill]
 ---
 # Axiom Zone and Conduit Plan Review
 

@@ -1,19 +1,18 @@
 ---
 name: axiom-validation-levels
 title: Validation Levels and Evidence Framework
-description: Distinguishes source-level, build, static analysis, host-based, simulation,
-  HIL and physical board acceptance validation; defines prerequisites, equipment,
-  procedure, expected results, failure conditions, measurements, evidence format and
-  limitations for each. Never reports compile success as hardware proof. Use when
-  validation levels tasks arise in all projects.
+description: >
+  Distinguishes source-level, build, static analysis, host-based, simulation,
+  HIL and physical board acceptance validation; defines prerequisites,
+  equipment, procedure, expected results, failure conditions, measurements,
+  evidence format and limitations for each. Never reports compile success as
+  hardware proof. Use when validation levels tasks arise in all projects.
 version: 1.2.0
 author: PRATIK PATIL
 license: Apache-2.0
-domains:
-- all
-platforms:
-- mcu
-- mpu
+domains: [all]
+platforms: [mcu, mpu]
+
 axiom:
   dotted_name: axiom.platform.validation.levels
   domain: platform
@@ -21,52 +20,23 @@ axiom:
   category: verification
   maturity: experimental
   owner: axiom-embedded
-  tags:
-  - validation
-  - verification
-  - hil
-  - simulation
-  - testing
-  related_skills:
-  - validation
-  - simulation
-  - test-automation
-  - integration-test
-  - axiom-mil-sil-hil-testing
-  lifecycle:
-  - requirements
-  - architecture
-  - design
-  - implementation
-  - integration
-  - verification
-  - validation
-  - release
+  tags: [validation, verification, hil, simulation, testing]
+
+  related_skills: [validation, simulation, test-automation, integration-test, axiom-mil-sil-hil-testing]
+  checklists: [checklists/review.yaml]
+
+  lifecycle: [requirements, architecture, design, implementation, integration, verification, validation, release]
   standards: []
-  artifact_types:
-  - validation plan
-  - evidence package
-  - acceptance report
-  mcp_tools:
-  - run_skill
-  - validate_skill
+  artifact_types: [validation plan, evidence package, acceptance report]
+  mcp_tools: [run_skill, validate_skill]
+
   risk_level: medium
   review_required: true
   safety_critical: false
-  inputs:
-  - repository path
-  - target files
-  - objective
-  - constraints
-  outputs:
-  - run report
-  - run manifest
-  required_tools:
-  - validate_skill
-  optional_tools:
-  - run_skill
-  checklists:
-  - checklists/review.yaml
+  inputs: [repository path, target files, objective, constraints]
+  outputs: [run report, run manifest]
+  required_tools: [validate_skill]
+  optional_tools: [run_skill]
 ---
 # Axiom Validation Levels and Evidence Framework
 

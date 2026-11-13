@@ -1,43 +1,32 @@
 ---
 name: axiom-cross-domain-traceability
 title: Cross-Domain Traceability
-description: 'Cross-Domain Traceability workflow for cross-domain. Use when cross-domain
+description: >
+  Cross-Domain Traceability workflow for cross-domain. Use when cross-domain
   traceability tasks arise in cross-domain projects.
-
-  '
 version: 1.2.0
 author: PRATIK082
 license: Apache-2.0
-domains:
-- cross-domain
-platforms:
-- mcu
+domains: [cross-domain]
+platforms: [mcu]
+
 axiom:
   dotted_name: axiom.cross-domain.cross.domain.traceability
   domain: cross-domain
   maturity: experimental
+
+  related_skills: []
+
+  lifecycle: [discover, plan, implement, verify, evidence]
+  standards: []
+  artifact_types: [report, manifest]
+  mcp_tools: []
+
+  risk_level: medium
   review_required: true
   safety_critical: false
-  inputs:
-  - repository path
-  - objective
-  - constraints
-  outputs:
-  - run report
-  - run manifest
-  risk_level: medium
-  lifecycle:
-  - discover
-  - plan
-  - implement
-  - verify
-  - evidence
-  artifact_types:
-  - report
-  - manifest
-  related_skills: []
-  standards: []
-  mcp_tools: []
+  inputs: [repository path, objective, constraints]
+  outputs: [run report, run manifest]
   required_tools: []
   optional_tools: []
 ---

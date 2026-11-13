@@ -1,15 +1,12 @@
 ---
 name: hardware-architecture
-description: ECU/board architecture, power domains, budgets, and HSI contracts. Use
-  when designing hardware, partitioning SoC peripherals, or budgeting power.
+description: >
+  ECU/board architecture, power domains, budgets, and HSI contracts. Use when
+  designing hardware, partitioning SoC peripherals, or budgeting power.
 version: 1.2.0
-domains:
-- all
-platforms:
-- mcu
-- mpu
-- soc
-- mpsoc
+domains: [all]
+platforms: [mcu, mpu, soc, mpsoc]
+
 axiom:
   dotted_name: axiom.legacy.hardware-architecture
   domain: all
@@ -17,32 +14,21 @@ axiom:
   category: legacy
   maturity: production
   owner: axiom-embedded
-  tags:
-  - legacy
+  tags: [legacy]
+
   related_skills: []
-  checklists:
-  - checklists/hardware-architecture-checklist.md
-  inputs:
-  - repository path
-  - objective
-  - constraints
-  outputs:
-  - run report
-  - run manifest
+  checklists: [checklists/hardware-architecture-checklist.md]
+
+  lifecycle: [discover, plan, implement, verify, evidence]
+  standards: []
+  artifact_types: [report, manifest]
+  mcp_tools: []
+
   risk_level: medium
   review_required: true
   safety_critical: false
-  lifecycle:
-  - discover
-  - plan
-  - implement
-  - verify
-  - evidence
-  artifact_types:
-  - report
-  - manifest
-  standards: []
-  mcp_tools: []
+  inputs: [repository path, objective, constraints]
+  outputs: [run report, run manifest]
   required_tools: []
   optional_tools: []
 ---

@@ -1,14 +1,13 @@
 ---
 name: robot-bringup
-description: 'ROS2 system bringup: systemd services, launch composition, udev rules,
-  network/DDS config, watchdogs, logging, graceful shutdown, remote monitoring. Use
-  when deploying or operating robots in production.'
+description: >
+  ROS2 system bringup: systemd services, launch composition, udev rules,
+  network/DDS config, watchdogs, logging, graceful shutdown, remote monitoring.
+  Use when deploying or operating robots in production.
 version: 1.3.0
-domains:
-- all
-platforms:
-- linux
-- ros2
+domains: [all]
+platforms: [linux, ros2]
+
 axiom:
   dotted_name: axiom.legacy.robot-bringup
   domain: all
@@ -16,33 +15,20 @@ axiom:
   category: legacy
   maturity: production
   owner: axiom-embedded
-  tags:
-  - robotics
-  - ros2
-  - bringup
-  - deployment
-  inputs:
-  - repository path
-  - objective
-  - constraints
-  outputs:
-  - run report
-  - run manifest
+  tags: [robotics, ros2, bringup, deployment]
+
+  related_skills: []
+
+  lifecycle: [discover, plan, implement, verify, evidence]
+  standards: []
+  artifact_types: [report, manifest]
+  mcp_tools: []
+
   risk_level: medium
   review_required: true
   safety_critical: false
-  lifecycle:
-  - discover
-  - plan
-  - implement
-  - verify
-  - evidence
-  artifact_types:
-  - report
-  - manifest
-  related_skills: []
-  standards: []
-  mcp_tools: []
+  inputs: [repository path, objective, constraints]
+  outputs: [run report, run manifest]
   required_tools: []
   optional_tools: []
 ---

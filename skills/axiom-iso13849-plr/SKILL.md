@@ -1,17 +1,16 @@
 ---
 name: axiom-iso13849-plr
 title: ISO 13849 PLr Determination
-description: Determines the required Performance Level (PLr) per safety function and
-  allocates subsystem targets for later verification. Use when iso13849 plr tasks
-  arise in robotics projects.
+description: >
+  Determines the required Performance Level (PLr) per safety function and
+  allocates subsystem targets for later verification. Use when iso13849 plr
+  tasks arise in robotics projects.
 version: 1.2.0
 author: PRATIK PATIL
 license: Apache-2.0
-domains:
-- robotics
-platforms:
-- mpu
-- soc
+domains: [robotics]
+platforms: [mpu, soc]
+
 axiom:
   dotted_name: axiom.robotics.iso13849.plr
   domain: robotics
@@ -19,47 +18,24 @@ axiom:
   category: design
   maturity: experimental
   owner: axiom-embedded
-  tags:
-  - robot-safety
-  - iso13849
-  related_skills:
-  - axiom-iso13849-plr-review
-  - axiom-safety-requirements
-  lifecycle:
-  - requirements
-  - architecture
-  - design
-  - implementation
-  - integration
-  - verification
-  - validation
-  - release
-  standards:
-  - ISO 13849-1:2023
-  artifact_types:
-  - PLr determination
-  - safety-function list
-  mcp_tools:
-  - run_skill
-  - validate_skill
+  tags: [robot-safety, iso13849]
+
+  related_skills: [axiom-iso13849-plr-review, axiom-safety-requirements]
+  checklists: [checklists/review.yaml]
+  templates: [templates/iso13849-plr.template.yaml]
+
+  lifecycle: [requirements, architecture, design, implementation, integration, verification, validation, release]
+  standards: ["ISO 13849-1:2023"]
+  artifact_types: [PLr determination, safety-function list]
+  mcp_tools: [run_skill, validate_skill]
+
   risk_level: safety-critical
   review_required: true
   safety_critical: true
-  checklists:
-  - checklists/review.yaml
-  templates:
-  - templates/iso13849-plr.template.yaml
-  inputs:
-  - hazard list
-  - severity/frequency data
-  - architecture sketch
-  outputs:
-  - PLr determination
-  - safety-function list
-  required_tools:
-  - validate_skill
-  optional_tools:
-  - run_skill
+  inputs: [hazard list, severity/frequency data, architecture sketch]
+  outputs: [PLr determination, safety-function list]
+  required_tools: [validate_skill]
+  optional_tools: [run_skill]
 ---
 # Axiom ISO 13849 PLr Determination
 

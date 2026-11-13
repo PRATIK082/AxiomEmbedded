@@ -1,17 +1,16 @@
 ---
 name: axiom-ssm-plan-review
 title: Speed-and-Separation-Monitoring Plan Review
-description: 'Designs speed-and-separation monitoring: protective zones, speed mapping,
-  sensor coverage claims, and stop-performance budgets. Use when ssm plan review tasks
-  arise in robotics projects.'
+description: >
+  Designs speed-and-separation monitoring: protective zones, speed mapping,
+  sensor coverage claims, and stop-performance budgets. Use when ssm plan review
+  tasks arise in robotics projects.
 version: 1.2.0
 author: PRATIK PATIL
 license: Apache-2.0
-domains:
-- robotics
-platforms:
-- mpu
-- soc
+domains: [robotics]
+platforms: [mpu, soc]
+
 axiom:
   dotted_name: axiom.robotics.ssm.plan
   domain: robotics
@@ -19,47 +18,24 @@ axiom:
   category: design
   maturity: experimental
   owner: axiom-embedded
-  tags:
-  - robot-safety
-  - ssm
-  related_skills:
-  - axiom-ssm-plan
-  lifecycle:
-  - requirements
-  - architecture
-  - design
-  - implementation
-  - integration
-  - verification
-  - validation
-  - release
-  standards:
-  - ISO/TS 15066:2016
-  - ISO 10218-2:2011
-  artifact_types:
-  - SSM plan
-  - zone map
-  mcp_tools:
-  - run_skill
-  - validate_skill
+  tags: [robot-safety, ssm]
+
+  related_skills: [axiom-ssm-plan]
+  checklists: [checklists/review.yaml]
+  templates: [templates/ssm-plan.template.yaml]
+
+  lifecycle: [requirements, architecture, design, implementation, integration, verification, validation, release]
+  standards: ["ISO/TS 15066:2016", "ISO 10218-2:2011"]
+  artifact_types: [SSM plan, zone map]
+  mcp_tools: [run_skill, validate_skill]
+
   risk_level: safety-critical
   review_required: true
   safety_critical: true
-  checklists:
-  - checklists/review.yaml
-  templates:
-  - templates/ssm-plan.template.yaml
-  inputs:
-  - cell layout
-  - operator positions
-  - sensor spec
-  outputs:
-  - SSM plan
-  - zone map
-  required_tools:
-  - validate_skill
-  optional_tools:
-  - run_skill
+  inputs: [cell layout, operator positions, sensor spec]
+  outputs: [SSM plan, zone map]
+  required_tools: [validate_skill]
+  optional_tools: [run_skill]
 ---
 # Axiom Speed-and-Separation-Monitoring Plan Review
 

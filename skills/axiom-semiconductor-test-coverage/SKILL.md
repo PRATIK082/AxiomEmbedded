@@ -1,43 +1,32 @@
 ---
 name: axiom-semiconductor-test-coverage
 title: Semiconductor Test Coverage
-description: 'Semiconductor Test Coverage workflow for generic-embedded. Use when
+description: >
+  Semiconductor Test Coverage workflow for generic-embedded. Use when
   semiconductor test coverage tasks arise in generic-embedded projects.
-
-  '
 version: 1.2.0
 author: PRATIK082
 license: Apache-2.0
-domains:
-- generic-embedded
-platforms:
-- mcu
+domains: [generic-embedded]
+platforms: [mcu]
+
 axiom:
   dotted_name: axiom.generic-embedded.semiconductor.test.coverage
   domain: generic-embedded
   maturity: experimental
+
+  related_skills: []
+
+  lifecycle: [discover, plan, implement, verify, evidence]
+  standards: []
+  artifact_types: [report, manifest]
+  mcp_tools: []
+
+  risk_level: medium
   review_required: true
   safety_critical: false
-  inputs:
-  - repository path
-  - objective
-  - constraints
-  outputs:
-  - run report
-  - run manifest
-  risk_level: medium
-  lifecycle:
-  - discover
-  - plan
-  - implement
-  - verify
-  - evidence
-  artifact_types:
-  - report
-  - manifest
-  related_skills: []
-  standards: []
-  mcp_tools: []
+  inputs: [repository path, objective, constraints]
+  outputs: [run report, run manifest]
   required_tools: []
   optional_tools: []
 ---

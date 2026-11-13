@@ -1,17 +1,16 @@
 ---
 name: axiom-robot-field-acceptance
 title: Robot Field Acceptance
-description: 'Plans on-site acceptance: installation checks, safeguarding verification,
-  production-trial criteria, and punch-list management. Use when robot field acceptance
-  tasks arise in robotics projects.'
+description: >
+  Plans on-site acceptance: installation checks, safeguarding verification,
+  production-trial criteria, and punch-list management. Use when robot field
+  acceptance tasks arise in robotics projects.
 version: 1.2.0
 author: PRATIK PATIL
 license: Apache-2.0
-domains:
-- robotics
-platforms:
-- mpu
-- soc
+domains: [robotics]
+platforms: [mpu, soc]
+
 axiom:
   dotted_name: axiom.robotics.robot.field.acceptance
   domain: robotics
@@ -19,46 +18,24 @@ axiom:
   category: verification
   maturity: experimental
   owner: axiom-embedded
-  tags:
-  - cell-integration
-  - robot
-  related_skills:
-  - axiom-robot-field-acceptance-review
-  lifecycle:
-  - requirements
-  - architecture
-  - design
-  - implementation
-  - integration
-  - verification
-  - validation
-  - release
-  standards:
-  - ISO 10218-2:2011
-  artifact_types:
-  - field-acceptance plan
-  - punch list
-  mcp_tools:
-  - run_skill
-  - validate_skill
+  tags: [cell-integration, robot]
+
+  related_skills: [axiom-robot-field-acceptance-review]
+  checklists: [checklists/review.yaml]
+  templates: [templates/robot-field-acceptance.template.yaml]
+
+  lifecycle: [requirements, architecture, design, implementation, integration, verification, validation, release]
+  standards: ["ISO 10218-2:2011"]
+  artifact_types: [field-acceptance plan, punch list]
+  mcp_tools: [run_skill, validate_skill]
+
   risk_level: high
   review_required: true
   safety_critical: false
-  checklists:
-  - checklists/review.yaml
-  templates:
-  - templates/robot-field-acceptance.template.yaml
-  inputs:
-  - acceptance protocol
-  - installation record
-  - site constraints
-  outputs:
-  - field-acceptance plan
-  - punch list
-  required_tools:
-  - validate_skill
-  optional_tools:
-  - run_skill
+  inputs: [acceptance protocol, installation record, site constraints]
+  outputs: [field-acceptance plan, punch list]
+  required_tools: [validate_skill]
+  optional_tools: [run_skill]
 ---
 # Axiom Robot Field Acceptance
 

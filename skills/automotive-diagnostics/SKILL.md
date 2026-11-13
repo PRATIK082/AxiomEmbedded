@@ -1,18 +1,16 @@
 ---
 name: automotive-diagnostics
-description: UDS/DoIP/OBD-II/J1939/XCP diagnostics, tester integration (ODX/OTX),
-  DTC/DID/routine control, security access, AUTOSAR-extract-driven UDS test/validation
-  codegen (DEXT/ARXML/ODX/CDD/XLS/YAML/JSON) with full service/subservice positive/negative
-  coverage. Use for diagnostic stacks, FBL testers, diag test-tool creation, or homologation
-  evidence. Use when automotive diagnostics tasks arise in automotive projects.
+description: >
+  UDS/DoIP/OBD-II/J1939/XCP diagnostics, tester integration (ODX/OTX),
+  DTC/DID/routine control, security access, AUTOSAR-extract-driven UDS
+  test/validation codegen (DEXT/ARXML/ODX/CDD/XLS/YAML/JSON) with full
+  service/subservice positive/negative coverage. Use for diagnostic stacks, FBL
+  testers, diag test-tool creation, or homologation evidence. Use when
+  automotive diagnostics tasks arise in automotive projects.
 version: 1.3.0
-domains:
-- automotive
-platforms:
-- mcu
-- mpu
-- autosar-classic
-- autosar-adaptive
+domains: [automotive]
+platforms: [mcu, mpu, autosar-classic, autosar-adaptive]
+
 axiom:
   dotted_name: axiom.legacy.automotive-diagnostics
   domain: automotive
@@ -20,34 +18,21 @@ axiom:
   category: legacy
   maturity: production
   owner: axiom-embedded
-  tags:
-  - legacy
-  related_skills:
-  - axiom-diagnostics-doip
-  - axiom-diagnostics-uds
-  checklists:
-  - checklists/automotive-diagnostics-checklist.md
-  inputs:
-  - repository path
-  - objective
-  - constraints
-  outputs:
-  - run report
-  - run manifest
+  tags: [legacy]
+
+  related_skills: [axiom-diagnostics-doip, axiom-diagnostics-uds]
+  checklists: [checklists/automotive-diagnostics-checklist.md]
+
+  lifecycle: [discover, plan, implement, verify, evidence]
+  standards: []
+  artifact_types: [report, manifest]
+  mcp_tools: []
+
   risk_level: medium
   review_required: true
   safety_critical: false
-  lifecycle:
-  - discover
-  - plan
-  - implement
-  - verify
-  - evidence
-  artifact_types:
-  - report
-  - manifest
-  standards: []
-  mcp_tools: []
+  inputs: [repository path, objective, constraints]
+  outputs: [run report, run manifest]
   required_tools: []
   optional_tools: []
 ---

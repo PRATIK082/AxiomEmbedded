@@ -1,17 +1,16 @@
 ---
 name: axiom-perception-test-catalog-review
 title: Perception Test Catalog Review
-description: 'Catalogs perception tests: scenarios, ground-truth method, metrics,
-  pass thresholds, and dataset traceability. Use when perception test catalog review
-  tasks arise in robotics projects.'
+description: >
+  Catalogs perception tests: scenarios, ground-truth method, metrics, pass
+  thresholds, and dataset traceability. Use when perception test catalog review
+  tasks arise in robotics projects.
 version: 1.2.0
 author: PRATIK PATIL
 license: Apache-2.0
-domains:
-- robotics
-platforms:
-- mpu
-- soc
+domains: [robotics]
+platforms: [mpu, soc]
+
 axiom:
   dotted_name: axiom.robotics.perception.test.catalog
   domain: robotics
@@ -19,46 +18,24 @@ axiom:
   category: assessment
   maturity: experimental
   owner: axiom-embedded
-  tags:
-  - ai-data
-  - perception
-  related_skills:
-  - axiom-perception-test-catalog
-  lifecycle:
-  - requirements
-  - architecture
-  - design
-  - implementation
-  - integration
-  - verification
-  - validation
-  - release
-  standards:
-  - ISO/IEC 23894:2023
-  artifact_types:
-  - perception test catalog
-  - metric-threshold table
-  mcp_tools:
-  - run_skill
-  - validate_skill
+  tags: [ai-data, perception]
+
+  related_skills: [axiom-perception-test-catalog]
+  checklists: [checklists/review.yaml]
+  templates: [templates/perception-test-catalog.template.yaml]
+
+  lifecycle: [requirements, architecture, design, implementation, integration, verification, validation, release]
+  standards: ["ISO/IEC 23894:2023"]
+  artifact_types: [perception test catalog, metric-threshold table]
+  mcp_tools: [run_skill, validate_skill]
+
   risk_level: high
   review_required: true
   safety_critical: false
-  checklists:
-  - checklists/review.yaml
-  templates:
-  - templates/perception-test-catalog.template.yaml
-  inputs:
-  - perception requirements
-  - datasets
-  - sensor spec
-  outputs:
-  - perception test catalog
-  - metric-threshold table
-  required_tools:
-  - validate_skill
-  optional_tools:
-  - run_skill
+  inputs: [perception requirements, datasets, sensor spec]
+  outputs: [perception test catalog, metric-threshold table]
+  required_tools: [validate_skill]
+  optional_tools: [run_skill]
 ---
 # Axiom Perception Test Catalog Review
 

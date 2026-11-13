@@ -1,18 +1,19 @@
 ---
 name: axiom-framework-arduino
 title: Arduino Framework Engineering
-description: 'Engineering guide for Arduino framework projects: core and library model,
-  sketch structure, pin mapping, Serial, Wire/SPI, interrupts, timers, memory constraints
-  on AVR, portability limits, build via arduino-cli, debugging, and safety/security
-  notes. Hardware-aware: board selection and pin constraints. Does not assume Arduino
-  is appropriate for all products. Use when framework arduino tasks arise in all projects.'
+description: >
+  Engineering guide for Arduino framework projects: core and library model,
+  sketch structure, pin mapping, Serial, Wire/SPI, interrupts, timers, memory
+  constraints on AVR, portability limits, build via arduino-cli, debugging, and
+  safety/security notes. Hardware-aware: board selection and pin constraints.
+  Does not assume Arduino is appropriate for all products. Use when framework
+  arduino tasks arise in all projects.
 version: 1.2.0
 author: PRATIK PATIL
 license: Apache-2.0
-domains:
-- all
-platforms:
-- mcu
+domains: [all]
+platforms: [mcu]
+
 axiom:
   dotted_name: axiom.platform.framework.arduino
   domain: platform
@@ -20,47 +21,22 @@ axiom:
   category: implementation
   maturity: experimental
   owner: axiom-embedded
-  tags:
-  - framework
-  - arduino
-  - mcu
-  related_skills:
-  - axiom-hardware-aware-checks
-  - axiom-embedded-firmware-bringup
-  lifecycle:
-  - requirements
-  - architecture
-  - design
-  - implementation
-  - integration
-  - verification
-  - validation
-  - release
+  tags: [framework, arduino, mcu]
+
+  related_skills: [axiom-hardware-aware-checks, axiom-embedded-firmware-bringup]
+
+  lifecycle: [requirements, architecture, design, implementation, integration, verification, validation, release]
   standards: []
-  artifact_types:
-  - sketch
-  - board profile
-  - build script
-  - debug notes
-  mcp_tools:
-  - run_skill
-  - validate_skill
+  artifact_types: [sketch, board profile, build script, debug notes]
+  mcp_tools: [run_skill, validate_skill]
+
   risk_level: medium
   review_required: true
   safety_critical: false
-  inputs:
-  - repository path
-  - target files
-  - objective
-  - constraints
-  - board profile
-  outputs:
-  - run report
-  - run manifest
-  required_tools:
-  - validate_skill
-  optional_tools:
-  - run_skill
+  inputs: [repository path, target files, objective, constraints, board profile]
+  outputs: [run report, run manifest]
+  required_tools: [validate_skill]
+  optional_tools: [run_skill]
 ---
 # Axiom Arduino Framework Engineering
 

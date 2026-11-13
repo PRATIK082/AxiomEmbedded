@@ -1,20 +1,16 @@
 ---
 name: axiom-vnv-plan-review
 title: V&V Plan Review
-description: 'Use when an independent review of a V&V plan and trace matrix is required.
-  Trigger phrases include "review test plan", "audit traceability matrix", and "check
-  verification coverage".
-
-  '
+description: >
+  Use when an independent review of a V&V plan and trace matrix is required.
+  Trigger phrases include "review test plan", "audit traceability matrix", and
+  "check verification coverage".
 version: 1.2.0
 author: AxiomEmbedded
 license: Apache-2.0
-domains:
-- industrial
-- robotics
-platforms:
-- mcu
-- mpu
+domains: [industrial, robotics]
+platforms: [mcu, mpu]
+
 axiom:
   dotted_name: axiom.assurance.vnv_plan_review
   domain: industrial
@@ -22,45 +18,26 @@ axiom:
   category: review
   maturity: experimental
   owner: axiom-embedded
-  tags:
-  - assurance
-  - review
-  - verification
-  related_skills:
-  - axiom-vnv-plan
-  lifecycle:
-  - verification
-  - validation
-  standards:
-  - ISO 12100:2010
-  - ISO 13849-2:2012
-  - ISO/TS 15066:2016
-  - IEC 62061:2021
-  artifact_types:
-  - review report
-  mcp_tools:
-  - run_skill
-  - validate_skill
+  tags: [assurance, review, verification]
+
+  related_skills: [axiom-vnv-plan]
+  checklists: [checklists/review-checklist.md]
+  templates: [templates/review.template.yaml]
+  scripts: [scripts/check_review.py]
+
+  lifecycle: [verification, validation]
+  standards: ["ISO 12100:2010", "ISO 13849-2:2012", "ISO/TS 15066:2016", "IEC 62061:2021"]
+  artifact_types: [review report]
+  mcp_tools: [run_skill, validate_skill]
+
   risk_level: medium
   review_required: false
   safety_critical: false
-  inputs:
-  - vnv-plan artifact
-  - safety-requirements artifact
-  outputs:
-  - review report
-  required_tools:
-  - validate_skill
-  optional_tools:
-  - run_skill
-  checklists:
-  - checklists/review-checklist.md
-  templates:
-  - templates/review.template.yaml
-  scripts:
-  - scripts/check_review.py
+  inputs: [vnv-plan artifact, safety-requirements artifact]
+  outputs: [review report]
+  required_tools: [validate_skill]
+  optional_tools: [run_skill]
 ---
-
 # Axiom V&V-Plan Review (reviewer)
 
 ## Purpose

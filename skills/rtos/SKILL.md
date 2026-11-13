@@ -1,15 +1,13 @@
 ---
 name: rtos
-description: RTOS selection, scheduling/IPC rules, MPU partitioning, WCET verification.
-  Use for FreeRTOS/Zephyr/ThreadX designs or timing analysis. Use when rtos tasks
+description: >
+  RTOS selection, scheduling/IPC rules, MPU partitioning, WCET verification. Use
+  for FreeRTOS/Zephyr/ThreadX designs or timing analysis. Use when rtos tasks
   arise in all projects.
 version: 1.3.0
-domains:
-- all
-platforms:
-- mcu
-- mpu
-- rtos
+domains: [all]
+platforms: [mcu, mpu, rtos]
+
 axiom:
   dotted_name: axiom.legacy.rtos
   domain: all
@@ -17,33 +15,21 @@ axiom:
   category: legacy
   maturity: production
   owner: axiom-embedded
-  tags:
-  - legacy
-  related_skills:
-  - axiom-rtos-architecture
-  checklists:
-  - checklists/rtos-checklist.md
-  inputs:
-  - repository path
-  - objective
-  - constraints
-  outputs:
-  - run report
-  - run manifest
+  tags: [legacy]
+
+  related_skills: [axiom-rtos-architecture]
+  checklists: [checklists/rtos-checklist.md]
+
+  lifecycle: [discover, plan, implement, verify, evidence]
+  standards: []
+  artifact_types: [report, manifest]
+  mcp_tools: []
+
   risk_level: medium
   review_required: true
   safety_critical: false
-  lifecycle:
-  - discover
-  - plan
-  - implement
-  - verify
-  - evidence
-  artifact_types:
-  - report
-  - manifest
-  standards: []
-  mcp_tools: []
+  inputs: [repository path, objective, constraints]
+  outputs: [run report, run manifest]
   required_tools: []
   optional_tools: []
 ---

@@ -1,24 +1,22 @@
 ---
 name: axiom-hardware-aware-checks
 title: Hardware-Aware Pre-Generation Checks for Firmware
-description: 'Performs pre-generation checks for firmware projects against a declared
-  hardware profile: target MCU/MPU/SoC, board, architecture, peripherals, pin assignments,
-  clock configuration, memory, OS, framework, toolchain, external components, electrical
-  constraints, interfaces, timing, and debug interfaces. Detects pin, peripheral,
-  DMA, and clock conflicts, resource exhaustion, unsupported peripherals, invalid
-  framework combinations, voltage and timing incompatibility. Never invents missing
-  hardware data; records assumptions and open questions. Produces a check report with
-  evidence. Use when hardware aware checks tasks arise in all projects.'
+description: >
+  Performs pre-generation checks for firmware projects against a declared
+  hardware profile: target MCU/MPU/SoC, board, architecture, peripherals, pin
+  assignments, clock configuration, memory, OS, framework, toolchain, external
+  components, electrical constraints, interfaces, timing, and debug interfaces.
+  Detects pin, peripheral, DMA, and clock conflicts, resource exhaustion,
+  unsupported peripherals, invalid framework combinations, voltage and timing
+  incompatibility. Never invents missing hardware data; records assumptions and
+  open questions. Produces a check report with evidence. Use when hardware aware
+  checks tasks arise in all projects.
 version: 1.2.0
 author: PRATIK PATIL
 license: Apache-2.0
-domains:
-- all
-platforms:
-- mcu
-- mpu
-- soc
-- mpsoc
+domains: [all]
+platforms: [mcu, mpu, soc, mpsoc]
+
 axiom:
   dotted_name: axiom.platform.hardware_aware_checks
   domain: platform
@@ -26,48 +24,22 @@ axiom:
   category: verification
   maturity: experimental
   owner: axiom-embedded
-  tags:
-  - hardware
-  - checks
-  - pre-generation
-  related_skills:
-  - hardware-architecture
-  - hardware-bringup
-  - axiom-embedded-firmware-bringup
-  lifecycle:
-  - requirements
-  - architecture
-  - design
-  - implementation
-  - integration
-  - verification
-  - validation
-  - release
+  tags: [hardware, checks, pre-generation]
+
+  related_skills: [hardware-architecture, hardware-bringup, axiom-embedded-firmware-bringup]
+
+  lifecycle: [requirements, architecture, design, implementation, integration, verification, validation, release]
   standards: []
-  artifact_types:
-  - hardware profile
-  - pre-generation check report
-  - assumption log
-  mcp_tools:
-  - run_skill
-  - validate_skill
+  artifact_types: [hardware profile, pre-generation check report, assumption log]
+  mcp_tools: [run_skill, validate_skill]
+
   risk_level: medium
   review_required: true
   safety_critical: false
-  inputs:
-  - repository path
-  - target files
-  - objective
-  - constraints
-  - hardware profile
-  outputs:
-  - run report
-  - run manifest
-  - check report
-  required_tools:
-  - validate_skill
-  optional_tools:
-  - run_skill
+  inputs: [repository path, target files, objective, constraints, hardware profile]
+  outputs: [run report, run manifest, check report]
+  required_tools: [validate_skill]
+  optional_tools: [run_skill]
 ---
 # Axiom Hardware-Aware Pre-Generation Checks
 
