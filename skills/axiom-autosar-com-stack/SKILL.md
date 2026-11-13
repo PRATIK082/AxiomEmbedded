@@ -1,10 +1,9 @@
 ---
 name: axiom-autosar-com-stack
 title: AUTOSAR COM Stack Review
-description: 'Reviews COM/PduR/CanIf/CanTp signal routing, PDU mapping and gateway
-  assumptions for Classic communication stacks.
-
-  '
+description: Reviews COM/PduR/CanIf/CanTp signal routing, PDU mapping and gateway
+  assumptions for Classic communication stacks. Use when autosar com stack tasks arise
+  in automotive projects.
 version: 1.2.0
 author: PRATIK PATIL
 license: Apache-2.0
@@ -56,7 +55,6 @@ axiom:
   optional_tools:
   - run_skill
 ---
-
 # Axiom AUTOSAR COM Stack Review
 
 ## Purpose

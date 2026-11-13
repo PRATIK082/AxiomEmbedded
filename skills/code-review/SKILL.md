@@ -43,8 +43,9 @@ axiom:
   - manifest
   standards: []
   mcp_tools: []
+  required_tools: []
+  optional_tools: []
 ---
-
 # Code-Review skill
 
 Human peer review that finds what automation cannot: wrong requirements,

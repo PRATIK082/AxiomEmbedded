@@ -1,11 +1,10 @@
 ---
 name: axiom-sensor-driver-integration
 title: Sensor Driver Integration
-description: 'Integrates a sensor chip over I2C, SPI, UART or 1-Wire into a layered
+description: Integrates a sensor chip over I2C, SPI, UART or 1-Wire into a layered
   device driver with register encapsulation, context structs, identification, typed
-  errors and mockable bus seams.
-
-  '
+  errors and mockable bus seams. Use when sensor driver integration tasks arise in
+  generic-embedded projects.
 version: 1.2.0
 author: PRATIK PATIL
 license: Apache-2.0
@@ -72,7 +71,6 @@ axiom:
   optional_tools:
   - run_skill
 ---
-
 # Axiom Sensor Driver Integration
 
 ## Purpose

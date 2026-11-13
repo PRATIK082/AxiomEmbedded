@@ -41,8 +41,9 @@ axiom:
   - manifest
   standards: []
   mcp_tools: []
+  required_tools: []
+  optional_tools: []
 ---
-
 # System-Test skill
 
 End-to-end verification of the integrated system against system requirements in

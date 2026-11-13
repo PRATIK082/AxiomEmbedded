@@ -2,7 +2,8 @@
 name: axiom-wireless-coexistence-plan
 title: Wireless Coexistence Plan
 description: 'Plans wireless coexistence: spectrum survey, interference budgets, channel
-  planning, and fallback behavior on link loss.'
+  planning, and fallback behavior on link loss. Use when wireless coexistence plan
+  tasks arise in industrial projects.'
 version: 1.2.0
 author: PRATIK PATIL
 license: Apache-2.0
@@ -60,7 +61,6 @@ axiom:
   optional_tools:
   - run_skill
 ---
-
 # Axiom Wireless Coexistence Plan
 
 ## Purpose

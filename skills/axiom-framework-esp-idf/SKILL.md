@@ -5,9 +5,7 @@ description: 'Engineering guide for ESP-IDF projects: component model, CMake bui
   FreeRTOS tasks, HAL and drivers, GPIO/UART/SPI/I2C, NVS, partition tables, OTA,
   logging, debugging with JTAG/OpenOCD, build/flash/monitor, memory, power management,
   and security (secure boot and flash encryption). Hardware-aware: target and pin
-  constraints.
-
-  '
+  constraints. Use when framework esp idf tasks arise in all projects.'
 version: 1.2.0
 author: PRATIK PATIL
 license: Apache-2.0
@@ -66,7 +64,6 @@ axiom:
   optional_tools:
   - run_skill
 ---
-
 # Axiom ESP-IDF Framework Engineering
 
 ## Purpose

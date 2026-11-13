@@ -41,8 +41,9 @@ axiom:
   - manifest
   standards: []
   mcp_tools: []
+  required_tools: []
+  optional_tools: []
 ---
-
 # Documentation skill
 
 Technical documentation engineers and auditors actually use: architecture

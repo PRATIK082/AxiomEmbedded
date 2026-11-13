@@ -1,10 +1,9 @@
 ---
 name: axiom-zonal-architecture
 title: Zonal Architecture Design
-description: 'Designs zonal/domain-controller partitioning, service-oriented communication,
-  compute allocation and update strategy.
-
-  '
+description: Designs zonal/domain-controller partitioning, service-oriented communication,
+  compute allocation and update strategy. Use when zonal architecture tasks arise
+  in automotive projects.
 version: 1.2.0
 author: PRATIK PATIL
 license: Apache-2.0
@@ -56,7 +55,6 @@ axiom:
   optional_tools:
   - run_skill
 ---
-
 # Axiom Zonal Architecture Design
 
 ## Purpose

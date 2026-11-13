@@ -42,8 +42,9 @@ axiom:
   - manifest
   standards: []
   mcp_tools: []
+  required_tools: []
+  optional_tools: []
 ---
-
 # Security skill
 
 Product security for connected embedded systems: threat modeling, secure boot

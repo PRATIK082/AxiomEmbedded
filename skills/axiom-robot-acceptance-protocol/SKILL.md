@@ -2,7 +2,8 @@
 name: axiom-robot-acceptance-protocol
 title: Robot Acceptance Protocol
 description: 'Defines the acceptance protocol: FAT/SAT stages, test criteria, performance
-  sampling, and sign-off evidence.'
+  sampling, and sign-off evidence. Use when robot acceptance protocol tasks arise
+  in robotics projects.'
 version: 1.2.0
 author: PRATIK PATIL
 license: Apache-2.0
@@ -60,7 +61,6 @@ axiom:
   optional_tools:
   - run_skill
 ---
-
 # Axiom Robot Acceptance Protocol
 
 ## Purpose

@@ -1,10 +1,8 @@
 ---
 name: axiom-trace-analysis
 title: Trace Analysis
-description: 'Analyzes execution traces for timing, dropped events and anomaly triage
-  with a deterministic parser script.
-
-  '
+description: Analyzes execution traces for timing, dropped events and anomaly triage
+  with a deterministic parser script. Use when trace analysis tasks arise in all projects.
 version: 1.2.0
 author: PRATIK PATIL
 license: Apache-2.0
@@ -54,7 +52,6 @@ axiom:
   optional_tools:
   - run_skill
 ---
-
 # Axiom Trace Analysis
 
 ## Purpose

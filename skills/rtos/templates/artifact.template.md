@@ -1,0 +1,13 @@
+# rtos -- artifact template
+
+## Header
+- skill: rtos
+- version: 1.3.0
+- date: <ISO8601>
+
+## Body
+<fill per skill-specific schema>
+
+## Evidence
+- checks run:
+- reviewer:

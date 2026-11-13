@@ -3,9 +3,8 @@ name: axiom-sensor-acquisition
 title: Sensor Data Acquisition
 description: 'Scope and methodology for acquiring sensor data in embedded systems:
   interface selection, sampling, conversion, timestamping, buffering and publication
-  with typed errors and evidence.
-
-  '
+  with typed errors and evidence. Use when sensor acquisition tasks arise in generic-embedded
+  projects.'
 version: 1.2.0
 author: PRATIK PATIL
 license: Apache-2.0
@@ -75,7 +74,6 @@ axiom:
   optional_tools:
   - run_skill
 ---
-
 # Axiom Sensor Data Acquisition
 
 ## Purpose

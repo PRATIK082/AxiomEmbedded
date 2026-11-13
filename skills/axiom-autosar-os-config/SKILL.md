@@ -1,10 +1,9 @@
 ---
 name: axiom-autosar-os-config
 title: AUTOSAR OS Configuration Review
-description: 'Reviews AUTOSAR OS task, alarm, schedule-table and timing-protection
-  configuration against scheduling constraints and stack assumptions.
-
-  '
+description: Reviews AUTOSAR OS task, alarm, schedule-table and timing-protection
+  configuration against scheduling constraints and stack assumptions. Use when autosar
+  os config tasks arise in automotive projects.
 version: 1.2.0
 author: PRATIK PATIL
 license: Apache-2.0
@@ -56,7 +55,6 @@ axiom:
   optional_tools:
   - run_skill
 ---
-
 # Axiom AUTOSAR OS Configuration Review
 
 ## Purpose

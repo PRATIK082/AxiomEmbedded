@@ -44,8 +44,9 @@ axiom:
   - manifest
   standards: []
   mcp_tools: []
+  required_tools: []
+  optional_tools: []
 ---
-
 # Architecture skill
 
 System and software architecture for embedded and cyber-physical systems:

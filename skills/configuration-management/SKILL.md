@@ -40,8 +40,9 @@ axiom:
   - manifest
   standards: []
   mcp_tools: []
+  required_tools: []
+  optional_tools: []
 ---
-
 # Configuration-Management skill
 
 Version control, baselines, branching, and configuration identification for

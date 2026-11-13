@@ -43,8 +43,9 @@ axiom:
   - manifest
   standards: []
   mcp_tools: []
+  required_tools: []
+  optional_tools: []
 ---
-
 # Embedded-C++ skill
 
 Idiomatic, safe C++ for embedded targets: modern subset (C++17), zero-cost

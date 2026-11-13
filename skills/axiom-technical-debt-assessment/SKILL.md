@@ -1,11 +1,10 @@
 ---
 name: axiom-technical-debt-assessment
 title: Technical Debt Assessment
-description: 'Inventories technical debt as a scored register (principal, interest,
+description: Inventories technical debt as a scored register (principal, interest,
   contagion, paydown cost), prioritizes paydown with explicit trade-offs, and produces
-  a reviewable paydown plan tied to releases.
-
-  '
+  a reviewable paydown plan tied to releases. Use when technical debt assessment tasks
+  arise in all projects.
 version: 1.2.0
 author: PRATIK PATIL
 license: Apache-2.0
@@ -62,7 +61,6 @@ axiom:
   - run_skill
   - generate_report
 ---
-
 # Axiom Technical Debt Assessment
 
 ## Purpose

@@ -3,9 +3,8 @@ name: axiom-sensor-calibration
 title: Sensor Calibration
 description: 'Plans and executes sensor calibration: offset and gain, factory and
   field procedures, two-point calibration, temperature compensation, NVM storage,
-  validation and drift tracking without fabricating constants.
-
-  '
+  validation and drift tracking without fabricating constants. Use when sensor calibration
+  tasks arise in generic-embedded projects.'
 version: 1.2.0
 author: PRATIK PATIL
 license: Apache-2.0
@@ -71,7 +70,6 @@ axiom:
   optional_tools:
   - run_skill
 ---
-
 # Axiom Sensor Calibration
 
 ## Purpose

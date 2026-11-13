@@ -50,8 +50,9 @@ axiom:
   - manifest
   standards: []
   mcp_tools: []
+  required_tools: []
+  optional_tools: []
 ---
-
 # Git skill
 
 Git hygiene and workflow for embedded and cross-domain engineering: every change

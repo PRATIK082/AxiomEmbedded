@@ -1,7 +1,7 @@
 ---
 name: codebase-analysis
 description: 'Codebase analysis: scan repo, map SWCs/BSW/RTE/signal flow/ASIL zones
-  into CODEBASE_MAP.md.'
+  into CODEBASE_MAP.md. Use when codebase analysis tasks arise in all projects.'
 version: 1.3.0
 domains:
 - all
@@ -38,8 +38,9 @@ axiom:
   related_skills: []
   standards: []
   mcp_tools: []
+  required_tools: []
+  optional_tools: []
 ---
-
 # Skill: Codebase Analysis
 
 ## Context

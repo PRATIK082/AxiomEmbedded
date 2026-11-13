@@ -2,7 +2,8 @@
 name: axiom-dataset-documentation
 title: Dataset Documentation
 description: 'Documents robotics datasets: provenance, licensing, splits, labeling
-  protocol, sensor calibration notes, and known biases.'
+  protocol, sensor calibration notes, and known biases. Use when dataset documentation
+  tasks arise in robotics projects.'
 version: 1.2.0
 author: PRATIK PATIL
 license: Apache-2.0
@@ -60,7 +61,6 @@ axiom:
   optional_tools:
   - run_skill
 ---
-
 # Axiom Dataset Documentation
 
 ## Purpose

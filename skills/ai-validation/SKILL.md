@@ -47,8 +47,9 @@ axiom:
   - manifest
   standards: []
   mcp_tools: []
+  required_tools: []
+  optional_tools: []
 ---
-
 # AI-Validation skill
 
 Assurance for ML-based components in embedded products: dataset discipline,

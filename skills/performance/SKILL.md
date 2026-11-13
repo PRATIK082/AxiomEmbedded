@@ -41,8 +41,9 @@ axiom:
   - manifest
   standards: []
   mcp_tools: []
+  required_tools: []
+  optional_tools: []
 ---
-
 # Performance skill
 
 Timing, throughput, memory, and power performance for embedded targets:

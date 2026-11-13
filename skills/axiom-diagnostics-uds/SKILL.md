@@ -1,10 +1,9 @@
 ---
 name: axiom-diagnostics-uds
 title: UDS Diagnostics Design and Validation
-description: 'Designs UDS service coverage, session/security posture and negative-response
-  matrices, and validates them with a deterministic checker script.
-
-  '
+description: Designs UDS service coverage, session/security posture and negative-response
+  matrices, and validates them with a deterministic checker script. Use when diagnostics
+  uds tasks arise in automotive projects.
 version: 1.2.0
 author: PRATIK PATIL
 license: Apache-2.0
@@ -62,7 +61,6 @@ axiom:
   optional_tools:
   - run_skill
 ---
-
 # Axiom UDS Diagnostics Design and Validation (exemplar)
 
 ## Purpose

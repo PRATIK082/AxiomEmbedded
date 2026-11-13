@@ -2,7 +2,8 @@
 name: axiom-behavior-tree-spec-review
 title: Behavior-Tree Specification Review
 description: 'Specifies behavior-tree structure for a robot task controller: node
-  types, blackboard keys, tick semantics, and failure-handling contracts.'
+  types, blackboard keys, tick semantics, and failure-handling contracts. Use when
+  behavior tree spec review tasks arise in robotics projects.'
 version: 1.2.0
 author: PRATIK PATIL
 license: Apache-2.0
@@ -58,7 +59,6 @@ axiom:
   optional_tools:
   - run_skill
 ---
-
 # Axiom Behavior-Tree Specification Review
 
 ## Purpose

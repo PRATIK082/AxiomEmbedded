@@ -1,10 +1,9 @@
 ---
 name: axiom-autosar-adaptive-deployment
 title: AUTOSAR Adaptive Deployment
-description: 'Designs Adaptive service deployment (ara::com manifests, execution/state
-  management, persistency, time sync) with a deployment checklist.
-
-  '
+description: Designs Adaptive service deployment (ara::com manifests, execution/state
+  management, persistency, time sync) with a deployment checklist. Use when autosar
+  adaptive deployment tasks arise in automotive projects.
 version: 1.2.0
 author: PRATIK PATIL
 license: Apache-2.0
@@ -56,7 +55,6 @@ axiom:
   optional_tools:
   - run_skill
 ---
-
 # Axiom AUTOSAR Adaptive Deployment
 
 ## Purpose

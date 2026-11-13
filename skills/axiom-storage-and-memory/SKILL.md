@@ -3,9 +3,8 @@ name: axiom-storage-and-memory
 title: Non-Volatile Storage and Memory Engineering
 description: 'Engineers non-volatile storage: internal flash, EEPROM/emulated EEPROM,
   external SPI NOR flash, SD cards, wear leveling, power-fail safety, atomic writes,
-  file systems (FAT/LittleFS), endurance and verification.
-
-  '
+  file systems (FAT/LittleFS), endurance and verification. Use when storage and memory
+  tasks arise in all projects.'
 version: 1.2.0
 author: PRATIK PATIL
 license: Apache-2.0
@@ -66,7 +65,6 @@ axiom:
   checklists:
   - checklists/review.yaml
 ---
-
 # Axiom Non-Volatile Storage and Memory Engineering
 
 ## Purpose

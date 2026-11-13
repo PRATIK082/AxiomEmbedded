@@ -38,8 +38,9 @@ axiom:
   related_skills: []
   standards: []
   mcp_tools: []
+  required_tools: []
+  optional_tools: []
 ---
-
 # Axiom DO-254 Hardware Design Assurance
 
 ## Purpose

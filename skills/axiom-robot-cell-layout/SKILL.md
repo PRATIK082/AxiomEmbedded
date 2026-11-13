@@ -2,7 +2,8 @@
 name: axiom-robot-cell-layout
 title: Robot Cell Layout
 description: 'Lays out the robot cell: fences, gates, light curtains, operator stations,
-  material flow, and maintenance access.'
+  material flow, and maintenance access. Use when robot cell layout tasks arise in
+  robotics projects.'
 version: 1.2.0
 author: PRATIK PATIL
 license: Apache-2.0
@@ -60,7 +61,6 @@ axiom:
   optional_tools:
   - run_skill
 ---
-
 # Axiom Robot Cell Layout
 
 ## Purpose

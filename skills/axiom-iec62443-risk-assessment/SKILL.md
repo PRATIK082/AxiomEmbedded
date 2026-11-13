@@ -2,7 +2,8 @@
 name: axiom-iec62443-risk-assessment
 title: IEC 62443 Risk Assessment
 description: 'Runs an OT cyber-risk assessment: consequence analysis, threat scenarios,
-  SL-target proposal, and mitigation mapping.'
+  SL-target proposal, and mitigation mapping. Use when iec62443 risk assessment tasks
+  arise in industrial projects.'
 version: 1.2.0
 author: PRATIK PATIL
 license: Apache-2.0
@@ -61,7 +62,6 @@ axiom:
   optional_tools:
   - run_skill
 ---
-
 # Axiom IEC 62443 Risk Assessment
 
 ## Purpose

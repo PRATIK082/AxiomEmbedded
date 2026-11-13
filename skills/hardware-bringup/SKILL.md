@@ -44,8 +44,9 @@ axiom:
   - manifest
   standards: []
   mcp_tools: []
+  required_tools: []
+  optional_tools: []
 ---
-
 # Hardware-Bringup skill
 
 First-power to working-firmware: staged board validation, clock/power/clock-tree

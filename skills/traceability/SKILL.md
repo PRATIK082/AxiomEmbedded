@@ -41,8 +41,9 @@ axiom:
   - manifest
   standards: []
   mcp_tools: []
+  required_tools: []
+  optional_tools: []
 ---
-
 # Traceability skill
 
 Bidirectional traceability from stakeholder need to verified evidence: the

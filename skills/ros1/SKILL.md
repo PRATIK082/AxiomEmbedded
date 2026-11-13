@@ -42,8 +42,9 @@ axiom:
   related_skills: []
   standards: []
   mcp_tools: []
+  required_tools: []
+  optional_tools: []
 ---
-
 # ROS1 Development Skill
 
 Production-grade ROS1 (Noetic) knowledge for AI coding assistants.

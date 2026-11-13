@@ -1,12 +1,11 @@
 ---
 name: axiom-validation-levels
 title: Validation Levels and Evidence Framework
-description: 'Distinguishes source-level, build, static analysis, host-based, simulation,
+description: Distinguishes source-level, build, static analysis, host-based, simulation,
   HIL and physical board acceptance validation; defines prerequisites, equipment,
   procedure, expected results, failure conditions, measurements, evidence format and
-  limitations for each. Never reports compile success as hardware proof.
-
-  '
+  limitations for each. Never reports compile success as hardware proof. Use when
+  validation levels tasks arise in all projects.
 version: 1.2.0
 author: PRATIK PATIL
 license: Apache-2.0
@@ -69,7 +68,6 @@ axiom:
   checklists:
   - checklists/review.yaml
 ---
-
 # Axiom Validation Levels and Evidence Framework
 
 ## Purpose

@@ -43,8 +43,9 @@ axiom:
   - manifest
   standards: []
   mcp_tools: []
+  required_tools: []
+  optional_tools: []
 ---
-
 # Rust-Embedded skill
 
 Memory-safe firmware in Rust for MCU/MPU targets: ownership-based driver

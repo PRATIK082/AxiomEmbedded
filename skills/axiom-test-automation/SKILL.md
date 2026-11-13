@@ -1,10 +1,8 @@
 ---
 name: axiom-test-automation
 title: Embedded Test Automation
-description: 'Designs unit/integration test strategy, automation hooks and coverage
-  expectations for embedded repos.
-
-  '
+description: Designs unit/integration test strategy, automation hooks and coverage
+  expectations for embedded repos. Use when test automation tasks arise in all projects.
 version: 1.3.0
 author: PRATIK PATIL
 license: Apache-2.0
@@ -55,7 +53,6 @@ axiom:
   optional_tools:
   - run_skill
 ---
-
 # Axiom Embedded Test Automation
 
 ## Purpose

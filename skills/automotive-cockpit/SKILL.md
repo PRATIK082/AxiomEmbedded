@@ -2,7 +2,8 @@
 name: automotive-cockpit
 description: Digital cockpit -- cluster/IVI/HUD, SoC plus hypervisor with QNX/AAOS/Linux,
   Qt/Kanzi HMI, audio/DSP, driver monitoring, ASIL-B cluster and cybersecurity. Use
-  for clusters, infotainment, HUD programs.
+  for clusters, infotainment, HUD programs. Use when automotive cockpit tasks arise
+  in automotive projects.
 version: 1.2.0
 domains:
 - automotive
@@ -43,8 +44,9 @@ axiom:
   - manifest
   standards: []
   mcp_tools: []
+  required_tools: []
+  optional_tools: []
 ---
-
 # automotive-cockpit -- Digital cockpit capability
 
 Reusable AxiomEmbedded capability for the digital cockpit: instrument cluster, IVI,

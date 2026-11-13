@@ -2,7 +2,7 @@
 name: automotive-body
 description: Body electronics -- BCM, lighting, doors/seats/mirrors, HVAC, PEPS/keyless,
   LIN/CAN topology, low-power modes, EOL configuration. Use for body ECUs, LIN slaves,
-  and EOL variant coding.
+  and EOL variant coding. Use when automotive body tasks arise in automotive projects.
 version: 1.2.0
 domains:
 - automotive
@@ -43,8 +43,9 @@ axiom:
   - manifest
   standards: []
   mcp_tools: []
+  required_tools: []
+  optional_tools: []
 ---
-
 # automotive-body -- Body electronics capability
 
 Reusable AxiomEmbedded capability for body-domain ECUs: BCM, exterior/interior

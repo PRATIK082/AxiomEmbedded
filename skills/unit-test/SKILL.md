@@ -41,8 +41,9 @@ axiom:
   - manifest
   standards: []
   mcp_tools: []
+  required_tools: []
+  optional_tools: []
 ---
-
 # Unit-Test skill
 
 Isolated verification of software units (functions, classes, modules) with

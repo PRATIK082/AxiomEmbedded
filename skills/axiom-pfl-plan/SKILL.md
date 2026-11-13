@@ -2,7 +2,8 @@
 name: axiom-pfl-plan
 title: Power-and-Force-Limiting Plan
 description: 'Designs the power-and-force-limiting regime: contact scenarios, force/pressure
-  thresholds, and measurement verification points.'
+  thresholds, and measurement verification points. Use when pfl plan tasks arise in
+  robotics projects.'
 version: 1.2.0
 author: PRATIK PATIL
 license: Apache-2.0
@@ -59,7 +60,6 @@ axiom:
   optional_tools:
   - run_skill
 ---
-
 # Axiom Power-and-Force-Limiting Plan
 
 ## Purpose

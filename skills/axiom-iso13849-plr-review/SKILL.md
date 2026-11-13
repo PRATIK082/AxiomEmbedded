@@ -2,7 +2,8 @@
 name: axiom-iso13849-plr-review
 title: ISO 13849 PLr Determination Review
 description: Determines the required Performance Level (PLr) per safety function and
-  allocates subsystem targets for later verification.
+  allocates subsystem targets for later verification. Use when iso13849 plr review
+  tasks arise in robotics projects.
 version: 1.2.0
 author: PRATIK PATIL
 license: Apache-2.0
@@ -59,7 +60,6 @@ axiom:
   optional_tools:
   - run_skill
 ---
-
 # Axiom ISO 13849 PLr Determination Review
 
 ## Purpose

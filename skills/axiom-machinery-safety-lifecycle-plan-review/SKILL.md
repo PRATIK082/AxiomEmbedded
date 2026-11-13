@@ -2,7 +2,8 @@
 name: axiom-machinery-safety-lifecycle-plan-review
 title: Machinery Safety Lifecycle Plan Review
 description: 'Plans the machinery safety lifecycle: milestones, review gates, and
-  evidence deliverables from concept through decommissioning.'
+  evidence deliverables from concept through decommissioning. Use when machinery safety
+  lifecycle plan review tasks arise in industrial projects.'
 version: 1.2.0
 author: PRATIK PATIL
 license: Apache-2.0
@@ -60,7 +61,6 @@ axiom:
   optional_tools:
   - run_skill
 ---
-
 # Axiom Machinery Safety Lifecycle Plan Review
 
 ## Purpose

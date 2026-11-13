@@ -2,7 +2,8 @@
 name: axiom-ssm-plan-review
 title: Speed-and-Separation-Monitoring Plan Review
 description: 'Designs speed-and-separation monitoring: protective zones, speed mapping,
-  sensor coverage claims, and stop-performance budgets.'
+  sensor coverage claims, and stop-performance budgets. Use when ssm plan review tasks
+  arise in robotics projects.'
 version: 1.2.0
 author: PRATIK PATIL
 license: Apache-2.0
@@ -60,7 +61,6 @@ axiom:
   optional_tools:
   - run_skill
 ---
-
 # Axiom Speed-and-Separation-Monitoring Plan Review
 
 ## Purpose

@@ -41,8 +41,9 @@ axiom:
   - manifest
   standards: []
   mcp_tools: []
+  required_tools: []
+  optional_tools: []
 ---
-
 # Simulation skill
 
 Modeling and simulation across the V-model: MIL/SIL/HIL progression,

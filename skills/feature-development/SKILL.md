@@ -40,8 +40,9 @@ axiom:
   - manifest
   standards: []
   mcp_tools: []
+  required_tools: []
+  optional_tools: []
 ---
-
 # Feature-Development skill
 
 End-to-end delivery of a single feature through the V-model: from requirement

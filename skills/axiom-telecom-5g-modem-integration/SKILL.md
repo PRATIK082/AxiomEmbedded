@@ -38,8 +38,9 @@ axiom:
   related_skills: []
   standards: []
   mcp_tools: []
+  required_tools: []
+  optional_tools: []
 ---
-
 # Axiom 5G Modem Integration
 
 ## Purpose

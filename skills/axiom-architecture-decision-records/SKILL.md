@@ -1,11 +1,10 @@
 ---
 name: axiom-architecture-decision-records
 title: Architecture Decision Records
-description: 'Authors and reviews Architecture Decision Records (context, options,
+description: Authors and reviews Architecture Decision Records (context, options,
   decision, consequences, compliance notes) with numbering, supersede chains, and
   review gates, so architectural choices stay traceable across the product lifecycle.
-
-  '
+  Use when architecture decision records tasks arise in all projects.
 version: 1.2.0
 author: PRATIK PATIL
 license: Apache-2.0
@@ -63,7 +62,6 @@ axiom:
   - run_skill
   - generate_report
 ---
-
 # Axiom Architecture Decision Records
 
 ## Purpose

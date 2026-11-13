@@ -1,10 +1,9 @@
 ---
 name: axiom-platform-architecture-review
 title: Platform Architecture Review
-description: 'Reviews embedded platform architecture (requirements-to-design traceability,
-  interface contracts, ADRs, tech-debt) for any domain.
-
-  '
+description: Reviews embedded platform architecture (requirements-to-design traceability,
+  interface contracts, ADRs, tech-debt) for any domain. Use when platform architecture
+  review tasks arise in all projects.
 version: 1.2.0
 author: PRATIK PATIL
 license: Apache-2.0
@@ -56,7 +55,6 @@ axiom:
   optional_tools:
   - run_skill
 ---
-
 # Axiom Platform Architecture Review
 
 ## Purpose

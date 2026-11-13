@@ -8,9 +8,7 @@ description: 'Performs pre-generation checks for firmware projects against a dec
   DMA, and clock conflicts, resource exhaustion, unsupported peripherals, invalid
   framework combinations, voltage and timing incompatibility. Never invents missing
   hardware data; records assumptions and open questions. Produces a check report with
-  evidence.
-
-  '
+  evidence. Use when hardware aware checks tasks arise in all projects.'
 version: 1.2.0
 author: PRATIK PATIL
 license: Apache-2.0
@@ -71,7 +69,6 @@ axiom:
   optional_tools:
   - run_skill
 ---
-
 # Axiom Hardware-Aware Pre-Generation Checks
 
 ## Purpose

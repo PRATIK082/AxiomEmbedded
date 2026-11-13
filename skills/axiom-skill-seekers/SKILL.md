@@ -38,8 +38,9 @@ axiom:
   related_skills: []
   standards: []
   mcp_tools: []
+  required_tools: []
+  optional_tools: []
 ---
-
 # Axiom Skill Seekers (doc to SKILL conversion)
 
 ## Purpose

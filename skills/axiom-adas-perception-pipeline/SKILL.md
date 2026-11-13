@@ -1,10 +1,9 @@
 ---
 name: axiom-adas-perception-pipeline
 title: ADAS Perception Pipeline Design
-description: 'Designs sensor-abstraction, perception interfaces and object-model contracts
-  for ADAS pipelines.
-
-  '
+description: Designs sensor-abstraction, perception interfaces and object-model contracts
+  for ADAS pipelines. Use when adas perception pipeline tasks arise in automotive
+  projects.
 version: 1.3.0
 author: PRATIK PATIL
 license: Apache-2.0
@@ -55,7 +54,6 @@ axiom:
   optional_tools:
   - run_skill
 ---
-
 # Axiom ADAS Perception Pipeline Design
 
 ## Purpose

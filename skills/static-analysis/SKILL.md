@@ -41,8 +41,9 @@ axiom:
   - manifest
   standards: []
   mcp_tools: []
+  required_tools: []
+  optional_tools: []
 ---
-
 # Static-Analysis skill
 
 Configuring, running, and dispositioning static analysis (SAST, MISRA/CERT

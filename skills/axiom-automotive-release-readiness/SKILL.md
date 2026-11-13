@@ -1,10 +1,9 @@
 ---
 name: axiom-automotive-release-readiness
 title: Automotive Release Readiness
-description: 'Gates ECU/software release readiness with evidence packaging, open-finding
-  triage and sign-off checklists.
-
-  '
+description: Gates ECU/software release readiness with evidence packaging, open-finding
+  triage and sign-off checklists. Use when automotive release readiness tasks arise
+  in automotive projects.
 version: 1.2.0
 author: PRATIK PATIL
 license: Apache-2.0
@@ -56,7 +55,6 @@ axiom:
   optional_tools:
   - run_skill
 ---
-
 # Axiom Automotive Release Readiness
 
 ## Purpose

@@ -1,11 +1,9 @@
 ---
 name: axiom-sensor-diagnostics
 title: Sensor Diagnostics
-description: 'Detects sensor faults (stuck-at, out-of-range, timeout, CRC error, communication
+description: Detects sensor faults (stuck-at, out-of-range, timeout, CRC error, communication
   loss), supports degraded mode and watchdogs, and provides fault-injection testing
-  and evidence.
-
-  '
+  and evidence. Use when sensor diagnostics tasks arise in generic-embedded projects.
 version: 1.2.0
 author: PRATIK PATIL
 license: Apache-2.0
@@ -73,7 +71,6 @@ axiom:
   optional_tools:
   - run_skill
 ---
-
 # Axiom Sensor Diagnostics
 
 ## Purpose

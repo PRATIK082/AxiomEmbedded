@@ -109,10 +109,13 @@ def validate_skill_doc(skill_id: str) -> dict:
                 warnings.append("production skill missing tests/ directory")
     else:
         warnings.append("no axiom: metadata block (legacy skill)")
-    # required sections in body
-    for section in ("## Purpose", "## Workflow", "## Acceptance"):
-        if section.lower() not in s["body"].lower():
-            warnings.append(f"body missing section {section}")
+    # required sections in body (accept heading variants like "## 1. Purpose and scope")
+    import re as _re
+    headings = _re.findall(r"^#{1,3}\s+(.+)$", s["body"], flags=_re.M)
+    heading_text = " ".join(h.lower() for h in headings)
+    for key in ("purpose", "workflow", "acceptance"):
+        if key not in heading_text:
+            warnings.append(f"body missing section containing '{key}'")
     # progressive disclosure: body <= 500 lines
     body_lines = s["body"].count("\\n") + 1
     if body_lines > 500:

@@ -1,10 +1,9 @@
 ---
 name: axiom-memory-and-performance-analysis
 title: Memory and Performance Analysis
-description: 'Analyzes memory classification, stack/heap budgets and performance hotspots
-  against project budgets.
-
-  '
+description: Analyzes memory classification, stack/heap budgets and performance hotspots
+  against project budgets. Use when memory and performance analysis tasks arise in
+  all projects.
 version: 1.2.0
 author: PRATIK PATIL
 license: Apache-2.0
@@ -54,7 +53,6 @@ axiom:
   optional_tools:
   - run_skill
 ---
-
 # Axiom Memory and Performance Analysis
 
 ## Purpose

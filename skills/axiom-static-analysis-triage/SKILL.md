@@ -3,9 +3,8 @@ name: axiom-static-analysis-triage
 title: Static Analysis Triage
 description: 'Triages static-analysis findings (MISRA, CERT, generic checkers) with
   a deterministic classifier script: buckets severity, tracks baselines and waivers,
-  and produces a reviewable triage log with gate verdicts.
-
-  '
+  and produces a reviewable triage log with gate verdicts. Use when static analysis
+  triage tasks arise in all projects.'
 version: 1.2.0
 author: PRATIK PATIL
 license: Apache-2.0
@@ -63,7 +62,6 @@ axiom:
   - run_skill
   - generate_report
 ---
-
 # Axiom Static Analysis Triage
 
 ## Purpose

@@ -2,7 +2,7 @@
 name: automotive-spice
 description: Automotive SPICE v4.0 process capability (PRM/PAM, CL0-5, VDA scope,
   N/P/L/F rating). Use for ASPICE gap analysis, traceability, work-product evidence,
-  or assessment prep.
+  or assessment prep. Use when automotive spice tasks arise in automotive projects.
 version: 1.2.0
 domains:
 - automotive
@@ -43,8 +43,9 @@ axiom:
   - manifest
   standards: []
   mcp_tools: []
+  required_tools: []
+  optional_tools: []
 ---
-
 # automotive-spice -- Automotive SPICE v4.0 process capability
 
 Reusable AxiomEmbedded capability for engineering automotive ECU / domain-controller

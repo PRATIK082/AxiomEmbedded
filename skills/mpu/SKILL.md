@@ -45,8 +45,9 @@ axiom:
   - manifest
   standards: []
   mcp_tools: []
+  required_tools: []
+  optional_tools: []
 ---
-
 # MPU skill
 
 Microprocessor-based design with MMU, OS-hosted software, and external memory:

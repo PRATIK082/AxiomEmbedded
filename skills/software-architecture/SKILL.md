@@ -41,8 +41,9 @@ axiom:
   - manifest
   standards: []
   mcp_tools: []
+  required_tools: []
+  optional_tools: []
 ---
-
 # Software-Architecture skill
 
 Software architecture for firmware and embedded applications: layered design,

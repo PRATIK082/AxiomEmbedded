@@ -1,11 +1,10 @@
 ---
 name: axiom-interface-contract-design
 title: Interface Contract Design
-description: 'Designs versioned interface contracts between software components and
+description: Designs versioned interface contracts between software components and
   subsystems (signals, services, APIs, diagnostic ports), with compatibility checks
-  and traceability from requirements to integration tests.
-
-  '
+  and traceability from requirements to integration tests. Use when interface contract
+  design tasks arise in all projects.
 version: 1.2.0
 author: PRATIK PATIL
 license: Apache-2.0
@@ -61,7 +60,6 @@ axiom:
   - run_skill
   - generate_traceability_matrix
 ---
-
 # Axiom Interface Contract Design
 
 ## Purpose

@@ -1,10 +1,9 @@
 ---
 name: axiom-v2x-communication
 title: V2X Communication Design
-description: 'Models V2X messages, latency/security considerations and simulation
-  hooks with a message test strategy.
-
-  '
+description: Models V2X messages, latency/security considerations and simulation hooks
+  with a message test strategy. Use when v2x communication tasks arise in automotive
+  projects.
 version: 1.2.0
 author: PRATIK PATIL
 license: Apache-2.0
@@ -55,7 +54,6 @@ axiom:
   optional_tools:
   - run_skill
 ---
-
 # Axiom V2X Communication Design
 
 ## Purpose

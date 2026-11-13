@@ -1,10 +1,9 @@
 ---
 name: axiom-multi-sensor-synchronization
 title: Multi-Sensor Synchronization
-description: 'Synchronizes multiple sensors across shared triggers, aligned timestamps,
+description: Synchronizes multiple sensors across shared triggers, aligned timestamps,
   clock domains and fusion timing with deterministic sampling and resource arbitration.
-
-  '
+  Use when multi sensor synchronization tasks arise in generic-embedded projects.
 version: 1.2.0
 author: PRATIK PATIL
 license: Apache-2.0
@@ -69,7 +68,6 @@ axiom:
   optional_tools:
   - run_skill
 ---
-
 # Axiom Multi-Sensor Synchronization
 
 ## Purpose

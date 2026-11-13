@@ -1,10 +1,9 @@
 ---
 name: axiom-industrial-control-review
 title: Industrial Control Review
-description: 'Reviews PLC/fieldbus/OPC-UA control designs and functional-safety touchpoints
-  for industrial controllers.
-
-  '
+description: Reviews PLC/fieldbus/OPC-UA control designs and functional-safety touchpoints
+  for industrial controllers. Use when industrial control review tasks arise in industrial
+  projects.
 version: 1.2.0
 author: PRATIK PATIL
 license: Apache-2.0
@@ -55,7 +54,6 @@ axiom:
   optional_tools:
   - run_skill
 ---
-
 # Axiom Industrial Control Review
 
 ## Purpose

@@ -42,8 +42,9 @@ axiom:
   - manifest
   standards: []
   mcp_tools: []
+  required_tools: []
+  optional_tools: []
 ---
-
 # Integration-Test skill
 
 Verification of unit interactions and HW/SW interfaces: module integration,

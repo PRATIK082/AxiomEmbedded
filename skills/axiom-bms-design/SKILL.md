@@ -1,10 +1,9 @@
 ---
 name: axiom-bms-design
 title: BMS Control Design
-description: 'Designs cell modeling assumptions, SOC/SOH method selection, contactor/precharge,
-  insulation monitoring and thermal strategy for battery systems.
-
-  '
+description: Designs cell modeling assumptions, SOC/SOH method selection, contactor/precharge,
+  insulation monitoring and thermal strategy for battery systems. Use when bms design
+  tasks arise in automotive projects.
 version: 1.2.0
 author: PRATIK PATIL
 license: Apache-2.0
@@ -55,7 +54,6 @@ axiom:
   optional_tools:
   - run_skill
 ---
-
 # Axiom BMS Control Design
 
 ## Purpose

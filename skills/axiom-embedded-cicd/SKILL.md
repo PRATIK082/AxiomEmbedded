@@ -3,9 +3,8 @@ name: axiom-embedded-cicd
 title: Embedded CI-CD Pipeline Design
 description: 'Designs deterministic CI/CD pipelines for embedded repositories: build
   matrix, static checks, unit/integration tests, artifact versioning, and evidence
-  packaging, delivered as a reviewable workflow fragment plus gate checklist.
-
-  '
+  packaging, delivered as a reviewable workflow fragment plus gate checklist. Use
+  when embedded cicd tasks arise in all projects.'
 version: 1.2.0
 author: PRATIK PATIL
 license: Apache-2.0
@@ -65,7 +64,6 @@ axiom:
   - run_skill
   - review_configuration
 ---
-
 # Axiom Embedded CI-CD Pipeline Design
 
 ## Purpose

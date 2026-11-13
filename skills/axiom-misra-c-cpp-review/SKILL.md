@@ -1,6 +1,6 @@
 ---
 name: axiom-misra-c-cpp-review
-description: Merged skill (distilled practices).
+description: "Reviews C/C++ code against MISRA C:2012/C:2023 and MISRA C++:2023 guidelines: decidable rules, required/advisory classification, deviations, and evidence packaging. Use when preparing safety-critical code for review or certification support."
 version: 1.3.0
 domains:
 - all
@@ -15,9 +15,9 @@ axiom:
   owner: axiom-embedded
   tags:
   - legacy
-  lifecycle: []
+  lifecycle: [requirements, design, implementation, verification, validation]
   standards: []
-  artifact_types: []
+  artifact_types: [test-report, evidence-pack]
   mcp_tools: []
   risk_level: medium
   review_required: []
@@ -30,8 +30,9 @@ axiom:
   - run manifest
   safety_critical: false
   related_skills: []
+  required_tools: []
+  optional_tools: []
 ---
-
 # Skill: MISRA C:2025
 
 ## Context

@@ -45,8 +45,9 @@ axiom:
   - manifest
   standards: []
   mcp_tools: []
+  required_tools: []
+  optional_tools: []
 ---
-
 # SoC skill
 
 Single-die system integration: combining processors, accelerators, memory,

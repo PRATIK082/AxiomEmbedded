@@ -2,7 +2,8 @@
 name: axiom-operator-training-matrix
 title: Operator Training Matrix
 description: Matrices roles to required training modules, refresh intervals, and competence
-  evidence for robot-cell personnel.
+  evidence for robot-cell personnel. Use when operator training matrix tasks arise
+  in industrial projects.
 version: 1.2.0
 author: PRATIK PATIL
 license: Apache-2.0
@@ -60,7 +61,6 @@ axiom:
   optional_tools:
   - run_skill
 ---
-
 # Axiom Operator Training Matrix
 
 ## Purpose

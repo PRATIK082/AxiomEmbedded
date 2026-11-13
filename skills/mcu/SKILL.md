@@ -1,7 +1,8 @@
 ---
 name: mcu
 description: MCU firmware engineering - core selection, startup, MPU/TrustZone, HAL,
-  RTOS choice. Use for bare-metal or RTOS firmware on Cortex-M/RISC-V.
+  RTOS choice. Use for bare-metal or RTOS firmware on Cortex-M/RISC-V. Use when mcu
+  tasks arise in generic-embedded projects.
 version: 1.2.0
 domains:
 - generic-embedded
@@ -47,8 +48,9 @@ axiom:
   - manifest
   standards: []
   mcp_tools: []
+  required_tools: []
+  optional_tools: []
 ---
-
 # mcu -- Microcontroller firmware capability (template skill)
 
 Reusable AxiomEmbedded capability for microcontroller selection, bring-up,

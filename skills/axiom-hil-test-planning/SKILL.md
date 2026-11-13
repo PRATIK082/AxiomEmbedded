@@ -1,10 +1,8 @@
 ---
 name: axiom-hil-test-planning
 title: HIL Test Planning
-description: 'Plans SIL/HIL campaigns including plant models, fault injection and
-  pass/fail criteria.
-
-  '
+description: Plans SIL/HIL campaigns including plant models, fault injection and pass/fail
+  criteria. Use when hil test planning tasks arise in all projects.
 version: 1.2.0
 author: PRATIK PATIL
 license: Apache-2.0
@@ -54,7 +52,6 @@ axiom:
   optional_tools:
   - run_skill
 ---
-
 # Axiom HIL Test Planning
 
 ## Purpose

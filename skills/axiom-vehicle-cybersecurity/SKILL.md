@@ -1,10 +1,9 @@
 ---
 name: axiom-vehicle-cybersecurity
 title: Vehicle Cybersecurity Workflow
-description: 'Runs a TARA-aligned cybersecurity workflow (threat model, secure boot/diag,
-  key management, IDS/OTA concepts) producing reviewable evidence.
-
-  '
+description: Runs a TARA-aligned cybersecurity workflow (threat model, secure boot/diag,
+  key management, IDS/OTA concepts) producing reviewable evidence. Use when vehicle
+  cybersecurity tasks arise in automotive projects.
 version: 1.2.0
 author: PRATIK PATIL
 license: Apache-2.0
@@ -56,7 +55,6 @@ axiom:
   optional_tools:
   - run_skill
 ---
-
 # Axiom Vehicle Cybersecurity Workflow
 
 ## Purpose

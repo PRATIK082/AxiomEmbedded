@@ -44,8 +44,9 @@ axiom:
   - manifest
   standards: []
   mcp_tools: []
+  required_tools: []
+  optional_tools: []
 ---
-
 # Robotics skill
 
 ROS 2-based robot software for embedded compute: node architecture, real-time

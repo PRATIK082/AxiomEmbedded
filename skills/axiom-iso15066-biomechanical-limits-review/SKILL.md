@@ -2,7 +2,8 @@
 name: axiom-iso15066-biomechanical-limits-review
 title: ISO/TS 15066 Biomechanical Limits Review
 description: Records applicable body-region force/pressure limits and transfers them
-  into PFL thresholds and measurement points.
+  into PFL thresholds and measurement points. Use when iso15066 biomechanical limits
+  review tasks arise in robotics projects.
 version: 1.2.0
 author: PRATIK PATIL
 license: Apache-2.0
@@ -59,7 +60,6 @@ axiom:
   optional_tools:
   - run_skill
 ---
-
 # Axiom ISO/TS 15066 Biomechanical Limits Review
 
 ## Purpose

@@ -41,8 +41,9 @@ axiom:
   - manifest
   standards: []
   mcp_tools: []
+  required_tools: []
+  optional_tools: []
 ---
-
 # Build-System skill
 
 Reproducible, hermetic, warning-free builds for firmware and embedded Linux:

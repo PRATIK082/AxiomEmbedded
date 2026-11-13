@@ -2,7 +2,8 @@
 name: automotive-cybersecurity
 description: ISO/SAE 21434 TARA, CAL-based rigor, CSMS/SUMS evidence for R155/R156.
   Use for item definition, threat analysis, security goals, secure design, verification,
-  incident response, or cybersecurity cases.
+  incident response, or cybersecurity cases. Use when automotive cybersecurity tasks
+  arise in automotive projects.
 version: 1.2.0
 domains:
 - automotive
@@ -42,8 +43,9 @@ axiom:
   - manifest
   standards: []
   mcp_tools: []
+  required_tools: []
+  optional_tools: []
 ---
-
 # Automotive Cybersecurity skill
 
 Road-vehicle cybersecurity per ISO/SAE 21434 with regulatory evidence for UNECE R155

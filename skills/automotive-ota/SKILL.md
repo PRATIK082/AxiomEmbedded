@@ -1,7 +1,8 @@
 ---
 name: automotive-ota
 description: SOTA/FOTA campaigns per UNECE R156/SUMS, A/B + delta updates, UCM, rollback,
-  backend-to-vehicle chain. Use for updateable fleets or type-approval evidence.
+  backend-to-vehicle chain. Use for updateable fleets or type-approval evidence. Use
+  when automotive ota tasks arise in automotive projects.
 version: 1.2.0
 domains:
 - automotive
@@ -45,8 +46,9 @@ axiom:
   - manifest
   standards: []
   mcp_tools: []
+  required_tools: []
+  optional_tools: []
 ---
-
 # automotive-ota -- Software update and campaign capability
 
 Reusable AxiomEmbedded capability for backend-to-vehicle software updates: Software Update

@@ -43,8 +43,9 @@ axiom:
   - manifest
   standards: []
   mcp_tools: []
+  required_tools: []
+  optional_tools: []
 ---
-
 # Bootloader skill
 
 First-stage and update-capable bootloaders for MCU/MPU targets: verified boot

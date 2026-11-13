@@ -1,10 +1,9 @@
 ---
 name: axiom-can-stack-integration
 title: CAN Stack Integration
-description: 'Integrates and checks CAN driver/CanIf/CanTp stacks including baud-rate,
-  mailbox, and error-handling configuration.
-
-  '
+description: Integrates and checks CAN driver/CanIf/CanTp stacks including baud-rate,
+  mailbox, and error-handling configuration. Use when can stack integration tasks
+  arise in automotive projects.
 version: 1.2.0
 author: PRATIK PATIL
 license: Apache-2.0
@@ -55,7 +54,6 @@ axiom:
   optional_tools:
   - run_skill
 ---
-
 # Axiom CAN Stack Integration
 
 ## Purpose

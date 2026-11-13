@@ -2,7 +2,8 @@
 name: automotive-coding
 description: MISRA C:2025 / MISRA C++:2023 / AUTOSAR C++14 enforcement, CERT C/C++
   hardening, analyzer gating and deviation control. Use for ASIL-rated C/C++ ECUs
-  requiring audit-ready coding-compliance evidence.
+  requiring audit-ready coding-compliance evidence. Use when automotive coding tasks
+  arise in automotive projects.
 version: 1.2.0
 domains:
 - automotive
@@ -46,8 +47,9 @@ axiom:
   - manifest
   standards: []
   mcp_tools: []
+  required_tools: []
+  optional_tools: []
 ---
-
 # automotive-coding -- Automotive coding-standards enforcement
 
 Enforcement-first coding compliance for safety-related automotive C/C++:

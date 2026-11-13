@@ -1,0 +1,37 @@
+{
+  "skill": "axiom-declaration-of-conformity",
+  "version": "1.2.0",
+  "scenarios": [
+    {
+      "id": "axiom-declaration-of-conformity-E01",
+      "title": "Happy path produces the primary artifact",
+      "query": "Apply axiom-declaration-of-conformity to a representative input and produce the expected deliverable.",
+      "expected_behavior": [
+        "Skill activates on the trigger description",
+        "Required inputs are collected or defaulted",
+        "Primary artifact is produced in the documented format",
+        "Acceptance criteria are evaluated"
+      ]
+    },
+    {
+      "id": "axiom-declaration-of-conformity-E02",
+      "title": "Missing required input is flagged",
+      "query": "Invoke axiom-declaration-of-conformity without a required input.",
+      "expected_behavior": [
+        "Skill reports the missing input",
+        "No partial artifact is written",
+        "Guidance is given to supply the input"
+      ]
+    },
+    {
+      "id": "axiom-declaration-of-conformity-E03",
+      "title": "Boundary / out-of-scope request is refused",
+      "query": "Ask axiom-declaration-of-conformity to perform a task outside its scope.",
+      "expected_behavior": [
+        "Skill identifies out-of-scope condition",
+        "Skill suggests the appropriate related skill if any",
+        "No unsafe action is taken"
+      ]
+    }
+  ]
+}

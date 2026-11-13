@@ -40,8 +40,9 @@ axiom:
   - manifest
   standards: []
   mcp_tools: []
+  required_tools: []
+  optional_tools: []
 ---
-
 # Change-Impact skill
 
 Systematic analysis of proposed changes before approval: what is affected,

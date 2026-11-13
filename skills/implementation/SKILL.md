@@ -40,8 +40,9 @@ axiom:
   - manifest
   standards: []
   mcp_tools: []
+  required_tools: []
+  optional_tools: []
 ---
-
 # Implementation skill
 
 Turning evaluated architecture into verified code: coding standards, construction

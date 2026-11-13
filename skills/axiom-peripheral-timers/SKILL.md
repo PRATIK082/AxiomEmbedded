@@ -4,9 +4,7 @@ title: Peripheral Timers, PWM and RTC Engineering
 description: 'Engineers MCU timers, counters, PWM, capture/compare and RTC subsystems:
   modes, prescalers, deterministic intervals, overflow handling, watchdog interaction,
   interrupt latency, calibration, and platform differences (AVR/ESP32/Zephyr), verified
-  on hardware.
-
-  '
+  on hardware. Use when peripheral timers tasks arise in all projects.'
 version: 1.2.0
 author: PRATIK PATIL
 license: Apache-2.0
@@ -66,7 +64,6 @@ axiom:
   checklists:
   - checklists/review.yaml
 ---
-
 # Axiom Peripheral Timers, PWM and RTC Engineering
 
 ## Purpose

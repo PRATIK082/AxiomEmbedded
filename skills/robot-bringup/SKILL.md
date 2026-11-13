@@ -43,8 +43,9 @@ axiom:
   related_skills: []
   standards: []
   mcp_tools: []
+  required_tools: []
+  optional_tools: []
 ---
-
 # Robot Bringup Skill
 
 Production-grade ROS2 system bringup and deployment for AI coding assistants.

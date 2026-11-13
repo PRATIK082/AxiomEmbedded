@@ -5,9 +5,7 @@ description: 'Engineering guide for Arduino framework projects: core and library
   sketch structure, pin mapping, Serial, Wire/SPI, interrupts, timers, memory constraints
   on AVR, portability limits, build via arduino-cli, debugging, and safety/security
   notes. Hardware-aware: board selection and pin constraints. Does not assume Arduino
-  is appropriate for all products.
-
-  '
+  is appropriate for all products. Use when framework arduino tasks arise in all projects.'
 version: 1.2.0
 author: PRATIK PATIL
 license: Apache-2.0
@@ -64,7 +62,6 @@ axiom:
   optional_tools:
   - run_skill
 ---
-
 # Axiom Arduino Framework Engineering
 
 ## Purpose

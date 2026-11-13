@@ -2,7 +2,8 @@
 name: axiom-operator-training-matrix-review
 title: Operator Training Matrix Review
 description: Matrices roles to required training modules, refresh intervals, and competence
-  evidence for robot-cell personnel.
+  evidence for robot-cell personnel. Use when operator training matrix review tasks
+  arise in industrial projects.
 version: 1.2.0
 author: PRATIK PATIL
 license: Apache-2.0
@@ -60,7 +61,6 @@ axiom:
   optional_tools:
   - run_skill
 ---
-
 # Axiom Operator Training Matrix Review
 
 ## Purpose

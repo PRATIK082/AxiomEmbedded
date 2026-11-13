@@ -41,8 +41,9 @@ axiom:
   - manifest
   standards: []
   mcp_tools: []
+  required_tools: []
+  optional_tools: []
 ---
-
 # Coverage skill
 
 Structural coverage measurement and closure across the V-model: what to measure

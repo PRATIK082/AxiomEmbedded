@@ -44,8 +44,9 @@ axiom:
   - manifest
   standards: []
   mcp_tools: []
+  required_tools: []
+  optional_tools: []
 ---
-
 # Fault-Injection skill
 
 Deliberate fault campaigns that prove safety mechanisms work: hardware faults

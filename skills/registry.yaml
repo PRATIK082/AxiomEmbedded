@@ -68,43 +68,15 @@ skills:
   path: skills/axiom-aerospace-defense-safety-review
   domain: aerospace
   maturity: experimental
-- name: axiom-aerospace-do178c-workflow
-  path: skills/axiom-aerospace-do178c-workflow
-  domain: aerospace
-  maturity: experimental
-- name: axiom-aerospace-do254-hardware
-  path: skills/axiom-aerospace-do254-hardware
-  domain: aerospace
-  maturity: experimental
-- name: axiom-agent-evaluation
-  path: skills/axiom-agent-evaluation
-  domain: platform
-  maturity: experimental
-- name: axiom-agent-observability
-  path: skills/axiom-agent-observability
-  domain: platform
-  maturity: experimental
-- name: axiom-agent-red-teaming
-  path: skills/axiom-agent-red-teaming
-  domain: all
-  maturity: experimental
-- name: axiom-agents-md-generator
-  path: skills/axiom-agents-md-generator
-  domain: all
-  maturity: experimental
 - name: axiom.industrial.ansi.r1506.compliance.matrix
   path: skills/axiom-ansi-r1506-compliance-matrix
   domain: industrial
   maturity: experimental
-- name: axiom.industrial.ansi.r1506.compliance.matrix
+- name: axiom.industrial.ansi.r1506.compliance.matrix.review
   path: skills/axiom-ansi-r1506-compliance-matrix-review
   domain: industrial
   maturity: experimental
-- name: axiom-api-design
-  path: skills/axiom-api-design
-  domain: all
-  maturity: experimental
-- name: axiom.legacy.axiom-architecture-decision-records
+- name: axiom.all.architecture.decision.records
   path: skills/axiom-architecture-decision-records
   domain: all
   maturity: production
@@ -144,7 +116,7 @@ skills:
   path: skills/axiom-behavior-tree-spec
   domain: robotics
   maturity: experimental
-- name: axiom.robotics.behavior.tree.spec
+- name: axiom.robotics.behavior.tree.spec.review
   path: skills/axiom-behavior-tree-spec-review
   domain: robotics
   maturity: experimental
@@ -164,39 +136,19 @@ skills:
   path: skills/axiom-can-stack-integration
   domain: automotive
   maturity: experimental
-- name: axiom-clean-ai-slop
-  path: skills/axiom-clean-ai-slop
-  domain: all
-  maturity: experimental
 - name: axiom.robotics.cobot.hand.guiding
   path: skills/axiom-cobot-hand-guiding
   domain: robotics
   maturity: experimental
-- name: axiom.robotics.cobot.hand.guiding
+- name: axiom.robotics.cobot.hand.guiding.review
   path: skills/axiom-cobot-hand-guiding-review
   domain: robotics
-  maturity: experimental
-- name: axiom-code-explainer
-  path: skills/axiom-code-explainer
-  domain: all
-  maturity: experimental
-- name: axiom-context-engineering
-  path: skills/axiom-context-engineering
-  domain: platform
-  maturity: experimental
-- name: axiom-cross-domain-traceability
-  path: skills/axiom-cross-domain-traceability
-  domain: cross-domain
-  maturity: experimental
-- name: axiom-cto-advisor
-  path: skills/axiom-cto-advisor
-  domain: all
   maturity: experimental
 - name: axiom.robotics.dataset.documentation
   path: skills/axiom-dataset-documentation
   domain: robotics
   maturity: experimental
-- name: axiom.robotics.dataset.documentation
+- name: axiom.robotics.dataset.documentation.review
   path: skills/axiom-dataset-documentation-review
   domain: robotics
   maturity: experimental
@@ -204,13 +156,9 @@ skills:
   path: skills/axiom-declaration-of-conformity
   domain: industrial
   maturity: experimental
-- name: axiom.industrial.declaration.of.conformity
+- name: axiom.industrial.declaration.of.conformity.review
   path: skills/axiom-declaration-of-conformity-review
   domain: industrial
-  maturity: experimental
-- name: axiom-diagnosing-bugs
-  path: skills/axiom-diagnosing-bugs
-  domain: all
   maturity: experimental
 - name: axiom.automotive.diagnostics.doip
   path: skills/axiom-diagnostics-doip
@@ -220,19 +168,11 @@ skills:
   path: skills/axiom-diagnostics-uds
   domain: automotive
   maturity: beta
-- name: axiom.generic-embedded.sensor.digital.filtering
+- name: axiom.generic-embedded.digital.filtering
   path: skills/axiom-digital-filtering
   domain: generic-embedded
   maturity: experimental
-- name: axiom-doc-coauthoring
-  path: skills/axiom-doc-coauthoring
-  domain: all
-  maturity: experimental
-- name: axiom-document-skills
-  path: skills/axiom-document-skills
-  domain: all
-  maturity: experimental
-- name: axiom.legacy.axiom-embedded-cicd
+- name: axiom.all.embedded.cicd
   path: skills/axiom-embedded-cicd
   domain: all
   maturity: production
@@ -240,15 +180,11 @@ skills:
   path: skills/axiom-embedded-firmware-bringup
   domain: platform
   maturity: experimental
-- name: axiom-energy-grid-interface
-  path: skills/axiom-energy-grid-interface
-  domain: industrial
-  maturity: experimental
 - name: axiom.robotics.eoat.spec
   path: skills/axiom-eoat-spec
   domain: robotics
   maturity: experimental
-- name: axiom.robotics.eoat.spec
+- name: axiom.robotics.eoat.spec.review
   path: skills/axiom-eoat-spec-review
   domain: robotics
   maturity: experimental
@@ -256,7 +192,7 @@ skills:
   path: skills/axiom-fleet-manager-architecture
   domain: robotics
   maturity: experimental
-- name: axiom.robotics.fleet.manager.architecture
+- name: axiom.robotics.fleet.manager.architecture.review
   path: skills/axiom-fleet-manager-architecture-review
   domain: robotics
   maturity: experimental
@@ -264,7 +200,7 @@ skills:
   path: skills/axiom-framework-arduino
   domain: platform
   maturity: experimental
-- name: axiom.platform.framework.esp_idf
+- name: axiom.platform.framework.esp.idf
   path: skills/axiom-framework-esp-idf
   domain: platform
   maturity: experimental
@@ -272,27 +208,19 @@ skills:
   path: skills/axiom-framework-zephyr
   domain: platform
   maturity: experimental
-- name: axiom-frontend-design
-  path: skills/axiom-frontend-design
-  domain: all
-  maturity: experimental
 - name: axiom.automotive.functional.safety
   path: skills/axiom-functional-safety
   domain: automotive
   maturity: experimental
-- name: axiom-git-commit-plan
-  path: skills/axiom-git-commit-plan
-  domain: all
-  maturity: experimental
-- name: axiom.platform.hardware_aware_checks
+- name: axiom.platform.hardware.aware.checks
   path: skills/axiom-hardware-aware-checks
   domain: platform
   maturity: experimental
-- name: axiom.assurance.hazard_risk
+- name: axiom.industrial.hazard.risk
   path: skills/axiom-hazard-risk
   domain: industrial
   maturity: experimental
-- name: axiom.assurance.hazard_risk_review
+- name: axiom.industrial.hazard.risk.review
   path: skills/axiom-hazard-risk-review
   domain: industrial
   maturity: experimental
@@ -300,19 +228,15 @@ skills:
   path: skills/axiom-hil-test-planning
   domain: platform
   maturity: experimental
-- name: axiom.platform.hmi.actuators
+- name: axiom.platform.hmi.and.actuators
   path: skills/axiom-hmi-and-actuators
-  domain: platform
-  maturity: experimental
-- name: axiom-human-in-the-loop
-  path: skills/axiom-human-in-the-loop
   domain: platform
   maturity: experimental
 - name: axiom.industrial.iec62061.sil
   path: skills/axiom-iec62061-sil
   domain: industrial
   maturity: experimental
-- name: axiom.industrial.iec62061.sil
+- name: axiom.industrial.iec62061.sil.review
   path: skills/axiom-iec62061-sil-review
   domain: industrial
   maturity: experimental
@@ -320,19 +244,15 @@ skills:
   path: skills/axiom-iec62443-risk-assessment
   domain: industrial
   maturity: experimental
-- name: axiom.industrial.iec62443.risk.assessment
+- name: axiom.industrial.iec62443.risk.assessment.review
   path: skills/axiom-iec62443-risk-assessment-review
   domain: industrial
-  maturity: experimental
-- name: axiom-improve-codebase-architecture
-  path: skills/axiom-improve-codebase-architecture
-  domain: all
   maturity: experimental
 - name: axiom.industrial.industrial.control.review
   path: skills/axiom-industrial-control-review
   domain: industrial
   maturity: experimental
-- name: axiom.legacy.axiom-interface-contract-design
+- name: axiom.all.interface.contract.design
   path: skills/axiom-interface-contract-design
   domain: all
   maturity: production
@@ -340,19 +260,15 @@ skills:
   path: skills/axiom-interlock-estop-architecture
   domain: robotics
   maturity: experimental
-- name: axiom.robotics.interlock.estop.architecture
+- name: axiom.robotics.interlock.estop.architecture.review
   path: skills/axiom-interlock-estop-architecture-review
   domain: robotics
-  maturity: experimental
-- name: axiom-iot-connectivity-stack
-  path: skills/axiom-iot-connectivity-stack
-  domain: generic-embedded
   maturity: experimental
 - name: axiom.robotics.iso10218.compliance.matrix
   path: skills/axiom-iso10218-compliance-matrix
   domain: robotics
   maturity: experimental
-- name: axiom.robotics.iso10218.compliance.matrix
+- name: axiom.robotics.iso10218.compliance.matrix.review
   path: skills/axiom-iso10218-compliance-matrix-review
   domain: robotics
   maturity: experimental
@@ -360,7 +276,7 @@ skills:
   path: skills/axiom-iso12100-risk-assessment
   domain: industrial
   maturity: experimental
-- name: axiom.industrial.iso12100.risk.assessment
+- name: axiom.industrial.iso12100.risk.assessment.review
   path: skills/axiom-iso12100-risk-assessment-review
   domain: industrial
   maturity: experimental
@@ -368,7 +284,7 @@ skills:
   path: skills/axiom-iso13849-plr
   domain: robotics
   maturity: experimental
-- name: axiom.robotics.iso13849.plr
+- name: axiom.robotics.iso13849.plr.review
   path: skills/axiom-iso13849-plr-review
   domain: robotics
   maturity: experimental
@@ -376,7 +292,7 @@ skills:
   path: skills/axiom-iso15066-biomechanical-limits
   domain: robotics
   maturity: experimental
-- name: axiom.robotics.iso15066.biomechanical.limits
+- name: axiom.robotics.iso15066.biomechanical.limits.review
   path: skills/axiom-iso15066-biomechanical-limits-review
   domain: robotics
   maturity: experimental
@@ -384,7 +300,7 @@ skills:
   path: skills/axiom-iso3691-4-risk-assessment
   domain: industrial
   maturity: experimental
-- name: axiom.industrial.iso3691.4.risk.assessment
+- name: axiom.industrial.iso3691.4.risk.assessment.review
   path: skills/axiom-iso3691-4-risk-assessment-review
   domain: industrial
   maturity: experimental
@@ -392,7 +308,7 @@ skills:
   path: skills/axiom-iso9283-performance-test
   domain: robotics
   maturity: experimental
-- name: axiom.robotics.iso9283.performance.test
+- name: axiom.robotics.iso9283.performance.test.review
   path: skills/axiom-iso9283-performance-test-review
   domain: robotics
   maturity: experimental
@@ -400,7 +316,7 @@ skills:
   path: skills/axiom-loto-procedure
   domain: industrial
   maturity: experimental
-- name: axiom.industrial.loto.procedure
+- name: axiom.industrial.loto.procedure.review
   path: skills/axiom-loto-procedure-review
   domain: industrial
   maturity: experimental
@@ -408,31 +324,19 @@ skills:
   path: skills/axiom-machinery-safety-lifecycle-plan
   domain: industrial
   maturity: experimental
-- name: axiom.industrial.machinery.safety.lifecycle.plan
+- name: axiom.industrial.machinery.safety.lifecycle.plan.review
   path: skills/axiom-machinery-safety-lifecycle-plan-review
-  domain: industrial
-  maturity: experimental
-- name: axiom-mcp-builder
-  path: skills/axiom-mcp-builder
-  domain: platform
-  maturity: experimental
-- name: axiom-mcp-security-testing
-  path: skills/axiom-mcp-security-testing
-  domain: all
-  maturity: experimental
-- name: axiom-medical-iec62304-lifecycle
-  path: skills/axiom-medical-iec62304-lifecycle
   domain: industrial
   maturity: experimental
 - name: axiom.platform.memory.and.performance.analysis
   path: skills/axiom-memory-and-performance-analysis
   domain: platform
   maturity: experimental
-- name: axiom.legacy.axiom-mil-sil-hil-testing
+- name: axiom.all.mil.sil.hil.testing
   path: skills/axiom-mil-sil-hil-testing
   domain: all
   maturity: production
-- name: axiom.legacy.axiom-misra-c-cpp-review
+- name: axiom.all.misra.c.cpp.review
   path: skills/axiom-misra-c-cpp-review
   domain: all
   maturity: production
@@ -440,15 +344,11 @@ skills:
   path: skills/axiom-model-card
   domain: robotics
   maturity: experimental
-- name: axiom.robotics.model.card
+- name: axiom.robotics.model.card.review
   path: skills/axiom-model-card-review
   domain: robotics
   maturity: experimental
-- name: axiom-multi-agent-orchestration
-  path: skills/axiom-multi-agent-orchestration
-  domain: platform
-  maturity: experimental
-- name: axiom.generic-embedded.sensor.multi.sensor.synchronization
+- name: axiom.generic-embedded.multi.sensor.synchronization
   path: skills/axiom-multi-sensor-synchronization
   domain: generic-embedded
   maturity: experimental
@@ -456,7 +356,7 @@ skills:
   path: skills/axiom-nav2-config
   domain: robotics
   maturity: experimental
-- name: axiom.robotics.nav2.config
+- name: axiom.robotics.nav2.config.review
   path: skills/axiom-nav2-config-review
   domain: robotics
   maturity: experimental
@@ -464,7 +364,7 @@ skills:
   path: skills/axiom-operating-envelope
   domain: robotics
   maturity: experimental
-- name: axiom.robotics.operating.envelope
+- name: axiom.robotics.operating.envelope.review
   path: skills/axiom-operating-envelope-review
   domain: robotics
   maturity: experimental
@@ -472,7 +372,7 @@ skills:
   path: skills/axiom-operator-training-matrix
   domain: industrial
   maturity: experimental
-- name: axiom.industrial.operator.training.matrix
+- name: axiom.industrial.operator.training.matrix.review
   path: skills/axiom-operator-training-matrix-review
   domain: industrial
   maturity: experimental
@@ -480,7 +380,7 @@ skills:
   path: skills/axiom-ot-asset-inventory
   domain: industrial
   maturity: experimental
-- name: axiom.industrial.ot.asset.inventory
+- name: axiom.industrial.ot.asset.inventory.review
   path: skills/axiom-ot-asset-inventory-review
   domain: industrial
   maturity: experimental
@@ -488,7 +388,7 @@ skills:
   path: skills/axiom-perception-test-catalog
   domain: robotics
   maturity: experimental
-- name: axiom.robotics.perception.test.catalog
+- name: axiom.robotics.perception.test.catalog.review
   path: skills/axiom-perception-test-catalog-review
   domain: robotics
   maturity: experimental
@@ -500,7 +400,7 @@ skills:
   path: skills/axiom-pfl-plan
   domain: robotics
   maturity: experimental
-- name: axiom.robotics.pfl.plan
+- name: axiom.robotics.pfl.plan.review
   path: skills/axiom-pfl-plan-review
   domain: robotics
   maturity: experimental
@@ -508,19 +408,11 @@ skills:
   path: skills/axiom-platform-architecture-review
   domain: cross-domain
   maturity: experimental
-- name: axiom-prompt-injection-defense
-  path: skills/axiom-prompt-injection-defense
-  domain: all
-  maturity: experimental
-- name: axiom-rail-en50128-safety
-  path: skills/axiom-rail-en50128-safety
-  domain: industrial
-  maturity: experimental
 - name: axiom.robotics.robot.acceptance.protocol
   path: skills/axiom-robot-acceptance-protocol
   domain: robotics
   maturity: experimental
-- name: axiom.robotics.robot.acceptance.protocol
+- name: axiom.robotics.robot.acceptance.protocol.review
   path: skills/axiom-robot-acceptance-protocol-review
   domain: robotics
   maturity: experimental
@@ -528,7 +420,7 @@ skills:
   path: skills/axiom-robot-cell-layout
   domain: robotics
   maturity: experimental
-- name: axiom.robotics.robot.cell.layout
+- name: axiom.robotics.robot.cell.layout.review
   path: skills/axiom-robot-cell-layout-review
   domain: robotics
   maturity: experimental
@@ -536,7 +428,7 @@ skills:
   path: skills/axiom-robot-cell-scope
   domain: robotics
   maturity: experimental
-- name: axiom.robotics.robot.cell.scope
+- name: axiom.robotics.robot.cell.scope.review
   path: skills/axiom-robot-cell-scope-review
   domain: robotics
   maturity: experimental
@@ -544,7 +436,7 @@ skills:
   path: skills/axiom-robot-field-acceptance
   domain: robotics
   maturity: experimental
-- name: axiom.robotics.robot.field.acceptance
+- name: axiom.robotics.robot.field.acceptance.review
   path: skills/axiom-robot-field-acceptance-review
   domain: robotics
   maturity: experimental
@@ -552,7 +444,7 @@ skills:
   path: skills/axiom-robot-hil-test-catalog
   domain: robotics
   maturity: experimental
-- name: axiom.robotics.robot.hil.test.catalog
+- name: axiom.robotics.robot.hil.test.catalog.review
   path: skills/axiom-robot-hil-test-catalog-review
   domain: robotics
   maturity: experimental
@@ -560,7 +452,7 @@ skills:
   path: skills/axiom-robot-sop
   domain: industrial
   maturity: experimental
-- name: axiom.industrial.robot.sop
+- name: axiom.industrial.robot.sop.review
   path: skills/axiom-robot-sop-review
   domain: industrial
   maturity: experimental
@@ -572,7 +464,7 @@ skills:
   path: skills/axiom-ros2-system-architecture
   domain: robotics
   maturity: experimental
-- name: axiom.robotics.ros2.system.architecture
+- name: axiom.robotics.ros2.system.architecture.review
   path: skills/axiom-ros2-system-architecture-review
   domain: robotics
   maturity: experimental
@@ -584,45 +476,29 @@ skills:
   path: skills/axiom-safety-io-matrix
   domain: robotics
   maturity: experimental
-- name: axiom.robotics.safety.io.matrix
+- name: axiom.robotics.safety.io.matrix.review
   path: skills/axiom-safety-io-matrix-review
   domain: robotics
   maturity: experimental
-- name: axiom.assurance.safety_requirements
+- name: axiom.industrial.safety.requirements
   path: skills/axiom-safety-requirements
   domain: industrial
   maturity: experimental
-- name: axiom.assurance.safety_requirements_review
+- name: axiom.industrial.safety.requirements.review
   path: skills/axiom-safety-requirements-review
   domain: industrial
   maturity: experimental
-- name: axiom.generic-embedded.sensor.sampling.timestamping
+- name: axiom.generic-embedded.sampling.timestamping
   path: skills/axiom-sampling-timestamping
   domain: generic-embedded
   maturity: experimental
-- name: axiom.assurance.scope_context
+- name: axiom.industrial.scope.context
   path: skills/axiom-scope-context
   domain: industrial
   maturity: experimental
-- name: axiom.assurance.scope_context_review
+- name: axiom.industrial.scope.context.review
   path: skills/axiom-scope-context-review
   domain: industrial
-  maturity: experimental
-- name: axiom-security-best-practices
-  path: skills/axiom-security-best-practices
-  domain: all
-  maturity: experimental
-- name: axiom-security-ownership-map
-  path: skills/axiom-security-ownership-map
-  domain: all
-  maturity: experimental
-- name: axiom-security-threat-model
-  path: skills/axiom-security-threat-model
-  domain: all
-  maturity: experimental
-- name: axiom-semiconductor-test-coverage
-  path: skills/axiom-semiconductor-test-coverage
-  domain: generic-embedded
   maturity: experimental
 - name: axiom.generic-embedded.sensor.acquisition
   path: skills/axiom-sensor-acquisition
@@ -640,46 +516,26 @@ skills:
   path: skills/axiom-sensor-driver-integration
   domain: generic-embedded
   maturity: experimental
-- name: axiom-skill-creator
-  path: skills/axiom-skill-creator
-  domain: platform
-  maturity: experimental
-- name: axiom-skill-seekers
-  path: skills/axiom-skill-seekers
-  domain: platform
-  maturity: experimental
-- name: axiom-skills-purge
-  path: skills/axiom-skills-purge
-  domain: platform
-  maturity: experimental
-- name: axiom-space-radiation-hardening
-  path: skills/axiom-space-radiation-hardening
-  domain: aerospace
-  maturity: experimental
 - name: axiom.robotics.ssm.plan
   path: skills/axiom-ssm-plan
   domain: robotics
   maturity: experimental
-- name: axiom.robotics.ssm.plan
+- name: axiom.robotics.ssm.plan.review
   path: skills/axiom-ssm-plan-review
   domain: robotics
   maturity: experimental
-- name: axiom.legacy.axiom-static-analysis-triage
+- name: axiom.all.static.analysis.triage
   path: skills/axiom-static-analysis-triage
   domain: all
   maturity: production
-- name: axiom.platform.storage.memory
+- name: axiom.platform.storage.and.memory
   path: skills/axiom-storage-and-memory
   domain: platform
   maturity: experimental
-- name: axiom.legacy.axiom-technical-debt-assessment
+- name: axiom.all.technical.debt.assessment
   path: skills/axiom-technical-debt-assessment
   domain: all
   maturity: production
-- name: axiom-telecom-5g-modem-integration
-  path: skills/axiom-telecom-5g-modem-integration
-  domain: generic-embedded
-  maturity: experimental
 - name: axiom.platform.test.automation
   path: skills/axiom-test-automation
   domain: platform
@@ -688,21 +544,17 @@ skills:
   path: skills/axiom-tf-tree-spec
   domain: robotics
   maturity: experimental
-- name: axiom.robotics.tf.tree.spec
+- name: axiom.robotics.tf.tree.spec.review
   path: skills/axiom-tf-tree-spec-review
   domain: robotics
   maturity: experimental
-- name: axiom.assurance.threat_model
+- name: axiom.industrial.threat.model
   path: skills/axiom-threat-model
   domain: industrial
   maturity: experimental
-- name: axiom.assurance.threat_model_review
+- name: axiom.industrial.threat.model.review
   path: skills/axiom-threat-model-review
   domain: industrial
-  maturity: experimental
-- name: axiom-tool-schema-design
-  path: skills/axiom-tool-schema-design
-  domain: platform
   maturity: experimental
 - name: axiom.platform.trace.analysis
   path: skills/axiom-trace-analysis
@@ -712,7 +564,7 @@ skills:
   path: skills/axiom-urdf-model-spec
   domain: robotics
   maturity: experimental
-- name: axiom.robotics.urdf.model.spec
+- name: axiom.robotics.urdf.model.spec.review
   path: skills/axiom-urdf-model-spec-review
   domain: robotics
   maturity: experimental
@@ -728,11 +580,11 @@ skills:
   path: skills/axiom-vehicle-cybersecurity
   domain: automotive
   maturity: experimental
-- name: axiom.assurance.vnv_plan
+- name: axiom.industrial.vnv.plan
   path: skills/axiom-vnv-plan
   domain: industrial
   maturity: experimental
-- name: axiom.assurance.vnv_plan_review
+- name: axiom.industrial.vnv.plan.review
   path: skills/axiom-vnv-plan-review
   domain: industrial
   maturity: experimental
@@ -740,7 +592,7 @@ skills:
   path: skills/axiom-wireless-coexistence-plan
   domain: industrial
   maturity: experimental
-- name: axiom.industrial.wireless.coexistence.plan
+- name: axiom.industrial.wireless.coexistence.plan.review
   path: skills/axiom-wireless-coexistence-plan-review
   domain: industrial
   maturity: experimental
@@ -752,7 +604,7 @@ skills:
   path: skills/axiom-zone-conduit-plan
   domain: industrial
   maturity: experimental
-- name: axiom.industrial.zone.conduit.plan
+- name: axiom.industrial.zone.conduit.plan.review
   path: skills/axiom-zone-conduit-plan-review
   domain: industrial
   maturity: experimental
@@ -948,3 +800,239 @@ skills:
   path: skills/validation
   domain: all
   maturity: production
+- name: axiom.platform.skill.creator
+  path: skills/axiom-skill-creator
+  domain: platform
+  maturity: experimental
+- name: axiom.platform.mcp.builder
+  path: skills/axiom-mcp-builder
+  domain: platform
+  maturity: experimental
+- name: axiom.platform.tool.schema.design
+  path: skills/axiom-tool-schema-design
+  domain: platform
+  maturity: experimental
+- name: axiom.platform.agent.evaluation
+  path: skills/axiom-agent-evaluation
+  domain: platform
+  maturity: experimental
+- name: axiom.platform.agent.observability
+  path: skills/axiom-agent-observability
+  domain: platform
+  maturity: experimental
+- name: axiom.platform.human.in.the.loop
+  path: skills/axiom-human-in-the-loop
+  domain: platform
+  maturity: experimental
+- name: axiom.platform.multi.agent.orchestration
+  path: skills/axiom-multi-agent-orchestration
+  domain: platform
+  maturity: experimental
+- name: axiom.all.prompt.injection.defense
+  path: skills/axiom-prompt-injection-defense
+  domain: all
+  maturity: experimental
+- name: axiom.all.agent.red.teaming
+  path: skills/axiom-agent-red-teaming
+  domain: all
+  maturity: experimental
+- name: axiom.platform.skills.purge
+  path: skills/axiom-skills-purge
+  domain: platform
+  maturity: experimental
+- name: axiom.all.diagnosing.bugs
+  path: skills/axiom-diagnosing-bugs
+  domain: all
+  maturity: experimental
+- name: axiom.all.improve.codebase.architecture
+  path: skills/axiom-improve-codebase-architecture
+  domain: all
+  maturity: experimental
+- name: axiom.all.clean.ai.slop
+  path: skills/axiom-clean-ai-slop
+  domain: all
+  maturity: experimental
+- name: axiom.all.git.commit.plan
+  path: skills/axiom-git-commit-plan
+  domain: all
+  maturity: experimental
+- name: axiom.all.code.explainer
+  path: skills/axiom-code-explainer
+  domain: all
+  maturity: experimental
+- name: axiom.all.agents.md.generator
+  path: skills/axiom-agents-md-generator
+  domain: all
+  maturity: experimental
+- name: axiom.all.api.design
+  path: skills/axiom-api-design
+  domain: all
+  maturity: experimental
+- name: axiom.all.cto.advisor
+  path: skills/axiom-cto-advisor
+  domain: all
+  maturity: experimental
+- name: axiom.all.security.best.practices
+  path: skills/axiom-security-best-practices
+  domain: all
+  maturity: experimental
+- name: axiom.all.security.threat.model
+  path: skills/axiom-security-threat-model
+  domain: all
+  maturity: experimental
+- name: axiom.all.security.ownership.map
+  path: skills/axiom-security-ownership-map
+  domain: all
+  maturity: experimental
+- name: axiom.all.mcp.security.testing
+  path: skills/axiom-mcp-security-testing
+  domain: all
+  maturity: experimental
+- name: axiom.all.doc.coauthoring
+  path: skills/axiom-doc-coauthoring
+  domain: all
+  maturity: experimental
+- name: axiom.all.document.skills
+  path: skills/axiom-document-skills
+  domain: all
+  maturity: experimental
+- name: axiom.all.frontend.design
+  path: skills/axiom-frontend-design
+  domain: all
+  maturity: experimental
+- name: axiom.platform.context.engineering
+  path: skills/axiom-context-engineering
+  domain: platform
+  maturity: experimental
+- name: axiom.platform.skill.seekers
+  path: skills/axiom-skill-seekers
+  domain: platform
+  maturity: experimental
+- name: axiom.aerospace.aerospace.do178c.workflow
+  path: skills/axiom-aerospace-do178c-workflow
+  domain: aerospace
+  maturity: experimental
+- name: axiom.aerospace.aerospace.do254.hardware
+  path: skills/axiom-aerospace-do254-hardware
+  domain: aerospace
+  maturity: experimental
+- name: axiom.aerospace.space.radiation.hardening
+  path: skills/axiom-space-radiation-hardening
+  domain: aerospace
+  maturity: experimental
+- name: axiom.industrial.medical.iec62304.lifecycle
+  path: skills/axiom-medical-iec62304-lifecycle
+  domain: industrial
+  maturity: experimental
+- name: axiom.industrial.rail.en50128.safety
+  path: skills/axiom-rail-en50128-safety
+  domain: industrial
+  maturity: experimental
+- name: axiom.industrial.energy.grid.interface
+  path: skills/axiom-energy-grid-interface
+  domain: industrial
+  maturity: experimental
+- name: axiom.generic-embedded.iot.connectivity.stack
+  path: skills/axiom-iot-connectivity-stack
+  domain: generic-embedded
+  maturity: experimental
+- name: axiom.generic-embedded.semiconductor.test.coverage
+  path: skills/axiom-semiconductor-test-coverage
+  domain: generic-embedded
+  maturity: experimental
+- name: axiom.generic-embedded.telecom.5g.modem.integration
+  path: skills/axiom-telecom-5g-modem-integration
+  domain: generic-embedded
+  maturity: experimental
+- name: axiom.cross-domain.cross.domain.traceability
+  path: skills/axiom-cross-domain-traceability
+  domain: cross-domain
+  maturity: experimental
+- name: axiom.platform.cloud.architecture
+  path: skills/axiom-cloud-architecture
+  domain: platform
+  maturity: experimental
+- name: axiom.platform.kubernetes.edge
+  path: skills/axiom-kubernetes-edge
+  domain: platform
+  maturity: experimental
+- name: axiom.platform.terraform.infra
+  path: skills/axiom-terraform-infra
+  domain: platform
+  maturity: experimental
+- name: axiom.platform.monitoring.observability
+  path: skills/axiom-monitoring-observability
+  domain: platform
+  maturity: experimental
+- name: axiom.platform.sre.reliability
+  path: skills/axiom-sre-reliability
+  domain: platform
+  maturity: experimental
+- name: axiom.all.chaos.engineering
+  path: skills/axiom-chaos-engineering
+  domain: all
+  maturity: experimental
+- name: axiom.all.cli.developer
+  path: skills/axiom-cli-developer
+  domain: all
+  maturity: experimental
+- name: axiom.generic-embedded.prompt.engineering
+  path: skills/axiom-prompt-engineering
+  domain: generic-embedded
+  maturity: experimental
+- name: axiom.generic-embedded.rag.architect
+  path: skills/axiom-rag-architect
+  domain: generic-embedded
+  maturity: experimental
+- name: axiom.generic-embedded.data.pipeline
+  path: skills/axiom-data-pipeline
+  domain: generic-embedded
+  maturity: experimental
+- name: axiom.all.database.optimization
+  path: skills/axiom-database-optimization
+  domain: all
+  maturity: experimental
+- name: axiom.all.graphql.architect
+  path: skills/axiom-graphql-architect
+  domain: all
+  maturity: experimental
+- name: axiom.all.microservices.architect
+  path: skills/axiom-microservices-architect
+  domain: all
+  maturity: experimental
+- name: axiom.all.websocket.engineer
+  path: skills/axiom-websocket-engineer
+  domain: all
+  maturity: experimental
+- name: axiom.platform.mcp.developer
+  path: skills/axiom-mcp-developer
+  domain: platform
+  maturity: experimental
+- name: axiom.all.test.master
+  path: skills/axiom-test-master
+  domain: all
+  maturity: experimental
+- name: axiom.all.playwright.e2e
+  path: skills/axiom-playwright-e2e
+  domain: all
+  maturity: experimental
+- name: axiom.all.debugging.wizard
+  path: skills/axiom-debugging-wizard
+  domain: all
+  maturity: experimental
+- name: axiom.all.legacy.modernizer
+  path: skills/axiom-legacy-modernizer
+  domain: all
+  maturity: experimental
+- name: axiom.all.secure.code.guardian
+  path: skills/axiom-secure-code-guardian
+  domain: all
+  maturity: experimental
+- name: axiom.all.security.reviewer
+  path: skills/axiom-security-reviewer
+  domain: all
+  maturity: experimental
+- name: axiom.all.skill.evolution
+  path: skills/axiom-skill-evolution
+  domain: all
+  maturity: experimental

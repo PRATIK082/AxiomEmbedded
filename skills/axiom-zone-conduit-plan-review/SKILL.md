@@ -2,7 +2,8 @@
 name: axiom-zone-conduit-plan-review
 title: Zone and Conduit Plan Review
 description: Partitions the OT network into zones and conduits with security-level
-  targets, conduit requirements, and firewall rules.
+  targets, conduit requirements, and firewall rules. Use when zone conduit plan review
+  tasks arise in industrial projects.
 version: 1.2.0
 author: PRATIK PATIL
 license: Apache-2.0
@@ -59,7 +60,6 @@ axiom:
   optional_tools:
   - run_skill
 ---
-
 # Axiom Zone and Conduit Plan Review
 
 ## Purpose

@@ -2,7 +2,8 @@
 name: axiom-tf-tree-spec-review
 title: TF Tree Specification Review
 description: 'Specifies the TF frame tree: frame ids, parentage, update rates, static
-  versus dynamic authority, and validation checks.'
+  versus dynamic authority, and validation checks. Use when tf tree spec review tasks
+  arise in robotics projects.'
 version: 1.2.0
 author: PRATIK PATIL
 license: Apache-2.0
@@ -58,7 +59,6 @@ axiom:
   optional_tools:
   - run_skill
 ---
-
 # Axiom TF Tree Specification Review
 
 ## Purpose

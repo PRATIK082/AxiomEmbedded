@@ -1,7 +1,8 @@
 ---
 name: mpsoc
 description: MPSoC NoC QoS, coherency domains, PL-as-hardware timing closure, cross-die
-  safety. Use for FPGA-SoC or multi-die platforms.
+  safety. Use for FPGA-SoC or multi-die platforms. Use when mpsoc tasks arise in generic-embedded
+  projects.
 version: 1.2.0
 domains:
 - generic-embedded
@@ -46,8 +47,9 @@ axiom:
   - manifest
   standards: []
   mcp_tools: []
+  required_tools: []
+  optional_tools: []
 ---
-
 # MPSoC skill
 
 Multi-die and large-fabric integration: coherent multi-cluster compute,

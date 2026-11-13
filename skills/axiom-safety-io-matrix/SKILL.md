@@ -2,7 +2,8 @@
 name: axiom-safety-io-matrix
 title: Safety I/O Matrix
 description: 'Maps safety inputs and outputs to controllers: test pulses, discrepancy
-  monitoring, and proof-test intervals.'
+  monitoring, and proof-test intervals. Use when safety io matrix tasks arise in robotics
+  projects.'
 version: 1.2.0
 author: PRATIK PATIL
 license: Apache-2.0
@@ -60,7 +61,6 @@ axiom:
   optional_tools:
   - run_skill
 ---
-
 # Axiom Safety I/O Matrix
 
 ## Purpose

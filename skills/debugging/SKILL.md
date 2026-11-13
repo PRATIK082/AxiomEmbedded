@@ -41,8 +41,9 @@ axiom:
   - manifest
   standards: []
   mcp_tools: []
+  required_tools: []
+  optional_tools: []
 ---
-
 # Debugging skill
 
 Systematic defect diagnosis on target hardware: reproduce, isolate, root-cause,

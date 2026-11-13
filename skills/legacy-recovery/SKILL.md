@@ -40,8 +40,9 @@ axiom:
   - manifest
   standards: []
   mcp_tools: []
+  required_tools: []
+  optional_tools: []
 ---
-
 # Legacy-Recovery skill
 
 Taming inherited firmware: characterization testing, strangler refactoring,

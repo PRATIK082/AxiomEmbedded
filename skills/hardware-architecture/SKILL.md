@@ -43,8 +43,9 @@ axiom:
   - manifest
   standards: []
   mcp_tools: []
+  required_tools: []
+  optional_tools: []
 ---
-
 # Hardware-Architecture skill
 
 Board and SoC-level hardware architecture for embedded products: requirement

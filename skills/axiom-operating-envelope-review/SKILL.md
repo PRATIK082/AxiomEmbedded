@@ -2,7 +2,8 @@
 name: axiom-operating-envelope-review
 title: Operating Envelope Definition Review
 description: 'Defines the operating envelope: spaces, modes, speed/force boundaries,
-  and permitted transitions between collaborative and automatic operation.'
+  and permitted transitions between collaborative and automatic operation. Use when
+  operating envelope review tasks arise in robotics projects.'
 version: 1.2.0
 author: PRATIK PATIL
 license: Apache-2.0
@@ -60,7 +61,6 @@ axiom:
   optional_tools:
   - run_skill
 ---
-
 # Axiom Operating Envelope Definition Review
 
 ## Purpose

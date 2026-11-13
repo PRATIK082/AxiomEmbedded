@@ -1,0 +1,13 @@
+id: axiom-mcp-developer
+version: 1.2.0
+contract_version: 1
+type: reusable-skill
+facets:
+  domains:
+  - platform
+  platforms:
+  - mcu
+  lifecycle: [discover, plan, implement, verify, evidence]
+  artifact_types: [report, manifest]
+  risk_level: medium
+  review_required: true

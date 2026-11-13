@@ -40,8 +40,9 @@ axiom:
   - manifest
   standards: []
   mcp_tools: []
+  required_tools: []
+  optional_tools: []
 ---
-
 # Validation skill
 
 Confirmation that the right system was built: stakeholder acceptance in the

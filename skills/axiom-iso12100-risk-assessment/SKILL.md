@@ -2,7 +2,8 @@
 name: axiom-iso12100-risk-assessment
 title: ISO 12100 Risk Assessment
 description: Runs hazard identification, risk estimation, and risk-reduction recording
-  for machinery per ISO 12100, with residual-risk statements.
+  for machinery per ISO 12100, with residual-risk statements. Use when iso12100 risk
+  assessment tasks arise in industrial projects.
 version: 1.2.0
 author: PRATIK PATIL
 license: Apache-2.0
@@ -60,7 +61,6 @@ axiom:
   optional_tools:
   - run_skill
 ---
-
 # Axiom ISO 12100 Risk Assessment
 
 ## Purpose

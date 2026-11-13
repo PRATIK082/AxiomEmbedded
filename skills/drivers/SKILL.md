@@ -43,8 +43,9 @@ axiom:
   - manifest
   standards: []
   mcp_tools: []
+  required_tools: []
+  optional_tools: []
 ---
-
 # Drivers skill
 
 Peripheral driver development for MCU/MPU targets: register-correct,

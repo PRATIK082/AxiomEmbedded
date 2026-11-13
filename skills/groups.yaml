@@ -141,3 +141,14 @@ groups:
     description: Skill creation, MCP, agent eval/observability, orchestration, security, context engineering.
     match_any:
       - {id_prefix: [axiom-skill, axiom-mcp, axiom-agent, axiom-human, axiom-multi-agent, axiom-prompt, axiom-tool-schema, axiom-diagnosing, axiom-improve, axiom-clean, axiom-git-commit, axiom-code-explainer, axiom-agents-md, axiom-api, axiom-cto, axiom-security, axiom-doc, axiom-document, axiom-frontend, axiom-context]}
+  cloud-edge-platform:
+    title: Cloud, edge and platform operations
+    description: Cloud architecture, Kubernetes for edge, IaC, observability, SRE for device fleets.
+    match_any:
+      - {id_prefix: [axiom-cloud-, axiom-kubernetes-, axiom-terraform-, axiom-monitoring-, axiom-sre-]}
+      - {domain: [platform]}
+  extended-quality-integration:
+    title: Extended quality, integration and recovery
+    description: Chaos engineering, CLI dev, data pipelines, APIs, testing, debugging, legacy modernization.
+    match_any:
+      - {id_prefix: [axiom-chaos-, axiom-cli-, axiom-rag-, axiom-data-, axiom-database-, axiom-graphql-, axiom-microservices-, axiom-websocket-, axiom-test-, axiom-playwright-, axiom-debugging-, axiom-legacy-, axiom-secure-]}

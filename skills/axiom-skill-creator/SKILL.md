@@ -39,8 +39,9 @@ axiom:
   related_skills: []
   standards: []
   mcp_tools: []
+  required_tools: []
+  optional_tools: []
 ---
-
 # Axiom Skill Creator (with eval loop and description optimization)
 
 ## Purpose

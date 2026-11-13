@@ -47,8 +47,9 @@ axiom:
   - manifest
   standards: []
   mcp_tools: []
+  required_tools: []
+  optional_tools: []
 ---
-
 # Embedded-Linux skill
 
 Production Linux for MPU/SoC/MPSoC targets: Yocto-built images, kernel and

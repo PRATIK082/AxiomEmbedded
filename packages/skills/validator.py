@@ -47,6 +47,52 @@ def validate_all(catalog_path: pathlib.Path | None = None) -> dict:
         if merrs:
             r["errors"] = r["errors"] + [f"manifest: {e}" for e in merrs]
             r["valid"] = False
+
+        # Production-grade structural checks
+        fm = {}
+        try:
+            fm = load_skill(sid)["frontmatter"] or {}
+        except Exception:
+            fm = {}
+        axiom = fm.get("axiom", {}) if isinstance(fm.get("axiom"), dict) else {}
+        maturity = axiom.get("maturity", "experimental")
+        strict = maturity in ("beta", "production")
+        sdir = skills_dir / sid
+        def _has(sub):
+            p = sdir / sub
+            return p.is_dir() and any(p.iterdir())
+        pg_errors = []
+        pg_warnings = []
+        if not _has("tests"):
+            (pg_errors if strict else pg_warnings).append("tests/ missing or empty")
+        if not (sdir / "scripts" / "validate.py").exists():
+            (pg_errors if strict else pg_warnings).append("scripts/validate.py missing")
+        if not _has("references"):
+            (pg_errors if strict else pg_warnings).append("references/ missing or empty")
+        if not _has("checklists"):
+            (pg_errors if strict else pg_warnings).append("checklists/ missing or empty")
+        if not _has("templates"):
+            pg_warnings.append("templates/ missing or empty")
+        desc = fm.get("description", "") or ""
+        if len(desc) < 40:
+            (pg_errors if strict else pg_warnings).append(f"description too short ({len(desc)} < 40)")
+        if len(desc) > 1024:
+            pg_warnings.append(f"description too long ({len(desc)} > 1024)")
+        low = desc.lower()
+        if low.startswith(("helps", "does ", "processes data", "utility", "tool for")):
+            pg_warnings.append("vague description opener")
+        # progressive disclosure
+        try:
+            lines = (sdir / "SKILL.md").read_text(encoding="utf-8").splitlines()
+            if len(lines) > 500:
+                pg_warnings.append(f"SKILL.md {len(lines)} lines (>500)")
+        except Exception:
+            pass
+        if pg_errors:
+            r["errors"] = r["errors"] + [f"prod-grade: {e}" for e in pg_errors]
+            r["valid"] = False
+        if pg_warnings:
+            r["warnings"] = r.get("warnings", []) + [f"prod-grade: {w}" for w in pg_warnings]
         results.append(r)
     catalog_report = None
     cp = pathlib.Path(catalog_path) if catalog_path else ROOT / "skills" / "catalog.yaml"

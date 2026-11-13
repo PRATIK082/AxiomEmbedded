@@ -1,10 +1,8 @@
 ---
 name: axiom-adas-validation
 title: ADAS Validation Planning
-description: 'Plans sensor-fusion validation, recording/replay campaigns and KPI definitions
-  for ADAS functions.
-
-  '
+description: Plans sensor-fusion validation, recording/replay campaigns and KPI definitions
+  for ADAS functions. Use when adas validation tasks arise in automotive projects.
 version: 1.2.0
 author: PRATIK PATIL
 license: Apache-2.0
@@ -56,7 +54,6 @@ axiom:
   optional_tools:
   - run_skill
 ---
-
 # Axiom ADAS Validation Planning
 
 ## Purpose

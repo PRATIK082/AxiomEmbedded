@@ -40,8 +40,9 @@ axiom:
   - manifest
   standards: []
   mcp_tools: []
+  required_tools: []
+  optional_tools: []
 ---
-
 # Project-Audit skill
 
 Independent health checks of embedded projects: process conformance, artifact

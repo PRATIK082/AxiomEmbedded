@@ -3,9 +3,8 @@ name: axiom-digital-filtering
 title: Digital Filtering for Sensor Data
 description: 'Applies digital filters to sensor data: moving average, IIR low-pass,
   FIR, median, outlier rejection and saturation, with fixed-point and latency considerations
-  and verification on known signals.
-
-  '
+  and verification on known signals. Use when digital filtering tasks arise in generic-embedded
+  projects.'
 version: 1.2.0
 author: PRATIK PATIL
 license: Apache-2.0
@@ -70,7 +69,6 @@ axiom:
   optional_tools:
   - run_skill
 ---
-
 # Axiom Digital Filtering for Sensor Data
 
 ## Purpose

@@ -1,10 +1,8 @@
 ---
 name: axiom-robotics-system-integration
 title: Robotics System Integration
-description: 'Integrates ROS 2 nodes, sensor fusion and motion-control interfaces
-  with contract checks.
-
-  '
+description: Integrates ROS 2 nodes, sensor fusion and motion-control interfaces with
+  contract checks. Use when robotics system integration tasks arise in robotics projects.
 version: 1.2.0
 author: PRATIK PATIL
 license: Apache-2.0
@@ -54,7 +52,6 @@ axiom:
   optional_tools:
   - run_skill
 ---
-
 # Axiom Robotics System Integration
 
 ## Purpose

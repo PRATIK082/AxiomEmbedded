@@ -1,7 +1,8 @@
 ---
 name: automotive-networks
 description: CAN-FD/XL, LIN, FlexRay, 100/1000BASE-T1 Ethernet + TSN, gateways, busload/timing,
-  DBC/ARXML/LDF/FIBEX. Use for topology, routing, or timing analysis.
+  DBC/ARXML/LDF/FIBEX. Use for topology, routing, or timing analysis. Use when automotive
+  networks tasks arise in automotive projects.
 version: 1.2.0
 domains:
 - automotive
@@ -46,8 +47,9 @@ axiom:
   - manifest
   standards: []
   mcp_tools: []
+  required_tools: []
+  optional_tools: []
 ---
-
 # automotive-networks -- In-vehicle networking capability
 
 Reusable AxiomEmbedded capability for selecting, describing, and verifying in-vehicle

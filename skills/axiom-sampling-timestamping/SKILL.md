@@ -1,11 +1,10 @@
 ---
 name: axiom-sampling-timestamping
 title: Sampling and Timestamping
-description: 'Selects sampling rates and timer-driven schedules, captures monotonic
+description: Selects sampling rates and timer-driven schedules, captures monotonic
   timestamps, manages jitter and ring buffers, and handles overrun for deterministic
-  embedded acquisition.
-
-  '
+  embedded acquisition. Use when sampling timestamping tasks arise in generic-embedded
+  projects.
 version: 1.2.0
 author: PRATIK PATIL
 license: Apache-2.0
@@ -70,7 +69,6 @@ axiom:
   optional_tools:
   - run_skill
 ---
-
 # Axiom Sampling and Timestamping
 
 ## Purpose

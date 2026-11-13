@@ -42,8 +42,9 @@ axiom:
   - manifest
   standards: []
   mcp_tools: []
+  required_tools: []
+  optional_tools: []
 ---
-
 # Test-Automation skill
 
 Automated testing infrastructure for embedded targets: CI pipelines, on-target

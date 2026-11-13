@@ -194,7 +194,7 @@
       ]
     },
     "safety": {
-      "description": "Functional-safety lifecycle with ASIL/SIL/DAL mapping, HARA chains, and sign-off gates. Use for safety goals, integrity levels, or safety cases.",
+      "description": "Functional-safety lifecycle with ASIL/SIL/DAL mapping, HARA chains, and sign-off gates. Use for safety goals, integrity levels, or safety cases. Use when safety tasks arise in generic-embedded projects.",
       "domains": [
         "aerospace",
         "automotive",
@@ -321,7 +321,7 @@
       ]
     },
     "autosar": {
-      "description": "Classic/Adaptive selection, layered BSW/RTE rules, SOME/IP integration. Use for AUTOSAR ECUs, ARXML, or adaptive applications.",
+      "description": "Classic/Adaptive selection, layered BSW/RTE rules, SOME/IP integration. Use for AUTOSAR ECUs, ARXML, or adaptive applications. Use when autosar tasks arise in automotive projects.",
       "domains": [
         "automotive"
       ],
@@ -377,7 +377,7 @@
       ]
     },
     "mcu": {
-      "description": "MCU firmware engineering - core selection, startup, MPU/TrustZone, HAL, RTOS choice. Use for bare-metal or RTOS firmware on Cortex-M/RISC-V.",
+      "description": "MCU firmware engineering - core selection, startup, MPU/TrustZone, HAL, RTOS choice. Use for bare-metal or RTOS firmware on Cortex-M/RISC-V. Use when mcu tasks arise in generic-embedded projects.",
       "domains": [
         "automotive",
         "generic-embedded",
@@ -419,7 +419,7 @@
       ]
     },
     "mpsoc": {
-      "description": "MPSoC NoC QoS, coherency domains, PL-as-hardware timing closure, cross-die safety. Use for FPGA-SoC or multi-die platforms.",
+      "description": "MPSoC NoC QoS, coherency domains, PL-as-hardware timing closure, cross-die safety. Use for FPGA-SoC or multi-die platforms. Use when mpsoc tasks arise in generic-embedded projects.",
       "domains": [
         "aerospace",
         "automotive",
@@ -433,7 +433,7 @@
       ]
     },
     "rtos": {
-      "description": "RTOS selection, scheduling/IPC rules, MPU partitioning, WCET verification. Use for FreeRTOS/Zephyr/ThreadX designs or timing analysis.",
+      "description": "RTOS selection, scheduling/IPC rules, MPU partitioning, WCET verification. Use for FreeRTOS/Zephyr/ThreadX designs or timing analysis. Use when rtos tasks arise in all projects.",
       "domains": [
         "all"
       ],
@@ -444,7 +444,7 @@
       ]
     },
     "bare-metal": {
-      "description": "Reset-to-main init, fault handlers, ISR discipline, super-loop and time-triggered patterns. Use for no-OS firmware or boot code.",
+      "description": "Reset-to-main init, fault handlers, ISR discipline, super-loop and time-triggered patterns. Use for no-OS firmware or boot code. Use when bare metal tasks arise in all projects.",
       "domains": [
         "all"
       ],
@@ -502,7 +502,7 @@
       ]
     },
     "adas": {
-      "description": "ADAS/AD perception-to-control pipeline, sensor fusion, SOTIF and ASIL decomposition, Euro-NCAP, data closed-loop, OpenSCENARIO/OpenDRIVE HIL. Use for L0-L4 driver assistance and automated driving.",
+      "description": "ADAS/AD perception-to-control pipeline, sensor fusion, SOTIF and ASIL decomposition, Euro-NCAP, data closed-loop, OpenSCENARIO/OpenDRIVE HIL. Use for L0-L4 driver assistance and automated driving. Use when adas tasks arise in automotive projects.",
       "domains": [
         "automotive"
       ],
@@ -514,7 +514,7 @@
       ]
     },
     "automotive-body": {
-      "description": "Body electronics -- BCM, lighting, doors/seats/mirrors, HVAC, PEPS/keyless, LIN/CAN topology, low-power modes, EOL configuration. Use for body ECUs, LIN slaves, and EOL variant coding.",
+      "description": "Body electronics -- BCM, lighting, doors/seats/mirrors, HVAC, PEPS/keyless, LIN/CAN topology, low-power modes, EOL configuration. Use for body ECUs, LIN slaves, and EOL variant coding. Use when automotive body tasks arise in automotive projects.",
       "domains": [
         "automotive"
       ],
@@ -524,7 +524,7 @@
       ]
     },
     "automotive-coding": {
-      "description": "MISRA C:2025 / MISRA C++:2023 / AUTOSAR C++14 enforcement, CERT C/C++ hardening, analyzer gating and deviation control. Use for ASIL-rated C/C++ ECUs requiring audit-ready coding-compliance evidence.",
+      "description": "MISRA C:2025 / MISRA C++:2023 / AUTOSAR C++14 enforcement, CERT C/C++ hardening, analyzer gating and deviation control. Use for ASIL-rated C/C++ ECUs requiring audit-ready coding-compliance evidence. Use when automotive coding tasks arise in automotive projects.",
       "domains": [
         "automotive"
       ],
@@ -538,7 +538,7 @@
       ]
     },
     "automotive-cockpit": {
-      "description": "Digital cockpit -- cluster/IVI/HUD, SoC plus hypervisor with QNX/AAOS/Linux, Qt/Kanzi HMI, audio/DSP, driver monitoring, ASIL-B cluster and cybersecurity. Use for clusters, infotainment, HUD programs.",
+      "description": "Digital cockpit -- cluster/IVI/HUD, SoC plus hypervisor with QNX/AAOS/Linux, Qt/Kanzi HMI, audio/DSP, driver monitoring, ASIL-B cluster and cybersecurity. Use for clusters, infotainment, HUD programs. Use when automotive cockpit tasks arise in automotive projects.",
       "domains": [
         "automotive"
       ],
@@ -549,7 +549,7 @@
       ]
     },
     "automotive-cybersecurity": {
-      "description": "ISO/SAE 21434 TARA, CAL-based rigor, CSMS/SUMS evidence for R155/R156. Use for item definition, threat analysis, security goals, secure design, verification, incident response, or cybersecurity cases.",
+      "description": "ISO/SAE 21434 TARA, CAL-based rigor, CSMS/SUMS evidence for R155/R156. Use for item definition, threat analysis, security goals, secure design, verification, incident response, or cybersecurity cases. Use when automotive cybersecurity tasks arise in automotive projects.",
       "domains": [
         "automotive"
       ],
@@ -570,7 +570,7 @@
       ]
     },
     "automotive-middleware": {
-      "description": "SDV middleware selection and integration -- ara::com, SOME/IP-SD, DDS, Zenoh, vsomeip, MQTT, TSN, zero-copy IPC, VSS/VSC. Use for service-oriented vehicle platforms, HPC/zone architectures, deterministic Ethernet.",
+      "description": "SDV middleware selection and integration -- ara::com, SOME/IP-SD, DDS, Zenoh, vsomeip, MQTT, TSN, zero-copy IPC, VSS/VSC. Use for service-oriented vehicle platforms, HPC/zone architectures, deterministic Ethernet. Use when automotive middleware tasks arise in automotive projects.",
       "domains": [
         "automotive"
       ],
@@ -582,7 +582,7 @@
       ]
     },
     "automotive-networks": {
-      "description": "CAN-FD/XL, LIN, FlexRay, 100/1000BASE-T1 Ethernet + TSN, gateways, busload/timing, DBC/ARXML/LDF/FIBEX. Use for topology, routing, or timing analysis.",
+      "description": "CAN-FD/XL, LIN, FlexRay, 100/1000BASE-T1 Ethernet + TSN, gateways, busload/timing, DBC/ARXML/LDF/FIBEX. Use for topology, routing, or timing analysis. Use when automotive networks tasks arise in automotive projects.",
       "domains": [
         "automotive"
       ],
@@ -594,7 +594,7 @@
       ]
     },
     "automotive-ota": {
-      "description": "SOTA/FOTA campaigns per UNECE R156/SUMS, A/B + delta updates, UCM, rollback, backend-to-vehicle chain. Use for updateable fleets or type-approval evidence.",
+      "description": "SOTA/FOTA campaigns per UNECE R156/SUMS, A/B + delta updates, UCM, rollback, backend-to-vehicle chain. Use for updateable fleets or type-approval evidence. Use when automotive ota tasks arise in automotive projects.",
       "domains": [
         "automotive"
       ],
@@ -606,7 +606,7 @@
       ]
     },
     "automotive-spice": {
-      "description": "Automotive SPICE v4.0 process capability (PRM/PAM, CL0-5, VDA scope, N/P/L/F rating). Use for ASPICE gap analysis, traceability, work-product evidence, or assessment prep.",
+      "description": "Automotive SPICE v4.0 process capability (PRM/PAM, CL0-5, VDA scope, N/P/L/F rating). Use for ASPICE gap analysis, traceability, work-product evidence, or assessment prep. Use when automotive spice tasks arise in automotive projects.",
       "domains": [
         "automotive"
       ],
@@ -615,7 +615,7 @@
       ]
     },
     "automotive-vcycle": {
-      "description": "End-to-end automotive V-Cycle lifecycle from stakeholder requirements to vehicle validation. Use for V-Model planning, MIL/SIL/HIL gates, ASPICE/ISO 26262 alignment, or agile-hybrid programs.",
+      "description": "End-to-end automotive V-Cycle lifecycle from stakeholder requirements to vehicle validation. Use for V-Model planning, MIL/SIL/HIL gates, ASPICE/ISO 26262 alignment, or agile-hybrid programs. Use when automotive vcycle tasks arise in automotive projects.",
       "domains": [
         "automotive"
       ],
@@ -624,7 +624,7 @@
       ]
     },
     "axiom-autosar-classic-architecture": {
-      "description": "Reviews AUTOSAR Classic platform architecture choices, layering, and release baselines for an ECU project and produces an architecture decision record with findings.\n",
+      "description": "Reviews AUTOSAR Classic platform architecture choices, layering, and release baselines for an ECU project and produces an architecture decision record with findings. Use when autosar classic architecture tasks arise in automotive projects.",
       "domains": [
         "automotive"
       ],
@@ -634,7 +634,7 @@
       ]
     },
     "axiom-autosar-classic-bsw-integration": {
-      "description": "Integrates and reviews AUTOSAR Classic BSW configuration (ARXML/BMD/RTE/OS/COM/PduR/CanIf/CanTp/Dcm/Dem/NvM/EcuM) and produces an integration report with severity-ranked findings and a validation matrix.\n",
+      "description": "Integrates and reviews AUTOSAR Classic BSW configuration (ARXML/BMD/RTE/OS/COM/PduR/CanIf/CanTp/Dcm/Dem/NvM/EcuM) and produces an integration report with severity-ranked findings and a validation matrix. Use when autosar classic bsw integration tasks arise in automotive projects.",
       "domains": [
         "automotive"
       ],
@@ -644,7 +644,7 @@
       ]
     },
     "axiom-autosar-rte-design": {
-      "description": "Designs RTE ports, interfaces, runnable entities and events for Classic software components with consistency checks and traceability.\n",
+      "description": "Designs RTE ports, interfaces, runnable entities and events for Classic software components with consistency checks and traceability. Use when autosar rte design tasks arise in automotive projects.",
       "domains": [
         "automotive"
       ],
@@ -654,7 +654,7 @@
       ]
     },
     "axiom-autosar-os-config": {
-      "description": "Reviews AUTOSAR OS task, alarm, schedule-table and timing-protection configuration against scheduling constraints and stack assumptions.\n",
+      "description": "Reviews AUTOSAR OS task, alarm, schedule-table and timing-protection configuration against scheduling constraints and stack assumptions. Use when autosar os config tasks arise in automotive projects.",
       "domains": [
         "automotive"
       ],
@@ -664,7 +664,7 @@
       ]
     },
     "axiom-autosar-com-stack": {
-      "description": "Reviews COM/PduR/CanIf/CanTp signal routing, PDU mapping and gateway assumptions for Classic communication stacks.\n",
+      "description": "Reviews COM/PduR/CanIf/CanTp signal routing, PDU mapping and gateway assumptions for Classic communication stacks. Use when autosar com stack tasks arise in automotive projects.",
       "domains": [
         "automotive"
       ],
@@ -674,7 +674,7 @@
       ]
     },
     "axiom-autosar-adaptive-deployment": {
-      "description": "Designs Adaptive service deployment (ara::com manifests, execution/state management, persistency, time sync) with a deployment checklist.\n",
+      "description": "Designs Adaptive service deployment (ara::com manifests, execution/state management, persistency, time sync) with a deployment checklist. Use when autosar adaptive deployment tasks arise in automotive projects.",
       "domains": [
         "automotive"
       ],
@@ -684,7 +684,7 @@
       ]
     },
     "axiom-can-network-design": {
-      "description": "Designs CAN/CAN-FD network topology, identifier allocation, bus-load budgets and timing assumptions from DBC-level inputs.\n",
+      "description": "Designs CAN/CAN-FD network topology, identifier allocation, bus-load budgets and timing assumptions from DBC-level inputs. Use when can network design tasks arise in automotive projects.",
       "domains": [
         "automotive"
       ],
@@ -694,7 +694,7 @@
       ]
     },
     "axiom-can-stack-integration": {
-      "description": "Integrates and checks CAN driver/CanIf/CanTp stacks including baud-rate, mailbox, and error-handling configuration.\n",
+      "description": "Integrates and checks CAN driver/CanIf/CanTp stacks including baud-rate, mailbox, and error-handling configuration. Use when can stack integration tasks arise in automotive projects.",
       "domains": [
         "automotive"
       ],
@@ -704,7 +704,7 @@
       ]
     },
     "axiom-automotive-ethernet-someip": {
-      "description": "Designs Ethernet topology, VLAN/TSN assumptions and SOME/IP service modeling for service-oriented ECUs.\n",
+      "description": "Designs Ethernet topology, VLAN/TSN assumptions and SOME/IP service modeling for service-oriented ECUs. Use when automotive ethernet someip tasks arise in automotive projects.",
       "domains": [
         "automotive"
       ],
@@ -714,7 +714,7 @@
       ]
     },
     "axiom-diagnostics-uds": {
-      "description": "Designs UDS service coverage, session/security posture and negative-response matrices, and validates them with a deterministic checker script.\n",
+      "description": "Designs UDS service coverage, session/security posture and negative-response matrices, and validates them with a deterministic checker script. Use when diagnostics uds tasks arise in automotive projects.",
       "domains": [
         "automotive"
       ],
@@ -726,7 +726,7 @@
       ]
     },
     "axiom-diagnostics-doip": {
-      "description": "Integrates DoIP discovery, routing activation and diagnostic transport for Ethernet ECUs with tester-workflow checks.\n",
+      "description": "Integrates DoIP discovery, routing activation and diagnostic transport for Ethernet ECUs with tester-workflow checks. Use when diagnostics doip tasks arise in automotive projects.",
       "domains": [
         "automotive"
       ],
@@ -736,7 +736,7 @@
       ]
     },
     "axiom-vehicle-cybersecurity": {
-      "description": "Runs a TARA-aligned cybersecurity workflow (threat model, secure boot/diag, key management, IDS/OTA concepts) producing reviewable evidence.\n",
+      "description": "Runs a TARA-aligned cybersecurity workflow (threat model, secure boot/diag, key management, IDS/OTA concepts) producing reviewable evidence. Use when vehicle cybersecurity tasks arise in automotive projects.",
       "domains": [
         "automotive"
       ],
@@ -746,7 +746,7 @@
       ]
     },
     "axiom-functional-safety": {
-      "description": "Supports HARA, safety goals, FSR/TSR derivation, FMEA/FTA templates and verification-evidence structure for safety-related work.\n",
+      "description": "Supports HARA, safety goals, FSR/TSR derivation, FMEA/FTA templates and verification-evidence structure for safety-related work. Use when functional safety tasks arise in automotive projects.",
       "domains": [
         "automotive"
       ],
@@ -756,7 +756,7 @@
       ]
     },
     "axiom-adas-perception-pipeline": {
-      "description": "Designs sensor-abstraction, perception interfaces and object-model contracts for ADAS pipelines.\n",
+      "description": "Designs sensor-abstraction, perception interfaces and object-model contracts for ADAS pipelines. Use when adas perception pipeline tasks arise in automotive projects.",
       "domains": [
         "automotive"
       ],
@@ -766,7 +766,7 @@
       ]
     },
     "axiom-adas-validation": {
-      "description": "Plans sensor-fusion validation, recording/replay campaigns and KPI definitions for ADAS functions.\n",
+      "description": "Plans sensor-fusion validation, recording/replay campaigns and KPI definitions for ADAS functions. Use when adas validation tasks arise in automotive projects.",
       "domains": [
         "automotive"
       ],
@@ -776,7 +776,7 @@
       ]
     },
     "axiom-bms-design": {
-      "description": "Designs cell modeling assumptions, SOC/SOH method selection, contactor/precharge, insulation monitoring and thermal strategy for battery systems.\n",
+      "description": "Designs cell modeling assumptions, SOC/SOH method selection, contactor/precharge, insulation monitoring and thermal strategy for battery systems. Use when bms design tasks arise in automotive projects.",
       "domains": [
         "automotive"
       ],
@@ -785,7 +785,7 @@
       ]
     },
     "axiom-bms-diagnostics": {
-      "description": "Designs BMS fault handling and HIL test campaigns covering cell, contactor, thermal and isolation faults.\n",
+      "description": "Designs BMS fault handling and HIL test campaigns covering cell, contactor, thermal and isolation faults. Use when bms diagnostics tasks arise in automotive projects.",
       "domains": [
         "automotive"
       ],
@@ -794,7 +794,7 @@
       ]
     },
     "axiom-v2x-communication": {
-      "description": "Models V2X messages, latency/security considerations and simulation hooks with a message test strategy.\n",
+      "description": "Models V2X messages, latency/security considerations and simulation hooks with a message test strategy. Use when v2x communication tasks arise in automotive projects.",
       "domains": [
         "automotive"
       ],
@@ -803,7 +803,7 @@
       ]
     },
     "axiom-zonal-architecture": {
-      "description": "Designs zonal/domain-controller partitioning, service-oriented communication, compute allocation and update strategy.\n",
+      "description": "Designs zonal/domain-controller partitioning, service-oriented communication, compute allocation and update strategy. Use when zonal architecture tasks arise in automotive projects.",
       "domains": [
         "automotive"
       ],
@@ -814,7 +814,7 @@
       ]
     },
     "axiom-automotive-release-readiness": {
-      "description": "Gates ECU/software release readiness with evidence packaging, open-finding triage and sign-off checklists.\n",
+      "description": "Gates ECU/software release readiness with evidence packaging, open-finding triage and sign-off checklists. Use when automotive release readiness tasks arise in automotive projects.",
       "domains": [
         "automotive"
       ],
@@ -824,7 +824,7 @@
       ]
     },
     "axiom-embedded-firmware-bringup": {
-      "description": "Brings up firmware on a new MCU/board (clock, memory, drivers, bootloader handoff) with a deterministic checklist.\n",
+      "description": "Brings up firmware on a new MCU/board (clock, memory, drivers, bootloader handoff) with a deterministic checklist. Use when embedded firmware bringup tasks arise in all projects.",
       "domains": [
         "all"
       ],
@@ -834,7 +834,7 @@
       ]
     },
     "axiom-rtos-architecture": {
-      "description": "Reviews RTOS task, priority, IPC and timing architecture for determinism and stack safety.\n",
+      "description": "Reviews RTOS task, priority, IPC and timing architecture for determinism and stack safety. Use when rtos architecture tasks arise in all projects.",
       "domains": [
         "all"
       ],
@@ -844,7 +844,7 @@
       ]
     },
     "axiom-trace-analysis": {
-      "description": "Analyzes execution traces for timing, dropped events and anomaly triage with a deterministic parser script.\n",
+      "description": "Analyzes execution traces for timing, dropped events and anomaly triage with a deterministic parser script. Use when trace analysis tasks arise in all projects.",
       "domains": [
         "all"
       ],
@@ -854,7 +854,7 @@
       ]
     },
     "axiom-memory-and-performance-analysis": {
-      "description": "Analyzes memory classification, stack/heap budgets and performance hotspots against project budgets.\n",
+      "description": "Analyzes memory classification, stack/heap budgets and performance hotspots against project budgets. Use when memory and performance analysis tasks arise in all projects.",
       "domains": [
         "all"
       ],
@@ -864,7 +864,7 @@
       ]
     },
     "axiom-test-automation": {
-      "description": "Designs unit/integration test strategy, automation hooks and coverage expectations for embedded repos.\n",
+      "description": "Designs unit/integration test strategy, automation hooks and coverage expectations for embedded repos. Use when test automation tasks arise in all projects.",
       "domains": [
         "all"
       ],
@@ -874,7 +874,7 @@
       ]
     },
     "axiom-hil-test-planning": {
-      "description": "Plans SIL/HIL campaigns including plant models, fault injection and pass/fail criteria.\n",
+      "description": "Plans SIL/HIL campaigns including plant models, fault injection and pass/fail criteria. Use when hil test planning tasks arise in all projects.",
       "domains": [
         "all"
       ],
@@ -884,7 +884,7 @@
       ]
     },
     "axiom-robotics-system-integration": {
-      "description": "Integrates ROS 2 nodes, sensor fusion and motion-control interfaces with contract checks.\n",
+      "description": "Integrates ROS 2 nodes, sensor fusion and motion-control interfaces with contract checks. Use when robotics system integration tasks arise in robotics projects.",
       "domains": [
         "robotics"
       ],
@@ -894,7 +894,7 @@
       ]
     },
     "axiom-industrial-control-review": {
-      "description": "Reviews PLC/fieldbus/OPC-UA control designs and functional-safety touchpoints for industrial controllers.\n",
+      "description": "Reviews PLC/fieldbus/OPC-UA control designs and functional-safety touchpoints for industrial controllers. Use when industrial control review tasks arise in industrial projects.",
       "domains": [
         "industrial"
       ],
@@ -904,7 +904,7 @@
       ]
     },
     "axiom-aerospace-defense-safety-review": {
-      "description": "Reviews safety-critical embedded designs against DO-178C/DO-254-style objectives and evidence expectations.\n",
+      "description": "Reviews safety-critical embedded designs against DO-178C/DO-254-style objectives and evidence expectations. Use when aerospace defense safety review tasks arise in aerospace projects.",
       "domains": [
         "aerospace",
         "defense"
@@ -915,7 +915,7 @@
       ]
     },
     "axiom-platform-architecture-review": {
-      "description": "Reviews embedded platform architecture (requirements-to-design traceability, interface contracts, ADRs, tech-debt) for any domain.\n",
+      "description": "Reviews embedded platform architecture (requirements-to-design traceability, interface contracts, ADRs, tech-debt) for any domain. Use when platform architecture review tasks arise in all projects.",
       "domains": [
         "all"
       ],
@@ -926,7 +926,7 @@
       ]
     },
     "axiom-architecture-decision-records": {
-      "description": "Authors and reviews Architecture Decision Records (context, options, decision, consequences, compliance notes) with numbering, supersede chains, and review gates, so architectural choices stay traceable across the product lifecycle.\n",
+      "description": "Authors and reviews Architecture Decision Records (context, options, decision, consequences, compliance notes) with numbering, supersede chains, and review gates, so architectural choices stay traceable across the product lifecycle. Use when architecture decision records tasks arise in all projects.",
       "domains": [
         "all"
       ],
@@ -936,7 +936,7 @@
       ]
     },
     "axiom-embedded-cicd": {
-      "description": "Designs deterministic CI/CD pipelines for embedded repositories: build matrix, static checks, unit/integration tests, artifact versioning, and evidence packaging, delivered as a reviewable workflow fragment plus gate checklist.\n",
+      "description": "Designs deterministic CI/CD pipelines for embedded repositories: build matrix, static checks, unit/integration tests, artifact versioning, and evidence packaging, delivered as a reviewable workflow fragment plus gate checklist. Use when embedded cicd tasks arise in all projects.",
       "domains": [
         "all"
       ],
@@ -946,7 +946,7 @@
       ]
     },
     "axiom-interface-contract-design": {
-      "description": "Designs versioned interface contracts between software components and subsystems (signals, services, APIs, diagnostic ports), with compatibility checks and traceability from requirements to integration tests.\n",
+      "description": "Designs versioned interface contracts between software components and subsystems (signals, services, APIs, diagnostic ports), with compatibility checks and traceability from requirements to integration tests. Use when interface contract design tasks arise in all projects.",
       "domains": [
         "all"
       ],
@@ -956,7 +956,7 @@
       ]
     },
     "axiom-static-analysis-triage": {
-      "description": "Triages static-analysis findings (MISRA, CERT, generic checkers) with a deterministic classifier script: buckets severity, tracks baselines and waivers, and produces a reviewable triage log with gate verdicts.\n",
+      "description": "Triages static-analysis findings (MISRA, CERT, generic checkers) with a deterministic classifier script: buckets severity, tracks baselines and waivers, and produces a reviewable triage log with gate verdicts. Use when static analysis triage tasks arise in all projects.",
       "domains": [
         "all"
       ],
@@ -966,7 +966,7 @@
       ]
     },
     "axiom-technical-debt-assessment": {
-      "description": "Inventories technical debt as a scored register (principal, interest, contagion, paydown cost), prioritizes paydown with explicit trade-offs, and produces a reviewable paydown plan tied to releases.\n",
+      "description": "Inventories technical debt as a scored register (principal, interest, contagion, paydown cost), prioritizes paydown with explicit trade-offs, and produces a reviewable paydown plan tied to releases. Use when technical debt assessment tasks arise in all projects.",
       "domains": [
         "all"
       ],
@@ -1086,7 +1086,7 @@
       ]
     },
     "axiom-ansi-r1506-compliance-matrix": {
-      "description": "Builds a clause-by-claim compliance matrix for ANSI/RIA R15.06 robot-system safety, aligned to ISO 10218, with an evidence pointer per claim.",
+      "description": "Builds a clause-by-claim compliance matrix for ANSI/RIA R15.06 robot-system safety, aligned to ISO 10218, with an evidence pointer per claim. Use when ansi r1506 compliance matrix tasks arise in industrial projects.",
       "domains": [
         "industrial"
       ],
@@ -1096,7 +1096,7 @@
       ]
     },
     "axiom-ansi-r1506-compliance-matrix-review": {
-      "description": "Builds a clause-by-claim compliance matrix for ANSI/RIA R15.06 robot-system safety, aligned to ISO 10218, with an evidence pointer per claim.",
+      "description": "Builds a clause-by-claim compliance matrix for ANSI/RIA R15.06 robot-system safety, aligned to ISO 10218, with an evidence pointer per claim. Use when ansi r1506 compliance matrix review tasks arise in industrial projects.",
       "domains": [
         "industrial"
       ],
@@ -1106,7 +1106,7 @@
       ]
     },
     "axiom-behavior-tree-spec": {
-      "description": "Specifies behavior-tree structure for a robot task controller: node types, blackboard keys, tick semantics, and failure-handling contracts.",
+      "description": "Specifies behavior-tree structure for a robot task controller: node types, blackboard keys, tick semantics, and failure-handling contracts. Use when behavior tree spec tasks arise in robotics projects.",
       "domains": [
         "robotics"
       ],
@@ -1116,7 +1116,7 @@
       ]
     },
     "axiom-behavior-tree-spec-review": {
-      "description": "Specifies behavior-tree structure for a robot task controller: node types, blackboard keys, tick semantics, and failure-handling contracts.",
+      "description": "Specifies behavior-tree structure for a robot task controller: node types, blackboard keys, tick semantics, and failure-handling contracts. Use when behavior tree spec review tasks arise in robotics projects.",
       "domains": [
         "robotics"
       ],
@@ -1126,7 +1126,7 @@
       ]
     },
     "axiom-cobot-hand-guiding": {
-      "description": "Designs hand-guiding collaborative operation: enabling-device logic, reduced-speed limits, mode transitions, and stop behavior.",
+      "description": "Designs hand-guiding collaborative operation: enabling-device logic, reduced-speed limits, mode transitions, and stop behavior. Use when cobot hand guiding tasks arise in robotics projects.",
       "domains": [
         "robotics"
       ],
@@ -1136,7 +1136,7 @@
       ]
     },
     "axiom-cobot-hand-guiding-review": {
-      "description": "Designs hand-guiding collaborative operation: enabling-device logic, reduced-speed limits, mode transitions, and stop behavior.",
+      "description": "Designs hand-guiding collaborative operation: enabling-device logic, reduced-speed limits, mode transitions, and stop behavior. Use when cobot hand guiding review tasks arise in robotics projects.",
       "domains": [
         "robotics"
       ],
@@ -1146,7 +1146,7 @@
       ]
     },
     "axiom-dataset-documentation": {
-      "description": "Documents robotics datasets: provenance, licensing, splits, labeling protocol, sensor calibration notes, and known biases.",
+      "description": "Documents robotics datasets: provenance, licensing, splits, labeling protocol, sensor calibration notes, and known biases. Use when dataset documentation tasks arise in robotics projects.",
       "domains": [
         "robotics"
       ],
@@ -1156,7 +1156,7 @@
       ]
     },
     "axiom-dataset-documentation-review": {
-      "description": "Documents robotics datasets: provenance, licensing, splits, labeling protocol, sensor calibration notes, and known biases.",
+      "description": "Documents robotics datasets: provenance, licensing, splits, labeling protocol, sensor calibration notes, and known biases. Use when dataset documentation review tasks arise in robotics projects.",
       "domains": [
         "robotics"
       ],
@@ -1166,7 +1166,7 @@
       ]
     },
     "axiom-declaration-of-conformity": {
-      "description": "Assembles the declaration-of-conformity evidence pack: applicable legislation, standards applied, responsible person, and artifact pointers.",
+      "description": "Assembles the declaration-of-conformity evidence pack: applicable legislation, standards applied, responsible person, and artifact pointers. Use when declaration of conformity tasks arise in industrial projects.",
       "domains": [
         "industrial"
       ],
@@ -1176,7 +1176,7 @@
       ]
     },
     "axiom-declaration-of-conformity-review": {
-      "description": "Assembles the declaration-of-conformity evidence pack: applicable legislation, standards applied, responsible person, and artifact pointers.",
+      "description": "Assembles the declaration-of-conformity evidence pack: applicable legislation, standards applied, responsible person, and artifact pointers. Use when declaration of conformity review tasks arise in industrial projects.",
       "domains": [
         "industrial"
       ],
@@ -1186,7 +1186,7 @@
       ]
     },
     "axiom-eoat-spec": {
-      "description": "Specifies end-of-arm tooling: gripper forces, tool-change interface, vacuum/magnetic retention, and retained-risk assumptions.",
+      "description": "Specifies end-of-arm tooling: gripper forces, tool-change interface, vacuum/magnetic retention, and retained-risk assumptions. Use when eoat spec tasks arise in robotics projects.",
       "domains": [
         "robotics"
       ],
@@ -1196,7 +1196,7 @@
       ]
     },
     "axiom-eoat-spec-review": {
-      "description": "Specifies end-of-arm tooling: gripper forces, tool-change interface, vacuum/magnetic retention, and retained-risk assumptions.",
+      "description": "Specifies end-of-arm tooling: gripper forces, tool-change interface, vacuum/magnetic retention, and retained-risk assumptions. Use when eoat spec review tasks arise in robotics projects.",
       "domains": [
         "robotics"
       ],
@@ -1206,7 +1206,7 @@
       ]
     },
     "axiom-fleet-manager-architecture": {
-      "description": "Architects fleet-manager task assignment, traffic rules, map/zone interfaces, and deadlock handling for multi-AMR operation.",
+      "description": "Architects fleet-manager task assignment, traffic rules, map/zone interfaces, and deadlock handling for multi-AMR operation. Use when fleet manager architecture tasks arise in robotics projects.",
       "domains": [
         "robotics"
       ],
@@ -1216,7 +1216,7 @@
       ]
     },
     "axiom-fleet-manager-architecture-review": {
-      "description": "Architects fleet-manager task assignment, traffic rules, map/zone interfaces, and deadlock handling for multi-AMR operation.",
+      "description": "Architects fleet-manager task assignment, traffic rules, map/zone interfaces, and deadlock handling for multi-AMR operation. Use when fleet manager architecture review tasks arise in robotics projects.",
       "domains": [
         "robotics"
       ],
@@ -1226,7 +1226,7 @@
       ]
     },
     "axiom-iec62061-sil": {
-      "description": "Determines SIL targets per safety function and writes software/system safety requirements with verification criteria.",
+      "description": "Determines SIL targets per safety function and writes software/system safety requirements with verification criteria. Use when iec62061 sil tasks arise in industrial projects.",
       "domains": [
         "industrial"
       ],
@@ -1236,7 +1236,7 @@
       ]
     },
     "axiom-iec62061-sil-review": {
-      "description": "Determines SIL targets per safety function and writes software/system safety requirements with verification criteria.",
+      "description": "Determines SIL targets per safety function and writes software/system safety requirements with verification criteria. Use when iec62061 sil review tasks arise in industrial projects.",
       "domains": [
         "industrial"
       ],
@@ -1246,7 +1246,7 @@
       ]
     },
     "axiom-iec62443-risk-assessment": {
-      "description": "Runs an OT cyber-risk assessment: consequence analysis, threat scenarios, SL-target proposal, and mitigation mapping.",
+      "description": "Runs an OT cyber-risk assessment: consequence analysis, threat scenarios, SL-target proposal, and mitigation mapping. Use when iec62443 risk assessment tasks arise in industrial projects.",
       "domains": [
         "industrial"
       ],
@@ -1256,7 +1256,7 @@
       ]
     },
     "axiom-iec62443-risk-assessment-review": {
-      "description": "Runs an OT cyber-risk assessment: consequence analysis, threat scenarios, SL-target proposal, and mitigation mapping.",
+      "description": "Runs an OT cyber-risk assessment: consequence analysis, threat scenarios, SL-target proposal, and mitigation mapping. Use when iec62443 risk assessment review tasks arise in industrial projects.",
       "domains": [
         "industrial"
       ],
@@ -1266,7 +1266,7 @@
       ]
     },
     "axiom-interlock-estop-architecture": {
-      "description": "Architects the interlock chain and e-stop topology: channels, stop categories, restart behavior, and defeat monitoring.",
+      "description": "Architects the interlock chain and e-stop topology: channels, stop categories, restart behavior, and defeat monitoring. Use when interlock estop architecture tasks arise in robotics projects.",
       "domains": [
         "robotics"
       ],
@@ -1276,7 +1276,7 @@
       ]
     },
     "axiom-interlock-estop-architecture-review": {
-      "description": "Architects the interlock chain and e-stop topology: channels, stop categories, restart behavior, and defeat monitoring.",
+      "description": "Architects the interlock chain and e-stop topology: channels, stop categories, restart behavior, and defeat monitoring. Use when interlock estop architecture review tasks arise in robotics projects.",
       "domains": [
         "robotics"
       ],
@@ -1286,7 +1286,7 @@
       ]
     },
     "axiom-iso10218-compliance-matrix": {
-      "description": "Builds a clause-by-claim compliance matrix for ISO 10218-1 and ISO 10218-2 with an evidence pointer per claim.",
+      "description": "Builds a clause-by-claim compliance matrix for ISO 10218-1 and ISO 10218-2 with an evidence pointer per claim. Use when iso10218 compliance matrix tasks arise in robotics projects.",
       "domains": [
         "robotics"
       ],
@@ -1296,7 +1296,7 @@
       ]
     },
     "axiom-iso10218-compliance-matrix-review": {
-      "description": "Builds a clause-by-claim compliance matrix for ISO 10218-1 and ISO 10218-2 with an evidence pointer per claim.",
+      "description": "Builds a clause-by-claim compliance matrix for ISO 10218-1 and ISO 10218-2 with an evidence pointer per claim. Use when iso10218 compliance matrix review tasks arise in robotics projects.",
       "domains": [
         "robotics"
       ],
@@ -1306,7 +1306,7 @@
       ]
     },
     "axiom-iso12100-risk-assessment": {
-      "description": "Runs hazard identification, risk estimation, and risk-reduction recording for machinery per ISO 12100, with residual-risk statements.",
+      "description": "Runs hazard identification, risk estimation, and risk-reduction recording for machinery per ISO 12100, with residual-risk statements. Use when iso12100 risk assessment tasks arise in industrial projects.",
       "domains": [
         "industrial"
       ],
@@ -1316,7 +1316,7 @@
       ]
     },
     "axiom-iso12100-risk-assessment-review": {
-      "description": "Runs hazard identification, risk estimation, and risk-reduction recording for machinery per ISO 12100, with residual-risk statements.",
+      "description": "Runs hazard identification, risk estimation, and risk-reduction recording for machinery per ISO 12100, with residual-risk statements. Use when iso12100 risk assessment review tasks arise in industrial projects.",
       "domains": [
         "industrial"
       ],
@@ -1326,7 +1326,7 @@
       ]
     },
     "axiom-iso13849-plr": {
-      "description": "Determines the required Performance Level (PLr) per safety function and allocates subsystem targets for later verification.",
+      "description": "Determines the required Performance Level (PLr) per safety function and allocates subsystem targets for later verification. Use when iso13849 plr tasks arise in robotics projects.",
       "domains": [
         "robotics"
       ],
@@ -1336,7 +1336,7 @@
       ]
     },
     "axiom-iso13849-plr-review": {
-      "description": "Determines the required Performance Level (PLr) per safety function and allocates subsystem targets for later verification.",
+      "description": "Determines the required Performance Level (PLr) per safety function and allocates subsystem targets for later verification. Use when iso13849 plr review tasks arise in robotics projects.",
       "domains": [
         "robotics"
       ],
@@ -1346,7 +1346,7 @@
       ]
     },
     "axiom-iso15066-biomechanical-limits": {
-      "description": "Records applicable body-region force/pressure limits and transfers them into PFL thresholds and measurement points.",
+      "description": "Records applicable body-region force/pressure limits and transfers them into PFL thresholds and measurement points. Use when iso15066 biomechanical limits tasks arise in robotics projects.",
       "domains": [
         "robotics"
       ],
@@ -1356,7 +1356,7 @@
       ]
     },
     "axiom-iso15066-biomechanical-limits-review": {
-      "description": "Records applicable body-region force/pressure limits and transfers them into PFL thresholds and measurement points.",
+      "description": "Records applicable body-region force/pressure limits and transfers them into PFL thresholds and measurement points. Use when iso15066 biomechanical limits review tasks arise in robotics projects.",
       "domains": [
         "robotics"
       ],
@@ -1366,7 +1366,7 @@
       ]
     },
     "axiom-iso3691-4-risk-assessment": {
-      "description": "Runs risk assessment for driverless-truck deployment: operating zones, detection performance, braking, and traffic interaction.",
+      "description": "Runs risk assessment for driverless-truck deployment: operating zones, detection performance, braking, and traffic interaction. Use when iso3691 4 risk assessment tasks arise in industrial projects.",
       "domains": [
         "industrial"
       ],
@@ -1376,7 +1376,7 @@
       ]
     },
     "axiom-iso3691-4-risk-assessment-review": {
-      "description": "Runs risk assessment for driverless-truck deployment: operating zones, detection performance, braking, and traffic interaction.",
+      "description": "Runs risk assessment for driverless-truck deployment: operating zones, detection performance, braking, and traffic interaction. Use when iso3691 4 risk assessment review tasks arise in industrial projects.",
       "domains": [
         "industrial"
       ],
@@ -1386,7 +1386,7 @@
       ]
     },
     "axiom-iso9283-performance-test": {
-      "description": "Specifies pose-accuracy and path-repeatability tests: test poses, loads, speeds, measurement method, and acceptance thresholds.",
+      "description": "Specifies pose-accuracy and path-repeatability tests: test poses, loads, speeds, measurement method, and acceptance thresholds. Use when iso9283 performance test tasks arise in robotics projects.",
       "domains": [
         "robotics"
       ],
@@ -1396,7 +1396,7 @@
       ]
     },
     "axiom-iso9283-performance-test-review": {
-      "description": "Specifies pose-accuracy and path-repeatability tests: test poses, loads, speeds, measurement method, and acceptance thresholds.",
+      "description": "Specifies pose-accuracy and path-repeatability tests: test poses, loads, speeds, measurement method, and acceptance thresholds. Use when iso9283 performance test review tasks arise in robotics projects.",
       "domains": [
         "robotics"
       ],
@@ -1406,7 +1406,7 @@
       ]
     },
     "axiom-loto-procedure": {
-      "description": "Writes lockout/tagout procedures: energy sources, isolation points, lock application order, and zero-energy verification steps.",
+      "description": "Writes lockout/tagout procedures: energy sources, isolation points, lock application order, and zero-energy verification steps. Use when loto procedure tasks arise in industrial projects.",
       "domains": [
         "industrial"
       ],
@@ -1416,7 +1416,7 @@
       ]
     },
     "axiom-loto-procedure-review": {
-      "description": "Writes lockout/tagout procedures: energy sources, isolation points, lock application order, and zero-energy verification steps.",
+      "description": "Writes lockout/tagout procedures: energy sources, isolation points, lock application order, and zero-energy verification steps. Use when loto procedure review tasks arise in industrial projects.",
       "domains": [
         "industrial"
       ],
@@ -1426,7 +1426,7 @@
       ]
     },
     "axiom-machinery-safety-lifecycle-plan": {
-      "description": "Plans the machinery safety lifecycle: milestones, review gates, and evidence deliverables from concept through decommissioning.",
+      "description": "Plans the machinery safety lifecycle: milestones, review gates, and evidence deliverables from concept through decommissioning. Use when machinery safety lifecycle plan tasks arise in industrial projects.",
       "domains": [
         "industrial"
       ],
@@ -1436,7 +1436,7 @@
       ]
     },
     "axiom-machinery-safety-lifecycle-plan-review": {
-      "description": "Plans the machinery safety lifecycle: milestones, review gates, and evidence deliverables from concept through decommissioning.",
+      "description": "Plans the machinery safety lifecycle: milestones, review gates, and evidence deliverables from concept through decommissioning. Use when machinery safety lifecycle plan review tasks arise in industrial projects.",
       "domains": [
         "industrial"
       ],
@@ -1446,7 +1446,7 @@
       ]
     },
     "axiom-model-card": {
-      "description": "Authors model cards for robotics ML models: intended use, metrics, limits, failure modes, and deployment caveats.",
+      "description": "Authors model cards for robotics ML models: intended use, metrics, limits, failure modes, and deployment caveats. Use when model card tasks arise in robotics projects.",
       "domains": [
         "robotics"
       ],
@@ -1456,7 +1456,7 @@
       ]
     },
     "axiom-model-card-review": {
-      "description": "Authors model cards for robotics ML models: intended use, metrics, limits, failure modes, and deployment caveats.",
+      "description": "Authors model cards for robotics ML models: intended use, metrics, limits, failure modes, and deployment caveats. Use when model card review tasks arise in robotics projects.",
       "domains": [
         "robotics"
       ],
@@ -1466,7 +1466,7 @@
       ]
     },
     "axiom-nav2-config": {
-      "description": "Designs Nav2 planner/controller/costmap configuration with deterministic parameter records and behavior-tree plugin selection.",
+      "description": "Designs Nav2 planner/controller/costmap configuration with deterministic parameter records and behavior-tree plugin selection. Use when nav2 config tasks arise in robotics projects.",
       "domains": [
         "robotics"
       ],
@@ -1476,7 +1476,7 @@
       ]
     },
     "axiom-nav2-config-review": {
-      "description": "Designs Nav2 planner/controller/costmap configuration with deterministic parameter records and behavior-tree plugin selection.",
+      "description": "Designs Nav2 planner/controller/costmap configuration with deterministic parameter records and behavior-tree plugin selection. Use when nav2 config review tasks arise in robotics projects.",
       "domains": [
         "robotics"
       ],
@@ -1486,7 +1486,7 @@
       ]
     },
     "axiom-operating-envelope": {
-      "description": "Defines the operating envelope: spaces, modes, speed/force boundaries, and permitted transitions between collaborative and automatic operation.",
+      "description": "Defines the operating envelope: spaces, modes, speed/force boundaries, and permitted transitions between collaborative and automatic operation. Use when operating envelope tasks arise in robotics projects.",
       "domains": [
         "robotics"
       ],
@@ -1496,7 +1496,7 @@
       ]
     },
     "axiom-operating-envelope-review": {
-      "description": "Defines the operating envelope: spaces, modes, speed/force boundaries, and permitted transitions between collaborative and automatic operation.",
+      "description": "Defines the operating envelope: spaces, modes, speed/force boundaries, and permitted transitions between collaborative and automatic operation. Use when operating envelope review tasks arise in robotics projects.",
       "domains": [
         "robotics"
       ],
@@ -1506,7 +1506,7 @@
       ]
     },
     "axiom-operator-training-matrix": {
-      "description": "Matrices roles to required training modules, refresh intervals, and competence evidence for robot-cell personnel.",
+      "description": "Matrices roles to required training modules, refresh intervals, and competence evidence for robot-cell personnel. Use when operator training matrix tasks arise in industrial projects.",
       "domains": [
         "industrial"
       ],
@@ -1516,7 +1516,7 @@
       ]
     },
     "axiom-operator-training-matrix-review": {
-      "description": "Matrices roles to required training modules, refresh intervals, and competence evidence for robot-cell personnel.",
+      "description": "Matrices roles to required training modules, refresh intervals, and competence evidence for robot-cell personnel. Use when operator training matrix review tasks arise in industrial projects.",
       "domains": [
         "industrial"
       ],
@@ -1526,7 +1526,7 @@
       ]
     },
     "axiom-ot-asset-inventory": {
-      "description": "Inventories OT assets: devices, firmware versions, protocols, network attachment, and ownership for security management.",
+      "description": "Inventories OT assets: devices, firmware versions, protocols, network attachment, and ownership for security management. Use when ot asset inventory tasks arise in industrial projects.",
       "domains": [
         "industrial"
       ],
@@ -1536,7 +1536,7 @@
       ]
     },
     "axiom-ot-asset-inventory-review": {
-      "description": "Inventories OT assets: devices, firmware versions, protocols, network attachment, and ownership for security management.",
+      "description": "Inventories OT assets: devices, firmware versions, protocols, network attachment, and ownership for security management. Use when ot asset inventory review tasks arise in industrial projects.",
       "domains": [
         "industrial"
       ],
@@ -1546,7 +1546,7 @@
       ]
     },
     "axiom-perception-test-catalog": {
-      "description": "Catalogs perception tests: scenarios, ground-truth method, metrics, pass thresholds, and dataset traceability.",
+      "description": "Catalogs perception tests: scenarios, ground-truth method, metrics, pass thresholds, and dataset traceability. Use when perception test catalog tasks arise in robotics projects.",
       "domains": [
         "robotics"
       ],
@@ -1556,7 +1556,7 @@
       ]
     },
     "axiom-perception-test-catalog-review": {
-      "description": "Catalogs perception tests: scenarios, ground-truth method, metrics, pass thresholds, and dataset traceability.",
+      "description": "Catalogs perception tests: scenarios, ground-truth method, metrics, pass thresholds, and dataset traceability. Use when perception test catalog review tasks arise in robotics projects.",
       "domains": [
         "robotics"
       ],
@@ -1566,7 +1566,7 @@
       ]
     },
     "axiom-pfl-plan": {
-      "description": "Designs the power-and-force-limiting regime: contact scenarios, force/pressure thresholds, and measurement verification points.",
+      "description": "Designs the power-and-force-limiting regime: contact scenarios, force/pressure thresholds, and measurement verification points. Use when pfl plan tasks arise in robotics projects.",
       "domains": [
         "robotics"
       ],
@@ -1576,7 +1576,7 @@
       ]
     },
     "axiom-pfl-plan-review": {
-      "description": "Designs the power-and-force-limiting regime: contact scenarios, force/pressure thresholds, and measurement verification points.",
+      "description": "Designs the power-and-force-limiting regime: contact scenarios, force/pressure thresholds, and measurement verification points. Use when pfl plan review tasks arise in robotics projects.",
       "domains": [
         "robotics"
       ],
@@ -1586,7 +1586,7 @@
       ]
     },
     "axiom-robot-acceptance-protocol": {
-      "description": "Defines the acceptance protocol: FAT/SAT stages, test criteria, performance sampling, and sign-off evidence.",
+      "description": "Defines the acceptance protocol: FAT/SAT stages, test criteria, performance sampling, and sign-off evidence. Use when robot acceptance protocol tasks arise in robotics projects.",
       "domains": [
         "robotics"
       ],
@@ -1596,7 +1596,7 @@
       ]
     },
     "axiom-robot-acceptance-protocol-review": {
-      "description": "Defines the acceptance protocol: FAT/SAT stages, test criteria, performance sampling, and sign-off evidence.",
+      "description": "Defines the acceptance protocol: FAT/SAT stages, test criteria, performance sampling, and sign-off evidence. Use when robot acceptance protocol review tasks arise in robotics projects.",
       "domains": [
         "robotics"
       ],
@@ -1606,7 +1606,7 @@
       ]
     },
     "axiom-robot-cell-layout": {
-      "description": "Lays out the robot cell: fences, gates, light curtains, operator stations, material flow, and maintenance access.",
+      "description": "Lays out the robot cell: fences, gates, light curtains, operator stations, material flow, and maintenance access. Use when robot cell layout tasks arise in robotics projects.",
       "domains": [
         "robotics"
       ],
@@ -1616,7 +1616,7 @@
       ]
     },
     "axiom-robot-cell-layout-review": {
-      "description": "Lays out the robot cell: fences, gates, light curtains, operator stations, material flow, and maintenance access.",
+      "description": "Lays out the robot cell: fences, gates, light curtains, operator stations, material flow, and maintenance access. Use when robot cell layout review tasks arise in robotics projects.",
       "domains": [
         "robotics"
       ],
@@ -1626,7 +1626,7 @@
       ]
     },
     "axiom-robot-cell-scope": {
-      "description": "Defines robot-cell scope: equipment list, boundaries, external interfaces, and integrator versus user responsibilities.",
+      "description": "Defines robot-cell scope: equipment list, boundaries, external interfaces, and integrator versus user responsibilities. Use when robot cell scope tasks arise in robotics projects.",
       "domains": [
         "robotics"
       ],
@@ -1636,7 +1636,7 @@
       ]
     },
     "axiom-robot-cell-scope-review": {
-      "description": "Defines robot-cell scope: equipment list, boundaries, external interfaces, and integrator versus user responsibilities.",
+      "description": "Defines robot-cell scope: equipment list, boundaries, external interfaces, and integrator versus user responsibilities. Use when robot cell scope review tasks arise in robotics projects.",
       "domains": [
         "robotics"
       ],
@@ -1646,7 +1646,7 @@
       ]
     },
     "axiom-robot-field-acceptance": {
-      "description": "Plans on-site acceptance: installation checks, safeguarding verification, production-trial criteria, and punch-list management.",
+      "description": "Plans on-site acceptance: installation checks, safeguarding verification, production-trial criteria, and punch-list management. Use when robot field acceptance tasks arise in robotics projects.",
       "domains": [
         "robotics"
       ],
@@ -1656,7 +1656,7 @@
       ]
     },
     "axiom-robot-field-acceptance-review": {
-      "description": "Plans on-site acceptance: installation checks, safeguarding verification, production-trial criteria, and punch-list management.",
+      "description": "Plans on-site acceptance: installation checks, safeguarding verification, production-trial criteria, and punch-list management. Use when robot field acceptance review tasks arise in robotics projects.",
       "domains": [
         "robotics"
       ],
@@ -1666,7 +1666,7 @@
       ]
     },
     "axiom-robot-hil-test-catalog": {
-      "description": "Catalogs hardware-in-the-loop tests for robot safety functions: fault injection, timing measurement, and coverage mapping.",
+      "description": "Catalogs hardware-in-the-loop tests for robot safety functions: fault injection, timing measurement, and coverage mapping. Use when robot hil test catalog tasks arise in robotics projects.",
       "domains": [
         "robotics"
       ],
@@ -1676,7 +1676,7 @@
       ]
     },
     "axiom-robot-hil-test-catalog-review": {
-      "description": "Catalogs hardware-in-the-loop tests for robot safety functions: fault injection, timing measurement, and coverage mapping.",
+      "description": "Catalogs hardware-in-the-loop tests for robot safety functions: fault injection, timing measurement, and coverage mapping. Use when robot hil test catalog review tasks arise in robotics projects.",
       "domains": [
         "robotics"
       ],
@@ -1686,7 +1686,7 @@
       ]
     },
     "axiom-robot-sop": {
-      "description": "Writes standard operating procedures: startup, mode changes, fault recovery, and shutdown for robot-cell operators.",
+      "description": "Writes standard operating procedures: startup, mode changes, fault recovery, and shutdown for robot-cell operators. Use when robot sop tasks arise in industrial projects.",
       "domains": [
         "industrial"
       ],
@@ -1696,7 +1696,7 @@
       ]
     },
     "axiom-robot-sop-review": {
-      "description": "Writes standard operating procedures: startup, mode changes, fault recovery, and shutdown for robot-cell operators.",
+      "description": "Writes standard operating procedures: startup, mode changes, fault recovery, and shutdown for robot-cell operators. Use when robot sop review tasks arise in industrial projects.",
       "domains": [
         "industrial"
       ],
@@ -1706,7 +1706,7 @@
       ]
     },
     "axiom-ros2-system-architecture": {
-      "description": "Architects the ROS 2 system: node graph, topics/services/actions, QoS choices, executors, and lifecycle management.",
+      "description": "Architects the ROS 2 system: node graph, topics/services/actions, QoS choices, executors, and lifecycle management. Use when ros2 system architecture tasks arise in robotics projects.",
       "domains": [
         "robotics"
       ],
@@ -1716,7 +1716,7 @@
       ]
     },
     "axiom-ros2-system-architecture-review": {
-      "description": "Architects the ROS 2 system: node graph, topics/services/actions, QoS choices, executors, and lifecycle management.",
+      "description": "Architects the ROS 2 system: node graph, topics/services/actions, QoS choices, executors, and lifecycle management. Use when ros2 system architecture review tasks arise in robotics projects.",
       "domains": [
         "robotics"
       ],
@@ -1726,7 +1726,7 @@
       ]
     },
     "axiom-safety-io-matrix": {
-      "description": "Maps safety inputs and outputs to controllers: test pulses, discrepancy monitoring, and proof-test intervals.",
+      "description": "Maps safety inputs and outputs to controllers: test pulses, discrepancy monitoring, and proof-test intervals. Use when safety io matrix tasks arise in robotics projects.",
       "domains": [
         "robotics"
       ],
@@ -1736,7 +1736,7 @@
       ]
     },
     "axiom-safety-io-matrix-review": {
-      "description": "Maps safety inputs and outputs to controllers: test pulses, discrepancy monitoring, and proof-test intervals.",
+      "description": "Maps safety inputs and outputs to controllers: test pulses, discrepancy monitoring, and proof-test intervals. Use when safety io matrix review tasks arise in robotics projects.",
       "domains": [
         "robotics"
       ],
@@ -1746,7 +1746,7 @@
       ]
     },
     "axiom-ssm-plan": {
-      "description": "Designs speed-and-separation monitoring: protective zones, speed mapping, sensor coverage claims, and stop-performance budgets.",
+      "description": "Designs speed-and-separation monitoring: protective zones, speed mapping, sensor coverage claims, and stop-performance budgets. Use when ssm plan tasks arise in robotics projects.",
       "domains": [
         "robotics"
       ],
@@ -1756,7 +1756,7 @@
       ]
     },
     "axiom-ssm-plan-review": {
-      "description": "Designs speed-and-separation monitoring: protective zones, speed mapping, sensor coverage claims, and stop-performance budgets.",
+      "description": "Designs speed-and-separation monitoring: protective zones, speed mapping, sensor coverage claims, and stop-performance budgets. Use when ssm plan review tasks arise in robotics projects.",
       "domains": [
         "robotics"
       ],
@@ -1766,7 +1766,7 @@
       ]
     },
     "axiom-tf-tree-spec": {
-      "description": "Specifies the TF frame tree: frame ids, parentage, update rates, static versus dynamic authority, and validation checks.",
+      "description": "Specifies the TF frame tree: frame ids, parentage, update rates, static versus dynamic authority, and validation checks. Use when tf tree spec tasks arise in robotics projects.",
       "domains": [
         "robotics"
       ],
@@ -1776,7 +1776,7 @@
       ]
     },
     "axiom-tf-tree-spec-review": {
-      "description": "Specifies the TF frame tree: frame ids, parentage, update rates, static versus dynamic authority, and validation checks.",
+      "description": "Specifies the TF frame tree: frame ids, parentage, update rates, static versus dynamic authority, and validation checks. Use when tf tree spec review tasks arise in robotics projects.",
       "domains": [
         "robotics"
       ],
@@ -1786,7 +1786,7 @@
       ]
     },
     "axiom-urdf-model-spec": {
-      "description": "Specifies the URDF model: links, joints, limits, inertial placeholders, visual/collision geometry policy, and check procedures.",
+      "description": "Specifies the URDF model: links, joints, limits, inertial placeholders, visual/collision geometry policy, and check procedures. Use when urdf model spec tasks arise in robotics projects.",
       "domains": [
         "robotics"
       ],
@@ -1796,7 +1796,7 @@
       ]
     },
     "axiom-urdf-model-spec-review": {
-      "description": "Specifies the URDF model: links, joints, limits, inertial placeholders, visual/collision geometry policy, and check procedures.",
+      "description": "Specifies the URDF model: links, joints, limits, inertial placeholders, visual/collision geometry policy, and check procedures. Use when urdf model spec review tasks arise in robotics projects.",
       "domains": [
         "robotics"
       ],
@@ -1806,7 +1806,7 @@
       ]
     },
     "axiom-wireless-coexistence-plan": {
-      "description": "Plans wireless coexistence: spectrum survey, interference budgets, channel planning, and fallback behavior on link loss.",
+      "description": "Plans wireless coexistence: spectrum survey, interference budgets, channel planning, and fallback behavior on link loss. Use when wireless coexistence plan tasks arise in industrial projects.",
       "domains": [
         "industrial"
       ],
@@ -1816,7 +1816,7 @@
       ]
     },
     "axiom-wireless-coexistence-plan-review": {
-      "description": "Plans wireless coexistence: spectrum survey, interference budgets, channel planning, and fallback behavior on link loss.",
+      "description": "Plans wireless coexistence: spectrum survey, interference budgets, channel planning, and fallback behavior on link loss. Use when wireless coexistence plan review tasks arise in industrial projects.",
       "domains": [
         "industrial"
       ],
@@ -1826,7 +1826,7 @@
       ]
     },
     "axiom-zone-conduit-plan": {
-      "description": "Partitions the OT network into zones and conduits with security-level targets, conduit requirements, and firewall rules.",
+      "description": "Partitions the OT network into zones and conduits with security-level targets, conduit requirements, and firewall rules. Use when zone conduit plan tasks arise in industrial projects.",
       "domains": [
         "industrial"
       ],
@@ -1836,7 +1836,7 @@
       ]
     },
     "axiom-zone-conduit-plan-review": {
-      "description": "Partitions the OT network into zones and conduits with security-level targets, conduit requirements, and firewall rules.",
+      "description": "Partitions the OT network into zones and conduits with security-level targets, conduit requirements, and firewall rules. Use when zone conduit plan review tasks arise in industrial projects.",
       "domains": [
         "industrial"
       ],
@@ -1875,7 +1875,7 @@
       ]
     },
     "axiom-mil-sil-hil-testing": {
-      "description": "Merged skill (distilled practices).",
+      "description": "Model/Software/Hardware-in-the-Loop testing strategy: test bench setup, plant models, real-time execution, fault injection, and acceptance criteria for embedded control software. Use when planning MIL/SIL/HIL campaigns or qualifying control algorithms.",
       "domains": [
         "all"
       ],
@@ -1884,7 +1884,7 @@
       ]
     },
     "axiom-misra-c-cpp-review": {
-      "description": "Merged skill (distilled practices).",
+      "description": "Reviews C/C++ code against MISRA C:2012/C:2023 and MISRA C++:2023 guidelines: decidable rules, required/advisory classification, deviations, and evidence packaging. Use when preparing safety-critical code for review or certification support.",
       "domains": [
         "all"
       ],
@@ -1893,7 +1893,7 @@
       ]
     },
     "codebase-analysis": {
-      "description": "Codebase analysis: scan repo, map SWCs/BSW/RTE/signal flow/ASIL zones into CODEBASE_MAP.md.",
+      "description": "Codebase analysis: scan repo, map SWCs/BSW/RTE/signal flow/ASIL zones into CODEBASE_MAP.md. Use when codebase analysis tasks arise in all projects.",
       "domains": [
         "all"
       ],
@@ -1902,7 +1902,7 @@
       ]
     },
     "axiom-digital-filtering": {
-      "description": "Applies digital filters to sensor data: moving average, IIR low-pass, FIR, median, outlier rejection and saturation, with fixed-point and latency considerations and verification on known signals.\n",
+      "description": "Applies digital filters to sensor data: moving average, IIR low-pass, FIR, median, outlier rejection and saturation, with fixed-point and latency considerations and verification on known signals. Use when digital filtering tasks arise in generic-embedded projects.",
       "domains": [
         "automotive",
         "generic-embedded",
@@ -1937,7 +1937,7 @@
       ]
     },
     "axiom-framework-zephyr": {
-      "description": "Engineering guide for Zephyr RTOS projects: devicetree, Kconfig, west build and flash, drivers API, workqueues, threads, power management, logging, shell, testing with ztest, and portability across boards. Hardware-aware: board definitions and pin constraints.\n",
+      "description": "Engineering guide for Zephyr RTOS projects: devicetree, Kconfig, west build and flash, drivers API, workqueues, threads, power management, logging, shell, testing with ztest, and portability across boards. Hardware-aware: board definitions and pin constraints. Use when framework zephyr tasks arise i",
       "domains": [
         "all"
       ],
@@ -1960,7 +1960,7 @@
       ]
     },
     "axiom-hmi-and-actuators": {
-      "description": "Engineers human-machine interfaces and actuators: keypad matrix scanning and debouncing, LCD1602/OLED displays, LEDs, active/passive buzzers, DC/stepper/servo motors, encoders, relays, interlocks and e-stop, with electrical and timing constraints and verification.\n",
+      "description": "Engineers human-machine interfaces and actuators: keypad matrix scanning and debouncing, LCD1602/OLED displays, LEDs, active/passive buzzers, DC/stepper/servo motors, encoders, relays, interlocks and e-stop, with electrical and timing constraints and verification. Use when hmi and actuators tasks ar",
       "domains": [
         "all"
       ],
@@ -1971,7 +1971,7 @@
       ]
     },
     "axiom-multi-sensor-synchronization": {
-      "description": "Synchronizes multiple sensors across shared triggers, aligned timestamps, clock domains and fusion timing with deterministic sampling and resource arbitration.\n",
+      "description": "Synchronizes multiple sensors across shared triggers, aligned timestamps, clock domains and fusion timing with deterministic sampling and resource arbitration. Use when multi sensor synchronization tasks arise in generic-embedded projects.",
       "domains": [
         "automotive",
         "generic-embedded",
@@ -1987,7 +1987,7 @@
       ]
     },
     "axiom-peripheral-timers": {
-      "description": "Engineers MCU timers, counters, PWM, capture/compare and RTC subsystems: modes, prescalers, deterministic intervals, overflow handling, watchdog interaction, interrupt latency, calibration, and platform differences (AVR/ESP32/Zephyr), verified on hardware.\n",
+      "description": "Engineers MCU timers, counters, PWM, capture/compare and RTC subsystems: modes, prescalers, deterministic intervals, overflow handling, watchdog interaction, interrupt latency, calibration, and platform differences (AVR/ESP32/Zephyr), verified on hardware. Use when peripheral timers tasks arise in a",
       "domains": [
         "all"
       ],
@@ -1998,7 +1998,7 @@
       ]
     },
     "axiom-sampling-timestamping": {
-      "description": "Selects sampling rates and timer-driven schedules, captures monotonic timestamps, manages jitter and ring buffers, and handles overrun for deterministic embedded acquisition.\n",
+      "description": "Selects sampling rates and timer-driven schedules, captures monotonic timestamps, manages jitter and ring buffers, and handles overrun for deterministic embedded acquisition. Use when sampling timestamping tasks arise in generic-embedded projects.",
       "domains": [
         "automotive",
         "generic-embedded",
@@ -2014,7 +2014,7 @@
       ]
     },
     "axiom-sensor-acquisition": {
-      "description": "Scope and methodology for acquiring sensor data in embedded systems: interface selection, sampling, conversion, timestamping, buffering and publication with typed errors and evidence.\n",
+      "description": "Scope and methodology for acquiring sensor data in embedded systems: interface selection, sampling, conversion, timestamping, buffering and publication with typed errors and evidence. Use when sensor acquisition tasks arise in generic-embedded projects.",
       "domains": [
         "automotive",
         "generic-embedded",
@@ -2030,7 +2030,7 @@
       ]
     },
     "axiom-sensor-calibration": {
-      "description": "Plans and executes sensor calibration: offset and gain, factory and field procedures, two-point calibration, temperature compensation, NVM storage, validation and drift tracking without fabricating constants.\n",
+      "description": "Plans and executes sensor calibration: offset and gain, factory and field procedures, two-point calibration, temperature compensation, NVM storage, validation and drift tracking without fabricating constants. Use when sensor calibration tasks arise in generic-embedded projects.",
       "domains": [
         "automotive",
         "generic-embedded",
@@ -2046,7 +2046,7 @@
       ]
     },
     "axiom-sensor-diagnostics": {
-      "description": "Detects sensor faults (stuck-at, out-of-range, timeout, CRC error, communication loss), supports degraded mode and watchdogs, and provides fault-injection testing and evidence.\n",
+      "description": "Detects sensor faults (stuck-at, out-of-range, timeout, CRC error, communication loss), supports degraded mode and watchdogs, and provides fault-injection testing and evidence. Use when sensor diagnostics tasks arise in generic-embedded projects.",
       "domains": [
         "automotive",
         "generic-embedded",
@@ -2062,7 +2062,7 @@
       ]
     },
     "axiom-sensor-driver-integration": {
-      "description": "Integrates a sensor chip over I2C, SPI, UART or 1-Wire into a layered device driver with register encapsulation, context structs, identification, typed errors and mockable bus seams.\n",
+      "description": "Integrates a sensor chip over I2C, SPI, UART or 1-Wire into a layered device driver with register encapsulation, context structs, identification, typed errors and mockable bus seams. Use when sensor driver integration tasks arise in generic-embedded projects.",
       "domains": [
         "automotive",
         "generic-embedded",
@@ -2078,7 +2078,7 @@
       ]
     },
     "axiom-storage-and-memory": {
-      "description": "Engineers non-volatile storage: internal flash, EEPROM/emulated EEPROM, external SPI NOR flash, SD cards, wear leveling, power-fail safety, atomic writes, file systems (FAT/LittleFS), endurance and verification.\n",
+      "description": "Engineers non-volatile storage: internal flash, EEPROM/emulated EEPROM, external SPI NOR flash, SD cards, wear leveling, power-fail safety, atomic writes, file systems (FAT/LittleFS), endurance and verification. Use when storage and memory tasks arise in all projects.",
       "domains": [
         "all"
       ],
@@ -2429,6 +2429,204 @@
       "platforms": [
         "mcu"
       ]
+    },
+    "axiom-cloud-architecture": {
+      "description": "Cloud Architecture workflow for platform. Use when cloud architecture tasks arise in platform projects.\n",
+      "domains": [
+        "platform"
+      ],
+      "platforms": [
+        "mcu"
+      ]
+    },
+    "axiom-kubernetes-edge": {
+      "description": "Kubernetes Edge workflow for platform. Use when kubernetes edge tasks arise in platform projects.\n",
+      "domains": [
+        "platform"
+      ],
+      "platforms": [
+        "mcu"
+      ]
+    },
+    "axiom-terraform-infra": {
+      "description": "Terraform Infrastructure workflow for platform. Use when terraform infrastructure tasks arise in platform projects.\n",
+      "domains": [
+        "platform"
+      ],
+      "platforms": [
+        "mcu"
+      ]
+    },
+    "axiom-monitoring-observability": {
+      "description": "Monitoring Observability workflow for platform. Use when monitoring observability tasks arise in platform projects.\n",
+      "domains": [
+        "platform"
+      ],
+      "platforms": [
+        "mcu"
+      ]
+    },
+    "axiom-sre-reliability": {
+      "description": "SRE Reliability workflow for platform. Use when sre reliability tasks arise in platform projects.\n",
+      "domains": [
+        "platform"
+      ],
+      "platforms": [
+        "mcu"
+      ]
+    },
+    "axiom-chaos-engineering": {
+      "description": "Chaos Engineering workflow for all. Use when chaos engineering tasks arise in all projects.\n",
+      "domains": [
+        "all"
+      ],
+      "platforms": [
+        "mcu"
+      ]
+    },
+    "axiom-cli-developer": {
+      "description": "CLI Developer workflow for all. Use when cli developer tasks arise in all projects.\n",
+      "domains": [
+        "all"
+      ],
+      "platforms": [
+        "mcu"
+      ]
+    },
+    "axiom-prompt-engineering": {
+      "description": "Prompt Engineering workflow for generic-embedded. Use when prompt engineering tasks arise in generic-embedded projects.\n",
+      "domains": [
+        "generic-embedded"
+      ],
+      "platforms": [
+        "mcu"
+      ]
+    },
+    "axiom-rag-architect": {
+      "description": "RAG Architect workflow for generic-embedded. Use when rag architect tasks arise in generic-embedded projects.\n",
+      "domains": [
+        "generic-embedded"
+      ],
+      "platforms": [
+        "mcu"
+      ]
+    },
+    "axiom-data-pipeline": {
+      "description": "Data Pipeline workflow for generic-embedded. Use when data pipeline tasks arise in generic-embedded projects.\n",
+      "domains": [
+        "generic-embedded"
+      ],
+      "platforms": [
+        "mcu"
+      ]
+    },
+    "axiom-database-optimization": {
+      "description": "Database Optimization workflow for all. Use when database optimization tasks arise in all projects.\n",
+      "domains": [
+        "all"
+      ],
+      "platforms": [
+        "mcu"
+      ]
+    },
+    "axiom-graphql-architect": {
+      "description": "GraphQL Architect workflow for all. Use when graphql architect tasks arise in all projects.\n",
+      "domains": [
+        "all"
+      ],
+      "platforms": [
+        "mcu"
+      ]
+    },
+    "axiom-microservices-architect": {
+      "description": "Microservices Architect workflow for all. Use when microservices architect tasks arise in all projects.\n",
+      "domains": [
+        "all"
+      ],
+      "platforms": [
+        "mcu"
+      ]
+    },
+    "axiom-websocket-engineer": {
+      "description": "WebSocket Engineer workflow for all. Use when websocket engineer tasks arise in all projects.\n",
+      "domains": [
+        "all"
+      ],
+      "platforms": [
+        "mcu"
+      ]
+    },
+    "axiom-mcp-developer": {
+      "description": "MCP Developer workflow for platform. Use when mcp developer tasks arise in platform projects.\n",
+      "domains": [
+        "platform"
+      ],
+      "platforms": [
+        "mcu"
+      ]
+    },
+    "axiom-test-master": {
+      "description": "Test Master workflow for all. Use when test master tasks arise in all projects.\n",
+      "domains": [
+        "all"
+      ],
+      "platforms": [
+        "mcu"
+      ]
+    },
+    "axiom-playwright-e2e": {
+      "description": "Playwright E2E workflow for all. Use when playwright e2e tasks arise in all projects.\n",
+      "domains": [
+        "all"
+      ],
+      "platforms": [
+        "mcu"
+      ]
+    },
+    "axiom-debugging-wizard": {
+      "description": "Debugging Wizard workflow for all. Use when debugging wizard tasks arise in all projects.\n",
+      "domains": [
+        "all"
+      ],
+      "platforms": [
+        "mcu"
+      ]
+    },
+    "axiom-legacy-modernizer": {
+      "description": "Legacy Modernizer workflow for all. Use when legacy modernizer tasks arise in all projects.\n",
+      "domains": [
+        "all"
+      ],
+      "platforms": [
+        "mcu"
+      ]
+    },
+    "axiom-secure-code-guardian": {
+      "description": "Secure Code Guardian workflow for all. Use when secure code guardian tasks arise in all projects.\n",
+      "domains": [
+        "all"
+      ],
+      "platforms": [
+        "mcu"
+      ]
+    },
+    "axiom-security-reviewer": {
+      "description": "Security Reviewer workflow for all. Use when security reviewer tasks arise in all projects.\n",
+      "domains": [
+        "all"
+      ],
+      "platforms": [
+        "mcu"
+      ]
+    },
+    "axiom-skill-evolution": {
+      "description": "Skill Evolution workflow for all. Use when skill evolution tasks arise in all projects.\n",
+      "domains": [
+        "all"
+      ],
+      "platforms": [
+        "mcu"
+      ]
     }
   },
   "by_domain": {
@@ -2447,9 +2645,13 @@
       "axiom-agents-md-generator",
       "axiom-api-design",
       "axiom-architecture-decision-records",
+      "axiom-chaos-engineering",
       "axiom-clean-ai-slop",
+      "axiom-cli-developer",
       "axiom-code-explainer",
       "axiom-cto-advisor",
+      "axiom-database-optimization",
+      "axiom-debugging-wizard",
       "axiom-diagnosing-bugs",
       "axiom-doc-coauthoring",
       "axiom-document-skills",
@@ -2460,28 +2662,37 @@
       "axiom-framework-zephyr",
       "axiom-frontend-design",
       "axiom-git-commit-plan",
+      "axiom-graphql-architect",
       "axiom-hardware-aware-checks",
       "axiom-hil-test-planning",
       "axiom-hmi-and-actuators",
       "axiom-improve-codebase-architecture",
       "axiom-interface-contract-design",
+      "axiom-legacy-modernizer",
       "axiom-mcp-security-testing",
       "axiom-memory-and-performance-analysis",
+      "axiom-microservices-architect",
       "axiom-mil-sil-hil-testing",
       "axiom-misra-c-cpp-review",
       "axiom-peripheral-timers",
       "axiom-platform-architecture-review",
+      "axiom-playwright-e2e",
       "axiom-prompt-injection-defense",
       "axiom-rtos-architecture",
+      "axiom-secure-code-guardian",
       "axiom-security-best-practices",
       "axiom-security-ownership-map",
+      "axiom-security-reviewer",
       "axiom-security-threat-model",
+      "axiom-skill-evolution",
       "axiom-static-analysis-triage",
       "axiom-storage-and-memory",
       "axiom-technical-debt-assessment",
       "axiom-test-automation",
+      "axiom-test-master",
       "axiom-trace-analysis",
       "axiom-validation-levels",
+      "axiom-websocket-engineer",
       "bare-metal",
       "bootloader",
       "build-system",
@@ -2583,9 +2794,12 @@
     ],
     "generic-embedded": [
       "ai-validation",
+      "axiom-data-pipeline",
       "axiom-digital-filtering",
       "axiom-iot-connectivity-stack",
       "axiom-multi-sensor-synchronization",
+      "axiom-prompt-engineering",
+      "axiom-rag-architect",
       "axiom-sampling-timestamping",
       "axiom-semiconductor-test-coverage",
       "axiom-sensor-acquisition",
@@ -2678,13 +2892,19 @@
     "platform": [
       "axiom-agent-evaluation",
       "axiom-agent-observability",
+      "axiom-cloud-architecture",
       "axiom-context-engineering",
       "axiom-human-in-the-loop",
+      "axiom-kubernetes-edge",
       "axiom-mcp-builder",
+      "axiom-mcp-developer",
+      "axiom-monitoring-observability",
       "axiom-multi-agent-orchestration",
       "axiom-skill-creator",
       "axiom-skill-seekers",
       "axiom-skills-purge",
+      "axiom-sre-reliability",
+      "axiom-terraform-infra",
       "axiom-tool-schema-design"
     ],
     "robotics": [
@@ -2881,11 +3101,17 @@
       "axiom-bms-diagnostics",
       "axiom-can-network-design",
       "axiom-can-stack-integration",
+      "axiom-chaos-engineering",
       "axiom-clean-ai-slop",
+      "axiom-cli-developer",
+      "axiom-cloud-architecture",
       "axiom-code-explainer",
       "axiom-context-engineering",
       "axiom-cross-domain-traceability",
       "axiom-cto-advisor",
+      "axiom-data-pipeline",
+      "axiom-database-optimization",
+      "axiom-debugging-wizard",
       "axiom-declaration-of-conformity",
       "axiom-declaration-of-conformity-review",
       "axiom-diagnosing-bugs",
@@ -2902,6 +3128,7 @@
       "axiom-frontend-design",
       "axiom-functional-safety",
       "axiom-git-commit-plan",
+      "axiom-graphql-architect",
       "axiom-hardware-aware-checks",
       "axiom-hazard-risk",
       "axiom-hazard-risk-review",
@@ -2920,14 +3147,19 @@
       "axiom-iso12100-risk-assessment-review",
       "axiom-iso3691-4-risk-assessment",
       "axiom-iso3691-4-risk-assessment-review",
+      "axiom-kubernetes-edge",
+      "axiom-legacy-modernizer",
       "axiom-loto-procedure",
       "axiom-loto-procedure-review",
       "axiom-machinery-safety-lifecycle-plan",
       "axiom-machinery-safety-lifecycle-plan-review",
       "axiom-mcp-builder",
+      "axiom-mcp-developer",
       "axiom-mcp-security-testing",
       "axiom-medical-iec62304-lifecycle",
       "axiom-memory-and-performance-analysis",
+      "axiom-microservices-architect",
+      "axiom-monitoring-observability",
       "axiom-multi-agent-orchestration",
       "axiom-multi-sensor-synchronization",
       "axiom-operator-training-matrix",
@@ -2936,7 +3168,10 @@
       "axiom-ot-asset-inventory-review",
       "axiom-peripheral-timers",
       "axiom-platform-architecture-review",
+      "axiom-playwright-e2e",
+      "axiom-prompt-engineering",
       "axiom-prompt-injection-defense",
+      "axiom-rag-architect",
       "axiom-rail-en50128-safety",
       "axiom-robot-sop",
       "axiom-robot-sop-review",
@@ -2946,8 +3181,10 @@
       "axiom-sampling-timestamping",
       "axiom-scope-context",
       "axiom-scope-context-review",
+      "axiom-secure-code-guardian",
       "axiom-security-best-practices",
       "axiom-security-ownership-map",
+      "axiom-security-reviewer",
       "axiom-security-threat-model",
       "axiom-semiconductor-test-coverage",
       "axiom-sensor-acquisition",
@@ -2955,14 +3192,18 @@
       "axiom-sensor-diagnostics",
       "axiom-sensor-driver-integration",
       "axiom-skill-creator",
+      "axiom-skill-evolution",
       "axiom-skill-seekers",
       "axiom-skills-purge",
       "axiom-space-radiation-hardening",
+      "axiom-sre-reliability",
       "axiom-static-analysis-triage",
       "axiom-storage-and-memory",
       "axiom-technical-debt-assessment",
       "axiom-telecom-5g-modem-integration",
+      "axiom-terraform-infra",
       "axiom-test-automation",
+      "axiom-test-master",
       "axiom-threat-model",
       "axiom-threat-model-review",
       "axiom-tool-schema-design",
@@ -2971,6 +3212,7 @@
       "axiom-vehicle-cybersecurity",
       "axiom-vnv-plan",
       "axiom-vnv-plan-review",
+      "axiom-websocket-engineer",
       "axiom-wireless-coexistence-plan",
       "axiom-wireless-coexistence-plan-review",
       "axiom-zonal-architecture",
@@ -3279,13 +3521,17 @@
       "axiom-human-in-the-loop",
       "axiom-improve-codebase-architecture",
       "axiom-mcp-builder",
+      "axiom-mcp-developer",
       "axiom-mcp-security-testing",
       "axiom-multi-agent-orchestration",
+      "axiom-prompt-engineering",
       "axiom-prompt-injection-defense",
       "axiom-security-best-practices",
       "axiom-security-ownership-map",
+      "axiom-security-reviewer",
       "axiom-security-threat-model",
       "axiom-skill-creator",
+      "axiom-skill-evolution",
       "axiom-skill-seekers",
       "axiom-skills-purge",
       "axiom-tool-schema-design"
@@ -3324,6 +3570,38 @@
       "axiom-autosar-os-config",
       "axiom-autosar-rte-design"
     ],
+    "cloud-edge-platform": [
+      "axiom-agent-evaluation",
+      "axiom-agent-observability",
+      "axiom-cloud-architecture",
+      "axiom-context-engineering",
+      "axiom-embedded-firmware-bringup",
+      "axiom-framework-arduino",
+      "axiom-framework-esp-idf",
+      "axiom-framework-zephyr",
+      "axiom-hardware-aware-checks",
+      "axiom-hil-test-planning",
+      "axiom-hmi-and-actuators",
+      "axiom-human-in-the-loop",
+      "axiom-kubernetes-edge",
+      "axiom-mcp-builder",
+      "axiom-mcp-developer",
+      "axiom-memory-and-performance-analysis",
+      "axiom-monitoring-observability",
+      "axiom-multi-agent-orchestration",
+      "axiom-peripheral-timers",
+      "axiom-rtos-architecture",
+      "axiom-skill-creator",
+      "axiom-skill-seekers",
+      "axiom-skills-purge",
+      "axiom-sre-reliability",
+      "axiom-storage-and-memory",
+      "axiom-terraform-infra",
+      "axiom-test-automation",
+      "axiom-tool-schema-design",
+      "axiom-trace-analysis",
+      "axiom-validation-levels"
+    ],
     "diagnostics": [
       "automotive-diagnostics",
       "axiom-diagnostics-doip",
@@ -3336,6 +3614,7 @@
       "axiom-aerospace-do254-hardware",
       "axiom-agent-evaluation",
       "axiom-agent-observability",
+      "axiom-cloud-architecture",
       "axiom-context-engineering",
       "axiom-cross-domain-traceability",
       "axiom-embedded-firmware-bringup",
@@ -3348,11 +3627,14 @@
       "axiom-hmi-and-actuators",
       "axiom-human-in-the-loop",
       "axiom-iot-connectivity-stack",
+      "axiom-kubernetes-edge",
       "axiom-mcp-builder",
+      "axiom-mcp-developer",
       "axiom-medical-iec62304-lifecycle",
       "axiom-memory-and-performance-analysis",
       "axiom-mil-sil-hil-testing",
       "axiom-misra-c-cpp-review",
+      "axiom-monitoring-observability",
       "axiom-multi-agent-orchestration",
       "axiom-peripheral-timers",
       "axiom-rail-en50128-safety",
@@ -3362,8 +3644,10 @@
       "axiom-skill-seekers",
       "axiom-skills-purge",
       "axiom-space-radiation-hardening",
+      "axiom-sre-reliability",
       "axiom-storage-and-memory",
       "axiom-telecom-5g-modem-integration",
+      "axiom-terraform-infra",
       "axiom-test-automation",
       "axiom-tool-schema-design",
       "axiom-trace-analysis",
@@ -3410,6 +3694,22 @@
     "energy": [
       "axiom-bms-design",
       "axiom-bms-diagnostics"
+    ],
+    "extended-quality-integration": [
+      "axiom-chaos-engineering",
+      "axiom-cli-developer",
+      "axiom-data-pipeline",
+      "axiom-database-optimization",
+      "axiom-debugging-wizard",
+      "axiom-graphql-architect",
+      "axiom-legacy-modernizer",
+      "axiom-microservices-architect",
+      "axiom-playwright-e2e",
+      "axiom-rag-architect",
+      "axiom-secure-code-guardian",
+      "axiom-test-automation",
+      "axiom-test-master",
+      "axiom-websocket-engineer"
     ],
     "industrial": [
       "axiom-ansi-r1506-compliance-matrix",

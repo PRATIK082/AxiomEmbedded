@@ -47,8 +47,9 @@ axiom:
   - manifest
   standards: []
   mcp_tools: []
+  required_tools: []
+  optional_tools: []
 ---
-
 # Edge-AI skill
 
 Deploying machine-learning inference on resource-constrained targets: model

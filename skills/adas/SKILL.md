@@ -2,7 +2,8 @@
 name: adas
 description: ADAS/AD perception-to-control pipeline, sensor fusion, SOTIF and ASIL
   decomposition, Euro-NCAP, data closed-loop, OpenSCENARIO/OpenDRIVE HIL. Use for
-  L0-L4 driver assistance and automated driving.
+  L0-L4 driver assistance and automated driving. Use when adas tasks arise in automotive
+  projects.
 version: 1.2.0
 domains:
 - automotive
@@ -46,8 +47,9 @@ axiom:
   - manifest
   standards: []
   mcp_tools: []
+  required_tools: []
+  optional_tools: []
 ---
-
 # adas -- ADAS / Automated Driving capability
 
 Reusable AxiomEmbedded capability for SAE L0-L4 functions: sensing -> perception ->

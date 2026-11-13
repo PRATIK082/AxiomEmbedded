@@ -4,9 +4,7 @@ title: Zephyr RTOS Framework Engineering
 description: 'Engineering guide for Zephyr RTOS projects: devicetree, Kconfig, west
   build and flash, drivers API, workqueues, threads, power management, logging, shell,
   testing with ztest, and portability across boards. Hardware-aware: board definitions
-  and pin constraints.
-
-  '
+  and pin constraints. Use when framework zephyr tasks arise in all projects.'
 version: 1.2.0
 author: PRATIK PATIL
 license: Apache-2.0
@@ -66,7 +64,6 @@ axiom:
   optional_tools:
   - run_skill
 ---
-
 # Axiom Zephyr RTOS Framework Engineering
 
 ## Purpose

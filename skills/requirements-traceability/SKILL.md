@@ -41,8 +41,9 @@ axiom:
   - manifest
   standards: []
   mcp_tools: []
+  required_tools: []
+  optional_tools: []
 ---
-
 # Requirements-Traceability skill
 
 Operational practice for maintaining the traceability chain day to day:

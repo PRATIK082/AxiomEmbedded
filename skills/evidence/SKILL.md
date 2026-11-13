@@ -41,8 +41,9 @@ axiom:
   - manifest
   standards: []
   mcp_tools: []
+  required_tools: []
+  optional_tools: []
 ---
-
 # Evidence skill
 
 Assembling audit-ready evidence: what counts as evidence, how it is captured,

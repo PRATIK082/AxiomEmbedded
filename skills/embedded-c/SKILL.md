@@ -42,8 +42,9 @@ axiom:
   - manifest
   standards: []
   mcp_tools: []
+  required_tools: []
+  optional_tools: []
 ---
-
 # Embedded-C skill
 
 Idiomatic, safe, portable C for constrained targets: language subset,

@@ -1,10 +1,9 @@
 ---
 name: axiom-diagnostics-doip
 title: DoIP Diagnostics Integration
-description: 'Integrates DoIP discovery, routing activation and diagnostic transport
-  for Ethernet ECUs with tester-workflow checks.
-
-  '
+description: Integrates DoIP discovery, routing activation and diagnostic transport
+  for Ethernet ECUs with tester-workflow checks. Use when diagnostics doip tasks arise
+  in automotive projects.
 version: 1.2.0
 author: PRATIK PATIL
 license: Apache-2.0
@@ -55,7 +54,6 @@ axiom:
   optional_tools:
   - run_skill
 ---
-
 # Axiom DoIP Diagnostics Integration
 
 ## Purpose

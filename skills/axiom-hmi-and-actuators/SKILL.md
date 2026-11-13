@@ -4,9 +4,7 @@ title: HMI and Actuators Engineering
 description: 'Engineers human-machine interfaces and actuators: keypad matrix scanning
   and debouncing, LCD1602/OLED displays, LEDs, active/passive buzzers, DC/stepper/servo
   motors, encoders, relays, interlocks and e-stop, with electrical and timing constraints
-  and verification.
-
-  '
+  and verification. Use when hmi and actuators tasks arise in all projects.'
 version: 1.2.0
 author: PRATIK PATIL
 license: Apache-2.0
@@ -70,7 +68,6 @@ axiom:
   checklists:
   - checklists/review.yaml
 ---
-
 # Axiom HMI and Actuators Engineering
 
 ## Purpose

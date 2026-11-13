@@ -1,7 +1,8 @@
 ---
 name: safety
 description: Functional-safety lifecycle with ASIL/SIL/DAL mapping, HARA chains, and
-  sign-off gates. Use for safety goals, integrity levels, or safety cases.
+  sign-off gates. Use for safety goals, integrity levels, or safety cases. Use when
+  safety tasks arise in generic-embedded projects.
 version: 1.2.0
 domains:
 - generic-embedded
@@ -47,8 +48,9 @@ axiom:
   - manifest
   standards: []
   mcp_tools: []
+  required_tools: []
+  optional_tools: []
 ---
-
 # Safety skill
 
 Generic functional-safety engineering for embedded and cyber-physical systems.

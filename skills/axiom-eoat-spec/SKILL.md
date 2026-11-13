@@ -2,7 +2,8 @@
 name: axiom-eoat-spec
 title: End-of-Arm Tooling Specification
 description: 'Specifies end-of-arm tooling: gripper forces, tool-change interface,
-  vacuum/magnetic retention, and retained-risk assumptions.'
+  vacuum/magnetic retention, and retained-risk assumptions. Use when eoat spec tasks
+  arise in robotics projects.'
 version: 1.2.0
 author: PRATIK PATIL
 license: Apache-2.0
@@ -60,7 +61,6 @@ axiom:
   optional_tools:
   - run_skill
 ---
-
 # Axiom End-of-Arm Tooling Specification
 
 ## Purpose
