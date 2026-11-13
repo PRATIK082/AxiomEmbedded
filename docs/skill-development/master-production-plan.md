@@ -39,7 +39,7 @@ Each skill directory contains and passes:
 - maturity: 69 production, 4 beta, 164 experimental.
 
 ## 4. Missing skills to add (suitable for product/agents)
-Mapped from study (Jeffallan 67, SkillClaw evolution, deer-flow harness, opencode docs, codex-skills, awesome lists) filtered to embedded/edge/cloud/quality/agent-engineering fit. New `axiom-*` skills (experimental initially):
+Capability gaps identified from internal study of the embedded/edge/cloud/quality/agent-engineering landscape, filtered to this product's domains. New `axiom-*` skills (experimental initially):
 
 ### Cloud/Edge/Infra (for connected embedded products)
 - axiom-cloud-architecture (AWS/Azure/GCP for edge fleets)
@@ -78,7 +78,7 @@ Mapped from study (Jeffallan 67, SkillClaw evolution, deer-flow harness, opencod
 ### Agent/Meta (already added 27 in Phase F1; verify coverage)
 - skill-creator, mcp-builder, tool-schema-design, agent-evaluation, agent-observability, human-in-the-loop, multi-agent-orchestration, prompt-injection-defense, agent-red-teaming, skills-purge, diagnosing-bugs, improve-codebase-architecture, clean-ai-slop, git-commit-plan, code-explainer, agents-md-generator, api-design, cto-advisor, security-best-practices, security-threat-model, security-ownership-map, mcp-security-testing, doc-coauthoring, document-skills, frontend-design, context-engineering, skill-seekers.
 
-### SkillClaw-inspired (self-evolving skills) — optional, user decision
+### Self-evolving skills — optional, user decision
 - axiom-skill-evolution (dedup/improve/verify skills from session data) — meta. Recommend adding as experimental.
 
 Total new: ~30. Decision point: confirm scope (cloud/edge vs core embedded). Default: add all as experimental, refine later.
@@ -129,7 +129,7 @@ Total new: ~30. Decision point: confirm scope (cloud/edge vs core embedded). Def
 
 ## 6. Decision points for user
 D1: Scope of new skills (all ~30 vs core-only). Default: all experimental.
-D2: SkillClaw-style self-evolving skills (yes/no). Default: add axiom-skill-evolution as experimental.
+D2: Self-evolving skills (yes/no). Default: add axiom-skill-evolution as experimental.
 D3: Push to origin feature branch now? (permission granted by "keep push to git branch" → yes, feature branch only).
 D4: Merge to main / tag release → requires explicit approval (AGENTS.md).
 

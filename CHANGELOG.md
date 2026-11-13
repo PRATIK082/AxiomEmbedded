@@ -15,7 +15,7 @@ Additive skill framework + 30 original `axiom-*` workflow skills:
 - `scripts/{validate_skills,create_skill,scaffold_axiom_skills,extend_catalog,sync_skill_index}.py`;
   `tests/test_skill_framework.py`; `.github/workflows/skill-validation.yml`.
 - Docs: `docs/SKILL_FRAMEWORK.md`, `docs/skills/{AUTHORING_GUIDE,CONTRIBUTING,CATALOG}.md`,
-  `docs/{skill-authoring-guide,mcp-tool-development-guide,skill-quality-gates,skill-gap-analysis,mcp-tool-backlog,current-state-assessment}.md`,
+  `docs/{skill-authoring-guide,mcp-tool-development-guide,skill-quality-gates,mcp-tool-backlog,current-state-assessment}.md`,
   `docs/analysis/{CURRENT_STATE,GAP_ANALYSIS,INTEGRATION_PLAN,FINAL_IMPLEMENTATION_REPORT}.md`,
   `docs/migration/EXISTING_CAPABILITY_MAPPING.md`; README "Axiom Skill Framework".
 - No existing capability removed/renamed; no reference-repo text used.
