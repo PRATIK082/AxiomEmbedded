@@ -1,9 +1,17 @@
 ---
 name: automotive-middleware
-description: SDV middleware selection and integration -- ara::com, SOME/IP-SD, DDS, Zenoh, vsomeip, MQTT, TSN, zero-copy IPC, VSS/VSC. Use for service-oriented vehicle platforms, HPC/zone architectures, deterministic Ethernet.
+description: SDV middleware selection and integration -- ara::com, SOME/IP-SD, DDS,
+  Zenoh, vsomeip, MQTT, TSN, zero-copy IPC, VSS/VSC. Use for service-oriented vehicle
+  platforms, HPC/zone architectures, deterministic Ethernet. Use when automotive middleware
+  tasks arise in automotive projects.
 version: 1.2.0
-domains: [automotive]
-platforms: [mpu, soc, linux, autosar-adaptive]
+domains:
+- automotive
+platforms:
+- mpu
+- soc
+- linux
+- autosar-adaptive
 axiom:
   dotted_name: axiom.legacy.automotive-middleware
   domain: automotive
@@ -18,8 +26,30 @@ axiom:
   - axiom-zonal-architecture
   checklists:
   - checklists/automotive-middleware-checklist.md
+  inputs:
+  - repository path
+  - objective
+  - constraints
+  outputs:
+  - run report
+  - run manifest
+  risk_level: medium
+  review_required: true
+  safety_critical: false
+  lifecycle:
+  - discover
+  - plan
+  - implement
+  - verify
+  - evidence
+  artifact_types:
+  - report
+  - manifest
+  standards: []
+  mcp_tools: []
+  required_tools: []
+  optional_tools: []
 ---
-
 # automotive-middleware -- Vehicle middleware / SDV layer
 
 Service-oriented middleware for software-defined vehicles: service discovery,

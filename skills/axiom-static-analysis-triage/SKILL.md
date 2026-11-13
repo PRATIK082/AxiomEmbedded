@@ -1,37 +1,67 @@
 ---
 name: axiom-static-analysis-triage
 title: Static Analysis Triage
-description: >
-  Triages static-analysis findings (MISRA, CERT, generic checkers) with a
-  deterministic classifier script: buckets severity, tracks baselines and waivers,
-  and produces a reviewable triage log with gate verdicts.
+description: 'Triages static-analysis findings (MISRA, CERT, generic checkers) with
+  a deterministic classifier script: buckets severity, tracks baselines and waivers,
+  and produces a reviewable triage log with gate verdicts. Use when static analysis
+  triage tasks arise in all projects.'
 version: 1.2.0
 author: PRATIK PATIL
 license: Apache-2.0
-domains: [all]
-platforms: [mcu, mpu]
+domains:
+- all
+platforms:
+- mcu
+- mpu
 axiom:
   dotted_name: axiom.cross-domain.static.analysis.triage
   domain: cross-domain
   subdomain: verification
   category: verification
-  maturity: experimental
+  maturity: production
   owner: axiom-embedded
-  tags: [static-analysis, misra, triage, quality]
-  related_skills: [axiom-platform-architecture-review, axiom-test-automation]
-  lifecycle: [implementation, integration, verification, release]
-  standards: [MISRA C, CERT C]
-  artifact_types: [triage log, baseline, gate verdict]
-  mcp_tools: [run_skill, validate_skill, generate_report, generate_checklist]
+  tags:
+  - static-analysis
+  - misra
+  - triage
+  - quality
+  related_skills:
+  - axiom-platform-architecture-review
+  - axiom-test-automation
+  lifecycle:
+  - implementation
+  - integration
+  - verification
+  - release
+  standards:
+  - MISRA C
+  - CERT C
+  artifact_types:
+  - triage log
+  - baseline
+  - gate verdict
+  mcp_tools:
+  - run_skill
+  - validate_skill
+  - generate_report
+  - generate_checklist
   risk_level: medium
   review_required: true
   safety_critical: false
-  inputs: [repository path, target files, objective, constraints]
-  outputs: [run report, run manifest]
-  required_tools: [validate_skill]
-  optional_tools: [run_skill, generate_report]
+  inputs:
+  - repository path
+  - target files
+  - objective
+  - constraints
+  outputs:
+  - run report
+  - run manifest
+  required_tools:
+  - validate_skill
+  optional_tools:
+  - run_skill
+  - generate_report
 ---
-
 # Axiom Static Analysis Triage
 
 ## Purpose

@@ -2,7 +2,8 @@
 name: axiom-ros2-system-architecture-review
 title: ROS 2 System Architecture Review
 description: 'Architects the ROS 2 system: node graph, topics/services/actions, QoS
-  choices, executors, and lifecycle management.'
+  choices, executors, and lifecycle management. Use when ros2 system architecture
+  review tasks arise in robotics projects.'
 version: 1.2.0
 author: PRATIK PATIL
 license: Apache-2.0
@@ -58,7 +59,6 @@ axiom:
   optional_tools:
   - run_skill
 ---
-
 # Axiom ROS 2 System Architecture Review
 
 ## Purpose

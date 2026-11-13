@@ -2,7 +2,8 @@
 name: axiom-urdf-model-spec
 title: URDF Model Specification
 description: 'Specifies the URDF model: links, joints, limits, inertial placeholders,
-  visual/collision geometry policy, and check procedures.'
+  visual/collision geometry policy, and check procedures. Use when urdf model spec
+  tasks arise in robotics projects.'
 version: 1.2.0
 author: PRATIK PATIL
 license: Apache-2.0
@@ -58,7 +59,6 @@ axiom:
   optional_tools:
   - run_skill
 ---
-
 # Axiom URDF Model Specification
 
 ## Purpose

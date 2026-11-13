@@ -39,6 +39,13 @@ def engage(domain: str | None = None, platform: str | None = None,
     capped replies carry total/truncated so callers can page (raise limit).
     """
     index = load_index()
+    # filter disabled skills via catalog
+    try:
+        from packages.skills.registry import load_catalog
+        _cat = load_catalog()
+        enabled_ids = {e["id"] for e in _cat.get("skills", []) if e.get("enabled", True)}
+    except Exception:
+        enabled_ids = None
     if group is not None and group not in index.get("by_group", {}):
         known = sorted(index.get("by_group", {}))
         return {"status": "error", "domain": domain, "platform": platform,
@@ -49,7 +56,8 @@ def engage(domain: str | None = None, platform: str | None = None,
     skills = {
         sid: facet
         for sid, facet in index["skills"].items()
-        if _match(facet.get("domains", []), domain) and _match(facet.get("platforms", []), platform)
+        if (enabled_ids is None or sid in enabled_ids)
+        and _match(facet.get("domains", []), domain) and _match(facet.get("platforms", []), platform)
         and (in_group is None or sid in in_group)
     }
     profiles = []

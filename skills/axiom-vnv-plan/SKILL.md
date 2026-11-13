@@ -1,16 +1,20 @@
 ---
 name: axiom-vnv-plan
 title: Verification and Validation Planning
-description: >
-  Use when a verification and validation plan with a requirements-to-test
-  trace matrix is needed. Trigger phrases include "create a V&V plan", "plan
-  verification tests", "build a traceability matrix", and "map requirements
-  to tests".
+description: 'Use when a verification and validation plan with a requirements-to-test
+  trace matrix is needed. Trigger phrases include "create a V&V plan", "plan verification
+  tests", "build a traceability matrix", and "map requirements to tests".
+
+  '
 version: 1.2.0
 author: AxiomEmbedded
 license: Apache-2.0
-domains: [industrial, robotics]
-platforms: [mcu, mpu]
+domains:
+- industrial
+- robotics
+platforms:
+- mcu
+- mpu
 axiom:
   dotted_name: axiom.assurance.vnv_plan
   domain: industrial
@@ -18,22 +22,43 @@ axiom:
   category: verification
   maturity: experimental
   owner: axiom-embedded
-  tags: [assurance, verification, traceability]
-  related_skills: [axiom-vnv-plan-review]
-  lifecycle: [verification, validation]
-  standards: [ISO 12100:2010, ISO 13849-2:2012, ISO/TS 15066:2016, IEC 62061:2021]
-  artifact_types: [V&V plan, traceability matrix]
-  mcp_tools: [run_skill, validate_skill]
+  tags:
+  - assurance
+  - verification
+  - traceability
+  related_skills:
+  - axiom-vnv-plan-review
+  lifecycle:
+  - verification
+  - validation
+  standards:
+  - ISO 12100:2010
+  - ISO 13849-2:2012
+  - ISO/TS 15066:2016
+  - IEC 62061:2021
+  artifact_types:
+  - V&V plan
+  - traceability matrix
+  mcp_tools:
+  - run_skill
+  - validate_skill
   risk_level: medium
   review_required: true
   safety_critical: false
-  inputs: [safety-requirements artifact]
-  outputs: [vnv-plan artifact]
-  required_tools: [validate_skill]
-  optional_tools: [run_skill]
-  checklists: [checklists/vnv-checklist.md]
-  templates: [templates/vnv-plan.template.yaml]
-  scripts: [scripts/check_vnv_plan.py]
+  inputs:
+  - safety-requirements artifact
+  outputs:
+  - vnv-plan artifact
+  required_tools:
+  - validate_skill
+  optional_tools:
+  - run_skill
+  checklists:
+  - checklists/vnv-checklist.md
+  templates:
+  - templates/vnv-plan.template.yaml
+  scripts:
+  - scripts/check_vnv_plan.py
 ---
 
 # Axiom Verification and Validation Planning (builder)

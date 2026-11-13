@@ -1,9 +1,14 @@
 ---
 name: git
-description: Git workflow discipline for clean history, safe branching, review-ready commits, controlled merges/rebases, tags, and recovery. Use when creating branches, committing, merging, rebasing, tagging, syncing remotes, or recovering repository state.
+description: Git workflow discipline for clean history, safe branching, review-ready
+  commits, controlled merges/rebases, tags, and recovery. Use when creating branches,
+  committing, merging, rebasing, tagging, syncing remotes, or recovering repository
+  state.
 version: 1.2.0
-domains: [all]
-platforms: [all]
+domains:
+- all
+platforms:
+- all
 axiom:
   dotted_name: axiom.legacy.git
   domain: all
@@ -24,8 +29,30 @@ axiom:
   - documentation
   checklists:
   - checklists/git-checklist.md
+  inputs:
+  - repository path
+  - objective
+  - constraints
+  outputs:
+  - run report
+  - run manifest
+  risk_level: medium
+  review_required: true
+  safety_critical: false
+  lifecycle:
+  - discover
+  - plan
+  - implement
+  - verify
+  - evidence
+  artifact_types:
+  - report
+  - manifest
+  standards: []
+  mcp_tools: []
+  required_tools: []
+  optional_tools: []
 ---
-
 # Git skill
 
 Git hygiene and workflow for embedded and cross-domain engineering: every change

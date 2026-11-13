@@ -2,7 +2,8 @@
 name: axiom-model-card
 title: Model Card
 description: 'Authors model cards for robotics ML models: intended use, metrics, limits,
-  failure modes, and deployment caveats.'
+  failure modes, and deployment caveats. Use when model card tasks arise in robotics
+  projects.'
 version: 1.2.0
 author: PRATIK PATIL
 license: Apache-2.0
@@ -57,7 +58,6 @@ axiom:
   optional_tools:
   - run_skill
 ---
-
 # Axiom Model Card
 
 ## Purpose

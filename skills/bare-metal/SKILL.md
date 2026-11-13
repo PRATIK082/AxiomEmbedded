@@ -1,9 +1,14 @@
 ---
 name: bare-metal
-description: Reset-to-main init, fault handlers, ISR discipline, super-loop and time-triggered patterns. Use for no-OS firmware or boot code.
+description: Reset-to-main init, fault handlers, ISR discipline, super-loop and time-triggered
+  patterns. Use for no-OS firmware or boot code. Use when bare metal tasks arise in
+  all projects.
 version: 1.2.0
-domains: [all]
-platforms: [mcu, bare-metal]
+domains:
+- all
+platforms:
+- mcu
+- bare-metal
 axiom:
   dotted_name: axiom.legacy.bare-metal
   domain: all
@@ -16,8 +21,30 @@ axiom:
   related_skills: []
   checklists:
   - checklists/bare-metal-checklist.md
+  inputs:
+  - repository path
+  - objective
+  - constraints
+  outputs:
+  - run report
+  - run manifest
+  risk_level: medium
+  review_required: true
+  safety_critical: false
+  lifecycle:
+  - discover
+  - plan
+  - implement
+  - verify
+  - evidence
+  artifact_types:
+  - report
+  - manifest
+  standards: []
+  mcp_tools: []
+  required_tools: []
+  optional_tools: []
 ---
-
 # Bare-Metal skill
 
 Single-core, no-OS firmware on MCU targets: reset-to-main structure, interrupt

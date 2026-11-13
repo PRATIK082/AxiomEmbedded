@@ -2,7 +2,8 @@
 name: axiom-ros2-system-architecture
 title: ROS 2 System Architecture
 description: 'Architects the ROS 2 system: node graph, topics/services/actions, QoS
-  choices, executors, and lifecycle management.'
+  choices, executors, and lifecycle management. Use when ros2 system architecture
+  tasks arise in robotics projects.'
 version: 1.3.0
 author: PRATIK PATIL
 license: Apache-2.0
@@ -58,7 +59,6 @@ axiom:
   optional_tools:
   - run_skill
 ---
-
 # Axiom ROS 2 System Architecture
 
 ## Purpose

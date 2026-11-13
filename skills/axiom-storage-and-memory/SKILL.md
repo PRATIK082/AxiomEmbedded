@@ -1,15 +1,18 @@
 ---
 name: axiom-storage-and-memory
 title: Non-Volatile Storage and Memory Engineering
-description: >
-  Engineers non-volatile storage: internal flash, EEPROM/emulated EEPROM, external SPI NOR flash,
-  SD cards, wear leveling, power-fail safety, atomic writes, file systems (FAT/LittleFS),
-  endurance and verification.
+description: 'Engineers non-volatile storage: internal flash, EEPROM/emulated EEPROM,
+  external SPI NOR flash, SD cards, wear leveling, power-fail safety, atomic writes,
+  file systems (FAT/LittleFS), endurance and verification. Use when storage and memory
+  tasks arise in all projects.'
 version: 1.2.0
 author: PRATIK PATIL
 license: Apache-2.0
-domains: [all]
-platforms: [mcu, mpu]
+domains:
+- all
+platforms:
+- mcu
+- mpu
 axiom:
   dotted_name: axiom.platform.storage.memory
   domain: platform
@@ -17,26 +20,51 @@ axiom:
   category: implementation
   maturity: experimental
   owner: axiom-embedded
-  tags: [storage, flash, eeprom, filesystem, wear-leveling]
+  tags:
+  - storage
+  - flash
+  - eeprom
+  - filesystem
+  - wear-leveling
   related_skills:
   - bootloader
   - drivers
   - hardware-bringup
-  lifecycle: [requirements, architecture, design, implementation, integration, verification, validation, release]
+  lifecycle:
+  - requirements
+  - architecture
+  - design
+  - implementation
+  - integration
+  - verification
+  - validation
+  - release
   standards: []
-  artifact_types: [storage architecture, endurance test plan, data-integrity report]
-  mcp_tools: [run_skill, validate_skill]
+  artifact_types:
+  - storage architecture
+  - endurance test plan
+  - data-integrity report
+  mcp_tools:
+  - run_skill
+  - validate_skill
   risk_level: high
   review_required: true
   safety_critical: false
-  inputs: [repository path, target files, objective, constraints]
-  outputs: [run report, run manifest]
-  required_tools: [validate_skill]
-  optional_tools: [run_skill]
+  inputs:
+  - repository path
+  - target files
+  - objective
+  - constraints
+  outputs:
+  - run report
+  - run manifest
+  required_tools:
+  - validate_skill
+  optional_tools:
+  - run_skill
   checklists:
   - checklists/review.yaml
 ---
-
 # Axiom Non-Volatile Storage and Memory Engineering
 
 ## Purpose

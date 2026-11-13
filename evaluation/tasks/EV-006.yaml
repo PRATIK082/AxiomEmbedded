@@ -1,0 +1,8 @@
+id: EV-006
+agent: implementation
+domain: generic-embedded
+platform: mcu
+prompt: Acquire temperature from an I2C sensor with calibration and filtering.
+expect:
+  skills_contain: [axiom-sensor-acquisition, axiom-sensor-calibration, axiom-digital-filtering]
+  clarifies: false

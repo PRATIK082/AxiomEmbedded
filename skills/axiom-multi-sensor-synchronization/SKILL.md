@@ -1,15 +1,23 @@
 ---
 name: axiom-multi-sensor-synchronization
 title: Multi-Sensor Synchronization
-description: >
-  Synchronizes multiple sensors across shared triggers, aligned timestamps,
-  clock domains and fusion timing with deterministic sampling and resource
-  arbitration.
+description: Synchronizes multiple sensors across shared triggers, aligned timestamps,
+  clock domains and fusion timing with deterministic sampling and resource arbitration.
+  Use when multi sensor synchronization tasks arise in generic-embedded projects.
 version: 1.2.0
 author: PRATIK PATIL
 license: Apache-2.0
-domains: [generic-embedded, iot, industrial, automotive, robotics]
-platforms: [mcu, mpu, soc, mpsoc]
+domains:
+- generic-embedded
+- iot
+- industrial
+- automotive
+- robotics
+platforms:
+- mcu
+- mpu
+- soc
+- mpsoc
 axiom:
   dotted_name: axiom.generic-embedded.sensor.multi.sensor.synchronization
   domain: generic-embedded
@@ -17,21 +25,49 @@ axiom:
   category: implementation
   maturity: experimental
   owner: axiom-embedded
-  tags: [synchronization, multi-sensor, fusion, trigger, clock-domain]
-  related_skills: [axiom-sensor-acquisition, axiom-sampling-timestamping, axiom-sensor-diagnostics, axiom-digital-filtering]
-  lifecycle: [requirements, architecture, design, implementation, integration, verification, validation, release]
+  tags:
+  - synchronization
+  - multi-sensor
+  - fusion
+  - trigger
+  - clock-domain
+  related_skills:
+  - axiom-sensor-acquisition
+  - axiom-sampling-timestamping
+  - axiom-sensor-diagnostics
+  - axiom-digital-filtering
+  lifecycle:
+  - requirements
+  - architecture
+  - design
+  - implementation
+  - integration
+  - verification
+  - validation
+  - release
   standards: []
-  artifact_types: [sync design, timing alignment evidence]
-  mcp_tools: [run_skill, validate_skill]
+  artifact_types:
+  - sync design
+  - timing alignment evidence
+  mcp_tools:
+  - run_skill
+  - validate_skill
   risk_level: medium
   review_required: true
   safety_critical: false
-  inputs: [repository path, target files, objective, constraints]
-  outputs: [run report, run manifest]
-  required_tools: [validate_skill]
-  optional_tools: [run_skill]
+  inputs:
+  - repository path
+  - target files
+  - objective
+  - constraints
+  outputs:
+  - run report
+  - run manifest
+  required_tools:
+  - validate_skill
+  optional_tools:
+  - run_skill
 ---
-
 # Axiom Multi-Sensor Synchronization
 
 ## Purpose

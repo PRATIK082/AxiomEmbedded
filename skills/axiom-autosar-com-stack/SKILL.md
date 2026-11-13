@@ -1,13 +1,17 @@
 ---
 name: axiom-autosar-com-stack
 title: AUTOSAR COM Stack Review
-description: >
-  Reviews COM/PduR/CanIf/CanTp signal routing, PDU mapping and gateway assumptions for Classic communication stacks.
+description: Reviews COM/PduR/CanIf/CanTp signal routing, PDU mapping and gateway
+  assumptions for Classic communication stacks. Use when autosar com stack tasks arise
+  in automotive projects.
 version: 1.2.0
 author: PRATIK PATIL
 license: Apache-2.0
-domains: [automotive]
-platforms: [mcu, autosar-classic]
+domains:
+- automotive
+platforms:
+- mcu
+- autosar-classic
 axiom:
   dotted_name: axiom.automotive.autosar.com.stack
   domain: automotive
@@ -15,21 +19,42 @@ axiom:
   category: configuration
   maturity: experimental
   owner: axiom-embedded
-  tags: [autosar-classic]
+  tags:
+  - autosar-classic
   related_skills: []
-  lifecycle: [requirements, architecture, design, implementation, integration, verification, validation, release]
-  standards: [AUTOSAR Classic R24-11]
-  artifact_types: [COM review, signal-routing table]
-  mcp_tools: [run_skill, validate_skill]
+  lifecycle:
+  - requirements
+  - architecture
+  - design
+  - implementation
+  - integration
+  - verification
+  - validation
+  - release
+  standards:
+  - AUTOSAR Classic R24-11
+  artifact_types:
+  - COM review
+  - signal-routing table
+  mcp_tools:
+  - run_skill
+  - validate_skill
   risk_level: medium
   review_required: true
   safety_critical: false
-  inputs: [repository path, target files, objective, constraints]
-  outputs: [run report, run manifest]
-  required_tools: [validate_skill]
-  optional_tools: [run_skill]
+  inputs:
+  - repository path
+  - target files
+  - objective
+  - constraints
+  outputs:
+  - run report
+  - run manifest
+  required_tools:
+  - validate_skill
+  optional_tools:
+  - run_skill
 ---
-
 # Axiom AUTOSAR COM Stack Review
 
 ## Purpose

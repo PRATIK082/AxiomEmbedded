@@ -1,9 +1,12 @@
 ---
 name: system-test
-description: Requirement-based system testing, stress/abuse campaigns, and triage. Use when validating a full product against its requirements.
+description: Requirement-based system testing, stress/abuse campaigns, and triage.
+  Use when validating a full product against its requirements.
 version: 1.2.0
-domains: [all]
-platforms: [all]
+domains:
+- all
+platforms:
+- all
 axiom:
   dotted_name: axiom.legacy.system-test
   domain: all
@@ -17,8 +20,30 @@ axiom:
   - axiom-hil-test-planning
   checklists:
   - checklists/system-test-checklist.md
+  inputs:
+  - repository path
+  - objective
+  - constraints
+  outputs:
+  - run report
+  - run manifest
+  risk_level: medium
+  review_required: true
+  safety_critical: false
+  lifecycle:
+  - discover
+  - plan
+  - implement
+  - verify
+  - evidence
+  artifact_types:
+  - report
+  - manifest
+  standards: []
+  mcp_tools: []
+  required_tools: []
+  optional_tools: []
 ---
-
 # System-Test skill
 
 End-to-end verification of the integrated system against system requirements in

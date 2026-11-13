@@ -1,37 +1,66 @@
 ---
 name: axiom-technical-debt-assessment
 title: Technical Debt Assessment
-description: >
-  Inventories technical debt as a scored register (principal, interest, contagion,
-  paydown cost), prioritizes paydown with explicit trade-offs, and produces a
-  reviewable paydown plan tied to releases.
+description: Inventories technical debt as a scored register (principal, interest,
+  contagion, paydown cost), prioritizes paydown with explicit trade-offs, and produces
+  a reviewable paydown plan tied to releases. Use when technical debt assessment tasks
+  arise in all projects.
 version: 1.2.0
 author: PRATIK PATIL
 license: Apache-2.0
-domains: [all]
-platforms: [mcu, mpu]
+domains:
+- all
+platforms:
+- mcu
+- mpu
 axiom:
   dotted_name: axiom.cross-domain.technical.debt.assessment
   domain: cross-domain
   subdomain: review
   category: review
-  maturity: experimental
+  maturity: production
   owner: axiom-embedded
-  tags: [tech-debt, quality, planning, review]
-  related_skills: [axiom-architecture-decision-records, axiom-platform-architecture-review, axiom-static-analysis-triage]
-  lifecycle: [design, implementation, integration, release, operations]
+  tags:
+  - tech-debt
+  - quality
+  - planning
+  - review
+  related_skills:
+  - axiom-architecture-decision-records
+  - axiom-platform-architecture-review
+  - axiom-static-analysis-triage
+  lifecycle:
+  - design
+  - implementation
+  - integration
+  - release
+  - operations
   standards: []
-  artifact_types: [debt register, paydown plan]
-  mcp_tools: [run_skill, validate_skill, generate_report, generate_checklist]
+  artifact_types:
+  - debt register
+  - paydown plan
+  mcp_tools:
+  - run_skill
+  - validate_skill
+  - generate_report
+  - generate_checklist
   risk_level: low
   review_required: true
   safety_critical: false
-  inputs: [repository path, target files, objective, constraints]
-  outputs: [run report, run manifest]
-  required_tools: [validate_skill]
-  optional_tools: [run_skill, generate_report]
+  inputs:
+  - repository path
+  - target files
+  - objective
+  - constraints
+  outputs:
+  - run report
+  - run manifest
+  required_tools:
+  - validate_skill
+  optional_tools:
+  - run_skill
+  - generate_report
 ---
-
 # Axiom Technical Debt Assessment
 
 ## Purpose

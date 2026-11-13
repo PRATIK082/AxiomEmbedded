@@ -1,13 +1,17 @@
 ---
 name: axiom-autosar-rte-design
 title: AUTOSAR RTE Design
-description: >
-  Designs RTE ports, interfaces, runnable entities and events for Classic software components with consistency checks and traceability.
+description: Designs RTE ports, interfaces, runnable entities and events for Classic
+  software components with consistency checks and traceability. Use when autosar rte
+  design tasks arise in automotive projects.
 version: 1.2.0
 author: PRATIK PATIL
 license: Apache-2.0
-domains: [automotive]
-platforms: [mcu, autosar-classic]
+domains:
+- automotive
+platforms:
+- mcu
+- autosar-classic
 axiom:
   dotted_name: axiom.automotive.autosar.rte.design
   domain: automotive
@@ -15,21 +19,42 @@ axiom:
   category: design
   maturity: experimental
   owner: axiom-embedded
-  tags: [autosar-classic]
+  tags:
+  - autosar-classic
   related_skills: []
-  lifecycle: [requirements, architecture, design, implementation, integration, verification, validation, release]
-  standards: [AUTOSAR Classic R24-11]
-  artifact_types: [RTE mapping table, interface contract]
-  mcp_tools: [run_skill, validate_skill]
+  lifecycle:
+  - requirements
+  - architecture
+  - design
+  - implementation
+  - integration
+  - verification
+  - validation
+  - release
+  standards:
+  - AUTOSAR Classic R24-11
+  artifact_types:
+  - RTE mapping table
+  - interface contract
+  mcp_tools:
+  - run_skill
+  - validate_skill
   risk_level: medium
   review_required: true
   safety_critical: false
-  inputs: [repository path, target files, objective, constraints]
-  outputs: [run report, run manifest]
-  required_tools: [validate_skill]
-  optional_tools: [run_skill]
+  inputs:
+  - repository path
+  - target files
+  - objective
+  - constraints
+  outputs:
+  - run report
+  - run manifest
+  required_tools:
+  - validate_skill
+  optional_tools:
+  - run_skill
 ---
-
 # Axiom AUTOSAR RTE Design
 
 ## Purpose

@@ -1,15 +1,24 @@
 ---
 name: axiom-sampling-timestamping
 title: Sampling and Timestamping
-description: >
-  Selects sampling rates and timer-driven schedules, captures monotonic
-  timestamps, manages jitter and ring buffers, and handles overrun for
-  deterministic embedded acquisition.
+description: Selects sampling rates and timer-driven schedules, captures monotonic
+  timestamps, manages jitter and ring buffers, and handles overrun for deterministic
+  embedded acquisition. Use when sampling timestamping tasks arise in generic-embedded
+  projects.
 version: 1.2.0
 author: PRATIK PATIL
 license: Apache-2.0
-domains: [generic-embedded, iot, industrial, automotive, robotics]
-platforms: [mcu, mpu, soc, mpsoc]
+domains:
+- generic-embedded
+- iot
+- industrial
+- automotive
+- robotics
+platforms:
+- mcu
+- mpu
+- soc
+- mpsoc
 axiom:
   dotted_name: axiom.generic-embedded.sensor.sampling.timestamping
   domain: generic-embedded
@@ -17,21 +26,49 @@ axiom:
   category: implementation
   maturity: experimental
   owner: axiom-embedded
-  tags: [sampling, timestamping, timer, jitter, ring-buffer]
-  related_skills: [axiom-sensor-acquisition, axiom-multi-sensor-synchronization, axiom-sensor-diagnostics, performance]
-  lifecycle: [requirements, architecture, design, implementation, integration, verification, validation, release]
+  tags:
+  - sampling
+  - timestamping
+  - timer
+  - jitter
+  - ring-buffer
+  related_skills:
+  - axiom-sensor-acquisition
+  - axiom-multi-sensor-synchronization
+  - axiom-sensor-diagnostics
+  - performance
+  lifecycle:
+  - requirements
+  - architecture
+  - design
+  - implementation
+  - integration
+  - verification
+  - validation
+  - release
   standards: []
-  artifact_types: [sampling plan, timing evidence]
-  mcp_tools: [run_skill, validate_skill]
+  artifact_types:
+  - sampling plan
+  - timing evidence
+  mcp_tools:
+  - run_skill
+  - validate_skill
   risk_level: medium
   review_required: true
   safety_critical: false
-  inputs: [repository path, target files, objective, constraints]
-  outputs: [run report, run manifest]
-  required_tools: [validate_skill]
-  optional_tools: [run_skill]
+  inputs:
+  - repository path
+  - target files
+  - objective
+  - constraints
+  outputs:
+  - run report
+  - run manifest
+  required_tools:
+  - validate_skill
+  optional_tools:
+  - run_skill
 ---
-
 # Axiom Sampling and Timestamping
 
 ## Purpose

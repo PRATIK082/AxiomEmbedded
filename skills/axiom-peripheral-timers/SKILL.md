@@ -1,15 +1,19 @@
 ---
 name: axiom-peripheral-timers
 title: Peripheral Timers, PWM and RTC Engineering
-description: >
-  Engineers MCU timers, counters, PWM, capture/compare and RTC subsystems: modes, prescalers,
-  deterministic intervals, overflow handling, watchdog interaction, interrupt latency,
-  calibration, and platform differences (AVR/ESP32/Zephyr), verified on hardware.
+description: 'Engineers MCU timers, counters, PWM, capture/compare and RTC subsystems:
+  modes, prescalers, deterministic intervals, overflow handling, watchdog interaction,
+  interrupt latency, calibration, and platform differences (AVR/ESP32/Zephyr), verified
+  on hardware. Use when peripheral timers tasks arise in all projects.'
 version: 1.2.0
 author: PRATIK PATIL
 license: Apache-2.0
-domains: [all]
-platforms: [mcu, bare-metal, rtos]
+domains:
+- all
+platforms:
+- mcu
+- bare-metal
+- rtos
 axiom:
   dotted_name: axiom.platform.peripheral.timers
   domain: platform
@@ -17,26 +21,49 @@ axiom:
   category: implementation
   maturity: experimental
   owner: axiom-embedded
-  tags: [timers, pwm, rtc, counters]
+  tags:
+  - timers
+  - pwm
+  - rtc
+  - counters
   related_skills:
   - drivers
   - mcu
   - performance
-  lifecycle: [requirements, architecture, design, implementation, integration, verification, validation, release]
+  lifecycle:
+  - requirements
+  - architecture
+  - design
+  - implementation
+  - integration
+  - verification
+  - validation
+  - release
   standards: []
-  artifact_types: [timer configuration record, timing verification report]
-  mcp_tools: [run_skill, validate_skill]
+  artifact_types:
+  - timer configuration record
+  - timing verification report
+  mcp_tools:
+  - run_skill
+  - validate_skill
   risk_level: medium
   review_required: true
   safety_critical: false
-  inputs: [repository path, target files, objective, constraints]
-  outputs: [run report, run manifest]
-  required_tools: [validate_skill]
-  optional_tools: [run_skill]
+  inputs:
+  - repository path
+  - target files
+  - objective
+  - constraints
+  outputs:
+  - run report
+  - run manifest
+  required_tools:
+  - validate_skill
+  optional_tools:
+  - run_skill
   checklists:
   - checklists/review.yaml
 ---
-
 # Axiom Peripheral Timers, PWM and RTC Engineering
 
 ## Purpose

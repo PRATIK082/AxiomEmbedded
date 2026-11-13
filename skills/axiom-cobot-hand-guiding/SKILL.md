@@ -2,7 +2,8 @@
 name: axiom-cobot-hand-guiding
 title: Cobot Hand-Guiding Design
 description: 'Designs hand-guiding collaborative operation: enabling-device logic,
-  reduced-speed limits, mode transitions, and stop behavior.'
+  reduced-speed limits, mode transitions, and stop behavior. Use when cobot hand guiding
+  tasks arise in robotics projects.'
 version: 1.2.0
 author: PRATIK PATIL
 license: Apache-2.0
@@ -60,7 +61,6 @@ axiom:
   optional_tools:
   - run_skill
 ---
-
 # Axiom Cobot Hand-Guiding Design
 
 ## Purpose

@@ -1,13 +1,18 @@
 ---
 name: axiom-platform-architecture-review
 title: Platform Architecture Review
-description: >
-  Reviews embedded platform architecture (requirements-to-design traceability, interface contracts, ADRs, tech-debt) for any domain.
+description: Reviews embedded platform architecture (requirements-to-design traceability,
+  interface contracts, ADRs, tech-debt) for any domain. Use when platform architecture
+  review tasks arise in all projects.
 version: 1.2.0
 author: PRATIK PATIL
 license: Apache-2.0
-domains: [all]
-platforms: [mcu, mpu, soc]
+domains:
+- all
+platforms:
+- mcu
+- mpu
+- soc
 axiom:
   dotted_name: axiom.cross-domain.platform.architecture.review
   domain: cross-domain
@@ -15,21 +20,41 @@ axiom:
   category: architecture
   maturity: experimental
   owner: axiom-embedded
-  tags: [architecture]
+  tags:
+  - architecture
   related_skills: []
-  lifecycle: [requirements, architecture, design, implementation, integration, verification, validation, release]
+  lifecycle:
+  - requirements
+  - architecture
+  - design
+  - implementation
+  - integration
+  - verification
+  - validation
+  - release
   standards: []
-  artifact_types: [architecture review, ADR set]
-  mcp_tools: [run_skill, validate_skill]
+  artifact_types:
+  - architecture review
+  - ADR set
+  mcp_tools:
+  - run_skill
+  - validate_skill
   risk_level: medium
   review_required: true
   safety_critical: false
-  inputs: [repository path, target files, objective, constraints]
-  outputs: [run report, run manifest]
-  required_tools: [validate_skill]
-  optional_tools: [run_skill]
+  inputs:
+  - repository path
+  - target files
+  - objective
+  - constraints
+  outputs:
+  - run report
+  - run manifest
+  required_tools:
+  - validate_skill
+  optional_tools:
+  - run_skill
 ---
-
 # Axiom Platform Architecture Review
 
 ## Purpose

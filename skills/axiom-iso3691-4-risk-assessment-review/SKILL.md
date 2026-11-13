@@ -2,7 +2,8 @@
 name: axiom-iso3691-4-risk-assessment-review
 title: ISO 3691-4 Risk Assessment Review
 description: 'Runs risk assessment for driverless-truck deployment: operating zones,
-  detection performance, braking, and traffic interaction.'
+  detection performance, braking, and traffic interaction. Use when iso3691 4 risk
+  assessment review tasks arise in industrial projects.'
 version: 1.2.0
 author: PRATIK PATIL
 license: Apache-2.0
@@ -60,7 +61,6 @@ axiom:
   optional_tools:
   - run_skill
 ---
-
 # Axiom ISO 3691-4 Risk Assessment Review
 
 ## Purpose

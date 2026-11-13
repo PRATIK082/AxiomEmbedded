@@ -1,9 +1,12 @@
 ---
 name: documentation
-description: Docs-as-code, versioned-with-product docs, tested examples. Use when writing manuals, API docs, or runbooks.
+description: Docs-as-code, versioned-with-product docs, tested examples. Use when
+  writing manuals, API docs, or runbooks.
 version: 1.3.0
-domains: [all]
-platforms: [all]
+domains:
+- all
+platforms:
+- all
 axiom:
   dotted_name: axiom.legacy.documentation
   domain: all
@@ -17,8 +20,30 @@ axiom:
   - axiom-architecture-decision-records
   checklists:
   - checklists/documentation-checklist.md
+  inputs:
+  - repository path
+  - objective
+  - constraints
+  outputs:
+  - run report
+  - run manifest
+  risk_level: medium
+  review_required: true
+  safety_critical: false
+  lifecycle:
+  - discover
+  - plan
+  - implement
+  - verify
+  - evidence
+  artifact_types:
+  - report
+  - manifest
+  standards: []
+  mcp_tools: []
+  required_tools: []
+  optional_tools: []
 ---
-
 # Documentation skill
 
 Technical documentation engineers and auditors actually use: architecture

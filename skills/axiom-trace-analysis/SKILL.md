@@ -1,13 +1,16 @@
 ---
 name: axiom-trace-analysis
 title: Trace Analysis
-description: >
-  Analyzes execution traces for timing, dropped events and anomaly triage with a deterministic parser script.
+description: Analyzes execution traces for timing, dropped events and anomaly triage
+  with a deterministic parser script. Use when trace analysis tasks arise in all projects.
 version: 1.2.0
 author: PRATIK PATIL
 license: Apache-2.0
-domains: [all]
-platforms: [mcu, mpu]
+domains:
+- all
+platforms:
+- mcu
+- mpu
 axiom:
   dotted_name: axiom.platform.trace.analysis
   domain: platform
@@ -15,21 +18,40 @@ axiom:
   category: verification
   maturity: experimental
   owner: axiom-embedded
-  tags: [observability]
+  tags:
+  - observability
   related_skills: []
-  lifecycle: [requirements, architecture, design, implementation, integration, verification, validation, release]
+  lifecycle:
+  - requirements
+  - architecture
+  - design
+  - implementation
+  - integration
+  - verification
+  - validation
+  - release
   standards: []
-  artifact_types: [trace analysis report]
-  mcp_tools: [run_skill, validate_skill]
+  artifact_types:
+  - trace analysis report
+  mcp_tools:
+  - run_skill
+  - validate_skill
   risk_level: low
   review_required: true
   safety_critical: false
-  inputs: [repository path, target files, objective, constraints]
-  outputs: [run report, run manifest]
-  required_tools: [validate_skill]
-  optional_tools: [run_skill]
+  inputs:
+  - repository path
+  - target files
+  - objective
+  - constraints
+  outputs:
+  - run report
+  - run manifest
+  required_tools:
+  - validate_skill
+  optional_tools:
+  - run_skill
 ---
-
 # Axiom Trace Analysis
 
 ## Purpose

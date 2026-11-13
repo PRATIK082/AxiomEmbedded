@@ -1,16 +1,21 @@
 ---
 name: axiom-threat-model
 title: Cybersecurity Threat Modeling
-description: >
-  Use when a cybersecurity threat model with risk-ranked threats and controls
-  is needed for a connected embedded product. Trigger phrases include "create
-  a threat model", "assess cybersecurity risks", "model attack surfaces", and
-  "define security controls".
+description: 'Use when a cybersecurity threat model with risk-ranked threats and controls
+  is needed for a connected embedded product. Trigger phrases include "create a threat
+  model", "assess cybersecurity risks", "model attack surfaces", and "define security
+  controls".
+
+  '
 version: 1.2.0
 author: AxiomEmbedded
 license: Apache-2.0
-domains: [industrial, robotics]
-platforms: [mcu, mpu]
+domains:
+- industrial
+- robotics
+platforms:
+- mcu
+- mpu
 axiom:
   dotted_name: axiom.assurance.threat_model
   domain: industrial
@@ -18,22 +23,44 @@ axiom:
   category: analysis
   maturity: experimental
   owner: axiom-embedded
-  tags: [assurance, cybersecurity, threat]
-  related_skills: [axiom-threat-model-review]
-  lifecycle: [requirements, architecture, verification]
-  standards: [IEC 62443-3-3:2013, IEC 62443-3-2:2020, IEC 62443-4-1:2018, IEC 62443-4-2:2019]
-  artifact_types: [threat model]
-  mcp_tools: [run_skill, validate_skill]
+  tags:
+  - assurance
+  - cybersecurity
+  - threat
+  related_skills:
+  - axiom-threat-model-review
+  lifecycle:
+  - requirements
+  - architecture
+  - verification
+  standards:
+  - IEC 62443-3-3:2013
+  - IEC 62443-3-2:2020
+  - IEC 62443-4-1:2018
+  - IEC 62443-4-2:2019
+  artifact_types:
+  - threat model
+  mcp_tools:
+  - run_skill
+  - validate_skill
   risk_level: high
   review_required: true
   safety_critical: false
-  inputs: [system-scope artifact, architecture sketch]
-  outputs: [threat-model artifact]
-  required_tools: [validate_skill]
-  optional_tools: [run_skill]
-  checklists: [checklists/threat-checklist.md]
-  templates: [templates/threat-model.template.yaml]
-  scripts: [scripts/check_threat_model.py]
+  inputs:
+  - system-scope artifact
+  - architecture sketch
+  outputs:
+  - threat-model artifact
+  required_tools:
+  - validate_skill
+  optional_tools:
+  - run_skill
+  checklists:
+  - checklists/threat-checklist.md
+  templates:
+  - templates/threat-model.template.yaml
+  scripts:
+  - scripts/check_threat_model.py
 ---
 
 # Axiom Cybersecurity Threat Modeling (builder)

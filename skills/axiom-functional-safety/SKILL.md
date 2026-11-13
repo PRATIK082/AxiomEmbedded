@@ -1,13 +1,17 @@
 ---
 name: axiom-functional-safety
 title: Functional Safety Workflow
-description: >
-  Supports HARA, safety goals, FSR/TSR derivation, FMEA/FTA templates and verification-evidence structure for safety-related work.
+description: Supports HARA, safety goals, FSR/TSR derivation, FMEA/FTA templates and
+  verification-evidence structure for safety-related work. Use when functional safety
+  tasks arise in automotive projects.
 version: 1.2.0
 author: PRATIK PATIL
 license: Apache-2.0
-domains: [automotive]
-platforms: [mcu, mpu]
+domains:
+- automotive
+platforms:
+- mcu
+- mpu
 axiom:
   dotted_name: axiom.automotive.functional.safety
   domain: automotive
@@ -15,21 +19,43 @@ axiom:
   category: safety
   maturity: experimental
   owner: axiom-embedded
-  tags: [safety]
+  tags:
+  - safety
   related_skills: []
-  lifecycle: [requirements, architecture, design, implementation, integration, verification, validation, release]
-  standards: [ISO 26262:2018]
-  artifact_types: [safety plan, FMEA/FTA templates, evidence structure]
-  mcp_tools: [run_skill, validate_skill]
+  lifecycle:
+  - requirements
+  - architecture
+  - design
+  - implementation
+  - integration
+  - verification
+  - validation
+  - release
+  standards:
+  - ISO 26262:2018
+  artifact_types:
+  - safety plan
+  - FMEA/FTA templates
+  - evidence structure
+  mcp_tools:
+  - run_skill
+  - validate_skill
   risk_level: safety-critical
   review_required: true
   safety_critical: true
-  inputs: [repository path, target files, objective, constraints]
-  outputs: [run report, run manifest]
-  required_tools: [validate_skill]
-  optional_tools: [run_skill]
+  inputs:
+  - repository path
+  - target files
+  - objective
+  - constraints
+  outputs:
+  - run report
+  - run manifest
+  required_tools:
+  - validate_skill
+  optional_tools:
+  - run_skill
 ---
-
 # Axiom Functional Safety Workflow
 
 ## Purpose

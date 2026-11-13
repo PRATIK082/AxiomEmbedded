@@ -70,12 +70,40 @@
       "path": "skills/axiom-aerospace-defense-safety-review"
     },
     {
+      "id": "axiom-aerospace-do178c-workflow",
+      "path": "skills/axiom-aerospace-do178c-workflow"
+    },
+    {
+      "id": "axiom-aerospace-do254-hardware",
+      "path": "skills/axiom-aerospace-do254-hardware"
+    },
+    {
+      "id": "axiom-agent-evaluation",
+      "path": "skills/axiom-agent-evaluation"
+    },
+    {
+      "id": "axiom-agent-observability",
+      "path": "skills/axiom-agent-observability"
+    },
+    {
+      "id": "axiom-agent-red-teaming",
+      "path": "skills/axiom-agent-red-teaming"
+    },
+    {
+      "id": "axiom-agents-md-generator",
+      "path": "skills/axiom-agents-md-generator"
+    },
+    {
       "id": "axiom-ansi-r1506-compliance-matrix",
       "path": "skills/axiom-ansi-r1506-compliance-matrix"
     },
     {
       "id": "axiom-ansi-r1506-compliance-matrix-review",
       "path": "skills/axiom-ansi-r1506-compliance-matrix-review"
+    },
+    {
+      "id": "axiom-api-design",
+      "path": "skills/axiom-api-design"
     },
     {
       "id": "axiom-architecture-decision-records",
@@ -138,12 +166,52 @@
       "path": "skills/axiom-can-stack-integration"
     },
     {
+      "id": "axiom-chaos-engineering",
+      "path": "skills/axiom-chaos-engineering"
+    },
+    {
+      "id": "axiom-clean-ai-slop",
+      "path": "skills/axiom-clean-ai-slop"
+    },
+    {
+      "id": "axiom-cli-developer",
+      "path": "skills/axiom-cli-developer"
+    },
+    {
+      "id": "axiom-cloud-architecture",
+      "path": "skills/axiom-cloud-architecture"
+    },
+    {
       "id": "axiom-cobot-hand-guiding",
       "path": "skills/axiom-cobot-hand-guiding"
     },
     {
       "id": "axiom-cobot-hand-guiding-review",
       "path": "skills/axiom-cobot-hand-guiding-review"
+    },
+    {
+      "id": "axiom-code-explainer",
+      "path": "skills/axiom-code-explainer"
+    },
+    {
+      "id": "axiom-context-engineering",
+      "path": "skills/axiom-context-engineering"
+    },
+    {
+      "id": "axiom-cross-domain-traceability",
+      "path": "skills/axiom-cross-domain-traceability"
+    },
+    {
+      "id": "axiom-cto-advisor",
+      "path": "skills/axiom-cto-advisor"
+    },
+    {
+      "id": "axiom-data-pipeline",
+      "path": "skills/axiom-data-pipeline"
+    },
+    {
+      "id": "axiom-database-optimization",
+      "path": "skills/axiom-database-optimization"
     },
     {
       "id": "axiom-dataset-documentation",
@@ -154,12 +222,20 @@
       "path": "skills/axiom-dataset-documentation-review"
     },
     {
+      "id": "axiom-debugging-wizard",
+      "path": "skills/axiom-debugging-wizard"
+    },
+    {
       "id": "axiom-declaration-of-conformity",
       "path": "skills/axiom-declaration-of-conformity"
     },
     {
       "id": "axiom-declaration-of-conformity-review",
       "path": "skills/axiom-declaration-of-conformity-review"
+    },
+    {
+      "id": "axiom-diagnosing-bugs",
+      "path": "skills/axiom-diagnosing-bugs"
     },
     {
       "id": "axiom-diagnostics-doip",
@@ -174,12 +250,24 @@
       "path": "skills/axiom-digital-filtering"
     },
     {
+      "id": "axiom-doc-coauthoring",
+      "path": "skills/axiom-doc-coauthoring"
+    },
+    {
+      "id": "axiom-document-skills",
+      "path": "skills/axiom-document-skills"
+    },
+    {
       "id": "axiom-embedded-cicd",
       "path": "skills/axiom-embedded-cicd"
     },
     {
       "id": "axiom-embedded-firmware-bringup",
       "path": "skills/axiom-embedded-firmware-bringup"
+    },
+    {
+      "id": "axiom-energy-grid-interface",
+      "path": "skills/axiom-energy-grid-interface"
     },
     {
       "id": "axiom-eoat-spec",
@@ -210,8 +298,20 @@
       "path": "skills/axiom-framework-zephyr"
     },
     {
+      "id": "axiom-frontend-design",
+      "path": "skills/axiom-frontend-design"
+    },
+    {
       "id": "axiom-functional-safety",
       "path": "skills/axiom-functional-safety"
+    },
+    {
+      "id": "axiom-git-commit-plan",
+      "path": "skills/axiom-git-commit-plan"
+    },
+    {
+      "id": "axiom-graphql-architect",
+      "path": "skills/axiom-graphql-architect"
     },
     {
       "id": "axiom-hardware-aware-checks",
@@ -234,6 +334,10 @@
       "path": "skills/axiom-hmi-and-actuators"
     },
     {
+      "id": "axiom-human-in-the-loop",
+      "path": "skills/axiom-human-in-the-loop"
+    },
+    {
       "id": "axiom-iec62061-sil",
       "path": "skills/axiom-iec62061-sil"
     },
@@ -250,6 +354,10 @@
       "path": "skills/axiom-iec62443-risk-assessment-review"
     },
     {
+      "id": "axiom-improve-codebase-architecture",
+      "path": "skills/axiom-improve-codebase-architecture"
+    },
+    {
       "id": "axiom-industrial-control-review",
       "path": "skills/axiom-industrial-control-review"
     },
@@ -264,6 +372,10 @@
     {
       "id": "axiom-interlock-estop-architecture-review",
       "path": "skills/axiom-interlock-estop-architecture-review"
+    },
+    {
+      "id": "axiom-iot-connectivity-stack",
+      "path": "skills/axiom-iot-connectivity-stack"
     },
     {
       "id": "axiom-iso10218-compliance-matrix",
@@ -314,6 +426,14 @@
       "path": "skills/axiom-iso9283-performance-test-review"
     },
     {
+      "id": "axiom-kubernetes-edge",
+      "path": "skills/axiom-kubernetes-edge"
+    },
+    {
+      "id": "axiom-legacy-modernizer",
+      "path": "skills/axiom-legacy-modernizer"
+    },
+    {
       "id": "axiom-loto-procedure",
       "path": "skills/axiom-loto-procedure"
     },
@@ -330,8 +450,28 @@
       "path": "skills/axiom-machinery-safety-lifecycle-plan-review"
     },
     {
+      "id": "axiom-mcp-builder",
+      "path": "skills/axiom-mcp-builder"
+    },
+    {
+      "id": "axiom-mcp-developer",
+      "path": "skills/axiom-mcp-developer"
+    },
+    {
+      "id": "axiom-mcp-security-testing",
+      "path": "skills/axiom-mcp-security-testing"
+    },
+    {
+      "id": "axiom-medical-iec62304-lifecycle",
+      "path": "skills/axiom-medical-iec62304-lifecycle"
+    },
+    {
       "id": "axiom-memory-and-performance-analysis",
       "path": "skills/axiom-memory-and-performance-analysis"
+    },
+    {
+      "id": "axiom-microservices-architect",
+      "path": "skills/axiom-microservices-architect"
     },
     {
       "id": "axiom-mil-sil-hil-testing",
@@ -348,6 +488,14 @@
     {
       "id": "axiom-model-card-review",
       "path": "skills/axiom-model-card-review"
+    },
+    {
+      "id": "axiom-monitoring-observability",
+      "path": "skills/axiom-monitoring-observability"
+    },
+    {
+      "id": "axiom-multi-agent-orchestration",
+      "path": "skills/axiom-multi-agent-orchestration"
     },
     {
       "id": "axiom-multi-sensor-synchronization",
@@ -408,6 +556,26 @@
     {
       "id": "axiom-platform-architecture-review",
       "path": "skills/axiom-platform-architecture-review"
+    },
+    {
+      "id": "axiom-playwright-e2e",
+      "path": "skills/axiom-playwright-e2e"
+    },
+    {
+      "id": "axiom-prompt-engineering",
+      "path": "skills/axiom-prompt-engineering"
+    },
+    {
+      "id": "axiom-prompt-injection-defense",
+      "path": "skills/axiom-prompt-injection-defense"
+    },
+    {
+      "id": "axiom-rag-architect",
+      "path": "skills/axiom-rag-architect"
+    },
+    {
+      "id": "axiom-rail-en50128-safety",
+      "path": "skills/axiom-rail-en50128-safety"
     },
     {
       "id": "axiom-robot-acceptance-protocol",
@@ -502,6 +670,30 @@
       "path": "skills/axiom-scope-context-review"
     },
     {
+      "id": "axiom-secure-code-guardian",
+      "path": "skills/axiom-secure-code-guardian"
+    },
+    {
+      "id": "axiom-security-best-practices",
+      "path": "skills/axiom-security-best-practices"
+    },
+    {
+      "id": "axiom-security-ownership-map",
+      "path": "skills/axiom-security-ownership-map"
+    },
+    {
+      "id": "axiom-security-reviewer",
+      "path": "skills/axiom-security-reviewer"
+    },
+    {
+      "id": "axiom-security-threat-model",
+      "path": "skills/axiom-security-threat-model"
+    },
+    {
+      "id": "axiom-semiconductor-test-coverage",
+      "path": "skills/axiom-semiconductor-test-coverage"
+    },
+    {
       "id": "axiom-sensor-acquisition",
       "path": "skills/axiom-sensor-acquisition"
     },
@@ -516,6 +708,30 @@
     {
       "id": "axiom-sensor-driver-integration",
       "path": "skills/axiom-sensor-driver-integration"
+    },
+    {
+      "id": "axiom-skill-creator",
+      "path": "skills/axiom-skill-creator"
+    },
+    {
+      "id": "axiom-skill-evolution",
+      "path": "skills/axiom-skill-evolution"
+    },
+    {
+      "id": "axiom-skill-seekers",
+      "path": "skills/axiom-skill-seekers"
+    },
+    {
+      "id": "axiom-skills-purge",
+      "path": "skills/axiom-skills-purge"
+    },
+    {
+      "id": "axiom-space-radiation-hardening",
+      "path": "skills/axiom-space-radiation-hardening"
+    },
+    {
+      "id": "axiom-sre-reliability",
+      "path": "skills/axiom-sre-reliability"
     },
     {
       "id": "axiom-ssm-plan",
@@ -538,8 +754,20 @@
       "path": "skills/axiom-technical-debt-assessment"
     },
     {
+      "id": "axiom-telecom-5g-modem-integration",
+      "path": "skills/axiom-telecom-5g-modem-integration"
+    },
+    {
+      "id": "axiom-terraform-infra",
+      "path": "skills/axiom-terraform-infra"
+    },
+    {
       "id": "axiom-test-automation",
       "path": "skills/axiom-test-automation"
+    },
+    {
+      "id": "axiom-test-master",
+      "path": "skills/axiom-test-master"
     },
     {
       "id": "axiom-tf-tree-spec",
@@ -556,6 +784,10 @@
     {
       "id": "axiom-threat-model-review",
       "path": "skills/axiom-threat-model-review"
+    },
+    {
+      "id": "axiom-tool-schema-design",
+      "path": "skills/axiom-tool-schema-design"
     },
     {
       "id": "axiom-trace-analysis",
@@ -588,6 +820,10 @@
     {
       "id": "axiom-vnv-plan-review",
       "path": "skills/axiom-vnv-plan-review"
+    },
+    {
+      "id": "axiom-websocket-engineer",
+      "path": "skills/axiom-websocket-engineer"
     },
     {
       "id": "axiom-wireless-coexistence-plan",

@@ -2,7 +2,8 @@
 name: axiom-robot-hil-test-catalog-review
 title: Robot HIL Test Catalog Review
 description: 'Catalogs hardware-in-the-loop tests for robot safety functions: fault
-  injection, timing measurement, and coverage mapping.'
+  injection, timing measurement, and coverage mapping. Use when robot hil test catalog
+  review tasks arise in robotics projects.'
 version: 1.2.0
 author: PRATIK PATIL
 license: Apache-2.0
@@ -60,7 +61,6 @@ axiom:
   optional_tools:
   - run_skill
 ---
-
 # Axiom Robot HIL Test Catalog Review
 
 ## Purpose

@@ -2,7 +2,8 @@
 name: axiom-ansi-r1506-compliance-matrix-review
 title: ANSI/RIA R15.06 Compliance Matrix Review
 description: Builds a clause-by-claim compliance matrix for ANSI/RIA R15.06 robot-system
-  safety, aligned to ISO 10218, with an evidence pointer per claim.
+  safety, aligned to ISO 10218, with an evidence pointer per claim. Use when ansi
+  r1506 compliance matrix review tasks arise in industrial projects.
 version: 1.2.0
 author: PRATIK PATIL
 license: Apache-2.0
@@ -61,7 +62,6 @@ axiom:
   optional_tools:
   - run_skill
 ---
-
 # Axiom ANSI/RIA R15.06 Compliance Matrix Review
 
 ## Purpose

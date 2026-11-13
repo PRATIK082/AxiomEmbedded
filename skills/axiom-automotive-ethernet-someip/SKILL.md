@@ -1,13 +1,17 @@
 ---
 name: axiom-automotive-ethernet-someip
 title: Automotive Ethernet and SOME/IP Design
-description: >
-  Designs Ethernet topology, VLAN/TSN assumptions and SOME/IP service modeling for service-oriented ECUs.
+description: Designs Ethernet topology, VLAN/TSN assumptions and SOME/IP service modeling
+  for service-oriented ECUs. Use when automotive ethernet someip tasks arise in automotive
+  projects.
 version: 1.2.0
 author: PRATIK PATIL
 license: Apache-2.0
-domains: [automotive]
-platforms: [mpu, autosar-adaptive]
+domains:
+- automotive
+platforms:
+- mpu
+- autosar-adaptive
 axiom:
   dotted_name: axiom.automotive.automotive.ethernet.someip
   domain: automotive
@@ -15,21 +19,43 @@ axiom:
   category: design
   maturity: experimental
   owner: axiom-embedded
-  tags: [networks]
+  tags:
+  - networks
   related_skills: []
-  lifecycle: [requirements, architecture, design, implementation, integration, verification, validation, release]
-  standards: [AUTOSAR SOME/IP, IEEE 802.1 TSN]
-  artifact_types: [Ethernet design, service model]
-  mcp_tools: [run_skill, validate_skill]
+  lifecycle:
+  - requirements
+  - architecture
+  - design
+  - implementation
+  - integration
+  - verification
+  - validation
+  - release
+  standards:
+  - AUTOSAR SOME/IP
+  - IEEE 802.1 TSN
+  artifact_types:
+  - Ethernet design
+  - service model
+  mcp_tools:
+  - run_skill
+  - validate_skill
   risk_level: medium
   review_required: true
   safety_critical: false
-  inputs: [repository path, target files, objective, constraints]
-  outputs: [run report, run manifest]
-  required_tools: [validate_skill]
-  optional_tools: [run_skill]
+  inputs:
+  - repository path
+  - target files
+  - objective
+  - constraints
+  outputs:
+  - run report
+  - run manifest
+  required_tools:
+  - validate_skill
+  optional_tools:
+  - run_skill
 ---
-
 # Axiom Automotive Ethernet and SOME/IP Design
 
 ## Purpose

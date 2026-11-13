@@ -1,13 +1,19 @@
 ---
 name: axiom-framework-zephyr
 title: Zephyr RTOS Framework Engineering
-description: >
-  Engineering guide for Zephyr RTOS projects: devicetree, Kconfig, west build and flash, drivers API, workqueues, threads, power management, logging, shell, testing with ztest, and portability across boards. Hardware-aware: board definitions and pin constraints.
+description: 'Engineering guide for Zephyr RTOS projects: devicetree, Kconfig, west
+  build and flash, drivers API, workqueues, threads, power management, logging, shell,
+  testing with ztest, and portability across boards. Hardware-aware: board definitions
+  and pin constraints. Use when framework zephyr tasks arise in all projects.'
 version: 1.2.0
 author: PRATIK PATIL
 license: Apache-2.0
-domains: [all]
-platforms: [mcu, mpu, soc]
+domains:
+- all
+platforms:
+- mcu
+- mpu
+- soc
 axiom:
   dotted_name: axiom.platform.framework.zephyr
   domain: platform
@@ -15,21 +21,49 @@ axiom:
   category: implementation
   maturity: experimental
   owner: axiom-embedded
-  tags: [framework, zephyr, rtos]
-  related_skills: [axiom-hardware-aware-checks, axiom-embedded-firmware-bringup]
-  lifecycle: [requirements, architecture, design, implementation, integration, verification, validation, release]
+  tags:
+  - framework
+  - zephyr
+  - rtos
+  related_skills:
+  - axiom-hardware-aware-checks
+  - axiom-embedded-firmware-bringup
+  lifecycle:
+  - requirements
+  - architecture
+  - design
+  - implementation
+  - integration
+  - verification
+  - validation
+  - release
   standards: []
-  artifact_types: [devicetree overlay, Kconfig, west project, driver, test suite]
-  mcp_tools: [run_skill, validate_skill]
+  artifact_types:
+  - devicetree overlay
+  - Kconfig
+  - west project
+  - driver
+  - test suite
+  mcp_tools:
+  - run_skill
+  - validate_skill
   risk_level: medium
   review_required: true
   safety_critical: false
-  inputs: [repository path, target files, objective, constraints, board profile]
-  outputs: [run report, run manifest]
-  required_tools: [validate_skill]
-  optional_tools: [run_skill]
+  inputs:
+  - repository path
+  - target files
+  - objective
+  - constraints
+  - board profile
+  outputs:
+  - run report
+  - run manifest
+  required_tools:
+  - validate_skill
+  optional_tools:
+  - run_skill
 ---
-
 # Axiom Zephyr RTOS Framework Engineering
 
 ## Purpose

@@ -2,7 +2,8 @@
 name: axiom-perception-test-catalog
 title: Perception Test Catalog
 description: 'Catalogs perception tests: scenarios, ground-truth method, metrics,
-  pass thresholds, and dataset traceability.'
+  pass thresholds, and dataset traceability. Use when perception test catalog tasks
+  arise in robotics projects.'
 version: 1.2.0
 author: PRATIK PATIL
 license: Apache-2.0
@@ -59,7 +60,6 @@ axiom:
   optional_tools:
   - run_skill
 ---
-
 # Axiom Perception Test Catalog
 
 ## Purpose

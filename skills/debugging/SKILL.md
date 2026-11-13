@@ -1,9 +1,12 @@
 ---
 name: debugging
-description: Reproduce-isolate-root-cause method with silicon testimony and mandatory regression tests. Use when hunting field or lab failures.
+description: Reproduce-isolate-root-cause method with silicon testimony and mandatory
+  regression tests. Use when hunting field or lab failures.
 version: 1.2.0
-domains: [all]
-platforms: [all]
+domains:
+- all
+platforms:
+- all
 axiom:
   dotted_name: axiom.legacy.debugging
   domain: all
@@ -17,8 +20,30 @@ axiom:
   - axiom-trace-analysis
   checklists:
   - checklists/debugging-checklist.md
+  inputs:
+  - repository path
+  - objective
+  - constraints
+  outputs:
+  - run report
+  - run manifest
+  risk_level: medium
+  review_required: true
+  safety_critical: false
+  lifecycle:
+  - discover
+  - plan
+  - implement
+  - verify
+  - evidence
+  artifact_types:
+  - report
+  - manifest
+  standards: []
+  mcp_tools: []
+  required_tools: []
+  optional_tools: []
 ---
-
 # Debugging skill
 
 Systematic defect diagnosis on target hardware: reproduce, isolate, root-cause,

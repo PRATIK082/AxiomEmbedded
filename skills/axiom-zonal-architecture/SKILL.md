@@ -1,13 +1,18 @@
 ---
 name: axiom-zonal-architecture
 title: Zonal Architecture Design
-description: >
-  Designs zonal/domain-controller partitioning, service-oriented communication, compute allocation and update strategy.
+description: Designs zonal/domain-controller partitioning, service-oriented communication,
+  compute allocation and update strategy. Use when zonal architecture tasks arise
+  in automotive projects.
 version: 1.2.0
 author: PRATIK PATIL
 license: Apache-2.0
-domains: [automotive]
-platforms: [mcu, mpu, soc]
+domains:
+- automotive
+platforms:
+- mcu
+- mpu
+- soc
 axiom:
   dotted_name: axiom.automotive.zonal.architecture
   domain: automotive
@@ -15,21 +20,41 @@ axiom:
   category: architecture
   maturity: experimental
   owner: axiom-embedded
-  tags: [zonal]
+  tags:
+  - zonal
   related_skills: []
-  lifecycle: [requirements, architecture, design, implementation, integration, verification, validation, release]
-  standards: [AUTOSAR]
-  artifact_types: [zonal architecture record]
-  mcp_tools: [run_skill, validate_skill]
+  lifecycle:
+  - requirements
+  - architecture
+  - design
+  - implementation
+  - integration
+  - verification
+  - validation
+  - release
+  standards:
+  - AUTOSAR
+  artifact_types:
+  - zonal architecture record
+  mcp_tools:
+  - run_skill
+  - validate_skill
   risk_level: medium
   review_required: true
   safety_critical: false
-  inputs: [repository path, target files, objective, constraints]
-  outputs: [run report, run manifest]
-  required_tools: [validate_skill]
-  optional_tools: [run_skill]
+  inputs:
+  - repository path
+  - target files
+  - objective
+  - constraints
+  outputs:
+  - run report
+  - run manifest
+  required_tools:
+  - validate_skill
+  optional_tools:
+  - run_skill
 ---
-
 # Axiom Zonal Architecture Design
 
 ## Purpose

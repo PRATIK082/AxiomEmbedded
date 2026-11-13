@@ -1,13 +1,16 @@
 ---
 name: axiom-test-automation
 title: Embedded Test Automation
-description: >
-  Designs unit/integration test strategy, automation hooks and coverage expectations for embedded repos.
+description: Designs unit/integration test strategy, automation hooks and coverage
+  expectations for embedded repos. Use when test automation tasks arise in all projects.
 version: 1.3.0
 author: PRATIK PATIL
 license: Apache-2.0
-domains: [all]
-platforms: [mcu, mpu]
+domains:
+- all
+platforms:
+- mcu
+- mpu
 axiom:
   dotted_name: axiom.platform.test.automation
   domain: platform
@@ -15,21 +18,41 @@ axiom:
   category: verification
   maturity: experimental
   owner: axiom-embedded
-  tags: [testing]
+  tags:
+  - testing
   related_skills: []
-  lifecycle: [requirements, architecture, design, implementation, integration, verification, validation, release]
+  lifecycle:
+  - requirements
+  - architecture
+  - design
+  - implementation
+  - integration
+  - verification
+  - validation
+  - release
   standards: []
-  artifact_types: [test strategy, test plan]
-  mcp_tools: [run_skill, validate_skill]
+  artifact_types:
+  - test strategy
+  - test plan
+  mcp_tools:
+  - run_skill
+  - validate_skill
   risk_level: low
   review_required: true
   safety_critical: false
-  inputs: [repository path, target files, objective, constraints]
-  outputs: [run report, run manifest]
-  required_tools: [validate_skill]
-  optional_tools: [run_skill]
+  inputs:
+  - repository path
+  - target files
+  - objective
+  - constraints
+  outputs:
+  - run report
+  - run manifest
+  required_tools:
+  - validate_skill
+  optional_tools:
+  - run_skill
 ---
-
 # Axiom Embedded Test Automation
 
 ## Purpose

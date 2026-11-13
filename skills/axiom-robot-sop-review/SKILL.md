@@ -2,7 +2,8 @@
 name: axiom-robot-sop-review
 title: Robot Standard Operating Procedure Review
 description: 'Writes standard operating procedures: startup, mode changes, fault recovery,
-  and shutdown for robot-cell operators.'
+  and shutdown for robot-cell operators. Use when robot sop review tasks arise in
+  industrial projects.'
 version: 1.2.0
 author: PRATIK PATIL
 license: Apache-2.0
@@ -60,7 +61,6 @@ axiom:
   optional_tools:
   - run_skill
 ---
-
 # Axiom Robot Standard Operating Procedure Review
 
 ## Purpose

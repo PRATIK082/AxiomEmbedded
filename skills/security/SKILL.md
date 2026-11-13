@@ -1,9 +1,12 @@
 ---
 name: security
-description: Threat modeling, secure boot, crypto inventory, fuzzing, SBOM/CVE watch. Use when hardening products or answering security requirements.
+description: Threat modeling, secure boot, crypto inventory, fuzzing, SBOM/CVE watch.
+  Use when hardening products or answering security requirements.
 version: 1.2.0
-domains: [all]
-platforms: [all]
+domains:
+- all
+platforms:
+- all
 axiom:
   dotted_name: axiom.legacy.security
   domain: all
@@ -18,8 +21,30 @@ axiom:
   - axiom-vehicle-cybersecurity
   checklists:
   - checklists/security-checklist.md
+  inputs:
+  - repository path
+  - objective
+  - constraints
+  outputs:
+  - run report
+  - run manifest
+  risk_level: medium
+  review_required: true
+  safety_critical: false
+  lifecycle:
+  - discover
+  - plan
+  - implement
+  - verify
+  - evidence
+  artifact_types:
+  - report
+  - manifest
+  standards: []
+  mcp_tools: []
+  required_tools: []
+  optional_tools: []
 ---
-
 # Security skill
 
 Product security for connected embedded systems: threat modeling, secure boot

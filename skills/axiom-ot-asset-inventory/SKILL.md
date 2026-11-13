@@ -2,7 +2,8 @@
 name: axiom-ot-asset-inventory
 title: OT Asset Inventory
 description: 'Inventories OT assets: devices, firmware versions, protocols, network
-  attachment, and ownership for security management.'
+  attachment, and ownership for security management. Use when ot asset inventory tasks
+  arise in industrial projects.'
 version: 1.2.0
 author: PRATIK PATIL
 license: Apache-2.0
@@ -60,7 +61,6 @@ axiom:
   optional_tools:
   - run_skill
 ---
-
 # Axiom OT Asset Inventory
 
 ## Purpose

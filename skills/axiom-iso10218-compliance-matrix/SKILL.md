@@ -2,7 +2,8 @@
 name: axiom-iso10218-compliance-matrix
 title: ISO 10218 Compliance Matrix
 description: Builds a clause-by-claim compliance matrix for ISO 10218-1 and ISO 10218-2
-  with an evidence pointer per claim.
+  with an evidence pointer per claim. Use when iso10218 compliance matrix tasks arise
+  in robotics projects.
 version: 1.2.0
 author: PRATIK PATIL
 license: Apache-2.0
@@ -60,7 +61,6 @@ axiom:
   optional_tools:
   - run_skill
 ---
-
 # Axiom ISO 10218 Compliance Matrix
 
 ## Purpose

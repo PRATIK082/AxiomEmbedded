@@ -1,0 +1,8 @@
+id: EV-007
+agent: implementation
+domain: platform
+platform: mcu
+prompt: Build an Arduino sketch that reads a DHT22 sensor and publishes over MQTT.
+expect:
+  skills_contain: [axiom-framework-arduino]
+  clarifies: false

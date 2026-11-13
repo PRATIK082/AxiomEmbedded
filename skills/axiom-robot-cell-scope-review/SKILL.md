@@ -2,7 +2,8 @@
 name: axiom-robot-cell-scope-review
 title: Robot Cell Scope Definition Review
 description: 'Defines robot-cell scope: equipment list, boundaries, external interfaces,
-  and integrator versus user responsibilities.'
+  and integrator versus user responsibilities. Use when robot cell scope review tasks
+  arise in robotics projects.'
 version: 1.2.0
 author: PRATIK PATIL
 license: Apache-2.0
@@ -60,7 +61,6 @@ axiom:
   optional_tools:
   - run_skill
 ---
-
 # Axiom Robot Cell Scope Definition Review
 
 ## Purpose

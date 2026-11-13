@@ -2,7 +2,8 @@
 name: axiom-loto-procedure
 title: Lockout/Tagout Procedure
 description: 'Writes lockout/tagout procedures: energy sources, isolation points,
-  lock application order, and zero-energy verification steps.'
+  lock application order, and zero-energy verification steps. Use when loto procedure
+  tasks arise in industrial projects.'
 version: 1.2.0
 author: PRATIK PATIL
 license: Apache-2.0
@@ -60,7 +61,6 @@ axiom:
   optional_tools:
   - run_skill
 ---
-
 # Axiom Lockout/Tagout Procedure
 
 ## Purpose

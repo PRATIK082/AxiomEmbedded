@@ -18,226 +18,294 @@ Surface the plan first; never execute pushes, releases, destructive
 commands, or safety/security-critical changes without recorded human
 approval. Never claim certification or compliance from a heuristic check.
 
-## Skills (200)
+## Skills (259)
 
-- `adas` -- ADAS/AD perception-to-control pipeline, sensor fusion, SOTIF and ASIL decomposition, Euro-NCAP, data closed-loop, OpenSCENARIO/OpenDRIVE HIL. Use for L0-L4 driver assistance and automated driving.
+- `adas` -- ADAS/AD perception-to-control pipeline, sensor fusion, SOTIF and ASIL decomposition, Euro-NCAP, data closed-loop, OpenSCENARIO/OpenDRIVE HIL. Use for L0-L4 driver assistance and automated driving. Use when adas tasks arise in automotive projects.
 - `ai-validation` -- ODD discipline, dataset independence, statistical acceptance, drift monitoring. Use when assuring ML components or arguing AI safety.
 - `architecture` -- System/software architecture views, interface contracts, allocation, and evaluation. Use when structuring a system, defining ICDs/APIs, or reviewing layering.
-- `automotive-body` -- Body electronics -- BCM, lighting, doors/seats/mirrors, HVAC, PEPS/keyless, LIN/CAN topology, low-power modes, EOL configuration. Use for body ECUs, LIN slaves, and EOL variant coding.
-- `automotive-cockpit` -- Digital cockpit -- cluster/IVI/HUD, SoC plus hypervisor with QNX/AAOS/Linux, Qt/Kanzi HMI, audio/DSP, driver monitoring, ASIL-B cluster and cybersecurity. Use for clusters, infotainment, HUD programs.
-- `automotive-coding` -- MISRA C:2025 / MISRA C++:2023 / AUTOSAR C++14 enforcement, CERT C/C++ hardening, analyzer gating and deviation control. Use for ASIL-rated C/C++ ECUs requiring audit-ready coding-compliance evidence.
-- `automotive-cybersecurity` -- ISO/SAE 21434 TARA, CAL-based rigor, CSMS/SUMS evidence for R155/R156. Use for item definition, threat analysis, security goals, secure design, verification, incident response, or cybersecurity cases.
-- `automotive-diagnostics` -- UDS/DoIP/OBD-II/J1939/XCP diagnostics, tester integration (ODX/OTX), DTC/DID/routine control, security access, AUTOSAR-extract-driven UDS test/validation codegen (DEXT/ARXML/ODX/CDD/XLS/YAML/JSON) with full service/subservice positive/negative coverage. Use for diagnostic stacks, FBL testers, diag test-tool creation, or homologation evidence.
-- `automotive-middleware` -- SDV middleware selection and integration -- ara::com, SOME/IP-SD, DDS, Zenoh, vsomeip, MQTT, TSN, zero-copy IPC, VSS/VSC. Use for service-oriented vehicle platforms, HPC/zone architectures, deterministic Ethernet.
-- `automotive-networks` -- CAN-FD/XL, LIN, FlexRay, 100/1000BASE-T1 Ethernet + TSN, gateways, busload/timing, DBC/ARXML/LDF/FIBEX. Use for topology, routing, or timing analysis.
-- `automotive-ota` -- SOTA/FOTA campaigns per UNECE R156/SUMS, A/B + delta updates, UCM, rollback, backend-to-vehicle chain. Use for updateable fleets or type-approval evidence.
-- `automotive-spice` -- Automotive SPICE v4.0 process capability (PRM/PAM, CL0-5, VDA scope, N/P/L/F rating). Use for ASPICE gap analysis, traceability, work-product evidence, or assessment prep.
-- `automotive-vcycle` -- End-to-end automotive V-Cycle lifecycle from stakeholder requirements to vehicle validation. Use for V-Model planning, MIL/SIL/HIL gates, ASPICE/ISO 26262 alignment, or agile-hybrid programs.
-- `autosar` -- Classic/Adaptive selection, layered BSW/RTE rules, SOME/IP integration. Use for AUTOSAR ECUs, ARXML, or adaptive applications.
-- `axiom-adas-perception-pipeline` -- Designs sensor-abstraction, perception interfaces and object-model contracts for ADAS pipelines.
+- `automotive-body` -- Body electronics -- BCM, lighting, doors/seats/mirrors, HVAC, PEPS/keyless, LIN/CAN topology, low-power modes, EOL configuration. Use for body ECUs, LIN slaves, and EOL variant coding. Use when automotive body tasks arise in automotive projects.
+- `automotive-cockpit` -- Digital cockpit -- cluster/IVI/HUD, SoC plus hypervisor with QNX/AAOS/Linux, Qt/Kanzi HMI, audio/DSP, driver monitoring, ASIL-B cluster and cybersecurity. Use for clusters, infotainment, HUD programs. Use when automotive cockpit tasks arise in automotive projects.
+- `automotive-coding` -- MISRA C:2025 / MISRA C++:2023 / AUTOSAR C++14 enforcement, CERT C/C++ hardening, analyzer gating and deviation control. Use for ASIL-rated C/C++ ECUs requiring audit-ready coding-compliance evidence. Use when automotive coding tasks arise in automotive projects.
+- `automotive-cybersecurity` -- ISO/SAE 21434 TARA, CAL-based rigor, CSMS/SUMS evidence for R155/R156. Use for item definition, threat analysis, security goals, secure design, verification, incident response, or cybersecurity cases. Use when automotive cybersecurity tasks arise in automotive projects.
+- `automotive-diagnostics` -- UDS/DoIP/OBD-II/J1939/XCP diagnostics, tester integration (ODX/OTX), DTC/DID/routine control, security access, AUTOSAR-extract-driven UDS test/validation codegen (DEXT/ARXML/ODX/CDD/XLS/YAML/JSON) with full service/subservice positive/negative coverage. Use for diagnostic stacks, FBL testers, diag test-tool creation, or homologation evidence. Use when automotive diagnostics tasks arise in automotive projects.
+- `automotive-middleware` -- SDV middleware selection and integration -- ara::com, SOME/IP-SD, DDS, Zenoh, vsomeip, MQTT, TSN, zero-copy IPC, VSS/VSC. Use for service-oriented vehicle platforms, HPC/zone architectures, deterministic Ethernet. Use when automotive middleware tasks arise in automotive projects.
+- `automotive-networks` -- CAN-FD/XL, LIN, FlexRay, 100/1000BASE-T1 Ethernet + TSN, gateways, busload/timing, DBC/ARXML/LDF/FIBEX. Use for topology, routing, or timing analysis. Use when automotive networks tasks arise in automotive projects.
+- `automotive-ota` -- SOTA/FOTA campaigns per UNECE R156/SUMS, A/B + delta updates, UCM, rollback, backend-to-vehicle chain. Use for updateable fleets or type-approval evidence. Use when automotive ota tasks arise in automotive projects.
+- `automotive-spice` -- Automotive SPICE v4.0 process capability (PRM/PAM, CL0-5, VDA scope, N/P/L/F rating). Use for ASPICE gap analysis, traceability, work-product evidence, or assessment prep. Use when automotive spice tasks arise in automotive projects.
+- `automotive-vcycle` -- End-to-end automotive V-Cycle lifecycle from stakeholder requirements to vehicle validation. Use for V-Model planning, MIL/SIL/HIL gates, ASPICE/ISO 26262 alignment, or agile-hybrid programs. Use when automotive vcycle tasks arise in automotive projects.
+- `autosar` -- Classic/Adaptive selection, layered BSW/RTE rules, SOME/IP integration. Use for AUTOSAR ECUs, ARXML, or adaptive applications. Use when autosar tasks arise in automotive projects.
+- `axiom-adas-perception-pipeline` -- Designs sensor-abstraction, perception interfaces and object-model contracts for ADAS pipelines. Use when adas perception pipeline tasks arise in automotive projects.
+- `axiom-adas-validation` -- Plans sensor-fusion validation, recording/replay campaigns and KPI definitions for ADAS functions. Use when adas validation tasks arise in automotive projects.
+- `axiom-aerospace-defense-safety-review` -- Reviews safety-critical embedded designs against DO-178C/DO-254-style objectives and evidence expectations. Use when aerospace defense safety review tasks arise in aerospace projects.
+- `axiom-aerospace-do178c-workflow` -- DO-178C Software Lifecycle Workflow workflow for aerospace. Use when do-178c software lifecycle workflow tasks arise in aerospace projects.
 
-- `axiom-adas-validation` -- Plans sensor-fusion validation, recording/replay campaigns and KPI definitions for ADAS functions.
+- `axiom-aerospace-do254-hardware` -- DO-254 Hardware Design Assurance workflow for aerospace. Use when do-254 hardware design assurance tasks arise in aerospace projects.
 
-- `axiom-aerospace-defense-safety-review` -- Reviews safety-critical embedded designs against DO-178C/DO-254-style objectives and evidence expectations.
+- `axiom-agent-evaluation` -- Agent Evaluation workflow for platform. Use when agent evaluation tasks arise in platform projects.
 
-- `axiom-ansi-r1506-compliance-matrix` -- Builds a clause-by-claim compliance matrix for ANSI/RIA R15.06 robot-system safety, aligned to ISO 10218, with an evidence pointer per claim.
-- `axiom-ansi-r1506-compliance-matrix-review` -- Builds a clause-by-claim compliance matrix for ANSI/RIA R15.06 robot-system safety, aligned to ISO 10218, with an evidence pointer per claim.
-- `axiom-architecture-decision-records` -- Authors and reviews Architecture Decision Records (context, options, decision, consequences, compliance notes) with numbering, supersede chains, and review gates, so architectural choices stay traceable across the product lifecycle.
+- `axiom-agent-observability` -- Agent Observability workflow for platform. Use when agent observability tasks arise in platform projects.
 
-- `axiom-automotive-ethernet-someip` -- Designs Ethernet topology, VLAN/TSN assumptions and SOME/IP service modeling for service-oriented ECUs.
+- `axiom-agent-red-teaming` -- Agent Red Teaming workflow for all. Use when agent red teaming tasks arise in all projects.
 
-- `axiom-automotive-release-readiness` -- Gates ECU/software release readiness with evidence packaging, open-finding triage and sign-off checklists.
+- `axiom-agents-md-generator` -- AGENTS.md Generator workflow for all. Use when agents.md generator tasks arise in all projects.
 
-- `axiom-autosar-adaptive-deployment` -- Designs Adaptive service deployment (ara::com manifests, execution/state management, persistency, time sync) with a deployment checklist.
+- `axiom-ansi-r1506-compliance-matrix` -- Builds a clause-by-claim compliance matrix for ANSI/RIA R15.06 robot-system safety, aligned to ISO 10218, with an evidence pointer per claim. Use when ansi r1506 compliance matrix tasks arise in industrial projects.
+- `axiom-ansi-r1506-compliance-matrix-review` -- Builds a clause-by-claim compliance matrix for ANSI/RIA R15.06 robot-system safety, aligned to ISO 10218, with an evidence pointer per claim. Use when ansi r1506 compliance matrix review tasks arise in industrial projects.
+- `axiom-api-design` -- API Design Review workflow for all. Use when api design review tasks arise in all projects.
 
-- `axiom-autosar-classic-architecture` -- Reviews AUTOSAR Classic platform architecture choices, layering, and release baselines for an ECU project and produces an architecture decision record with findings.
+- `axiom-architecture-decision-records` -- Authors and reviews Architecture Decision Records (context, options, decision, consequences, compliance notes) with numbering, supersede chains, and review gates, so architectural choices stay traceable across the product lifecycle. Use when architecture decision records tasks arise in all projects.
+- `axiom-automotive-ethernet-someip` -- Designs Ethernet topology, VLAN/TSN assumptions and SOME/IP service modeling for service-oriented ECUs. Use when automotive ethernet someip tasks arise in automotive projects.
+- `axiom-automotive-release-readiness` -- Gates ECU/software release readiness with evidence packaging, open-finding triage and sign-off checklists. Use when automotive release readiness tasks arise in automotive projects.
+- `axiom-autosar-adaptive-deployment` -- Designs Adaptive service deployment (ara::com manifests, execution/state management, persistency, time sync) with a deployment checklist. Use when autosar adaptive deployment tasks arise in automotive projects.
+- `axiom-autosar-classic-architecture` -- Reviews AUTOSAR Classic platform architecture choices, layering, and release baselines for an ECU project and produces an architecture decision record with findings. Use when autosar classic architecture tasks arise in automotive projects.
+- `axiom-autosar-classic-bsw-integration` -- Integrates and reviews AUTOSAR Classic BSW configuration (ARXML/BMD/RTE/OS/COM/PduR/CanIf/CanTp/Dcm/Dem/NvM/EcuM) and produces an integration report with severity-ranked findings and a validation matrix. Use when autosar classic bsw integration tasks arise in automotive projects.
+- `axiom-autosar-com-stack` -- Reviews COM/PduR/CanIf/CanTp signal routing, PDU mapping and gateway assumptions for Classic communication stacks. Use when autosar com stack tasks arise in automotive projects.
+- `axiom-autosar-os-config` -- Reviews AUTOSAR OS task, alarm, schedule-table and timing-protection configuration against scheduling constraints and stack assumptions. Use when autosar os config tasks arise in automotive projects.
+- `axiom-autosar-rte-design` -- Designs RTE ports, interfaces, runnable entities and events for Classic software components with consistency checks and traceability. Use when autosar rte design tasks arise in automotive projects.
+- `axiom-behavior-tree-spec` -- Specifies behavior-tree structure for a robot task controller: node types, blackboard keys, tick semantics, and failure-handling contracts. Use when behavior tree spec tasks arise in robotics projects.
+- `axiom-behavior-tree-spec-review` -- Specifies behavior-tree structure for a robot task controller: node types, blackboard keys, tick semantics, and failure-handling contracts. Use when behavior tree spec review tasks arise in robotics projects.
+- `axiom-bms-design` -- Designs cell modeling assumptions, SOC/SOH method selection, contactor/precharge, insulation monitoring and thermal strategy for battery systems. Use when bms design tasks arise in automotive projects.
+- `axiom-bms-diagnostics` -- Designs BMS fault handling and HIL test campaigns covering cell, contactor, thermal and isolation faults. Use when bms diagnostics tasks arise in automotive projects.
+- `axiom-can-network-design` -- Designs CAN/CAN-FD network topology, identifier allocation, bus-load budgets and timing assumptions from DBC-level inputs. Use when can network design tasks arise in automotive projects.
+- `axiom-can-stack-integration` -- Integrates and checks CAN driver/CanIf/CanTp stacks including baud-rate, mailbox, and error-handling configuration. Use when can stack integration tasks arise in automotive projects.
+- `axiom-chaos-engineering` -- Chaos Engineering workflow for all. Use when chaos engineering tasks arise in all projects.
 
-- `axiom-autosar-classic-bsw-integration` -- Integrates and reviews AUTOSAR Classic BSW configuration (ARXML/BMD/RTE/OS/COM/PduR/CanIf/CanTp/Dcm/Dem/NvM/EcuM) and produces an integration report with severity-ranked findings and a validation matrix.
+- `axiom-clean-ai-slop` -- Clean AI Slop workflow for all. Use when clean ai slop tasks arise in all projects.
 
-- `axiom-autosar-com-stack` -- Reviews COM/PduR/CanIf/CanTp signal routing, PDU mapping and gateway assumptions for Classic communication stacks.
+- `axiom-cli-developer` -- CLI Developer workflow for all. Use when cli developer tasks arise in all projects.
 
-- `axiom-autosar-os-config` -- Reviews AUTOSAR OS task, alarm, schedule-table and timing-protection configuration against scheduling constraints and stack assumptions.
+- `axiom-cloud-architecture` -- Cloud Architecture workflow for platform. Use when cloud architecture tasks arise in platform projects.
 
-- `axiom-autosar-rte-design` -- Designs RTE ports, interfaces, runnable entities and events for Classic software components with consistency checks and traceability.
+- `axiom-cobot-hand-guiding` -- Designs hand-guiding collaborative operation: enabling-device logic, reduced-speed limits, mode transitions, and stop behavior. Use when cobot hand guiding tasks arise in robotics projects.
+- `axiom-cobot-hand-guiding-review` -- Designs hand-guiding collaborative operation: enabling-device logic, reduced-speed limits, mode transitions, and stop behavior. Use when cobot hand guiding review tasks arise in robotics projects.
+- `axiom-code-explainer` -- Code Explainer (illustrated) workflow for all. Use when code explainer (illustrated) tasks arise in all projects.
 
-- `axiom-behavior-tree-spec` -- Specifies behavior-tree structure for a robot task controller: node types, blackboard keys, tick semantics, and failure-handling contracts.
-- `axiom-behavior-tree-spec-review` -- Specifies behavior-tree structure for a robot task controller: node types, blackboard keys, tick semantics, and failure-handling contracts.
-- `axiom-bms-design` -- Designs cell modeling assumptions, SOC/SOH method selection, contactor/precharge, insulation monitoring and thermal strategy for battery systems.
+- `axiom-context-engineering` -- Context Engineering (prompt budget) workflow for platform. Use when context engineering (prompt budget) tasks arise in platform projects.
 
-- `axiom-bms-diagnostics` -- Designs BMS fault handling and HIL test campaigns covering cell, contactor, thermal and isolation faults.
+- `axiom-cross-domain-traceability` -- Cross-Domain Traceability workflow for cross-domain. Use when cross-domain traceability tasks arise in cross-domain projects.
 
-- `axiom-can-network-design` -- Designs CAN/CAN-FD network topology, identifier allocation, bus-load budgets and timing assumptions from DBC-level inputs.
+- `axiom-cto-advisor` -- CTO Advisor (tech debt, DORA, scaling) workflow for all. Use when cto advisor (tech debt, dora, scaling) tasks arise in all projects.
 
-- `axiom-can-stack-integration` -- Integrates and checks CAN driver/CanIf/CanTp stacks including baud-rate, mailbox, and error-handling configuration.
+- `axiom-data-pipeline` -- Data Pipeline workflow for generic-embedded. Use when data pipeline tasks arise in generic-embedded projects.
 
-- `axiom-cobot-hand-guiding` -- Designs hand-guiding collaborative operation: enabling-device logic, reduced-speed limits, mode transitions, and stop behavior.
-- `axiom-cobot-hand-guiding-review` -- Designs hand-guiding collaborative operation: enabling-device logic, reduced-speed limits, mode transitions, and stop behavior.
-- `axiom-dataset-documentation` -- Documents robotics datasets: provenance, licensing, splits, labeling protocol, sensor calibration notes, and known biases.
-- `axiom-dataset-documentation-review` -- Documents robotics datasets: provenance, licensing, splits, labeling protocol, sensor calibration notes, and known biases.
-- `axiom-declaration-of-conformity` -- Assembles the declaration-of-conformity evidence pack: applicable legislation, standards applied, responsible person, and artifact pointers.
-- `axiom-declaration-of-conformity-review` -- Assembles the declaration-of-conformity evidence pack: applicable legislation, standards applied, responsible person, and artifact pointers.
-- `axiom-diagnostics-doip` -- Integrates DoIP discovery, routing activation and diagnostic transport for Ethernet ECUs with tester-workflow checks.
+- `axiom-database-optimization` -- Database Optimization workflow for all. Use when database optimization tasks arise in all projects.
 
-- `axiom-diagnostics-uds` -- Designs UDS service coverage, session/security posture and negative-response matrices, and validates them with a deterministic checker script.
+- `axiom-dataset-documentation` -- Documents robotics datasets: provenance, licensing, splits, labeling protocol, sensor calibration notes, and known biases. Use when dataset documentation tasks arise in robotics projects.
+- `axiom-dataset-documentation-review` -- Documents robotics datasets: provenance, licensing, splits, labeling protocol, sensor calibration notes, and known biases. Use when dataset documentation review tasks arise in robotics projects.
+- `axiom-debugging-wizard` -- Debugging Wizard workflow for all. Use when debugging wizard tasks arise in all projects.
 
-- `axiom-digital-filtering` -- Applies digital filters to sensor data: moving average, IIR low-pass, FIR, median, outlier rejection and saturation, with fixed-point and latency considerations and verification on known signals.
+- `axiom-declaration-of-conformity` -- Assembles the declaration-of-conformity evidence pack: applicable legislation, standards applied, responsible person, and artifact pointers. Use when declaration of conformity tasks arise in industrial projects.
+- `axiom-declaration-of-conformity-review` -- Assembles the declaration-of-conformity evidence pack: applicable legislation, standards applied, responsible person, and artifact pointers. Use when declaration of conformity review tasks arise in industrial projects.
+- `axiom-diagnosing-bugs` -- Diagnosing Bugs (systematic root cause) workflow for all. Use when diagnosing bugs (systematic root cause) tasks arise in all projects.
 
-- `axiom-embedded-cicd` -- Designs deterministic CI/CD pipelines for embedded repositories: build matrix, static checks, unit/integration tests, artifact versioning, and evidence packaging, delivered as a reviewable workflow fragment plus gate checklist.
+- `axiom-diagnostics-doip` -- Integrates DoIP discovery, routing activation and diagnostic transport for Ethernet ECUs with tester-workflow checks. Use when diagnostics doip tasks arise in automotive projects.
+- `axiom-diagnostics-uds` -- Designs UDS service coverage, session/security posture and negative-response matrices, and validates them with a deterministic checker script. Use when diagnostics uds tasks arise in automotive projects.
+- `axiom-digital-filtering` -- Applies digital filters to sensor data: moving average, IIR low-pass, FIR, median, outlier rejection and saturation, with fixed-point and latency considerations and verification on known signals. Use when digital filtering tasks arise in generic-embedded projects.
+- `axiom-doc-coauthoring` -- Document Co-authoring workflow for all. Use when document co-authoring tasks arise in all projects.
 
-- `axiom-embedded-firmware-bringup` -- Brings up firmware on a new MCU/board (clock, memory, drivers, bootloader handoff) with a deterministic checklist.
+- `axiom-document-skills` -- Document Skills (pdf/docx/xlsx/pptx) workflow for all. Use when document skills (pdf/docx/xlsx/pptx) tasks arise in all projects.
 
-- `axiom-eoat-spec` -- Specifies end-of-arm tooling: gripper forces, tool-change interface, vacuum/magnetic retention, and retained-risk assumptions.
-- `axiom-eoat-spec-review` -- Specifies end-of-arm tooling: gripper forces, tool-change interface, vacuum/magnetic retention, and retained-risk assumptions.
-- `axiom-fleet-manager-architecture` -- Architects fleet-manager task assignment, traffic rules, map/zone interfaces, and deadlock handling for multi-AMR operation.
-- `axiom-fleet-manager-architecture-review` -- Architects fleet-manager task assignment, traffic rules, map/zone interfaces, and deadlock handling for multi-AMR operation.
-- `axiom-framework-arduino` -- Engineering guide for Arduino framework projects: core and library model, sketch structure, pin mapping, Serial, Wire/SPI, interrupts, timers, memory constraints on AVR, portability limits, build via arduino-cli, debugging, and safety/security notes. Hardware-aware: board selection and pin constraints. Does not assume Arduino is appropriate for all products.
+- `axiom-embedded-cicd` -- Designs deterministic CI/CD pipelines for embedded repositories: build matrix, static checks, unit/integration tests, artifact versioning, and evidence packaging, delivered as a reviewable workflow fragment plus gate checklist. Use when embedded cicd tasks arise in all projects.
+- `axiom-embedded-firmware-bringup` -- Brings up firmware on a new MCU/board (clock, memory, drivers, bootloader handoff) with a deterministic checklist. Use when embedded firmware bringup tasks arise in all projects.
+- `axiom-energy-grid-interface` -- Energy Grid Interface (smart inverter) workflow for industrial. Use when energy grid interface (smart inverter) tasks arise in industrial projects.
 
-- `axiom-framework-esp-idf` -- Engineering guide for ESP-IDF projects: component model, CMake build, FreeRTOS tasks, HAL and drivers, GPIO/UART/SPI/I2C, NVS, partition tables, OTA, logging, debugging with JTAG/OpenOCD, build/flash/monitor, memory, power management, and security (secure boot and flash encryption). Hardware-aware: target and pin constraints.
+- `axiom-eoat-spec` -- Specifies end-of-arm tooling: gripper forces, tool-change interface, vacuum/magnetic retention, and retained-risk assumptions. Use when eoat spec tasks arise in robotics projects.
+- `axiom-eoat-spec-review` -- Specifies end-of-arm tooling: gripper forces, tool-change interface, vacuum/magnetic retention, and retained-risk assumptions. Use when eoat spec review tasks arise in robotics projects.
+- `axiom-fleet-manager-architecture` -- Architects fleet-manager task assignment, traffic rules, map/zone interfaces, and deadlock handling for multi-AMR operation. Use when fleet manager architecture tasks arise in robotics projects.
+- `axiom-fleet-manager-architecture-review` -- Architects fleet-manager task assignment, traffic rules, map/zone interfaces, and deadlock handling for multi-AMR operation. Use when fleet manager architecture review tasks arise in robotics projects.
+- `axiom-framework-arduino` -- Engineering guide for Arduino framework projects: core and library model, sketch structure, pin mapping, Serial, Wire/SPI, interrupts, timers, memory constraints on AVR, portability limits, build via arduino-cli, debugging, and safety/security notes. Hardware-aware: board selection and pin constraints. Does not assume Arduino is appropriate for all products. Use when framework arduino tasks arise in all projects.
+- `axiom-framework-esp-idf` -- Engineering guide for ESP-IDF projects: component model, CMake build, FreeRTOS tasks, HAL and drivers, GPIO/UART/SPI/I2C, NVS, partition tables, OTA, logging, debugging with JTAG/OpenOCD, build/flash/monitor, memory, power management, and security (secure boot and flash encryption). Hardware-aware: target and pin constraints. Use when framework esp idf tasks arise in all projects.
+- `axiom-framework-zephyr` -- Engineering guide for Zephyr RTOS projects: devicetree, Kconfig, west build and flash, drivers API, workqueues, threads, power management, logging, shell, testing with ztest, and portability across boards. Hardware-aware: board definitions and pin constraints. Use when framework zephyr tasks arise in all projects.
+- `axiom-frontend-design` -- Frontend Design workflow for all. Use when frontend design tasks arise in all projects.
 
-- `axiom-framework-zephyr` -- Engineering guide for Zephyr RTOS projects: devicetree, Kconfig, west build and flash, drivers API, workqueues, threads, power management, logging, shell, testing with ztest, and portability across boards. Hardware-aware: board definitions and pin constraints.
+- `axiom-functional-safety` -- Supports HARA, safety goals, FSR/TSR derivation, FMEA/FTA templates and verification-evidence structure for safety-related work. Use when functional safety tasks arise in automotive projects.
+- `axiom-git-commit-plan` -- Git Commit Plan (bisectable series) workflow for all. Use when git commit plan (bisectable series) tasks arise in all projects.
 
-- `axiom-functional-safety` -- Supports HARA, safety goals, FSR/TSR derivation, FMEA/FTA templates and verification-evidence structure for safety-related work.
+- `axiom-graphql-architect` -- GraphQL Architect workflow for all. Use when graphql architect tasks arise in all projects.
 
-- `axiom-hardware-aware-checks` -- Performs pre-generation checks for firmware projects against a declared hardware profile: target MCU/MPU/SoC, board, architecture, peripherals, pin assignments, clock configuration, memory, OS, framework, toolchain, external components, electrical constraints, interfaces, timing, and debug interfaces. Detects pin, peripheral, DMA, and clock conflicts, resource exhaustion, unsupported peripherals, invalid framework combinations, voltage and timing incompatibility. Never invents missing hardware data; records assumptions and open questions. Produces a check report with evidence.
-
+- `axiom-hardware-aware-checks` -- Performs pre-generation checks for firmware projects against a declared hardware profile: target MCU/MPU/SoC, board, architecture, peripherals, pin assignments, clock configuration, memory, OS, framework, toolchain, external components, electrical constraints, interfaces, timing, and debug interfaces. Detects pin, peripheral, DMA, and clock conflicts, resource exhaustion, unsupported peripherals, invalid framework combinations, voltage and timing incompatibility. Never invents missing hardware data; records assumptions and open questions. Produces a check report with evidence. Use when hardware aware checks tasks arise in all projects.
 - `axiom-hazard-risk` -- Use when a team must identify system hazards and assess risk for an embedded or cyber-physical product. Trigger phrases include "perform hazard analysis", "create a risk assessment", "identify system hazards", and "assess safety risks".
 
 - `axiom-hazard-risk-review` -- Use when an independent review of a hazard-risk artifact is required. Trigger phrases include "review hazard analysis", "audit risk assessment", and "check hazard coverage".
 
-- `axiom-hil-test-planning` -- Plans SIL/HIL campaigns including plant models, fault injection and pass/fail criteria.
+- `axiom-hil-test-planning` -- Plans SIL/HIL campaigns including plant models, fault injection and pass/fail criteria. Use when hil test planning tasks arise in all projects.
+- `axiom-hmi-and-actuators` -- Engineers human-machine interfaces and actuators: keypad matrix scanning and debouncing, LCD1602/OLED displays, LEDs, active/passive buzzers, DC/stepper/servo motors, encoders, relays, interlocks and e-stop, with electrical and timing constraints and verification. Use when hmi and actuators tasks arise in all projects.
+- `axiom-human-in-the-loop` -- Human-in-the-Loop Orchestration workflow for platform. Use when human-in-the-loop orchestration tasks arise in platform projects.
 
-- `axiom-hmi-and-actuators` -- Engineers human-machine interfaces and actuators: keypad matrix scanning and debouncing, LCD1602/OLED displays, LEDs, active/passive buzzers, DC/stepper/servo motors, encoders, relays, interlocks and e-stop, with electrical and timing constraints and verification.
+- `axiom-iec62061-sil` -- Determines SIL targets per safety function and writes software/system safety requirements with verification criteria. Use when iec62061 sil tasks arise in industrial projects.
+- `axiom-iec62061-sil-review` -- Determines SIL targets per safety function and writes software/system safety requirements with verification criteria. Use when iec62061 sil review tasks arise in industrial projects.
+- `axiom-iec62443-risk-assessment` -- Runs an OT cyber-risk assessment: consequence analysis, threat scenarios, SL-target proposal, and mitigation mapping. Use when iec62443 risk assessment tasks arise in industrial projects.
+- `axiom-iec62443-risk-assessment-review` -- Runs an OT cyber-risk assessment: consequence analysis, threat scenarios, SL-target proposal, and mitigation mapping. Use when iec62443 risk assessment review tasks arise in industrial projects.
+- `axiom-improve-codebase-architecture` -- Improve Codebase Architecture workflow for all. Use when improve codebase architecture tasks arise in all projects.
 
-- `axiom-iec62061-sil` -- Determines SIL targets per safety function and writes software/system safety requirements with verification criteria.
-- `axiom-iec62061-sil-review` -- Determines SIL targets per safety function and writes software/system safety requirements with verification criteria.
-- `axiom-iec62443-risk-assessment` -- Runs an OT cyber-risk assessment: consequence analysis, threat scenarios, SL-target proposal, and mitigation mapping.
-- `axiom-iec62443-risk-assessment-review` -- Runs an OT cyber-risk assessment: consequence analysis, threat scenarios, SL-target proposal, and mitigation mapping.
-- `axiom-industrial-control-review` -- Reviews PLC/fieldbus/OPC-UA control designs and functional-safety touchpoints for industrial controllers.
+- `axiom-industrial-control-review` -- Reviews PLC/fieldbus/OPC-UA control designs and functional-safety touchpoints for industrial controllers. Use when industrial control review tasks arise in industrial projects.
+- `axiom-interface-contract-design` -- Designs versioned interface contracts between software components and subsystems (signals, services, APIs, diagnostic ports), with compatibility checks and traceability from requirements to integration tests. Use when interface contract design tasks arise in all projects.
+- `axiom-interlock-estop-architecture` -- Architects the interlock chain and e-stop topology: channels, stop categories, restart behavior, and defeat monitoring. Use when interlock estop architecture tasks arise in robotics projects.
+- `axiom-interlock-estop-architecture-review` -- Architects the interlock chain and e-stop topology: channels, stop categories, restart behavior, and defeat monitoring. Use when interlock estop architecture review tasks arise in robotics projects.
+- `axiom-iot-connectivity-stack` -- IoT Connectivity Stack workflow for generic-embedded. Use when iot connectivity stack tasks arise in generic-embedded projects.
 
-- `axiom-interface-contract-design` -- Designs versioned interface contracts between software components and subsystems (signals, services, APIs, diagnostic ports), with compatibility checks and traceability from requirements to integration tests.
+- `axiom-iso10218-compliance-matrix` -- Builds a clause-by-claim compliance matrix for ISO 10218-1 and ISO 10218-2 with an evidence pointer per claim. Use when iso10218 compliance matrix tasks arise in robotics projects.
+- `axiom-iso10218-compliance-matrix-review` -- Builds a clause-by-claim compliance matrix for ISO 10218-1 and ISO 10218-2 with an evidence pointer per claim. Use when iso10218 compliance matrix review tasks arise in robotics projects.
+- `axiom-iso12100-risk-assessment` -- Runs hazard identification, risk estimation, and risk-reduction recording for machinery per ISO 12100, with residual-risk statements. Use when iso12100 risk assessment tasks arise in industrial projects.
+- `axiom-iso12100-risk-assessment-review` -- Runs hazard identification, risk estimation, and risk-reduction recording for machinery per ISO 12100, with residual-risk statements. Use when iso12100 risk assessment review tasks arise in industrial projects.
+- `axiom-iso13849-plr` -- Determines the required Performance Level (PLr) per safety function and allocates subsystem targets for later verification. Use when iso13849 plr tasks arise in robotics projects.
+- `axiom-iso13849-plr-review` -- Determines the required Performance Level (PLr) per safety function and allocates subsystem targets for later verification. Use when iso13849 plr review tasks arise in robotics projects.
+- `axiom-iso15066-biomechanical-limits` -- Records applicable body-region force/pressure limits and transfers them into PFL thresholds and measurement points. Use when iso15066 biomechanical limits tasks arise in robotics projects.
+- `axiom-iso15066-biomechanical-limits-review` -- Records applicable body-region force/pressure limits and transfers them into PFL thresholds and measurement points. Use when iso15066 biomechanical limits review tasks arise in robotics projects.
+- `axiom-iso3691-4-risk-assessment` -- Runs risk assessment for driverless-truck deployment: operating zones, detection performance, braking, and traffic interaction. Use when iso3691 4 risk assessment tasks arise in industrial projects.
+- `axiom-iso3691-4-risk-assessment-review` -- Runs risk assessment for driverless-truck deployment: operating zones, detection performance, braking, and traffic interaction. Use when iso3691 4 risk assessment review tasks arise in industrial projects.
+- `axiom-iso9283-performance-test` -- Specifies pose-accuracy and path-repeatability tests: test poses, loads, speeds, measurement method, and acceptance thresholds. Use when iso9283 performance test tasks arise in robotics projects.
+- `axiom-iso9283-performance-test-review` -- Specifies pose-accuracy and path-repeatability tests: test poses, loads, speeds, measurement method, and acceptance thresholds. Use when iso9283 performance test review tasks arise in robotics projects.
+- `axiom-kubernetes-edge` -- Kubernetes Edge workflow for platform. Use when kubernetes edge tasks arise in platform projects.
 
-- `axiom-interlock-estop-architecture` -- Architects the interlock chain and e-stop topology: channels, stop categories, restart behavior, and defeat monitoring.
-- `axiom-interlock-estop-architecture-review` -- Architects the interlock chain and e-stop topology: channels, stop categories, restart behavior, and defeat monitoring.
-- `axiom-iso10218-compliance-matrix` -- Builds a clause-by-claim compliance matrix for ISO 10218-1 and ISO 10218-2 with an evidence pointer per claim.
-- `axiom-iso10218-compliance-matrix-review` -- Builds a clause-by-claim compliance matrix for ISO 10218-1 and ISO 10218-2 with an evidence pointer per claim.
-- `axiom-iso12100-risk-assessment` -- Runs hazard identification, risk estimation, and risk-reduction recording for machinery per ISO 12100, with residual-risk statements.
-- `axiom-iso12100-risk-assessment-review` -- Runs hazard identification, risk estimation, and risk-reduction recording for machinery per ISO 12100, with residual-risk statements.
-- `axiom-iso13849-plr` -- Determines the required Performance Level (PLr) per safety function and allocates subsystem targets for later verification.
-- `axiom-iso13849-plr-review` -- Determines the required Performance Level (PLr) per safety function and allocates subsystem targets for later verification.
-- `axiom-iso15066-biomechanical-limits` -- Records applicable body-region force/pressure limits and transfers them into PFL thresholds and measurement points.
-- `axiom-iso15066-biomechanical-limits-review` -- Records applicable body-region force/pressure limits and transfers them into PFL thresholds and measurement points.
-- `axiom-iso3691-4-risk-assessment` -- Runs risk assessment for driverless-truck deployment: operating zones, detection performance, braking, and traffic interaction.
-- `axiom-iso3691-4-risk-assessment-review` -- Runs risk assessment for driverless-truck deployment: operating zones, detection performance, braking, and traffic interaction.
-- `axiom-iso9283-performance-test` -- Specifies pose-accuracy and path-repeatability tests: test poses, loads, speeds, measurement method, and acceptance thresholds.
-- `axiom-iso9283-performance-test-review` -- Specifies pose-accuracy and path-repeatability tests: test poses, loads, speeds, measurement method, and acceptance thresholds.
-- `axiom-loto-procedure` -- Writes lockout/tagout procedures: energy sources, isolation points, lock application order, and zero-energy verification steps.
-- `axiom-loto-procedure-review` -- Writes lockout/tagout procedures: energy sources, isolation points, lock application order, and zero-energy verification steps.
-- `axiom-machinery-safety-lifecycle-plan` -- Plans the machinery safety lifecycle: milestones, review gates, and evidence deliverables from concept through decommissioning.
-- `axiom-machinery-safety-lifecycle-plan-review` -- Plans the machinery safety lifecycle: milestones, review gates, and evidence deliverables from concept through decommissioning.
-- `axiom-memory-and-performance-analysis` -- Analyzes memory classification, stack/heap budgets and performance hotspots against project budgets.
+- `axiom-legacy-modernizer` -- Legacy Modernizer workflow for all. Use when legacy modernizer tasks arise in all projects.
 
-- `axiom-mil-sil-hil-testing` -- Merged skill (distilled practices).
-- `axiom-misra-c-cpp-review` -- Merged skill (distilled practices).
-- `axiom-model-card` -- Authors model cards for robotics ML models: intended use, metrics, limits, failure modes, and deployment caveats.
-- `axiom-model-card-review` -- Authors model cards for robotics ML models: intended use, metrics, limits, failure modes, and deployment caveats.
-- `axiom-multi-sensor-synchronization` -- Synchronizes multiple sensors across shared triggers, aligned timestamps, clock domains and fusion timing with deterministic sampling and resource arbitration.
+- `axiom-loto-procedure` -- Writes lockout/tagout procedures: energy sources, isolation points, lock application order, and zero-energy verification steps. Use when loto procedure tasks arise in industrial projects.
+- `axiom-loto-procedure-review` -- Writes lockout/tagout procedures: energy sources, isolation points, lock application order, and zero-energy verification steps. Use when loto procedure review tasks arise in industrial projects.
+- `axiom-machinery-safety-lifecycle-plan` -- Plans the machinery safety lifecycle: milestones, review gates, and evidence deliverables from concept through decommissioning. Use when machinery safety lifecycle plan tasks arise in industrial projects.
+- `axiom-machinery-safety-lifecycle-plan-review` -- Plans the machinery safety lifecycle: milestones, review gates, and evidence deliverables from concept through decommissioning. Use when machinery safety lifecycle plan review tasks arise in industrial projects.
+- `axiom-mcp-builder` -- MCP Server Builder workflow for platform. Use when mcp server builder tasks arise in platform projects.
 
-- `axiom-nav2-config` -- Designs Nav2 planner/controller/costmap configuration with deterministic parameter records and behavior-tree plugin selection.
-- `axiom-nav2-config-review` -- Designs Nav2 planner/controller/costmap configuration with deterministic parameter records and behavior-tree plugin selection.
-- `axiom-operating-envelope` -- Defines the operating envelope: spaces, modes, speed/force boundaries, and permitted transitions between collaborative and automatic operation.
-- `axiom-operating-envelope-review` -- Defines the operating envelope: spaces, modes, speed/force boundaries, and permitted transitions between collaborative and automatic operation.
-- `axiom-operator-training-matrix` -- Matrices roles to required training modules, refresh intervals, and competence evidence for robot-cell personnel.
-- `axiom-operator-training-matrix-review` -- Matrices roles to required training modules, refresh intervals, and competence evidence for robot-cell personnel.
-- `axiom-ot-asset-inventory` -- Inventories OT assets: devices, firmware versions, protocols, network attachment, and ownership for security management.
-- `axiom-ot-asset-inventory-review` -- Inventories OT assets: devices, firmware versions, protocols, network attachment, and ownership for security management.
-- `axiom-perception-test-catalog` -- Catalogs perception tests: scenarios, ground-truth method, metrics, pass thresholds, and dataset traceability.
-- `axiom-perception-test-catalog-review` -- Catalogs perception tests: scenarios, ground-truth method, metrics, pass thresholds, and dataset traceability.
-- `axiom-peripheral-timers` -- Engineers MCU timers, counters, PWM, capture/compare and RTC subsystems: modes, prescalers, deterministic intervals, overflow handling, watchdog interaction, interrupt latency, calibration, and platform differences (AVR/ESP32/Zephyr), verified on hardware.
+- `axiom-mcp-developer` -- MCP Developer workflow for platform. Use when mcp developer tasks arise in platform projects.
 
-- `axiom-pfl-plan` -- Designs the power-and-force-limiting regime: contact scenarios, force/pressure thresholds, and measurement verification points.
-- `axiom-pfl-plan-review` -- Designs the power-and-force-limiting regime: contact scenarios, force/pressure thresholds, and measurement verification points.
-- `axiom-platform-architecture-review` -- Reviews embedded platform architecture (requirements-to-design traceability, interface contracts, ADRs, tech-debt) for any domain.
+- `axiom-mcp-security-testing` -- MCP Security Testing workflow for all. Use when mcp security testing tasks arise in all projects.
 
-- `axiom-robot-acceptance-protocol` -- Defines the acceptance protocol: FAT/SAT stages, test criteria, performance sampling, and sign-off evidence.
-- `axiom-robot-acceptance-protocol-review` -- Defines the acceptance protocol: FAT/SAT stages, test criteria, performance sampling, and sign-off evidence.
-- `axiom-robot-cell-layout` -- Lays out the robot cell: fences, gates, light curtains, operator stations, material flow, and maintenance access.
-- `axiom-robot-cell-layout-review` -- Lays out the robot cell: fences, gates, light curtains, operator stations, material flow, and maintenance access.
-- `axiom-robot-cell-scope` -- Defines robot-cell scope: equipment list, boundaries, external interfaces, and integrator versus user responsibilities.
-- `axiom-robot-cell-scope-review` -- Defines robot-cell scope: equipment list, boundaries, external interfaces, and integrator versus user responsibilities.
-- `axiom-robot-field-acceptance` -- Plans on-site acceptance: installation checks, safeguarding verification, production-trial criteria, and punch-list management.
-- `axiom-robot-field-acceptance-review` -- Plans on-site acceptance: installation checks, safeguarding verification, production-trial criteria, and punch-list management.
-- `axiom-robot-hil-test-catalog` -- Catalogs hardware-in-the-loop tests for robot safety functions: fault injection, timing measurement, and coverage mapping.
-- `axiom-robot-hil-test-catalog-review` -- Catalogs hardware-in-the-loop tests for robot safety functions: fault injection, timing measurement, and coverage mapping.
-- `axiom-robot-sop` -- Writes standard operating procedures: startup, mode changes, fault recovery, and shutdown for robot-cell operators.
-- `axiom-robot-sop-review` -- Writes standard operating procedures: startup, mode changes, fault recovery, and shutdown for robot-cell operators.
-- `axiom-robotics-system-integration` -- Integrates ROS 2 nodes, sensor fusion and motion-control interfaces with contract checks.
+- `axiom-medical-iec62304-lifecycle` -- IEC 62304 Medical Software Lifecycle workflow for industrial. Use when iec 62304 medical software lifecycle tasks arise in industrial projects.
 
-- `axiom-ros2-system-architecture` -- Architects the ROS 2 system: node graph, topics/services/actions, QoS choices, executors, and lifecycle management.
-- `axiom-ros2-system-architecture-review` -- Architects the ROS 2 system: node graph, topics/services/actions, QoS choices, executors, and lifecycle management.
-- `axiom-rtos-architecture` -- Reviews RTOS task, priority, IPC and timing architecture for determinism and stack safety.
+- `axiom-memory-and-performance-analysis` -- Analyzes memory classification, stack/heap budgets and performance hotspots against project budgets. Use when memory and performance analysis tasks arise in all projects.
+- `axiom-microservices-architect` -- Microservices Architect workflow for all. Use when microservices architect tasks arise in all projects.
 
-- `axiom-safety-io-matrix` -- Maps safety inputs and outputs to controllers: test pulses, discrepancy monitoring, and proof-test intervals.
-- `axiom-safety-io-matrix-review` -- Maps safety inputs and outputs to controllers: test pulses, discrepancy monitoring, and proof-test intervals.
+- `axiom-mil-sil-hil-testing` -- Model/Software/Hardware-in-the-Loop testing strategy: test bench setup, plant models, real-time execution, fault injection, and acceptance criteria for embedded control software. Use when planning MIL/SIL/HIL campaigns or qualifying control algorithms.
+- `axiom-misra-c-cpp-review` -- Reviews C/C++ code against MISRA C:2012/C:2023 and MISRA C++:2023 guidelines: decidable rules, required/advisory classification, deviations, and evidence packaging. Use when preparing safety-critical code for review or certification support.
+- `axiom-model-card` -- Authors model cards for robotics ML models: intended use, metrics, limits, failure modes, and deployment caveats. Use when model card tasks arise in robotics projects.
+- `axiom-model-card-review` -- Authors model cards for robotics ML models: intended use, metrics, limits, failure modes, and deployment caveats. Use when model card review tasks arise in robotics projects.
+- `axiom-monitoring-observability` -- Monitoring Observability workflow for platform. Use when monitoring observability tasks arise in platform projects.
+
+- `axiom-multi-agent-orchestration` -- Multi-Agent Orchestration workflow for platform. Use when multi-agent orchestration tasks arise in platform projects.
+
+- `axiom-multi-sensor-synchronization` -- Synchronizes multiple sensors across shared triggers, aligned timestamps, clock domains and fusion timing with deterministic sampling and resource arbitration. Use when multi sensor synchronization tasks arise in generic-embedded projects.
+- `axiom-nav2-config` -- Designs Nav2 planner/controller/costmap configuration with deterministic parameter records and behavior-tree plugin selection. Use when nav2 config tasks arise in robotics projects.
+- `axiom-nav2-config-review` -- Designs Nav2 planner/controller/costmap configuration with deterministic parameter records and behavior-tree plugin selection. Use when nav2 config review tasks arise in robotics projects.
+- `axiom-operating-envelope` -- Defines the operating envelope: spaces, modes, speed/force boundaries, and permitted transitions between collaborative and automatic operation. Use when operating envelope tasks arise in robotics projects.
+- `axiom-operating-envelope-review` -- Defines the operating envelope: spaces, modes, speed/force boundaries, and permitted transitions between collaborative and automatic operation. Use when operating envelope review tasks arise in robotics projects.
+- `axiom-operator-training-matrix` -- Matrices roles to required training modules, refresh intervals, and competence evidence for robot-cell personnel. Use when operator training matrix tasks arise in industrial projects.
+- `axiom-operator-training-matrix-review` -- Matrices roles to required training modules, refresh intervals, and competence evidence for robot-cell personnel. Use when operator training matrix review tasks arise in industrial projects.
+- `axiom-ot-asset-inventory` -- Inventories OT assets: devices, firmware versions, protocols, network attachment, and ownership for security management. Use when ot asset inventory tasks arise in industrial projects.
+- `axiom-ot-asset-inventory-review` -- Inventories OT assets: devices, firmware versions, protocols, network attachment, and ownership for security management. Use when ot asset inventory review tasks arise in industrial projects.
+- `axiom-perception-test-catalog` -- Catalogs perception tests: scenarios, ground-truth method, metrics, pass thresholds, and dataset traceability. Use when perception test catalog tasks arise in robotics projects.
+- `axiom-perception-test-catalog-review` -- Catalogs perception tests: scenarios, ground-truth method, metrics, pass thresholds, and dataset traceability. Use when perception test catalog review tasks arise in robotics projects.
+- `axiom-peripheral-timers` -- Engineers MCU timers, counters, PWM, capture/compare and RTC subsystems: modes, prescalers, deterministic intervals, overflow handling, watchdog interaction, interrupt latency, calibration, and platform differences (AVR/ESP32/Zephyr), verified on hardware. Use when peripheral timers tasks arise in all projects.
+- `axiom-pfl-plan` -- Designs the power-and-force-limiting regime: contact scenarios, force/pressure thresholds, and measurement verification points. Use when pfl plan tasks arise in robotics projects.
+- `axiom-pfl-plan-review` -- Designs the power-and-force-limiting regime: contact scenarios, force/pressure thresholds, and measurement verification points. Use when pfl plan review tasks arise in robotics projects.
+- `axiom-platform-architecture-review` -- Reviews embedded platform architecture (requirements-to-design traceability, interface contracts, ADRs, tech-debt) for any domain. Use when platform architecture review tasks arise in all projects.
+- `axiom-playwright-e2e` -- Playwright E2E workflow for all. Use when playwright e2e tasks arise in all projects.
+
+- `axiom-prompt-engineering` -- Prompt Engineering workflow for generic-embedded. Use when prompt engineering tasks arise in generic-embedded projects.
+
+- `axiom-prompt-injection-defense` -- Prompt Injection Defense workflow for all. Use when prompt injection defense tasks arise in all projects.
+
+- `axiom-rag-architect` -- RAG Architect workflow for generic-embedded. Use when rag architect tasks arise in generic-embedded projects.
+
+- `axiom-rail-en50128-safety` -- EN 50128 Rail Software Safety workflow for industrial. Use when en 50128 rail software safety tasks arise in industrial projects.
+
+- `axiom-robot-acceptance-protocol` -- Defines the acceptance protocol: FAT/SAT stages, test criteria, performance sampling, and sign-off evidence. Use when robot acceptance protocol tasks arise in robotics projects.
+- `axiom-robot-acceptance-protocol-review` -- Defines the acceptance protocol: FAT/SAT stages, test criteria, performance sampling, and sign-off evidence. Use when robot acceptance protocol review tasks arise in robotics projects.
+- `axiom-robot-cell-layout` -- Lays out the robot cell: fences, gates, light curtains, operator stations, material flow, and maintenance access. Use when robot cell layout tasks arise in robotics projects.
+- `axiom-robot-cell-layout-review` -- Lays out the robot cell: fences, gates, light curtains, operator stations, material flow, and maintenance access. Use when robot cell layout review tasks arise in robotics projects.
+- `axiom-robot-cell-scope` -- Defines robot-cell scope: equipment list, boundaries, external interfaces, and integrator versus user responsibilities. Use when robot cell scope tasks arise in robotics projects.
+- `axiom-robot-cell-scope-review` -- Defines robot-cell scope: equipment list, boundaries, external interfaces, and integrator versus user responsibilities. Use when robot cell scope review tasks arise in robotics projects.
+- `axiom-robot-field-acceptance` -- Plans on-site acceptance: installation checks, safeguarding verification, production-trial criteria, and punch-list management. Use when robot field acceptance tasks arise in robotics projects.
+- `axiom-robot-field-acceptance-review` -- Plans on-site acceptance: installation checks, safeguarding verification, production-trial criteria, and punch-list management. Use when robot field acceptance review tasks arise in robotics projects.
+- `axiom-robot-hil-test-catalog` -- Catalogs hardware-in-the-loop tests for robot safety functions: fault injection, timing measurement, and coverage mapping. Use when robot hil test catalog tasks arise in robotics projects.
+- `axiom-robot-hil-test-catalog-review` -- Catalogs hardware-in-the-loop tests for robot safety functions: fault injection, timing measurement, and coverage mapping. Use when robot hil test catalog review tasks arise in robotics projects.
+- `axiom-robot-sop` -- Writes standard operating procedures: startup, mode changes, fault recovery, and shutdown for robot-cell operators. Use when robot sop tasks arise in industrial projects.
+- `axiom-robot-sop-review` -- Writes standard operating procedures: startup, mode changes, fault recovery, and shutdown for robot-cell operators. Use when robot sop review tasks arise in industrial projects.
+- `axiom-robotics-system-integration` -- Integrates ROS 2 nodes, sensor fusion and motion-control interfaces with contract checks. Use when robotics system integration tasks arise in robotics projects.
+- `axiom-ros2-system-architecture` -- Architects the ROS 2 system: node graph, topics/services/actions, QoS choices, executors, and lifecycle management. Use when ros2 system architecture tasks arise in robotics projects.
+- `axiom-ros2-system-architecture-review` -- Architects the ROS 2 system: node graph, topics/services/actions, QoS choices, executors, and lifecycle management. Use when ros2 system architecture review tasks arise in robotics projects.
+- `axiom-rtos-architecture` -- Reviews RTOS task, priority, IPC and timing architecture for determinism and stack safety. Use when rtos architecture tasks arise in all projects.
+- `axiom-safety-io-matrix` -- Maps safety inputs and outputs to controllers: test pulses, discrepancy monitoring, and proof-test intervals. Use when safety io matrix tasks arise in robotics projects.
+- `axiom-safety-io-matrix-review` -- Maps safety inputs and outputs to controllers: test pulses, discrepancy monitoring, and proof-test intervals. Use when safety io matrix review tasks arise in robotics projects.
 - `axiom-safety-requirements` -- Use when safety requirements must be derived from hazards and scope for an embedded product. Trigger phrases include "derive safety requirements", "write safety goals", "map hazards to requirements", and "safety requirements specification".
 
 - `axiom-safety-requirements-review` -- Use when an independent review of safety requirements is required. Trigger phrases include "review safety requirements", "audit requirement coverage", and "check requirements traceability".
 
-- `axiom-sampling-timestamping` -- Selects sampling rates and timer-driven schedules, captures monotonic timestamps, manages jitter and ring buffers, and handles overrun for deterministic embedded acquisition.
-
+- `axiom-sampling-timestamping` -- Selects sampling rates and timer-driven schedules, captures monotonic timestamps, manages jitter and ring buffers, and handles overrun for deterministic embedded acquisition. Use when sampling timestamping tasks arise in generic-embedded projects.
 - `axiom-scope-context` -- Use when an engineering team must define system scope, operating context, and boundaries for an embedded or cyber-physical product. Trigger phrases include "define system scope", "capture operating context", "set system boundaries", and "scope the robot cell".
 
 - `axiom-scope-context-review` -- Use when an independent review of a system-scope artifact is required. Trigger phrases include "review system scope", "audit operating context", and "check scope boundaries".
 
-- `axiom-sensor-acquisition` -- Scope and methodology for acquiring sensor data in embedded systems: interface selection, sampling, conversion, timestamping, buffering and publication with typed errors and evidence.
+- `axiom-secure-code-guardian` -- Secure Code Guardian workflow for all. Use when secure code guardian tasks arise in all projects.
 
-- `axiom-sensor-calibration` -- Plans and executes sensor calibration: offset and gain, factory and field procedures, two-point calibration, temperature compensation, NVM storage, validation and drift tracking without fabricating constants.
+- `axiom-security-best-practices` -- Security Best Practices workflow for all. Use when security best practices tasks arise in all projects.
 
-- `axiom-sensor-diagnostics` -- Detects sensor faults (stuck-at, out-of-range, timeout, CRC error, communication loss), supports degraded mode and watchdogs, and provides fault-injection testing and evidence.
+- `axiom-security-ownership-map` -- Security Ownership Map workflow for all. Use when security ownership map tasks arise in all projects.
 
-- `axiom-sensor-driver-integration` -- Integrates a sensor chip over I2C, SPI, UART or 1-Wire into a layered device driver with register encapsulation, context structs, identification, typed errors and mockable bus seams.
+- `axiom-security-reviewer` -- Security Reviewer workflow for all. Use when security reviewer tasks arise in all projects.
 
-- `axiom-ssm-plan` -- Designs speed-and-separation monitoring: protective zones, speed mapping, sensor coverage claims, and stop-performance budgets.
-- `axiom-ssm-plan-review` -- Designs speed-and-separation monitoring: protective zones, speed mapping, sensor coverage claims, and stop-performance budgets.
-- `axiom-static-analysis-triage` -- Triages static-analysis findings (MISRA, CERT, generic checkers) with a deterministic classifier script: buckets severity, tracks baselines and waivers, and produces a reviewable triage log with gate verdicts.
+- `axiom-security-threat-model` -- Security Threat Model workflow for all. Use when security threat model tasks arise in all projects.
 
-- `axiom-storage-and-memory` -- Engineers non-volatile storage: internal flash, EEPROM/emulated EEPROM, external SPI NOR flash, SD cards, wear leveling, power-fail safety, atomic writes, file systems (FAT/LittleFS), endurance and verification.
+- `axiom-semiconductor-test-coverage` -- Semiconductor Test Coverage workflow for generic-embedded. Use when semiconductor test coverage tasks arise in generic-embedded projects.
 
-- `axiom-technical-debt-assessment` -- Inventories technical debt as a scored register (principal, interest, contagion, paydown cost), prioritizes paydown with explicit trade-offs, and produces a reviewable paydown plan tied to releases.
+- `axiom-sensor-acquisition` -- Scope and methodology for acquiring sensor data in embedded systems: interface selection, sampling, conversion, timestamping, buffering and publication with typed errors and evidence. Use when sensor acquisition tasks arise in generic-embedded projects.
+- `axiom-sensor-calibration` -- Plans and executes sensor calibration: offset and gain, factory and field procedures, two-point calibration, temperature compensation, NVM storage, validation and drift tracking without fabricating constants. Use when sensor calibration tasks arise in generic-embedded projects.
+- `axiom-sensor-diagnostics` -- Detects sensor faults (stuck-at, out-of-range, timeout, CRC error, communication loss), supports degraded mode and watchdogs, and provides fault-injection testing and evidence. Use when sensor diagnostics tasks arise in generic-embedded projects.
+- `axiom-sensor-driver-integration` -- Integrates a sensor chip over I2C, SPI, UART or 1-Wire into a layered device driver with register encapsulation, context structs, identification, typed errors and mockable bus seams. Use when sensor driver integration tasks arise in generic-embedded projects.
+- `axiom-skill-creator` -- Skill Creator (with eval loop and description optimization) workflow for platform. Use when skill creator (with eval loop and description optimization) tasks arise in platform projects.
 
-- `axiom-test-automation` -- Designs unit/integration test strategy, automation hooks and coverage expectations for embedded repos.
+- `axiom-skill-evolution` -- Skill Evolution workflow for all. Use when skill evolution tasks arise in all projects.
 
-- `axiom-tf-tree-spec` -- Specifies the TF frame tree: frame ids, parentage, update rates, static versus dynamic authority, and validation checks.
-- `axiom-tf-tree-spec-review` -- Specifies the TF frame tree: frame ids, parentage, update rates, static versus dynamic authority, and validation checks.
+- `axiom-skill-seekers` -- Skill Seekers (doc to SKILL conversion) workflow for platform. Use when skill seekers (doc to skill conversion) tasks arise in platform projects.
+
+- `axiom-skills-purge` -- Skills Catalog Hygiene (Purge) workflow for platform. Use when skills catalog hygiene (purge) tasks arise in platform projects.
+
+- `axiom-space-radiation-hardening` -- Space Radiation Hardening workflow for aerospace. Use when space radiation hardening tasks arise in aerospace projects.
+
+- `axiom-sre-reliability` -- SRE Reliability workflow for platform. Use when sre reliability tasks arise in platform projects.
+
+- `axiom-ssm-plan` -- Designs speed-and-separation monitoring: protective zones, speed mapping, sensor coverage claims, and stop-performance budgets. Use when ssm plan tasks arise in robotics projects.
+- `axiom-ssm-plan-review` -- Designs speed-and-separation monitoring: protective zones, speed mapping, sensor coverage claims, and stop-performance budgets. Use when ssm plan review tasks arise in robotics projects.
+- `axiom-static-analysis-triage` -- Triages static-analysis findings (MISRA, CERT, generic checkers) with a deterministic classifier script: buckets severity, tracks baselines and waivers, and produces a reviewable triage log with gate verdicts. Use when static analysis triage tasks arise in all projects.
+- `axiom-storage-and-memory` -- Engineers non-volatile storage: internal flash, EEPROM/emulated EEPROM, external SPI NOR flash, SD cards, wear leveling, power-fail safety, atomic writes, file systems (FAT/LittleFS), endurance and verification. Use when storage and memory tasks arise in all projects.
+- `axiom-technical-debt-assessment` -- Inventories technical debt as a scored register (principal, interest, contagion, paydown cost), prioritizes paydown with explicit trade-offs, and produces a reviewable paydown plan tied to releases. Use when technical debt assessment tasks arise in all projects.
+- `axiom-telecom-5g-modem-integration` -- 5G Modem Integration workflow for generic-embedded. Use when 5g modem integration tasks arise in generic-embedded projects.
+
+- `axiom-terraform-infra` -- Terraform Infrastructure workflow for platform. Use when terraform infrastructure tasks arise in platform projects.
+
+- `axiom-test-automation` -- Designs unit/integration test strategy, automation hooks and coverage expectations for embedded repos. Use when test automation tasks arise in all projects.
+- `axiom-test-master` -- Test Master workflow for all. Use when test master tasks arise in all projects.
+
+- `axiom-tf-tree-spec` -- Specifies the TF frame tree: frame ids, parentage, update rates, static versus dynamic authority, and validation checks. Use when tf tree spec tasks arise in robotics projects.
+- `axiom-tf-tree-spec-review` -- Specifies the TF frame tree: frame ids, parentage, update rates, static versus dynamic authority, and validation checks. Use when tf tree spec review tasks arise in robotics projects.
 - `axiom-threat-model` -- Use when a cybersecurity threat model with risk-ranked threats and controls is needed for a connected embedded product. Trigger phrases include "create a threat model", "assess cybersecurity risks", "model attack surfaces", and "define security controls".
 
 - `axiom-threat-model-review` -- Use when an independent review of a cybersecurity threat model is required. Trigger phrases include "review threat model", "audit security controls", and "check attack surface coverage".
 
-- `axiom-trace-analysis` -- Analyzes execution traces for timing, dropped events and anomaly triage with a deterministic parser script.
+- `axiom-tool-schema-design` -- Tool Schema Design workflow for platform. Use when tool schema design tasks arise in platform projects.
 
-- `axiom-urdf-model-spec` -- Specifies the URDF model: links, joints, limits, inertial placeholders, visual/collision geometry policy, and check procedures.
-- `axiom-urdf-model-spec-review` -- Specifies the URDF model: links, joints, limits, inertial placeholders, visual/collision geometry policy, and check procedures.
-- `axiom-v2x-communication` -- Models V2X messages, latency/security considerations and simulation hooks with a message test strategy.
-
-- `axiom-validation-levels` -- Distinguishes source-level, build, static analysis, host-based, simulation, HIL and physical board acceptance validation; defines prerequisites, equipment, procedure, expected results, failure conditions, measurements, evidence format and limitations for each. Never reports compile success as hardware proof.
-
-- `axiom-vehicle-cybersecurity` -- Runs a TARA-aligned cybersecurity workflow (threat model, secure boot/diag, key management, IDS/OTA concepts) producing reviewable evidence.
-
+- `axiom-trace-analysis` -- Analyzes execution traces for timing, dropped events and anomaly triage with a deterministic parser script. Use when trace analysis tasks arise in all projects.
+- `axiom-urdf-model-spec` -- Specifies the URDF model: links, joints, limits, inertial placeholders, visual/collision geometry policy, and check procedures. Use when urdf model spec tasks arise in robotics projects.
+- `axiom-urdf-model-spec-review` -- Specifies the URDF model: links, joints, limits, inertial placeholders, visual/collision geometry policy, and check procedures. Use when urdf model spec review tasks arise in robotics projects.
+- `axiom-v2x-communication` -- Models V2X messages, latency/security considerations and simulation hooks with a message test strategy. Use when v2x communication tasks arise in automotive projects.
+- `axiom-validation-levels` -- Distinguishes source-level, build, static analysis, host-based, simulation, HIL and physical board acceptance validation; defines prerequisites, equipment, procedure, expected results, failure conditions, measurements, evidence format and limitations for each. Never reports compile success as hardware proof. Use when validation levels tasks arise in all projects.
+- `axiom-vehicle-cybersecurity` -- Runs a TARA-aligned cybersecurity workflow (threat model, secure boot/diag, key management, IDS/OTA concepts) producing reviewable evidence. Use when vehicle cybersecurity tasks arise in automotive projects.
 - `axiom-vnv-plan` -- Use when a verification and validation plan with a requirements-to-test trace matrix is needed. Trigger phrases include "create a V&V plan", "plan verification tests", "build a traceability matrix", and "map requirements to tests".
 
 - `axiom-vnv-plan-review` -- Use when an independent review of a V&V plan and trace matrix is required. Trigger phrases include "review test plan", "audit traceability matrix", and "check verification coverage".
 
-- `axiom-wireless-coexistence-plan` -- Plans wireless coexistence: spectrum survey, interference budgets, channel planning, and fallback behavior on link loss.
-- `axiom-wireless-coexistence-plan-review` -- Plans wireless coexistence: spectrum survey, interference budgets, channel planning, and fallback behavior on link loss.
-- `axiom-zonal-architecture` -- Designs zonal/domain-controller partitioning, service-oriented communication, compute allocation and update strategy.
+- `axiom-websocket-engineer` -- WebSocket Engineer workflow for all. Use when websocket engineer tasks arise in all projects.
 
-- `axiom-zone-conduit-plan` -- Partitions the OT network into zones and conduits with security-level targets, conduit requirements, and firewall rules.
-- `axiom-zone-conduit-plan-review` -- Partitions the OT network into zones and conduits with security-level targets, conduit requirements, and firewall rules.
-- `bare-metal` -- Reset-to-main init, fault handlers, ISR discipline, super-loop and time-triggered patterns. Use for no-OS firmware or boot code.
+- `axiom-wireless-coexistence-plan` -- Plans wireless coexistence: spectrum survey, interference budgets, channel planning, and fallback behavior on link loss. Use when wireless coexistence plan tasks arise in industrial projects.
+- `axiom-wireless-coexistence-plan-review` -- Plans wireless coexistence: spectrum survey, interference budgets, channel planning, and fallback behavior on link loss. Use when wireless coexistence plan review tasks arise in industrial projects.
+- `axiom-zonal-architecture` -- Designs zonal/domain-controller partitioning, service-oriented communication, compute allocation and update strategy. Use when zonal architecture tasks arise in automotive projects.
+- `axiom-zone-conduit-plan` -- Partitions the OT network into zones and conduits with security-level targets, conduit requirements, and firewall rules. Use when zone conduit plan tasks arise in industrial projects.
+- `axiom-zone-conduit-plan-review` -- Partitions the OT network into zones and conduits with security-level targets, conduit requirements, and firewall rules. Use when zone conduit plan review tasks arise in industrial projects.
+- `bare-metal` -- Reset-to-main init, fault handlers, ISR discipline, super-loop and time-triggered patterns. Use for no-OS firmware or boot code. Use when bare metal tasks arise in all projects.
 - `bootloader` -- Verify-before-jump boot, A/B slots, anti-rollback, key custody. Use when building secure updateable bootloaders.
 - `build-system` -- Warnings-as-errors builds, pinning, toolchain separation, SLSA provenance. Use when setting up CMake builds or reproducible toolchains.
 - `change-impact` -- Trace-driven blast-radius analysis and safety trigger tests for changes. Use when assessing a change request or planning a hotfix.
 - `code-review` -- Peer-review practice with checklists, size limits, and independence rules. Use when reviewing changes or setting up review policy.
-- `codebase-analysis` -- Codebase analysis: scan repo, map SWCs/BSW/RTE/signal flow/ASIL zones into CODEBASE_MAP.md.
+- `codebase-analysis` -- Codebase analysis: scan repo, map SWCs/BSW/RTE/signal flow/ASIL zones into CODEBASE_MAP.md. Use when codebase analysis tasks arise in all projects.
 - `configuration-management` -- Version-everything, immutable baselines, and CI identification. Use when setting up version control, baselines, or audits.
 - `coverage` -- Structural coverage metrics per level, MC/DC practice, and exclusion discipline. Use when measuring or arguing test completeness.
 - `debugging` -- Reproduce-isolate-root-cause method with silicon testimony and mandatory regression tests. Use when hunting field or lab failures.
@@ -256,8 +324,8 @@ approval. Never claim certification or compliance from a heuristic check.
 - `implementation` -- MISRA/CERT construction, static-analysis-clean code, reviews, and definition of done. Use when writing or reviewing C/C++/Rust for targets.
 - `integration-test` -- Incremental integration strategy, HIL discipline, and timing integration. Use when bringing up combined HW/SW or planning integration stages.
 - `legacy-recovery` -- Characterization-first brownfield recovery, strangler patterns, knowledge capture. Use when inheriting unknown code or hardware.
-- `mcu` -- MCU firmware engineering - core selection, startup, MPU/TrustZone, HAL, RTOS choice. Use for bare-metal or RTOS firmware on Cortex-M/RISC-V.
-- `mpsoc` -- MPSoC NoC QoS, coherency domains, PL-as-hardware timing closure, cross-die safety. Use for FPGA-SoC or multi-die platforms.
+- `mcu` -- MCU firmware engineering - core selection, startup, MPU/TrustZone, HAL, RTOS choice. Use for bare-metal or RTOS firmware on Cortex-M/RISC-V. Use when mcu tasks arise in generic-embedded projects.
+- `mpsoc` -- MPSoC NoC QoS, coherency domains, PL-as-hardware timing closure, cross-die safety. Use for FPGA-SoC or multi-die platforms. Use when mpsoc tasks arise in generic-embedded projects.
 - `mpu` -- MPU-based design - selection from measured load, ECC/DDR, power sequencing, debug-by-design. Use when moving to application processors.
 - `performance` -- Top-down budgets, WCET measurement, profile-before-patch, CI tripwires. Use when meeting latency, throughput, or determinism targets.
 - `project-audit` -- Criteria-first audits, sampling, independence, re-audit closure. Use when auditing projects, suppliers, or compliance readiness.
@@ -267,9 +335,9 @@ approval. Never claim certification or compliance from a heuristic check.
 - `robot-bringup` -- ROS2 system bringup: systemd services, launch composition, udev rules, network/DDS config, watchdogs, logging, graceful shutdown, remote monitoring. Use when deploying or operating robots in production.
 - `robotics` -- ROS 2 distro policy, interface-first nodes, real-time paths, simulation-first testing. Use when building robot behaviors on embedded compute.
 - `ros1` -- ROS1 (Noetic) development: node/topic/launch design, TF, actionlib, nodelets, pitfalls, and ROS1-to-ROS2 migration. Use when maintaining or extending ROS1 systems.
-- `rtos` -- RTOS selection, scheduling/IPC rules, MPU partitioning, WCET verification. Use for FreeRTOS/Zephyr/ThreadX designs or timing analysis.
+- `rtos` -- RTOS selection, scheduling/IPC rules, MPU partitioning, WCET verification. Use for FreeRTOS/Zephyr/ThreadX designs or timing analysis. Use when rtos tasks arise in all projects.
 - `rust-embedded` -- no_std setup, unsafe-review policy, FFI ownership rules. Use when writing Rust firmware or mixing Rust with C.
-- `safety` -- Functional-safety lifecycle with ASIL/SIL/DAL mapping, HARA chains, and sign-off gates. Use for safety goals, integrity levels, or safety cases.
+- `safety` -- Functional-safety lifecycle with ASIL/SIL/DAL mapping, HARA chains, and sign-off gates. Use for safety goals, integrity levels, or safety cases. Use when safety tasks arise in generic-embedded projects.
 - `security` -- Threat modeling, secure boot, crypto inventory, fuzzing, SBOM/CVE watch. Use when hardening products or answering security requirements.
 - `simulation` -- MIL-SIL-HIL progression, back-to-back evidence, scenario discipline. Use when testing without hardware or qualifying models.
 - `soc` -- Heterogeneous SoC allocation across A/R cores, NPUs, safety islands, power/thermal. Use when architecting multi-core SoC products.

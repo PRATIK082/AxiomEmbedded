@@ -1,13 +1,16 @@
 ---
 name: axiom-rtos-architecture
 title: RTOS Architecture Review
-description: >
-  Reviews RTOS task, priority, IPC and timing architecture for determinism and stack safety.
+description: Reviews RTOS task, priority, IPC and timing architecture for determinism
+  and stack safety. Use when rtos architecture tasks arise in all projects.
 version: 1.2.0
 author: PRATIK PATIL
 license: Apache-2.0
-domains: [all]
-platforms: [mcu, rtos]
+domains:
+- all
+platforms:
+- mcu
+- rtos
 axiom:
   dotted_name: axiom.platform.rtos.architecture
   domain: platform
@@ -15,21 +18,40 @@ axiom:
   category: architecture
   maturity: experimental
   owner: axiom-embedded
-  tags: [rtos]
+  tags:
+  - rtos
   related_skills: []
-  lifecycle: [requirements, architecture, design, implementation, integration, verification, validation, release]
+  lifecycle:
+  - requirements
+  - architecture
+  - design
+  - implementation
+  - integration
+  - verification
+  - validation
+  - release
   standards: []
-  artifact_types: [RTOS review]
-  mcp_tools: [run_skill, validate_skill]
+  artifact_types:
+  - RTOS review
+  mcp_tools:
+  - run_skill
+  - validate_skill
   risk_level: medium
   review_required: true
   safety_critical: false
-  inputs: [repository path, target files, objective, constraints]
-  outputs: [run report, run manifest]
-  required_tools: [validate_skill]
-  optional_tools: [run_skill]
+  inputs:
+  - repository path
+  - target files
+  - objective
+  - constraints
+  outputs:
+  - run report
+  - run manifest
+  required_tools:
+  - validate_skill
+  optional_tools:
+  - run_skill
 ---
-
 # Axiom RTOS Architecture Review
 
 ## Purpose

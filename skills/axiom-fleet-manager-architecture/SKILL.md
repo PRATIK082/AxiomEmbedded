@@ -2,7 +2,8 @@
 name: axiom-fleet-manager-architecture
 title: Fleet-Manager Architecture
 description: Architects fleet-manager task assignment, traffic rules, map/zone interfaces,
-  and deadlock handling for multi-AMR operation.
+  and deadlock handling for multi-AMR operation. Use when fleet manager architecture
+  tasks arise in robotics projects.
 version: 1.2.0
 author: PRATIK PATIL
 license: Apache-2.0
@@ -59,7 +60,6 @@ axiom:
   optional_tools:
   - run_skill
 ---
-
 # Axiom Fleet-Manager Architecture
 
 ## Purpose

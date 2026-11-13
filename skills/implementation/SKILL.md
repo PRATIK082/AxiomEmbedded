@@ -1,9 +1,12 @@
 ---
 name: implementation
-description: MISRA/CERT construction, static-analysis-clean code, reviews, and definition of done. Use when writing or reviewing C/C++/Rust for targets.
+description: MISRA/CERT construction, static-analysis-clean code, reviews, and definition
+  of done. Use when writing or reviewing C/C++/Rust for targets.
 version: 1.2.0
-domains: [all]
-platforms: [all]
+domains:
+- all
+platforms:
+- all
 axiom:
   dotted_name: axiom.legacy.implementation
   domain: all
@@ -16,8 +19,30 @@ axiom:
   related_skills: []
   checklists:
   - checklists/implementation-checklist.md
+  inputs:
+  - repository path
+  - objective
+  - constraints
+  outputs:
+  - run report
+  - run manifest
+  risk_level: medium
+  review_required: true
+  safety_critical: false
+  lifecycle:
+  - discover
+  - plan
+  - implement
+  - verify
+  - evidence
+  artifact_types:
+  - report
+  - manifest
+  standards: []
+  mcp_tools: []
+  required_tools: []
+  optional_tools: []
 ---
-
 # Implementation skill
 
 Turning evaluated architecture into verified code: coding standards, construction

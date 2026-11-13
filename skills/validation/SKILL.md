@@ -1,9 +1,12 @@
 ---
 name: validation
-description: Needs-based validation scenarios, usability, and acceptance. Use when proving the right product was built for stakeholders.
+description: Needs-based validation scenarios, usability, and acceptance. Use when
+  proving the right product was built for stakeholders.
 version: 1.2.0
-domains: [all]
-platforms: [all]
+domains:
+- all
+platforms:
+- all
 axiom:
   dotted_name: axiom.legacy.validation
   domain: all
@@ -16,8 +19,30 @@ axiom:
   related_skills: []
   checklists:
   - checklists/validation-checklist.md
+  inputs:
+  - repository path
+  - objective
+  - constraints
+  outputs:
+  - run report
+  - run manifest
+  risk_level: medium
+  review_required: true
+  safety_critical: false
+  lifecycle:
+  - discover
+  - plan
+  - implement
+  - verify
+  - evidence
+  artifact_types:
+  - report
+  - manifest
+  standards: []
+  mcp_tools: []
+  required_tools: []
+  optional_tools: []
 ---
-
 # Validation skill
 
 Confirmation that the right system was built: stakeholder acceptance in the

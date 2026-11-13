@@ -1,9 +1,18 @@
 ---
 name: automotive-diagnostics
-description: UDS/DoIP/OBD-II/J1939/XCP diagnostics, tester integration (ODX/OTX), DTC/DID/routine control, security access, AUTOSAR-extract-driven UDS test/validation codegen (DEXT/ARXML/ODX/CDD/XLS/YAML/JSON) with full service/subservice positive/negative coverage. Use for diagnostic stacks, FBL testers, diag test-tool creation, or homologation evidence.
+description: UDS/DoIP/OBD-II/J1939/XCP diagnostics, tester integration (ODX/OTX),
+  DTC/DID/routine control, security access, AUTOSAR-extract-driven UDS test/validation
+  codegen (DEXT/ARXML/ODX/CDD/XLS/YAML/JSON) with full service/subservice positive/negative
+  coverage. Use for diagnostic stacks, FBL testers, diag test-tool creation, or homologation
+  evidence. Use when automotive diagnostics tasks arise in automotive projects.
 version: 1.3.0
-domains: [automotive]
-platforms: [mcu, mpu, autosar-classic, autosar-adaptive]
+domains:
+- automotive
+platforms:
+- mcu
+- mpu
+- autosar-classic
+- autosar-adaptive
 axiom:
   dotted_name: axiom.legacy.automotive-diagnostics
   domain: automotive
@@ -18,8 +27,30 @@ axiom:
   - axiom-diagnostics-uds
   checklists:
   - checklists/automotive-diagnostics-checklist.md
+  inputs:
+  - repository path
+  - objective
+  - constraints
+  outputs:
+  - run report
+  - run manifest
+  risk_level: medium
+  review_required: true
+  safety_critical: false
+  lifecycle:
+  - discover
+  - plan
+  - implement
+  - verify
+  - evidence
+  artifact_types:
+  - report
+  - manifest
+  standards: []
+  mcp_tools: []
+  required_tools: []
+  optional_tools: []
 ---
-
 # automotive-diagnostics -- Vehicle diagnostics and tester capability
 
 Reusable AxiomEmbedded capability for on-vehicle diagnostic servers (UDS, OBD-II/WWH-OBD,

@@ -2,7 +2,8 @@
 name: axiom-iec62061-sil-review
 title: IEC 62061 SIL Determination Review
 description: Determines SIL targets per safety function and writes software/system
-  safety requirements with verification criteria.
+  safety requirements with verification criteria. Use when iec62061 sil review tasks
+  arise in industrial projects.
 version: 1.2.0
 author: PRATIK PATIL
 license: Apache-2.0
@@ -60,7 +61,6 @@ axiom:
   optional_tools:
   - run_skill
 ---
-
 # Axiom IEC 62061 SIL Determination Review
 
 ## Purpose

@@ -1,9 +1,14 @@
 ---
 name: drivers
-description: Register/errata discipline, DMA contracts, timeouts, policy-free HALs. Use when writing peripheral drivers or BSPs.
+description: Register/errata discipline, DMA contracts, timeouts, policy-free HALs.
+  Use when writing peripheral drivers or BSPs.
 version: 1.3.0
-domains: [all]
-platforms: [mcu, mpu, soc]
+domains:
+- all
+platforms:
+- mcu
+- mpu
+- soc
 axiom:
   dotted_name: axiom.legacy.drivers
   domain: all
@@ -17,8 +22,30 @@ axiom:
   - axiom-embedded-firmware-bringup
   checklists:
   - checklists/drivers-checklist.md
+  inputs:
+  - repository path
+  - objective
+  - constraints
+  outputs:
+  - run report
+  - run manifest
+  risk_level: medium
+  review_required: true
+  safety_critical: false
+  lifecycle:
+  - discover
+  - plan
+  - implement
+  - verify
+  - evidence
+  artifact_types:
+  - report
+  - manifest
+  standards: []
+  mcp_tools: []
+  required_tools: []
+  optional_tools: []
 ---
-
 # Drivers skill
 
 Peripheral driver development for MCU/MPU targets: register-correct,

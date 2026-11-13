@@ -9,6 +9,10 @@ ID_RE = re.compile(r"^[a-z0-9][a-z0-9-]*$")
 VER_RE = re.compile(r"^\d+\.\d+\.\d+$")
 REQUIRED_FM = {"name", "description", "version", "domains", "platforms"}
 MATURITIES = {"experimental", "beta", "production"}
+VAGUE_TERMS = {"helps with", "processes data", "does stuff", "utility", "helper",
+                "misc", "various", "things"}
+CONTRACT_FIELDS = {"inputs", "outputs", "risk_level", "review_required",
+                   "safety_critical", "lifecycle", "artifact_types", "related_skills"}
 
 
 def parse_skill_doc(text: str) -> tuple[dict, str]:
@@ -50,7 +54,22 @@ def validate_skill_doc(skill_id: str) -> dict:
         errors.append(f"frontmatter name {fm.get('name')!r} != directory {skill_id!r}")
     if fm.get("version") and not VER_RE.match(str(fm["version"])):
         errors.append(f"bad version {fm.get('version')!r}, want X.Y.Z")
+    # description quality (Agent Skills spec + Axiom hardening)
+    desc = str(fm.get("description") or "").strip()
+    if desc:
+        if len(desc) > 1024:
+            errors.append(f"description too long ({len(desc)} > 1024)")
+        if len(desc) < 20:
+            warnings.append("description too short (<20 chars); add what+when")
+        low = desc.lower()
+        if low.startswith("i ") or low.startswith("i'"):
+            warnings.append("description should be third-person, not first-person")
+        if any(v in low for v in VAGUE_TERMS):
+            warnings.append("description contains vague terms; specify capability + trigger")
+        if "use when" not in low and "when " not in low:
+            warnings.append("description lacks trigger clause ('Use when...')")
     ax = fm.get("axiom", {}) or {}
+    maturity = ax.get("maturity") if ax else None
     if ax:
         if ax.get("maturity") not in MATURITIES:
             errors.append(f"bad axiom.maturity {ax.get('maturity')!r}")
@@ -75,11 +94,41 @@ def validate_skill_doc(skill_id: str) -> dict:
             except Exception:
                 warnings.append("mcp tool registry unavailable; "
                                 "tool links unchecked")
+        # safety gating: safety_critical => review_required
+        if ax.get("safety_critical") is True and ax.get("review_required") is not True:
+            errors.append("safety_critical requires review_required: true")
+        # contract fields for beta/production
+        if maturity in ("beta", "production"):
+            missing_cf = CONTRACT_FIELDS - set(ax.keys())
+            if missing_cf:
+                (errors if maturity == "production" else warnings).append(
+                    f"missing contract fields for {maturity}: {sorted(missing_cf)}")
+        # maturity ladder: production requires tests dir
+        if maturity == "production":
+            if not (ROOT / "skills" / skill_id / "tests").exists():
+                warnings.append("production skill missing tests/ directory")
     else:
         warnings.append("no axiom: metadata block (legacy skill)")
-    # required sections in body
-    for section in ("## Purpose", "## Workflow", "## Acceptance"):
-        if section.lower() not in s["body"].lower():
-            warnings.append(f"body missing section {section}")
+    # required sections in body (accept heading variants like "## 1. Purpose and scope")
+    import re as _re
+    headings = _re.findall(r"^#{1,3}\s+(.+)$", s["body"], flags=_re.M)
+    heading_text = " ".join(h.lower() for h in headings)
+    for key in ("purpose", "workflow", "acceptance"):
+        if key not in heading_text:
+            warnings.append(f"body missing section containing '{key}'")
+    # progressive disclosure: body <= 500 lines
+    body_lines = s["body"].count("\\n") + 1
+    if body_lines > 500:
+        warnings.append(f"SKILL.md body too long ({body_lines} lines > 500); offload to references/")
+    # naming convention check (axiom skills)
+    if skill_id.startswith("axiom-") and not re.match(r"^axiom-[a-z0-9]+(-[a-z0-9]+)+$", skill_id):
+        warnings.append("axiom skill id should follow axiom-<domain>-<capability>")
+    # reference depth: references/ should be flat (one level)
+    refdir = ROOT / "skills" / skill_id / "references"
+    if refdir.exists():
+        for p in refdir.rglob("*"):
+            if p.is_file() and p.parent != refdir:
+                warnings.append(f"nested reference beyond one level: {p.relative_to(ROOT / 'skills' / skill_id)}")
+                break
     return {"skill": skill_id, "valid": not errors, "errors": errors,
             "warnings": warnings}

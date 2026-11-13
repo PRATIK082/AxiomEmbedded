@@ -1,9 +1,19 @@
 ---
 name: mcu
-description: MCU firmware engineering - core selection, startup, MPU/TrustZone, HAL, RTOS choice. Use for bare-metal or RTOS firmware on Cortex-M/RISC-V.
+description: MCU firmware engineering - core selection, startup, MPU/TrustZone, HAL,
+  RTOS choice. Use for bare-metal or RTOS firmware on Cortex-M/RISC-V. Use when mcu
+  tasks arise in generic-embedded projects.
 version: 1.2.0
-domains: [generic-embedded, automotive, industrial, iot, robotics]
-platforms: [mcu, bare-metal, rtos]
+domains:
+- generic-embedded
+- automotive
+- industrial
+- iot
+- robotics
+platforms:
+- mcu
+- bare-metal
+- rtos
 axiom:
   dotted_name: axiom.legacy.mcu
   domain: generic-embedded
@@ -17,8 +27,30 @@ axiom:
   - axiom-embedded-firmware-bringup
   checklists:
   - checklists/mcu-checklist.md
+  inputs:
+  - repository path
+  - objective
+  - constraints
+  outputs:
+  - run report
+  - run manifest
+  risk_level: medium
+  review_required: true
+  safety_critical: false
+  lifecycle:
+  - discover
+  - plan
+  - implement
+  - verify
+  - evidence
+  artifact_types:
+  - report
+  - manifest
+  standards: []
+  mcp_tools: []
+  required_tools: []
+  optional_tools: []
 ---
-
 # mcu -- Microcontroller firmware capability (template skill)
 
 Reusable AxiomEmbedded capability for microcontroller selection, bring-up,

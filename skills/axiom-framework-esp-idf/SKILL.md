@@ -1,13 +1,19 @@
 ---
 name: axiom-framework-esp-idf
 title: ESP-IDF Framework Engineering
-description: >
-  Engineering guide for ESP-IDF projects: component model, CMake build, FreeRTOS tasks, HAL and drivers, GPIO/UART/SPI/I2C, NVS, partition tables, OTA, logging, debugging with JTAG/OpenOCD, build/flash/monitor, memory, power management, and security (secure boot and flash encryption). Hardware-aware: target and pin constraints.
+description: 'Engineering guide for ESP-IDF projects: component model, CMake build,
+  FreeRTOS tasks, HAL and drivers, GPIO/UART/SPI/I2C, NVS, partition tables, OTA,
+  logging, debugging with JTAG/OpenOCD, build/flash/monitor, memory, power management,
+  and security (secure boot and flash encryption). Hardware-aware: target and pin
+  constraints. Use when framework esp idf tasks arise in all projects.'
 version: 1.2.0
 author: PRATIK PATIL
 license: Apache-2.0
-domains: [all]
-platforms: [mcu, soc]
+domains:
+- all
+platforms:
+- mcu
+- soc
 axiom:
   dotted_name: axiom.platform.framework.esp_idf
   domain: platform
@@ -15,21 +21,49 @@ axiom:
   category: implementation
   maturity: experimental
   owner: axiom-embedded
-  tags: [framework, esp-idf, esp32]
-  related_skills: [axiom-hardware-aware-checks, axiom-embedded-firmware-bringup]
-  lifecycle: [requirements, architecture, design, implementation, integration, verification, validation, release]
+  tags:
+  - framework
+  - esp-idf
+  - esp32
+  related_skills:
+  - axiom-hardware-aware-checks
+  - axiom-embedded-firmware-bringup
+  lifecycle:
+  - requirements
+  - architecture
+  - design
+  - implementation
+  - integration
+  - verification
+  - validation
+  - release
   standards: []
-  artifact_types: [component, CMake project, partition table, OTA plan, debug notes]
-  mcp_tools: [run_skill, validate_skill]
+  artifact_types:
+  - component
+  - CMake project
+  - partition table
+  - OTA plan
+  - debug notes
+  mcp_tools:
+  - run_skill
+  - validate_skill
   risk_level: medium
   review_required: true
   safety_critical: false
-  inputs: [repository path, target files, objective, constraints, target profile]
-  outputs: [run report, run manifest]
-  required_tools: [validate_skill]
-  optional_tools: [run_skill]
+  inputs:
+  - repository path
+  - target files
+  - objective
+  - constraints
+  - target profile
+  outputs:
+  - run report
+  - run manifest
+  required_tools:
+  - validate_skill
+  optional_tools:
+  - run_skill
 ---
-
 # Axiom ESP-IDF Framework Engineering
 
 ## Purpose

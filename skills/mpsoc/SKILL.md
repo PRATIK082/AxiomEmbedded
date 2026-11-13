@@ -1,9 +1,18 @@
 ---
 name: mpsoc
-description: MPSoC NoC QoS, coherency domains, PL-as-hardware timing closure, cross-die safety. Use for FPGA-SoC or multi-die platforms.
+description: MPSoC NoC QoS, coherency domains, PL-as-hardware timing closure, cross-die
+  safety. Use for FPGA-SoC or multi-die platforms. Use when mpsoc tasks arise in generic-embedded
+  projects.
 version: 1.2.0
-domains: [generic-embedded, automotive, aerospace, defense, industrial]
-platforms: [mpsoc, soc]
+domains:
+- generic-embedded
+- automotive
+- aerospace
+- defense
+- industrial
+platforms:
+- mpsoc
+- soc
 axiom:
   dotted_name: axiom.legacy.mpsoc
   domain: generic-embedded
@@ -17,8 +26,30 @@ axiom:
   - axiom-zonal-architecture
   checklists:
   - checklists/mpsoc-checklist.md
+  inputs:
+  - repository path
+  - objective
+  - constraints
+  outputs:
+  - run report
+  - run manifest
+  risk_level: medium
+  review_required: true
+  safety_critical: false
+  lifecycle:
+  - discover
+  - plan
+  - implement
+  - verify
+  - evidence
+  artifact_types:
+  - report
+  - manifest
+  standards: []
+  mcp_tools: []
+  required_tools: []
+  optional_tools: []
 ---
-
 # MPSoC skill
 
 Multi-die and large-fabric integration: coherent multi-cluster compute,

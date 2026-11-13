@@ -2,7 +2,8 @@
 name: axiom-declaration-of-conformity-review
 title: Declaration of Conformity Pack Review
 description: 'Assembles the declaration-of-conformity evidence pack: applicable legislation,
-  standards applied, responsible person, and artifact pointers.'
+  standards applied, responsible person, and artifact pointers. Use when declaration
+  of conformity review tasks arise in industrial projects.'
 version: 1.2.0
 author: PRATIK PATIL
 license: Apache-2.0
@@ -60,7 +61,6 @@ axiom:
   optional_tools:
   - run_skill
 ---
-
 # Axiom Declaration of Conformity Pack Review
 
 ## Purpose

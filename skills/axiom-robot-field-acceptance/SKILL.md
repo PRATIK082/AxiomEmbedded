@@ -2,7 +2,8 @@
 name: axiom-robot-field-acceptance
 title: Robot Field Acceptance
 description: 'Plans on-site acceptance: installation checks, safeguarding verification,
-  production-trial criteria, and punch-list management.'
+  production-trial criteria, and punch-list management. Use when robot field acceptance
+  tasks arise in robotics projects.'
 version: 1.2.0
 author: PRATIK PATIL
 license: Apache-2.0
@@ -59,7 +60,6 @@ axiom:
   optional_tools:
   - run_skill
 ---
-
 # Axiom Robot Field Acceptance
 
 ## Purpose

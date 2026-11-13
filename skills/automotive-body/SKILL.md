@@ -1,9 +1,14 @@
 ---
 name: automotive-body
-description: Body electronics -- BCM, lighting, doors/seats/mirrors, HVAC, PEPS/keyless, LIN/CAN topology, low-power modes, EOL configuration. Use for body ECUs, LIN slaves, and EOL variant coding.
+description: Body electronics -- BCM, lighting, doors/seats/mirrors, HVAC, PEPS/keyless,
+  LIN/CAN topology, low-power modes, EOL configuration. Use for body ECUs, LIN slaves,
+  and EOL variant coding. Use when automotive body tasks arise in automotive projects.
 version: 1.2.0
-domains: [automotive]
-platforms: [mcu, autosar-classic]
+domains:
+- automotive
+platforms:
+- mcu
+- autosar-classic
 axiom:
   dotted_name: axiom.legacy.automotive-body
   domain: automotive
@@ -17,8 +22,30 @@ axiom:
   - axiom-can-network-design
   checklists:
   - checklists/automotive-body-checklist.md
+  inputs:
+  - repository path
+  - objective
+  - constraints
+  outputs:
+  - run report
+  - run manifest
+  risk_level: medium
+  review_required: true
+  safety_critical: false
+  lifecycle:
+  - discover
+  - plan
+  - implement
+  - verify
+  - evidence
+  artifact_types:
+  - report
+  - manifest
+  standards: []
+  mcp_tools: []
+  required_tools: []
+  optional_tools: []
 ---
-
 # automotive-body -- Body electronics capability
 
 Reusable AxiomEmbedded capability for body-domain ECUs: BCM, exterior/interior

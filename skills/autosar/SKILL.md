@@ -1,9 +1,16 @@
 ---
 name: autosar
-description: Classic/Adaptive selection, layered BSW/RTE rules, SOME/IP integration. Use for AUTOSAR ECUs, ARXML, or adaptive applications.
+description: Classic/Adaptive selection, layered BSW/RTE rules, SOME/IP integration.
+  Use for AUTOSAR ECUs, ARXML, or adaptive applications. Use when autosar tasks arise
+  in automotive projects.
 version: 1.2.0
-domains: [automotive]
-platforms: [mcu, mpu, autosar-classic, autosar-adaptive]
+domains:
+- automotive
+platforms:
+- mcu
+- mpu
+- autosar-classic
+- autosar-adaptive
 axiom:
   dotted_name: axiom.legacy.autosar
   domain: automotive
@@ -22,8 +29,30 @@ axiom:
   - axiom-autosar-rte-design
   checklists:
   - checklists/autosar-checklist.md
+  inputs:
+  - repository path
+  - objective
+  - constraints
+  outputs:
+  - run report
+  - run manifest
+  risk_level: medium
+  review_required: true
+  safety_critical: false
+  lifecycle:
+  - discover
+  - plan
+  - implement
+  - verify
+  - evidence
+  artifact_types:
+  - report
+  - manifest
+  standards: []
+  mcp_tools: []
+  required_tools: []
+  optional_tools: []
 ---
-
 # autosar -- AUTOSAR Classic / Adaptive capability (template replication 2)
 
 Reusable AxiomEmbedded capability for AUTOSAR Classic Platform software

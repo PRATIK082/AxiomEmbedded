@@ -2,7 +2,8 @@
 name: axiom-iso9283-performance-test-review
 title: ISO 9283 Performance Test Review
 description: 'Specifies pose-accuracy and path-repeatability tests: test poses, loads,
-  speeds, measurement method, and acceptance thresholds.'
+  speeds, measurement method, and acceptance thresholds. Use when iso9283 performance
+  test review tasks arise in robotics projects.'
 version: 1.2.0
 author: PRATIK PATIL
 license: Apache-2.0
@@ -59,7 +60,6 @@ axiom:
   optional_tools:
   - run_skill
 ---
-
 # Axiom ISO 9283 Performance Test Review
 
 ## Purpose

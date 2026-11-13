@@ -1,9 +1,12 @@
 ---
 name: legacy-recovery
-description: Characterization-first brownfield recovery, strangler patterns, knowledge capture. Use when inheriting unknown code or hardware.
+description: Characterization-first brownfield recovery, strangler patterns, knowledge
+  capture. Use when inheriting unknown code or hardware.
 version: 1.2.0
-domains: [all]
-platforms: [all]
+domains:
+- all
+platforms:
+- all
 axiom:
   dotted_name: axiom.legacy.legacy-recovery
   domain: all
@@ -16,8 +19,30 @@ axiom:
   related_skills: []
   checklists:
   - checklists/legacy-recovery-checklist.md
+  inputs:
+  - repository path
+  - objective
+  - constraints
+  outputs:
+  - run report
+  - run manifest
+  risk_level: medium
+  review_required: true
+  safety_critical: false
+  lifecycle:
+  - discover
+  - plan
+  - implement
+  - verify
+  - evidence
+  artifact_types:
+  - report
+  - manifest
+  standards: []
+  mcp_tools: []
+  required_tools: []
+  optional_tools: []
 ---
-
 # Legacy-Recovery skill
 
 Taming inherited firmware: characterization testing, strangler refactoring,

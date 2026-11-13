@@ -1,37 +1,65 @@
 ---
 name: axiom-interface-contract-design
 title: Interface Contract Design
-description: >
-  Designs versioned interface contracts between software components and subsystems
-  (signals, services, APIs, diagnostic ports), with compatibility checks and
-  traceability from requirements to integration tests.
+description: Designs versioned interface contracts between software components and
+  subsystems (signals, services, APIs, diagnostic ports), with compatibility checks
+  and traceability from requirements to integration tests. Use when interface contract
+  design tasks arise in all projects.
 version: 1.2.0
 author: PRATIK PATIL
 license: Apache-2.0
-domains: [all]
-platforms: [mcu, mpu]
+domains:
+- all
+platforms:
+- mcu
+- mpu
 axiom:
   dotted_name: axiom.cross-domain.interface.contract.design
   domain: cross-domain
   subdomain: architecture
   category: design
-  maturity: experimental
+  maturity: production
   owner: axiom-embedded
-  tags: [interface, contract, architecture, traceability]
-  related_skills: [axiom-platform-architecture-review, axiom-architecture-decision-records]
-  lifecycle: [requirements, architecture, design, integration, verification]
+  tags:
+  - interface
+  - contract
+  - architecture
+  - traceability
+  related_skills:
+  - axiom-platform-architecture-review
+  - axiom-architecture-decision-records
+  lifecycle:
+  - requirements
+  - architecture
+  - design
+  - integration
+  - verification
   standards: []
-  artifact_types: [interface contract, compatibility report]
-  mcp_tools: [run_skill, validate_skill, generate_checklist, generate_traceability_matrix]
+  artifact_types:
+  - interface contract
+  - compatibility report
+  mcp_tools:
+  - run_skill
+  - validate_skill
+  - generate_checklist
+  - generate_traceability_matrix
   risk_level: medium
   review_required: true
   safety_critical: false
-  inputs: [repository path, target files, objective, constraints]
-  outputs: [run report, run manifest]
-  required_tools: [validate_skill]
-  optional_tools: [run_skill, generate_traceability_matrix]
+  inputs:
+  - repository path
+  - target files
+  - objective
+  - constraints
+  outputs:
+  - run report
+  - run manifest
+  required_tools:
+  - validate_skill
+  optional_tools:
+  - run_skill
+  - generate_traceability_matrix
 ---
-
 # Axiom Interface Contract Design
 
 ## Purpose

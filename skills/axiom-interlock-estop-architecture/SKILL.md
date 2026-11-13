@@ -2,7 +2,8 @@
 name: axiom-interlock-estop-architecture
 title: Interlock and E-Stop Architecture
 description: 'Architects the interlock chain and e-stop topology: channels, stop categories,
-  restart behavior, and defeat monitoring.'
+  restart behavior, and defeat monitoring. Use when interlock estop architecture tasks
+  arise in robotics projects.'
 version: 1.2.0
 author: PRATIK PATIL
 license: Apache-2.0
@@ -61,7 +62,6 @@ axiom:
   optional_tools:
   - run_skill
 ---
-
 # Axiom Interlock and E-Stop Architecture
 
 ## Purpose

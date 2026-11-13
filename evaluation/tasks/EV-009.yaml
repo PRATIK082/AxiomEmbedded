@@ -1,0 +1,8 @@
+id: EV-009
+agent: implementation
+domain: aerospace
+platform: mcu
+prompt: Plan DO-178C software lifecycle artifacts for a flight control module.
+expect:
+  skills_contain: [axiom-aerospace-do178c-workflow]
+  clarifies: false

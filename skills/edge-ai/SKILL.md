@@ -1,9 +1,19 @@
 ---
 name: edge-ai
-description: Model quantization, runtime/delegate selection, memory/latency/power budgets. Use when deploying ML inference on constrained targets.
+description: Model quantization, runtime/delegate selection, memory/latency/power
+  budgets. Use when deploying ML inference on constrained targets.
 version: 1.2.0
-domains: [generic-embedded, automotive, industrial, iot, robotics]
-platforms: [mcu, mpu, soc, mpsoc]
+domains:
+- generic-embedded
+- automotive
+- industrial
+- iot
+- robotics
+platforms:
+- mcu
+- mpu
+- soc
+- mpsoc
 axiom:
   dotted_name: axiom.legacy.edge-ai
   domain: generic-embedded
@@ -16,8 +26,30 @@ axiom:
   related_skills: []
   checklists:
   - checklists/edge-ai-checklist.md
+  inputs:
+  - repository path
+  - objective
+  - constraints
+  outputs:
+  - run report
+  - run manifest
+  risk_level: medium
+  review_required: true
+  safety_critical: false
+  lifecycle:
+  - discover
+  - plan
+  - implement
+  - verify
+  - evidence
+  artifact_types:
+  - report
+  - manifest
+  standards: []
+  mcp_tools: []
+  required_tools: []
+  optional_tools: []
 ---
-
 # Edge-AI skill
 
 Deploying machine-learning inference on resource-constrained targets: model

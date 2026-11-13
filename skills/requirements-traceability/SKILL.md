@@ -1,9 +1,12 @@
 ---
 name: requirements-traceability
-description: CI orphan checks, suspect triage, and matrix hygiene. Use when automating trace maintenance in pipelines.
+description: CI orphan checks, suspect triage, and matrix hygiene. Use when automating
+  trace maintenance in pipelines.
 version: 1.2.0
-domains: [all]
-platforms: [all]
+domains:
+- all
+platforms:
+- all
 axiom:
   dotted_name: axiom.legacy.requirements-traceability
   domain: all
@@ -17,8 +20,30 @@ axiom:
   - axiom-interface-contract-design
   checklists:
   - checklists/requirements-traceability-checklist.md
+  inputs:
+  - repository path
+  - objective
+  - constraints
+  outputs:
+  - run report
+  - run manifest
+  risk_level: medium
+  review_required: true
+  safety_critical: false
+  lifecycle:
+  - discover
+  - plan
+  - implement
+  - verify
+  - evidence
+  artifact_types:
+  - report
+  - manifest
+  standards: []
+  mcp_tools: []
+  required_tools: []
+  optional_tools: []
 ---
-
 # Requirements-Traceability skill
 
 Operational practice for maintaining the traceability chain day to day:

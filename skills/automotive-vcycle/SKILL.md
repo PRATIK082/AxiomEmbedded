@@ -1,9 +1,14 @@
 ---
 name: automotive-vcycle
-description: End-to-end automotive V-Cycle lifecycle from stakeholder requirements to vehicle validation. Use for V-Model planning, MIL/SIL/HIL gates, ASPICE/ISO 26262 alignment, or agile-hybrid programs.
+description: End-to-end automotive V-Cycle lifecycle from stakeholder requirements
+  to vehicle validation. Use for V-Model planning, MIL/SIL/HIL gates, ASPICE/ISO 26262
+  alignment, or agile-hybrid programs. Use when automotive vcycle tasks arise in automotive
+  projects.
 version: 1.2.0
-domains: [automotive]
-platforms: [all]
+domains:
+- automotive
+platforms:
+- all
 axiom:
   dotted_name: axiom.legacy.automotive-vcycle
   domain: automotive
@@ -18,8 +23,30 @@ axiom:
   - axiom-test-automation
   checklists:
   - checklists/automotive-vcycle-checklist.md
+  inputs:
+  - repository path
+  - objective
+  - constraints
+  outputs:
+  - run report
+  - run manifest
+  risk_level: medium
+  review_required: true
+  safety_critical: false
+  lifecycle:
+  - discover
+  - plan
+  - implement
+  - verify
+  - evidence
+  artifact_types:
+  - report
+  - manifest
+  standards: []
+  mcp_tools: []
+  required_tools: []
+  optional_tools: []
 ---
-
 # automotive-vcycle -- Advanced automotive V-Cycle / V-Model lifecycle
 
 Reusable AxiomEmbedded lifecycle skill covering the full automotive V-Model:

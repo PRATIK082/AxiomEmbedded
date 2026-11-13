@@ -1,9 +1,16 @@
 ---
 name: automotive-cockpit
-description: Digital cockpit -- cluster/IVI/HUD, SoC plus hypervisor with QNX/AAOS/Linux, Qt/Kanzi HMI, audio/DSP, driver monitoring, ASIL-B cluster and cybersecurity. Use for clusters, infotainment, HUD programs.
+description: Digital cockpit -- cluster/IVI/HUD, SoC plus hypervisor with QNX/AAOS/Linux,
+  Qt/Kanzi HMI, audio/DSP, driver monitoring, ASIL-B cluster and cybersecurity. Use
+  for clusters, infotainment, HUD programs. Use when automotive cockpit tasks arise
+  in automotive projects.
 version: 1.2.0
-domains: [automotive]
-platforms: [soc, mpsoc, mpu]
+domains:
+- automotive
+platforms:
+- soc
+- mpsoc
+- mpu
 axiom:
   dotted_name: axiom.legacy.automotive-cockpit
   domain: automotive
@@ -16,8 +23,30 @@ axiom:
   related_skills: []
   checklists:
   - checklists/automotive-cockpit-checklist.md
+  inputs:
+  - repository path
+  - objective
+  - constraints
+  outputs:
+  - run report
+  - run manifest
+  risk_level: medium
+  review_required: true
+  safety_critical: false
+  lifecycle:
+  - discover
+  - plan
+  - implement
+  - verify
+  - evidence
+  artifact_types:
+  - report
+  - manifest
+  standards: []
+  mcp_tools: []
+  required_tools: []
+  optional_tools: []
 ---
-
 # automotive-cockpit -- Digital cockpit capability
 
 Reusable AxiomEmbedded capability for the digital cockpit: instrument cluster, IVI,

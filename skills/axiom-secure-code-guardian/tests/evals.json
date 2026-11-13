@@ -1,0 +1,37 @@
+{
+  "skill": "axiom-secure-code-guardian",
+  "version": "1.2.0",
+  "scenarios": [
+    {
+      "id": "axiom-secure-code-guardian-E01",
+      "title": "Happy path produces the primary artifact",
+      "query": "Apply axiom-secure-code-guardian to a representative input and produce the expected deliverable.",
+      "expected_behavior": [
+        "Skill activates on the trigger description",
+        "Required inputs are collected or defaulted",
+        "Primary artifact is produced in the documented format",
+        "Acceptance criteria are evaluated"
+      ]
+    },
+    {
+      "id": "axiom-secure-code-guardian-E02",
+      "title": "Missing required input is flagged",
+      "query": "Invoke axiom-secure-code-guardian without a required input.",
+      "expected_behavior": [
+        "Skill reports the missing input",
+        "No partial artifact is written",
+        "Guidance is given to supply the input"
+      ]
+    },
+    {
+      "id": "axiom-secure-code-guardian-E03",
+      "title": "Boundary / out-of-scope request is refused",
+      "query": "Ask axiom-secure-code-guardian to perform a task outside its scope.",
+      "expected_behavior": [
+        "Skill identifies out-of-scope condition",
+        "Skill suggests the appropriate related skill if any",
+        "No unsafe action is taken"
+      ]
+    }
+  ]
+}

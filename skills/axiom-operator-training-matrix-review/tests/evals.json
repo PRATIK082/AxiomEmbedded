@@ -1,0 +1,37 @@
+{
+  "skill": "axiom-operator-training-matrix-review",
+  "version": "1.2.0",
+  "scenarios": [
+    {
+      "id": "axiom-operator-training-matrix-review-E01",
+      "title": "Happy path produces the primary artifact",
+      "query": "Apply axiom-operator-training-matrix-review to a representative input and produce the expected deliverable.",
+      "expected_behavior": [
+        "Skill activates on the trigger description",
+        "Required inputs are collected or defaulted",
+        "Primary artifact is produced in the documented format",
+        "Acceptance criteria are evaluated"
+      ]
+    },
+    {
+      "id": "axiom-operator-training-matrix-review-E02",
+      "title": "Missing required input is flagged",
+      "query": "Invoke axiom-operator-training-matrix-review without a required input.",
+      "expected_behavior": [
+        "Skill reports the missing input",
+        "No partial artifact is written",
+        "Guidance is given to supply the input"
+      ]
+    },
+    {
+      "id": "axiom-operator-training-matrix-review-E03",
+      "title": "Boundary / out-of-scope request is refused",
+      "query": "Ask axiom-operator-training-matrix-review to perform a task outside its scope.",
+      "expected_behavior": [
+        "Skill identifies out-of-scope condition",
+        "Skill suggests the appropriate related skill if any",
+        "No unsafe action is taken"
+      ]
+    }
+  ]
+}

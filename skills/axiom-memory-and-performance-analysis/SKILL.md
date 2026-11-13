@@ -1,13 +1,17 @@
 ---
 name: axiom-memory-and-performance-analysis
 title: Memory and Performance Analysis
-description: >
-  Analyzes memory classification, stack/heap budgets and performance hotspots against project budgets.
+description: Analyzes memory classification, stack/heap budgets and performance hotspots
+  against project budgets. Use when memory and performance analysis tasks arise in
+  all projects.
 version: 1.2.0
 author: PRATIK PATIL
 license: Apache-2.0
-domains: [all]
-platforms: [mcu, mpu]
+domains:
+- all
+platforms:
+- mcu
+- mpu
 axiom:
   dotted_name: axiom.platform.memory.and.performance.analysis
   domain: platform
@@ -15,21 +19,40 @@ axiom:
   category: verification
   maturity: experimental
   owner: axiom-embedded
-  tags: [performance]
+  tags:
+  - performance
   related_skills: []
-  lifecycle: [requirements, architecture, design, implementation, integration, verification, validation, release]
+  lifecycle:
+  - requirements
+  - architecture
+  - design
+  - implementation
+  - integration
+  - verification
+  - validation
+  - release
   standards: []
-  artifact_types: [memory/perf report]
-  mcp_tools: [run_skill, validate_skill]
+  artifact_types:
+  - memory/perf report
+  mcp_tools:
+  - run_skill
+  - validate_skill
   risk_level: medium
   review_required: true
   safety_critical: false
-  inputs: [repository path, target files, objective, constraints]
-  outputs: [run report, run manifest]
-  required_tools: [validate_skill]
-  optional_tools: [run_skill]
+  inputs:
+  - repository path
+  - target files
+  - objective
+  - constraints
+  outputs:
+  - run report
+  - run manifest
+  required_tools:
+  - validate_skill
+  optional_tools:
+  - run_skill
 ---
-
 # Axiom Memory and Performance Analysis
 
 ## Purpose

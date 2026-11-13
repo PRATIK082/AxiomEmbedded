@@ -2,7 +2,8 @@
 name: axiom-zone-conduit-plan
 title: Zone and Conduit Plan
 description: Partitions the OT network into zones and conduits with security-level
-  targets, conduit requirements, and firewall rules.
+  targets, conduit requirements, and firewall rules. Use when zone conduit plan tasks
+  arise in industrial projects.
 version: 1.2.0
 author: PRATIK PATIL
 license: Apache-2.0
@@ -60,7 +61,6 @@ axiom:
   optional_tools:
   - run_skill
 ---
-
 # Axiom Zone and Conduit Plan
 
 ## Purpose

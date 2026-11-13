@@ -1,0 +1,8 @@
+id: EV-010
+agent: skill-orchestrator
+domain: platform
+platform: mcu
+prompt: Create a new skill for a novel peripheral and register it in the catalog.
+expect:
+  skills_contain: [axiom-skill-creator]
+  clarifies: false

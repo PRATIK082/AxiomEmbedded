@@ -1,9 +1,12 @@
 ---
 name: configuration-management
-description: Version-everything, immutable baselines, and CI identification. Use when setting up version control, baselines, or audits.
+description: Version-everything, immutable baselines, and CI identification. Use when
+  setting up version control, baselines, or audits.
 version: 1.2.0
-domains: [all]
-platforms: [all]
+domains:
+- all
+platforms:
+- all
 axiom:
   dotted_name: axiom.legacy.configuration-management
   domain: all
@@ -16,8 +19,30 @@ axiom:
   related_skills: []
   checklists:
   - checklists/configuration-management-checklist.md
+  inputs:
+  - repository path
+  - objective
+  - constraints
+  outputs:
+  - run report
+  - run manifest
+  risk_level: medium
+  review_required: true
+  safety_critical: false
+  lifecycle:
+  - discover
+  - plan
+  - implement
+  - verify
+  - evidence
+  artifact_types:
+  - report
+  - manifest
+  standards: []
+  mcp_tools: []
+  required_tools: []
+  optional_tools: []
 ---
-
 # Configuration-Management skill
 
 Version control, baselines, branching, and configuration identification for

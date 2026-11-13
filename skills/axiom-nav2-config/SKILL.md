@@ -2,7 +2,8 @@
 name: axiom-nav2-config
 title: Nav2 Configuration
 description: Designs Nav2 planner/controller/costmap configuration with deterministic
-  parameter records and behavior-tree plugin selection.
+  parameter records and behavior-tree plugin selection. Use when nav2 config tasks
+  arise in robotics projects.
 version: 1.2.0
 author: PRATIK PATIL
 license: Apache-2.0
@@ -58,7 +59,6 @@ axiom:
   optional_tools:
   - run_skill
 ---
-
 # Axiom Nav2 Configuration
 
 ## Purpose
