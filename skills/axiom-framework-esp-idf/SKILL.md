@@ -33,10 +33,19 @@ axiom:
   risk_level: medium
   review_required: true
   safety_critical: false
-  inputs: [repository path, target files, objective, constraints, target profile]
-  outputs: [run report, run manifest]
-  required_tools: [validate_skill]
-  optional_tools: [run_skill]
+  inputs:
+  - repository path
+  - target files
+  - objective
+  - constraints
+  - target profile
+  outputs:
+  - run report
+  - run manifest
+  required_tools:
+  - validate_skill
+  optional_tools:
+  - run_skill
 ---
 # Axiom ESP-IDF Framework Engineering
 

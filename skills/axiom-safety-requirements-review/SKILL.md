@@ -1,10 +1,11 @@
 ---
 name: axiom-safety-requirements-review
 title: Safety Requirements Review
-description: >
-  Use when an independent review of safety requirements is required. Trigger
-  phrases include "review safety requirements", "audit requirement coverage",
-  and "check requirements traceability".
+description: 'Use when an independent review of safety requirements is required. Trigger
+  phrases include "review safety requirements", "audit requirement coverage", and
+  "check requirements traceability".
+
+  '
 version: 1.2.0
 author: AxiomEmbedded
 license: Apache-2.0

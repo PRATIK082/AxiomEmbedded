@@ -36,10 +36,20 @@ axiom:
   risk_level: medium
   review_required: true
   safety_critical: false
-  inputs: [repository path, target files, objective, constraints, hardware profile]
-  outputs: [run report, run manifest, check report]
-  required_tools: [validate_skill]
-  optional_tools: [run_skill]
+  inputs:
+  - repository path
+  - target files
+  - objective
+  - constraints
+  - hardware profile
+  outputs:
+  - run report
+  - run manifest
+  - check report
+  required_tools:
+  - validate_skill
+  optional_tools:
+  - run_skill
 ---
 # Axiom Hardware-Aware Pre-Generation Checks
 

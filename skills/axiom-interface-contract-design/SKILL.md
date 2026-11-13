@@ -31,10 +31,19 @@ axiom:
   risk_level: medium
   review_required: true
   safety_critical: false
-  inputs: [repository path, target files, objective, constraints]
-  outputs: [run report, run manifest]
-  required_tools: [validate_skill]
-  optional_tools: [run_skill, generate_traceability_matrix]
+  inputs:
+  - repository path
+  - target files
+  - objective
+  - constraints
+  outputs:
+  - run report
+  - run manifest
+  required_tools:
+  - validate_skill
+  optional_tools:
+  - run_skill
+  - generate_traceability_matrix
 ---
 # Axiom Interface Contract Design
 

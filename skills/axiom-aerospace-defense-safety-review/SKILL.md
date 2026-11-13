@@ -30,10 +30,18 @@ axiom:
   risk_level: safety-critical
   review_required: true
   safety_critical: true
-  inputs: [repository path, target files, objective, constraints]
-  outputs: [run report, run manifest]
-  required_tools: [validate_skill]
-  optional_tools: [run_skill]
+  inputs:
+  - repository path
+  - target files
+  - objective
+  - constraints
+  outputs:
+  - run report
+  - run manifest
+  required_tools:
+  - validate_skill
+  optional_tools:
+  - run_skill
 ---
 # Axiom Aerospace and Defense Safety Review
 
