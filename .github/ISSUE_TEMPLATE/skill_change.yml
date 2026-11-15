@@ -1,0 +1,83 @@
+name: Skill Change Request
+description: Propose a new skill, update, subskill, split, deprecation, or standard update.
+title: "skills: "
+labels: ["skill-change"]
+body:
+  - type: dropdown
+    id: change_type
+    attributes:
+      label: Change type
+      description: What kind of change is this?
+      options:
+        - NEW
+        - UPDATE
+        - SUBSKILL
+        - SPLIT
+        - DEPRECATE
+        - STANDARD-UPDATE
+    validations:
+      required: true
+
+  - type: textarea
+    id: reason
+    attributes:
+      label: Reason
+      description: Why is this change needed?
+    validations:
+      required: true
+
+  - type: textarea
+    id: skills_inspected
+    attributes:
+      label: Existing skills inspected
+      description: List the skills, catalogue entries, domain maps and standards reviewed.
+    validations:
+      required: true
+
+  - type: textarea
+    id: domain_applicability
+    attributes:
+      label: Domain and standard applicability
+      description: Primary domain, supported domains, applicable standards and editions.
+    validations:
+      required: true
+
+  - type: textarea
+    id: skill_ids
+    attributes:
+      label: New or changed skill IDs
+      description: List the skill IDs being added, modified or deprecated.
+    validations:
+      required: true
+
+  - type: textarea
+    id: relationships
+    attributes:
+      label: Parent, child and related skill links
+      description: Describe the skill graph relationships.
+    validations:
+      required: false
+
+  - type: textarea
+    id: deliverables
+    attributes:
+      label: Templates, checklists and validation changes
+      description: What deliverables, templates, scripts and tests are included?
+    validations:
+      required: false
+
+  - type: textarea
+    id: evaluation
+    attributes:
+      label: Evaluation results and known limitations
+      description: Test results, eval coverage and known gaps.
+    validations:
+      required: false
+
+  - type: textarea
+    id: review_requirements
+    attributes:
+      label: Reviewer and approval requirements
+      description: Who must review this? Safety/security critical?
+    validations:
+      required: true

@@ -1,0 +1,69 @@
+# Automotive domain profile
+# SPDX-License-Identifier: Apache-2.0
+
+domain: automotive
+version: '1.0.0'
+title: Automotive engineering domain
+
+description: >
+  Automotive software and systems engineering covering passenger vehicles,
+  commercial vehicles, off-highway and two-wheelers. Applicable standards
+  include ISO 26262, ISO/SAE 21434, Automotive SPICE, UNECE R155/R156,
+  AUTOSAR Classic/Adaptive, MISRA C/C++, SAE J3016 (automation levels).
+
+applicable_standards:
+  - iso-26262
+  - iso-sae-21434
+  - automotive-spice
+  - iso-21448
+  - unece-r155
+  - unece-r156
+  - misra-c
+  - misra-cpp
+  - autosar-cpp14
+  - sei-cert-c
+  - sei-cert-cpp
+
+skill_families:
+  requirements:
+    - axiom-automotive-requirements-analysis
+    - axiom-automotive-requirements-allocation
+    - axiom-automotive-requirements-traceability
+  coding:
+    - axiom-automotive-c-coding-guidelines
+    - axiom-automotive-cpp-coding-guidelines
+  code_review:
+    - axiom-automotive-code-review
+  safety:
+    - axiom-automotive-iso26262-safety
+  security:
+    - axiom-automotive-21434-cybersecurity
+  standards:
+    - axiom-automotive-aspice-process-mapping
+
+engineering_process_map:
+  phases:
+    - requirements-analysis
+    - requirements-allocation
+    - architecture
+    - detailed-design
+    - implementation
+    - unit-verification
+    - integration-verification
+    - system-verification
+    - validation
+  gates:
+    - requirements-review
+    - architecture-review
+    - design-review
+    - implementation-review
+    - verification-review
+    - validation-review
+    - release-review
+
+risk_classes: [ASIL-A, ASIL-B, ASIL-C, ASIL-D, QM]
+safety_critical: true
+security_critical: true
+
+platforms: [mcu, mpu, autosar-classic, autosar-adaptive, bare-metal, rtos]
+languages: [c, cpp]

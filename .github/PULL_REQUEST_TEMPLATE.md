@@ -1,30 +1,42 @@
-## Summary
-<!-- What changes and which engineering problem does it solve? -->
+## Skill Change Pull Request
 
-## Related issue
-<!-- Use Closes #123 where appropriate. -->
+### Change type
+- [ ] NEW
+- [ ] UPDATE
+- [ ] SUBSKILL
+- [ ] SPLIT
+- [ ] DEPRECATE
+- [ ] STANDARD-UPDATE
 
-## Change type
-- [ ] Bug fix
-- [ ] Feature / new requirement
-- [ ] Skill, rule, profile, or template
-- [ ] Tool/client integration
-- [ ] Documentation
-- [ ] Refactor / maintenance
+### Reason
+<!-- Why is this change needed? -->
 
-## Validation performed
-- [ ] `python -m pytest -q`
-- [ ] `python -m axiom_cli doctor`
-- [ ] `python scripts/skill_pipeline.py --check` (if skill/client mirrors or generated assets are affected)
-- [ ] Added/updated deterministic tests or validation cases
-- [ ] Documented checks that could not be run
+### Existing skills inspected
+<!-- List the skills, catalogue entries, domain maps and standards reviewed. -->
 
-Commands/results:
-<!-- Be precise; don't report an unrun check as passing. -->
+### Domain and standard applicability
+<!-- Primary domain, supported domains, applicable standards and editions. -->
 
-## Engineering impact
-- [ ] Core behavior and backward compatibility considered
-- [ ] Permissions/tool execution changes are least-privilege and documented
-- [ ] Safety/security boundary and evidence claims are unchanged or explicitly reviewed
-- [ ] Docs/manifests/catalogs are updated where needed
-- [ ] No secrets, customer source, or proprietary standards content included
+### New or changed skill IDs
+<!-- List the skill IDs being added, modified or deprecated. -->
+
+### Parent, child and related skill links
+<!-- Describe the skill graph relationships. -->
+
+### Templates, checklists and validation changes
+<!-- What deliverables, templates, scripts and tests are included? -->
+
+### Evaluation results and known limitations
+<!-- Test results, eval coverage and known gaps. -->
+
+### Reviewer and approval requirements
+<!-- Who must review this? Safety/security critical? -->
+
+### Checklist
+- [ ] `python scripts/skill_pipeline.py --check` passes
+- [ ] `python -m pytest -q` passes
+- [ ] `python -m axiom_cli doctor` passes
+- [ ] Skill counts updated in README/docs if changed
+- [ ] Standards registry updated if standard changed
+- [ ] Domain profile updated if new domain
+- [ ] Changelog updated

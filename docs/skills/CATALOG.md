@@ -1,6 +1,6 @@
 # Skill Catalog (summary)
 
-Machine source: `skills/catalog.yaml` (88 skills). Facet index: `skills/registry.yaml`.
+Machine source: `skills/catalog.yaml` (259 skills). Facet index: `skills/registry.yaml`.
 
 ## axiom-* workflow skills (30; beta: 2, experimental: 28)
 

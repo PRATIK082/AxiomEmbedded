@@ -1,30 +1,150 @@
 {
   "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://axiomembedded.org/schemas/skill.schema.json",
   "title": "AxiomEmbedded Skill Manifest",
   "type": "object",
-  "required": [
-    "id",
-    "version",
-    "type"
-  ],
+  "required": ["id", "version", "type"],
   "properties": {
     "id": {
-      "type": "string"
+      "type": "string",
+      "pattern": "^axiom-[a-z0-9-]+$",
+      "description": "Unique skill identifier following axiom-<domain>-<capability> convention."
     },
     "version": {
-      "type": "string"
+      "type": "string",
+      "pattern": "^\\d+\\.\\d+\\.\\d+$"
     },
     "contract_version": {
-      "type": "integer"
+      "type": "integer",
+      "minimum": 1
     },
     "type": {
-      "type": "string"
+      "type": "string",
+      "enum": ["reusable-skill", "legacy-skill", "domain-skill", "standard-overlay", "reviewer-skill", "validator-skill", "platform-skill", "language-skill"]
     },
     "source_of_truth": {
-      "type": "object"
+      "type": "object",
+      "properties": {
+        "instructions": { "type": "string" },
+        "contract": { "type": "string" }
+      }
     },
     "context": {
-      "type": "object"
+      "type": "object",
+      "properties": {
+        "graph_first": { "type": "boolean" },
+        "max_hops_default": { "type": "integer", "minimum": 1, "maximum": 10 }
+      }
+    },
+    "primary_domain": {
+      "type": "string",
+      "description": "The skill's primary domain (e.g., automotive, aerospace, industrial)."
+    },
+    "supported_domains": {
+      "type": "array",
+      "items": { "type": "string" },
+      "description": "Domains where this skill is applicable."
+    },
+    "activity": {
+      "type": "string",
+      "description": "Engineering activity from taxonomies/activities.yaml."
+    },
+    "capability_kind": {
+      "type": "string",
+      "enum": ["base", "domain-specific", "standard-overlay", "reviewer", "validator", "platform", "language"],
+      "description": "Skill type from taxonomies/skill-types.yaml."
+    },
+    "lifecycle_phases": {
+      "type": "array",
+      "items": { "type": "string" },
+      "description": "Lifecycle phases where this skill applies."
+    },
+    "standard_ids": {
+      "type": "array",
+      "items": { "type": "string" },
+      "description": "Canonical standard record IDs from standards/ registry."
+    },
+    "platforms": {
+      "type": "array",
+      "items": { "type": "string" },
+      "description": "Target platforms (mcu, mpu, soc, etc.)."
+    },
+    "languages": {
+      "type": "array",
+      "items": { "type": "string" },
+      "description": "Programming languages (c, cpp, rust, python, assembly)."
+    },
+    "risk_class": {
+      "type": "string",
+      "enum": ["low", "medium", "high", "safety-critical", "security-critical"],
+      "description": "Risk classification for review and approval gating."
+    },
+    "maturity": {
+      "type": "string",
+      "enum": ["experimental", "draft", "beta", "production", "deprecated"],
+      "description": "Skill maturity level."
+    },
+    "parent_skill": {
+      "type": ["string", "null"],
+      "description": "Parent skill ID for hierarchical specialization."
+    },
+    "related_skills": {
+      "type": "array",
+      "items": { "type": "string" },
+      "description": "Topically related skill IDs."
+    },
+    "supersedes": {
+      "type": "array",
+      "items": { "type": "string" },
+      "description": "Skill IDs that this skill replaces."
+    },
+    "derived_from": {
+      "type": "array",
+      "items": { "type": "string" },
+      "description": "Skill or source IDs this was derived from."
+    },
+    "standards_refs": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "number": { "type": "string" },
+          "version": { "type": "string" },
+          "clause": { "type": "string" },
+          "source_url": { "type": "string", "format": "uri" }
+        },
+        "required": ["number", "version"]
+      }
+    },
+    "inputs": {
+      "type": "array",
+      "items": { "type": "string" }
+    },
+    "outputs": {
+      "type": "array",
+      "items": { "type": "string" }
+    },
+    "review_required": {
+      "type": "boolean"
+    },
+    "safety_critical": {
+      "type": "boolean"
+    },
+    "changelog": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "version": { "type": "string" },
+          "date": { "type": "string" },
+          "summary": { "type": "string" }
+        }
+      }
+    },
+    "facets": {
+      "type": "object",
+      "description": "Machine-readable facets for catalog discovery and routing."
     }
-  }
+  },
+  "additionalProperties": true
 }

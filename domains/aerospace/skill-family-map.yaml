@@ -1,0 +1,114 @@
+# SPDX-License-Identifier: Apache-2.0
+# Skill family map for the aerospace domain.
+
+domain: aerospace
+version: '1.0.0'
+families:
+  requirements:
+    title: Requirements engineering
+    activities:
+      requirements-analysis:
+        skills: []
+        status: planned
+      requirements-derivation:
+        skills: []
+        status: planned
+      requirements-allocation:
+        skills: []
+        status: planned
+      requirements-traceability:
+        skills: []
+        status: planned
+      requirements-review:
+        skills: []
+        status: planned
+  coding:
+    title: Coding and implementation
+    activities:
+      coding-guidelines:
+        skills: []
+        status: planned
+      implementation:
+        skills: []
+        status: planned
+  review:
+    title: Code and design review
+    activities:
+      code-review:
+        skills: []
+        status: planned
+      safety-review:
+        skills: []
+        status: planned
+      security-review:
+        skills: []
+        status: planned
+  safety:
+    title: Functional safety
+    activities:
+      functional-safety:
+        skills: [axiom-aerospace-do178c-workflow]
+        status: existing
+  security:
+    title: Cybersecurity
+    activities:
+      cybersecurity:
+        skills: []
+        status: planned
+  standards:
+    title: Standards applicability
+    activities:
+      standards-applicability:
+        skills: []
+        status: planned
+  architecture:
+    title: Architecture
+    activities:
+      architecture:
+        skills: []
+        status: planned
+  testing:
+    title: Testing
+    activities:
+      unit-testing:
+        skills: []
+        status: planned
+      integration-testing:
+        skills: []
+        status: planned
+      system-testing:
+        skills: []
+        status: planned
+  vnv:
+    title: Verification and validation
+    activities:
+      verification:
+        skills: []
+        status: planned
+      validation:
+        skills: []
+        status: planned
+  assurance:
+    title: Engineering assurance
+    activities:
+      process-assessment:
+        skills: []
+        status: planned
+      configuration-management:
+        skills: []
+        status: planned
+      release-readiness:
+        skills: []
+        status: planned
+  debugging:
+    title: Debugging
+    activities:
+      debugging:
+        skills: []
+        status: planned
+  documentation:
+    title: Documentation
+    activities:
+      documentation:
+        skills: []
+        status: planned
