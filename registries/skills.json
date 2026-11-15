@@ -234,6 +234,10 @@
       "path": "skills/axiom-declaration-of-conformity-review"
     },
     {
+      "id": "axiom-deployment-readiness",
+      "path": "skills/axiom-deployment-readiness"
+    },
+    {
       "id": "axiom-diagnosing-bugs",
       "path": "skills/axiom-diagnosing-bugs"
     },
@@ -560,6 +564,10 @@
     {
       "id": "axiom-playwright-e2e",
       "path": "skills/axiom-playwright-e2e"
+    },
+    {
+      "id": "axiom-production-readiness",
+      "path": "skills/axiom-production-readiness"
     },
     {
       "id": "axiom-prompt-engineering",

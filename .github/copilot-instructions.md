@@ -18,7 +18,7 @@ Surface the plan first; never execute pushes, releases, destructive
 commands, or safety/security-critical changes without recorded human
 approval. Never claim certification or compliance from a heuristic check.
 
-## Skills (259)
+## Skills (261)
 
 - `adas` -- ADAS/AD perception-to-control pipeline, sensor fusion, SOTIF and ASIL decomposition, Euro-NCAP, data closed-loop, OpenSCENARIO/OpenDRIVE HIL. Use for L0-L4 driver assistance and automated driving. Use when adas tasks arise in automotive projects.
 
@@ -135,6 +135,8 @@ approval. Never claim certification or compliance from a heuristic check.
 - `axiom-declaration-of-conformity` -- Assembles the declaration-of-conformity evidence pack: applicable legislation, standards applied, responsible person, and artifact pointers. Use when declaration of conformity tasks arise in industrial projects.
 
 - `axiom-declaration-of-conformity-review` -- Assembles the declaration-of-conformity evidence pack: applicable legislation, standards applied, responsible person, and artifact pointers. Use when declaration of conformity review tasks arise in industrial projects.
+
+- `axiom-deployment-readiness` -- Evaluates whether release artifacts are deployment-ready across pip, npm, GitHub Release, and MCP registry channels with version parity and rollback plans. Use when a deployment-readiness review or publish decision is requested.
 
 - `axiom-diagnosing-bugs` -- Diagnosing Bugs (systematic root cause) workflow for all. Use when diagnosing bugs (systematic root cause) tasks arise in all projects.
 
@@ -299,6 +301,8 @@ approval. Never claim certification or compliance from a heuristic check.
 - `axiom-platform-architecture-review` -- Reviews embedded platform architecture (requirements-to-design traceability, interface contracts, ADRs, tech-debt) for any domain. Use when platform architecture review tasks arise in all projects.
 
 - `axiom-playwright-e2e` -- Playwright E2E workflow for all. Use when playwright e2e tasks arise in all projects.
+
+- `axiom-production-readiness` -- Evaluates whether an AxiomEmbedded change or release branch is production-ready by running the machine-gated checklist (pipeline, tests, validation, evidence, approvals). Use when a production-readiness review or release gate decision is requested.
 
 - `axiom-prompt-engineering` -- Prompt Engineering workflow for generic-embedded. Use when prompt engineering tasks arise in generic-embedded projects.
 
@@ -558,7 +562,7 @@ approval. Never claim certification or compliance from a heuristic check.
 - `migration` -- Plans legacy/standard/platform migrations with rollback evidence.
 - `performance` -- Analyses CPU, memory, timing, power and latency constraints.
 - `project-audit` -- Audits repository health, traceability and process completeness.
-- `release` -- Assembles release evidence and release metadata.
+- `release` -- Assembles release evidence and release metadata. Owns production-readiness and deployment-readiness verdicts before any publish step.
 - `requirements` -- Creates, normalizes, decomposes and traces requirements.
 - `root-cause` -- Builds evidence-backed causal hypotheses and verification plans.
 - `safety` -- Performs safety-oriented evidence and gate checks without claiming certification.

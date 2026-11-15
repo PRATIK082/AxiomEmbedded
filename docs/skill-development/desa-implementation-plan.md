@@ -100,7 +100,8 @@ Each family independently reviewed and tested before expansion.
 
 ## Next steps
 
-1. Run `python scripts/skill_pipeline.py --check` to verify no breakage.
-2. Implement Phase 2 metadata enrichment.
+1. ~~Run `python scripts/skill_pipeline.py --check` to verify no breakage.~~ DONE — PASS (261 skills).
+2. ~~Packaging foundation (pip + npm) and readiness skills.~~ DONE — `package.json` + `bin/axiom.js` + `tests/test_packaging.py`; `axiom-production-readiness` + `axiom-deployment-readiness`; `agents/release` owns both verdicts.
+3. Implement Phase 2 metadata enrichment (populate DESA facets from skill metadata).
 3. Begin Phase 4 with automotive requirements analysis skill family.
 4. Update remaining domain profiles for the other 12 domains.

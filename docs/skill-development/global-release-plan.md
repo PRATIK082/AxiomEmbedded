@@ -82,6 +82,14 @@ Each addition follows Part A.2 end-to-end before merge.
 - Build: `python -m build`; publish: `python -m twine upload dist/*`.
 - End users: `pip install axiom-cli` then `axiom skills list`.
 - Pre-check: `python -m twine check dist/*`.
+- npm wrapper (`package.json` + `bin/axiom.js` launcher shim, version parity with
+  `VERSION`/`pyproject.toml` enforced by `tests/test_packaging.py`):
+  `npm pack --dry-run`, then `npm publish`. The shim resolves `axiom` on PATH
+  or falls back to `python -m axiom_cli`; with no backend it fails honestly
+  with install instructions.
+- Gate both channels through `axiom-production-readiness` then
+  `axiom-deployment-readiness` before publish. Pushing/tagging/publishing
+  remain user-handled approval gates.
 
 ### C.4 MCP server listing
 - Submit the Axiom MCP server (`axiom_mcp/server.py`, 39 tools) to the MCP server registry via PR.

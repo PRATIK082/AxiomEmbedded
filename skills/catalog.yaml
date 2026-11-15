@@ -9616,3 +9616,71 @@ skills:
   mcp_tools: []
   risk_level: medium
   review_required: true
+- id: axiom-production-readiness
+  name: axiom-production-readiness
+  title: Production readiness
+  version: 1.2.0
+  domain: generic-embedded
+  subdomain: generic-embedded
+  category: implementation
+  maturity: experimental
+  owner: axiom-embedded
+  tags:
+  - skill
+  inputs:
+  - repository path
+  - objective
+  outputs:
+  - report
+  dependencies: []
+  related_skills: []
+  path: skills/axiom-production-readiness
+  enabled: true
+  sub_skills: []
+  lifecycle:
+  - discover
+  - plan
+  - implement
+  - verify
+  - evidence
+  standards: []
+  artifact_types:
+  - report
+  - manifest
+  mcp_tools: []
+  risk_level: medium
+  review_required: true
+- id: axiom-deployment-readiness
+  name: axiom-deployment-readiness
+  title: Deployment readiness
+  version: 1.2.0
+  domain: generic-embedded
+  subdomain: generic-embedded
+  category: implementation
+  maturity: experimental
+  owner: axiom-embedded
+  tags:
+  - skill
+  inputs:
+  - repository path
+  - objective
+  outputs:
+  - report
+  dependencies: []
+  related_skills: []
+  path: skills/axiom-deployment-readiness
+  enabled: true
+  sub_skills: []
+  lifecycle:
+  - discover
+  - plan
+  - implement
+  - verify
+  - evidence
+  standards: []
+  artifact_types:
+  - report
+  - manifest
+  mcp_tools: []
+  risk_level: medium
+  review_required: true

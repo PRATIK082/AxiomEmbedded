@@ -68,7 +68,8 @@ groups:
       - {id: [automotive-spice, automotive-vcycle, automotive-coding, release,
                evidence, validation, change-impact, configuration-management,
                documentation, project-audit, legacy-recovery, requirements,
-               requirements-traceability, traceability]}
+               requirements-traceability, traceability,
+               axiom-production-readiness, axiom-deployment-readiness]}
   embedded-core:
     title: Embedded core (bring-up, OS, drivers)
     description: Firmware bring-up, RTOS, bare-metal, drivers, MCU/MPU/SOC.
