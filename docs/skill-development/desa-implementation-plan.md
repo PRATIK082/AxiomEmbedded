@@ -105,7 +105,8 @@ per `workflows/embedded-skills-deep-update.yaml` v2 and `review-gates.md` G5.
 - [x] Aerospace requirements-allocation — DONE, verified real (branch `feat/skill-axiom-aerospace-requirements-allocation`, commit `95a4764`, pushed; ARP4754A/DO-178C single-owner allocation, UNALLOCATED-with-rationale, validator + 2 skill tests; DESA+packaging 19/19, pipeline 262 OK; awaiting review)
 - [x] Aerospace code-review — DONE, verified real (branch `feat/skill-axiom-aerospace-code-review`, DO-178C verification-review process, DAL independence, verdict contract, 2 skill tests; DESA+packaging 19/19, pipeline 262 OK; awaiting review)
 - [x] Aerospace verification — DONE, verified real (branch `feat/skill-axiom-aerospace-verification`, DO-178C verification-case/procedure/results closure, structural-coverage objectives, VERIFIED/FAILED/WAIVED verdict contract, 2 skill tests; DESA+packaging 19/19, pipeline 262 OK; awaiting review)
-- [ ] Aerospace remaining: standards-applicability (industrial/robotics need allocation + verification each)
+- [x] Aerospace standards-applicability — DONE, verified real (branch `feat/skill-axiom-aerospace-standards-applicability`, commit `38a457e`, pushed; APPLICABLE/NOT_APPLICABLE/DEFERRED verdicts, lifecycle gate, DAL provenance, validator + 2 skill tests; DESA+packaging 19/19, pipeline 262 OK; awaiting review)
+- [x] Aerospace loop CLOSED (5/5 families; industrial/robotics need allocation + verification each)
 - [ ] Mirror the automotive batch per domain family map; reuse cross-domain
       skills (reviews, testing method) where the activity is domain-agnostic.
 
