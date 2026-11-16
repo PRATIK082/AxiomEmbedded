@@ -63,3 +63,33 @@ def test_domain_separation_aerospace_vs_autosar():
     # but platform-specific groups must not be identical.
     assert aero and autosar
     assert aero != autosar
+
+
+def test_engage_activity_filter_returns_subset():
+    from packages.skills.engage import engage
+    full = engage()
+    assert full["total"] == 261
+    sub = engage(activity="functional-safety")
+    assert sub["status"] == "ok"
+    assert 0 < sub["skill_count"] < full["total"]
+    assert "activity" in sub and sub["activity"] == "functional-safety"
+    assert "axiom-functional-safety" in sub["skills"]
+
+
+def test_engage_unknown_activity_warns_missing_context():
+    # Phase 6 missing-context probe: unindexed activity must not silently
+    # return an empty set; it carries an explicit warning.
+    from packages.skills.engage import engage
+    res = engage(activity="no-such-activity-xyz")
+    assert res["status"] == "ok"
+    assert res["skill_count"] == 0
+    assert "warning" in res and "no-such-activity-xyz" in res["warning"]
+
+
+def test_all_catalog_entries_have_valid_activity():
+    import yaml as _yaml
+    acts = (_yaml.safe_load((ROOT / "taxonomies" / "activities.yaml").read_text(encoding="utf-8")))
+    valid = set(acts.get("activities", acts))
+    cat = _catalog()
+    for e in cat["skills"]:
+        assert e.get("activity", "") in valid, f"{e['id']} bad activity {e.get('activity')!r}"

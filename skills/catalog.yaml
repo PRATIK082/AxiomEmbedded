@@ -25,6 +25,17 @@ skills:
   sub_skills:
   - axiom-adas-perception-pipeline
   - axiom-adas-validation
+  activity: implementation
+  capability_kind: general
+  primary_domain: automotive
+  risk_class: medium
+  lifecycle_phases:
+  - discover
+  - plan
+  - implement
+  - verify
+  - evidence
+  standard_ids: []
 - id: ai-validation
   name: axiom.legacy.ai-validation
   title: ai-validation
@@ -45,6 +56,17 @@ skills:
   related_skills: []
   path: skills/ai-validation
   enabled: true
+  activity: validation
+  capability_kind: general
+  primary_domain: generic-embedded
+  risk_class: medium
+  lifecycle_phases:
+  - discover
+  - plan
+  - implement
+  - verify
+  - evidence
+  standard_ids: []
 - id: architecture
   name: axiom.legacy.architecture
   title: architecture
@@ -72,6 +94,17 @@ skills:
   - axiom-architecture-decision-records
   - axiom-interface-contract-design
   - axiom-platform-architecture-review
+  activity: architecture
+  capability_kind: general
+  primary_domain: all
+  risk_class: medium
+  lifecycle_phases:
+  - discover
+  - plan
+  - implement
+  - verify
+  - evidence
+  standard_ids: []
 - id: automotive-body
   name: axiom.legacy.automotive-body
   title: automotive-body
@@ -95,6 +128,17 @@ skills:
   enabled: true
   sub_skills:
   - axiom-can-network-design
+  activity: implementation
+  capability_kind: general
+  primary_domain: automotive
+  risk_class: medium
+  lifecycle_phases:
+  - discover
+  - plan
+  - implement
+  - verify
+  - evidence
+  standard_ids: []
 - id: automotive-cockpit
   name: axiom.legacy.automotive-cockpit
   title: automotive-cockpit
@@ -115,6 +159,17 @@ skills:
   related_skills: []
   path: skills/automotive-cockpit
   enabled: true
+  activity: implementation
+  capability_kind: general
+  primary_domain: automotive
+  risk_class: medium
+  lifecycle_phases:
+  - discover
+  - plan
+  - implement
+  - verify
+  - evidence
+  standard_ids: []
 - id: automotive-coding
   name: axiom.legacy.automotive-coding
   title: automotive-coding
@@ -135,6 +190,17 @@ skills:
   related_skills: []
   path: skills/automotive-coding
   enabled: true
+  activity: coding-guidelines
+  capability_kind: general
+  primary_domain: automotive
+  risk_class: medium
+  lifecycle_phases:
+  - discover
+  - plan
+  - implement
+  - verify
+  - evidence
+  standard_ids: []
 - id: automotive-cybersecurity
   name: axiom.legacy.automotive-cybersecurity
   title: automotive-cybersecurity
@@ -158,6 +224,17 @@ skills:
   enabled: true
   sub_skills:
   - axiom-vehicle-cybersecurity
+  activity: cybersecurity
+  capability_kind: general
+  primary_domain: automotive
+  risk_class: medium
+  lifecycle_phases:
+  - discover
+  - plan
+  - implement
+  - verify
+  - evidence
+  standard_ids: []
 - id: automotive-diagnostics
   name: axiom.legacy.automotive-diagnostics
   title: automotive-diagnostics
@@ -183,6 +260,17 @@ skills:
   sub_skills:
   - axiom-diagnostics-doip
   - axiom-diagnostics-uds
+  activity: validation
+  capability_kind: general
+  primary_domain: automotive
+  risk_class: medium
+  lifecycle_phases:
+  - discover
+  - plan
+  - implement
+  - verify
+  - evidence
+  standard_ids: []
 - id: automotive-middleware
   name: axiom.legacy.automotive-middleware
   title: automotive-middleware
@@ -208,6 +296,17 @@ skills:
   sub_skills:
   - axiom-autosar-adaptive-deployment
   - axiom-zonal-architecture
+  activity: implementation
+  capability_kind: general
+  primary_domain: automotive
+  risk_class: medium
+  lifecycle_phases:
+  - discover
+  - plan
+  - implement
+  - verify
+  - evidence
+  standard_ids: []
 - id: automotive-networks
   name: axiom.legacy.automotive-networks
   title: automotive-networks
@@ -235,6 +334,17 @@ skills:
   - axiom-automotive-ethernet-someip
   - axiom-can-network-design
   - axiom-can-stack-integration
+  activity: implementation
+  capability_kind: general
+  primary_domain: automotive
+  risk_class: medium
+  lifecycle_phases:
+  - discover
+  - plan
+  - implement
+  - verify
+  - evidence
+  standard_ids: []
 - id: automotive-ota
   name: axiom.legacy.automotive-ota
   title: automotive-ota
@@ -260,6 +370,17 @@ skills:
   sub_skills:
   - axiom-automotive-release-readiness
   - axiom-zonal-architecture
+  activity: implementation
+  capability_kind: general
+  primary_domain: automotive
+  risk_class: medium
+  lifecycle_phases:
+  - discover
+  - plan
+  - implement
+  - verify
+  - evidence
+  standard_ids: []
 - id: automotive-spice
   name: axiom.legacy.automotive-spice
   title: automotive-spice
@@ -285,6 +406,17 @@ skills:
   sub_skills:
   - axiom-automotive-release-readiness
   - axiom-test-automation
+  activity: process-assessment
+  capability_kind: general
+  primary_domain: automotive
+  risk_class: medium
+  lifecycle_phases:
+  - discover
+  - plan
+  - implement
+  - verify
+  - evidence
+  standard_ids: []
 - id: automotive-vcycle
   name: axiom.legacy.automotive-vcycle
   title: automotive-vcycle
@@ -310,6 +442,17 @@ skills:
   sub_skills:
   - axiom-hil-test-planning
   - axiom-test-automation
+  activity: process-assessment
+  capability_kind: general
+  primary_domain: automotive
+  risk_class: medium
+  lifecycle_phases:
+  - discover
+  - plan
+  - implement
+  - verify
+  - evidence
+  standard_ids: []
 - id: autosar
   name: axiom.legacy.autosar
   title: autosar
@@ -343,6 +486,17 @@ skills:
   - axiom-autosar-com-stack
   - axiom-autosar-os-config
   - axiom-autosar-rte-design
+  activity: implementation
+  capability_kind: general
+  primary_domain: automotive
+  risk_class: medium
+  lifecycle_phases:
+  - discover
+  - plan
+  - implement
+  - verify
+  - evidence
+  standard_ids: []
 - id: axiom-adas-perception-pipeline
   name: axiom.automotive.adas.perception.pipeline
   title: ADAS Perception Pipeline Design
@@ -387,8 +541,8 @@ skills:
   - validate_skill
   risk_level: high
   review_required: true
-  activity: ''
-  capability_kind: ''
+  activity: architecture
+  capability_kind: domain-specific
   primary_domain: automotive
   risk_class: high
   lifecycle_phases:
@@ -447,8 +601,8 @@ skills:
   - validate_skill
   risk_level: high
   review_required: true
-  activity: ''
-  capability_kind: ''
+  activity: validation
+  capability_kind: domain-specific
   primary_domain: automotive
   risk_class: high
   lifecycle_phases:
@@ -507,8 +661,8 @@ skills:
   - validate_skill
   risk_level: safety-critical
   review_required: true
-  activity: ''
-  capability_kind: ''
+  activity: safety-review
+  capability_kind: domain-specific
   primary_domain: aerospace
   risk_class: safety-critical
   lifecycle_phases:
@@ -568,8 +722,8 @@ skills:
   - validate_skill
   risk_level: high
   review_required: true
-  activity: ''
-  capability_kind: ''
+  activity: standards-applicability
+  capability_kind: domain-specific
   primary_domain: industrial
   risk_class: high
   lifecycle_phases:
@@ -630,8 +784,8 @@ skills:
   - validate_skill
   risk_level: high
   review_required: true
-  activity: ''
-  capability_kind: ''
+  activity: standards-applicability
+  capability_kind: domain-specific
   primary_domain: industrial
   risk_class: high
   lifecycle_phases:
@@ -690,8 +844,8 @@ skills:
   risk_level: low
   review_required: true
   extends: architecture
-  activity: ''
-  capability_kind: ''
+  activity: architecture
+  capability_kind: domain-specific
   primary_domain: cross-domain
   risk_class: low
   lifecycle_phases:
@@ -749,8 +903,8 @@ skills:
   - validate_skill
   risk_level: medium
   review_required: true
-  activity: ''
-  capability_kind: ''
+  activity: architecture
+  capability_kind: domain-specific
   primary_domain: automotive
   risk_class: medium
   lifecycle_phases:
@@ -814,8 +968,8 @@ skills:
   - validate_skill
   risk_level: high
   review_required: true
-  activity: ''
-  capability_kind: ''
+  activity: release-readiness
+  capability_kind: domain-specific
   primary_domain: automotive
   risk_class: high
   lifecycle_phases:
@@ -880,8 +1034,8 @@ skills:
   - validate_skill
   risk_level: high
   review_required: true
-  activity: ''
-  capability_kind: ''
+  activity: release-readiness
+  capability_kind: domain-specific
   primary_domain: automotive
   risk_class: high
   lifecycle_phases:
@@ -945,8 +1099,8 @@ skills:
   - validate_skill
   risk_level: high
   review_required: true
-  activity: ''
-  capability_kind: ''
+  activity: architecture
+  capability_kind: domain-specific
   primary_domain: automotive
   risk_class: high
   lifecycle_phases:
@@ -1012,8 +1166,8 @@ skills:
   - validate_skill
   risk_level: high
   review_required: true
-  activity: ''
-  capability_kind: ''
+  activity: implementation
+  capability_kind: domain-specific
   primary_domain: automotive
   risk_class: high
   lifecycle_phases:
@@ -1077,8 +1231,8 @@ skills:
   - validate_skill
   risk_level: medium
   review_required: true
-  activity: ''
-  capability_kind: ''
+  activity: implementation
+  capability_kind: domain-specific
   primary_domain: automotive
   risk_class: medium
   lifecycle_phases:
@@ -1141,8 +1295,8 @@ skills:
   - validate_skill
   risk_level: high
   review_required: true
-  activity: ''
-  capability_kind: ''
+  activity: configuration-management
+  capability_kind: domain-specific
   primary_domain: automotive
   risk_class: high
   lifecycle_phases:
@@ -1205,8 +1359,8 @@ skills:
   - validate_skill
   risk_level: medium
   review_required: true
-  activity: ''
-  capability_kind: ''
+  activity: architecture
+  capability_kind: domain-specific
   primary_domain: automotive
   risk_class: medium
   lifecycle_phases:
@@ -1262,8 +1416,8 @@ skills:
   - validate_skill
   risk_level: medium
   review_required: true
-  activity: ''
-  capability_kind: ''
+  activity: requirements-analysis
+  capability_kind: domain-specific
   primary_domain: robotics
   risk_class: medium
   lifecycle_phases:
@@ -1318,8 +1472,8 @@ skills:
   - validate_skill
   risk_level: medium
   review_required: true
-  activity: ''
-  capability_kind: ''
+  activity: requirements-review
+  capability_kind: domain-specific
   primary_domain: robotics
   risk_class: medium
   lifecycle_phases:
@@ -1374,8 +1528,8 @@ skills:
   - validate_skill
   risk_level: high
   review_required: true
-  activity: ''
-  capability_kind: ''
+  activity: architecture
+  capability_kind: domain-specific
   primary_domain: automotive
   risk_class: high
   lifecycle_phases:
@@ -1430,8 +1584,8 @@ skills:
   - validate_skill
   risk_level: high
   review_required: true
-  activity: ''
-  capability_kind: ''
+  activity: architecture
+  capability_kind: domain-specific
   primary_domain: automotive
   risk_class: high
   lifecycle_phases:
@@ -1492,8 +1646,8 @@ skills:
   - validate_skill
   risk_level: medium
   review_required: true
-  activity: ''
-  capability_kind: ''
+  activity: architecture
+  capability_kind: domain-specific
   primary_domain: automotive
   risk_class: medium
   lifecycle_phases:
@@ -1552,8 +1706,8 @@ skills:
   - validate_skill
   risk_level: medium
   review_required: true
-  activity: ''
-  capability_kind: ''
+  activity: implementation
+  capability_kind: domain-specific
   primary_domain: automotive
   risk_class: medium
   lifecycle_phases:
@@ -1611,8 +1765,8 @@ skills:
   - validate_skill
   risk_level: safety-critical
   review_required: true
-  activity: ''
-  capability_kind: ''
+  activity: architecture
+  capability_kind: domain-specific
   primary_domain: robotics
   risk_class: safety-critical
   lifecycle_phases:
@@ -1671,8 +1825,8 @@ skills:
   - validate_skill
   risk_level: safety-critical
   review_required: true
-  activity: ''
-  capability_kind: ''
+  activity: code-review
+  capability_kind: domain-specific
   primary_domain: robotics
   risk_class: safety-critical
   lifecycle_phases:
@@ -1731,8 +1885,8 @@ skills:
   - validate_skill
   risk_level: medium
   review_required: true
-  activity: ''
-  capability_kind: ''
+  activity: documentation
+  capability_kind: domain-specific
   primary_domain: robotics
   risk_class: medium
   lifecycle_phases:
@@ -1791,8 +1945,8 @@ skills:
   - validate_skill
   risk_level: medium
   review_required: true
-  activity: ''
-  capability_kind: ''
+  activity: code-review
+  capability_kind: domain-specific
   primary_domain: robotics
   risk_class: medium
   lifecycle_phases:
@@ -1851,8 +2005,8 @@ skills:
   - validate_skill
   risk_level: high
   review_required: true
-  activity: ''
-  capability_kind: ''
+  activity: standards-applicability
+  capability_kind: domain-specific
   primary_domain: industrial
   risk_class: high
   lifecycle_phases:
@@ -1911,8 +2065,8 @@ skills:
   - validate_skill
   risk_level: high
   review_required: true
-  activity: ''
-  capability_kind: ''
+  activity: standards-applicability
+  capability_kind: domain-specific
   primary_domain: industrial
   risk_class: high
   lifecycle_phases:
@@ -1971,8 +2125,8 @@ skills:
   - validate_skill
   risk_level: medium
   review_required: true
-  activity: ''
-  capability_kind: ''
+  activity: validation
+  capability_kind: domain-specific
   primary_domain: automotive
   risk_class: medium
   lifecycle_phases:
@@ -2033,8 +2187,8 @@ skills:
   - validate_skill
   risk_level: high
   review_required: true
-  activity: ''
-  capability_kind: ''
+  activity: validation
+  capability_kind: domain-specific
   primary_domain: automotive
   risk_class: high
   lifecycle_phases:
@@ -2102,8 +2256,8 @@ skills:
   safety_critical: false
   extends: null
   sub_skills: []
-  activity: ''
-  capability_kind: ''
+  activity: implementation
+  capability_kind: domain-specific
   primary_domain: generic-embedded
   risk_class: medium
   lifecycle_phases:
@@ -2159,8 +2313,8 @@ skills:
   risk_level: medium
   review_required: true
   extends: build-system
-  activity: ''
-  capability_kind: ''
+  activity: architecture
+  capability_kind: domain-specific
   primary_domain: cross-domain
   risk_class: medium
   lifecycle_phases:
@@ -2220,8 +2374,8 @@ skills:
   - validate_skill
   risk_level: medium
   review_required: true
-  activity: ''
-  capability_kind: ''
+  activity: implementation
+  capability_kind: domain-specific
   primary_domain: platform
   risk_class: medium
   lifecycle_phases:
@@ -2278,8 +2432,8 @@ skills:
   - validate_skill
   risk_level: high
   review_required: true
-  activity: ''
-  capability_kind: ''
+  activity: requirements-analysis
+  capability_kind: domain-specific
   primary_domain: robotics
   risk_class: high
   lifecycle_phases:
@@ -2338,8 +2492,8 @@ skills:
   - validate_skill
   risk_level: high
   review_required: true
-  activity: ''
-  capability_kind: ''
+  activity: requirements-review
+  capability_kind: domain-specific
   primary_domain: robotics
   risk_class: high
   lifecycle_phases:
@@ -2397,8 +2551,8 @@ skills:
   - validate_skill
   risk_level: high
   review_required: true
-  activity: ''
-  capability_kind: ''
+  activity: architecture
+  capability_kind: domain-specific
   primary_domain: robotics
   risk_class: high
   lifecycle_phases:
@@ -2455,8 +2609,8 @@ skills:
   - validate_skill
   risk_level: high
   review_required: true
-  activity: ''
-  capability_kind: ''
+  activity: code-review
+  capability_kind: domain-specific
   primary_domain: robotics
   risk_class: high
   lifecycle_phases:
@@ -2521,8 +2675,8 @@ skills:
   safety_critical: false
   extends: null
   sub_skills: []
-  activity: ''
-  capability_kind: ''
+  activity: implementation
+  capability_kind: domain-specific
   primary_domain: platform
   risk_class: medium
   lifecycle_phases:
@@ -2587,8 +2741,8 @@ skills:
   safety_critical: false
   extends: null
   sub_skills: []
-  activity: ''
-  capability_kind: ''
+  activity: implementation
+  capability_kind: domain-specific
   primary_domain: platform
   risk_class: medium
   lifecycle_phases:
@@ -2653,8 +2807,8 @@ skills:
   safety_critical: false
   extends: null
   sub_skills: []
-  activity: ''
-  capability_kind: ''
+  activity: implementation
+  capability_kind: domain-specific
   primary_domain: platform
   risk_class: medium
   lifecycle_phases:
@@ -2713,8 +2867,8 @@ skills:
   - validate_skill
   risk_level: safety-critical
   review_required: true
-  activity: ''
-  capability_kind: ''
+  activity: functional-safety
+  capability_kind: domain-specific
   primary_domain: automotive
   risk_class: safety-critical
   lifecycle_phases:
@@ -2783,8 +2937,8 @@ skills:
   safety_critical: false
   extends: null
   sub_skills: []
-  activity: ''
-  capability_kind: ''
+  activity: verification
+  capability_kind: domain-specific
   primary_domain: platform
   risk_class: medium
   lifecycle_phases:
@@ -2842,8 +2996,8 @@ skills:
   - ISO 13849-1:2023
   - ISO 13850:2015
   - ISO 14118:2017
-  activity: ''
-  capability_kind: ''
+  activity: functional-safety
+  capability_kind: domain-specific
   primary_domain: industrial
   risk_class: high
   lifecycle_phases:
@@ -2899,8 +3053,8 @@ skills:
   - ISO 13849-1:2023
   - ISO 13850:2015
   - ISO 14118:2017
-  activity: ''
-  capability_kind: ''
+  activity: safety-review
+  capability_kind: domain-specific
   primary_domain: industrial
   risk_class: high
   lifecycle_phases:
@@ -2960,8 +3114,8 @@ skills:
   - validate_skill
   risk_level: medium
   review_required: true
-  activity: ''
-  capability_kind: ''
+  activity: sil-hil
+  capability_kind: domain-specific
   primary_domain: platform
   risk_class: medium
   lifecycle_phases:
@@ -3028,8 +3182,8 @@ skills:
   safety_critical: false
   extends: null
   sub_skills: []
-  activity: ''
-  capability_kind: ''
+  activity: implementation
+  capability_kind: domain-specific
   primary_domain: platform
   risk_class: high
   lifecycle_phases:
@@ -3086,8 +3240,8 @@ skills:
   - validate_skill
   risk_level: safety-critical
   review_required: true
-  activity: ''
-  capability_kind: ''
+  activity: functional-safety
+  capability_kind: domain-specific
   primary_domain: industrial
   risk_class: safety-critical
   lifecycle_phases:
@@ -3146,8 +3300,8 @@ skills:
   - validate_skill
   risk_level: safety-critical
   review_required: true
-  activity: ''
-  capability_kind: ''
+  activity: safety-review
+  capability_kind: domain-specific
   primary_domain: industrial
   risk_class: safety-critical
   lifecycle_phases:
@@ -3207,8 +3361,8 @@ skills:
   - validate_skill
   risk_level: high
   review_required: true
-  activity: ''
-  capability_kind: ''
+  activity: process-assessment
+  capability_kind: domain-specific
   primary_domain: industrial
   risk_class: high
   lifecycle_phases:
@@ -3267,8 +3421,8 @@ skills:
   - validate_skill
   risk_level: high
   review_required: true
-  activity: ''
-  capability_kind: ''
+  activity: process-assessment
+  capability_kind: domain-specific
   primary_domain: industrial
   risk_class: high
   lifecycle_phases:
@@ -3327,8 +3481,8 @@ skills:
   - validate_skill
   risk_level: high
   review_required: true
-  activity: ''
-  capability_kind: ''
+  activity: code-review
+  capability_kind: domain-specific
   primary_domain: industrial
   risk_class: high
   lifecycle_phases:
@@ -3385,8 +3539,8 @@ skills:
   risk_level: medium
   review_required: true
   extends: architecture
-  activity: ''
-  capability_kind: ''
+  activity: architecture
+  capability_kind: domain-specific
   primary_domain: cross-domain
   risk_class: medium
   lifecycle_phases:
@@ -3442,8 +3596,8 @@ skills:
   - validate_skill
   risk_level: safety-critical
   review_required: true
-  activity: ''
-  capability_kind: ''
+  activity: architecture
+  capability_kind: domain-specific
   primary_domain: robotics
   risk_class: safety-critical
   lifecycle_phases:
@@ -3504,8 +3658,8 @@ skills:
   - validate_skill
   risk_level: safety-critical
   review_required: true
-  activity: ''
-  capability_kind: ''
+  activity: code-review
+  capability_kind: domain-specific
   primary_domain: robotics
   risk_class: safety-critical
   lifecycle_phases:
@@ -3565,8 +3719,8 @@ skills:
   - validate_skill
   risk_level: high
   review_required: true
-  activity: ''
-  capability_kind: ''
+  activity: standards-applicability
+  capability_kind: domain-specific
   primary_domain: robotics
   risk_class: high
   lifecycle_phases:
@@ -3625,8 +3779,8 @@ skills:
   - validate_skill
   risk_level: high
   review_required: true
-  activity: ''
-  capability_kind: ''
+  activity: standards-applicability
+  capability_kind: domain-specific
   primary_domain: robotics
   risk_class: high
   lifecycle_phases:
@@ -3685,8 +3839,8 @@ skills:
   - validate_skill
   risk_level: high
   review_required: true
-  activity: ''
-  capability_kind: ''
+  activity: process-assessment
+  capability_kind: domain-specific
   primary_domain: industrial
   risk_class: high
   lifecycle_phases:
@@ -3743,8 +3897,8 @@ skills:
   - validate_skill
   risk_level: high
   review_required: true
-  activity: ''
-  capability_kind: ''
+  activity: process-assessment
+  capability_kind: domain-specific
   primary_domain: industrial
   risk_class: high
   lifecycle_phases:
@@ -3802,8 +3956,8 @@ skills:
   - validate_skill
   risk_level: safety-critical
   review_required: true
-  activity: ''
-  capability_kind: ''
+  activity: functional-safety
+  capability_kind: domain-specific
   primary_domain: robotics
   risk_class: safety-critical
   lifecycle_phases:
@@ -3860,8 +4014,8 @@ skills:
   - validate_skill
   risk_level: safety-critical
   review_required: true
-  activity: ''
-  capability_kind: ''
+  activity: safety-review
+  capability_kind: domain-specific
   primary_domain: robotics
   risk_class: safety-critical
   lifecycle_phases:
@@ -3918,8 +4072,8 @@ skills:
   - validate_skill
   risk_level: high
   review_required: true
-  activity: ''
-  capability_kind: ''
+  activity: functional-safety
+  capability_kind: domain-specific
   primary_domain: robotics
   risk_class: high
   lifecycle_phases:
@@ -3976,8 +4130,8 @@ skills:
   - validate_skill
   risk_level: high
   review_required: true
-  activity: ''
-  capability_kind: ''
+  activity: safety-review
+  capability_kind: domain-specific
   primary_domain: robotics
   risk_class: high
   lifecycle_phases:
@@ -4035,8 +4189,8 @@ skills:
   - validate_skill
   risk_level: high
   review_required: true
-  activity: ''
-  capability_kind: ''
+  activity: process-assessment
+  capability_kind: domain-specific
   primary_domain: industrial
   risk_class: high
   lifecycle_phases:
@@ -4095,8 +4249,8 @@ skills:
   - validate_skill
   risk_level: high
   review_required: true
-  activity: ''
-  capability_kind: ''
+  activity: process-assessment
+  capability_kind: domain-specific
   primary_domain: industrial
   risk_class: high
   lifecycle_phases:
@@ -4154,8 +4308,8 @@ skills:
   - validate_skill
   risk_level: medium
   review_required: true
-  activity: ''
-  capability_kind: ''
+  activity: system-testing
+  capability_kind: domain-specific
   primary_domain: robotics
   risk_class: medium
   lifecycle_phases:
@@ -4212,8 +4366,8 @@ skills:
   - validate_skill
   risk_level: medium
   review_required: true
-  activity: ''
-  capability_kind: ''
+  activity: system-testing
+  capability_kind: domain-specific
   primary_domain: robotics
   risk_class: medium
   lifecycle_phases:
@@ -4271,8 +4425,8 @@ skills:
   - validate_skill
   risk_level: high
   review_required: true
-  activity: ''
-  capability_kind: ''
+  activity: functional-safety
+  capability_kind: domain-specific
   primary_domain: industrial
   risk_class: high
   lifecycle_phases:
@@ -4331,8 +4485,8 @@ skills:
   - validate_skill
   risk_level: high
   review_required: true
-  activity: ''
-  capability_kind: ''
+  activity: safety-review
+  capability_kind: domain-specific
   primary_domain: industrial
   risk_class: high
   lifecycle_phases:
@@ -4391,8 +4545,8 @@ skills:
   - validate_skill
   risk_level: high
   review_required: true
-  activity: ''
-  capability_kind: ''
+  activity: functional-safety
+  capability_kind: domain-specific
   primary_domain: industrial
   risk_class: high
   lifecycle_phases:
@@ -4451,8 +4605,8 @@ skills:
   - validate_skill
   risk_level: high
   review_required: true
-  activity: ''
-  capability_kind: ''
+  activity: safety-review
+  capability_kind: domain-specific
   primary_domain: industrial
   risk_class: high
   lifecycle_phases:
@@ -4509,8 +4663,8 @@ skills:
   - validate_skill
   risk_level: medium
   review_required: true
-  activity: ''
-  capability_kind: ''
+  activity: verification
+  capability_kind: domain-specific
   primary_domain: platform
   risk_class: medium
   lifecycle_phases:
@@ -4557,8 +4711,8 @@ skills:
   mcp_tools: []
   risk_level: medium
   review_required: []
-  activity: ''
-  capability_kind: ''
+  activity: sil-hil
+  capability_kind: domain-specific
   primary_domain: all
   risk_class: medium
   lifecycle_phases:
@@ -4601,8 +4755,8 @@ skills:
   mcp_tools: []
   risk_level: medium
   review_required: []
-  activity: ''
-  capability_kind: ''
+  activity: coding-guidelines
+  capability_kind: domain-specific
   primary_domain: all
   risk_class: medium
   lifecycle_phases:
@@ -4653,8 +4807,8 @@ skills:
   - validate_skill
   risk_level: medium
   review_required: true
-  activity: ''
-  capability_kind: ''
+  activity: documentation
+  capability_kind: domain-specific
   primary_domain: robotics
   risk_class: medium
   lifecycle_phases:
@@ -4709,8 +4863,8 @@ skills:
   - validate_skill
   risk_level: medium
   review_required: true
-  activity: ''
-  capability_kind: ''
+  activity: code-review
+  capability_kind: domain-specific
   primary_domain: robotics
   risk_class: medium
   lifecycle_phases:
@@ -4776,8 +4930,8 @@ skills:
   safety_critical: false
   extends: null
   sub_skills: []
-  activity: ''
-  capability_kind: ''
+  activity: implementation
+  capability_kind: domain-specific
   primary_domain: generic-embedded
   risk_class: medium
   lifecycle_phases:
@@ -4832,8 +4986,8 @@ skills:
   - validate_skill
   risk_level: medium
   review_required: true
-  activity: ''
-  capability_kind: ''
+  activity: configuration-management
+  capability_kind: domain-specific
   primary_domain: robotics
   risk_class: medium
   lifecycle_phases:
@@ -4888,8 +5042,8 @@ skills:
   - validate_skill
   risk_level: medium
   review_required: true
-  activity: ''
-  capability_kind: ''
+  activity: configuration-management
+  capability_kind: domain-specific
   primary_domain: robotics
   risk_class: medium
   lifecycle_phases:
@@ -4946,8 +5100,8 @@ skills:
   - validate_skill
   risk_level: high
   review_required: true
-  activity: ''
-  capability_kind: ''
+  activity: functional-safety
+  capability_kind: domain-specific
   primary_domain: robotics
   risk_class: high
   lifecycle_phases:
@@ -5006,8 +5160,8 @@ skills:
   - validate_skill
   risk_level: high
   review_required: true
-  activity: ''
-  capability_kind: ''
+  activity: safety-review
+  capability_kind: domain-specific
   primary_domain: robotics
   risk_class: high
   lifecycle_phases:
@@ -5066,8 +5220,8 @@ skills:
   - validate_skill
   risk_level: medium
   review_required: true
-  activity: ''
-  capability_kind: ''
+  activity: process-assessment
+  capability_kind: domain-specific
   primary_domain: industrial
   risk_class: medium
   lifecycle_phases:
@@ -5126,8 +5280,8 @@ skills:
   - validate_skill
   risk_level: medium
   review_required: true
-  activity: ''
-  capability_kind: ''
+  activity: process-assessment
+  capability_kind: domain-specific
   primary_domain: industrial
   risk_class: medium
   lifecycle_phases:
@@ -5186,8 +5340,8 @@ skills:
   - validate_skill
   risk_level: medium
   review_required: true
-  activity: ''
-  capability_kind: ''
+  activity: cybersecurity
+  capability_kind: domain-specific
   primary_domain: industrial
   risk_class: medium
   lifecycle_phases:
@@ -5246,8 +5400,8 @@ skills:
   - validate_skill
   risk_level: medium
   review_required: true
-  activity: ''
-  capability_kind: ''
+  activity: security-review
+  capability_kind: domain-specific
   primary_domain: industrial
   risk_class: medium
   lifecycle_phases:
@@ -5305,8 +5459,8 @@ skills:
   - validate_skill
   risk_level: high
   review_required: true
-  activity: ''
-  capability_kind: ''
+  activity: system-testing
+  capability_kind: domain-specific
   primary_domain: robotics
   risk_class: high
   lifecycle_phases:
@@ -5363,8 +5517,8 @@ skills:
   - validate_skill
   risk_level: high
   review_required: true
-  activity: ''
-  capability_kind: ''
+  activity: system-testing
+  capability_kind: domain-specific
   primary_domain: robotics
   risk_class: high
   lifecycle_phases:
@@ -5428,8 +5582,8 @@ skills:
   safety_critical: false
   extends: null
   sub_skills: []
-  activity: ''
-  capability_kind: ''
+  activity: implementation
+  capability_kind: domain-specific
   primary_domain: platform
   risk_class: medium
   lifecycle_phases:
@@ -5485,8 +5639,8 @@ skills:
   - validate_skill
   risk_level: safety-critical
   review_required: true
-  activity: ''
-  capability_kind: ''
+  activity: functional-safety
+  capability_kind: domain-specific
   primary_domain: robotics
   risk_class: safety-critical
   lifecycle_phases:
@@ -5543,8 +5697,8 @@ skills:
   - validate_skill
   risk_level: safety-critical
   review_required: true
-  activity: ''
-  capability_kind: ''
+  activity: safety-review
+  capability_kind: domain-specific
   primary_domain: robotics
   risk_class: safety-critical
   lifecycle_phases:
@@ -5608,8 +5762,8 @@ skills:
   - validate_skill
   risk_level: medium
   review_required: true
-  activity: ''
-  capability_kind: ''
+  activity: code-review
+  capability_kind: domain-specific
   primary_domain: cross-domain
   risk_class: medium
   lifecycle_phases:
@@ -5666,8 +5820,8 @@ skills:
   - validate_skill
   risk_level: high
   review_required: true
-  activity: ''
-  capability_kind: ''
+  activity: validation
+  capability_kind: domain-specific
   primary_domain: robotics
   risk_class: high
   lifecycle_phases:
@@ -5726,8 +5880,8 @@ skills:
   - validate_skill
   risk_level: high
   review_required: true
-  activity: ''
-  capability_kind: ''
+  activity: validation
+  capability_kind: domain-specific
   primary_domain: robotics
   risk_class: high
   lifecycle_phases:
@@ -5786,8 +5940,8 @@ skills:
   - validate_skill
   risk_level: high
   review_required: true
-  activity: ''
-  capability_kind: ''
+  activity: architecture
+  capability_kind: domain-specific
   primary_domain: robotics
   risk_class: high
   lifecycle_phases:
@@ -5846,8 +6000,8 @@ skills:
   - validate_skill
   risk_level: high
   review_required: true
-  activity: ''
-  capability_kind: ''
+  activity: code-review
+  capability_kind: domain-specific
   primary_domain: robotics
   risk_class: high
   lifecycle_phases:
@@ -5907,8 +6061,8 @@ skills:
   - validate_skill
   risk_level: high
   review_required: true
-  activity: ''
-  capability_kind: ''
+  activity: requirements-analysis
+  capability_kind: domain-specific
   primary_domain: robotics
   risk_class: high
   lifecycle_phases:
@@ -5967,8 +6121,8 @@ skills:
   - validate_skill
   risk_level: high
   review_required: true
-  activity: ''
-  capability_kind: ''
+  activity: requirements-review
+  capability_kind: domain-specific
   primary_domain: robotics
   risk_class: high
   lifecycle_phases:
@@ -6026,8 +6180,8 @@ skills:
   - validate_skill
   risk_level: high
   review_required: true
-  activity: ''
-  capability_kind: ''
+  activity: validation
+  capability_kind: domain-specific
   primary_domain: robotics
   risk_class: high
   lifecycle_phases:
@@ -6084,8 +6238,8 @@ skills:
   - validate_skill
   risk_level: high
   review_required: true
-  activity: ''
-  capability_kind: ''
+  activity: validation
+  capability_kind: domain-specific
   primary_domain: robotics
   risk_class: high
   lifecycle_phases:
@@ -6144,8 +6298,8 @@ skills:
   - validate_skill
   risk_level: high
   review_required: true
-  activity: ''
-  capability_kind: ''
+  activity: system-testing
+  capability_kind: domain-specific
   primary_domain: robotics
   risk_class: high
   lifecycle_phases:
@@ -6204,8 +6358,8 @@ skills:
   - validate_skill
   risk_level: high
   review_required: true
-  activity: ''
-  capability_kind: ''
+  activity: system-testing
+  capability_kind: domain-specific
   primary_domain: robotics
   risk_class: high
   lifecycle_phases:
@@ -6264,8 +6418,8 @@ skills:
   - validate_skill
   risk_level: medium
   review_required: true
-  activity: ''
-  capability_kind: ''
+  activity: requirements-analysis
+  capability_kind: domain-specific
   primary_domain: industrial
   risk_class: medium
   lifecycle_phases:
@@ -6324,8 +6478,8 @@ skills:
   - validate_skill
   risk_level: medium
   review_required: true
-  activity: ''
-  capability_kind: ''
+  activity: requirements-review
+  capability_kind: domain-specific
   primary_domain: industrial
   risk_class: medium
   lifecycle_phases:
@@ -6385,8 +6539,8 @@ skills:
   - validate_skill
   risk_level: medium
   review_required: true
-  activity: ''
-  capability_kind: ''
+  activity: implementation
+  capability_kind: domain-specific
   primary_domain: robotics
   risk_class: medium
   lifecycle_phases:
@@ -6441,8 +6595,8 @@ skills:
   - validate_skill
   risk_level: medium
   review_required: true
-  activity: ''
-  capability_kind: ''
+  activity: architecture
+  capability_kind: domain-specific
   primary_domain: robotics
   risk_class: medium
   lifecycle_phases:
@@ -6497,8 +6651,8 @@ skills:
   - validate_skill
   risk_level: medium
   review_required: true
-  activity: ''
-  capability_kind: ''
+  activity: code-review
+  capability_kind: domain-specific
   primary_domain: robotics
   risk_class: medium
   lifecycle_phases:
@@ -6553,8 +6707,8 @@ skills:
   - validate_skill
   risk_level: medium
   review_required: true
-  activity: ''
-  capability_kind: ''
+  activity: architecture
+  capability_kind: domain-specific
   primary_domain: platform
   risk_class: medium
   lifecycle_phases:
@@ -6611,8 +6765,8 @@ skills:
   - validate_skill
   risk_level: safety-critical
   review_required: true
-  activity: ''
-  capability_kind: ''
+  activity: functional-safety
+  capability_kind: domain-specific
   primary_domain: robotics
   risk_class: safety-critical
   lifecycle_phases:
@@ -6671,8 +6825,8 @@ skills:
   - validate_skill
   risk_level: safety-critical
   review_required: true
-  activity: ''
-  capability_kind: ''
+  activity: safety-review
+  capability_kind: domain-specific
   primary_domain: robotics
   risk_class: safety-critical
   lifecycle_phases:
@@ -6729,8 +6883,8 @@ skills:
   - ISO 14118:2017
   - IEC 62061:2021
   - IEC 61508:2010
-  activity: ''
-  capability_kind: ''
+  activity: requirements-derivation
+  capability_kind: domain-specific
   primary_domain: industrial
   risk_class: high
   lifecycle_phases:
@@ -6782,8 +6936,8 @@ skills:
   - ISO 14118:2017
   - IEC 62061:2021
   - IEC 61508:2010
-  activity: ''
-  capability_kind: ''
+  activity: requirements-review
+  capability_kind: domain-specific
   primary_domain: industrial
   risk_class: high
   lifecycle_phases:
@@ -6848,8 +7002,8 @@ skills:
   safety_critical: false
   extends: null
   sub_skills: []
-  activity: ''
-  capability_kind: ''
+  activity: implementation
+  capability_kind: domain-specific
   primary_domain: generic-embedded
   risk_class: medium
   lifecycle_phases:
@@ -6901,8 +7055,8 @@ skills:
   - ISO 12100:2010
   - ISO 10218-2:2011
   - ISO 11161:2007
-  activity: ''
-  capability_kind: ''
+  activity: requirements-analysis
+  capability_kind: domain-specific
   primary_domain: industrial
   risk_class: medium
   lifecycle_phases:
@@ -6946,8 +7100,8 @@ skills:
   - ISO 12100:2010
   - ISO 10218-2:2011
   - ISO 11161:2007
-  activity: ''
-  capability_kind: ''
+  activity: requirements-review
+  capability_kind: domain-specific
   primary_domain: industrial
   risk_class: medium
   lifecycle_phases:
@@ -7013,8 +7167,8 @@ skills:
   safety_critical: false
   extends: null
   sub_skills: []
-  activity: ''
-  capability_kind: ''
+  activity: implementation
+  capability_kind: domain-specific
   primary_domain: generic-embedded
   risk_class: medium
   lifecycle_phases:
@@ -7080,8 +7234,8 @@ skills:
   safety_critical: false
   extends: null
   sub_skills: []
-  activity: ''
-  capability_kind: ''
+  activity: implementation
+  capability_kind: domain-specific
   primary_domain: generic-embedded
   risk_class: medium
   lifecycle_phases:
@@ -7149,8 +7303,8 @@ skills:
   safety_critical: false
   extends: null
   sub_skills: []
-  activity: ''
-  capability_kind: ''
+  activity: validation
+  capability_kind: domain-specific
   primary_domain: generic-embedded
   risk_class: medium
   lifecycle_phases:
@@ -7218,8 +7372,8 @@ skills:
   safety_critical: false
   extends: null
   sub_skills: []
-  activity: ''
-  capability_kind: ''
+  activity: implementation
+  capability_kind: domain-specific
   primary_domain: generic-embedded
   risk_class: medium
   lifecycle_phases:
@@ -7276,8 +7430,8 @@ skills:
   - validate_skill
   risk_level: safety-critical
   review_required: true
-  activity: ''
-  capability_kind: ''
+  activity: debugging
+  capability_kind: domain-specific
   primary_domain: robotics
   risk_class: safety-critical
   lifecycle_phases:
@@ -7336,8 +7490,8 @@ skills:
   - validate_skill
   risk_level: safety-critical
   review_required: true
-  activity: ''
-  capability_kind: ''
+  activity: debugging
+  capability_kind: domain-specific
   primary_domain: robotics
   risk_class: safety-critical
   lifecycle_phases:
@@ -7396,8 +7550,8 @@ skills:
   risk_level: medium
   review_required: true
   extends: static-analysis
-  activity: ''
-  capability_kind: ''
+  activity: verification
+  capability_kind: domain-specific
   primary_domain: cross-domain
   risk_class: medium
   lifecycle_phases:
@@ -7460,8 +7614,8 @@ skills:
   safety_critical: false
   extends: null
   sub_skills: []
-  activity: ''
-  capability_kind: ''
+  activity: verification
+  capability_kind: domain-specific
   primary_domain: platform
   risk_class: high
   lifecycle_phases:
@@ -7515,8 +7669,8 @@ skills:
   risk_level: low
   review_required: true
   extends: code-review
-  activity: ''
-  capability_kind: ''
+  activity: process-assessment
+  capability_kind: domain-specific
   primary_domain: cross-domain
   risk_class: low
   lifecycle_phases:
@@ -7577,8 +7731,8 @@ skills:
   - validate_skill
   risk_level: low
   review_required: true
-  activity: ''
-  capability_kind: ''
+  activity: unit-testing
+  capability_kind: domain-specific
   primary_domain: platform
   risk_class: low
   lifecycle_phases:
@@ -7633,8 +7787,8 @@ skills:
   - validate_skill
   risk_level: medium
   review_required: true
-  activity: ''
-  capability_kind: ''
+  activity: requirements-analysis
+  capability_kind: domain-specific
   primary_domain: robotics
   risk_class: medium
   lifecycle_phases:
@@ -7689,8 +7843,8 @@ skills:
   - validate_skill
   risk_level: medium
   review_required: true
-  activity: ''
-  capability_kind: ''
+  activity: requirements-review
+  capability_kind: domain-specific
   primary_domain: robotics
   risk_class: medium
   lifecycle_phases:
@@ -7745,8 +7899,8 @@ skills:
   - IEC 62443-3-2:2020
   - IEC 62443-4-1:2018
   - IEC 62443-4-2:2019
-  activity: ''
-  capability_kind: ''
+  activity: cybersecurity
+  capability_kind: domain-specific
   primary_domain: industrial
   risk_class: high
   lifecycle_phases:
@@ -7796,8 +7950,8 @@ skills:
   - IEC 62443-3-2:2020
   - IEC 62443-4-1:2018
   - IEC 62443-4-2:2019
-  activity: ''
-  capability_kind: ''
+  activity: security-review
+  capability_kind: domain-specific
   primary_domain: industrial
   risk_class: high
   lifecycle_phases:
@@ -7850,8 +8004,8 @@ skills:
   - validate_skill
   risk_level: low
   review_required: true
-  activity: ''
-  capability_kind: ''
+  activity: debugging
+  capability_kind: domain-specific
   primary_domain: platform
   risk_class: low
   lifecycle_phases:
@@ -7906,8 +8060,8 @@ skills:
   - validate_skill
   risk_level: medium
   review_required: true
-  activity: ''
-  capability_kind: ''
+  activity: requirements-analysis
+  capability_kind: domain-specific
   primary_domain: robotics
   risk_class: medium
   lifecycle_phases:
@@ -7962,8 +8116,8 @@ skills:
   - validate_skill
   risk_level: medium
   review_required: true
-  activity: ''
-  capability_kind: ''
+  activity: requirements-review
+  capability_kind: domain-specific
   primary_domain: robotics
   risk_class: medium
   lifecycle_phases:
@@ -8018,8 +8172,8 @@ skills:
   - validate_skill
   risk_level: medium
   review_required: true
-  activity: ''
-  capability_kind: ''
+  activity: architecture
+  capability_kind: domain-specific
   primary_domain: automotive
   risk_class: medium
   lifecycle_phases:
@@ -8087,8 +8241,8 @@ skills:
   safety_critical: false
   extends: null
   sub_skills: []
-  activity: ''
-  capability_kind: ''
+  activity: validation
+  capability_kind: domain-specific
   primary_domain: platform
   risk_class: medium
   lifecycle_phases:
@@ -8146,8 +8300,8 @@ skills:
   - validate_skill
   risk_level: safety-critical
   review_required: true
-  activity: ''
-  capability_kind: ''
+  activity: cybersecurity
+  capability_kind: domain-specific
   primary_domain: automotive
   risk_class: safety-critical
   lifecycle_phases:
@@ -8201,8 +8355,8 @@ skills:
   - ISO 13849-2:2012
   - ISO/TS 15066:2016
   - IEC 62061:2021
-  activity: ''
-  capability_kind: ''
+  activity: validation
+  capability_kind: domain-specific
   primary_domain: industrial
   risk_class: medium
   lifecycle_phases:
@@ -8251,8 +8405,8 @@ skills:
   - ISO 13849-2:2012
   - ISO/TS 15066:2016
   - IEC 62061:2021
-  activity: ''
-  capability_kind: ''
+  activity: code-review
+  capability_kind: domain-specific
   primary_domain: industrial
   risk_class: medium
   lifecycle_phases:
@@ -8307,8 +8461,8 @@ skills:
   - validate_skill
   risk_level: medium
   review_required: true
-  activity: ''
-  capability_kind: ''
+  activity: implementation
+  capability_kind: domain-specific
   primary_domain: industrial
   risk_class: medium
   lifecycle_phases:
@@ -8367,8 +8521,8 @@ skills:
   - validate_skill
   risk_level: medium
   review_required: true
-  activity: ''
-  capability_kind: ''
+  activity: code-review
+  capability_kind: domain-specific
   primary_domain: industrial
   risk_class: medium
   lifecycle_phases:
@@ -8431,8 +8585,8 @@ skills:
   - validate_skill
   risk_level: medium
   review_required: true
-  activity: ''
-  capability_kind: ''
+  activity: architecture
+  capability_kind: domain-specific
   primary_domain: automotive
   risk_class: medium
   lifecycle_phases:
@@ -8490,8 +8644,8 @@ skills:
   - validate_skill
   risk_level: high
   review_required: true
-  activity: ''
-  capability_kind: ''
+  activity: implementation
+  capability_kind: domain-specific
   primary_domain: industrial
   risk_class: high
   lifecycle_phases:
@@ -8548,8 +8702,8 @@ skills:
   - validate_skill
   risk_level: high
   review_required: true
-  activity: ''
-  capability_kind: ''
+  activity: code-review
+  capability_kind: domain-specific
   primary_domain: industrial
   risk_class: high
   lifecycle_phases:
@@ -8583,6 +8737,17 @@ skills:
   related_skills: []
   path: skills/bare-metal
   enabled: true
+  activity: implementation
+  capability_kind: general
+  primary_domain: all
+  risk_class: medium
+  lifecycle_phases:
+  - discover
+  - plan
+  - implement
+  - verify
+  - evidence
+  standard_ids: []
 - id: bootloader
   name: axiom.legacy.bootloader
   title: bootloader
@@ -8607,6 +8772,17 @@ skills:
   enabled: true
   sub_skills:
   - axiom-embedded-firmware-bringup
+  activity: implementation
+  capability_kind: general
+  primary_domain: all
+  risk_class: medium
+  lifecycle_phases:
+  - discover
+  - plan
+  - implement
+  - verify
+  - evidence
+  standard_ids: []
 - id: build-system
   name: axiom.legacy.build-system
   title: build-system
@@ -8630,6 +8806,17 @@ skills:
   enabled: true
   sub_skills:
   - axiom-embedded-cicd
+  activity: implementation
+  capability_kind: general
+  primary_domain: all
+  risk_class: medium
+  lifecycle_phases:
+  - discover
+  - plan
+  - implement
+  - verify
+  - evidence
+  standard_ids: []
 - id: change-impact
   name: axiom.legacy.change-impact
   title: change-impact
@@ -8651,6 +8838,17 @@ skills:
   - git
   path: skills/change-impact
   enabled: true
+  activity: process-assessment
+  capability_kind: general
+  primary_domain: all
+  risk_class: medium
+  lifecycle_phases:
+  - discover
+  - plan
+  - implement
+  - verify
+  - evidence
+  standard_ids: []
 - id: code-review
   name: axiom.legacy.code-review
   title: code-review
@@ -8679,6 +8877,17 @@ skills:
   - axiom-platform-architecture-review
   - axiom-static-analysis-triage
   - axiom-technical-debt-assessment
+  activity: code-review
+  capability_kind: general
+  primary_domain: all
+  risk_class: medium
+  lifecycle_phases:
+  - discover
+  - plan
+  - implement
+  - verify
+  - evidence
+  standard_ids: []
 - id: codebase-analysis
   name: axiom.legacy.codebase-analysis
   title: codebase-analysis
@@ -8699,6 +8908,17 @@ skills:
   related_skills: []
   path: skills/codebase-analysis
   enabled: true
+  activity: implementation
+  capability_kind: general
+  primary_domain: all
+  risk_class: medium
+  lifecycle_phases:
+  - discover
+  - plan
+  - implement
+  - verify
+  - evidence
+  standard_ids: []
 - id: configuration-management
   name: axiom.legacy.configuration-management
   title: configuration-management
@@ -8720,6 +8940,17 @@ skills:
   - git
   path: skills/configuration-management
   enabled: true
+  activity: configuration-management
+  capability_kind: general
+  primary_domain: all
+  risk_class: medium
+  lifecycle_phases:
+  - discover
+  - plan
+  - implement
+  - verify
+  - evidence
+  standard_ids: []
 - id: coverage
   name: axiom.legacy.coverage
   title: coverage
@@ -8743,6 +8974,17 @@ skills:
   enabled: true
   sub_skills:
   - axiom-test-automation
+  activity: verification
+  capability_kind: general
+  primary_domain: all
+  risk_class: medium
+  lifecycle_phases:
+  - discover
+  - plan
+  - implement
+  - verify
+  - evidence
+  standard_ids: []
 - id: debugging
   name: axiom.legacy.debugging
   title: debugging
@@ -8767,6 +9009,17 @@ skills:
   enabled: true
   sub_skills:
   - axiom-trace-analysis
+  activity: debugging
+  capability_kind: general
+  primary_domain: all
+  risk_class: medium
+  lifecycle_phases:
+  - discover
+  - plan
+  - implement
+  - verify
+  - evidence
+  standard_ids: []
 - id: documentation
   name: axiom.legacy.documentation
   title: documentation
@@ -8791,6 +9044,17 @@ skills:
   enabled: true
   sub_skills:
   - axiom-architecture-decision-records
+  activity: documentation
+  capability_kind: general
+  primary_domain: all
+  risk_class: medium
+  lifecycle_phases:
+  - discover
+  - plan
+  - implement
+  - verify
+  - evidence
+  standard_ids: []
 - id: drivers
   name: axiom.legacy.drivers
   title: drivers
@@ -8819,6 +9083,17 @@ skills:
   enabled: true
   sub_skills:
   - axiom-embedded-firmware-bringup
+  activity: implementation
+  capability_kind: general
+  primary_domain: all
+  risk_class: medium
+  lifecycle_phases:
+  - discover
+  - plan
+  - implement
+  - verify
+  - evidence
+  standard_ids: []
 - id: edge-ai
   name: axiom.legacy.edge-ai
   title: edge-ai
@@ -8839,6 +9114,17 @@ skills:
   related_skills: []
   path: skills/edge-ai
   enabled: true
+  activity: implementation
+  capability_kind: general
+  primary_domain: generic-embedded
+  risk_class: medium
+  lifecycle_phases:
+  - discover
+  - plan
+  - implement
+  - verify
+  - evidence
+  standard_ids: []
 - id: embedded-c
   name: axiom.legacy.embedded-c
   title: embedded-c
@@ -8859,6 +9145,17 @@ skills:
   related_skills: []
   path: skills/embedded-c
   enabled: true
+  activity: implementation
+  capability_kind: general
+  primary_domain: all
+  risk_class: medium
+  lifecycle_phases:
+  - discover
+  - plan
+  - implement
+  - verify
+  - evidence
+  standard_ids: []
 - id: embedded-cpp
   name: axiom.legacy.embedded-cpp
   title: embedded-cpp
@@ -8879,6 +9176,17 @@ skills:
   related_skills: []
   path: skills/embedded-cpp
   enabled: true
+  activity: implementation
+  capability_kind: general
+  primary_domain: all
+  risk_class: medium
+  lifecycle_phases:
+  - discover
+  - plan
+  - implement
+  - verify
+  - evidence
+  standard_ids: []
 - id: embedded-linux
   name: axiom.legacy.embedded-linux
   title: embedded-linux
@@ -8899,6 +9207,17 @@ skills:
   related_skills: []
   path: skills/embedded-linux
   enabled: true
+  activity: implementation
+  capability_kind: general
+  primary_domain: generic-embedded
+  risk_class: medium
+  lifecycle_phases:
+  - discover
+  - plan
+  - implement
+  - verify
+  - evidence
+  standard_ids: []
 - id: evidence
   name: axiom.legacy.evidence
   title: evidence
@@ -8922,6 +9241,17 @@ skills:
   enabled: true
   sub_skills:
   - axiom-automotive-release-readiness
+  activity: process-assessment
+  capability_kind: general
+  primary_domain: all
+  risk_class: medium
+  lifecycle_phases:
+  - discover
+  - plan
+  - implement
+  - verify
+  - evidence
+  standard_ids: []
 - id: fault-injection
   name: axiom.legacy.fault-injection
   title: fault-injection
@@ -8943,6 +9273,17 @@ skills:
   - axiom-sensor-diagnostics
   path: skills/fault-injection
   enabled: true
+  activity: validation
+  capability_kind: general
+  primary_domain: generic-embedded
+  risk_class: medium
+  lifecycle_phases:
+  - discover
+  - plan
+  - implement
+  - verify
+  - evidence
+  standard_ids: []
 - id: feature-development
   name: axiom.legacy.feature-development
   title: feature-development
@@ -8963,6 +9304,17 @@ skills:
   related_skills: []
   path: skills/feature-development
   enabled: true
+  activity: implementation
+  capability_kind: general
+  primary_domain: all
+  risk_class: medium
+  lifecycle_phases:
+  - discover
+  - plan
+  - implement
+  - verify
+  - evidence
+  standard_ids: []
 - id: git
   name: axiom.legacy.git
   title: git
@@ -8989,6 +9341,17 @@ skills:
   - release
   path: skills/git
   enabled: true
+  activity: implementation
+  capability_kind: general
+  primary_domain: all
+  risk_class: medium
+  lifecycle_phases:
+  - discover
+  - plan
+  - implement
+  - verify
+  - evidence
+  standard_ids: []
 - id: hardware-architecture
   name: axiom.legacy.hardware-architecture
   title: hardware-architecture
@@ -9010,6 +9373,17 @@ skills:
   - axiom-hardware-aware-checks
   path: skills/hardware-architecture
   enabled: true
+  activity: architecture
+  capability_kind: general
+  primary_domain: all
+  risk_class: medium
+  lifecycle_phases:
+  - discover
+  - plan
+  - implement
+  - verify
+  - evidence
+  standard_ids: []
 - id: hardware-bringup
   name: axiom.legacy.hardware-bringup
   title: hardware-bringup
@@ -9035,6 +9409,17 @@ skills:
   enabled: true
   sub_skills:
   - axiom-embedded-firmware-bringup
+  activity: implementation
+  capability_kind: general
+  primary_domain: all
+  risk_class: medium
+  lifecycle_phases:
+  - discover
+  - plan
+  - implement
+  - verify
+  - evidence
+  standard_ids: []
 - id: implementation
   name: axiom.legacy.implementation
   title: implementation
@@ -9055,6 +9440,17 @@ skills:
   related_skills: []
   path: skills/implementation
   enabled: true
+  activity: implementation
+  capability_kind: general
+  primary_domain: all
+  risk_class: medium
+  lifecycle_phases:
+  - discover
+  - plan
+  - implement
+  - verify
+  - evidence
+  standard_ids: []
 - id: integration-test
   name: axiom.legacy.integration-test
   title: integration-test
@@ -9081,6 +9477,17 @@ skills:
   sub_skills:
   - axiom-hil-test-planning
   - axiom-test-automation
+  activity: integration-testing
+  capability_kind: general
+  primary_domain: all
+  risk_class: medium
+  lifecycle_phases:
+  - discover
+  - plan
+  - implement
+  - verify
+  - evidence
+  standard_ids: []
 - id: legacy-recovery
   name: axiom.legacy.legacy-recovery
   title: legacy-recovery
@@ -9101,6 +9508,17 @@ skills:
   related_skills: []
   path: skills/legacy-recovery
   enabled: true
+  activity: implementation
+  capability_kind: general
+  primary_domain: all
+  risk_class: medium
+  lifecycle_phases:
+  - discover
+  - plan
+  - implement
+  - verify
+  - evidence
+  standard_ids: []
 - id: mcu
   name: axiom.legacy.mcu
   title: mcu
@@ -9125,6 +9543,17 @@ skills:
   enabled: true
   sub_skills:
   - axiom-embedded-firmware-bringup
+  activity: implementation
+  capability_kind: general
+  primary_domain: generic-embedded
+  risk_class: medium
+  lifecycle_phases:
+  - discover
+  - plan
+  - implement
+  - verify
+  - evidence
+  standard_ids: []
 - id: mpsoc
   name: axiom.legacy.mpsoc
   title: mpsoc
@@ -9148,6 +9577,17 @@ skills:
   enabled: true
   sub_skills:
   - axiom-zonal-architecture
+  activity: implementation
+  capability_kind: general
+  primary_domain: generic-embedded
+  risk_class: medium
+  lifecycle_phases:
+  - discover
+  - plan
+  - implement
+  - verify
+  - evidence
+  standard_ids: []
 - id: mpu
   name: axiom.legacy.mpu
   title: mpu
@@ -9168,6 +9608,17 @@ skills:
   related_skills: []
   path: skills/mpu
   enabled: true
+  activity: implementation
+  capability_kind: general
+  primary_domain: generic-embedded
+  risk_class: medium
+  lifecycle_phases:
+  - discover
+  - plan
+  - implement
+  - verify
+  - evidence
+  standard_ids: []
 - id: performance
   name: axiom.legacy.performance
   title: performance
@@ -9194,6 +9645,17 @@ skills:
   enabled: true
   sub_skills:
   - axiom-memory-and-performance-analysis
+  activity: verification
+  capability_kind: general
+  primary_domain: all
+  risk_class: medium
+  lifecycle_phases:
+  - discover
+  - plan
+  - implement
+  - verify
+  - evidence
+  standard_ids: []
 - id: project-audit
   name: axiom.legacy.project-audit
   title: project-audit
@@ -9214,6 +9676,17 @@ skills:
   related_skills: []
   path: skills/project-audit
   enabled: true
+  activity: process-assessment
+  capability_kind: general
+  primary_domain: all
+  risk_class: medium
+  lifecycle_phases:
+  - discover
+  - plan
+  - implement
+  - verify
+  - evidence
+  standard_ids: []
 - id: release
   name: axiom.legacy.release
   title: release
@@ -9238,6 +9711,17 @@ skills:
   enabled: true
   sub_skills:
   - axiom-automotive-release-readiness
+  activity: release-readiness
+  capability_kind: general
+  primary_domain: all
+  risk_class: medium
+  lifecycle_phases:
+  - discover
+  - plan
+  - implement
+  - verify
+  - evidence
+  standard_ids: []
 - id: requirements
   name: axiom.legacy.requirements
   title: requirements
@@ -9261,6 +9745,17 @@ skills:
   enabled: true
   sub_skills:
   - axiom-platform-architecture-review
+  activity: requirements-analysis
+  capability_kind: general
+  primary_domain: all
+  risk_class: medium
+  lifecycle_phases:
+  - discover
+  - plan
+  - implement
+  - verify
+  - evidence
+  standard_ids: []
 - id: requirements-traceability
   name: axiom.legacy.requirements-traceability
   title: requirements-traceability
@@ -9284,6 +9779,17 @@ skills:
   enabled: true
   sub_skills:
   - axiom-interface-contract-design
+  activity: requirements-traceability
+  capability_kind: general
+  primary_domain: all
+  risk_class: medium
+  lifecycle_phases:
+  - discover
+  - plan
+  - implement
+  - verify
+  - evidence
+  standard_ids: []
 - id: robot-bringup
   name: axiom.legacy.robot-bringup
   title: robot-bringup
@@ -9304,6 +9810,17 @@ skills:
   related_skills: []
   path: skills/robot-bringup
   enabled: true
+  activity: implementation
+  capability_kind: general
+  primary_domain: all
+  risk_class: medium
+  lifecycle_phases:
+  - discover
+  - plan
+  - implement
+  - verify
+  - evidence
+  standard_ids: []
 - id: robotics
   name: axiom.legacy.robotics
   title: robotics
@@ -9327,6 +9844,17 @@ skills:
   enabled: true
   sub_skills:
   - axiom-robotics-system-integration
+  activity: implementation
+  capability_kind: general
+  primary_domain: robotics
+  risk_class: medium
+  lifecycle_phases:
+  - discover
+  - plan
+  - implement
+  - verify
+  - evidence
+  standard_ids: []
 - id: ros1
   name: axiom.legacy.ros1
   title: ros1
@@ -9347,6 +9875,17 @@ skills:
   related_skills: []
   path: skills/ros1
   enabled: true
+  activity: implementation
+  capability_kind: general
+  primary_domain: all
+  risk_class: medium
+  lifecycle_phases:
+  - discover
+  - plan
+  - implement
+  - verify
+  - evidence
+  standard_ids: []
 - id: rtos
   name: axiom.legacy.rtos
   title: rtos
@@ -9370,6 +9909,17 @@ skills:
   enabled: true
   sub_skills:
   - axiom-rtos-architecture
+  activity: implementation
+  capability_kind: general
+  primary_domain: all
+  risk_class: medium
+  lifecycle_phases:
+  - discover
+  - plan
+  - implement
+  - verify
+  - evidence
+  standard_ids: []
 - id: rust-embedded
   name: axiom.legacy.rust-embedded
   title: rust-embedded
@@ -9390,6 +9940,17 @@ skills:
   related_skills: []
   path: skills/rust-embedded
   enabled: true
+  activity: implementation
+  capability_kind: general
+  primary_domain: all
+  risk_class: medium
+  lifecycle_phases:
+  - discover
+  - plan
+  - implement
+  - verify
+  - evidence
+  standard_ids: []
 - id: safety
   name: axiom.legacy.safety
   title: safety
@@ -9415,6 +9976,17 @@ skills:
   enabled: true
   sub_skills:
   - axiom-functional-safety
+  activity: functional-safety
+  capability_kind: general
+  primary_domain: generic-embedded
+  risk_class: medium
+  lifecycle_phases:
+  - discover
+  - plan
+  - implement
+  - verify
+  - evidence
+  standard_ids: []
 - id: security
   name: axiom.legacy.security
   title: security
@@ -9439,6 +10011,17 @@ skills:
   enabled: true
   sub_skills:
   - axiom-vehicle-cybersecurity
+  activity: cybersecurity
+  capability_kind: general
+  primary_domain: all
+  risk_class: medium
+  lifecycle_phases:
+  - discover
+  - plan
+  - implement
+  - verify
+  - evidence
+  standard_ids: []
 - id: simulation
   name: axiom.legacy.simulation
   title: simulation
@@ -9463,6 +10046,17 @@ skills:
   enabled: true
   sub_skills:
   - axiom-hil-test-planning
+  activity: implementation
+  capability_kind: general
+  primary_domain: all
+  risk_class: medium
+  lifecycle_phases:
+  - discover
+  - plan
+  - implement
+  - verify
+  - evidence
+  standard_ids: []
 - id: soc
   name: axiom.legacy.soc
   title: soc
@@ -9486,6 +10080,17 @@ skills:
   enabled: true
   sub_skills:
   - axiom-zonal-architecture
+  activity: implementation
+  capability_kind: general
+  primary_domain: generic-embedded
+  risk_class: medium
+  lifecycle_phases:
+  - discover
+  - plan
+  - implement
+  - verify
+  - evidence
+  standard_ids: []
 - id: software-architecture
   name: axiom.legacy.software-architecture
   title: software-architecture
@@ -9509,6 +10114,17 @@ skills:
   enabled: true
   sub_skills:
   - axiom-platform-architecture-review
+  activity: architecture
+  capability_kind: general
+  primary_domain: all
+  risk_class: medium
+  lifecycle_phases:
+  - discover
+  - plan
+  - implement
+  - verify
+  - evidence
+  standard_ids: []
 - id: static-analysis
   name: axiom.legacy.static-analysis
   title: static-analysis
@@ -9532,6 +10148,17 @@ skills:
   enabled: true
   sub_skills:
   - axiom-static-analysis-triage
+  activity: verification
+  capability_kind: general
+  primary_domain: all
+  risk_class: medium
+  lifecycle_phases:
+  - discover
+  - plan
+  - implement
+  - verify
+  - evidence
+  standard_ids: []
 - id: system-test
   name: axiom.legacy.system-test
   title: system-test
@@ -9555,6 +10182,17 @@ skills:
   enabled: true
   sub_skills:
   - axiom-hil-test-planning
+  activity: system-testing
+  capability_kind: general
+  primary_domain: all
+  risk_class: medium
+  lifecycle_phases:
+  - discover
+  - plan
+  - implement
+  - verify
+  - evidence
+  standard_ids: []
 - id: test-automation
   name: axiom.legacy.test-automation
   title: test-automation
@@ -9581,6 +10219,17 @@ skills:
   sub_skills:
   - axiom-embedded-cicd
   - axiom-test-automation
+  activity: unit-testing
+  capability_kind: general
+  primary_domain: all
+  risk_class: medium
+  lifecycle_phases:
+  - discover
+  - plan
+  - implement
+  - verify
+  - evidence
+  standard_ids: []
 - id: traceability
   name: axiom.legacy.traceability
   title: traceability
@@ -9604,6 +10253,17 @@ skills:
   enabled: true
   sub_skills:
   - axiom-interface-contract-design
+  activity: requirements-traceability
+  capability_kind: general
+  primary_domain: all
+  risk_class: medium
+  lifecycle_phases:
+  - discover
+  - plan
+  - implement
+  - verify
+  - evidence
+  standard_ids: []
 - id: unit-test
   name: axiom.legacy.unit-test
   title: unit-test
@@ -9630,6 +10290,17 @@ skills:
   enabled: true
   sub_skills:
   - axiom-test-automation
+  activity: unit-testing
+  capability_kind: general
+  primary_domain: all
+  risk_class: medium
+  lifecycle_phases:
+  - discover
+  - plan
+  - implement
+  - verify
+  - evidence
+  standard_ids: []
 - id: validation
   name: axiom.legacy.validation
   title: validation
@@ -9654,6 +10325,17 @@ skills:
   - axiom-validation-levels
   path: skills/validation
   enabled: true
+  activity: validation
+  capability_kind: general
+  primary_domain: all
+  risk_class: medium
+  lifecycle_phases:
+  - discover
+  - plan
+  - implement
+  - verify
+  - evidence
+  standard_ids: []
 - id: axiom-skill-creator
   name: axiom-skill-creator
   title: Skill Creator (with eval loop and description optimization)
@@ -9688,8 +10370,8 @@ skills:
   mcp_tools: []
   risk_level: medium
   review_required: true
-  activity: ''
-  capability_kind: ''
+  activity: verification
+  capability_kind: domain-specific
   primary_domain: platform
   risk_class: medium
   lifecycle_phases:
@@ -9733,8 +10415,8 @@ skills:
   mcp_tools: []
   risk_level: medium
   review_required: true
-  activity: ''
-  capability_kind: ''
+  activity: implementation
+  capability_kind: domain-specific
   primary_domain: platform
   risk_class: medium
   lifecycle_phases:
@@ -9778,8 +10460,8 @@ skills:
   mcp_tools: []
   risk_level: medium
   review_required: true
-  activity: ''
-  capability_kind: ''
+  activity: architecture
+  capability_kind: domain-specific
   primary_domain: platform
   risk_class: medium
   lifecycle_phases:
@@ -9823,8 +10505,8 @@ skills:
   mcp_tools: []
   risk_level: medium
   review_required: true
-  activity: ''
-  capability_kind: ''
+  activity: verification
+  capability_kind: domain-specific
   primary_domain: platform
   risk_class: medium
   lifecycle_phases:
@@ -9868,8 +10550,8 @@ skills:
   mcp_tools: []
   risk_level: medium
   review_required: true
-  activity: ''
-  capability_kind: ''
+  activity: debugging
+  capability_kind: domain-specific
   primary_domain: platform
   risk_class: medium
   lifecycle_phases:
@@ -9913,8 +10595,8 @@ skills:
   mcp_tools: []
   risk_level: medium
   review_required: true
-  activity: ''
-  capability_kind: ''
+  activity: process-assessment
+  capability_kind: domain-specific
   primary_domain: platform
   risk_class: medium
   lifecycle_phases:
@@ -9958,8 +10640,8 @@ skills:
   mcp_tools: []
   risk_level: medium
   review_required: true
-  activity: ''
-  capability_kind: ''
+  activity: implementation
+  capability_kind: domain-specific
   primary_domain: platform
   risk_class: medium
   lifecycle_phases:
@@ -10003,8 +10685,8 @@ skills:
   mcp_tools: []
   risk_level: medium
   review_required: true
-  activity: ''
-  capability_kind: ''
+  activity: cybersecurity
+  capability_kind: domain-specific
   primary_domain: all
   risk_class: medium
   lifecycle_phases:
@@ -10048,8 +10730,8 @@ skills:
   mcp_tools: []
   risk_level: medium
   review_required: true
-  activity: ''
-  capability_kind: ''
+  activity: security-review
+  capability_kind: domain-specific
   primary_domain: all
   risk_class: medium
   lifecycle_phases:
@@ -10093,8 +10775,8 @@ skills:
   mcp_tools: []
   risk_level: medium
   review_required: true
-  activity: ''
-  capability_kind: ''
+  activity: process-assessment
+  capability_kind: domain-specific
   primary_domain: platform
   risk_class: medium
   lifecycle_phases:
@@ -10138,8 +10820,8 @@ skills:
   mcp_tools: []
   risk_level: medium
   review_required: true
-  activity: ''
-  capability_kind: ''
+  activity: debugging
+  capability_kind: domain-specific
   primary_domain: all
   risk_class: medium
   lifecycle_phases:
@@ -10183,8 +10865,8 @@ skills:
   mcp_tools: []
   risk_level: medium
   review_required: true
-  activity: ''
-  capability_kind: ''
+  activity: architecture
+  capability_kind: domain-specific
   primary_domain: all
   risk_class: medium
   lifecycle_phases:
@@ -10228,8 +10910,8 @@ skills:
   mcp_tools: []
   risk_level: medium
   review_required: true
-  activity: ''
-  capability_kind: ''
+  activity: implementation
+  capability_kind: domain-specific
   primary_domain: all
   risk_class: medium
   lifecycle_phases:
@@ -10273,8 +10955,8 @@ skills:
   mcp_tools: []
   risk_level: medium
   review_required: true
-  activity: ''
-  capability_kind: ''
+  activity: implementation
+  capability_kind: domain-specific
   primary_domain: all
   risk_class: medium
   lifecycle_phases:
@@ -10318,8 +11000,8 @@ skills:
   mcp_tools: []
   risk_level: medium
   review_required: true
-  activity: ''
-  capability_kind: ''
+  activity: documentation
+  capability_kind: domain-specific
   primary_domain: all
   risk_class: medium
   lifecycle_phases:
@@ -10363,8 +11045,8 @@ skills:
   mcp_tools: []
   risk_level: medium
   review_required: true
-  activity: ''
-  capability_kind: ''
+  activity: documentation
+  capability_kind: domain-specific
   primary_domain: all
   risk_class: medium
   lifecycle_phases:
@@ -10408,8 +11090,8 @@ skills:
   mcp_tools: []
   risk_level: medium
   review_required: true
-  activity: ''
-  capability_kind: ''
+  activity: architecture
+  capability_kind: domain-specific
   primary_domain: all
   risk_class: medium
   lifecycle_phases:
@@ -10453,8 +11135,8 @@ skills:
   mcp_tools: []
   risk_level: medium
   review_required: true
-  activity: ''
-  capability_kind: ''
+  activity: implementation
+  capability_kind: domain-specific
   primary_domain: all
   risk_class: medium
   lifecycle_phases:
@@ -10498,8 +11180,8 @@ skills:
   mcp_tools: []
   risk_level: medium
   review_required: true
-  activity: ''
-  capability_kind: ''
+  activity: cybersecurity
+  capability_kind: domain-specific
   primary_domain: all
   risk_class: medium
   lifecycle_phases:
@@ -10543,8 +11225,8 @@ skills:
   mcp_tools: []
   risk_level: medium
   review_required: true
-  activity: ''
-  capability_kind: ''
+  activity: cybersecurity
+  capability_kind: domain-specific
   primary_domain: all
   risk_class: medium
   lifecycle_phases:
@@ -10588,8 +11270,8 @@ skills:
   mcp_tools: []
   risk_level: medium
   review_required: true
-  activity: ''
-  capability_kind: ''
+  activity: cybersecurity
+  capability_kind: domain-specific
   primary_domain: all
   risk_class: medium
   lifecycle_phases:
@@ -10633,8 +11315,8 @@ skills:
   mcp_tools: []
   risk_level: medium
   review_required: true
-  activity: ''
-  capability_kind: ''
+  activity: cybersecurity
+  capability_kind: domain-specific
   primary_domain: all
   risk_class: medium
   lifecycle_phases:
@@ -10678,8 +11360,8 @@ skills:
   mcp_tools: []
   risk_level: medium
   review_required: true
-  activity: ''
-  capability_kind: ''
+  activity: documentation
+  capability_kind: domain-specific
   primary_domain: all
   risk_class: medium
   lifecycle_phases:
@@ -10723,8 +11405,8 @@ skills:
   mcp_tools: []
   risk_level: medium
   review_required: true
-  activity: ''
-  capability_kind: ''
+  activity: documentation
+  capability_kind: domain-specific
   primary_domain: all
   risk_class: medium
   lifecycle_phases:
@@ -10768,8 +11450,8 @@ skills:
   mcp_tools: []
   risk_level: medium
   review_required: true
-  activity: ''
-  capability_kind: ''
+  activity: architecture
+  capability_kind: domain-specific
   primary_domain: all
   risk_class: medium
   lifecycle_phases:
@@ -10813,8 +11495,8 @@ skills:
   mcp_tools: []
   risk_level: medium
   review_required: true
-  activity: ''
-  capability_kind: ''
+  activity: implementation
+  capability_kind: domain-specific
   primary_domain: platform
   risk_class: medium
   lifecycle_phases:
@@ -10858,8 +11540,8 @@ skills:
   mcp_tools: []
   risk_level: medium
   review_required: true
-  activity: ''
-  capability_kind: ''
+  activity: process-assessment
+  capability_kind: domain-specific
   primary_domain: platform
   risk_class: medium
   lifecycle_phases:
@@ -10903,8 +11585,8 @@ skills:
   mcp_tools: []
   risk_level: medium
   review_required: true
-  activity: ''
-  capability_kind: ''
+  activity: process-assessment
+  capability_kind: domain-specific
   primary_domain: aerospace
   risk_class: medium
   lifecycle_phases:
@@ -10948,8 +11630,8 @@ skills:
   mcp_tools: []
   risk_level: medium
   review_required: true
-  activity: ''
-  capability_kind: ''
+  activity: architecture
+  capability_kind: domain-specific
   primary_domain: aerospace
   risk_class: medium
   lifecycle_phases:
@@ -10993,8 +11675,8 @@ skills:
   mcp_tools: []
   risk_level: medium
   review_required: true
-  activity: ''
-  capability_kind: ''
+  activity: implementation
+  capability_kind: domain-specific
   primary_domain: aerospace
   risk_class: medium
   lifecycle_phases:
@@ -11038,8 +11720,8 @@ skills:
   mcp_tools: []
   risk_level: medium
   review_required: true
-  activity: ''
-  capability_kind: ''
+  activity: process-assessment
+  capability_kind: domain-specific
   primary_domain: industrial
   risk_class: medium
   lifecycle_phases:
@@ -11083,8 +11765,8 @@ skills:
   mcp_tools: []
   risk_level: medium
   review_required: true
-  activity: ''
-  capability_kind: ''
+  activity: functional-safety
+  capability_kind: domain-specific
   primary_domain: industrial
   risk_class: medium
   lifecycle_phases:
@@ -11128,8 +11810,8 @@ skills:
   mcp_tools: []
   risk_level: medium
   review_required: true
-  activity: ''
-  capability_kind: ''
+  activity: implementation
+  capability_kind: domain-specific
   primary_domain: industrial
   risk_class: medium
   lifecycle_phases:
@@ -11173,8 +11855,8 @@ skills:
   mcp_tools: []
   risk_level: medium
   review_required: true
-  activity: ''
-  capability_kind: ''
+  activity: implementation
+  capability_kind: domain-specific
   primary_domain: generic-embedded
   risk_class: medium
   lifecycle_phases:
@@ -11218,8 +11900,8 @@ skills:
   mcp_tools: []
   risk_level: medium
   review_required: true
-  activity: ''
-  capability_kind: ''
+  activity: unit-testing
+  capability_kind: domain-specific
   primary_domain: generic-embedded
   risk_class: medium
   lifecycle_phases:
@@ -11263,8 +11945,8 @@ skills:
   mcp_tools: []
   risk_level: medium
   review_required: true
-  activity: ''
-  capability_kind: ''
+  activity: implementation
+  capability_kind: domain-specific
   primary_domain: generic-embedded
   risk_class: medium
   lifecycle_phases:
@@ -11308,8 +11990,8 @@ skills:
   mcp_tools: []
   risk_level: medium
   review_required: true
-  activity: ''
-  capability_kind: ''
+  activity: requirements-traceability
+  capability_kind: domain-specific
   primary_domain: cross-domain
   risk_class: medium
   lifecycle_phases:
@@ -11353,8 +12035,8 @@ skills:
   mcp_tools: []
   risk_level: medium
   review_required: true
-  activity: ''
-  capability_kind: ''
+  activity: architecture
+  capability_kind: domain-specific
   primary_domain: platform
   risk_class: medium
   lifecycle_phases:
@@ -11398,8 +12080,8 @@ skills:
   mcp_tools: []
   risk_level: medium
   review_required: true
-  activity: ''
-  capability_kind: ''
+  activity: implementation
+  capability_kind: domain-specific
   primary_domain: platform
   risk_class: medium
   lifecycle_phases:
@@ -11443,8 +12125,8 @@ skills:
   mcp_tools: []
   risk_level: medium
   review_required: true
-  activity: ''
-  capability_kind: ''
+  activity: implementation
+  capability_kind: domain-specific
   primary_domain: platform
   risk_class: medium
   lifecycle_phases:
@@ -11488,8 +12170,8 @@ skills:
   mcp_tools: []
   risk_level: medium
   review_required: true
-  activity: ''
-  capability_kind: ''
+  activity: debugging
+  capability_kind: domain-specific
   primary_domain: platform
   risk_class: medium
   lifecycle_phases:
@@ -11533,8 +12215,8 @@ skills:
   mcp_tools: []
   risk_level: medium
   review_required: true
-  activity: ''
-  capability_kind: ''
+  activity: process-assessment
+  capability_kind: domain-specific
   primary_domain: platform
   risk_class: medium
   lifecycle_phases:
@@ -11578,8 +12260,8 @@ skills:
   mcp_tools: []
   risk_level: medium
   review_required: true
-  activity: ''
-  capability_kind: ''
+  activity: implementation
+  capability_kind: domain-specific
   primary_domain: all
   risk_class: medium
   lifecycle_phases:
@@ -11623,8 +12305,8 @@ skills:
   mcp_tools: []
   risk_level: medium
   review_required: true
-  activity: ''
-  capability_kind: ''
+  activity: implementation
+  capability_kind: domain-specific
   primary_domain: all
   risk_class: medium
   lifecycle_phases:
@@ -11668,8 +12350,8 @@ skills:
   mcp_tools: []
   risk_level: medium
   review_required: true
-  activity: ''
-  capability_kind: ''
+  activity: implementation
+  capability_kind: domain-specific
   primary_domain: generic-embedded
   risk_class: medium
   lifecycle_phases:
@@ -11713,8 +12395,8 @@ skills:
   mcp_tools: []
   risk_level: medium
   review_required: true
-  activity: ''
-  capability_kind: ''
+  activity: architecture
+  capability_kind: domain-specific
   primary_domain: generic-embedded
   risk_class: medium
   lifecycle_phases:
@@ -11758,8 +12440,8 @@ skills:
   mcp_tools: []
   risk_level: medium
   review_required: true
-  activity: ''
-  capability_kind: ''
+  activity: implementation
+  capability_kind: domain-specific
   primary_domain: generic-embedded
   risk_class: medium
   lifecycle_phases:
@@ -11803,8 +12485,8 @@ skills:
   mcp_tools: []
   risk_level: medium
   review_required: true
-  activity: ''
-  capability_kind: ''
+  activity: implementation
+  capability_kind: domain-specific
   primary_domain: all
   risk_class: medium
   lifecycle_phases:
@@ -11848,8 +12530,8 @@ skills:
   mcp_tools: []
   risk_level: medium
   review_required: true
-  activity: ''
-  capability_kind: ''
+  activity: architecture
+  capability_kind: domain-specific
   primary_domain: all
   risk_class: medium
   lifecycle_phases:
@@ -11893,8 +12575,8 @@ skills:
   mcp_tools: []
   risk_level: medium
   review_required: true
-  activity: ''
-  capability_kind: ''
+  activity: architecture
+  capability_kind: domain-specific
   primary_domain: all
   risk_class: medium
   lifecycle_phases:
@@ -11938,8 +12620,8 @@ skills:
   mcp_tools: []
   risk_level: medium
   review_required: true
-  activity: ''
-  capability_kind: ''
+  activity: implementation
+  capability_kind: domain-specific
   primary_domain: all
   risk_class: medium
   lifecycle_phases:
@@ -11983,8 +12665,8 @@ skills:
   mcp_tools: []
   risk_level: medium
   review_required: true
-  activity: ''
-  capability_kind: ''
+  activity: implementation
+  capability_kind: domain-specific
   primary_domain: platform
   risk_class: medium
   lifecycle_phases:
@@ -12028,8 +12710,8 @@ skills:
   mcp_tools: []
   risk_level: medium
   review_required: true
-  activity: ''
-  capability_kind: ''
+  activity: unit-testing
+  capability_kind: domain-specific
   primary_domain: all
   risk_class: medium
   lifecycle_phases:
@@ -12073,8 +12755,8 @@ skills:
   mcp_tools: []
   risk_level: medium
   review_required: true
-  activity: ''
-  capability_kind: ''
+  activity: system-testing
+  capability_kind: domain-specific
   primary_domain: all
   risk_class: medium
   lifecycle_phases:
@@ -12118,8 +12800,8 @@ skills:
   mcp_tools: []
   risk_level: medium
   review_required: true
-  activity: ''
-  capability_kind: ''
+  activity: debugging
+  capability_kind: domain-specific
   primary_domain: all
   risk_class: medium
   lifecycle_phases:
@@ -12163,8 +12845,8 @@ skills:
   mcp_tools: []
   risk_level: medium
   review_required: true
-  activity: ''
-  capability_kind: ''
+  activity: implementation
+  capability_kind: domain-specific
   primary_domain: all
   risk_class: medium
   lifecycle_phases:
@@ -12208,8 +12890,8 @@ skills:
   mcp_tools: []
   risk_level: medium
   review_required: true
-  activity: ''
-  capability_kind: ''
+  activity: cybersecurity
+  capability_kind: domain-specific
   primary_domain: all
   risk_class: medium
   lifecycle_phases:
@@ -12253,8 +12935,8 @@ skills:
   mcp_tools: []
   risk_level: medium
   review_required: true
-  activity: ''
-  capability_kind: ''
+  activity: security-review
+  capability_kind: domain-specific
   primary_domain: all
   risk_class: medium
   lifecycle_phases:
@@ -12298,8 +12980,8 @@ skills:
   mcp_tools: []
   risk_level: medium
   review_required: true
-  activity: ''
-  capability_kind: ''
+  activity: process-assessment
+  capability_kind: domain-specific
   primary_domain: all
   risk_class: medium
   lifecycle_phases:
@@ -12343,8 +13025,8 @@ skills:
   mcp_tools: []
   risk_level: medium
   review_required: true
-  activity: ''
-  capability_kind: ''
+  activity: release-readiness
+  capability_kind: domain-specific
   primary_domain: generic-embedded
   risk_class: medium
   lifecycle_phases:
@@ -12388,8 +13070,8 @@ skills:
   mcp_tools: []
   risk_level: medium
   review_required: true
-  activity: ''
-  capability_kind: ''
+  activity: release-readiness
+  capability_kind: domain-specific
   primary_domain: generic-embedded
   risk_class: medium
   lifecycle_phases:
