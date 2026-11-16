@@ -43,13 +43,13 @@ repository review.
 ### Relationship semantics
 16 relationship types defined in `taxonomies/relationship-semantics.yaml`.
 
-## Phase 2 — Metadata and validation (Planned)
+## Phase 2 — Metadata and validation (In Progress)
 
-- [ ] Extend `enrich_catalog_facets.py` to populate `activity`, `capability_kind`, `primary_domain`, `risk_class`, `lifecycle_phases`, `standard_ids` from skill metadata.
-- [ ] Update `schemas/skill.schema.json` validation in `packages/skills/validator.py`.
-- [ ] Add cross-file consistency checks (catalog <-> manifest <-> frontmatter).
-- [ ] Add standard lifecycle validation (draft/pre-release must not replace published).
-- [ ] Add domain separation test (automotive request must not load aerospace-only process).
+- [x] Extend `enrich_catalog_facets.py` to populate `activity`, `capability_kind`, `primary_domain`, `risk_class`, `lifecycle_phases`, `standard_ids` from skill metadata.
+- [x] Add DESA warning checks in `packages/skills/validator.py` (`desa_checks`: unknown activity/kind/standard, draft-must-not-replace-published).
+- [ ] Promote cross-file consistency checks (catalog <-> manifest <-> frontmatter) to errors.
+- [x] Add standard lifecycle validation (draft/pre-release must not replace published).
+- [x] Add domain separation test (`tests/test_desa_phases.py`).
 - [ ] Add missing-context test (skill must ask for missing standard/ASIL/DAL/SIL/toolchain/hardware).
 
 ## Phase 3 — Contribution lifecycle (In Progress)
@@ -73,15 +73,15 @@ First batch for four reference domains (automotive, aerospace, industrial, robot
 
 Each family independently reviewed and tested before expansion.
 
-## Phase 5 — Routing and groups (Planned)
+## Phase 5 — Routing and groups (In Progress)
 
-- [ ] Add `activity` key support to group matcher
+- [x] Add `activity` (+`capability_kind`, `primary_domain`, `risk_class`) key support to group matcher
 - [ ] Add domain filtering to `axiom engage`
 - [ ] Update `configs/domain-routing.yaml` for activity-based routing
 
-## Phase 6 — Evaluation (Planned)
+## Phase 6 — Evaluation (In Progress)
 
-- [ ] Cross-domain separation tests
+- [x] Cross-domain separation tests (`tests/test_desa_phases.py`)
 - [ ] Task-based evaluation cases
 - [ ] Hardware validation where available
 

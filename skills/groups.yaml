@@ -9,7 +9,7 @@
 #
 # Rule semantics: `match_any` is OR; each clause is AND across its keys,
 # OR within a key's list. Keys: id, id_prefix, domain, subdomain, tags,
-# maturity. Invariant (CI-enforced): every enabled catalog skill matches
+# maturity, activity, capability_kind, primary_domain, risk_class. Invariant (CI-enforced): every enabled catalog skill matches
 # >= 1 group.
 schema_version: 1
 groups:
