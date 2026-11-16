@@ -85,15 +85,19 @@ per `workflows/embedded-skills-deep-update.yaml` v2 and `review-gates.md` G5.
 ### Automotive remaining (each one branch per skill)
 - [x] requirements-allocation — DONE (branch `feat/skill-axiom-automotive-requirements-allocation`; single-owner allocation, interface contracts, UNALLOCATED-with-rationale; 262 OK, DESA 13/13; awaiting review)
 - [x] code-review — DONE (branch `feat/skill-axiom-automotive-code-review`; SWE.5/SWE.6 process review delegating rule checks to `axiom-misra-c-cpp-review`; validator + checklist + template + record validator + 2 skill tests; 262 OK, DESA 13/13, packaging 6/6; awaiting review)
+- [x] functional-safety — DONE via reuse, no new skill (branch `feat/upgrade-automotive-safety-wiring`; `axiom-functional-safety` already deep ISO 26262 concept-phase: HARA/ASIL/SG/FSC/FSR + asil-table; upgrade = frontmatter `related_skills` wired to the 5 new DESA skills, maturity stays experimental; family-map nested activities for all 5 new skills set to existing + skill id; the 5 skill branches had their top-level map keys reverted to base so merges stay clean; pipeline 261 OK, DESA 13/13, packaging 6/6; awaiting review)
 - [ ] safety-review / security-review (distinct from functional-safety/cybersecurity build skills)
 - [x] standards-applicability — DONE (branch `feat/skill-axiom-automotive-standards-applicability`, commit b11b09f; applicability matrix with APPLICABLE/NOT_APPLICABLE/DEFERRED verdicts, lifecycle gate, matrix validator + 2 skill tests; pipeline --check 262 OK, DESA 13/13, packaging 8/8; awaiting review)
 - [x] verification - DONE (branch `feat/skill-axiom-automotive-requirements-verification`; SWE.4/SWE.5/SWE.6 requirements-to-evidence closure, technique delegation, verdict record validator + 2 skill tests; pipeline 262 OK, DESA 13/13, packaging 6/6; awaiting review)
 - [ ] unit/integration/system-testing, validation (bind to V-model + ASPICE SWE.4-6)
 - [ ] configuration-management, release-readiness (bind to axiom release verdicts)
 - [ ] debugging, documentation (domain-specific workflows)
-- [ ] Upgrade-in-place (no new skill): automotive-coding, axiom-functional-safety,
+- [ ] Upgrade-in-place (no new skill): automotive-coding,
       axiom-automotive-cybersecurity, axiom-automotive-architecture,
       axiom-automotive-spice — raise maturity through validation, not metadata.
+      (axiom-functional-safety wiring DONE above; standard_ids normalization
+      deferred as Phase 2 remainder — 99 catalog entries use human-readable
+      standard names, needs registry-alias mapping, not per-skill fixes.)
 
 ### Other reference domains (aerospace, industrial, robotics)
 - [ ] Mirror the automotive batch per domain family map; reuse cross-domain
