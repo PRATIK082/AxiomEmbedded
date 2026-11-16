@@ -93,3 +93,36 @@ def test_all_catalog_entries_have_valid_activity():
     cat = _catalog()
     for e in cat["skills"]:
         assert e.get("activity", "") in valid, f"{e['id']} bad activity {e.get('activity')!r}"
+
+
+def test_desa_draft_standard_warns_no_silent_replace():
+    # Phase 2/6: a draft or pre-release standard id must warn so a reviewer
+    # confirms it never replaces a published edition.
+    _, warns = desa_checks("s", {"standard_ids": ["iso-pas-8800"]})
+    assert any("must not replace published" in w for w in warns)
+
+
+def test_cross_file_consistency_is_error_level():
+    # Phase 2 promotion: catalog<->disk and index linkage gate the verdict.
+    from packages.skills.validator import validate_all
+    res = validate_all()
+    assert res["valid"] is True
+    assert res["unindexed_in_skill_index"] == []
+    assert (res["catalog"] or {}).get("valid") is True
+
+
+def test_activity_routing_refs_known_groups_and_activities():
+    # Phase 5: every activity_routing key is a taxonomy activity and every
+    # group exists in skills/groups.yaml.
+    import yaml as _yaml
+    routing = _yaml.safe_load((ROOT / "configs" / "domain-routing.yaml").read_text(encoding="utf-8"))
+    acts = _yaml.safe_load((ROOT / "taxonomies" / "activities.yaml").read_text(encoding="utf-8"))
+    groups = load_groups()
+    group_ids = set(groups.get("groups", groups).keys())
+    ar = routing.get("activity_routing", {})
+    assert ar, "activity_routing section missing"
+    valid_acts = set((acts.get("activities") or {}).keys())
+    for activity, group_list in ar.items():
+        assert activity in valid_acts, f"unknown activity {activity!r}"
+        for grp in group_list:
+            assert grp in group_ids, f"unknown group {grp!r} for {activity!r}"

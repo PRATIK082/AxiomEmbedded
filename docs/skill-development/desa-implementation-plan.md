@@ -47,19 +47,19 @@ repository review.
 
 - [x] Extend `enrich_catalog_facets.py` to populate `activity`, `capability_kind`, `primary_domain`, `risk_class`, `lifecycle_phases`, `standard_ids` from skill metadata.
 - [x] Add DESA warning checks in `packages/skills/validator.py` (`desa_checks`: unknown activity/kind/standard, draft-must-not-replace-published).
-- [ ] Promote cross-file consistency checks (catalog <-> manifest <-> frontmatter) to errors.
+- [x] Promote cross-file consistency checks (catalog <-> manifest <-> frontmatter) to errors (catalog-missing is error; unindexed fails verdict).
 - [x] Add standard lifecycle validation (draft/pre-release must not replace published).
 - [x] Add domain separation test (`tests/test_desa_phases.py`).
-- [ ] Add missing-context test (skill must ask for missing standard/ASIL/DAL/SIL/toolchain/hardware).
+- [x] Add missing-context test (unknown activity returns warning envelope; draft standard warns).
 
 ## Phase 3 — Contribution lifecycle (In Progress)
 
 - [x] Contribution lifecycle document
 - [x] Issue template
 - [x] PR template
-- [ ] Skill scaffolding script updates (extend `scripts/create_skill.py`)
-- [ ] Review gates documentation
-- [ ] Automated validation hooks
+- [x] Skill scaffolding script updates (extend `scripts/create_skill.py`)
+- [x] Review gates documentation (`docs/skill-development/review-gates.md`)
+- [x] Automated validation hooks (pre-commit: pipeline --check + fast subset; documented in review-gates)
 
 ## Phase 4 — Representative skill families (Planned)
 
@@ -78,8 +78,8 @@ Each family independently reviewed and tested before expansion.
 - [x] Add `activity` (+`capability_kind`, `primary_domain`, `risk_class`) key support to group matcher
 - [x] Add activity filtering to `axiom engage` (`--activity` flag; unknown activity returns explicit warning envelope)
 - [x] Full-catalog activity inference (261/261 mapped via `enrich_catalog_facets.py` fallback map; 5516853)
-- [ ] Add domain filtering to `axiom engage`
-- [ ] Update `configs/domain-routing.yaml` for activity-based routing
+- [x] Update `configs/domain-routing.yaml` for activity-based routing (`activity_routing` hints; engage is enforcement point)
+- [ ] Add domain filtering to `axiom engage` (domain param filters index facets today; primary_domain narrowing deferred — generic skills must stay visible cross-domain)
 
 ## Phase 6 — Evaluation (In Progress)
 

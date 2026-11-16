@@ -169,8 +169,11 @@ def validate_all(catalog_path: pathlib.Path | None = None) -> dict:
         cat_ids = {e["id"] for e in load_catalog(cp).get("skills", [])}
         missing = set(ids) - cat_ids - {"_templates"}
         if missing:
-            catalog_report["warnings"].append(
+            # Phase 2 promotion: catalog <-> disk consistency is an error,
+            # not a warning. Every skill directory must be registered.
+            catalog_report["errors"].append(
                 f"skills on disk missing from catalog: {sorted(missing)}")
+            catalog_report["valid"] = False
     # index linkage
     try:
         index = json.loads((ROOT / "registries" / "skill-index.json").read_text(
@@ -179,7 +182,7 @@ def validate_all(catalog_path: pathlib.Path | None = None) -> dict:
     except FileNotFoundError:
         unindexed = set(ids)
     ok = all(r["valid"] for r in results) and (
-        catalog_report is None or catalog_report["valid"])
+        catalog_report is None or catalog_report["valid"]) and not unindexed
     return {"valid": ok, "skills": results,
             "catalog": catalog_report,
             "unindexed_in_skill_index": sorted(unindexed)}

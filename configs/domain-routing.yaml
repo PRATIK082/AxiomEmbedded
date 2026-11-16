@@ -113,6 +113,38 @@ domains:
     priority_skills: [security, embedded-linux, code-review, edge-ai]
     detect_keywords: [iot, matter, thread, zigbee, lora, nb-iot, coap, mqtt-sn, openthread]
     repo_signals: ['matter', 'openthread', 'lora']
+# Activity routing (DESA Phase 5): DESA activity key -> skill group hints.
+# Documentation-first: `axiom engage --activity <key>` is the enforcement
+# point (unknown activity returns an explicit warning envelope, never silent
+# results). Router integration (auto-selecting these groups on activity
+# detection) is future work; until then agents apply these hints manually.
+# Group ids must exist in skills/groups.yaml.
+activity_routing:
+  requirements-analysis: [architecture, testing-verification]
+  requirements-allocation: [architecture, testing-verification]
+  requirements-derivation: [architecture, testing-verification]
+  requirements-review: [architecture, ways-of-working]
+  requirements-traceability: [architecture, testing-verification]
+  architecture: [architecture]
+  implementation: [embedded-core]
+  coding-guidelines: [embedded-core, ways-of-working]
+  code-review: [testing-verification, ways-of-working]
+  debugging: [embedded-core]
+  unit-testing: [testing-verification]
+  integration-testing: [testing-verification]
+  system-testing: [testing-verification]
+  verification: [testing-verification]
+  validation: [testing-verification]
+  sil-hil: [testing-verification]
+  functional-safety: [safety-security, assurance]
+  safety-review: [safety-security, assurance]
+  cybersecurity: [safety-security]
+  security-review: [safety-security]
+  configuration-management: [embedded-core, ways-of-working]
+  documentation: [ways-of-working]
+  process-assessment: [assurance, extended-quality-integration]
+  release-readiness: [release-process]
+  standards-applicability: [assurance, ways-of-working]
 # Agent binding: every Tab-selectable agent follows the same Step 0.
 # core_skill: same-name skill when it exists, else closest generic skill.
 # overlay_source: always configs/domain-routing.yaml + engage() output.
