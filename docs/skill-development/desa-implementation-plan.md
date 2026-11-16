@@ -87,7 +87,8 @@ per `workflows/embedded-skills-deep-update.yaml` v2 and `review-gates.md` G5.
 - [x] code-review — DONE (branch `feat/skill-axiom-automotive-code-review`; SWE.5/SWE.6 process review delegating rule checks to `axiom-misra-c-cpp-review`; validator + checklist + template + record validator + 2 skill tests; 262 OK, DESA 13/13, packaging 6/6; awaiting review)
 - [ ] safety-review / security-review (distinct from functional-safety/cybersecurity build skills)
 - [x] standards-applicability — DONE (branch `feat/skill-axiom-automotive-standards-applicability`, commit b11b09f; applicability matrix with APPLICABLE/NOT_APPLICABLE/DEFERRED verdicts, lifecycle gate, matrix validator + 2 skill tests; pipeline --check 262 OK, DESA 13/13, packaging 8/8; awaiting review)
-- [ ] unit/integration/system-testing, verification, validation (bind to V-model + ASPICE SWE.4-6)
+- [x] verification - DONE (branch `feat/skill-axiom-automotive-requirements-verification`; SWE.4/SWE.5/SWE.6 requirements-to-evidence closure, technique delegation, verdict record validator + 2 skill tests; pipeline 262 OK, DESA 13/13, packaging 6/6; awaiting review)
+- [ ] unit/integration/system-testing, validation (bind to V-model + ASPICE SWE.4-6)
 - [ ] configuration-management, release-readiness (bind to axiom release verdicts)
 - [ ] debugging, documentation (domain-specific workflows)
 - [ ] Upgrade-in-place (no new skill): automotive-coding, axiom-functional-safety,
