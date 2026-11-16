@@ -76,6 +76,8 @@ Each family independently reviewed and tested before expansion.
 ## Phase 5 — Routing and groups (In Progress)
 
 - [x] Add `activity` (+`capability_kind`, `primary_domain`, `risk_class`) key support to group matcher
+- [x] Add activity filtering to `axiom engage` (`--activity` flag; unknown activity returns explicit warning envelope)
+- [x] Full-catalog activity inference (261/261 mapped via `enrich_catalog_facets.py` fallback map; 5516853)
 - [ ] Add domain filtering to `axiom engage`
 - [ ] Update `configs/domain-routing.yaml` for activity-based routing
 
