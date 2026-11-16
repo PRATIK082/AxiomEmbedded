@@ -1,6 +1,6 @@
 id: embedded-skills-deep-update
-version: 1.0.0
-description: Deep research and comprehensive update of all embedded skills modules
+version: 2.0.0
+description: DESA-gated deep research and comprehensive update of embedded skills, one review-gated branch per skill
 engine: AxiomEmbedded
 triggers:
   - manual
@@ -49,8 +49,27 @@ gates:
   - human-approval-for-sensitive-actions
   - no-breaking-change-without-migration
   - standards-cited
+  - desa-facets-valid
+  - catalog-index-consistent
+  - one-branch-per-skill
 policies:
   lifecycle: v-model
   mode: plan-then-execute
-  per_skill_branch: "chore/skill-<name>-deep-update"
+  per_skill_branch: "feat/skill-<name>"
   max_verify_retries: 3
+  # DESA best practices (see docs/skill-development/review-gates.md G1-G5)
+  reuse_before_create: true
+  facets_required:
+    - activity
+    - capability_kind
+    - primary_domain
+    - risk_class
+    - lifecycle_phases
+    - standard_ids
+  review_gates: docs/skill-development/review-gates.md
+  routing_source_of_truth: configs/domain-routing.yaml
+  generated_files_owner: skill_pipeline.py
+  verification:
+    - python scripts/skill_pipeline.py --check
+    - python -m pytest tests/test_desa_phases.py -q
+    - python -m pytest tests/test_packaging.py -q

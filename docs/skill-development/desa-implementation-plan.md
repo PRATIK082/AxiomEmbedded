@@ -61,7 +61,7 @@ repository review.
 - [x] Review gates documentation (`docs/skill-development/review-gates.md`)
 - [x] Automated validation hooks (pre-commit: pipeline --check + fast subset; documented in review-gates)
 
-## Phase 4 — Representative skill families (Planned)
+## Phase 4 — Representative skill families (In Progress)
 
 First batch for four reference domains (automotive, aerospace, industrial, robotics):
 - Requirements analysis and allocation
@@ -71,7 +71,32 @@ First batch for four reference domains (automotive, aerospace, industrial, robot
 - Cybersecurity
 - Standards applicability
 
-Each family independently reviewed and tested before expansion.
+Each family lands on its own review-gated branch (`feat/skill-<name>`)
+per `workflows/embedded-skills-deep-update.yaml` v2 and `review-gates.md` G5.
+
+### Automotive pilot — DONE (branch `feat/skill-axiom-automotive-requirements-analysis`)
+- `axiom-automotive-requirements-analysis` (requirements-analysis; SWE.1 flow-down,
+  SHALL-form, ASIL-from-safety-plan-only, traceability stubs, gap report).
+- Reuse check first: only generic `requirements` engaged for
+  automotive+requirements-analysis, so a new domain skill was justified.
+- Pipeline --check PASS (262 skills); DESA suite 13/13 PASS.
+- Awaiting review (APPROVED / CHANGES_REQUIRED / BLOCKED) before merge.
+
+### Automotive remaining (each one branch per skill)
+- [ ] requirements-allocation (+ derivation/traceability/review as needed)
+- [ ] code-review (new; reviewer checks evidence, never accepts bare PASS)
+- [ ] safety-review / security-review (distinct from functional-safety/cybersecurity build skills)
+- [ ] standards-applicability (binds standards/registry.yaml lifecycle to module scope)
+- [ ] unit/integration/system-testing, verification, validation (bind to V-model + ASPICE SWE.4-6)
+- [ ] configuration-management, release-readiness (bind to axiom release verdicts)
+- [ ] debugging, documentation (domain-specific workflows)
+- [ ] Upgrade-in-place (no new skill): automotive-coding, axiom-functional-safety,
+      axiom-automotive-cybersecurity, axiom-automotive-architecture,
+      axiom-automotive-spice — raise maturity through validation, not metadata.
+
+### Other reference domains (aerospace, industrial, robotics)
+- [ ] Mirror the automotive batch per domain family map; reuse cross-domain
+      skills (reviews, testing method) where the activity is domain-agnostic.
 
 ## Phase 5 — Routing and groups (In Progress)
 
@@ -97,13 +122,14 @@ Each family independently reviewed and tested before expansion.
 - Existing 259 skills have not been reclassified yet; their `axiom.subdomain` is mostly "legacy".
 - Domain skill-family-maps list mostly "planned" skills.
 - Standards registry is new; existing `standards/` YAML files still use minimal metadata.
-- Group matcher does not yet support `activity` key.
-- No automated domain separation or missing-context tests yet.
+- Group matcher supports `activity` (+`capability_kind`, `primary_domain`, `risk_class`); `axiom engage --activity` filters via the DESA activity map with an explicit warning envelope for unknown activities.
+- Automated domain separation + missing-context tests exist (`tests/test_desa_phases.py`, 13 tests).
 
 ## Next steps
 
 1. ~~Run `python scripts/skill_pipeline.py --check` to verify no breakage.~~ DONE — PASS (261 skills).
 2. ~~Packaging foundation (pip + npm) and readiness skills.~~ DONE — `package.json` + `bin/axiom.js` + `tests/test_packaging.py`; `axiom-production-readiness` + `axiom-deployment-readiness`; `agents/release` owns both verdicts.
-3. Implement Phase 2 metadata enrichment (populate DESA facets from skill metadata).
-3. Begin Phase 4 with automotive requirements analysis skill family.
-4. Update remaining domain profiles for the other 12 domains.
+3. ~~Implement Phase 2 metadata enrichment (populate DESA facets from skill metadata).~~ DONE — facets + validator promotion + activity routing (7e90b34).
+4. Phase 4 automotive batch: pilot DONE (awaiting review); work the remaining
+   list above one-branch-per-skill in domain-map order.
+5. Update remaining domain profiles for the other 12 domains.
