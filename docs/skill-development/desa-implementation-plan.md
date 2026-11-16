@@ -103,7 +103,8 @@ per `workflows/embedded-skills-deep-update.yaml` v2 and `review-gates.md` G5.
 ### Other reference domains (aerospace, industrial, robotics)
 - [x] Aerospace requirements-analysis — DONE (branch `feat/skill-axiom-aerospace-requirements-analysis`; ARP4754A system-to-HLR flow-down, DO-178C HLR characteristics, derived-requirement flagging, DAL-from-ARP4761-only; validator + checklist + template + record validator + 2 skill tests; 262 OK, DESA+packaging 19/19; awaiting review)
 - [x] Aerospace requirements-allocation — DONE, verified real (branch `feat/skill-axiom-aerospace-requirements-allocation`, commit `95a4764`, pushed; ARP4754A/DO-178C single-owner allocation, UNALLOCATED-with-rationale, validator + 2 skill tests; DESA+packaging 19/19, pipeline 262 OK; awaiting review)
-- [ ] Aerospace remaining: code-review, verification, standards-applicability (industrial/robotics need allocation + verification each)
+- [x] Aerospace code-review — DONE, verified real (branch `feat/skill-axiom-aerospace-code-review`, DO-178C verification-review process, DAL independence, verdict contract, 2 skill tests; DESA+packaging 19/19, pipeline 262 OK; awaiting review)
+- [ ] Aerospace remaining: verification, standards-applicability (industrial/robotics need allocation + verification each)
 - [ ] Mirror the automotive batch per domain family map; reuse cross-domain
       skills (reviews, testing method) where the activity is domain-agnostic.
 
