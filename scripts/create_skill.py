@@ -13,7 +13,8 @@ ROOT = pathlib.Path(__file__).resolve().parents[1]
 ID_RE = re.compile(r"^axiom-[a-z0-9]+(-[a-z0-9]+)+$")
 
 
-def _catalog_entry(skill_id, title, domain):
+def _catalog_entry(skill_id, title, domain, activity="", capability_kind="domain-specific",
+                   standard_ids=None):
     return {
         "id": skill_id,
         "name": skill_id,
@@ -32,12 +33,22 @@ def _catalog_entry(skill_id, title, domain):
         "path": f"skills/{skill_id}",
         "enabled": True,
         "sub_skills": [],
+        "activity": activity,
+        "capability_kind": capability_kind,
+        "primary_domain": domain,
+        "risk_class": "medium",
+        "lifecycle_phases": ["discover", "plan", "implement", "verify", "evidence"],
+        "standard_ids": list(standard_ids or []),
     }
 
 
-def scaffold(skill_id: str, title: str, domain: str, apply: bool = False) -> list[str]:
+def scaffold(skill_id: str, title: str, domain: str, apply: bool = False,
+             activity: str = "", capability_kind: str = "domain-specific",
+             standard_ids: list | None = None) -> list[str]:
     if not ID_RE.match(skill_id):
         raise ValueError(f"skill id must match {ID_RE.pattern}: {skill_id!r}")
+    stds = list(standard_ids or [])
+    stds_yaml = "[" + ", ".join(stds) + "]" if stds else "[]"
     d = ROOT / "skills" / skill_id
     if (d / "SKILL.md").exists():
         raise FileExistsError(f"skill exists: {skill_id}")
@@ -51,6 +62,10 @@ def scaffold(skill_id: str, title: str, domain: str, apply: bool = False) -> lis
           f"  inputs: [repository path, objective, constraints]\n"
           f"  outputs: [run report, run manifest]\n"
           f"  risk_level: medium\n  lifecycle: [discover, plan, implement, verify, evidence]\n"
+          f"  activity: {activity}\n  capability_kind: {capability_kind}\n"
+          f"  primary_domain: {domain}\n  risk_class: medium\n"
+          f"  lifecycle_phases: [discover, plan, implement, verify, evidence]\n"
+          f"  standard_ids: {stds_yaml}\n"
           f"  artifact_types: [report, manifest]\n  related_skills: []\n")
     body = (f"---\n{fm}---\n\n# Axiom {title}\n\n## Purpose\n{title} workflow for {domain}.\n\n"
             "## When to Use\n- Concrete trigger conditions recorded per engagement.\n\n"
@@ -78,7 +93,11 @@ def scaffold(skill_id: str, title: str, domain: str, apply: bool = False) -> lis
         (d / "SKILL.md").write_text(body, encoding="utf-8")
         (d / "manifest.yaml").write_text(
             f"id: {skill_id}\nversion: 1.2.0\ncontract_version: 1\n"
-            f"type: reusable-skill\n"
+            f"type: domain-skill\n"
+            f"primary_domain: {domain}\n"
+            f"activity: {activity}\n"
+            f"capability_kind: {capability_kind}\n"
+            f"standard_ids: {stds_yaml}\n"
             f"facets:\n  domains:\n  - {domain}\n  platforms:\n  - mcu\n"
             f"  lifecycle: [discover, plan, implement, verify, evidence]\n"
             f"  artifact_types: [report, manifest]\n"
@@ -96,7 +115,8 @@ def scaffold(skill_id: str, title: str, domain: str, apply: bool = False) -> lis
             cat = yaml.safe_load(cp.read_text(encoding="utf-8")) or {}
             skills = cat.setdefault("skills", [])
             if not any(e.get("id") == skill_id for e in skills):
-                skills.append(_catalog_entry(skill_id, title, domain))
+                skills.append(_catalog_entry(skill_id, title, domain, activity,
+                                             capability_kind, stds))
                 cp.write_text(yaml.safe_dump(cat, sort_keys=False, allow_unicode=True), encoding="utf-8")
     return plan
 
@@ -106,10 +126,14 @@ def main() -> int:
     ap.add_argument("--id", required=True)
     ap.add_argument("--title", required=True)
     ap.add_argument("--domain", default="automotive")
+    ap.add_argument("--activity", default="")
+    ap.add_argument("--kind", default="domain-specific")
+    ap.add_argument("--standard", action="append", default=[], dest="standards")
     ap.add_argument("--apply", action="store_true")
     args = ap.parse_args()
     try:
-        plan = scaffold(args.id, args.title, args.domain, args.apply)
+        plan = scaffold(args.id, args.title, args.domain, args.apply,
+                        args.activity, args.kind, args.standards)
     except (ValueError, FileExistsError) as exc:
         print(f"create_skill: FAIL ({exc})")
         return 1
