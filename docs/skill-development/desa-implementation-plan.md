@@ -104,9 +104,9 @@ per `workflows/embedded-skills-deep-update.yaml` v2 and `review-gates.md` G5.
 - [x] Aerospace requirements-analysis — DONE (branch `feat/skill-axiom-aerospace-requirements-analysis`; ARP4754A system-to-HLR flow-down, DO-178C HLR characteristics, derived-requirement flagging, DAL-from-ARP4761-only; validator + checklist + template + record validator + 2 skill tests; 262 OK, DESA+packaging 19/19; awaiting review)
 - [x] Aerospace requirements-allocation — DONE, verified real (branch `feat/skill-axiom-aerospace-requirements-allocation`, commit `95a4764`, pushed; ARP4754A/DO-178C single-owner allocation, UNALLOCATED-with-rationale, validator + 2 skill tests; DESA+packaging 19/19, pipeline 262 OK; awaiting review)
 - [x] Aerospace code-review — DONE, verified real (branch `feat/skill-axiom-aerospace-code-review`, DO-178C verification-review process, DAL independence, verdict contract, 2 skill tests; DESA+packaging 19/19, pipeline 262 OK; awaiting review)
-- [x] Aerospace verification — DONE, verified real (branch `feat/skill-axiom-aerospace-verification`, DO-178C verification-case/procedure/results closure, structural-coverage objectives, VERIFIED/FAILED/WAIVED verdict contract, 2 skill tests; DESA+packaging 19/19, pipeline 262 OK; awaiting review)
+- [ ] Aerospace verification — NOT DONE (prior entry claimed a branch `feat/skill-axiom-aerospace-verification` as "verified real"; ground-truth audit 2026-11-17 found no such branch, no skill directory, and no commits anywhere in repo history — claim retracted, pending genuine redo)
 - [x] Aerospace standards-applicability — DONE, verified real (branch `feat/skill-axiom-aerospace-standards-applicability`, commit `38a457e`, pushed; APPLICABLE/NOT_APPLICABLE/DEFERRED verdicts, lifecycle gate, DAL provenance, validator + 2 skill tests; DESA+packaging 19/19, pipeline 262 OK; awaiting review)
-- [x] Aerospace loop CLOSED (5/5 families; industrial/robotics need allocation + verification each)
+- [ ] Aerospace loop OPEN (4/5 families real; verification pending redo; industrial/robotics need allocation + verification each; autosar-integ/os/rte upgrades have no surviving branch — pending redo)
 - [ ] Mirror the automotive batch per domain family map; reuse cross-domain
       skills (reviews, testing method) where the activity is domain-agnostic.
 
