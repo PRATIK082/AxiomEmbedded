@@ -66,6 +66,10 @@
       "path": "skills/axiom-adas-validation"
     },
     {
+      "id": "axiom-aerospace-code-review",
+      "path": "skills/axiom-aerospace-code-review"
+    },
+    {
       "id": "axiom-aerospace-defense-safety-review",
       "path": "skills/axiom-aerospace-defense-safety-review"
     },
@@ -76,6 +80,18 @@
     {
       "id": "axiom-aerospace-do254-hardware",
       "path": "skills/axiom-aerospace-do254-hardware"
+    },
+    {
+      "id": "axiom-aerospace-requirements-allocation",
+      "path": "skills/axiom-aerospace-requirements-allocation"
+    },
+    {
+      "id": "axiom-aerospace-requirements-analysis",
+      "path": "skills/axiom-aerospace-requirements-analysis"
+    },
+    {
+      "id": "axiom-aerospace-standards-applicability",
+      "path": "skills/axiom-aerospace-standards-applicability"
     },
     {
       "id": "axiom-agent-evaluation",
@@ -110,12 +126,32 @@
       "path": "skills/axiom-architecture-decision-records"
     },
     {
+      "id": "axiom-automotive-code-review",
+      "path": "skills/axiom-automotive-code-review"
+    },
+    {
       "id": "axiom-automotive-ethernet-someip",
       "path": "skills/axiom-automotive-ethernet-someip"
     },
     {
       "id": "axiom-automotive-release-readiness",
       "path": "skills/axiom-automotive-release-readiness"
+    },
+    {
+      "id": "axiom-automotive-requirements-allocation",
+      "path": "skills/axiom-automotive-requirements-allocation"
+    },
+    {
+      "id": "axiom-automotive-requirements-analysis",
+      "path": "skills/axiom-automotive-requirements-analysis"
+    },
+    {
+      "id": "axiom-automotive-standards-applicability",
+      "path": "skills/axiom-automotive-standards-applicability"
+    },
+    {
+      "id": "axiom-automotive-verification",
+      "path": "skills/axiom-automotive-verification"
     },
     {
       "id": "axiom-autosar-adaptive-deployment",

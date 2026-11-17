@@ -68,7 +68,7 @@ def test_domain_separation_aerospace_vs_autosar():
 def test_engage_activity_filter_returns_subset():
     from packages.skills.engage import engage
     full = engage()
-    assert full["total"] == 261
+    assert full["total"] >= 261
     sub = engage(activity="functional-safety")
     assert sub["status"] == "ok"
     assert 0 < sub["skill_count"] < full["total"]

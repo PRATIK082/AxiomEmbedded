@@ -1,0 +1,23 @@
+gates:
+  - id: scope
+    text: Review scope recorded (files, translation units or change set) with repository path
+  - id: traceability
+    text: Every reviewed unit traces to an allocated requirement, or an UNREVIEWED waiver with rationale exists
+  - id: interfaces
+    text: API signatures, ranges, error codes, ownership, reentrancy checked against the interface specification
+  - id: rule-check
+    text: axiom-misra-c-cpp-review run recorded with tool, version, rule set; mandatory violations resolved or BLOCKED
+  - id: error-paths
+    text: Error, boundary, exhaustion, timeout and recovery paths reviewed with nominal-path rigor
+  - id: safety-delta
+    text: Safety-related changes identified; affected units fully re-reviewed with impact note on dependents
+  - id: generated-code
+    text: Generated code reviewed via generator input/template version, not by editing generated output
+  - id: independence
+    text: Author is not sole reviewer; ASIL C/D scope has an independent reviewer
+  - id: sampling
+    text: Sampling rationale recorded (100% new safety-related units; risk-based otherwise, never claimed as full)
+  - id: verdict
+    text: Verdict READY/REWORK/BLOCKED recorded with evidence references; no READY with open BLOCKED defects
+  - id: rereview
+    text: Re-review scoped to delta plus affected interfaces; defects closed with fix references

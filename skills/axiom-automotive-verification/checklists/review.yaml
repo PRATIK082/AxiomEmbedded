@@ -1,0 +1,26 @@
+# Verification review checklist - all gates must be green for a VERIFIED verdict.
+gates:
+  - id: baseline-complete
+    description: Every in-scope requirement ID is inventoried; out-of-scope items carry rationale.
+  - id: methods-assigned
+    description: Each requirement has a verification method recorded before results exist.
+  - id: testability-confirmed
+    description: Each requirement has acceptance criteria a test or analysis can objectively pass or fail.
+  - id: traceability-present
+    description: Requirement to design/code/test links exist or absence is recorded BLOCKED.
+  - id: execution-delegated
+    description: Tests and analyses executed by owning technique skills; reports collected as evidence.
+  - id: coverage-accounted
+    description: Every requirement has status VERIFIED, FAILED, BLOCKED, WAIVED, or NOT_APPLICABLE.
+  - id: waivers-approved
+    description: Every waiver carries justification and an approval reference.
+  - id: regression-scoped
+    description: Changes re-open verification via traceability-derived re-run scope.
+  - id: independence-recorded
+    description: Safety-related verification independence matches the safety plan; verifier recorded.
+  - id: asil-from-plan-only
+    description: No ASIL assigned, upgraded, or downgraded here; values read from the safety plan.
+  - id: verdict-issued
+    description: Record carries VERIFIED, PARTIAL, or BLOCKED with no silent passes.
+  - id: record-validated
+    description: scripts/validate.py passes on the verdict record.

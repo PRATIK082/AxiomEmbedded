@@ -18,7 +18,7 @@ Surface the plan first; never execute pushes, releases, destructive
 commands, or safety/security-critical changes without recorded human
 approval. Never claim certification or compliance from a heuristic check.
 
-## Skills (261)
+## Skills (270)
 
 - `adas` -- ADAS/AD perception-to-control pipeline, sensor fusion, SOTIF and ASIL decomposition, Euro-NCAP, data closed-loop, OpenSCENARIO/OpenDRIVE HIL. Use for L0-L4 driver assistance and automated driving. Use when adas tasks arise in automotive projects.
 
@@ -52,11 +52,19 @@ approval. Never claim certification or compliance from a heuristic check.
 
 - `axiom-adas-validation` -- Plans sensor-fusion validation, recording/replay campaigns and KPI definitions for ADAS functions. Use when adas validation tasks arise in automotive projects.
 
+- `axiom-aerospace-code-review` -- Aerospace Code Review workflow for aerospace. Use when aerospace code review tasks arise in aerospace projects.
+
 - `axiom-aerospace-defense-safety-review` -- Reviews safety-critical embedded designs against DO-178C/DO-254-style objectives and evidence expectations. Use when aerospace defense safety review tasks arise in aerospace projects.
 
 - `axiom-aerospace-do178c-workflow` -- DO-178C Software Lifecycle Workflow workflow for aerospace. Use when do-178c software lifecycle workflow tasks arise in aerospace projects.
 
 - `axiom-aerospace-do254-hardware` -- DO-254 Hardware Design Assurance workflow for aerospace. Use when do-254 hardware design assurance tasks arise in aerospace projects.
+
+- `axiom-aerospace-requirements-allocation` -- Aerospace requirements allocation workflow for aerospace. Use when aerospace requirements allocation tasks arise in aerospace projects.
+
+- `axiom-aerospace-requirements-analysis` -- Analyzes aircraft and system requirements and flows them down to software high-level requirements (HLR) per ARP4754A and DO-178C, with DAL provenance from the ARP4761 safety assessment. Use when airborne software requirements analysis or HLR flow-down is required.
+
+- `axiom-aerospace-standards-applicability` -- Determine which aerospace standards (DO-178C, ARP4754A, DO-254, ARP4761, IEC 61508) govern an item and record APPLICABLE, NOT_APPLICABLE, or DEFERRED verdicts with rationale. Use when scoping aerospace work or assessing a standard revision against the baseline.
 
 - `axiom-agent-evaluation` -- Agent Evaluation workflow for platform. Use when agent evaluation tasks arise in platform projects.
 
@@ -74,9 +82,19 @@ approval. Never claim certification or compliance from a heuristic check.
 
 - `axiom-architecture-decision-records` -- Authors and reviews Architecture Decision Records (context, options, decision, consequences, compliance notes) with numbering, supersede chains, and review gates, so architectural choices stay traceable across the product lifecycle. Use when architecture decision records tasks arise in all projects.
 
+- `axiom-automotive-code-review` -- ASPICE SWE.5/SWE.6-aligned peer review for automotive C/C++ (MISRA C, AUTOSAR C++14): review planning, ASIL-aware sampling, reviewer independence, safety-related change review, and verification evidence. Invokes axiom-misra-c-cpp-review for rule-level checking. Use when automotive code must pass peer review before integration.
+
 - `axiom-automotive-ethernet-someip` -- Designs Ethernet topology, VLAN/TSN assumptions and SOME/IP service modeling for service-oriented ECUs. Use when automotive ethernet someip tasks arise in automotive projects.
 
 - `axiom-automotive-release-readiness` -- Gates ECU/software release readiness with evidence packaging, open-finding triage and sign-off checklists. Use when automotive release readiness tasks arise in automotive projects.
+
+- `axiom-automotive-requirements-allocation` -- Allocate automotive software requirements to architecture elements and components with interface contracts, ASIL-aware allocation rules and end-to-end traceability. Use when assigning SWE.1 software requirements to AUTOSAR modules, software components or ECU subsystems under Automotive SPICE SWE.1/SWE.2.
+
+- `axiom-automotive-requirements-analysis` -- Analyze automotive stakeholder and system inputs into verifiable software requirements with allocation, ASIL-aware tagging and traceability hooks. Use when decomposing ECU, AUTOSAR or vehicle functions into SHALL-level software requirements under Automotive SPICE SWE.1.
+
+- `axiom-automotive-standards-applicability` -- Automotive Standards Applicability workflow for automotive. Use when automotive standards applicability tasks arise in automotive projects.
+
+- `axiom-automotive-verification` -- ASPICE SWE.4/SWE.5/SWE.6 requirements-driven verification closure for automotive software. Use when proving every allocated software requirement is verified with bidirectional traceability, coverage accounting, and a machine-checkable verdict.
 
 - `axiom-autosar-adaptive-deployment` -- Designs Adaptive service deployment (ara::com manifests, execution/state management, persistency, time sync) with a deployment checklist. Use when autosar adaptive deployment tasks arise in automotive projects.
 

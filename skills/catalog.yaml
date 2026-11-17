@@ -13081,3 +13081,435 @@ skills:
   - verify
   - evidence
   standard_ids: []
+- id: axiom-automotive-requirements-analysis
+  name: axiom-automotive-requirements-analysis
+  title: Automotive requirements analysis
+  version: 1.2.0
+  domain: automotive
+  subdomain: automotive
+  category: implementation
+  maturity: experimental
+  owner: axiom-embedded
+  tags:
+  - skill
+  inputs:
+  - repository path
+  - objective
+  outputs:
+  - report
+  dependencies: []
+  related_skills: []
+  path: skills/axiom-automotive-requirements-analysis
+  enabled: true
+  sub_skills: []
+  activity: requirements-analysis
+  capability_kind: domain-specific
+  primary_domain: automotive
+  risk_class: medium
+  lifecycle_phases:
+  - discover
+  - plan
+  - implement
+  - verify
+  - evidence
+  standard_ids:
+  - automotive-spice
+  - iso-26262
+  lifecycle:
+  - discover
+  - plan
+  - implement
+  - verify
+  - evidence
+  standards: []
+  artifact_types:
+  - report
+  - manifest
+  mcp_tools: []
+  risk_level: medium
+  review_required: true
+- id: axiom-automotive-requirements-allocation
+  name: axiom-automotive-requirements-allocation
+  title: Automotive requirements allocation
+  version: 1.2.0
+  domain: automotive
+  subdomain: automotive
+  category: implementation
+  maturity: experimental
+  owner: axiom-embedded
+  tags:
+  - skill
+  inputs:
+  - repository path
+  - objective
+  outputs:
+  - report
+  dependencies: []
+  related_skills: []
+  path: skills/axiom-automotive-requirements-allocation
+  enabled: true
+  sub_skills: []
+  activity: requirements-allocation
+  capability_kind: domain-specific
+  primary_domain: automotive
+  risk_class: medium
+  lifecycle_phases:
+  - discover
+  - plan
+  - implement
+  - verify
+  - evidence
+  standard_ids:
+  - automotive-spice
+  - iso-26262
+  lifecycle:
+  - discover
+  - plan
+  - implement
+  - verify
+  - evidence
+  standards: []
+  artifact_types:
+  - report
+  - manifest
+  mcp_tools: []
+  risk_level: medium
+  review_required: true
+- id: axiom-automotive-code-review
+  name: axiom-automotive-code-review
+  title: Automotive Code Review
+  version: 1.2.0
+  domain: automotive
+  subdomain: automotive
+  category: implementation
+  maturity: experimental
+  owner: axiom-embedded
+  tags:
+  - skill
+  inputs:
+  - repository path
+  - objective
+  outputs:
+  - report
+  dependencies: []
+  related_skills: []
+  path: skills/axiom-automotive-code-review
+  enabled: true
+  sub_skills: []
+  activity: code-review
+  capability_kind: domain-specific
+  primary_domain: automotive
+  risk_class: medium
+  lifecycle_phases:
+  - implement
+  - verify
+  - evidence
+  standard_ids:
+  - misra-c
+  - autosar-cpp14
+  - iso-26262
+  lifecycle:
+  - implement
+  - verify
+  - evidence
+  standards: []
+  artifact_types:
+  - report
+  - manifest
+  mcp_tools: []
+  risk_level: medium
+  review_required: true
+- id: axiom-automotive-standards-applicability
+  name: axiom-automotive-standards-applicability
+  title: Automotive Standards Applicability
+  version: 1.2.0
+  domain: automotive
+  subdomain: automotive
+  category: implementation
+  maturity: experimental
+  owner: axiom-embedded
+  tags:
+  - skill
+  inputs:
+  - repository path
+  - objective
+  outputs:
+  - report
+  dependencies: []
+  related_skills: []
+  path: skills/axiom-automotive-standards-applicability
+  enabled: true
+  sub_skills: []
+  activity: standards-applicability
+  capability_kind: domain-specific
+  primary_domain: automotive
+  risk_class: medium
+  lifecycle_phases:
+  - discover
+  - plan
+  - implement
+  - verify
+  - evidence
+  standard_ids:
+  - iso-26262
+  - iso-sae-21434
+  - automotive-spice
+  - misra-c
+  lifecycle:
+  - discover
+  - plan
+  - implement
+  - verify
+  - evidence
+  standards: []
+  artifact_types:
+  - report
+  - manifest
+  mcp_tools: []
+  risk_level: medium
+  review_required: true
+- id: axiom-automotive-verification
+  name: axiom-automotive-verification
+  title: Automotive verification
+  version: 1.2.0
+  domain: automotive
+  subdomain: automotive
+  category: implementation
+  maturity: experimental
+  owner: axiom-embedded
+  tags:
+  - skill
+  inputs:
+  - repository path
+  - objective
+  outputs:
+  - report
+  dependencies: []
+  related_skills: []
+  path: skills/axiom-automotive-verification
+  enabled: true
+  sub_skills: []
+  activity: verification
+  capability_kind: domain-specific
+  primary_domain: automotive
+  risk_class: medium
+  lifecycle_phases:
+  - plan
+  - implement
+  - verify
+  - evidence
+  standard_ids:
+  - automotive-spice
+  - iso-26262
+  lifecycle:
+  - plan
+  - implement
+  - verify
+  - evidence
+  standards: []
+  artifact_types:
+  - report
+  - manifest
+  mcp_tools: []
+  risk_level: medium
+  review_required: true
+- id: axiom-aerospace-requirements-analysis
+  name: axiom-aerospace-requirements-analysis
+  title: Aerospace Requirements Analysis
+  version: 1.2.0
+  domain: aerospace
+  subdomain: aerospace
+  category: implementation
+  maturity: experimental
+  owner: axiom-embedded
+  tags:
+  - skill
+  inputs:
+  - repository path
+  - objective
+  outputs:
+  - report
+  dependencies: []
+  related_skills: []
+  path: skills/axiom-aerospace-requirements-analysis
+  enabled: true
+  sub_skills: []
+  activity: requirements-analysis
+  capability_kind: domain-specific
+  primary_domain: aerospace
+  risk_class: medium
+  lifecycle_phases:
+  - discover
+  - plan
+  - implement
+  - verify
+  - evidence
+  standard_ids:
+  - arp4754
+  - do-178c
+  lifecycle:
+  - requirements
+  - architecture
+  - design
+  - implementation
+  - integration
+  - verification
+  - validation
+  - release
+  standards:
+  - arp4754
+  - do-178c
+  artifact_types:
+  - analysis report
+  - HLR set
+  - gap report
+  - baseline record
+  mcp_tools:
+  - run_skill
+  - validate_skill
+  risk_level: medium
+  review_required: true
+- id: axiom-aerospace-requirements-allocation
+  name: axiom-aerospace-requirements-allocation
+  title: Aerospace requirements allocation
+  version: 1.2.0
+  domain: aerospace
+  subdomain: aerospace
+  category: implementation
+  maturity: experimental
+  owner: axiom-embedded
+  tags:
+  - skill
+  inputs:
+  - repository path
+  - objective
+  outputs:
+  - report
+  dependencies: []
+  related_skills: []
+  path: skills/axiom-aerospace-requirements-allocation
+  enabled: true
+  sub_skills: []
+  activity: requirements-allocation
+  capability_kind: domain-specific
+  primary_domain: aerospace
+  risk_class: medium
+  lifecycle_phases:
+  - discover
+  - plan
+  - implement
+  - verify
+  - evidence
+  standard_ids:
+  - arp4754
+  - do-178c
+  lifecycle:
+  - discover
+  - plan
+  - implement
+  - verify
+  - evidence
+  standards: []
+  artifact_types:
+  - report
+  - manifest
+  mcp_tools: []
+  risk_level: medium
+  review_required: true
+- id: axiom-aerospace-code-review
+  name: axiom-aerospace-code-review
+  title: Aerospace Code Review
+  version: 1.2.0
+  domain: aerospace
+  subdomain: aerospace
+  category: implementation
+  maturity: experimental
+  owner: axiom-embedded
+  tags:
+  - skill
+  inputs:
+  - repository path
+  - objective
+  outputs:
+  - report
+  dependencies: []
+  related_skills: []
+  path: skills/axiom-aerospace-code-review
+  enabled: true
+  sub_skills: []
+  activity: code-review
+  capability_kind: domain-specific
+  primary_domain: aerospace
+  risk_class: medium
+  lifecycle_phases:
+  - discover
+  - plan
+  - implement
+  - verify
+  - evidence
+  standard_ids:
+  - do-178c
+  - arp4754
+  lifecycle:
+  - discover
+  - plan
+  - implement
+  - verify
+  - evidence
+  standards: []
+  artifact_types:
+  - report
+  - manifest
+  mcp_tools: []
+  risk_level: medium
+  review_required: true
+- id: axiom-aerospace-standards-applicability
+  name: axiom-aerospace-standards-applicability
+  title: Aerospace Standards Applicability
+  version: 1.2.0
+  domain: aerospace
+  subdomain: aerospace
+  category: implementation
+  maturity: experimental
+  owner: axiom-embedded
+  tags:
+  - skill
+  inputs:
+  - repository path
+  - objective
+  outputs:
+  - report
+  dependencies: []
+  related_skills: []
+  path: skills/axiom-aerospace-standards-applicability
+  enabled: true
+  sub_skills: []
+  activity: standards-applicability
+  capability_kind: domain-specific
+  primary_domain: aerospace
+  risk_class: medium
+  lifecycle_phases:
+  - discover
+  - plan
+  - implement
+  - verify
+  - evidence
+  standard_ids:
+  - do-178c
+  - arp4754
+  - arp4761
+  - do-254
+  - iec-61508
+  lifecycle:
+  - discover
+  - plan
+  - implement
+  - verify
+  - evidence
+  standards: []
+  artifact_types:
+  - report
+  - manifest
+  mcp_tools: []
+  risk_level: medium
+  review_required: true

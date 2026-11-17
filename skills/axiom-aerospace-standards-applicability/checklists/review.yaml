@@ -1,0 +1,22 @@
+# Review gates for aerospace standards applicability.
+gates:
+  - id: item-defined
+    description: Item definition and contract scope recorded.
+  - id: candidates-listed
+    description: Candidate standards listed with revision and lifecycle state.
+  - id: verdict-per-standard
+    description: Every candidate has APPLICABLE, NOT_APPLICABLE, or DEFERRED.
+  - id: exclusion-rationale
+    description: Every NOT_APPLICABLE verdict carries an exclusion rationale.
+  - id: deferred-owned
+    description: Every DEFERRED verdict has an owner and a review point.
+  - id: lifecycle-gate
+    description: No draft replaces a published baseline without approval.
+  - id: dal-untouched
+    description: No DAL assigned, upgraded, or downgraded by this skill.
+  - id: no-normative-text
+    description: Matrix cites identifiers only, no normative reproduction.
+  - id: routing-complete
+    description: In-scope standards routed to their engineering skills.
+  - id: record-filed
+    description: Matrix and gap report filed as review evidence.

@@ -1,0 +1,18 @@
+# Review gates for aerospace requirements analysis.
+gates:
+  - id: G1-source-registration
+    description: Every source requirement registered with document ID, revision, section.
+  - id: G2-completeness
+    description: All allocated system requirements accounted for or recorded as gaps.
+  - id: G3-hlr-characteristics
+    description: Each HLR unambiguous, verifiable, consistent, traceable.
+  - id: G4-parent-traceability
+    description: Every HLR links to parent(s) or carries a derived flag.
+  - id: G5-derived-to-safety
+    description: All derived requirements submitted to safety assessment.
+  - id: G6-dal-provenance
+    description: No DAL value without safety assessment provenance.
+  - id: G7-baseline-authority
+    description: Baseline signed by review authority with tool ID.
+  - id: G8-change-impact
+    description: Changes assessed for traceability, DAL, and verification impact.

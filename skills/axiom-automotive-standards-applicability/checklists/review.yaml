@@ -1,0 +1,25 @@
+gates:
+  - id: context-captured
+    text: Project context captured (platform, release, hardware, software scope)
+  - id: safety-scope-stated
+    text: Safety scope stated with governing plan, or explicitly absent
+  - id: cybersecurity-scope-stated
+    text: Cybersecurity scope stated with governing assessment, or explicitly absent
+  - id: contractual-scope-stated
+    text: Contractual scope stated (ASPICE, type-approval, coding guidelines)
+  - id: candidates-from-registry
+    text: Candidate list built from standards/registry.yaml (no ad-hoc additions)
+  - id: lifecycle-checked
+    text: Lifecycle state checked per candidate (draft/proposed/withdrawn blocked as normative basis)
+  - id: every-candidate-verdict
+    text: Every candidate has APPLICABLE / NOT_APPLICABLE / DEFERRED verdict
+  - id: verdicts-rationalized
+    text: Every verdict carries a rationale; APPLICABLE names its governing scope
+  - id: no-blanket-verdicts
+    text: No blanket verdicts; ASIL/classification never assigned by this skill
+  - id: identifiers-only
+    text: Matrix holds identifiers and rationale only, no normative text
+  - id: deferred-owned
+    text: Every DEFERRED item has an owner; gaps exported to requirements baseline
+  - id: validate-green
+    text: scripts/validate.py passes on the filled matrix

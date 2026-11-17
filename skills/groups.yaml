@@ -68,7 +68,12 @@ groups:
       - {id: [automotive-spice, automotive-vcycle, automotive-coding, release,
                evidence, validation, change-impact, configuration-management,
                documentation, project-audit, legacy-recovery, requirements,
-               requirements-traceability, traceability,
+               requirements-traceability, axiom-automotive-requirements-analysis,
+               axiom-automotive-requirements-allocation, axiom-automotive-code-review,
+               axiom-automotive-standards-applicability, axiom-automotive-verification,
+               axiom-aerospace-requirements-analysis, axiom-aerospace-requirements-allocation,
+               axiom-aerospace-code-review, axiom-aerospace-standards-applicability,
+               traceability,
                axiom-production-readiness, axiom-deployment-readiness]}
   embedded-core:
     title: Embedded core (bring-up, OS, drivers)

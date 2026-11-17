@@ -1,0 +1,21 @@
+gates:
+  - id: scope-dal
+    text: Review scope, artifact type, and item DAL recorded
+  - id: entry-criteria
+    text: Entry criteria met (artifact complete, prior findings closed)
+  - id: independence
+    text: DAL A/B verification independence verified and recorded
+  - id: hlr-quality
+    text: HLR/LLR unambiguous, verifiable, consistent, complete, traceable
+  - id: traceability
+    text: Every review unit traced to its parent artifact, no silent gaps
+  - id: code-compliance
+    text: Code complies with LLR/design, no unjustified dead/deactivated code
+  - id: verification-artifacts
+    text: Cases cover normal and robustness cases, results match expected
+  - id: findings-classified
+    text: Findings classified DEFECT/QUERY/OBSERVATION with owners
+  - id: dal-unchanged
+    text: Review did not assign, raise, or lower any DAL
+  - id: verdict-record
+    text: Verdict recorded per contract and stored under configuration control

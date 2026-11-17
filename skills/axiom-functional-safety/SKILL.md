@@ -20,7 +20,7 @@ axiom:
   owner: axiom-embedded
   tags: [safety]
 
-  related_skills: []
+  related_skills: [axiom-automotive-requirements-analysis, axiom-automotive-requirements-allocation, axiom-automotive-verification, axiom-automotive-standards-applicability, axiom-automotive-code-review, axiom-hazard-risk]
 
   lifecycle: [requirements, architecture, design, implementation, integration, verification, validation, release]
   standards: ["ISO 26262:2018"]

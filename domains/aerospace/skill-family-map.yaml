@@ -8,14 +8,14 @@ families:
     title: Requirements engineering
     activities:
       requirements-analysis:
-        skills: []
-        status: planned
+        skills: [axiom-aerospace-requirements-analysis]
+        status: existing
       requirements-derivation:
         skills: []
         status: planned
       requirements-allocation:
-        skills: []
-        status: planned
+        skills: [axiom-aerospace-requirements-allocation]
+        status: existing
       requirements-traceability:
         skills: []
         status: planned
@@ -35,8 +35,8 @@ families:
     title: Code and design review
     activities:
       code-review:
-        skills: []
-        status: planned
+        skills: [axiom-aerospace-code-review]
+        status: existing
       safety-review:
         skills: []
         status: planned
@@ -59,8 +59,8 @@ families:
     title: Standards applicability
     activities:
       standards-applicability:
-        skills: []
-        status: planned
+        skills: [axiom-aerospace-standards-applicability]
+        status: existing
   architecture:
     title: Architecture
     activities:

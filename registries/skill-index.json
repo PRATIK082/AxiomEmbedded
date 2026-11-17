@@ -2645,13 +2645,103 @@
       "platforms": [
         "mcu"
       ]
+    },
+    "axiom-automotive-requirements-analysis": {
+      "description": "Analyze automotive stakeholder and system inputs into verifiable software requirements with allocation, ASIL-aware tagging and traceability hooks. Use when decomposing ECU, AUTOSAR or vehicle functions into SHALL-level software requirements under Automotive SPICE SWE.1.\n",
+      "domains": [
+        "automotive"
+      ],
+      "platforms": [
+        "autosar-adaptive",
+        "autosar-classic",
+        "mcu"
+      ]
+    },
+    "axiom-automotive-requirements-allocation": {
+      "description": "Allocate automotive software requirements to architecture elements and components with interface contracts, ASIL-aware allocation rules and end-to-end traceability. Use when assigning SWE.1 software requirements to AUTOSAR modules, software components or ECU subsystems under Automotive SPICE SWE.1/S",
+      "domains": [
+        "automotive"
+      ],
+      "platforms": [
+        "autosar-adaptive",
+        "autosar-classic",
+        "mcu"
+      ]
+    },
+    "axiom-automotive-code-review": {
+      "description": "ASPICE SWE.5/SWE.6-aligned peer review for automotive C/C++ (MISRA C, AUTOSAR C++14): review planning, ASIL-aware sampling, reviewer independence, safety-related change review, and verification evidence. Invokes axiom-misra-c-cpp-review for rule-level checking. Use when automotive code must pass pee",
+      "domains": [
+        "automotive"
+      ],
+      "platforms": [
+        "mcu"
+      ]
+    },
+    "axiom-automotive-standards-applicability": {
+      "description": "Automotive Standards Applicability workflow for automotive. Use when automotive standards applicability tasks arise in automotive projects.\n",
+      "domains": [
+        "automotive"
+      ],
+      "platforms": [
+        "mcu"
+      ]
+    },
+    "axiom-automotive-verification": {
+      "description": "ASPICE SWE.4/SWE.5/SWE.6 requirements-driven verification closure for automotive software. Use when proving every allocated software requirement is verified with bidirectional traceability, coverage accounting, and a machine-checkable verdict.\n",
+      "domains": [
+        "automotive"
+      ],
+      "platforms": [
+        "mcu"
+      ]
+    },
+    "axiom-aerospace-requirements-analysis": {
+      "description": "Analyzes aircraft and system requirements and flows them down to software high-level requirements (HLR) per ARP4754A and DO-178C, with DAL provenance from the ARP4761 safety assessment. Use when airborne software requirements analysis or HLR flow-down is required.\n",
+      "domains": [
+        "aerospace"
+      ],
+      "platforms": [
+        "mcu",
+        "mpu"
+      ]
+    },
+    "axiom-aerospace-requirements-allocation": {
+      "description": "Aerospace requirements allocation workflow for aerospace. Use when aerospace requirements allocation tasks arise in aerospace projects.\n",
+      "domains": [
+        "aerospace"
+      ],
+      "platforms": [
+        "mcu"
+      ]
+    },
+    "axiom-aerospace-code-review": {
+      "description": "Aerospace Code Review workflow for aerospace. Use when aerospace code review tasks arise in aerospace projects.\n",
+      "domains": [
+        "aerospace"
+      ],
+      "platforms": [
+        "mcu"
+      ]
+    },
+    "axiom-aerospace-standards-applicability": {
+      "description": "Determine which aerospace standards (DO-178C, ARP4754A, DO-254, ARP4761, IEC 61508) govern an item and record APPLICABLE, NOT_APPLICABLE, or DEFERRED verdicts with rationale. Use when scoping aerospace work or assessing a standard revision against the baseline.\n",
+      "domains": [
+        "aerospace"
+      ],
+      "platforms": [
+        "mcu"
+      ]
     }
   },
   "by_domain": {
     "aerospace": [
+      "axiom-aerospace-code-review",
       "axiom-aerospace-defense-safety-review",
       "axiom-aerospace-do178c-workflow",
       "axiom-aerospace-do254-hardware",
+      "axiom-aerospace-requirements-allocation",
+      "axiom-aerospace-requirements-analysis",
+      "axiom-aerospace-standards-applicability",
       "axiom-space-radiation-hardening",
       "fault-injection",
       "mpsoc",
@@ -2767,8 +2857,13 @@
       "autosar",
       "axiom-adas-perception-pipeline",
       "axiom-adas-validation",
+      "axiom-automotive-code-review",
       "axiom-automotive-ethernet-someip",
       "axiom-automotive-release-readiness",
+      "axiom-automotive-requirements-allocation",
+      "axiom-automotive-requirements-analysis",
+      "axiom-automotive-standards-applicability",
+      "axiom-automotive-verification",
       "axiom-autosar-adaptive-deployment",
       "axiom-autosar-classic-architecture",
       "axiom-autosar-classic-bsw-integration",
@@ -3054,6 +3149,8 @@
       "automotive-ota",
       "autosar",
       "axiom-automotive-ethernet-someip",
+      "axiom-automotive-requirements-allocation",
+      "axiom-automotive-requirements-analysis",
       "axiom-autosar-adaptive-deployment",
       "axiom-diagnostics-doip",
       "axiom-diagnostics-uds"
@@ -3065,6 +3162,8 @@
       "automotive-networks",
       "automotive-ota",
       "autosar",
+      "axiom-automotive-requirements-allocation",
+      "axiom-automotive-requirements-analysis",
       "axiom-autosar-classic-architecture",
       "axiom-autosar-classic-bsw-integration",
       "axiom-autosar-com-stack",
@@ -3100,9 +3199,13 @@
       "automotive-networks",
       "automotive-ota",
       "autosar",
+      "axiom-aerospace-code-review",
       "axiom-aerospace-defense-safety-review",
       "axiom-aerospace-do178c-workflow",
       "axiom-aerospace-do254-hardware",
+      "axiom-aerospace-requirements-allocation",
+      "axiom-aerospace-requirements-analysis",
+      "axiom-aerospace-standards-applicability",
       "axiom-agent-evaluation",
       "axiom-agent-observability",
       "axiom-agent-red-teaming",
@@ -3111,7 +3214,12 @@
       "axiom-ansi-r1506-compliance-matrix-review",
       "axiom-api-design",
       "axiom-architecture-decision-records",
+      "axiom-automotive-code-review",
       "axiom-automotive-release-readiness",
+      "axiom-automotive-requirements-allocation",
+      "axiom-automotive-requirements-analysis",
+      "axiom-automotive-standards-applicability",
+      "axiom-automotive-verification",
       "axiom-autosar-classic-architecture",
       "axiom-autosar-classic-bsw-integration",
       "axiom-autosar-com-stack",
@@ -3284,6 +3392,7 @@
       "axiom-adas-perception-pipeline",
       "axiom-adas-validation",
       "axiom-aerospace-defense-safety-review",
+      "axiom-aerospace-requirements-analysis",
       "axiom-ansi-r1506-compliance-matrix",
       "axiom-ansi-r1506-compliance-matrix-review",
       "axiom-architecture-decision-records",
@@ -3520,9 +3629,13 @@
       "axiom-adas-validation"
     ],
     "aerospace-defense": [
+      "axiom-aerospace-code-review",
       "axiom-aerospace-defense-safety-review",
       "axiom-aerospace-do178c-workflow",
       "axiom-aerospace-do254-hardware",
+      "axiom-aerospace-requirements-allocation",
+      "axiom-aerospace-requirements-analysis",
+      "axiom-aerospace-standards-applicability",
       "axiom-space-radiation-hardening"
     ],
     "ai-agent-engineering": [
@@ -3631,9 +3744,13 @@
     ],
     "embedded-core": [
       "ai-validation",
+      "axiom-aerospace-code-review",
       "axiom-aerospace-defense-safety-review",
       "axiom-aerospace-do178c-workflow",
       "axiom-aerospace-do254-hardware",
+      "axiom-aerospace-requirements-allocation",
+      "axiom-aerospace-requirements-analysis",
+      "axiom-aerospace-standards-applicability",
       "axiom-agent-evaluation",
       "axiom-agent-observability",
       "axiom-cloud-architecture",
@@ -3779,7 +3896,16 @@
       "automotive-coding",
       "automotive-spice",
       "automotive-vcycle",
+      "axiom-aerospace-code-review",
+      "axiom-aerospace-requirements-allocation",
+      "axiom-aerospace-requirements-analysis",
+      "axiom-aerospace-standards-applicability",
+      "axiom-automotive-code-review",
       "axiom-automotive-release-readiness",
+      "axiom-automotive-requirements-allocation",
+      "axiom-automotive-requirements-analysis",
+      "axiom-automotive-standards-applicability",
+      "axiom-automotive-verification",
       "axiom-deployment-readiness",
       "axiom-production-readiness",
       "change-impact",

@@ -18,7 +18,7 @@ axiom:
   owner: axiom-embedded
   tags: [legacy]
 
-  related_skills: [axiom-vehicle-cybersecurity]
+  related_skills: [axiom-vehicle-cybersecurity, axiom-automotive-requirements-analysis, axiom-automotive-requirements-allocation, axiom-automotive-verification, axiom-automotive-standards-applicability, axiom-automotive-code-review]
   checklists: [checklists/automotive-cybersecurity-checklist.md]
 
   lifecycle: [discover, plan, implement, verify, evidence]
