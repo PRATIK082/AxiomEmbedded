@@ -30,6 +30,10 @@ Fallback: `{"command": "python", "args": ["-m", "axiom_cli", "mcp"]}`.
 Clients that copy no skill files still get full skill access: `search_skills`,
 `engage`, `read_skill`, and `run_skill` run server-side over MCP.
 
+Two more tools work the same manual way (runtime discovery, no installer
+branch yet -- config paths unverified, see doc): OpenClaw and Hermes,
+documented in `clients/OPENCLAW_HERMES.md`.
+
 ## Manual fallback -- Aider
 
 If `.aider.conf.yml` already exists the installer keeps it untouched. Add:
