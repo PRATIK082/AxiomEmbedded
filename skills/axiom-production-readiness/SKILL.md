@@ -20,7 +20,9 @@ axiom:
   outputs: [run report, run manifest]
   risk_level: medium
   lifecycle: [discover, plan, implement, verify, evidence]
+  standards: []
   artifact_types: [report, manifest]
+  mcp_tools: []
   related_skills: []
 ---
 
@@ -64,7 +66,7 @@ required human approvals are obtained. A missing result is never a PASS.
 ## Production Gates
 | # | Gate | Command | Required result |
 |---|------|---------|-----------------|
-| G1 | Skill pipeline | `python scripts/skill_pipeline.py --check` | OK (259+ skills, no STALE) |
+| G1 | Skill pipeline | `python scripts/skill_pipeline.py --check` | OK (270+ skills, no STALE) |
 | G2 | Unit tests | `python -m pytest -q` | all pass |
 | G3 | Doctor | `python -m axiom_cli doctor --skip-tests` | repo PASS, exit 0 |
 | G4 | Repo validation | `python -m axiom_cli repo validate` | PASS |

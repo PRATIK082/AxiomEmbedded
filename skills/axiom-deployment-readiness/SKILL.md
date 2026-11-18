@@ -20,7 +20,9 @@ axiom:
   outputs: [run report, run manifest]
   risk_level: medium
   lifecycle: [discover, plan, implement, verify, evidence]
+  standards: []
   artifact_types: [report, manifest]
+  mcp_tools: []
   related_skills: []
 ---
 

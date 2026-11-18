@@ -18,7 +18,7 @@ Surface the plan first; never execute pushes, releases, destructive
 commands, or safety/security-critical changes without recorded human
 approval. Never claim certification or compliance from a heuristic check.
 
-## Skills (270)
+## Skills (275)
 
 - `adas` -- ADAS/AD perception-to-control pipeline, sensor fusion, SOTIF and ASIL decomposition, Euro-NCAP, data closed-loop, OpenSCENARIO/OpenDRIVE HIL. Use for L0-L4 driver assistance and automated driving. Use when adas tasks arise in automotive projects.
 
@@ -116,6 +116,8 @@ approval. Never claim certification or compliance from a heuristic check.
 
 - `axiom-bms-diagnostics` -- Designs BMS fault handling and HIL test campaigns covering cell, contactor, thermal and isolation faults. Use when bms diagnostics tasks arise in automotive projects.
 
+- `axiom-bus-protocol-validation` -- Validates embedded communication buses and protocol stacks -- UART, CAN/CAN-FD, SPI, I2C, Ethernet/MQTT, and BLE -- with reusable frame builders, packet parsers, and bidirectional checks: software-to-hardware (register writes and RTOS events produce expected voltages, PWM, frames, logs) and hardware-to-software (injected bus faults trigger expected interrupts, error flags, and recovery). Use when any test campaign must prove protocol behavior on the wire, not just in the source.
+
 - `axiom-can-network-design` -- Designs CAN/CAN-FD network topology, identifier allocation, bus-load budgets and timing assumptions from DBC-level inputs. Use when can network design tasks arise in automotive projects.
 
 - `axiom-can-stack-integration` -- Integrates and checks CAN driver/CanIf/CanTp stacks including baud-rate, mailbox, and error-handling configuration. Use when can stack integration tasks arise in automotive projects.
@@ -178,6 +180,8 @@ approval. Never claim certification or compliance from a heuristic check.
 
 - `axiom-eoat-spec-review` -- Specifies end-of-arm tooling: gripper forces, tool-change interface, vacuum/magnetic retention, and retained-risk assumptions. Use when eoat spec review tasks arise in robotics projects.
 
+- `axiom-firmware-lifecycle` -- Standardizes building, signing, flashing (via OpenOCD, J-Link, DFU, or U-Boot/TFTP), and resetting targets across silicon vendors, with binary hash recording and reproducible build discipline. Produces the trusted firmware identity (hash plus build provenance) that pre-check phases gate on before any test executes. Use when any campaign must flash, reset, or attest the firmware on a physical or virtual target.
+
 - `axiom-fleet-manager-architecture` -- Architects fleet-manager task assignment, traffic rules, map/zone interfaces, and deadlock handling for multi-AMR operation. Use when fleet manager architecture tasks arise in robotics projects.
 
 - `axiom-fleet-manager-architecture-review` -- Architects fleet-manager task assignment, traffic rules, map/zone interfaces, and deadlock handling for multi-AMR operation. Use when fleet manager architecture review tasks arise in robotics projects.
@@ -207,6 +211,8 @@ approval. Never claim certification or compliance from a heuristic check.
 - `axiom-hmi-and-actuators` -- Engineers human-machine interfaces and actuators: keypad matrix scanning and debouncing, LCD1602/OLED displays, LEDs, active/passive buzzers, DC/stepper/servo motors, encoders, relays, interlocks and e-stop, with electrical and timing constraints and verification. Use when hmi and actuators tasks arise in all projects.
 
 - `axiom-human-in-the-loop` -- Human-in-the-Loop Orchestration workflow for platform. Use when human-in-the-loop orchestration tasks arise in platform projects.
+
+- `axiom-hw-interface-control` -- Controls bench instruments (power supplies over SCPI/VISA, programmable relays, oscilloscopes, logic analyzers) through a logical board_config.yaml mapping so test cases and agent workflows never hardcode physical pins, serial ports, IP addresses, or instrument strings. Enforces idempotent setup and fail-safe teardown on every hardware interaction. Use when any SIL, HIL, or system test touches physical bench hardware.
 
 - `axiom-iec62061-sil` -- Determines SIL targets per safety function and writes software/system safety requirements with verification criteria. Use when iec62061 sil tasks arise in industrial projects.
 
@@ -396,6 +402,8 @@ approval. Never claim certification or compliance from a heuristic check.
 
 - `axiom-sensor-driver-integration` -- Integrates a sensor chip over I2C, SPI, UART or 1-Wire into a layered device driver with register encapsulation, context structs, identification, typed errors and mockable bus seams. Use when sensor driver integration tasks arise in generic-embedded projects.
 
+- `axiom-sil-hil-bridge` -- Runs identical test logic against a virtual target (QEMU/Renode) first, then promotes the exact same validation criteria to physical HIL hardware with timing tolerances widened for real-world latency. Tracks per-case SIL status, HIL status, and tolerance deltas so no SIL pass is ever reported as hardware proof. Use when a campaign must graduate simulation cases to the bench without rewriting assertions.
+
 - `axiom-skill-creator` -- Skill Creator (with eval loop and description optimization) workflow for platform. Use when skill creator (with eval loop and description optimization) tasks arise in platform projects.
 
 - `axiom-skill-evolution` -- Skill Evolution workflow for all. Use when skill evolution tasks arise in all projects.
@@ -445,6 +453,8 @@ approval. Never claim certification or compliance from a heuristic check.
 - `axiom-v2x-communication` -- Models V2X messages, latency/security considerations and simulation hooks with a message test strategy. Use when v2x communication tasks arise in automotive projects.
 
 - `axiom-validation-levels` -- Distinguishes source-level, build, static analysis, host-based, simulation, HIL and physical board acceptance validation; defines prerequisites, equipment, procedure, expected results, failure conditions, measurements, evidence format and limitations for each. Never reports compile success as hardware proof. Use when validation levels tasks arise in all projects.
+
+- `axiom-validation-orchestrator` -- Routes a verification target (MCU firmware, Embedded Linux image, or full system) to the right execution engine -- Unity/GoogleTest for unit-level C/C++, Pytest plus Labgrid for developer-driven integration, Robot Framework for system-level HIL and acceptance -- and generates the matching test skeleton with pre-check, execution, and triage phases. Use when starting any SIL, HIL, or system validation campaign that spans more than one testing layer.
 
 - `axiom-vehicle-cybersecurity` -- Runs a TARA-aligned cybersecurity workflow (threat model, secure boot/diag, key management, IDS/OTA concepts) producing reviewable evidence. Use when vehicle cybersecurity tasks arise in automotive projects.
 

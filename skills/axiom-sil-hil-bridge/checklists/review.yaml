@@ -1,0 +1,9 @@
+# Review checklist: axiom-sil-hil-bridge
+
+- [ ] SIL baseline frozen (simulator, model revision, verdicts recorded).
+- [ ] Every widened tolerance carries a physical-cause rationale.
+- [ ] Functional assertions identical across SIL and HIL.
+- [ ] Promotion report shows SIL and HIL verdicts side by side per case.
+- [ ] HIL failures filed as findings, never waived by SIL passes.
+- [ ] HIL suite uses logical bench names only.
+- [ ] Assumptions, risks, and next actions recorded in run manifest.

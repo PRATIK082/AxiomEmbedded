@@ -194,6 +194,10 @@
       "path": "skills/axiom-bms-diagnostics"
     },
     {
+      "id": "axiom-bus-protocol-validation",
+      "path": "skills/axiom-bus-protocol-validation"
+    },
+    {
       "id": "axiom-can-network-design",
       "path": "skills/axiom-can-network-design"
     },
@@ -318,6 +322,10 @@
       "path": "skills/axiom-eoat-spec-review"
     },
     {
+      "id": "axiom-firmware-lifecycle",
+      "path": "skills/axiom-firmware-lifecycle"
+    },
+    {
       "id": "axiom-fleet-manager-architecture",
       "path": "skills/axiom-fleet-manager-architecture"
     },
@@ -376,6 +384,10 @@
     {
       "id": "axiom-human-in-the-loop",
       "path": "skills/axiom-human-in-the-loop"
+    },
+    {
+      "id": "axiom-hw-interface-control",
+      "path": "skills/axiom-hw-interface-control"
     },
     {
       "id": "axiom-iec62061-sil",
@@ -754,6 +766,10 @@
       "path": "skills/axiom-sensor-driver-integration"
     },
     {
+      "id": "axiom-sil-hil-bridge",
+      "path": "skills/axiom-sil-hil-bridge"
+    },
+    {
       "id": "axiom-skill-creator",
       "path": "skills/axiom-skill-creator"
     },
@@ -852,6 +868,10 @@
     {
       "id": "axiom-validation-levels",
       "path": "skills/axiom-validation-levels"
+    },
+    {
+      "id": "axiom-validation-orchestrator",
+      "path": "skills/axiom-validation-orchestrator"
     },
     {
       "id": "axiom-vehicle-cybersecurity",

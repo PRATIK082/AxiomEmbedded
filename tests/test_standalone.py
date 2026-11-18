@@ -59,12 +59,13 @@ def test_eval_tasks_grade_green(tmp_path):
     from packages.eval.runner import grade, list_tasks
 
     ids = [t["id"] for t in list_tasks()]
-    assert ids == ["EV-001", "EV-002", "EV-003", "EV-004", "EV-005"]
-    assert grade("EV-001")["status"] == "ok"
-    assert grade("EV-002", str(tmp_path))["status"] == "ok"
-    assert grade("EV-003")["status"] == "ok"
-    assert grade("EV-004")["status"] == "ok"
-    assert grade("EV-005")["status"] == "ok"
+    assert ids == ["EV-001", "EV-002", "EV-003", "EV-004", "EV-005",
+                   "EV-006", "EV-007", "EV-008", "EV-009", "EV-010"]
+    for task_id in ids:
+        if task_id == "EV-002":
+            assert grade(task_id, str(tmp_path))["status"] == "ok"
+        else:
+            assert grade(task_id)["status"] == "ok"
 
 
 def test_mkdocs_nav_resolves():

@@ -30,4 +30,4 @@ def test_doc_pins_real_server_command():
 def test_doc_declares_installer_pending():
     text = DOC.read_text(encoding="utf-8")
     assert "not yet cover" in text or "pending" in text.lower()
-    assert "270/270" in text
+    assert "275/275" in text

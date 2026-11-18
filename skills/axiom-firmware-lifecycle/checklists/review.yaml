@@ -1,0 +1,8 @@
+# Review checklist: axiom-firmware-lifecycle
+
+- [ ] Reproducible build: toolchain, flags, and commit recorded with the hash.
+- [ ] Signing per policy; any bypass has an owner and an expiry.
+- [ ] Read-back verification evidence present for every flash.
+- [ ] Deterministic reset to known state with boot log captured.
+- [ ] Binary hash matches the downstream pre-check gate value.
+- [ ] Assumptions, risks, and next actions recorded in run manifest.

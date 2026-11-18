@@ -1,0 +1,8 @@
+# Review checklist: axiom-bus-protocol-validation
+
+- [ ] Frame layouts cite their specification source (no invented layouts).
+- [ ] Both directions covered: SW-to-HW outputs and HW-to-SW reactions.
+- [ ] Every injected fault has a pre-declared expected response.
+- [ ] Timing assertions carry explicit tolerances (SIL vs HIL noted).
+- [ ] Captures timestamp-correlated with firmware logs.
+- [ ] Assumptions, risks, and next actions recorded in run manifest.

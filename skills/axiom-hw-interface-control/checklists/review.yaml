@@ -1,0 +1,9 @@
+# Review checklist: axiom-hw-interface-control
+
+- [ ] board_config.yaml present and schema-valid (logical names only in tests).
+- [ ] No hardcoded pins, ports, IPs, or VISA strings in consuming tests (grep gate).
+- [ ] Idempotent setup drives every channel to safe state first.
+- [ ] Fail-safe teardown runs unconditionally (relays open, DUT reset, buffers flushed).
+- [ ] Teardown report recorded for every session, pass or fail.
+- [ ] Pre-check evidence present (instrument ping, rail status, firmware hash).
+- [ ] Captures timestamp-correlated into the run output directory.
