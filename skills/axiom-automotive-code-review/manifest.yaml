@@ -1,0 +1,17 @@
+id: axiom-automotive-code-review
+version: 1.2.0
+contract_version: 1
+type: domain-skill
+primary_domain: automotive
+activity: code-review
+capability_kind: domain-specific
+standard_ids: [misra-c, autosar-cpp14, iso-26262]
+facets:
+  domains:
+  - automotive
+  platforms:
+  - mcu
+  lifecycle: [implement, verify, evidence]
+  artifact_types: [report, manifest]
+  risk_level: medium
+  review_required: true

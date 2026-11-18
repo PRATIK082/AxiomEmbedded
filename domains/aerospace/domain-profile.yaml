@@ -1,0 +1,67 @@
+# Aerospace domain profile
+# SPDX-License-Identifier: Apache-2.0
+
+domain: aerospace
+version: '1.0.0'
+title: Aerospace engineering domain
+
+description: >
+  Aerospace software and systems engineering covering civil aviation,
+  military aviation and space-adjacent systems. Applicable standards include
+  DO-178C, DO-254, ARP4754, ARP4761, MIL-STD-882E, and ECSS.
+
+applicable_standards:
+  - do-178c
+  - do-254
+  - arp4754
+  - arp4761
+  - mil-std-882e
+  - ecss-e-st-40c
+  - misra-c
+  - misra-cpp
+  - sei-cert-c
+  - sei-cert-cpp
+
+skill_families:
+  requirements:
+    - axiom-aerospace-requirements-analysis
+    - axiom-aerospace-requirements-allocation
+    - axiom-aerospace-requirements-traceability
+  coding:
+    - axiom-aerospace-airborne-coding-guidelines
+  code_review:
+    - axiom-aerospace-independent-software-review
+  safety:
+    - axiom-aerospace-safety-assessment
+  security:
+    - axiom-aerospace-platform-security
+  standards:
+    - axiom-aerospace-do178c-software-assurance
+    - axiom-aerospace-do254-hardware-assurance
+
+engineering_process_map:
+  phases:
+    - requirements-analysis
+    - requirements-allocation
+    - architecture
+    - detailed-design
+    - implementation
+    - unit-verification
+    - integration-verification
+    - system-verification
+    - validation
+  gates:
+    - requirements-review
+    - architecture-review
+    - design-review
+    - implementation-review
+    - verification-review
+    - validation-review
+    - release-review
+
+risk_classes: [DAL-A, DAL-B, DAL-C, DAL-D, DAL-E]
+safety_critical: true
+security_critical: true
+
+platforms: [mpu, soc, mpsoc, fpga, bare-metal, rtos]
+languages: [c, cpp, ada]

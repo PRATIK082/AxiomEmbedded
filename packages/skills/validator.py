@@ -11,6 +11,65 @@ import yaml as _yaml
 from packages.paths import ROOT
 
 
+_DESA_CACHE: dict = {}
+
+
+def _desa_taxonomies() -> dict:
+    if _DESA_CACHE.get("ok"):
+        return _DESA_CACHE
+    try:
+        acts = yaml.safe_load((ROOT / "taxonomies" / "activities.yaml").read_text(encoding="utf-8")) or {}
+        kinds = yaml.safe_load((ROOT / "taxonomies" / "skill-types.yaml").read_text(encoding="utf-8")) or {}
+        regs = yaml.safe_load((ROOT / "standards" / "registry.yaml").read_text(encoding="utf-8")) or {}
+    except Exception:
+        _DESA_CACHE["ok"] = True
+        _DESA_CACHE["activities"] = set()
+        _DESA_CACHE["kinds"] = set()
+        _DESA_CACHE["standards"] = {}
+        return _DESA_CACHE
+    _DESA_CACHE["activities"] = set((acts.get("activities") or {}).keys())
+    _DESA_CACHE["kinds"] = set((kinds.get("capability_kinds") or {}).keys())
+    stds = {}
+    for s in regs.get("standards", []) or []:
+        stds[str(s.get("id"))] = str(s.get("status", "published"))
+    _DESA_CACHE["standards"] = stds
+    _DESA_CACHE["ok"] = True
+    return _DESA_CACHE
+
+
+def desa_checks(skill_id: str, axiom: dict) -> tuple[list, list]:
+    """Phase 2/6 DESA checks: activity, kind, standards lifecycle. Non-blocking warnings."""
+    errs: list[str] = []
+    warns: list[str] = []
+    if not axiom:
+        return errs, warns
+    tax = _desa_taxonomies()
+    acts = tax.get("activities", set())
+    kinds = tax.get("kinds", set())
+    stds = tax.get("standards", {})
+    act = axiom.get("activity", "")
+    if act and acts and act not in acts:
+        warns.append(f"desa: unknown activity {act!r}")
+    kind = axiom.get("capability_kind", axiom.get("capability-kind", axiom.get("type", "")))
+    if kind and kinds and kind not in kinds:
+        warns.append(f"desa: unknown capability_kind {kind!r}")
+    for sid in axiom.get("standard_ids", axiom.get("standards", [])) or []:
+        key = str(sid).lower().replace(" ", "-").split(":")[0]
+        # normalize common display forms e.g. "ISO 26262:2018" -> iso-26262
+        aliases = {
+            "iso-26262": "iso-26262", "iso26262": "iso-26262",
+            "iso-sae-21434": "iso-sae-21434", "iso21434": "iso-sae-21434",
+            "automotive-spice": "automotive-spice", "aspice": "automotive-spice",
+            "misra-c": "misra-c", "misra-cpp": "misra-cpp",
+        }
+        norm = aliases.get(key, key)
+        if stds and norm not in stds:
+            warns.append(f"desa: standard {sid!r} not in standards/registry.yaml")
+        elif stds.get(norm) in ("draft", "pre-release", "proposed"):
+            warns.append(f"desa: standard {sid!r} is {stds.get(norm)}; must not replace published edition")
+    return errs, warns
+
+
 def validate_all(catalog_path: pathlib.Path | None = None) -> dict:
     results: list[dict] = []
     skills_dir = ROOT / "skills"
@@ -93,6 +152,15 @@ def validate_all(catalog_path: pathlib.Path | None = None) -> dict:
             r["valid"] = False
         if pg_warnings:
             r["warnings"] = r.get("warnings", []) + [f"prod-grade: {w}" for w in pg_warnings]
+        try:
+            _derr, _dwarn = desa_checks(sid, axiom)
+            if _derr:
+                r["errors"] = r["errors"] + _derr
+                r["valid"] = False
+            if _dwarn:
+                r["warnings"] = r.get("warnings", []) + _dwarn
+        except Exception:
+            pass
         results.append(r)
     catalog_report = None
     cp = pathlib.Path(catalog_path) if catalog_path else ROOT / "skills" / "catalog.yaml"
@@ -101,8 +169,11 @@ def validate_all(catalog_path: pathlib.Path | None = None) -> dict:
         cat_ids = {e["id"] for e in load_catalog(cp).get("skills", [])}
         missing = set(ids) - cat_ids - {"_templates"}
         if missing:
-            catalog_report["warnings"].append(
+            # Phase 2 promotion: catalog <-> disk consistency is an error,
+            # not a warning. Every skill directory must be registered.
+            catalog_report["errors"].append(
                 f"skills on disk missing from catalog: {sorted(missing)}")
+            catalog_report["valid"] = False
     # index linkage
     try:
         index = json.loads((ROOT / "registries" / "skill-index.json").read_text(
@@ -111,7 +182,7 @@ def validate_all(catalog_path: pathlib.Path | None = None) -> dict:
     except FileNotFoundError:
         unindexed = set(ids)
     ok = all(r["valid"] for r in results) and (
-        catalog_report is None or catalog_report["valid"])
+        catalog_report is None or catalog_report["valid"]) and not unindexed
     return {"valid": ok, "skills": results,
             "catalog": catalog_report,
             "unindexed_in_skill_index": sorted(unindexed)}

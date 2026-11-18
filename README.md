@@ -195,9 +195,8 @@ axiom research "question" --format markdown --output report.md
 
 ## Axiom Skill Framework
 
-Thirty-five original `axiom-*` workflow skills (automotive, embedded, robotics,
-industrial, aerospace, cross-domain) plus the 58 existing skills -- one tree,
-one catalog (`skills/catalog.yaml`), 16 rule-based groups (`skills/groups.yaml`):
+259 skills in `skills/catalog.yaml` (197 `axiom-*` workflow skills + 62 legacy
+skills) -- one tree, one catalog, 16+ rule-based groups (`skills/groups.yaml`):
 
 ```bash
 python -m axiom_cli skills list            # list catalog skills

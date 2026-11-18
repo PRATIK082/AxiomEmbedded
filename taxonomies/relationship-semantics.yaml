@@ -1,0 +1,72 @@
+# SPDX-License-Identifier: Apache-2.0
+# Relationship semantics for AxiomEmbedded skill graph.
+#
+# Defines the meaning of each relationship type used in catalog.yaml and
+# manifest.yaml so that contributors and validators agree on intent.
+
+schema_version: '1.0'
+relationships:
+  parent:
+    description: Hierarchical parent; the child is a narrower specialization of the parent.
+    cardinality: many-to-one
+    circular_allowed: false
+  child:
+    description: Inverse of parent; a narrower specialization.
+    cardinality: one-to-many
+    circular_allowed: false
+  depends_on:
+    description: Runtime or authoring dependency; the skill cannot function without the dependency.
+    cardinality: many-to-many
+    circular_allowed: false
+  composes:
+    description: The skill includes or assembles the referenced skill's capabilities.
+    cardinality: many-to-many
+    circular_allowed: true
+  related:
+    description: Topical relatedness; no dependency or hierarchy implied.
+    cardinality: many-to-many
+    circular_allowed: true
+  supersedes:
+    description: This skill replaces the referenced skill; migration path required.
+    cardinality: many-to-many
+    circular_allowed: false
+  derived_from:
+    description: This skill was derived or adapted from the referenced skill or source.
+    cardinality: many-to-many
+    circular_allowed: true
+  verified_by:
+    description: Verification evidence is provided by the referenced skill or artifact.
+    cardinality: many-to-many
+    circular_allowed: true
+  evidenced_by:
+    description: Evidence for this skill is recorded in the referenced artifact.
+    cardinality: many-to-many
+    circular_allowed: true
+  interfaces_with:
+    description: The skill's outputs interface with the referenced skill's inputs.
+    cardinality: many-to-many
+    circular_allowed: true
+  mitigates:
+    description: The skill mitigates the referenced risk or hazard.
+    cardinality: many-to-many
+    circular_allowed: true
+  reviewed_by:
+    description: The skill's outputs are reviewed by the referenced reviewer.
+    cardinality: many-to-many
+    circular_allowed: true
+  generated_from:
+    description: The skill or artifact was generated from the referenced template or source.
+    cardinality: many-to-many
+    circular_allowed: true
+  satisfies:
+    description: The skill satisfies the referenced requirement or standard clause.
+    cardinality: many-to-many
+    circular_allowed: true
+  decomposes_to:
+    description: The skill decomposes into the referenced sub-skills.
+    cardinality: one-to-many
+    circular_allowed: false
+  affected_by:
+    description: The skill is affected by changes to the referenced element.
+    cardinality: many-to-many
+    circular_allowed: true

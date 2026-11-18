@@ -1,10 +1,12 @@
 {
   "id": "release",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "contract_version": 1,
-  "purpose": "Assembles release evidence and release metadata.",
+  "purpose": "Assembles release evidence and release metadata. Owns production-readiness and deployment-readiness verdicts before any publish step.",
   "capabilities": [
-    "release"
+    "release",
+    "production-readiness",
+    "deployment-readiness"
   ],
   "inputs": [
     "project_profile",

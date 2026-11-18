@@ -1,0 +1,17 @@
+id: axiom-automotive-standards-applicability
+version: 1.2.0
+contract_version: 1
+type: domain-skill
+primary_domain: automotive
+activity: standards-applicability
+capability_kind: domain-specific
+standard_ids: [iso-26262, iso-sae-21434, automotive-spice, misra-c]
+facets:
+  domains:
+  - automotive
+  platforms:
+  - mcu
+  lifecycle: [discover, plan, implement, verify, evidence]
+  artifact_types: [report, manifest]
+  risk_level: medium
+  review_required: true

@@ -1,0 +1,17 @@
+id: axiom-automotive-verification
+version: 1.2.0
+contract_version: 1
+type: domain-skill
+primary_domain: automotive
+activity: verification
+capability_kind: domain-specific
+standard_ids: [automotive-spice, iso-26262]
+facets:
+  domains:
+  - automotive
+  platforms:
+  - mcu
+  lifecycle: [discover, plan, implement, verify, evidence]
+  artifact_types: [report, manifest]
+  risk_level: medium
+  review_required: true

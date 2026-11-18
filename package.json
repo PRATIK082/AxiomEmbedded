@@ -1,0 +1,38 @@
+{
+  "name": "axiom-embedded",
+  "version": "0.2.0",
+  "description": "Open AI-Native Engineering Platform for Embedded & Cyber-Physical Systems — skill packs, agents, and MCP server",
+  "license": "Apache-2.0",
+  "author": "PRATIK082 <pratik.patil082@gmail.com>",
+  "homepage": "https://github.com/PRATIK082/AxiomEmbedded",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/PRATIK082/AxiomEmbedded.git"
+  },
+  "keywords": [
+    "embedded",
+    "mcp",
+    "ai-agents",
+    "opencode",
+    "claude",
+    "skills",
+    "firmware",
+    "autosar",
+    "functional-safety"
+  ],
+  "bin": {
+    "axiom": "bin/axiom.js"
+  },
+  "files": [
+    "bin/",
+    "README.md",
+    "LICENSE",
+    "NOTICE"
+  ],
+  "engines": {
+    "node": ">=18"
+  },
+  "scripts": {
+    "postinstall": "node bin/postinstall.js"
+  }
+}

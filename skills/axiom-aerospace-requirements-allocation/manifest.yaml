@@ -1,0 +1,17 @@
+id: axiom-aerospace-requirements-allocation
+version: 1.2.0
+contract_version: 1
+type: domain-skill
+primary_domain: aerospace
+activity: requirements-allocation
+capability_kind: domain-specific
+standard_ids: [arp4754, do-178c]
+facets:
+  domains:
+  - aerospace
+  platforms:
+  - mcu
+  lifecycle: [discover, plan, implement, verify, evidence]
+  artifact_types: [report, manifest]
+  risk_level: medium
+  review_required: true

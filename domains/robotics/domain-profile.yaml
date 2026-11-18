@@ -1,0 +1,67 @@
+# Robotics domain profile
+# SPDX-License-Identifier: Apache-2.0
+
+domain: robotics
+version: '1.0.0'
+title: Robotics engineering domain
+
+description: >
+  Robotics software and systems engineering covering industrial robots,
+  collaborative robots, robot cells, autonomous mobile robots and
+  service robots. Applicable standards include ISO 10218-1/2, ISO 15066,
+  IEC 61508, IEC 62061.
+
+applicable_standards:
+  - iso-10218-1
+  - iso-10218-2
+  - iec-61508
+  - iec-62061
+  - iso-13849
+  - iec-62443
+  - misra-c
+  - misra-cpp
+  - sei-cert-c
+  - sei-cert-cpp
+
+skill_families:
+  requirements:
+    - axiom-robotics-requirements-analysis
+    - axiom-robotics-requirements-allocation
+    - axiom-robotics-requirements-traceability
+  coding:
+    - axiom-robotics-realtime-coding-guidelines
+  code_review:
+    - axiom-robotics-software-review
+  safety:
+    - axiom-robotics-iso10218-risk-reduction
+  security:
+    - axiom-robotics-robot-cell-cybersecurity
+  standards:
+    - axiom-robotics-standards-applicability
+
+engineering_process_map:
+  phases:
+    - requirements-analysis
+    - requirements-allocation
+    - architecture
+    - detailed-design
+    - implementation
+    - unit-verification
+    - integration-verification
+    - system-verification
+    - validation
+  gates:
+    - requirements-review
+    - architecture-review
+    - design-review
+    - implementation-review
+    - verification-review
+    - validation-review
+    - release-review
+
+risk_classes: [collaborative, industrial, mobile, service]
+safety_critical: true
+security_critical: true
+
+platforms: [mcu, mpu, soc, fpga, bare-metal, rtos, linux]
+languages: [c, cpp, python]

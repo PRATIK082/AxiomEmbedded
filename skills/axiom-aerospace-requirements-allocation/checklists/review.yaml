@@ -1,0 +1,22 @@
+# Allocation review gates for axiom-aerospace-requirements-allocation
+gates:
+  - id: baseline-complete
+    description: System requirements baseline frozen with IDs and source references.
+  - id: single-owner
+    description: Every ALLOCATED row names exactly one owner (or joint with named primary).
+  - id: item-exists
+    description: Every ALLOCATED row references an existing architecture item.
+  - id: interface-contracts
+    description: Every cross-item allocation has an interface contract both sides reference.
+  - id: dal-provenance
+    description: DAL claims trace to the ARP4761 safety assessment, never to allocation judgment.
+  - id: derived-feedback
+    description: Derived requirements found during allocation are fed back to the analysis baseline.
+  - id: unallocated-rationale
+    description: Every UNALLOCATED row carries rationale, risk note, and approval pointer.
+  - id: completeness-counts
+    description: ALLOCATED + UNALLOCATED counts reconcile exactly with the baseline count.
+  - id: change-rerun
+    description: Re-allocation after design change re-ran completeness verification.
+  - id: record-signed
+    description: Allocation matrix and verification record reviewed and signed.

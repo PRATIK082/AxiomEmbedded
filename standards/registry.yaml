@@ -1,0 +1,386 @@
+# SPDX-License-Identifier: Apache-2.0
+# Standards registry for AxiomEmbedded DESA.
+#
+# Single source of truth for standard records with lifecycle state.
+# Each standard has: id, title, edition, publication_date, status, authority,
+# source_url, last_verified, normative_text_included, applicability.
+#
+# Status values: published, draft, pre-release, proposed, withdrawn, superseded.
+# A draft/pre-release/proposed standard must NOT silently replace a published
+# edition in a project baseline.
+
+schema_version: '1.0'
+standards:
+  # Automotive
+  - id: iso-26262
+    title: "Road vehicles - Functional safety"
+    family: automotive
+    edition: '2018'
+    publication_date: '2018'
+    status: published
+    authority: ISO
+    source_url: https://www.iso.org/standard/68383.html
+    last_verified: '2026-11-15'
+    normative_text_included: false
+    applicability:
+      domains: [automotive]
+      activities: [functional-safety, requirements-analysis, verification, architecture]
+  - id: iso-sae-21434
+    title: "Road vehicles - Cybersecurity engineering"
+    family: automotive
+    edition: '2021'
+    publication_date: '2021'
+    status: published
+    authority: ISO/SAE
+    source_url: https://www.iso.org/standard/70918.html
+    last_verified: '2026-11-15'
+    normative_text_included: false
+    applicability:
+      domains: [automotive]
+      activities: [cybersecurity, requirements-analysis, architecture, verification]
+    notes: "ISO/SAE AWI 21434 Edition 2 is under development (proposed). Do not replace published 2021 edition."
+  - id: automotive-spice
+    title: Automotive SPICE Process Assessment Model
+    family: automotive
+    edition: '4.1'
+    publication_date: '2026-08'
+    status: published
+    authority: VDA-QMC
+    source_url: https://vda-qmc.de/en/automotive-spice/automotive-spice-veroeffentlichungen/
+    last_verified: '2026-11-15'
+    normative_text_included: false
+    applicability:
+      domains: [automotive]
+      activities: [process-assessment, requirements-analysis, verification, validation, configuration-management]
+  - id: iso-21448
+    title: "Road vehicles - Safety of the intended functionality (SOTIF)"
+    family: automotive
+    edition: '2022'
+    publication_date: '2022'
+    status: published
+    authority: ISO
+    source_url: https://www.iso.org/standard/77490.html
+    last_verified: '2026-11-15'
+    normative_text_included: false
+    applicability:
+      domains: [automotive]
+      activities: [functional-safety, requirements-analysis, verification]
+  - id: unece-r155
+    title: "UN Regulation No. 155 - Cyber security and cyber security management system"
+    family: automotive
+    edition: '2021'
+    publication_date: '2021'
+    status: published
+    authority: UNECE
+    source_url: https://unece.org/transport/documents/2021/03/standards/un-regulation-no-155
+    last_verified: '2026-11-15'
+    normative_text_included: false
+    applicability:
+      domains: [automotive]
+      activities: [cybersecurity, process-assessment]
+  - id: unece-r156
+    title: "UN Regulation No. 156 - Software update and software update management system"
+    family: automotive
+    edition: '2021'
+    publication_date: '2021'
+    status: published
+    authority: UNECE
+    source_url: https://unece.org/transport/documents/2021/03/standards/un-regulation-no-156
+    last_verified: '2026-11-15'
+    normative_text_included: false
+    applicability:
+      domains: [automotive]
+      activities: [configuration-management, release-readiness]
+
+  # Coding standards
+  - id: misra-c
+    title: MISRA C
+    family: coding
+    edition: '2025'
+    publication_date: '2025'
+    status: published
+    authority: MISRA
+    source_url: https://misra.org.uk/misra-c/
+    last_verified: '2026-11-15'
+    normative_text_included: false
+    applicability:
+      domains: [automotive, aerospace, industrial, medical, defense, rail, space, robotics]
+      activities: [coding-guidelines, code-review, verification]
+    notes: "MISRA C:2025 is the currently published edition."
+  - id: misra-cpp
+    title: MISRA C++
+    family: coding
+    edition: '2023'
+    publication_date: '2023'
+    status: published
+    authority: MISRA
+    source_url: https://misra.org.uk/misra-cpp/
+    last_verified: '2026-11-15'
+    normative_text_included: false
+    applicability:
+      domains: [automotive, aerospace, industrial, medical, defense, rail, space, robotics]
+      activities: [coding-guidelines, code-review, verification]
+    notes: "MISRA C++:2023 has a 2026 Technical Corrigendum."
+  - id: autosar-cpp14
+    title: AUTOSAR C++14 Guidelines
+    family: coding
+    edition: current
+    publication_date: '2019'
+    status: published
+    authority: AUTOSAR
+    source_url: https://www.autosar.org/standards/adaptive-platform/
+    last_verified: '2026-11-15'
+    normative_text_included: false
+    applicability:
+      domains: [automotive]
+      activities: [coding-guidelines, code-review]
+  - id: sei-cert-c
+    title: SEI CERT C Coding Standard
+    family: coding
+    edition: current
+    publication_date: '2016'
+    status: published
+    authority: SEI
+    source_url: https://wiki.sei.cmu.edu/confluence/display/c/SEI+CERT+C+Coding+Standard
+    last_verified: '2026-11-15'
+    normative_text_included: false
+    applicability:
+      domains: [automotive, aerospace, industrial, medical, defense, rail, space, robotics, iot, consumer]
+      activities: [coding-guidelines, code-review, security-review]
+  - id: sei-cert-cpp
+    title: SEI CERT C++ Coding Standard
+    family: coding
+    edition: current
+    publication_date: '2016'
+    status: published
+    authority: SEI
+    source_url: https://wiki.sei.cmu.edu/confluence/display/cplusplus/SEI+CERT+C%2B%2B+Coding+Standard
+    last_verified: '2026-11-15'
+    normative_text_included: false
+    applicability:
+      domains: [automotive, aerospace, industrial, medical, defense, rail, space, robotics, iot, consumer]
+      activities: [coding-guidelines, code-review, security-review]
+
+  # Aerospace
+  - id: do-178c
+    title: Software Considerations in Airborne Systems and Equipment Certification
+    family: aerospace
+    edition: '2011'
+    publication_date: '2011'
+    status: published
+    authority: RTCA/EUROCAE
+    source_url: https://www.rtca.org/
+    last_verified: '2026-11-15'
+    normative_text_included: false
+    applicability:
+      domains: [aerospace, defense, space]
+      activities: [functional-safety, verification, validation, process-assessment, standards-applicability]
+  - id: do-254
+    title: Design Assurance Guidance for Airborne Electronic Hardware
+    family: aerospace
+    edition: '2000'
+    publication_date: '2000'
+    status: published
+    authority: RTCA/EUROCAE
+    source_url: https://www.rtca.org/
+    last_verified: '2026-11-15'
+    normative_text_included: false
+    applicability:
+      domains: [aerospace, defense, space]
+      activities: [functional-safety, verification, validation, standards-applicability]
+  - id: arp4754
+    title: Guidelines for Development of Civil Aircraft and Systems
+    family: aerospace
+    edition: '2010'
+    publication_date: '2010'
+    status: published
+    authority: SAE
+    source_url: https://www.sae.org/
+    last_verified: '2026-11-15'
+    normative_text_included: false
+    applicability:
+      domains: [aerospace]
+      activities: [architecture, requirements-analysis, standards-applicability]
+  - id: arp4761
+    title: Guidelines and Methods for Conducting the Safety Assessment Process on Civil Airborne Systems and Equipment
+    family: aerospace
+    edition: '1996'
+    publication_date: '1996'
+    status: published
+    authority: SAE
+    source_url: https://www.sae.org/
+    last_verified: '2026-11-15'
+    normative_text_included: false
+    applicability:
+      domains: [aerospace]
+      activities: [functional-safety, requirements-analysis, standards-applicability]
+
+  # Industrial
+  - id: iec-61508
+    title: "Functional safety of electrical/electronic/programmable electronic safety-related systems"
+    family: industrial
+    edition: '2010'
+    publication_date: '2010'
+    status: published
+    authority: IEC
+    source_url: https://www.iec.ch/
+    last_verified: '2026-11-15'
+    normative_text_included: false
+    applicability:
+      domains: [industrial, robotics, energy, rail, marine, medical]
+      activities: [functional-safety, requirements-analysis, verification, validation, standards-applicability]
+  - id: iec-62061
+    title: "Safety of machinery - Functional safety of safety-related control systems"
+    family: industrial
+    edition: '2021'
+    publication_date: '2021'
+    status: published
+    authority: IEC
+    source_url: https://www.iec.ch/
+    last_verified: '2026-11-15'
+    normative_text_included: false
+    applicability:
+      domains: [industrial, robotics]
+      activities: [functional-safety, requirements-analysis, standards-applicability]
+    notes: "Consolidated 2021 edition incorporates amendments through 2026."
+  - id: iso-13849
+    title: "Safety of machinery - Safety-related parts of control systems"
+    family: industrial
+    edition: '2023'
+    publication_date: '2023'
+    status: published
+    authority: ISO
+    source_url: https://www.iso.org/standard/73493.html
+    last_verified: '2026-11-15'
+    normative_text_included: false
+    applicability:
+      domains: [industrial, robotics]
+      activities: [functional-safety, requirements-analysis, standards-applicability]
+  - id: iec-62443
+    title: Industrial automation and control systems security
+    family: industrial
+    edition: '2018'
+    publication_date: '2018'
+    status: published
+    authority: IEC
+    source_url: https://www.iec.ch/
+    last_verified: '2026-11-15'
+    normative_text_included: false
+    applicability:
+      domains: [industrial, robotics, energy, rail, marine]
+      activities: [cybersecurity, requirements-analysis, architecture, verification, standards-applicability]
+
+  # Robotics
+  - id: iso-10218-1
+    title: "Industrial robots - Safety requirements - Part 1: Industrial robots"
+    family: robotics
+    edition: '2025'
+    publication_date: '2025'
+    status: published
+    authority: ISO
+    source_url: https://www.iso.org/standard/73933.html
+    last_verified: '2026-11-15'
+    normative_text_included: false
+    applicability:
+      domains: [robotics]
+      activities: [functional-safety, requirements-analysis, standards-applicability]
+  - id: iso-10218-2
+    title: "Industrial robots - Safety requirements - Part 2: Robot applications and robot cells"
+    family: robotics
+    edition: '2025'
+    publication_date: '2025'
+    status: published
+    authority: ISO
+    source_url: https://www.iso.org/standard/73934.html
+    last_verified: '2026-11-15'
+    normative_text_included: false
+    applicability:
+      domains: [robotics]
+      activities: [functional-safety, requirements-analysis, standards-applicability]
+
+  # Medical
+  - id: iec-62304
+    title: "Medical device software - Software life cycle processes"
+    family: medical
+    edition: '2006'
+    publication_date: '2006'
+    status: published
+    authority: IEC
+    source_url: https://www.iec.ch/
+    last_verified: '2026-11-15'
+    normative_text_included: false
+    applicability:
+      domains: [medical]
+      activities: [process-assessment, requirements-analysis, verification, validation, standards-applicability]
+
+  # Space
+  - id: ecss-e-st-40c
+    title: ECSS Software engineering standard
+    family: space
+    edition: '2009'
+    publication_date: '2009'
+    status: published
+    authority: ECSS
+    source_url: https://ecss.nl/
+    last_verified: '2026-11-15'
+    normative_text_included: false
+    applicability:
+      domains: [space, aerospace]
+      activities: [process-assessment, requirements-analysis, verification, validation, standards-applicability]
+
+  # Defense
+  - id: mil-std-882e
+    title: System Safety
+    family: defense
+    edition: '2012'
+    publication_date: '2012'
+    status: published
+    authority: US DoD
+    source_url: https://www.dau.edu/
+    last_verified: '2026-11-15'
+    normative_text_included: false
+    applicability:
+      domains: [defense, aerospace]
+      activities: [functional-safety, requirements-analysis, standards-applicability]
+
+  # Generic
+  - id: iso-iec-15288
+    title: System life cycle processes
+    family: generic
+    edition: '2023'
+    publication_date: '2023'
+    status: published
+    authority: ISO/IEC/IEEE
+    source_url: https://www.iso.org/standard/81702.html
+    last_verified: '2026-11-15'
+    normative_text_included: false
+    applicability:
+      domains: [generic-embedded, automotive, aerospace, industrial, robotics, medical, space, defense, energy, rail, marine, telecom, iot, consumer, semiconductor]
+      activities: [requirements-analysis, architecture, verification, validation, process-assessment]
+  - id: iso-iec-26514
+    title: Design and development of user documentation
+    family: generic
+    edition: '2022'
+    publication_date: '2022'
+    status: published
+    authority: ISO/IEC/IEEE
+    source_url: https://www.iso.org/standard/75888.html
+    last_verified: '2026-11-15'
+    normative_text_included: false
+    applicability:
+      domains: [generic-embedded, automotive, aerospace, industrial, robotics, medical, space, defense, energy, rail, marine, telecom, iot, consumer, semiconductor]
+      activities: [documentation]
+  - id: iso-pas-8800
+    title: "Road vehicles - Safety and artificial intelligence"
+    family: automotive
+    edition: '2024'
+    publication_date: '2024'
+    status: pre-release
+    authority: ISO
+    source_url: https://www.iso.org/standard/83303.html
+    last_verified: '2026-11-15'
+    normative_text_included: false
+    applicability:
+      domains: [automotive]
+      activities: [functional-safety, requirements-analysis, verification]
+    notes: "PAS status, not a full International Standard. Use as guidance only."

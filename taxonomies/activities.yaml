@@ -1,0 +1,199 @@
+# SPDX-License-Identifier: Apache-2.0
+# Engineering activity taxonomy for AxiomEmbedded Domain Engineering Skill Architecture (DESA).
+#
+# An engineering activity is a distinct, independently useful workflow with
+# its own inputs, outputs and acceptance criteria. Skills are classified by
+# activity so that users can discover them by engineering task, not by folder.
+#
+# This file is the single source of truth for activity identifiers used in
+# catalog.yaml facets, manifest.yaml, skill frontmatter and group matching.
+
+schema_version: '1.0'
+activities:
+  # Requirements family
+  requirements-analysis:
+    title: Requirements analysis
+    description: Stakeholder needs, operating scenarios, constraints, quality attributes, assumptions and conflicts.
+    family: requirements
+    outputs: [requirements-analysis-report, candidate-requirement-set]
+  requirements-derivation:
+    title: Requirements derivation and decomposition
+    description: Derive system, subsystem, hardware and software requirements with allocation boundaries and rationale.
+    family: requirements
+    outputs: [derived-requirement-specification]
+  requirements-allocation:
+    title: Requirements allocation and mapping
+    description: Map requirements to architecture elements, interfaces, software components, hardware elements and verification methods.
+    family: requirements
+    outputs: [allocation-and-mapping-matrix]
+  requirements-traceability:
+    title: Requirements traceability
+    description: Forward and reverse links, orphan detection, change-impact propagation.
+    family: requirements
+    outputs: [traceability-matrix, gap-report]
+  requirements-review:
+    title: Requirements review
+    description: Ambiguity, completeness, consistency, feasibility, verifiability and domain-specific acceptance.
+    family: requirements
+    outputs: [findings, review-disposition]
+
+  # Coding family
+  coding-guidelines:
+    title: Coding guidelines
+    description: Language subsets, naming, memory, concurrency, errors, interfaces.
+    family: coding
+    outputs: [coding-standard-document, deviation-register]
+  implementation:
+    title: Implementation
+    description: Feature development, driver implementation, module development, integration, configuration, defect correction.
+    family: coding
+    outputs: [source-code, unit-tests, build-artifacts]
+
+  # Review family
+  code-review:
+    title: Code review
+    description: General peer review, domain-specific review, independent review, finding disposition.
+    family: review
+    outputs: [review-findings, disposition-report]
+  safety-review:
+    title: Safety review
+    description: Safety-focused review of architecture, design and implementation.
+    family: review
+    outputs: [safety-review-report]
+  security-review:
+    title: Security review
+    description: Security-focused review including threat analysis and vulnerability assessment.
+    family: review
+    outputs: [security-review-report]
+
+  # Functional safety family
+  functional-safety:
+    title: Functional safety
+    description: Hazard analysis, safety goals, safety concepts, safety requirements, safety architecture, safety verification, safety case.
+    family: safety
+    outputs: [safety-case, hazard-analysis, safety-requirements]
+
+  # Cybersecurity family
+  cybersecurity:
+    title: Cybersecurity engineering
+    description: Asset identification, threat analysis, security requirements, secure architecture, secure coding, security verification, vulnerability management.
+    family: security
+    outputs: [threat-model, security-requirements, security-case]
+
+  # Standards family
+  standards-applicability:
+    title: Standards applicability and mapping
+    description: Applicability analysis, edition identification, tailoring, clause-to-process mapping, evidence mapping, revision impact.
+    family: standards
+    outputs: [standards-applicability-matrix, tailoring-record]
+
+  # Verification and validation family
+  verification:
+    title: Verification
+    description: Verification planning, test design, coverage, static analysis, simulation.
+    family: vnv
+    outputs: [verification-plan, test-cases, coverage-report]
+  validation:
+    title: Validation
+    description: Validation planning, system validation, operational validation.
+    family: vnv
+    outputs: [validation-plan, validation-report]
+  sil-hil:
+    title: SIL/HIL testing
+    description: Software-in-the-loop and hardware-in-the-loop testing and validation.
+    family: vnv
+    outputs: [sil-hil-test-report]
+
+  # Engineering assurance family
+  process-assessment:
+    title: Process assessment
+    description: Process assessment, audit preparation, compliance evidence.
+    family: assurance
+    outputs: [process-assessment-report, audit-evidence]
+  configuration-management:
+    title: Configuration management
+    description: Baseline management, change control, configuration identification.
+    family: assurance
+    outputs: [configuration-baseline, change-record]
+  release-readiness:
+    title: Release readiness
+    description: Release evidence review, known limitations, release notes.
+    family: assurance
+    outputs: [release-readiness-report]
+
+  # Architecture family
+  architecture:
+    title: Architecture
+    description: System/module architecture, dependency mapping, component allocation, interface design.
+    family: architecture
+    outputs: [architecture-document, interface-specification, dependency-graph]
+
+  # Testing family
+  unit-testing:
+    title: Unit testing
+    description: Function-level testing, boundary testing, error-path testing.
+    family: testing
+    outputs: [unit-test-spec, unit-test-report]
+  integration-testing:
+    title: Integration testing
+    description: Cross-module testing, interface contract verification.
+    family: testing
+    outputs: [integration-test-spec, integration-test-report]
+  system-testing:
+    title: System testing
+    description: System-level testing, end-to-end scenarios.
+    family: testing
+    outputs: [system-test-spec, system-test-report]
+
+  # Debugging family
+  debugging:
+    title: Debugging
+    description: Root cause analysis, fault diagnosis, defect investigation.
+    family: debugging
+    outputs: [root-cause-report, defect-analysis]
+
+  # Documentation family
+  documentation:
+    title: Documentation
+    description: Technical specifications, user manuals, integration guides.
+    family: documentation
+    outputs: [technical-spec, user-manual, integration-guide]
+
+# Families group activities for discovery and routing
+families:
+  requirements:
+    title: Requirements engineering
+    activities: [requirements-analysis, requirements-derivation, requirements-allocation, requirements-traceability, requirements-review]
+  coding:
+    title: Coding and implementation
+    activities: [coding-guidelines, implementation]
+  review:
+    title: Code and design review
+    activities: [code-review, safety-review, security-review]
+  safety:
+    title: Functional safety
+    activities: [functional-safety]
+  security:
+    title: Cybersecurity
+    activities: [cybersecurity]
+  standards:
+    title: Standards engineering
+    activities: [standards-applicability]
+  vnv:
+    title: Verification and validation
+    activities: [verification, validation, sil-hil]
+  assurance:
+    title: Engineering assurance
+    activities: [process-assessment, configuration-management, release-readiness]
+  architecture:
+    title: Architecture
+    activities: [architecture]
+  testing:
+    title: Testing
+    activities: [unit-testing, integration-testing, system-testing]
+  debugging:
+    title: Debugging
+    activities: [debugging]
+  documentation:
+    title: Documentation
+    activities: [documentation]

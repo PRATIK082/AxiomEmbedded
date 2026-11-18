@@ -29,7 +29,8 @@ def _clause_matches(entry: dict, clause: dict) -> bool:
         elif key == "id_prefix":
             if not any(str(entry.get("id", "")).startswith(p) for p in want_list):
                 return False
-        elif key in ("domain", "subdomain", "maturity"):
+        elif key in ("domain", "subdomain", "maturity", "primary_domain",
+                     "capability_kind", "activity", "risk_class"):
             if entry.get(key) not in want_list:
                 return False
         elif key == "tags":

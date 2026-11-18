@@ -1,0 +1,65 @@
+# Industrial domain profile
+# SPDX-License-Identifier: Apache-2.0
+
+domain: industrial
+version: '1.0.0'
+title: Industrial automation domain
+
+description: >
+  Industrial automation and control systems engineering covering PLCs,
+  industrial controllers, process automation and manufacturing systems.
+  Applicable standards include IEC 61508, IEC 62061, ISO 13849, IEC 62443.
+
+applicable_standards:
+  - iec-61508
+  - iec-62061
+  - iso-13849
+  - iec-62443
+  - misra-c
+  - misra-cpp
+  - sei-cert-c
+  - sei-cert-cpp
+
+skill_families:
+  requirements:
+    - axiom-industrial-requirements-analysis
+    - axiom-industrial-requirements-allocation
+    - axiom-industrial-requirements-traceability
+  coding:
+    - axiom-industrial-controller-coding-guidelines
+  code_review:
+    - axiom-industrial-control-software-review
+  safety:
+    - axiom-industrial-iec61508-functional-safety
+    - axiom-industrial-iec62061-safety
+  security:
+    - axiom-industrial-iec62443-ot-security
+  standards:
+    - axiom-industrial-standards-applicability
+
+engineering_process_map:
+  phases:
+    - requirements-analysis
+    - requirements-allocation
+    - architecture
+    - detailed-design
+    - implementation
+    - unit-verification
+    - integration-verification
+    - system-verification
+    - validation
+  gates:
+    - requirements-review
+    - architecture-review
+    - design-review
+    - implementation-review
+    - verification-review
+    - validation-review
+    - release-review
+
+risk_classes: [SIL-1, SIL-2, SIL-3, SIL-4]
+safety_critical: true
+security_critical: true
+
+platforms: [mcu, mpu, soc, plc, bare-metal, rtos]
+languages: [c, cpp, structured-text, ladder-logic]

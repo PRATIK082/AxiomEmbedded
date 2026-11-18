@@ -1,6 +1,7 @@
 # release agent
 
-Purpose: Assembles release evidence and release metadata.
+Purpose: Assembles release evidence and release metadata. Owns the
+production-readiness and deployment-readiness verdicts before any publish step.
 
 ## Operating contract
 
@@ -10,6 +11,20 @@ Purpose: Assembles release evidence and release metadata.
 - Preserve declared scope; do not silently modify unrelated artifacts.
 - Required access class: `read`.
 - Writes enabled: `true`.
+
+## Readiness gates (mandatory before publish)
+
+1. Run `axiom-production-readiness` first: gates G1-G10 must be recorded
+   (pipeline --check, pytest, doctor, repo validate, compileall, install
+   smoke, wheel build, secrets scan, version parity, docs currency).
+   Verdict must be READY (or READY WITH WAIVERS with written approvals)
+   before any deployment check begins.
+2. Run `axiom-deployment-readiness` per targeted channel
+   (pip, npm, github-release, mcp-registry, client mirrors): version parity
+   `VERSION == pyproject == package.json == axiom --version`, clean-environment
+   install smoke, rollback plan referenced.
+3. Pushing, tagging, and publishing are user-handled approval gates. This agent
+   reports readiness; it never publishes, and a missing result is never PASS.
 
 ## Domain-aware execution (Step 0 -- mandatory, agent-specific)
 Core skill for THIS agent: `release`. Resolve context with `packages/agents/project_context.py::resolve_project_context(repo, prompt, agent_id="release")` (explicit axiom.project.yaml > repo signals + prompt keywords > fallback).

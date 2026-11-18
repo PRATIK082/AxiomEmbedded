@@ -4,7 +4,7 @@ Production-grade, reusable, extensible skill framework for AxiomEmbedded.
 All content is original; no reference-repository text was used.
 
 ## Layout
-- `skills/catalog.yaml` -- every skill (88): axiom-* workflow skills + legacy skills.
+- `skills/catalog.yaml` -- every skill (259): axiom-* workflow skills + legacy skills.
 - `skills/registry.yaml` -- light index (dotted name, path, domain, maturity).
 - `skills/<id>/SKILL.md` -- contract: legacy frontmatter
   (`name, description, version, domains, platforms`) + `axiom:` block

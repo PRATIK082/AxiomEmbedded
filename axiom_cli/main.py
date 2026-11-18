@@ -278,8 +278,8 @@ def workflow_plan(profile: str, entry: str | None) -> int:
     return 0
 
 def engage_cmd(domain: str | None, platform: str | None, group: str | None = None,
-               limit: int = 0) -> int:
-    print(json.dumps(engage(domain, platform, group, limit), indent=2))
+               limit: int = 0, activity: str | None = None) -> int:
+    print(json.dumps(engage(domain, platform, group, limit, activity), indent=2))
     return 0
 
 
@@ -601,6 +601,7 @@ def main() -> int:
     en = sp.add_parser("engage"); en.add_argument("--domain"); en.add_argument("--platform")
     en.add_argument("--group", default=None, help="Restrict to a skills/groups.yaml view")
     en.add_argument("--limit", type=int, default=0, help="Cap returned skills (0 = all; reply carries total/truncated)")
+    en.add_argument("--activity", default=None, help="Restrict to a DESA activity key (e.g. requirements-analysis)")
     pk = sp.add_parser("packs", help="Select plug-and-play tool/pip packs by domain+platform+standards"); pk.add_argument("--domain"); pk.add_argument("--platform");     pk.add_argument("--standard", dest="standards", action="append", default=[], help="Repeatable standard filter (e.g. --standard 'ISO 14229-1')")
     ev = sp.add_parser("eval", help="List and grade Terminal-Bench-style eval tasks (no model calls)")
     ev.add_argument("--list", action="store_true", help="List all eval task ids")
@@ -747,7 +748,7 @@ def main() -> int:
     if args.cmd == "impact": return impact(args.path)
     if args.cmd == "workflow" and args.workflow_cmd == "plan": return workflow_plan(args.profile, args.entry)
     if args.cmd == "route": print(route(args.request)); return 0
-    if args.cmd == "engage": return engage_cmd(args.domain, args.platform, args.group, args.limit or 0)
+    if args.cmd == "engage": return engage_cmd(args.domain, args.platform, args.group, args.limit or 0, args.activity)
     if args.cmd == "packs": return packs_cmd(args.domain, args.platform, args.standards or [])
     if args.cmd == "eval":
         from packages.eval.runner import grade as eval_grade, list_tasks as eval_list

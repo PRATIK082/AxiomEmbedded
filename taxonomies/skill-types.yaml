@@ -1,0 +1,37 @@
+# SPDX-License-Identifier: Apache-2.0
+# Capability kind (skill type) taxonomy for AxiomEmbedded DESA.
+#
+# Separates base/common capability, domain-specific skill, standard-specific
+# overlay, reviewer skill and validator skill so that composition is explicit
+# and discoverable.
+
+schema_version: '1.0'
+capability_kinds:
+  base:
+    title: Base / common capability
+    description: Reusable mechanics that do not impose domain-specific assurance rules.
+    examples: [requirement-id-format, traceability-link-structure, review-finding-schema]
+  domain-specific:
+    title: Domain-specific skill
+    description: Actual process, engineering methods, decision logic and deliverables for a domain.
+    examples: [automotive-requirements-analysis, aerospace-coding-guidelines]
+  standard-overlay:
+    title: Standard-specific overlay
+    description: Applicability, process mapping and evidence expectations for a particular standard.
+    examples: [iso-26262-safety-engineering, do-178c-software-assurance]
+  reviewer:
+    title: Reviewer skill
+    description: Independent review, finding disposition, approval gating.
+    examples: [automotive-code-review, safety-review]
+  validator:
+    title: Validator skill
+    description: Deterministic validation, schema checking, routing verification.
+    examples: [skill-validator, standards-validator]
+  platform:
+    title: Platform skill
+    description: Platform-specific guidance (MCU, RTOS, OS, toolchain).
+    examples: [arm-cortex-m, freertos, zephyr]
+  language:
+    title: Language skill
+    description: Language-specific guidance (C, C++, Rust, Python, assembly).
+    examples: [embedded-c, embedded-cpp, rust-embedded]

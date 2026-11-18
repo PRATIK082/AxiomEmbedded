@@ -1,0 +1,17 @@
+id: axiom-aerospace-code-review
+version: 1.2.0
+contract_version: 1
+type: domain-skill
+primary_domain: aerospace
+activity: code-review
+capability_kind: domain-specific
+standard_ids: [do-178c, arp4754]
+facets:
+  domains:
+  - aerospace
+  platforms:
+  - mcu
+  lifecycle: [discover, plan, implement, verify, evidence]
+  artifact_types: [report, manifest]
+  risk_level: medium
+  review_required: true
