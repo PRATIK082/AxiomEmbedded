@@ -1,9 +1,43 @@
-# Security policy
+# Security Policy
 
-Do not put credentials, private firmware, customer source, proprietary standards or classified/restricted material into this public repository.
+## Supported versions
 
-AI agents must use least-privilege permissions. Destructive shell commands, branch pushes, releases and external-directory access should require explicit approval through the active agent configuration.
+| Version | Supported |
+|---|---|
+| 0.2.x | yes |
+| < 0.2 | no |
 
-Report vulnerabilities privately through the repository's configured GitHub security channel or security contact. Public issues should not contain an undisclosed exploitable path.
+## Reporting a vulnerability
 
-For safety-critical and security-critical product work, this framework is an engineering aid only; the adopting organization remains responsible for threat analysis, safety analysis, tool qualification, independence and regulatory evidence.
+Please report security vulnerabilities privately to the maintainer at
+**pratik.patil082@gmail.com** with the subject line "AxiomEmbedded security
+report". Do not open a public issue for a suspected vulnerability.
+
+We aim to acknowledge reports within 72 hours and to provide a fix or
+mitigation plan within 14 days for confirmed issues.
+
+## Scope
+
+AxiomEmbedded is an engineering-process automation tool. It does not ship
+runtime firmware, does not execute untrusted code by default, and does not
+transmit data off-host. Relevant vulnerability classes include:
+
+- Path traversal in skill runner / tool wrappers (target_files, output_dir)
+- Command injection in any subprocess invocation
+- Secret leakage in logs, manifests, or generated artifacts
+- Unsafe deserialization of YAML/JSON inputs
+- MCP server input sanitization (skill_id allowlist, no `..` escape)
+
+## Safe-use boundary
+
+A passing check in AxiomEmbedded is engineering evidence, not proof of
+compliance, safety integrity, security certification, or airworthiness. The
+adopting project must determine applicable editions, objectives, independence
+requirements, and evidence with qualified personnel and authorised tools.
+AxiomEmbedded must not be represented as a certification tool.
+
+## Disclosure
+
+We follow coordinated disclosure. After a fix is available we will publish an
+advisory in the GitHub Security tab and credit the reporter (unless anonymity
+is requested).

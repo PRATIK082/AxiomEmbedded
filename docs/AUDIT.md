@@ -1,4 +1,6 @@
-# AxiomEmbedded Audit -- installability + standalone use
+# AxiomEmbedded Audit -- installability + standalone use (SUPERSEDED)
+
+> **Status: superseded by `PENDING_FEATURES.md` (2026-11-19).** This audit was written against the 0.1.0 tree (47 skills, 24 agents). The repository has since grown to 275 skills, 30 agents, 38 MCP tools, 0.2.0. Many items flagged here as missing are now implemented (pipx entry, typed MCP server, sync_clients.py, axiom install --client, OpenCode launcher, deep research). Keep this file for historical context only.
 
 Date: 2026-10-09. Scope: README, AGENTS.md, PROJECT_SPEC.md, ROADMAP.md,
 pyproject.toml, axiom_cli/, agents/, skills/, tools/, integrations/, clients/.

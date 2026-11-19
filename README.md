@@ -4,9 +4,17 @@
 
 # AxiomEmbedded
 
+[![License: Apache-2.0](https://img.shields.io/badge/License-Apache_2.0-blue.svg)](LICENSE)
+[![Python >=3.11](https://img.shields.io/badge/python-%3E%3D3.11-blue.svg)](pyproject.toml)
+[![Skills: 275](https://img.shields.io/badge/skills-275-green.svg)](skills/catalog.yaml)
+[![MCP tools: 38](https://img.shields.io/badge/MCP_tools-38-green.svg)](axiom_mcp/server.py)
+[![Tests: passing](https://img.shields.io/badge/tests-passing-brightgreen.svg)](.github/workflows/ci.yml)
+
 **Open AI-Native Engineering Platform for Embedded & Cyber-Physical Systems**
 
 AxiomEmbedded is an open, domain-neutral engineering platform for building, analysing, testing, validating, documenting, maintaining, and evolving embedded products. It connects engineering artifacts, lifecycle workflows, domain/platform profiles, machine-readable rules, AI agents, tool execution, traceability, context optimization, and engineering evidence.
+
+**Current release:** 0.2.0 (275 skills: 213 `axiom-*` + 62 legacy). 38 MCP tools. 10 AI clients supported. All gates green (`pytest -q`: 263 passed).
 
 ## The central architecture
 
@@ -170,7 +178,7 @@ python -m axiom_cli skills apply           # link->enrich->index->clients->valid
 python -m axiom_cli skills apply --check   # CI freshness gate
 ```
 
-The repository contains shared agent instructions and integration contracts for AI clients. Root `AGENTS.md` is the portable project contract. GitHub Copilot additionally consumes `.github/copilot-instructions.md` and path-specific instruction files. OpenCode consumes `.opencode/agents/`, `.opencode/skills/`, `.opencode/commands/` (`/axiom-*`), the `axiom-policy` plugin (`.opencode/plugins/`), and the `mcp.axiom` entry in `opencode.json`. Every `axiom` command is also an MCP tool over stdio (`axiom mcp`, 37 tools, JSON schemas); `clients/mcp.json` holds a
+The repository contains shared agent instructions and integration contracts for AI clients. Root `AGENTS.md` is the portable project contract. GitHub Copilot additionally consumes `.github/copilot-instructions.md` and path-specific instruction files. OpenCode consumes `.opencode/agents/`, `.opencode/skills/`, `.opencode/commands/` (`/axiom-*`), the `axiom-policy` plugin (`.opencode/plugins/`), and the `mcp.axiom` entry in `opencode.json`. Every `axiom` command is also an MCP tool over stdio (`axiom mcp`, 38 tools, JSON schemas); `clients/mcp.json` holds a
 portable server entry.
 
 Live OpenCode runtime (isolated config under `~/.axiom/opencode`, never touches
@@ -195,7 +203,7 @@ axiom research "question" --format markdown --output report.md
 
 ## Axiom Skill Framework
 
-259 skills in `skills/catalog.yaml` (197 `axiom-*` workflow skills + 62 legacy
+275 skills in `skills/catalog.yaml` (213 `axiom-*` workflow skills + 62 legacy
 skills) -- one tree, one catalog, 16+ rule-based groups (`skills/groups.yaml`):
 
 ```bash
@@ -210,7 +218,7 @@ python -m axiom_cli install --client opencode --groups diagnostics  # group-scop
 
 Two exemplar skills ship deep workflows with deterministic checker scripts:
 `axiom-autosar-classic-bsw-integration` and `axiom-diagnostics-uds`
-(beta; the other 33 are experimental scaffolds with full metadata,
+(beta; the other 211 are experimental scaffolds with full metadata,
 workflows, checklists, and templates). Runs produce manifests under
 `.axiom/runs/<timestamp>/<skill-id>/`. Same surface over MCP
 (`search_skills`, `validate_skill`, `run_skill`, `create_skill`,

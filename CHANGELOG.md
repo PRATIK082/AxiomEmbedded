@@ -1,5 +1,13 @@
 # Changelog
 
+## Unreleased -- 0.2.0 (2026-11-19)
+
+- V&V framework: 5 new skills (axiom-validation-orchestrator, axiom-hw-interface-control, axiom-bus-protocol-validation, axiom-firmware-lifecycle, axiom-sil-hil-bridge) with Robot Framework templates, bench self-discovery, end-caps.
+- Validation-test repair: pytest collection (duplicate basenames), stale counts updated to 275 skills / 213 axiom-* / 38 MCP tools.
+- OpenClaw/Hermes manual MCP setup doc + compat audit + drift-proof tests.
+- README, BUILD_MANIFEST, counts reconciled to current tree.
+- Pipeline --check green (275 skills), pytest -q green (263 passed).
+
 ## Unreleased -- Axiom Skill Framework (2026-10-11)
 
 Additive skill framework + 30 original `axiom-*` workflow skills:

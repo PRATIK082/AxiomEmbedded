@@ -1,0 +1,38 @@
+name: release
+
+on:
+  push:
+    tags:
+      - 'v*'
+
+jobs:
+  build-and-publish:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+      id-token: write
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Install build tools
+        run: pip install build twine
+      - name: Verify gates
+        run: |
+          pip install -e '.[test]'
+          python -m compileall -q axiom_cli packages scripts
+          python -m axiom_cli repo validate
+          python scripts/skill_pipeline.py --check
+          python -m pytest -q
+      - name: Build
+        run: python -m build
+      - name: Check dist
+        run: python -m twine check dist/*
+      - name: Publish to PyPI
+        uses: pypa/gh-action-pypi-publish@release/v1
+      - name: GitHub Release
+        uses: softprops/action-gh-release@v2
+        with:
+          files: dist/*
+          generate_release_notes: true

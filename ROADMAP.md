@@ -24,13 +24,22 @@
 - `axiom install --client` for opencode/claude/codex/gemini/copilot -- done.
 - Remaining: PyPI publish, VERSION bump, release tag (Phase 4).
 
-## 0.1 Foundation (current)
+## 0.1 Foundation (done)
 
-- Normalize AxiomEmbedded  into the AxiomEmbedded product model.
-- Keep AxiomEmbedded  migration support external; do not vendor legacy snapshots into the active tree.
-- Define artifact graph, context engine, evidence ledger and agent contracts.
-- Add AI-client onboarding files for Copilot/OpenCode/compatible agents.
-- Establish domain/platform/profile composition.
+- Normalize AxiomEmbedded into the AxiomEmbedded product model. (done)
+- Keep AxiomEmbedded migration support external; do not vendor legacy snapshots into the active tree. (done)
+- Define artifact graph, context engine, evidence ledger and agent contracts. (done)
+- Add AI-client onboarding files for Copilot/OpenCode/compatible agents. (done)
+- Establish domain/platform/profile composition. (done)
+
+## 0.2 Distribution (done)
+
+- Installable wheel (pipx install ., axiom entry point) -- done.
+- axiom_mcp/ stdio server with typed tools (38 tools) -- done.
+- skills/agents as single source of truth + generated client files + CI check -- done.
+- axiom install --client for 10 clients -- done.
+- OpenCode runtime layer (launcher, slash commands, policy plugin, subagents) -- done.
+- Deep research (axiom research + MCP tool) -- done.
 
 ## 0.3 Functional platform
 
