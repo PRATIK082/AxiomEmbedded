@@ -20,6 +20,7 @@ axiom:
   outputs: [run report, run manifest]
   risk_level: medium
   lifecycle: [discover, plan, implement, verify, evidence]
+  standards: []
   activity: standards-applicability
   capability_kind: domain-specific
   primary_domain: aerospace
@@ -27,6 +28,7 @@ axiom:
   lifecycle_phases: [discover, plan, implement, verify, evidence]
   standard_ids: [do-178c, arp4754, arp4761, do-254, iec-61508]
   artifact_types: [report, manifest]
+  mcp_tools: []
   related_skills: []
 ---
 

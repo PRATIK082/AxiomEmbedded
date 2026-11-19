@@ -1,0 +1,10 @@
+# Review checklist: axiom-validation-orchestrator
+
+- [ ] Engine selection recorded with rationale per test layer.
+- [ ] Skeleton generated dry-run first; no bench writes before approval.
+- [ ] Skeleton uses logical bench names only (no hardcoded IPs/ports/VISA strings).
+- [ ] Pre-check phase defined (instrument ping, DUT rails, firmware hash).
+- [ ] Triage phase defined (diagnostic bundle plus Bench/HW/Regression classification).
+- [ ] Sibling skill chain declared (flash, stimulate, parse, promote).
+- [ ] Assumptions, risks, and next actions recorded in run manifest.
+- [ ] Failure triplets declared per requirement (positive, negative, fault with expected safe state).

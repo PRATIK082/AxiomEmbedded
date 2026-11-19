@@ -616,6 +616,53 @@ skills:
   - release
   standard_ids:
   - ISO 26262:2018
+- id: axiom-aerospace-code-review
+  name: axiom-aerospace-code-review
+  title: Aerospace Code Review
+  version: 1.2.0
+  domain: aerospace
+  subdomain: aerospace
+  category: implementation
+  maturity: experimental
+  owner: axiom-embedded
+  tags:
+  - skill
+  inputs:
+  - repository path
+  - objective
+  outputs:
+  - report
+  dependencies: []
+  related_skills: []
+  path: skills/axiom-aerospace-code-review
+  enabled: true
+  sub_skills: []
+  activity: code-review
+  capability_kind: domain-specific
+  primary_domain: aerospace
+  risk_class: medium
+  lifecycle_phases:
+  - discover
+  - plan
+  - implement
+  - verify
+  - evidence
+  standard_ids:
+  - do-178c
+  - arp4754
+  lifecycle:
+  - discover
+  - plan
+  - implement
+  - verify
+  - evidence
+  standards: []
+  artifact_types:
+  - report
+  - manifest
+  mcp_tools: []
+  risk_level: medium
+  review_required: true
 - id: axiom-aerospace-defense-safety-review
   name: axiom.aerospace.aerospace.defense.safety.review
   title: Aerospace and Defense Safety Review
@@ -677,6 +724,429 @@ skills:
   standard_ids:
   - DO-178C
   - DO-254
+- id: axiom-aerospace-do178c-workflow
+  name: axiom-aerospace-do178c-workflow
+  title: DO-178C Software Lifecycle Workflow
+  version: 1.2.0
+  domain: aerospace
+  subdomain: aerospace
+  category: implementation
+  maturity: experimental
+  owner: axiom-embedded
+  tags:
+  - skill
+  inputs:
+  - repository path
+  - objective
+  outputs:
+  - report
+  dependencies: []
+  related_skills: []
+  path: skills/axiom-aerospace-do178c-workflow
+  enabled: true
+  sub_skills: []
+  lifecycle:
+  - discover
+  - plan
+  - implement
+  - verify
+  - evidence
+  standards: []
+  artifact_types:
+  - report
+  - manifest
+  mcp_tools: []
+  risk_level: medium
+  review_required: true
+  activity: process-assessment
+  capability_kind: domain-specific
+  primary_domain: aerospace
+  risk_class: medium
+  lifecycle_phases:
+  - discover
+  - plan
+  - implement
+  - verify
+  - evidence
+  standard_ids: []
+- id: axiom-aerospace-do254-hardware
+  name: axiom-aerospace-do254-hardware
+  title: DO-254 Hardware Design Assurance
+  version: 1.2.0
+  domain: aerospace
+  subdomain: aerospace
+  category: implementation
+  maturity: experimental
+  owner: axiom-embedded
+  tags:
+  - skill
+  inputs:
+  - repository path
+  - objective
+  outputs:
+  - report
+  dependencies: []
+  related_skills: []
+  path: skills/axiom-aerospace-do254-hardware
+  enabled: true
+  sub_skills: []
+  lifecycle:
+  - discover
+  - plan
+  - implement
+  - verify
+  - evidence
+  standards: []
+  artifact_types:
+  - report
+  - manifest
+  mcp_tools: []
+  risk_level: medium
+  review_required: true
+  activity: architecture
+  capability_kind: domain-specific
+  primary_domain: aerospace
+  risk_class: medium
+  lifecycle_phases:
+  - discover
+  - plan
+  - implement
+  - verify
+  - evidence
+  standard_ids: []
+- id: axiom-aerospace-requirements-allocation
+  name: axiom-aerospace-requirements-allocation
+  title: Aerospace requirements allocation
+  version: 1.2.0
+  domain: aerospace
+  subdomain: aerospace
+  category: implementation
+  maturity: experimental
+  owner: axiom-embedded
+  tags:
+  - skill
+  inputs:
+  - repository path
+  - objective
+  outputs:
+  - report
+  dependencies: []
+  related_skills: []
+  path: skills/axiom-aerospace-requirements-allocation
+  enabled: true
+  sub_skills: []
+  activity: requirements-allocation
+  capability_kind: domain-specific
+  primary_domain: aerospace
+  risk_class: medium
+  lifecycle_phases:
+  - discover
+  - plan
+  - implement
+  - verify
+  - evidence
+  standard_ids:
+  - arp4754
+  - do-178c
+  lifecycle:
+  - discover
+  - plan
+  - implement
+  - verify
+  - evidence
+  standards: []
+  artifact_types:
+  - report
+  - manifest
+  mcp_tools: []
+  risk_level: medium
+  review_required: true
+- id: axiom-aerospace-requirements-analysis
+  name: axiom-aerospace-requirements-analysis
+  title: Aerospace Requirements Analysis
+  version: 1.2.0
+  domain: aerospace
+  subdomain: aerospace
+  category: implementation
+  maturity: experimental
+  owner: axiom-embedded
+  tags:
+  - skill
+  inputs:
+  - repository path
+  - objective
+  outputs:
+  - report
+  dependencies: []
+  related_skills: []
+  path: skills/axiom-aerospace-requirements-analysis
+  enabled: true
+  sub_skills: []
+  activity: requirements-analysis
+  capability_kind: domain-specific
+  primary_domain: aerospace
+  risk_class: medium
+  lifecycle_phases:
+  - discover
+  - plan
+  - implement
+  - verify
+  - evidence
+  standard_ids:
+  - arp4754
+  - do-178c
+  lifecycle:
+  - requirements
+  - architecture
+  - design
+  - implementation
+  - integration
+  - verification
+  - validation
+  - release
+  standards:
+  - arp4754
+  - do-178c
+  artifact_types:
+  - analysis report
+  - HLR set
+  - gap report
+  - baseline record
+  mcp_tools:
+  - run_skill
+  - validate_skill
+  risk_level: medium
+  review_required: true
+- id: axiom-aerospace-standards-applicability
+  name: axiom-aerospace-standards-applicability
+  title: Aerospace Standards Applicability
+  version: 1.2.0
+  domain: aerospace
+  subdomain: aerospace
+  category: implementation
+  maturity: experimental
+  owner: axiom-embedded
+  tags:
+  - skill
+  inputs:
+  - repository path
+  - objective
+  outputs:
+  - report
+  dependencies: []
+  related_skills: []
+  path: skills/axiom-aerospace-standards-applicability
+  enabled: true
+  sub_skills: []
+  activity: standards-applicability
+  capability_kind: domain-specific
+  primary_domain: aerospace
+  risk_class: medium
+  lifecycle_phases:
+  - discover
+  - plan
+  - implement
+  - verify
+  - evidence
+  standard_ids:
+  - do-178c
+  - arp4754
+  - arp4761
+  - do-254
+  - iec-61508
+  lifecycle:
+  - discover
+  - plan
+  - implement
+  - verify
+  - evidence
+  standards: []
+  artifact_types:
+  - report
+  - manifest
+  mcp_tools: []
+  risk_level: medium
+  review_required: true
+- id: axiom-agent-evaluation
+  name: axiom-agent-evaluation
+  title: Agent Evaluation
+  version: 1.2.0
+  domain: platform
+  subdomain: platform
+  category: implementation
+  maturity: experimental
+  owner: axiom-embedded
+  tags:
+  - skill
+  inputs:
+  - repository path
+  - objective
+  outputs:
+  - report
+  dependencies: []
+  related_skills: []
+  path: skills/axiom-agent-evaluation
+  enabled: true
+  sub_skills: []
+  lifecycle:
+  - discover
+  - plan
+  - implement
+  - verify
+  - evidence
+  standards: []
+  artifact_types:
+  - report
+  - manifest
+  mcp_tools: []
+  risk_level: medium
+  review_required: true
+  activity: verification
+  capability_kind: domain-specific
+  primary_domain: platform
+  risk_class: medium
+  lifecycle_phases:
+  - discover
+  - plan
+  - implement
+  - verify
+  - evidence
+  standard_ids: []
+- id: axiom-agent-observability
+  name: axiom-agent-observability
+  title: Agent Observability
+  version: 1.2.0
+  domain: platform
+  subdomain: platform
+  category: implementation
+  maturity: experimental
+  owner: axiom-embedded
+  tags:
+  - skill
+  inputs:
+  - repository path
+  - objective
+  outputs:
+  - report
+  dependencies: []
+  related_skills: []
+  path: skills/axiom-agent-observability
+  enabled: true
+  sub_skills: []
+  lifecycle:
+  - discover
+  - plan
+  - implement
+  - verify
+  - evidence
+  standards: []
+  artifact_types:
+  - report
+  - manifest
+  mcp_tools: []
+  risk_level: medium
+  review_required: true
+  activity: debugging
+  capability_kind: domain-specific
+  primary_domain: platform
+  risk_class: medium
+  lifecycle_phases:
+  - discover
+  - plan
+  - implement
+  - verify
+  - evidence
+  standard_ids: []
+- id: axiom-agent-red-teaming
+  name: axiom-agent-red-teaming
+  title: Agent Red Teaming
+  version: 1.2.0
+  domain: all
+  subdomain: all
+  category: implementation
+  maturity: experimental
+  owner: axiom-embedded
+  tags:
+  - skill
+  inputs:
+  - repository path
+  - objective
+  outputs:
+  - report
+  dependencies: []
+  related_skills: []
+  path: skills/axiom-agent-red-teaming
+  enabled: true
+  sub_skills: []
+  lifecycle:
+  - discover
+  - plan
+  - implement
+  - verify
+  - evidence
+  standards: []
+  artifact_types:
+  - report
+  - manifest
+  mcp_tools: []
+  risk_level: medium
+  review_required: true
+  activity: security-review
+  capability_kind: domain-specific
+  primary_domain: all
+  risk_class: medium
+  lifecycle_phases:
+  - discover
+  - plan
+  - implement
+  - verify
+  - evidence
+  standard_ids: []
+- id: axiom-agents-md-generator
+  name: axiom-agents-md-generator
+  title: AGENTS.md Generator
+  version: 1.2.0
+  domain: all
+  subdomain: all
+  category: implementation
+  maturity: experimental
+  owner: axiom-embedded
+  tags:
+  - skill
+  inputs:
+  - repository path
+  - objective
+  outputs:
+  - report
+  dependencies: []
+  related_skills: []
+  path: skills/axiom-agents-md-generator
+  enabled: true
+  sub_skills: []
+  lifecycle:
+  - discover
+  - plan
+  - implement
+  - verify
+  - evidence
+  standards: []
+  artifact_types:
+  - report
+  - manifest
+  mcp_tools: []
+  risk_level: medium
+  review_required: true
+  activity: documentation
+  capability_kind: domain-specific
+  primary_domain: all
+  risk_class: medium
+  lifecycle_phases:
+  - discover
+  - plan
+  - implement
+  - verify
+  - evidence
+  standard_ids: []
 - id: axiom-ansi-r1506-compliance-matrix
   name: axiom.industrial.ansi.r1506.compliance.matrix
   title: ANSI/RIA R15.06 Compliance Matrix
@@ -801,6 +1271,51 @@ skills:
   - ANSI/RIA R15.06-2012
   - ISO 10218-1:2011
   - ISO 10218-2:2011
+- id: axiom-api-design
+  name: axiom-api-design
+  title: API Design Review
+  version: 1.2.0
+  domain: all
+  subdomain: all
+  category: implementation
+  maturity: experimental
+  owner: axiom-embedded
+  tags:
+  - skill
+  inputs:
+  - repository path
+  - objective
+  outputs:
+  - report
+  dependencies: []
+  related_skills: []
+  path: skills/axiom-api-design
+  enabled: true
+  sub_skills: []
+  lifecycle:
+  - discover
+  - plan
+  - implement
+  - verify
+  - evidence
+  standards: []
+  artifact_types:
+  - report
+  - manifest
+  mcp_tools: []
+  risk_level: medium
+  review_required: true
+  activity: architecture
+  capability_kind: domain-specific
+  primary_domain: all
+  risk_class: medium
+  lifecycle_phases:
+  - discover
+  - plan
+  - implement
+  - verify
+  - evidence
+  standard_ids: []
 - id: axiom-architecture-decision-records
   name: axiom.legacy.axiom-architecture-decision-records
   title: Architecture Decision Records
@@ -856,6 +1371,50 @@ skills:
   - release
   - operations
   standard_ids: []
+- id: axiom-automotive-code-review
+  name: axiom-automotive-code-review
+  title: Automotive Code Review
+  version: 1.2.0
+  domain: automotive
+  subdomain: automotive
+  category: implementation
+  maturity: experimental
+  owner: axiom-embedded
+  tags:
+  - skill
+  inputs:
+  - repository path
+  - objective
+  outputs:
+  - report
+  dependencies: []
+  related_skills: []
+  path: skills/axiom-automotive-code-review
+  enabled: true
+  sub_skills: []
+  activity: code-review
+  capability_kind: domain-specific
+  primary_domain: automotive
+  risk_class: medium
+  lifecycle_phases:
+  - implement
+  - verify
+  - evidence
+  standard_ids:
+  - misra-c
+  - autosar-cpp14
+  - iso-26262
+  lifecycle:
+  - implement
+  - verify
+  - evidence
+  standards: []
+  artifact_types:
+  - report
+  - manifest
+  mcp_tools: []
+  risk_level: medium
+  review_required: true
 - id: axiom-automotive-ethernet-someip
   name: axiom.automotive.automotive.ethernet.someip
   title: Automotive Ethernet and SOME/IP Design
@@ -983,6 +1542,194 @@ skills:
   - release
   standard_ids:
   - Automotive SPICE
+- id: axiom-automotive-requirements-allocation
+  name: axiom-automotive-requirements-allocation
+  title: Automotive requirements allocation
+  version: 1.2.0
+  domain: automotive
+  subdomain: automotive
+  category: implementation
+  maturity: experimental
+  owner: axiom-embedded
+  tags:
+  - skill
+  inputs:
+  - repository path
+  - objective
+  outputs:
+  - report
+  dependencies: []
+  related_skills: []
+  path: skills/axiom-automotive-requirements-allocation
+  enabled: true
+  sub_skills: []
+  activity: requirements-allocation
+  capability_kind: domain-specific
+  primary_domain: automotive
+  risk_class: medium
+  lifecycle_phases:
+  - discover
+  - plan
+  - implement
+  - verify
+  - evidence
+  standard_ids:
+  - automotive-spice
+  - iso-26262
+  lifecycle:
+  - discover
+  - plan
+  - implement
+  - verify
+  - evidence
+  standards: []
+  artifact_types:
+  - report
+  - manifest
+  mcp_tools: []
+  risk_level: medium
+  review_required: true
+- id: axiom-automotive-requirements-analysis
+  name: axiom-automotive-requirements-analysis
+  title: Automotive requirements analysis
+  version: 1.2.0
+  domain: automotive
+  subdomain: automotive
+  category: implementation
+  maturity: experimental
+  owner: axiom-embedded
+  tags:
+  - skill
+  inputs:
+  - repository path
+  - objective
+  outputs:
+  - report
+  dependencies: []
+  related_skills: []
+  path: skills/axiom-automotive-requirements-analysis
+  enabled: true
+  sub_skills: []
+  activity: requirements-analysis
+  capability_kind: domain-specific
+  primary_domain: automotive
+  risk_class: medium
+  lifecycle_phases:
+  - discover
+  - plan
+  - implement
+  - verify
+  - evidence
+  standard_ids:
+  - automotive-spice
+  - iso-26262
+  lifecycle:
+  - discover
+  - plan
+  - implement
+  - verify
+  - evidence
+  standards: []
+  artifact_types:
+  - report
+  - manifest
+  mcp_tools: []
+  risk_level: medium
+  review_required: true
+- id: axiom-automotive-standards-applicability
+  name: axiom-automotive-standards-applicability
+  title: Automotive Standards Applicability
+  version: 1.2.0
+  domain: automotive
+  subdomain: automotive
+  category: implementation
+  maturity: experimental
+  owner: axiom-embedded
+  tags:
+  - skill
+  inputs:
+  - repository path
+  - objective
+  outputs:
+  - report
+  dependencies: []
+  related_skills: []
+  path: skills/axiom-automotive-standards-applicability
+  enabled: true
+  sub_skills: []
+  activity: standards-applicability
+  capability_kind: domain-specific
+  primary_domain: automotive
+  risk_class: medium
+  lifecycle_phases:
+  - discover
+  - plan
+  - implement
+  - verify
+  - evidence
+  standard_ids:
+  - iso-26262
+  - iso-sae-21434
+  - automotive-spice
+  - misra-c
+  lifecycle:
+  - discover
+  - plan
+  - implement
+  - verify
+  - evidence
+  standards: []
+  artifact_types:
+  - report
+  - manifest
+  mcp_tools: []
+  risk_level: medium
+  review_required: true
+- id: axiom-automotive-verification
+  name: axiom-automotive-verification
+  title: Automotive verification
+  version: 1.2.0
+  domain: automotive
+  subdomain: automotive
+  category: implementation
+  maturity: experimental
+  owner: axiom-embedded
+  tags:
+  - skill
+  inputs:
+  - repository path
+  - objective
+  outputs:
+  - report
+  dependencies: []
+  related_skills: []
+  path: skills/axiom-automotive-verification
+  enabled: true
+  sub_skills: []
+  activity: verification
+  capability_kind: domain-specific
+  primary_domain: automotive
+  risk_class: medium
+  lifecycle_phases:
+  - plan
+  - implement
+  - verify
+  - evidence
+  standard_ids:
+  - automotive-spice
+  - iso-26262
+  lifecycle:
+  - plan
+  - implement
+  - verify
+  - evidence
+  standards: []
+  artifact_types:
+  - report
+  - manifest
+  mcp_tools: []
+  risk_level: medium
+  review_required: true
 - id: axiom-autosar-adaptive-deployment
   name: axiom.automotive.autosar.adaptive.deployment
   title: AUTOSAR Adaptive Deployment
@@ -1599,6 +2346,64 @@ skills:
   - release
   standard_ids:
   - ISO 26262:2018
+- id: axiom-bus-protocol-validation
+  name: axiom.platform.validation.bus_protocol
+  title: Bus and Protocol Validation Routines
+  version: 1.2.0
+  domain: platform
+  subdomain: validation
+  category: verification
+  maturity: experimental
+  owner: axiom-embedded
+  tags:
+  - can
+  - uart
+  - spi
+  - i2c
+  - ethernet
+  - ble
+  - protocol
+  - validation
+  inputs:
+  - protocol specification
+  - frame definitions
+  - test objective
+  outputs:
+  - parser library
+  - validation report
+  - run manifest
+  dependencies: []
+  related_skills:
+  - axiom-validation-orchestrator
+  path: skills/axiom-bus-protocol-validation
+  enabled: true
+  lifecycle:
+  - plan
+  - implement
+  - verify
+  - evidence
+  standards: []
+  artifact_types:
+  - validation report
+  - evidence package
+  mcp_tools:
+  - run_skill
+  - validate_skill
+  risk_level: medium
+  review_required: true
+  safety_critical: false
+  extends: null
+  sub_skills: []
+  activity: verification
+  capability_kind: validator
+  primary_domain: all
+  risk_class: medium
+  lifecycle_phases:
+  - plan
+  - implement
+  - verify
+  - evidence
+  standard_ids: []
 - id: axiom-can-network-design
   name: axiom.automotive.can.network.design
   title: CAN Network Design
@@ -1721,6 +2526,186 @@ skills:
   - release
   standard_ids:
   - ISO 11898
+- id: axiom-chaos-engineering
+  name: axiom-chaos-engineering
+  title: Chaos Engineering
+  version: 1.2.0
+  domain: all
+  subdomain: all
+  category: implementation
+  maturity: experimental
+  owner: axiom-embedded
+  tags:
+  - skill
+  inputs:
+  - repository path
+  - objective
+  outputs:
+  - report
+  dependencies: []
+  related_skills: []
+  path: skills/axiom-chaos-engineering
+  enabled: true
+  sub_skills: []
+  lifecycle:
+  - discover
+  - plan
+  - implement
+  - verify
+  - evidence
+  standards: []
+  artifact_types:
+  - report
+  - manifest
+  mcp_tools: []
+  risk_level: medium
+  review_required: true
+  activity: implementation
+  capability_kind: domain-specific
+  primary_domain: all
+  risk_class: medium
+  lifecycle_phases:
+  - discover
+  - plan
+  - implement
+  - verify
+  - evidence
+  standard_ids: []
+- id: axiom-clean-ai-slop
+  name: axiom-clean-ai-slop
+  title: Clean AI Slop
+  version: 1.2.0
+  domain: all
+  subdomain: all
+  category: implementation
+  maturity: experimental
+  owner: axiom-embedded
+  tags:
+  - skill
+  inputs:
+  - repository path
+  - objective
+  outputs:
+  - report
+  dependencies: []
+  related_skills: []
+  path: skills/axiom-clean-ai-slop
+  enabled: true
+  sub_skills: []
+  lifecycle:
+  - discover
+  - plan
+  - implement
+  - verify
+  - evidence
+  standards: []
+  artifact_types:
+  - report
+  - manifest
+  mcp_tools: []
+  risk_level: medium
+  review_required: true
+  activity: implementation
+  capability_kind: domain-specific
+  primary_domain: all
+  risk_class: medium
+  lifecycle_phases:
+  - discover
+  - plan
+  - implement
+  - verify
+  - evidence
+  standard_ids: []
+- id: axiom-cli-developer
+  name: axiom-cli-developer
+  title: CLI Developer
+  version: 1.2.0
+  domain: all
+  subdomain: all
+  category: implementation
+  maturity: experimental
+  owner: axiom-embedded
+  tags:
+  - skill
+  inputs:
+  - repository path
+  - objective
+  outputs:
+  - report
+  dependencies: []
+  related_skills: []
+  path: skills/axiom-cli-developer
+  enabled: true
+  sub_skills: []
+  lifecycle:
+  - discover
+  - plan
+  - implement
+  - verify
+  - evidence
+  standards: []
+  artifact_types:
+  - report
+  - manifest
+  mcp_tools: []
+  risk_level: medium
+  review_required: true
+  activity: implementation
+  capability_kind: domain-specific
+  primary_domain: all
+  risk_class: medium
+  lifecycle_phases:
+  - discover
+  - plan
+  - implement
+  - verify
+  - evidence
+  standard_ids: []
+- id: axiom-cloud-architecture
+  name: axiom-cloud-architecture
+  title: Cloud Architecture
+  version: 1.2.0
+  domain: platform
+  subdomain: platform
+  category: implementation
+  maturity: experimental
+  owner: axiom-embedded
+  tags:
+  - skill
+  inputs:
+  - repository path
+  - objective
+  outputs:
+  - report
+  dependencies: []
+  related_skills: []
+  path: skills/axiom-cloud-architecture
+  enabled: true
+  sub_skills: []
+  lifecycle:
+  - discover
+  - plan
+  - implement
+  - verify
+  - evidence
+  standards: []
+  artifact_types:
+  - report
+  - manifest
+  mcp_tools: []
+  risk_level: medium
+  review_required: true
+  activity: architecture
+  capability_kind: domain-specific
+  primary_domain: platform
+  risk_class: medium
+  lifecycle_phases:
+  - discover
+  - plan
+  - implement
+  - verify
+  - evidence
+  standard_ids: []
 - id: axiom-cobot-hand-guiding
   name: axiom.robotics.cobot.hand.guiding
   title: Cobot Hand-Guiding Design
@@ -1841,6 +2826,276 @@ skills:
   standard_ids:
   - ISO/TS 15066:2016
   - ISO 10218-1:2011
+- id: axiom-code-explainer
+  name: axiom-code-explainer
+  title: Code Explainer (illustrated)
+  version: 1.2.0
+  domain: all
+  subdomain: all
+  category: implementation
+  maturity: experimental
+  owner: axiom-embedded
+  tags:
+  - skill
+  inputs:
+  - repository path
+  - objective
+  outputs:
+  - report
+  dependencies: []
+  related_skills: []
+  path: skills/axiom-code-explainer
+  enabled: true
+  sub_skills: []
+  lifecycle:
+  - discover
+  - plan
+  - implement
+  - verify
+  - evidence
+  standards: []
+  artifact_types:
+  - report
+  - manifest
+  mcp_tools: []
+  risk_level: medium
+  review_required: true
+  activity: documentation
+  capability_kind: domain-specific
+  primary_domain: all
+  risk_class: medium
+  lifecycle_phases:
+  - discover
+  - plan
+  - implement
+  - verify
+  - evidence
+  standard_ids: []
+- id: axiom-context-engineering
+  name: axiom-context-engineering
+  title: Context Engineering (prompt budget)
+  version: 1.2.0
+  domain: platform
+  subdomain: platform
+  category: implementation
+  maturity: experimental
+  owner: axiom-embedded
+  tags:
+  - skill
+  inputs:
+  - repository path
+  - objective
+  outputs:
+  - report
+  dependencies: []
+  related_skills: []
+  path: skills/axiom-context-engineering
+  enabled: true
+  sub_skills: []
+  lifecycle:
+  - discover
+  - plan
+  - implement
+  - verify
+  - evidence
+  standards: []
+  artifact_types:
+  - report
+  - manifest
+  mcp_tools: []
+  risk_level: medium
+  review_required: true
+  activity: implementation
+  capability_kind: domain-specific
+  primary_domain: platform
+  risk_class: medium
+  lifecycle_phases:
+  - discover
+  - plan
+  - implement
+  - verify
+  - evidence
+  standard_ids: []
+- id: axiom-cross-domain-traceability
+  name: axiom-cross-domain-traceability
+  title: Cross-Domain Traceability
+  version: 1.2.0
+  domain: cross-domain
+  subdomain: cross-domain
+  category: implementation
+  maturity: experimental
+  owner: axiom-embedded
+  tags:
+  - skill
+  inputs:
+  - repository path
+  - objective
+  outputs:
+  - report
+  dependencies: []
+  related_skills: []
+  path: skills/axiom-cross-domain-traceability
+  enabled: true
+  sub_skills: []
+  lifecycle:
+  - discover
+  - plan
+  - implement
+  - verify
+  - evidence
+  standards: []
+  artifact_types:
+  - report
+  - manifest
+  mcp_tools: []
+  risk_level: medium
+  review_required: true
+  activity: requirements-traceability
+  capability_kind: domain-specific
+  primary_domain: cross-domain
+  risk_class: medium
+  lifecycle_phases:
+  - discover
+  - plan
+  - implement
+  - verify
+  - evidence
+  standard_ids: []
+- id: axiom-cto-advisor
+  name: axiom-cto-advisor
+  title: CTO Advisor (tech debt, DORA, scaling)
+  version: 1.2.0
+  domain: all
+  subdomain: all
+  category: implementation
+  maturity: experimental
+  owner: axiom-embedded
+  tags:
+  - skill
+  inputs:
+  - repository path
+  - objective
+  outputs:
+  - report
+  dependencies: []
+  related_skills: []
+  path: skills/axiom-cto-advisor
+  enabled: true
+  sub_skills: []
+  lifecycle:
+  - discover
+  - plan
+  - implement
+  - verify
+  - evidence
+  standards: []
+  artifact_types:
+  - report
+  - manifest
+  mcp_tools: []
+  risk_level: medium
+  review_required: true
+  activity: implementation
+  capability_kind: domain-specific
+  primary_domain: all
+  risk_class: medium
+  lifecycle_phases:
+  - discover
+  - plan
+  - implement
+  - verify
+  - evidence
+  standard_ids: []
+- id: axiom-data-pipeline
+  name: axiom-data-pipeline
+  title: Data Pipeline
+  version: 1.2.0
+  domain: generic-embedded
+  subdomain: generic-embedded
+  category: implementation
+  maturity: experimental
+  owner: axiom-embedded
+  tags:
+  - skill
+  inputs:
+  - repository path
+  - objective
+  outputs:
+  - report
+  dependencies: []
+  related_skills: []
+  path: skills/axiom-data-pipeline
+  enabled: true
+  sub_skills: []
+  lifecycle:
+  - discover
+  - plan
+  - implement
+  - verify
+  - evidence
+  standards: []
+  artifact_types:
+  - report
+  - manifest
+  mcp_tools: []
+  risk_level: medium
+  review_required: true
+  activity: implementation
+  capability_kind: domain-specific
+  primary_domain: generic-embedded
+  risk_class: medium
+  lifecycle_phases:
+  - discover
+  - plan
+  - implement
+  - verify
+  - evidence
+  standard_ids: []
+- id: axiom-database-optimization
+  name: axiom-database-optimization
+  title: Database Optimization
+  version: 1.2.0
+  domain: all
+  subdomain: all
+  category: implementation
+  maturity: experimental
+  owner: axiom-embedded
+  tags:
+  - skill
+  inputs:
+  - repository path
+  - objective
+  outputs:
+  - report
+  dependencies: []
+  related_skills: []
+  path: skills/axiom-database-optimization
+  enabled: true
+  sub_skills: []
+  lifecycle:
+  - discover
+  - plan
+  - implement
+  - verify
+  - evidence
+  standards: []
+  artifact_types:
+  - report
+  - manifest
+  mcp_tools: []
+  risk_level: medium
+  review_required: true
+  activity: implementation
+  capability_kind: domain-specific
+  primary_domain: all
+  risk_class: medium
+  lifecycle_phases:
+  - discover
+  - plan
+  - implement
+  - verify
+  - evidence
+  standard_ids: []
 - id: axiom-dataset-documentation
   name: axiom.robotics.dataset.documentation
   title: Dataset Documentation
@@ -1961,6 +3216,51 @@ skills:
   standard_ids:
   - ISO/IEC 23894:2023
   - ISO/IEC 23053:2022
+- id: axiom-debugging-wizard
+  name: axiom-debugging-wizard
+  title: Debugging Wizard
+  version: 1.2.0
+  domain: all
+  subdomain: all
+  category: implementation
+  maturity: experimental
+  owner: axiom-embedded
+  tags:
+  - skill
+  inputs:
+  - repository path
+  - objective
+  outputs:
+  - report
+  dependencies: []
+  related_skills: []
+  path: skills/axiom-debugging-wizard
+  enabled: true
+  sub_skills: []
+  lifecycle:
+  - discover
+  - plan
+  - implement
+  - verify
+  - evidence
+  standards: []
+  artifact_types:
+  - report
+  - manifest
+  mcp_tools: []
+  risk_level: medium
+  review_required: true
+  activity: debugging
+  capability_kind: domain-specific
+  primary_domain: all
+  risk_class: medium
+  lifecycle_phases:
+  - discover
+  - plan
+  - implement
+  - verify
+  - evidence
+  standard_ids: []
 - id: axiom-declaration-of-conformity
   name: axiom.industrial.declaration.of.conformity
   title: Declaration of Conformity Pack
@@ -2081,6 +3381,96 @@ skills:
   standard_ids:
   - EU 2023/1230
   - ISO 12100:2010
+- id: axiom-deployment-readiness
+  name: axiom-deployment-readiness
+  title: Deployment readiness
+  version: 1.2.0
+  domain: generic-embedded
+  subdomain: generic-embedded
+  category: implementation
+  maturity: experimental
+  owner: axiom-embedded
+  tags:
+  - skill
+  inputs:
+  - repository path
+  - objective
+  outputs:
+  - report
+  dependencies: []
+  related_skills: []
+  path: skills/axiom-deployment-readiness
+  enabled: true
+  sub_skills: []
+  lifecycle:
+  - discover
+  - plan
+  - implement
+  - verify
+  - evidence
+  standards: []
+  artifact_types:
+  - report
+  - manifest
+  mcp_tools: []
+  risk_level: medium
+  review_required: true
+  activity: release-readiness
+  capability_kind: domain-specific
+  primary_domain: generic-embedded
+  risk_class: medium
+  lifecycle_phases:
+  - discover
+  - plan
+  - implement
+  - verify
+  - evidence
+  standard_ids: []
+- id: axiom-diagnosing-bugs
+  name: axiom-diagnosing-bugs
+  title: Diagnosing Bugs (systematic root cause)
+  version: 1.2.0
+  domain: all
+  subdomain: all
+  category: implementation
+  maturity: experimental
+  owner: axiom-embedded
+  tags:
+  - skill
+  inputs:
+  - repository path
+  - objective
+  outputs:
+  - report
+  dependencies: []
+  related_skills: []
+  path: skills/axiom-diagnosing-bugs
+  enabled: true
+  sub_skills: []
+  lifecycle:
+  - discover
+  - plan
+  - implement
+  - verify
+  - evidence
+  standards: []
+  artifact_types:
+  - report
+  - manifest
+  mcp_tools: []
+  risk_level: medium
+  review_required: true
+  activity: debugging
+  capability_kind: domain-specific
+  primary_domain: all
+  risk_class: medium
+  lifecycle_phases:
+  - discover
+  - plan
+  - implement
+  - verify
+  - evidence
+  standard_ids: []
 - id: axiom-diagnostics-doip
   name: axiom.automotive.diagnostics.doip
   title: DoIP Diagnostics Integration
@@ -2270,6 +3660,96 @@ skills:
   - validation
   - release
   standard_ids: []
+- id: axiom-doc-coauthoring
+  name: axiom-doc-coauthoring
+  title: Document Co-authoring
+  version: 1.2.0
+  domain: all
+  subdomain: all
+  category: implementation
+  maturity: experimental
+  owner: axiom-embedded
+  tags:
+  - skill
+  inputs:
+  - repository path
+  - objective
+  outputs:
+  - report
+  dependencies: []
+  related_skills: []
+  path: skills/axiom-doc-coauthoring
+  enabled: true
+  sub_skills: []
+  lifecycle:
+  - discover
+  - plan
+  - implement
+  - verify
+  - evidence
+  standards: []
+  artifact_types:
+  - report
+  - manifest
+  mcp_tools: []
+  risk_level: medium
+  review_required: true
+  activity: documentation
+  capability_kind: domain-specific
+  primary_domain: all
+  risk_class: medium
+  lifecycle_phases:
+  - discover
+  - plan
+  - implement
+  - verify
+  - evidence
+  standard_ids: []
+- id: axiom-document-skills
+  name: axiom-document-skills
+  title: Document Skills (pdf/docx/xlsx/pptx)
+  version: 1.2.0
+  domain: all
+  subdomain: all
+  category: implementation
+  maturity: experimental
+  owner: axiom-embedded
+  tags:
+  - skill
+  inputs:
+  - repository path
+  - objective
+  outputs:
+  - report
+  dependencies: []
+  related_skills: []
+  path: skills/axiom-document-skills
+  enabled: true
+  sub_skills: []
+  lifecycle:
+  - discover
+  - plan
+  - implement
+  - verify
+  - evidence
+  standards: []
+  artifact_types:
+  - report
+  - manifest
+  mcp_tools: []
+  risk_level: medium
+  review_required: true
+  activity: documentation
+  capability_kind: domain-specific
+  primary_domain: all
+  risk_class: medium
+  lifecycle_phases:
+  - discover
+  - plan
+  - implement
+  - verify
+  - evidence
+  standard_ids: []
 - id: axiom-embedded-cicd
   name: axiom.legacy.axiom-embedded-cicd
   title: Embedded CI-CD Pipeline Design
@@ -2387,6 +3867,51 @@ skills:
   - verification
   - validation
   - release
+  standard_ids: []
+- id: axiom-energy-grid-interface
+  name: axiom-energy-grid-interface
+  title: Energy Grid Interface (smart inverter)
+  version: 1.2.0
+  domain: industrial
+  subdomain: industrial
+  category: implementation
+  maturity: experimental
+  owner: axiom-embedded
+  tags:
+  - skill
+  inputs:
+  - repository path
+  - objective
+  outputs:
+  - report
+  dependencies: []
+  related_skills: []
+  path: skills/axiom-energy-grid-interface
+  enabled: true
+  sub_skills: []
+  lifecycle:
+  - discover
+  - plan
+  - implement
+  - verify
+  - evidence
+  standards: []
+  artifact_types:
+  - report
+  - manifest
+  mcp_tools: []
+  risk_level: medium
+  review_required: true
+  activity: implementation
+  capability_kind: domain-specific
+  primary_domain: industrial
+  risk_class: medium
+  lifecycle_phases:
+  - discover
+  - plan
+  - implement
+  - verify
+  - evidence
   standard_ids: []
 - id: axiom-eoat-spec
   name: axiom.robotics.eoat.spec
@@ -2508,6 +4033,64 @@ skills:
   standard_ids:
   - ISO 10218-1:2011
   - ISO 10218-2:2011
+- id: axiom-firmware-lifecycle
+  name: axiom.platform.validation.firmware_lifecycle
+  title: Firmware Lifecycle and Target Management
+  version: 1.2.0
+  domain: platform
+  subdomain: validation
+  category: verification
+  maturity: experimental
+  owner: axiom-embedded
+  tags:
+  - flash
+  - build
+  - firmware
+  - attestation
+  - openocd
+  inputs:
+  - source tree
+  - toolchain profile
+  - target definition
+  - signing policy
+  outputs:
+  - firmware binary
+  - binary hash
+  - flash report
+  - run manifest
+  dependencies: []
+  related_skills:
+  - axiom-validation-orchestrator
+  path: skills/axiom-firmware-lifecycle
+  enabled: true
+  lifecycle:
+  - plan
+  - implement
+  - verify
+  - evidence
+  standards: []
+  artifact_types:
+  - firmware binary
+  - flash report
+  - evidence package
+  mcp_tools:
+  - run_skill
+  - validate_skill
+  risk_level: medium
+  review_required: true
+  safety_critical: false
+  extends: null
+  sub_skills: []
+  activity: implementation
+  capability_kind: platform
+  primary_domain: all
+  risk_class: medium
+  lifecycle_phases:
+  - plan
+  - implement
+  - verify
+  - evidence
+  standard_ids: []
 - id: axiom-fleet-manager-architecture
   name: axiom.robotics.fleet.manager.architecture
   title: Fleet-Manager Architecture
@@ -2821,6 +4404,51 @@ skills:
   - validation
   - release
   standard_ids: []
+- id: axiom-frontend-design
+  name: axiom-frontend-design
+  title: Frontend Design
+  version: 1.2.0
+  domain: all
+  subdomain: all
+  category: implementation
+  maturity: experimental
+  owner: axiom-embedded
+  tags:
+  - skill
+  inputs:
+  - repository path
+  - objective
+  outputs:
+  - report
+  dependencies: []
+  related_skills: []
+  path: skills/axiom-frontend-design
+  enabled: true
+  sub_skills: []
+  lifecycle:
+  - discover
+  - plan
+  - implement
+  - verify
+  - evidence
+  standards: []
+  artifact_types:
+  - report
+  - manifest
+  mcp_tools: []
+  risk_level: medium
+  review_required: true
+  activity: architecture
+  capability_kind: domain-specific
+  primary_domain: all
+  risk_class: medium
+  lifecycle_phases:
+  - discover
+  - plan
+  - implement
+  - verify
+  - evidence
+  standard_ids: []
 - id: axiom-functional-safety
   name: axiom.automotive.functional.safety
   title: Functional Safety Workflow
@@ -2882,6 +4510,96 @@ skills:
   - release
   standard_ids:
   - ISO 26262:2018
+- id: axiom-git-commit-plan
+  name: axiom-git-commit-plan
+  title: Git Commit Plan (bisectable series)
+  version: 1.2.0
+  domain: all
+  subdomain: all
+  category: implementation
+  maturity: experimental
+  owner: axiom-embedded
+  tags:
+  - skill
+  inputs:
+  - repository path
+  - objective
+  outputs:
+  - report
+  dependencies: []
+  related_skills: []
+  path: skills/axiom-git-commit-plan
+  enabled: true
+  sub_skills: []
+  lifecycle:
+  - discover
+  - plan
+  - implement
+  - verify
+  - evidence
+  standards: []
+  artifact_types:
+  - report
+  - manifest
+  mcp_tools: []
+  risk_level: medium
+  review_required: true
+  activity: implementation
+  capability_kind: domain-specific
+  primary_domain: all
+  risk_class: medium
+  lifecycle_phases:
+  - discover
+  - plan
+  - implement
+  - verify
+  - evidence
+  standard_ids: []
+- id: axiom-graphql-architect
+  name: axiom-graphql-architect
+  title: GraphQL Architect
+  version: 1.2.0
+  domain: all
+  subdomain: all
+  category: implementation
+  maturity: experimental
+  owner: axiom-embedded
+  tags:
+  - skill
+  inputs:
+  - repository path
+  - objective
+  outputs:
+  - report
+  dependencies: []
+  related_skills: []
+  path: skills/axiom-graphql-architect
+  enabled: true
+  sub_skills: []
+  lifecycle:
+  - discover
+  - plan
+  - implement
+  - verify
+  - evidence
+  standards: []
+  artifact_types:
+  - report
+  - manifest
+  mcp_tools: []
+  risk_level: medium
+  review_required: true
+  activity: architecture
+  capability_kind: domain-specific
+  primary_domain: all
+  risk_class: medium
+  lifecycle_phases:
+  - discover
+  - plan
+  - implement
+  - verify
+  - evidence
+  standard_ids: []
 - id: axiom-hardware-aware-checks
   name: axiom.platform.hardware_aware_checks
   title: Hardware-Aware Pre-Generation Checks for Firmware
@@ -3196,6 +4914,106 @@ skills:
   - validation
   - release
   standard_ids: []
+- id: axiom-human-in-the-loop
+  name: axiom-human-in-the-loop
+  title: Human-in-the-Loop Orchestration
+  version: 1.2.0
+  domain: platform
+  subdomain: platform
+  category: implementation
+  maturity: experimental
+  owner: axiom-embedded
+  tags:
+  - skill
+  inputs:
+  - repository path
+  - objective
+  outputs:
+  - report
+  dependencies: []
+  related_skills: []
+  path: skills/axiom-human-in-the-loop
+  enabled: true
+  sub_skills: []
+  lifecycle:
+  - discover
+  - plan
+  - implement
+  - verify
+  - evidence
+  standards: []
+  artifact_types:
+  - report
+  - manifest
+  mcp_tools: []
+  risk_level: medium
+  review_required: true
+  activity: process-assessment
+  capability_kind: domain-specific
+  primary_domain: platform
+  risk_class: medium
+  lifecycle_phases:
+  - discover
+  - plan
+  - implement
+  - verify
+  - evidence
+  standard_ids: []
+- id: axiom-hw-interface-control
+  name: axiom.platform.validation.hw_interface
+  title: Hardware Interface Control and Bench Abstraction
+  version: 1.2.0
+  domain: platform
+  subdomain: validation
+  category: verification
+  maturity: experimental
+  owner: axiom-embedded
+  tags:
+  - hil
+  - bench
+  - scpi
+  - hardware
+  - safety
+  inputs:
+  - board configuration
+  - instrument inventory
+  - test objective
+  outputs:
+  - bench session
+  - measurement captures
+  - teardown report
+  dependencies: []
+  related_skills:
+  - axiom-validation-orchestrator
+  path: skills/axiom-hw-interface-control
+  enabled: true
+  lifecycle:
+  - plan
+  - implement
+  - verify
+  - evidence
+  standards: []
+  artifact_types:
+  - bench configuration
+  - evidence package
+  mcp_tools:
+  - run_skill
+  - validate_skill
+  risk_level: medium
+  review_required: true
+  safety_critical: false
+  extends: null
+  sub_skills: []
+  activity: sil-hil
+  capability_kind: platform
+  primary_domain: all
+  risk_class: medium
+  lifecycle_phases:
+  - plan
+  - implement
+  - verify
+  - evidence
+  standard_ids: []
 - id: axiom-iec62061-sil
   name: axiom.industrial.iec62061.sil
   title: IEC 62061 SIL Determination
@@ -3437,6 +5255,51 @@ skills:
   standard_ids:
   - IEC 62443-3-2:2020
   - IEC 62443-3-3:2013
+- id: axiom-improve-codebase-architecture
+  name: axiom-improve-codebase-architecture
+  title: Improve Codebase Architecture
+  version: 1.2.0
+  domain: all
+  subdomain: all
+  category: implementation
+  maturity: experimental
+  owner: axiom-embedded
+  tags:
+  - skill
+  inputs:
+  - repository path
+  - objective
+  outputs:
+  - report
+  dependencies: []
+  related_skills: []
+  path: skills/axiom-improve-codebase-architecture
+  enabled: true
+  sub_skills: []
+  lifecycle:
+  - discover
+  - plan
+  - implement
+  - verify
+  - evidence
+  standards: []
+  artifact_types:
+  - report
+  - manifest
+  mcp_tools: []
+  risk_level: medium
+  review_required: true
+  activity: architecture
+  capability_kind: domain-specific
+  primary_domain: all
+  risk_class: medium
+  lifecycle_phases:
+  - discover
+  - plan
+  - implement
+  - verify
+  - evidence
+  standard_ids: []
 - id: axiom-industrial-control-review
   name: axiom.industrial.industrial.control.review
   title: Industrial Control Review
@@ -3675,6 +5538,51 @@ skills:
   - ISO 14118:2017
   - ISO 13850:2015
   - ISO 13849-1:2023
+- id: axiom-iot-connectivity-stack
+  name: axiom-iot-connectivity-stack
+  title: IoT Connectivity Stack
+  version: 1.2.0
+  domain: generic-embedded
+  subdomain: generic-embedded
+  category: implementation
+  maturity: experimental
+  owner: axiom-embedded
+  tags:
+  - skill
+  inputs:
+  - repository path
+  - objective
+  outputs:
+  - report
+  dependencies: []
+  related_skills: []
+  path: skills/axiom-iot-connectivity-stack
+  enabled: true
+  sub_skills: []
+  lifecycle:
+  - discover
+  - plan
+  - implement
+  - verify
+  - evidence
+  standards: []
+  artifact_types:
+  - report
+  - manifest
+  mcp_tools: []
+  risk_level: medium
+  review_required: true
+  activity: implementation
+  capability_kind: domain-specific
+  primary_domain: generic-embedded
+  risk_class: medium
+  lifecycle_phases:
+  - discover
+  - plan
+  - implement
+  - verify
+  - evidence
+  standard_ids: []
 - id: axiom-iso10218-compliance-matrix
   name: axiom.robotics.iso10218.compliance.matrix
   title: ISO 10218 Compliance Matrix
@@ -4381,6 +6289,96 @@ skills:
   - release
   standard_ids:
   - ISO 9283:1998
+- id: axiom-kubernetes-edge
+  name: axiom-kubernetes-edge
+  title: Kubernetes Edge
+  version: 1.2.0
+  domain: platform
+  subdomain: platform
+  category: implementation
+  maturity: experimental
+  owner: axiom-embedded
+  tags:
+  - skill
+  inputs:
+  - repository path
+  - objective
+  outputs:
+  - report
+  dependencies: []
+  related_skills: []
+  path: skills/axiom-kubernetes-edge
+  enabled: true
+  sub_skills: []
+  lifecycle:
+  - discover
+  - plan
+  - implement
+  - verify
+  - evidence
+  standards: []
+  artifact_types:
+  - report
+  - manifest
+  mcp_tools: []
+  risk_level: medium
+  review_required: true
+  activity: implementation
+  capability_kind: domain-specific
+  primary_domain: platform
+  risk_class: medium
+  lifecycle_phases:
+  - discover
+  - plan
+  - implement
+  - verify
+  - evidence
+  standard_ids: []
+- id: axiom-legacy-modernizer
+  name: axiom-legacy-modernizer
+  title: Legacy Modernizer
+  version: 1.2.0
+  domain: all
+  subdomain: all
+  category: implementation
+  maturity: experimental
+  owner: axiom-embedded
+  tags:
+  - skill
+  inputs:
+  - repository path
+  - objective
+  outputs:
+  - report
+  dependencies: []
+  related_skills: []
+  path: skills/axiom-legacy-modernizer
+  enabled: true
+  sub_skills: []
+  lifecycle:
+  - discover
+  - plan
+  - implement
+  - verify
+  - evidence
+  standards: []
+  artifact_types:
+  - report
+  - manifest
+  mcp_tools: []
+  risk_level: medium
+  review_required: true
+  activity: implementation
+  capability_kind: domain-specific
+  primary_domain: all
+  risk_class: medium
+  lifecycle_phases:
+  - discover
+  - plan
+  - implement
+  - verify
+  - evidence
+  standard_ids: []
 - id: axiom-loto-procedure
   name: axiom.industrial.loto.procedure
   title: Lockout/Tagout Procedure
@@ -4621,6 +6619,186 @@ skills:
   standard_ids:
   - ISO 12100:2010
   - EU 2023/1230
+- id: axiom-mcp-builder
+  name: axiom-mcp-builder
+  title: MCP Server Builder
+  version: 1.2.0
+  domain: platform
+  subdomain: platform
+  category: implementation
+  maturity: experimental
+  owner: axiom-embedded
+  tags:
+  - skill
+  inputs:
+  - repository path
+  - objective
+  outputs:
+  - report
+  dependencies: []
+  related_skills: []
+  path: skills/axiom-mcp-builder
+  enabled: true
+  sub_skills: []
+  lifecycle:
+  - discover
+  - plan
+  - implement
+  - verify
+  - evidence
+  standards: []
+  artifact_types:
+  - report
+  - manifest
+  mcp_tools: []
+  risk_level: medium
+  review_required: true
+  activity: implementation
+  capability_kind: domain-specific
+  primary_domain: platform
+  risk_class: medium
+  lifecycle_phases:
+  - discover
+  - plan
+  - implement
+  - verify
+  - evidence
+  standard_ids: []
+- id: axiom-mcp-developer
+  name: axiom-mcp-developer
+  title: MCP Developer
+  version: 1.2.0
+  domain: platform
+  subdomain: platform
+  category: implementation
+  maturity: experimental
+  owner: axiom-embedded
+  tags:
+  - skill
+  inputs:
+  - repository path
+  - objective
+  outputs:
+  - report
+  dependencies: []
+  related_skills: []
+  path: skills/axiom-mcp-developer
+  enabled: true
+  sub_skills: []
+  lifecycle:
+  - discover
+  - plan
+  - implement
+  - verify
+  - evidence
+  standards: []
+  artifact_types:
+  - report
+  - manifest
+  mcp_tools: []
+  risk_level: medium
+  review_required: true
+  activity: implementation
+  capability_kind: domain-specific
+  primary_domain: platform
+  risk_class: medium
+  lifecycle_phases:
+  - discover
+  - plan
+  - implement
+  - verify
+  - evidence
+  standard_ids: []
+- id: axiom-mcp-security-testing
+  name: axiom-mcp-security-testing
+  title: MCP Security Testing
+  version: 1.2.0
+  domain: all
+  subdomain: all
+  category: implementation
+  maturity: experimental
+  owner: axiom-embedded
+  tags:
+  - skill
+  inputs:
+  - repository path
+  - objective
+  outputs:
+  - report
+  dependencies: []
+  related_skills: []
+  path: skills/axiom-mcp-security-testing
+  enabled: true
+  sub_skills: []
+  lifecycle:
+  - discover
+  - plan
+  - implement
+  - verify
+  - evidence
+  standards: []
+  artifact_types:
+  - report
+  - manifest
+  mcp_tools: []
+  risk_level: medium
+  review_required: true
+  activity: cybersecurity
+  capability_kind: domain-specific
+  primary_domain: all
+  risk_class: medium
+  lifecycle_phases:
+  - discover
+  - plan
+  - implement
+  - verify
+  - evidence
+  standard_ids: []
+- id: axiom-medical-iec62304-lifecycle
+  name: axiom-medical-iec62304-lifecycle
+  title: IEC 62304 Medical Software Lifecycle
+  version: 1.2.0
+  domain: industrial
+  subdomain: industrial
+  category: implementation
+  maturity: experimental
+  owner: axiom-embedded
+  tags:
+  - skill
+  inputs:
+  - repository path
+  - objective
+  outputs:
+  - report
+  dependencies: []
+  related_skills: []
+  path: skills/axiom-medical-iec62304-lifecycle
+  enabled: true
+  sub_skills: []
+  lifecycle:
+  - discover
+  - plan
+  - implement
+  - verify
+  - evidence
+  standards: []
+  artifact_types:
+  - report
+  - manifest
+  mcp_tools: []
+  risk_level: medium
+  review_required: true
+  activity: process-assessment
+  capability_kind: domain-specific
+  primary_domain: industrial
+  risk_class: medium
+  lifecycle_phases:
+  - discover
+  - plan
+  - implement
+  - verify
+  - evidence
+  standard_ids: []
 - id: axiom-memory-and-performance-analysis
   name: axiom.platform.memory.and.performance.analysis
   title: Memory and Performance Analysis
@@ -4676,6 +6854,51 @@ skills:
   - verification
   - validation
   - release
+  standard_ids: []
+- id: axiom-microservices-architect
+  name: axiom-microservices-architect
+  title: Microservices Architect
+  version: 1.2.0
+  domain: all
+  subdomain: all
+  category: implementation
+  maturity: experimental
+  owner: axiom-embedded
+  tags:
+  - skill
+  inputs:
+  - repository path
+  - objective
+  outputs:
+  - report
+  dependencies: []
+  related_skills: []
+  path: skills/axiom-microservices-architect
+  enabled: true
+  sub_skills: []
+  lifecycle:
+  - discover
+  - plan
+  - implement
+  - verify
+  - evidence
+  standards: []
+  artifact_types:
+  - report
+  - manifest
+  mcp_tools: []
+  risk_level: medium
+  review_required: true
+  activity: architecture
+  capability_kind: domain-specific
+  primary_domain: all
+  risk_class: medium
+  lifecycle_phases:
+  - discover
+  - plan
+  - implement
+  - verify
+  - evidence
   standard_ids: []
 - id: axiom-mil-sil-hil-testing
   name: axiom.legacy.axiom-mil-sil-hil-testing
@@ -4878,6 +7101,96 @@ skills:
   - release
   standard_ids:
   - ISO/IEC 23894:2023
+- id: axiom-monitoring-observability
+  name: axiom-monitoring-observability
+  title: Monitoring Observability
+  version: 1.2.0
+  domain: platform
+  subdomain: platform
+  category: implementation
+  maturity: experimental
+  owner: axiom-embedded
+  tags:
+  - skill
+  inputs:
+  - repository path
+  - objective
+  outputs:
+  - report
+  dependencies: []
+  related_skills: []
+  path: skills/axiom-monitoring-observability
+  enabled: true
+  sub_skills: []
+  lifecycle:
+  - discover
+  - plan
+  - implement
+  - verify
+  - evidence
+  standards: []
+  artifact_types:
+  - report
+  - manifest
+  mcp_tools: []
+  risk_level: medium
+  review_required: true
+  activity: debugging
+  capability_kind: domain-specific
+  primary_domain: platform
+  risk_class: medium
+  lifecycle_phases:
+  - discover
+  - plan
+  - implement
+  - verify
+  - evidence
+  standard_ids: []
+- id: axiom-multi-agent-orchestration
+  name: axiom-multi-agent-orchestration
+  title: Multi-Agent Orchestration
+  version: 1.2.0
+  domain: platform
+  subdomain: platform
+  category: implementation
+  maturity: experimental
+  owner: axiom-embedded
+  tags:
+  - skill
+  inputs:
+  - repository path
+  - objective
+  outputs:
+  - report
+  dependencies: []
+  related_skills: []
+  path: skills/axiom-multi-agent-orchestration
+  enabled: true
+  sub_skills: []
+  lifecycle:
+  - discover
+  - plan
+  - implement
+  - verify
+  - evidence
+  standards: []
+  artifact_types:
+  - report
+  - manifest
+  mcp_tools: []
+  risk_level: medium
+  review_required: true
+  activity: implementation
+  capability_kind: domain-specific
+  primary_domain: platform
+  risk_class: medium
+  lifecycle_phases:
+  - discover
+  - plan
+  - implement
+  - verify
+  - evidence
+  standard_ids: []
 - id: axiom-multi-sensor-synchronization
   name: axiom.generic-embedded.sensor.multi.sensor.synchronization
   title: Multi-Sensor Synchronization
@@ -5775,6 +8088,276 @@ skills:
   - verification
   - validation
   - release
+  standard_ids: []
+- id: axiom-playwright-e2e
+  name: axiom-playwright-e2e
+  title: Playwright E2E
+  version: 1.2.0
+  domain: all
+  subdomain: all
+  category: implementation
+  maturity: experimental
+  owner: axiom-embedded
+  tags:
+  - skill
+  inputs:
+  - repository path
+  - objective
+  outputs:
+  - report
+  dependencies: []
+  related_skills: []
+  path: skills/axiom-playwright-e2e
+  enabled: true
+  sub_skills: []
+  lifecycle:
+  - discover
+  - plan
+  - implement
+  - verify
+  - evidence
+  standards: []
+  artifact_types:
+  - report
+  - manifest
+  mcp_tools: []
+  risk_level: medium
+  review_required: true
+  activity: system-testing
+  capability_kind: domain-specific
+  primary_domain: all
+  risk_class: medium
+  lifecycle_phases:
+  - discover
+  - plan
+  - implement
+  - verify
+  - evidence
+  standard_ids: []
+- id: axiom-production-readiness
+  name: axiom-production-readiness
+  title: Production readiness
+  version: 1.2.0
+  domain: generic-embedded
+  subdomain: generic-embedded
+  category: implementation
+  maturity: experimental
+  owner: axiom-embedded
+  tags:
+  - skill
+  inputs:
+  - repository path
+  - objective
+  outputs:
+  - report
+  dependencies: []
+  related_skills: []
+  path: skills/axiom-production-readiness
+  enabled: true
+  sub_skills: []
+  lifecycle:
+  - discover
+  - plan
+  - implement
+  - verify
+  - evidence
+  standards: []
+  artifact_types:
+  - report
+  - manifest
+  mcp_tools: []
+  risk_level: medium
+  review_required: true
+  activity: release-readiness
+  capability_kind: domain-specific
+  primary_domain: generic-embedded
+  risk_class: medium
+  lifecycle_phases:
+  - discover
+  - plan
+  - implement
+  - verify
+  - evidence
+  standard_ids: []
+- id: axiom-prompt-engineering
+  name: axiom-prompt-engineering
+  title: Prompt Engineering
+  version: 1.2.0
+  domain: generic-embedded
+  subdomain: generic-embedded
+  category: implementation
+  maturity: experimental
+  owner: axiom-embedded
+  tags:
+  - skill
+  inputs:
+  - repository path
+  - objective
+  outputs:
+  - report
+  dependencies: []
+  related_skills: []
+  path: skills/axiom-prompt-engineering
+  enabled: true
+  sub_skills: []
+  lifecycle:
+  - discover
+  - plan
+  - implement
+  - verify
+  - evidence
+  standards: []
+  artifact_types:
+  - report
+  - manifest
+  mcp_tools: []
+  risk_level: medium
+  review_required: true
+  activity: implementation
+  capability_kind: domain-specific
+  primary_domain: generic-embedded
+  risk_class: medium
+  lifecycle_phases:
+  - discover
+  - plan
+  - implement
+  - verify
+  - evidence
+  standard_ids: []
+- id: axiom-prompt-injection-defense
+  name: axiom-prompt-injection-defense
+  title: Prompt Injection Defense
+  version: 1.2.0
+  domain: all
+  subdomain: all
+  category: implementation
+  maturity: experimental
+  owner: axiom-embedded
+  tags:
+  - skill
+  inputs:
+  - repository path
+  - objective
+  outputs:
+  - report
+  dependencies: []
+  related_skills: []
+  path: skills/axiom-prompt-injection-defense
+  enabled: true
+  sub_skills: []
+  lifecycle:
+  - discover
+  - plan
+  - implement
+  - verify
+  - evidence
+  standards: []
+  artifact_types:
+  - report
+  - manifest
+  mcp_tools: []
+  risk_level: medium
+  review_required: true
+  activity: cybersecurity
+  capability_kind: domain-specific
+  primary_domain: all
+  risk_class: medium
+  lifecycle_phases:
+  - discover
+  - plan
+  - implement
+  - verify
+  - evidence
+  standard_ids: []
+- id: axiom-rag-architect
+  name: axiom-rag-architect
+  title: RAG Architect
+  version: 1.2.0
+  domain: generic-embedded
+  subdomain: generic-embedded
+  category: implementation
+  maturity: experimental
+  owner: axiom-embedded
+  tags:
+  - skill
+  inputs:
+  - repository path
+  - objective
+  outputs:
+  - report
+  dependencies: []
+  related_skills: []
+  path: skills/axiom-rag-architect
+  enabled: true
+  sub_skills: []
+  lifecycle:
+  - discover
+  - plan
+  - implement
+  - verify
+  - evidence
+  standards: []
+  artifact_types:
+  - report
+  - manifest
+  mcp_tools: []
+  risk_level: medium
+  review_required: true
+  activity: architecture
+  capability_kind: domain-specific
+  primary_domain: generic-embedded
+  risk_class: medium
+  lifecycle_phases:
+  - discover
+  - plan
+  - implement
+  - verify
+  - evidence
+  standard_ids: []
+- id: axiom-rail-en50128-safety
+  name: axiom-rail-en50128-safety
+  title: EN 50128 Rail Software Safety
+  version: 1.2.0
+  domain: industrial
+  subdomain: industrial
+  category: implementation
+  maturity: experimental
+  owner: axiom-embedded
+  tags:
+  - skill
+  inputs:
+  - repository path
+  - objective
+  outputs:
+  - report
+  dependencies: []
+  related_skills: []
+  path: skills/axiom-rail-en50128-safety
+  enabled: true
+  sub_skills: []
+  lifecycle:
+  - discover
+  - plan
+  - implement
+  - verify
+  - evidence
+  standards: []
+  artifact_types:
+  - report
+  - manifest
+  mcp_tools: []
+  risk_level: medium
+  review_required: true
+  activity: functional-safety
+  capability_kind: domain-specific
+  primary_domain: industrial
+  risk_class: medium
+  lifecycle_phases:
+  - discover
+  - plan
+  - implement
+  - verify
+  - evidence
   standard_ids: []
 - id: axiom-robot-acceptance-protocol
   name: axiom.robotics.robot.acceptance.protocol
@@ -7110,6 +9693,276 @@ skills:
   - ISO 12100:2010
   - ISO 10218-2:2011
   - ISO 11161:2007
+- id: axiom-secure-code-guardian
+  name: axiom-secure-code-guardian
+  title: Secure Code Guardian
+  version: 1.2.0
+  domain: all
+  subdomain: all
+  category: implementation
+  maturity: experimental
+  owner: axiom-embedded
+  tags:
+  - skill
+  inputs:
+  - repository path
+  - objective
+  outputs:
+  - report
+  dependencies: []
+  related_skills: []
+  path: skills/axiom-secure-code-guardian
+  enabled: true
+  sub_skills: []
+  lifecycle:
+  - discover
+  - plan
+  - implement
+  - verify
+  - evidence
+  standards: []
+  artifact_types:
+  - report
+  - manifest
+  mcp_tools: []
+  risk_level: medium
+  review_required: true
+  activity: cybersecurity
+  capability_kind: domain-specific
+  primary_domain: all
+  risk_class: medium
+  lifecycle_phases:
+  - discover
+  - plan
+  - implement
+  - verify
+  - evidence
+  standard_ids: []
+- id: axiom-security-best-practices
+  name: axiom-security-best-practices
+  title: Security Best Practices
+  version: 1.2.0
+  domain: all
+  subdomain: all
+  category: implementation
+  maturity: experimental
+  owner: axiom-embedded
+  tags:
+  - skill
+  inputs:
+  - repository path
+  - objective
+  outputs:
+  - report
+  dependencies: []
+  related_skills: []
+  path: skills/axiom-security-best-practices
+  enabled: true
+  sub_skills: []
+  lifecycle:
+  - discover
+  - plan
+  - implement
+  - verify
+  - evidence
+  standards: []
+  artifact_types:
+  - report
+  - manifest
+  mcp_tools: []
+  risk_level: medium
+  review_required: true
+  activity: cybersecurity
+  capability_kind: domain-specific
+  primary_domain: all
+  risk_class: medium
+  lifecycle_phases:
+  - discover
+  - plan
+  - implement
+  - verify
+  - evidence
+  standard_ids: []
+- id: axiom-security-ownership-map
+  name: axiom-security-ownership-map
+  title: Security Ownership Map
+  version: 1.2.0
+  domain: all
+  subdomain: all
+  category: implementation
+  maturity: experimental
+  owner: axiom-embedded
+  tags:
+  - skill
+  inputs:
+  - repository path
+  - objective
+  outputs:
+  - report
+  dependencies: []
+  related_skills: []
+  path: skills/axiom-security-ownership-map
+  enabled: true
+  sub_skills: []
+  lifecycle:
+  - discover
+  - plan
+  - implement
+  - verify
+  - evidence
+  standards: []
+  artifact_types:
+  - report
+  - manifest
+  mcp_tools: []
+  risk_level: medium
+  review_required: true
+  activity: cybersecurity
+  capability_kind: domain-specific
+  primary_domain: all
+  risk_class: medium
+  lifecycle_phases:
+  - discover
+  - plan
+  - implement
+  - verify
+  - evidence
+  standard_ids: []
+- id: axiom-security-reviewer
+  name: axiom-security-reviewer
+  title: Security Reviewer
+  version: 1.2.0
+  domain: all
+  subdomain: all
+  category: implementation
+  maturity: experimental
+  owner: axiom-embedded
+  tags:
+  - skill
+  inputs:
+  - repository path
+  - objective
+  outputs:
+  - report
+  dependencies: []
+  related_skills: []
+  path: skills/axiom-security-reviewer
+  enabled: true
+  sub_skills: []
+  lifecycle:
+  - discover
+  - plan
+  - implement
+  - verify
+  - evidence
+  standards: []
+  artifact_types:
+  - report
+  - manifest
+  mcp_tools: []
+  risk_level: medium
+  review_required: true
+  activity: security-review
+  capability_kind: domain-specific
+  primary_domain: all
+  risk_class: medium
+  lifecycle_phases:
+  - discover
+  - plan
+  - implement
+  - verify
+  - evidence
+  standard_ids: []
+- id: axiom-security-threat-model
+  name: axiom-security-threat-model
+  title: Security Threat Model
+  version: 1.2.0
+  domain: all
+  subdomain: all
+  category: implementation
+  maturity: experimental
+  owner: axiom-embedded
+  tags:
+  - skill
+  inputs:
+  - repository path
+  - objective
+  outputs:
+  - report
+  dependencies: []
+  related_skills: []
+  path: skills/axiom-security-threat-model
+  enabled: true
+  sub_skills: []
+  lifecycle:
+  - discover
+  - plan
+  - implement
+  - verify
+  - evidence
+  standards: []
+  artifact_types:
+  - report
+  - manifest
+  mcp_tools: []
+  risk_level: medium
+  review_required: true
+  activity: cybersecurity
+  capability_kind: domain-specific
+  primary_domain: all
+  risk_class: medium
+  lifecycle_phases:
+  - discover
+  - plan
+  - implement
+  - verify
+  - evidence
+  standard_ids: []
+- id: axiom-semiconductor-test-coverage
+  name: axiom-semiconductor-test-coverage
+  title: Semiconductor Test Coverage
+  version: 1.2.0
+  domain: generic-embedded
+  subdomain: generic-embedded
+  category: implementation
+  maturity: experimental
+  owner: axiom-embedded
+  tags:
+  - skill
+  inputs:
+  - repository path
+  - objective
+  outputs:
+  - report
+  dependencies: []
+  related_skills: []
+  path: skills/axiom-semiconductor-test-coverage
+  enabled: true
+  sub_skills: []
+  lifecycle:
+  - discover
+  - plan
+  - implement
+  - verify
+  - evidence
+  standards: []
+  artifact_types:
+  - report
+  - manifest
+  mcp_tools: []
+  risk_level: medium
+  review_required: true
+  activity: unit-testing
+  capability_kind: domain-specific
+  primary_domain: generic-embedded
+  risk_class: medium
+  lifecycle_phases:
+  - discover
+  - plan
+  - implement
+  - verify
+  - evidence
+  standard_ids: []
 - id: axiom-sensor-acquisition
   name: axiom.generic-embedded.sensor.acquisition
   title: Sensor Data Acquisition
@@ -7385,6 +10238,335 @@ skills:
   - verification
   - validation
   - release
+  standard_ids: []
+- id: axiom-sil-hil-bridge
+  name: axiom.platform.validation.sil_hil_bridge
+  title: SIL-to-HIL Promotion Bridge
+  version: 1.2.0
+  domain: platform
+  subdomain: validation
+  category: verification
+  maturity: experimental
+  owner: axiom-embedded
+  tags:
+  - sil
+  - hil
+  - qemu
+  - renode
+  - promotion
+  - timing
+  inputs:
+  - SIL test cases
+  - plant model
+  - tolerance policy
+  - bench configuration
+  outputs:
+  - HIL test suite
+  - tolerance map
+  - promotion report
+  - run manifest
+  dependencies: []
+  related_skills:
+  - axiom-validation-orchestrator
+  path: skills/axiom-sil-hil-bridge
+  enabled: true
+  lifecycle:
+  - plan
+  - implement
+  - verify
+  - evidence
+  standards: []
+  artifact_types:
+  - HIL test suite
+  - promotion report
+  - evidence package
+  mcp_tools:
+  - run_skill
+  - validate_skill
+  risk_level: medium
+  review_required: true
+  safety_critical: false
+  extends: null
+  sub_skills: []
+  activity: sil-hil
+  capability_kind: validator
+  primary_domain: all
+  risk_class: medium
+  lifecycle_phases:
+  - plan
+  - implement
+  - verify
+  - evidence
+  standard_ids: []
+- id: axiom-skill-creator
+  name: axiom-skill-creator
+  title: Skill Creator (with eval loop and description optimization)
+  version: 1.2.0
+  domain: platform
+  subdomain: platform
+  category: implementation
+  maturity: experimental
+  owner: axiom-embedded
+  tags:
+  - skill
+  inputs:
+  - repository path
+  - objective
+  outputs:
+  - report
+  dependencies: []
+  related_skills: []
+  path: skills/axiom-skill-creator
+  enabled: true
+  sub_skills: []
+  lifecycle:
+  - discover
+  - plan
+  - implement
+  - verify
+  - evidence
+  standards: []
+  artifact_types:
+  - report
+  - manifest
+  mcp_tools: []
+  risk_level: medium
+  review_required: true
+  activity: verification
+  capability_kind: domain-specific
+  primary_domain: platform
+  risk_class: medium
+  lifecycle_phases:
+  - discover
+  - plan
+  - implement
+  - verify
+  - evidence
+  standard_ids: []
+- id: axiom-skill-evolution
+  name: axiom-skill-evolution
+  title: Skill Evolution
+  version: 1.2.0
+  domain: all
+  subdomain: all
+  category: implementation
+  maturity: experimental
+  owner: axiom-embedded
+  tags:
+  - skill
+  inputs:
+  - repository path
+  - objective
+  outputs:
+  - report
+  dependencies: []
+  related_skills: []
+  path: skills/axiom-skill-evolution
+  enabled: true
+  sub_skills: []
+  lifecycle:
+  - discover
+  - plan
+  - implement
+  - verify
+  - evidence
+  standards: []
+  artifact_types:
+  - report
+  - manifest
+  mcp_tools: []
+  risk_level: medium
+  review_required: true
+  activity: process-assessment
+  capability_kind: domain-specific
+  primary_domain: all
+  risk_class: medium
+  lifecycle_phases:
+  - discover
+  - plan
+  - implement
+  - verify
+  - evidence
+  standard_ids: []
+- id: axiom-skill-seekers
+  name: axiom-skill-seekers
+  title: Skill Seekers (doc to SKILL conversion)
+  version: 1.2.0
+  domain: platform
+  subdomain: platform
+  category: implementation
+  maturity: experimental
+  owner: axiom-embedded
+  tags:
+  - skill
+  inputs:
+  - repository path
+  - objective
+  outputs:
+  - report
+  dependencies: []
+  related_skills: []
+  path: skills/axiom-skill-seekers
+  enabled: true
+  sub_skills: []
+  lifecycle:
+  - discover
+  - plan
+  - implement
+  - verify
+  - evidence
+  standards: []
+  artifact_types:
+  - report
+  - manifest
+  mcp_tools: []
+  risk_level: medium
+  review_required: true
+  activity: process-assessment
+  capability_kind: domain-specific
+  primary_domain: platform
+  risk_class: medium
+  lifecycle_phases:
+  - discover
+  - plan
+  - implement
+  - verify
+  - evidence
+  standard_ids: []
+- id: axiom-skills-purge
+  name: axiom-skills-purge
+  title: Skills Catalog Hygiene (Purge)
+  version: 1.2.0
+  domain: platform
+  subdomain: platform
+  category: implementation
+  maturity: experimental
+  owner: axiom-embedded
+  tags:
+  - skill
+  inputs:
+  - repository path
+  - objective
+  outputs:
+  - report
+  dependencies: []
+  related_skills: []
+  path: skills/axiom-skills-purge
+  enabled: true
+  sub_skills: []
+  lifecycle:
+  - discover
+  - plan
+  - implement
+  - verify
+  - evidence
+  standards: []
+  artifact_types:
+  - report
+  - manifest
+  mcp_tools: []
+  risk_level: medium
+  review_required: true
+  activity: process-assessment
+  capability_kind: domain-specific
+  primary_domain: platform
+  risk_class: medium
+  lifecycle_phases:
+  - discover
+  - plan
+  - implement
+  - verify
+  - evidence
+  standard_ids: []
+- id: axiom-space-radiation-hardening
+  name: axiom-space-radiation-hardening
+  title: Space Radiation Hardening
+  version: 1.2.0
+  domain: aerospace
+  subdomain: aerospace
+  category: implementation
+  maturity: experimental
+  owner: axiom-embedded
+  tags:
+  - skill
+  inputs:
+  - repository path
+  - objective
+  outputs:
+  - report
+  dependencies: []
+  related_skills: []
+  path: skills/axiom-space-radiation-hardening
+  enabled: true
+  sub_skills: []
+  lifecycle:
+  - discover
+  - plan
+  - implement
+  - verify
+  - evidence
+  standards: []
+  artifact_types:
+  - report
+  - manifest
+  mcp_tools: []
+  risk_level: medium
+  review_required: true
+  activity: implementation
+  capability_kind: domain-specific
+  primary_domain: aerospace
+  risk_class: medium
+  lifecycle_phases:
+  - discover
+  - plan
+  - implement
+  - verify
+  - evidence
+  standard_ids: []
+- id: axiom-sre-reliability
+  name: axiom-sre-reliability
+  title: SRE Reliability
+  version: 1.2.0
+  domain: platform
+  subdomain: platform
+  category: implementation
+  maturity: experimental
+  owner: axiom-embedded
+  tags:
+  - skill
+  inputs:
+  - repository path
+  - objective
+  outputs:
+  - report
+  dependencies: []
+  related_skills: []
+  path: skills/axiom-sre-reliability
+  enabled: true
+  sub_skills: []
+  lifecycle:
+  - discover
+  - plan
+  - implement
+  - verify
+  - evidence
+  standards: []
+  artifact_types:
+  - report
+  - manifest
+  mcp_tools: []
+  risk_level: medium
+  review_required: true
+  activity: process-assessment
+  capability_kind: domain-specific
+  primary_domain: platform
+  risk_class: medium
+  lifecycle_phases:
+  - discover
+  - plan
+  - implement
+  - verify
+  - evidence
   standard_ids: []
 - id: axiom-ssm-plan
   name: axiom.robotics.ssm.plan
@@ -7680,6 +10862,96 @@ skills:
   - release
   - operations
   standard_ids: []
+- id: axiom-telecom-5g-modem-integration
+  name: axiom-telecom-5g-modem-integration
+  title: 5G Modem Integration
+  version: 1.2.0
+  domain: generic-embedded
+  subdomain: generic-embedded
+  category: implementation
+  maturity: experimental
+  owner: axiom-embedded
+  tags:
+  - skill
+  inputs:
+  - repository path
+  - objective
+  outputs:
+  - report
+  dependencies: []
+  related_skills: []
+  path: skills/axiom-telecom-5g-modem-integration
+  enabled: true
+  sub_skills: []
+  lifecycle:
+  - discover
+  - plan
+  - implement
+  - verify
+  - evidence
+  standards: []
+  artifact_types:
+  - report
+  - manifest
+  mcp_tools: []
+  risk_level: medium
+  review_required: true
+  activity: implementation
+  capability_kind: domain-specific
+  primary_domain: generic-embedded
+  risk_class: medium
+  lifecycle_phases:
+  - discover
+  - plan
+  - implement
+  - verify
+  - evidence
+  standard_ids: []
+- id: axiom-terraform-infra
+  name: axiom-terraform-infra
+  title: Terraform Infrastructure
+  version: 1.2.0
+  domain: platform
+  subdomain: platform
+  category: implementation
+  maturity: experimental
+  owner: axiom-embedded
+  tags:
+  - skill
+  inputs:
+  - repository path
+  - objective
+  outputs:
+  - report
+  dependencies: []
+  related_skills: []
+  path: skills/axiom-terraform-infra
+  enabled: true
+  sub_skills: []
+  lifecycle:
+  - discover
+  - plan
+  - implement
+  - verify
+  - evidence
+  standards: []
+  artifact_types:
+  - report
+  - manifest
+  mcp_tools: []
+  risk_level: medium
+  review_required: true
+  activity: implementation
+  capability_kind: domain-specific
+  primary_domain: platform
+  risk_class: medium
+  lifecycle_phases:
+  - discover
+  - plan
+  - implement
+  - verify
+  - evidence
+  standard_ids: []
 - id: axiom-test-automation
   name: axiom.platform.test.automation
   title: Embedded Test Automation
@@ -7744,6 +11016,51 @@ skills:
   - verification
   - validation
   - release
+  standard_ids: []
+- id: axiom-test-master
+  name: axiom-test-master
+  title: Test Master
+  version: 1.2.0
+  domain: all
+  subdomain: all
+  category: implementation
+  maturity: experimental
+  owner: axiom-embedded
+  tags:
+  - skill
+  inputs:
+  - repository path
+  - objective
+  outputs:
+  - report
+  dependencies: []
+  related_skills: []
+  path: skills/axiom-test-master
+  enabled: true
+  sub_skills: []
+  lifecycle:
+  - discover
+  - plan
+  - implement
+  - verify
+  - evidence
+  standards: []
+  artifact_types:
+  - report
+  - manifest
+  mcp_tools: []
+  risk_level: medium
+  review_required: true
+  activity: unit-testing
+  capability_kind: domain-specific
+  primary_domain: all
+  risk_class: medium
+  lifecycle_phases:
+  - discover
+  - plan
+  - implement
+  - verify
+  - evidence
   standard_ids: []
 - id: axiom-tf-tree-spec
   name: axiom.robotics.tf.tree.spec
@@ -7962,6 +11279,51 @@ skills:
   - IEC 62443-3-2:2020
   - IEC 62443-4-1:2018
   - IEC 62443-4-2:2019
+- id: axiom-tool-schema-design
+  name: axiom-tool-schema-design
+  title: Tool Schema Design
+  version: 1.2.0
+  domain: platform
+  subdomain: platform
+  category: implementation
+  maturity: experimental
+  owner: axiom-embedded
+  tags:
+  - skill
+  inputs:
+  - repository path
+  - objective
+  outputs:
+  - report
+  dependencies: []
+  related_skills: []
+  path: skills/axiom-tool-schema-design
+  enabled: true
+  sub_skills: []
+  lifecycle:
+  - discover
+  - plan
+  - implement
+  - verify
+  - evidence
+  standards: []
+  artifact_types:
+  - report
+  - manifest
+  mcp_tools: []
+  risk_level: medium
+  review_required: true
+  activity: architecture
+  capability_kind: domain-specific
+  primary_domain: platform
+  risk_class: medium
+  lifecycle_phases:
+  - discover
+  - plan
+  - implement
+  - verify
+  - evidence
+  standard_ids: []
 - id: axiom-trace-analysis
   name: axiom.platform.trace.analysis
   title: Trace Analysis
@@ -8255,6 +11617,67 @@ skills:
   - validation
   - release
   standard_ids: []
+- id: axiom-validation-orchestrator
+  name: axiom.platform.validation.orchestrator
+  title: Cross-Layer Validation Orchestrator
+  version: 1.2.0
+  domain: platform
+  subdomain: validation
+  category: verification
+  maturity: experimental
+  owner: axiom-embedded
+  tags:
+  - validation
+  - orchestration
+  - sil
+  - hil
+  - routing
+  inputs:
+  - repository path
+  - test target
+  - test objective
+  - constraints
+  outputs:
+  - engine selection
+  - test skeleton
+  - run report
+  - run manifest
+  dependencies: []
+  related_skills:
+  - axiom-bus-protocol-validation
+  - axiom-firmware-lifecycle
+  - axiom-hw-interface-control
+  - axiom-sil-hil-bridge
+  path: skills/axiom-validation-orchestrator
+  enabled: true
+  lifecycle:
+  - plan
+  - implement
+  - verify
+  - evidence
+  standards: []
+  artifact_types:
+  - validation plan
+  - test skeleton
+  - evidence package
+  mcp_tools:
+  - run_skill
+  - validate_skill
+  risk_level: medium
+  review_required: true
+  safety_critical: false
+  extends: null
+  sub_skills: []
+  activity: validation
+  capability_kind: validator
+  primary_domain: all
+  risk_class: medium
+  lifecycle_phases:
+  - plan
+  - implement
+  - verify
+  - evidence
+  standard_ids: []
 - id: axiom-vehicle-cybersecurity
   name: axiom.automotive.vehicle.cybersecurity
   title: Vehicle Cybersecurity Workflow
@@ -8417,6 +11840,51 @@ skills:
   - ISO 13849-2:2012
   - ISO/TS 15066:2016
   - IEC 62061:2021
+- id: axiom-websocket-engineer
+  name: axiom-websocket-engineer
+  title: WebSocket Engineer
+  version: 1.2.0
+  domain: all
+  subdomain: all
+  category: implementation
+  maturity: experimental
+  owner: axiom-embedded
+  tags:
+  - skill
+  inputs:
+  - repository path
+  - objective
+  outputs:
+  - report
+  dependencies: []
+  related_skills: []
+  path: skills/axiom-websocket-engineer
+  enabled: true
+  sub_skills: []
+  lifecycle:
+  - discover
+  - plan
+  - implement
+  - verify
+  - evidence
+  standards: []
+  artifact_types:
+  - report
+  - manifest
+  mcp_tools: []
+  risk_level: medium
+  review_required: true
+  activity: implementation
+  capability_kind: domain-specific
+  primary_domain: all
+  risk_class: medium
+  lifecycle_phases:
+  - discover
+  - plan
+  - implement
+  - verify
+  - evidence
+  standard_ids: []
 - id: axiom-wireless-coexistence-plan
   name: axiom.industrial.wireless.coexistence.plan
   title: Wireless Coexistence Plan
@@ -10336,3180 +13804,3 @@ skills:
   - verify
   - evidence
   standard_ids: []
-- id: axiom-skill-creator
-  name: axiom-skill-creator
-  title: Skill Creator (with eval loop and description optimization)
-  version: 1.2.0
-  domain: platform
-  subdomain: platform
-  category: implementation
-  maturity: experimental
-  owner: axiom-embedded
-  tags:
-  - skill
-  inputs:
-  - repository path
-  - objective
-  outputs:
-  - report
-  dependencies: []
-  related_skills: []
-  path: skills/axiom-skill-creator
-  enabled: true
-  sub_skills: []
-  lifecycle:
-  - discover
-  - plan
-  - implement
-  - verify
-  - evidence
-  standards: []
-  artifact_types:
-  - report
-  - manifest
-  mcp_tools: []
-  risk_level: medium
-  review_required: true
-  activity: verification
-  capability_kind: domain-specific
-  primary_domain: platform
-  risk_class: medium
-  lifecycle_phases:
-  - discover
-  - plan
-  - implement
-  - verify
-  - evidence
-  standard_ids: []
-- id: axiom-mcp-builder
-  name: axiom-mcp-builder
-  title: MCP Server Builder
-  version: 1.2.0
-  domain: platform
-  subdomain: platform
-  category: implementation
-  maturity: experimental
-  owner: axiom-embedded
-  tags:
-  - skill
-  inputs:
-  - repository path
-  - objective
-  outputs:
-  - report
-  dependencies: []
-  related_skills: []
-  path: skills/axiom-mcp-builder
-  enabled: true
-  sub_skills: []
-  lifecycle:
-  - discover
-  - plan
-  - implement
-  - verify
-  - evidence
-  standards: []
-  artifact_types:
-  - report
-  - manifest
-  mcp_tools: []
-  risk_level: medium
-  review_required: true
-  activity: implementation
-  capability_kind: domain-specific
-  primary_domain: platform
-  risk_class: medium
-  lifecycle_phases:
-  - discover
-  - plan
-  - implement
-  - verify
-  - evidence
-  standard_ids: []
-- id: axiom-tool-schema-design
-  name: axiom-tool-schema-design
-  title: Tool Schema Design
-  version: 1.2.0
-  domain: platform
-  subdomain: platform
-  category: implementation
-  maturity: experimental
-  owner: axiom-embedded
-  tags:
-  - skill
-  inputs:
-  - repository path
-  - objective
-  outputs:
-  - report
-  dependencies: []
-  related_skills: []
-  path: skills/axiom-tool-schema-design
-  enabled: true
-  sub_skills: []
-  lifecycle:
-  - discover
-  - plan
-  - implement
-  - verify
-  - evidence
-  standards: []
-  artifact_types:
-  - report
-  - manifest
-  mcp_tools: []
-  risk_level: medium
-  review_required: true
-  activity: architecture
-  capability_kind: domain-specific
-  primary_domain: platform
-  risk_class: medium
-  lifecycle_phases:
-  - discover
-  - plan
-  - implement
-  - verify
-  - evidence
-  standard_ids: []
-- id: axiom-agent-evaluation
-  name: axiom-agent-evaluation
-  title: Agent Evaluation
-  version: 1.2.0
-  domain: platform
-  subdomain: platform
-  category: implementation
-  maturity: experimental
-  owner: axiom-embedded
-  tags:
-  - skill
-  inputs:
-  - repository path
-  - objective
-  outputs:
-  - report
-  dependencies: []
-  related_skills: []
-  path: skills/axiom-agent-evaluation
-  enabled: true
-  sub_skills: []
-  lifecycle:
-  - discover
-  - plan
-  - implement
-  - verify
-  - evidence
-  standards: []
-  artifact_types:
-  - report
-  - manifest
-  mcp_tools: []
-  risk_level: medium
-  review_required: true
-  activity: verification
-  capability_kind: domain-specific
-  primary_domain: platform
-  risk_class: medium
-  lifecycle_phases:
-  - discover
-  - plan
-  - implement
-  - verify
-  - evidence
-  standard_ids: []
-- id: axiom-agent-observability
-  name: axiom-agent-observability
-  title: Agent Observability
-  version: 1.2.0
-  domain: platform
-  subdomain: platform
-  category: implementation
-  maturity: experimental
-  owner: axiom-embedded
-  tags:
-  - skill
-  inputs:
-  - repository path
-  - objective
-  outputs:
-  - report
-  dependencies: []
-  related_skills: []
-  path: skills/axiom-agent-observability
-  enabled: true
-  sub_skills: []
-  lifecycle:
-  - discover
-  - plan
-  - implement
-  - verify
-  - evidence
-  standards: []
-  artifact_types:
-  - report
-  - manifest
-  mcp_tools: []
-  risk_level: medium
-  review_required: true
-  activity: debugging
-  capability_kind: domain-specific
-  primary_domain: platform
-  risk_class: medium
-  lifecycle_phases:
-  - discover
-  - plan
-  - implement
-  - verify
-  - evidence
-  standard_ids: []
-- id: axiom-human-in-the-loop
-  name: axiom-human-in-the-loop
-  title: Human-in-the-Loop Orchestration
-  version: 1.2.0
-  domain: platform
-  subdomain: platform
-  category: implementation
-  maturity: experimental
-  owner: axiom-embedded
-  tags:
-  - skill
-  inputs:
-  - repository path
-  - objective
-  outputs:
-  - report
-  dependencies: []
-  related_skills: []
-  path: skills/axiom-human-in-the-loop
-  enabled: true
-  sub_skills: []
-  lifecycle:
-  - discover
-  - plan
-  - implement
-  - verify
-  - evidence
-  standards: []
-  artifact_types:
-  - report
-  - manifest
-  mcp_tools: []
-  risk_level: medium
-  review_required: true
-  activity: process-assessment
-  capability_kind: domain-specific
-  primary_domain: platform
-  risk_class: medium
-  lifecycle_phases:
-  - discover
-  - plan
-  - implement
-  - verify
-  - evidence
-  standard_ids: []
-- id: axiom-multi-agent-orchestration
-  name: axiom-multi-agent-orchestration
-  title: Multi-Agent Orchestration
-  version: 1.2.0
-  domain: platform
-  subdomain: platform
-  category: implementation
-  maturity: experimental
-  owner: axiom-embedded
-  tags:
-  - skill
-  inputs:
-  - repository path
-  - objective
-  outputs:
-  - report
-  dependencies: []
-  related_skills: []
-  path: skills/axiom-multi-agent-orchestration
-  enabled: true
-  sub_skills: []
-  lifecycle:
-  - discover
-  - plan
-  - implement
-  - verify
-  - evidence
-  standards: []
-  artifact_types:
-  - report
-  - manifest
-  mcp_tools: []
-  risk_level: medium
-  review_required: true
-  activity: implementation
-  capability_kind: domain-specific
-  primary_domain: platform
-  risk_class: medium
-  lifecycle_phases:
-  - discover
-  - plan
-  - implement
-  - verify
-  - evidence
-  standard_ids: []
-- id: axiom-prompt-injection-defense
-  name: axiom-prompt-injection-defense
-  title: Prompt Injection Defense
-  version: 1.2.0
-  domain: all
-  subdomain: all
-  category: implementation
-  maturity: experimental
-  owner: axiom-embedded
-  tags:
-  - skill
-  inputs:
-  - repository path
-  - objective
-  outputs:
-  - report
-  dependencies: []
-  related_skills: []
-  path: skills/axiom-prompt-injection-defense
-  enabled: true
-  sub_skills: []
-  lifecycle:
-  - discover
-  - plan
-  - implement
-  - verify
-  - evidence
-  standards: []
-  artifact_types:
-  - report
-  - manifest
-  mcp_tools: []
-  risk_level: medium
-  review_required: true
-  activity: cybersecurity
-  capability_kind: domain-specific
-  primary_domain: all
-  risk_class: medium
-  lifecycle_phases:
-  - discover
-  - plan
-  - implement
-  - verify
-  - evidence
-  standard_ids: []
-- id: axiom-agent-red-teaming
-  name: axiom-agent-red-teaming
-  title: Agent Red Teaming
-  version: 1.2.0
-  domain: all
-  subdomain: all
-  category: implementation
-  maturity: experimental
-  owner: axiom-embedded
-  tags:
-  - skill
-  inputs:
-  - repository path
-  - objective
-  outputs:
-  - report
-  dependencies: []
-  related_skills: []
-  path: skills/axiom-agent-red-teaming
-  enabled: true
-  sub_skills: []
-  lifecycle:
-  - discover
-  - plan
-  - implement
-  - verify
-  - evidence
-  standards: []
-  artifact_types:
-  - report
-  - manifest
-  mcp_tools: []
-  risk_level: medium
-  review_required: true
-  activity: security-review
-  capability_kind: domain-specific
-  primary_domain: all
-  risk_class: medium
-  lifecycle_phases:
-  - discover
-  - plan
-  - implement
-  - verify
-  - evidence
-  standard_ids: []
-- id: axiom-skills-purge
-  name: axiom-skills-purge
-  title: Skills Catalog Hygiene (Purge)
-  version: 1.2.0
-  domain: platform
-  subdomain: platform
-  category: implementation
-  maturity: experimental
-  owner: axiom-embedded
-  tags:
-  - skill
-  inputs:
-  - repository path
-  - objective
-  outputs:
-  - report
-  dependencies: []
-  related_skills: []
-  path: skills/axiom-skills-purge
-  enabled: true
-  sub_skills: []
-  lifecycle:
-  - discover
-  - plan
-  - implement
-  - verify
-  - evidence
-  standards: []
-  artifact_types:
-  - report
-  - manifest
-  mcp_tools: []
-  risk_level: medium
-  review_required: true
-  activity: process-assessment
-  capability_kind: domain-specific
-  primary_domain: platform
-  risk_class: medium
-  lifecycle_phases:
-  - discover
-  - plan
-  - implement
-  - verify
-  - evidence
-  standard_ids: []
-- id: axiom-diagnosing-bugs
-  name: axiom-diagnosing-bugs
-  title: Diagnosing Bugs (systematic root cause)
-  version: 1.2.0
-  domain: all
-  subdomain: all
-  category: implementation
-  maturity: experimental
-  owner: axiom-embedded
-  tags:
-  - skill
-  inputs:
-  - repository path
-  - objective
-  outputs:
-  - report
-  dependencies: []
-  related_skills: []
-  path: skills/axiom-diagnosing-bugs
-  enabled: true
-  sub_skills: []
-  lifecycle:
-  - discover
-  - plan
-  - implement
-  - verify
-  - evidence
-  standards: []
-  artifact_types:
-  - report
-  - manifest
-  mcp_tools: []
-  risk_level: medium
-  review_required: true
-  activity: debugging
-  capability_kind: domain-specific
-  primary_domain: all
-  risk_class: medium
-  lifecycle_phases:
-  - discover
-  - plan
-  - implement
-  - verify
-  - evidence
-  standard_ids: []
-- id: axiom-improve-codebase-architecture
-  name: axiom-improve-codebase-architecture
-  title: Improve Codebase Architecture
-  version: 1.2.0
-  domain: all
-  subdomain: all
-  category: implementation
-  maturity: experimental
-  owner: axiom-embedded
-  tags:
-  - skill
-  inputs:
-  - repository path
-  - objective
-  outputs:
-  - report
-  dependencies: []
-  related_skills: []
-  path: skills/axiom-improve-codebase-architecture
-  enabled: true
-  sub_skills: []
-  lifecycle:
-  - discover
-  - plan
-  - implement
-  - verify
-  - evidence
-  standards: []
-  artifact_types:
-  - report
-  - manifest
-  mcp_tools: []
-  risk_level: medium
-  review_required: true
-  activity: architecture
-  capability_kind: domain-specific
-  primary_domain: all
-  risk_class: medium
-  lifecycle_phases:
-  - discover
-  - plan
-  - implement
-  - verify
-  - evidence
-  standard_ids: []
-- id: axiom-clean-ai-slop
-  name: axiom-clean-ai-slop
-  title: Clean AI Slop
-  version: 1.2.0
-  domain: all
-  subdomain: all
-  category: implementation
-  maturity: experimental
-  owner: axiom-embedded
-  tags:
-  - skill
-  inputs:
-  - repository path
-  - objective
-  outputs:
-  - report
-  dependencies: []
-  related_skills: []
-  path: skills/axiom-clean-ai-slop
-  enabled: true
-  sub_skills: []
-  lifecycle:
-  - discover
-  - plan
-  - implement
-  - verify
-  - evidence
-  standards: []
-  artifact_types:
-  - report
-  - manifest
-  mcp_tools: []
-  risk_level: medium
-  review_required: true
-  activity: implementation
-  capability_kind: domain-specific
-  primary_domain: all
-  risk_class: medium
-  lifecycle_phases:
-  - discover
-  - plan
-  - implement
-  - verify
-  - evidence
-  standard_ids: []
-- id: axiom-git-commit-plan
-  name: axiom-git-commit-plan
-  title: Git Commit Plan (bisectable series)
-  version: 1.2.0
-  domain: all
-  subdomain: all
-  category: implementation
-  maturity: experimental
-  owner: axiom-embedded
-  tags:
-  - skill
-  inputs:
-  - repository path
-  - objective
-  outputs:
-  - report
-  dependencies: []
-  related_skills: []
-  path: skills/axiom-git-commit-plan
-  enabled: true
-  sub_skills: []
-  lifecycle:
-  - discover
-  - plan
-  - implement
-  - verify
-  - evidence
-  standards: []
-  artifact_types:
-  - report
-  - manifest
-  mcp_tools: []
-  risk_level: medium
-  review_required: true
-  activity: implementation
-  capability_kind: domain-specific
-  primary_domain: all
-  risk_class: medium
-  lifecycle_phases:
-  - discover
-  - plan
-  - implement
-  - verify
-  - evidence
-  standard_ids: []
-- id: axiom-code-explainer
-  name: axiom-code-explainer
-  title: Code Explainer (illustrated)
-  version: 1.2.0
-  domain: all
-  subdomain: all
-  category: implementation
-  maturity: experimental
-  owner: axiom-embedded
-  tags:
-  - skill
-  inputs:
-  - repository path
-  - objective
-  outputs:
-  - report
-  dependencies: []
-  related_skills: []
-  path: skills/axiom-code-explainer
-  enabled: true
-  sub_skills: []
-  lifecycle:
-  - discover
-  - plan
-  - implement
-  - verify
-  - evidence
-  standards: []
-  artifact_types:
-  - report
-  - manifest
-  mcp_tools: []
-  risk_level: medium
-  review_required: true
-  activity: documentation
-  capability_kind: domain-specific
-  primary_domain: all
-  risk_class: medium
-  lifecycle_phases:
-  - discover
-  - plan
-  - implement
-  - verify
-  - evidence
-  standard_ids: []
-- id: axiom-agents-md-generator
-  name: axiom-agents-md-generator
-  title: AGENTS.md Generator
-  version: 1.2.0
-  domain: all
-  subdomain: all
-  category: implementation
-  maturity: experimental
-  owner: axiom-embedded
-  tags:
-  - skill
-  inputs:
-  - repository path
-  - objective
-  outputs:
-  - report
-  dependencies: []
-  related_skills: []
-  path: skills/axiom-agents-md-generator
-  enabled: true
-  sub_skills: []
-  lifecycle:
-  - discover
-  - plan
-  - implement
-  - verify
-  - evidence
-  standards: []
-  artifact_types:
-  - report
-  - manifest
-  mcp_tools: []
-  risk_level: medium
-  review_required: true
-  activity: documentation
-  capability_kind: domain-specific
-  primary_domain: all
-  risk_class: medium
-  lifecycle_phases:
-  - discover
-  - plan
-  - implement
-  - verify
-  - evidence
-  standard_ids: []
-- id: axiom-api-design
-  name: axiom-api-design
-  title: API Design Review
-  version: 1.2.0
-  domain: all
-  subdomain: all
-  category: implementation
-  maturity: experimental
-  owner: axiom-embedded
-  tags:
-  - skill
-  inputs:
-  - repository path
-  - objective
-  outputs:
-  - report
-  dependencies: []
-  related_skills: []
-  path: skills/axiom-api-design
-  enabled: true
-  sub_skills: []
-  lifecycle:
-  - discover
-  - plan
-  - implement
-  - verify
-  - evidence
-  standards: []
-  artifact_types:
-  - report
-  - manifest
-  mcp_tools: []
-  risk_level: medium
-  review_required: true
-  activity: architecture
-  capability_kind: domain-specific
-  primary_domain: all
-  risk_class: medium
-  lifecycle_phases:
-  - discover
-  - plan
-  - implement
-  - verify
-  - evidence
-  standard_ids: []
-- id: axiom-cto-advisor
-  name: axiom-cto-advisor
-  title: CTO Advisor (tech debt, DORA, scaling)
-  version: 1.2.0
-  domain: all
-  subdomain: all
-  category: implementation
-  maturity: experimental
-  owner: axiom-embedded
-  tags:
-  - skill
-  inputs:
-  - repository path
-  - objective
-  outputs:
-  - report
-  dependencies: []
-  related_skills: []
-  path: skills/axiom-cto-advisor
-  enabled: true
-  sub_skills: []
-  lifecycle:
-  - discover
-  - plan
-  - implement
-  - verify
-  - evidence
-  standards: []
-  artifact_types:
-  - report
-  - manifest
-  mcp_tools: []
-  risk_level: medium
-  review_required: true
-  activity: implementation
-  capability_kind: domain-specific
-  primary_domain: all
-  risk_class: medium
-  lifecycle_phases:
-  - discover
-  - plan
-  - implement
-  - verify
-  - evidence
-  standard_ids: []
-- id: axiom-security-best-practices
-  name: axiom-security-best-practices
-  title: Security Best Practices
-  version: 1.2.0
-  domain: all
-  subdomain: all
-  category: implementation
-  maturity: experimental
-  owner: axiom-embedded
-  tags:
-  - skill
-  inputs:
-  - repository path
-  - objective
-  outputs:
-  - report
-  dependencies: []
-  related_skills: []
-  path: skills/axiom-security-best-practices
-  enabled: true
-  sub_skills: []
-  lifecycle:
-  - discover
-  - plan
-  - implement
-  - verify
-  - evidence
-  standards: []
-  artifact_types:
-  - report
-  - manifest
-  mcp_tools: []
-  risk_level: medium
-  review_required: true
-  activity: cybersecurity
-  capability_kind: domain-specific
-  primary_domain: all
-  risk_class: medium
-  lifecycle_phases:
-  - discover
-  - plan
-  - implement
-  - verify
-  - evidence
-  standard_ids: []
-- id: axiom-security-threat-model
-  name: axiom-security-threat-model
-  title: Security Threat Model
-  version: 1.2.0
-  domain: all
-  subdomain: all
-  category: implementation
-  maturity: experimental
-  owner: axiom-embedded
-  tags:
-  - skill
-  inputs:
-  - repository path
-  - objective
-  outputs:
-  - report
-  dependencies: []
-  related_skills: []
-  path: skills/axiom-security-threat-model
-  enabled: true
-  sub_skills: []
-  lifecycle:
-  - discover
-  - plan
-  - implement
-  - verify
-  - evidence
-  standards: []
-  artifact_types:
-  - report
-  - manifest
-  mcp_tools: []
-  risk_level: medium
-  review_required: true
-  activity: cybersecurity
-  capability_kind: domain-specific
-  primary_domain: all
-  risk_class: medium
-  lifecycle_phases:
-  - discover
-  - plan
-  - implement
-  - verify
-  - evidence
-  standard_ids: []
-- id: axiom-security-ownership-map
-  name: axiom-security-ownership-map
-  title: Security Ownership Map
-  version: 1.2.0
-  domain: all
-  subdomain: all
-  category: implementation
-  maturity: experimental
-  owner: axiom-embedded
-  tags:
-  - skill
-  inputs:
-  - repository path
-  - objective
-  outputs:
-  - report
-  dependencies: []
-  related_skills: []
-  path: skills/axiom-security-ownership-map
-  enabled: true
-  sub_skills: []
-  lifecycle:
-  - discover
-  - plan
-  - implement
-  - verify
-  - evidence
-  standards: []
-  artifact_types:
-  - report
-  - manifest
-  mcp_tools: []
-  risk_level: medium
-  review_required: true
-  activity: cybersecurity
-  capability_kind: domain-specific
-  primary_domain: all
-  risk_class: medium
-  lifecycle_phases:
-  - discover
-  - plan
-  - implement
-  - verify
-  - evidence
-  standard_ids: []
-- id: axiom-mcp-security-testing
-  name: axiom-mcp-security-testing
-  title: MCP Security Testing
-  version: 1.2.0
-  domain: all
-  subdomain: all
-  category: implementation
-  maturity: experimental
-  owner: axiom-embedded
-  tags:
-  - skill
-  inputs:
-  - repository path
-  - objective
-  outputs:
-  - report
-  dependencies: []
-  related_skills: []
-  path: skills/axiom-mcp-security-testing
-  enabled: true
-  sub_skills: []
-  lifecycle:
-  - discover
-  - plan
-  - implement
-  - verify
-  - evidence
-  standards: []
-  artifact_types:
-  - report
-  - manifest
-  mcp_tools: []
-  risk_level: medium
-  review_required: true
-  activity: cybersecurity
-  capability_kind: domain-specific
-  primary_domain: all
-  risk_class: medium
-  lifecycle_phases:
-  - discover
-  - plan
-  - implement
-  - verify
-  - evidence
-  standard_ids: []
-- id: axiom-doc-coauthoring
-  name: axiom-doc-coauthoring
-  title: Document Co-authoring
-  version: 1.2.0
-  domain: all
-  subdomain: all
-  category: implementation
-  maturity: experimental
-  owner: axiom-embedded
-  tags:
-  - skill
-  inputs:
-  - repository path
-  - objective
-  outputs:
-  - report
-  dependencies: []
-  related_skills: []
-  path: skills/axiom-doc-coauthoring
-  enabled: true
-  sub_skills: []
-  lifecycle:
-  - discover
-  - plan
-  - implement
-  - verify
-  - evidence
-  standards: []
-  artifact_types:
-  - report
-  - manifest
-  mcp_tools: []
-  risk_level: medium
-  review_required: true
-  activity: documentation
-  capability_kind: domain-specific
-  primary_domain: all
-  risk_class: medium
-  lifecycle_phases:
-  - discover
-  - plan
-  - implement
-  - verify
-  - evidence
-  standard_ids: []
-- id: axiom-document-skills
-  name: axiom-document-skills
-  title: Document Skills (pdf/docx/xlsx/pptx)
-  version: 1.2.0
-  domain: all
-  subdomain: all
-  category: implementation
-  maturity: experimental
-  owner: axiom-embedded
-  tags:
-  - skill
-  inputs:
-  - repository path
-  - objective
-  outputs:
-  - report
-  dependencies: []
-  related_skills: []
-  path: skills/axiom-document-skills
-  enabled: true
-  sub_skills: []
-  lifecycle:
-  - discover
-  - plan
-  - implement
-  - verify
-  - evidence
-  standards: []
-  artifact_types:
-  - report
-  - manifest
-  mcp_tools: []
-  risk_level: medium
-  review_required: true
-  activity: documentation
-  capability_kind: domain-specific
-  primary_domain: all
-  risk_class: medium
-  lifecycle_phases:
-  - discover
-  - plan
-  - implement
-  - verify
-  - evidence
-  standard_ids: []
-- id: axiom-frontend-design
-  name: axiom-frontend-design
-  title: Frontend Design
-  version: 1.2.0
-  domain: all
-  subdomain: all
-  category: implementation
-  maturity: experimental
-  owner: axiom-embedded
-  tags:
-  - skill
-  inputs:
-  - repository path
-  - objective
-  outputs:
-  - report
-  dependencies: []
-  related_skills: []
-  path: skills/axiom-frontend-design
-  enabled: true
-  sub_skills: []
-  lifecycle:
-  - discover
-  - plan
-  - implement
-  - verify
-  - evidence
-  standards: []
-  artifact_types:
-  - report
-  - manifest
-  mcp_tools: []
-  risk_level: medium
-  review_required: true
-  activity: architecture
-  capability_kind: domain-specific
-  primary_domain: all
-  risk_class: medium
-  lifecycle_phases:
-  - discover
-  - plan
-  - implement
-  - verify
-  - evidence
-  standard_ids: []
-- id: axiom-context-engineering
-  name: axiom-context-engineering
-  title: Context Engineering (prompt budget)
-  version: 1.2.0
-  domain: platform
-  subdomain: platform
-  category: implementation
-  maturity: experimental
-  owner: axiom-embedded
-  tags:
-  - skill
-  inputs:
-  - repository path
-  - objective
-  outputs:
-  - report
-  dependencies: []
-  related_skills: []
-  path: skills/axiom-context-engineering
-  enabled: true
-  sub_skills: []
-  lifecycle:
-  - discover
-  - plan
-  - implement
-  - verify
-  - evidence
-  standards: []
-  artifact_types:
-  - report
-  - manifest
-  mcp_tools: []
-  risk_level: medium
-  review_required: true
-  activity: implementation
-  capability_kind: domain-specific
-  primary_domain: platform
-  risk_class: medium
-  lifecycle_phases:
-  - discover
-  - plan
-  - implement
-  - verify
-  - evidence
-  standard_ids: []
-- id: axiom-skill-seekers
-  name: axiom-skill-seekers
-  title: Skill Seekers (doc to SKILL conversion)
-  version: 1.2.0
-  domain: platform
-  subdomain: platform
-  category: implementation
-  maturity: experimental
-  owner: axiom-embedded
-  tags:
-  - skill
-  inputs:
-  - repository path
-  - objective
-  outputs:
-  - report
-  dependencies: []
-  related_skills: []
-  path: skills/axiom-skill-seekers
-  enabled: true
-  sub_skills: []
-  lifecycle:
-  - discover
-  - plan
-  - implement
-  - verify
-  - evidence
-  standards: []
-  artifact_types:
-  - report
-  - manifest
-  mcp_tools: []
-  risk_level: medium
-  review_required: true
-  activity: process-assessment
-  capability_kind: domain-specific
-  primary_domain: platform
-  risk_class: medium
-  lifecycle_phases:
-  - discover
-  - plan
-  - implement
-  - verify
-  - evidence
-  standard_ids: []
-- id: axiom-aerospace-do178c-workflow
-  name: axiom-aerospace-do178c-workflow
-  title: DO-178C Software Lifecycle Workflow
-  version: 1.2.0
-  domain: aerospace
-  subdomain: aerospace
-  category: implementation
-  maturity: experimental
-  owner: axiom-embedded
-  tags:
-  - skill
-  inputs:
-  - repository path
-  - objective
-  outputs:
-  - report
-  dependencies: []
-  related_skills: []
-  path: skills/axiom-aerospace-do178c-workflow
-  enabled: true
-  sub_skills: []
-  lifecycle:
-  - discover
-  - plan
-  - implement
-  - verify
-  - evidence
-  standards: []
-  artifact_types:
-  - report
-  - manifest
-  mcp_tools: []
-  risk_level: medium
-  review_required: true
-  activity: process-assessment
-  capability_kind: domain-specific
-  primary_domain: aerospace
-  risk_class: medium
-  lifecycle_phases:
-  - discover
-  - plan
-  - implement
-  - verify
-  - evidence
-  standard_ids: []
-- id: axiom-aerospace-do254-hardware
-  name: axiom-aerospace-do254-hardware
-  title: DO-254 Hardware Design Assurance
-  version: 1.2.0
-  domain: aerospace
-  subdomain: aerospace
-  category: implementation
-  maturity: experimental
-  owner: axiom-embedded
-  tags:
-  - skill
-  inputs:
-  - repository path
-  - objective
-  outputs:
-  - report
-  dependencies: []
-  related_skills: []
-  path: skills/axiom-aerospace-do254-hardware
-  enabled: true
-  sub_skills: []
-  lifecycle:
-  - discover
-  - plan
-  - implement
-  - verify
-  - evidence
-  standards: []
-  artifact_types:
-  - report
-  - manifest
-  mcp_tools: []
-  risk_level: medium
-  review_required: true
-  activity: architecture
-  capability_kind: domain-specific
-  primary_domain: aerospace
-  risk_class: medium
-  lifecycle_phases:
-  - discover
-  - plan
-  - implement
-  - verify
-  - evidence
-  standard_ids: []
-- id: axiom-space-radiation-hardening
-  name: axiom-space-radiation-hardening
-  title: Space Radiation Hardening
-  version: 1.2.0
-  domain: aerospace
-  subdomain: aerospace
-  category: implementation
-  maturity: experimental
-  owner: axiom-embedded
-  tags:
-  - skill
-  inputs:
-  - repository path
-  - objective
-  outputs:
-  - report
-  dependencies: []
-  related_skills: []
-  path: skills/axiom-space-radiation-hardening
-  enabled: true
-  sub_skills: []
-  lifecycle:
-  - discover
-  - plan
-  - implement
-  - verify
-  - evidence
-  standards: []
-  artifact_types:
-  - report
-  - manifest
-  mcp_tools: []
-  risk_level: medium
-  review_required: true
-  activity: implementation
-  capability_kind: domain-specific
-  primary_domain: aerospace
-  risk_class: medium
-  lifecycle_phases:
-  - discover
-  - plan
-  - implement
-  - verify
-  - evidence
-  standard_ids: []
-- id: axiom-medical-iec62304-lifecycle
-  name: axiom-medical-iec62304-lifecycle
-  title: IEC 62304 Medical Software Lifecycle
-  version: 1.2.0
-  domain: industrial
-  subdomain: industrial
-  category: implementation
-  maturity: experimental
-  owner: axiom-embedded
-  tags:
-  - skill
-  inputs:
-  - repository path
-  - objective
-  outputs:
-  - report
-  dependencies: []
-  related_skills: []
-  path: skills/axiom-medical-iec62304-lifecycle
-  enabled: true
-  sub_skills: []
-  lifecycle:
-  - discover
-  - plan
-  - implement
-  - verify
-  - evidence
-  standards: []
-  artifact_types:
-  - report
-  - manifest
-  mcp_tools: []
-  risk_level: medium
-  review_required: true
-  activity: process-assessment
-  capability_kind: domain-specific
-  primary_domain: industrial
-  risk_class: medium
-  lifecycle_phases:
-  - discover
-  - plan
-  - implement
-  - verify
-  - evidence
-  standard_ids: []
-- id: axiom-rail-en50128-safety
-  name: axiom-rail-en50128-safety
-  title: EN 50128 Rail Software Safety
-  version: 1.2.0
-  domain: industrial
-  subdomain: industrial
-  category: implementation
-  maturity: experimental
-  owner: axiom-embedded
-  tags:
-  - skill
-  inputs:
-  - repository path
-  - objective
-  outputs:
-  - report
-  dependencies: []
-  related_skills: []
-  path: skills/axiom-rail-en50128-safety
-  enabled: true
-  sub_skills: []
-  lifecycle:
-  - discover
-  - plan
-  - implement
-  - verify
-  - evidence
-  standards: []
-  artifact_types:
-  - report
-  - manifest
-  mcp_tools: []
-  risk_level: medium
-  review_required: true
-  activity: functional-safety
-  capability_kind: domain-specific
-  primary_domain: industrial
-  risk_class: medium
-  lifecycle_phases:
-  - discover
-  - plan
-  - implement
-  - verify
-  - evidence
-  standard_ids: []
-- id: axiom-energy-grid-interface
-  name: axiom-energy-grid-interface
-  title: Energy Grid Interface (smart inverter)
-  version: 1.2.0
-  domain: industrial
-  subdomain: industrial
-  category: implementation
-  maturity: experimental
-  owner: axiom-embedded
-  tags:
-  - skill
-  inputs:
-  - repository path
-  - objective
-  outputs:
-  - report
-  dependencies: []
-  related_skills: []
-  path: skills/axiom-energy-grid-interface
-  enabled: true
-  sub_skills: []
-  lifecycle:
-  - discover
-  - plan
-  - implement
-  - verify
-  - evidence
-  standards: []
-  artifact_types:
-  - report
-  - manifest
-  mcp_tools: []
-  risk_level: medium
-  review_required: true
-  activity: implementation
-  capability_kind: domain-specific
-  primary_domain: industrial
-  risk_class: medium
-  lifecycle_phases:
-  - discover
-  - plan
-  - implement
-  - verify
-  - evidence
-  standard_ids: []
-- id: axiom-iot-connectivity-stack
-  name: axiom-iot-connectivity-stack
-  title: IoT Connectivity Stack
-  version: 1.2.0
-  domain: generic-embedded
-  subdomain: generic-embedded
-  category: implementation
-  maturity: experimental
-  owner: axiom-embedded
-  tags:
-  - skill
-  inputs:
-  - repository path
-  - objective
-  outputs:
-  - report
-  dependencies: []
-  related_skills: []
-  path: skills/axiom-iot-connectivity-stack
-  enabled: true
-  sub_skills: []
-  lifecycle:
-  - discover
-  - plan
-  - implement
-  - verify
-  - evidence
-  standards: []
-  artifact_types:
-  - report
-  - manifest
-  mcp_tools: []
-  risk_level: medium
-  review_required: true
-  activity: implementation
-  capability_kind: domain-specific
-  primary_domain: generic-embedded
-  risk_class: medium
-  lifecycle_phases:
-  - discover
-  - plan
-  - implement
-  - verify
-  - evidence
-  standard_ids: []
-- id: axiom-semiconductor-test-coverage
-  name: axiom-semiconductor-test-coverage
-  title: Semiconductor Test Coverage
-  version: 1.2.0
-  domain: generic-embedded
-  subdomain: generic-embedded
-  category: implementation
-  maturity: experimental
-  owner: axiom-embedded
-  tags:
-  - skill
-  inputs:
-  - repository path
-  - objective
-  outputs:
-  - report
-  dependencies: []
-  related_skills: []
-  path: skills/axiom-semiconductor-test-coverage
-  enabled: true
-  sub_skills: []
-  lifecycle:
-  - discover
-  - plan
-  - implement
-  - verify
-  - evidence
-  standards: []
-  artifact_types:
-  - report
-  - manifest
-  mcp_tools: []
-  risk_level: medium
-  review_required: true
-  activity: unit-testing
-  capability_kind: domain-specific
-  primary_domain: generic-embedded
-  risk_class: medium
-  lifecycle_phases:
-  - discover
-  - plan
-  - implement
-  - verify
-  - evidence
-  standard_ids: []
-- id: axiom-telecom-5g-modem-integration
-  name: axiom-telecom-5g-modem-integration
-  title: 5G Modem Integration
-  version: 1.2.0
-  domain: generic-embedded
-  subdomain: generic-embedded
-  category: implementation
-  maturity: experimental
-  owner: axiom-embedded
-  tags:
-  - skill
-  inputs:
-  - repository path
-  - objective
-  outputs:
-  - report
-  dependencies: []
-  related_skills: []
-  path: skills/axiom-telecom-5g-modem-integration
-  enabled: true
-  sub_skills: []
-  lifecycle:
-  - discover
-  - plan
-  - implement
-  - verify
-  - evidence
-  standards: []
-  artifact_types:
-  - report
-  - manifest
-  mcp_tools: []
-  risk_level: medium
-  review_required: true
-  activity: implementation
-  capability_kind: domain-specific
-  primary_domain: generic-embedded
-  risk_class: medium
-  lifecycle_phases:
-  - discover
-  - plan
-  - implement
-  - verify
-  - evidence
-  standard_ids: []
-- id: axiom-cross-domain-traceability
-  name: axiom-cross-domain-traceability
-  title: Cross-Domain Traceability
-  version: 1.2.0
-  domain: cross-domain
-  subdomain: cross-domain
-  category: implementation
-  maturity: experimental
-  owner: axiom-embedded
-  tags:
-  - skill
-  inputs:
-  - repository path
-  - objective
-  outputs:
-  - report
-  dependencies: []
-  related_skills: []
-  path: skills/axiom-cross-domain-traceability
-  enabled: true
-  sub_skills: []
-  lifecycle:
-  - discover
-  - plan
-  - implement
-  - verify
-  - evidence
-  standards: []
-  artifact_types:
-  - report
-  - manifest
-  mcp_tools: []
-  risk_level: medium
-  review_required: true
-  activity: requirements-traceability
-  capability_kind: domain-specific
-  primary_domain: cross-domain
-  risk_class: medium
-  lifecycle_phases:
-  - discover
-  - plan
-  - implement
-  - verify
-  - evidence
-  standard_ids: []
-- id: axiom-cloud-architecture
-  name: axiom-cloud-architecture
-  title: Cloud Architecture
-  version: 1.2.0
-  domain: platform
-  subdomain: platform
-  category: implementation
-  maturity: experimental
-  owner: axiom-embedded
-  tags:
-  - skill
-  inputs:
-  - repository path
-  - objective
-  outputs:
-  - report
-  dependencies: []
-  related_skills: []
-  path: skills/axiom-cloud-architecture
-  enabled: true
-  sub_skills: []
-  lifecycle:
-  - discover
-  - plan
-  - implement
-  - verify
-  - evidence
-  standards: []
-  artifact_types:
-  - report
-  - manifest
-  mcp_tools: []
-  risk_level: medium
-  review_required: true
-  activity: architecture
-  capability_kind: domain-specific
-  primary_domain: platform
-  risk_class: medium
-  lifecycle_phases:
-  - discover
-  - plan
-  - implement
-  - verify
-  - evidence
-  standard_ids: []
-- id: axiom-kubernetes-edge
-  name: axiom-kubernetes-edge
-  title: Kubernetes Edge
-  version: 1.2.0
-  domain: platform
-  subdomain: platform
-  category: implementation
-  maturity: experimental
-  owner: axiom-embedded
-  tags:
-  - skill
-  inputs:
-  - repository path
-  - objective
-  outputs:
-  - report
-  dependencies: []
-  related_skills: []
-  path: skills/axiom-kubernetes-edge
-  enabled: true
-  sub_skills: []
-  lifecycle:
-  - discover
-  - plan
-  - implement
-  - verify
-  - evidence
-  standards: []
-  artifact_types:
-  - report
-  - manifest
-  mcp_tools: []
-  risk_level: medium
-  review_required: true
-  activity: implementation
-  capability_kind: domain-specific
-  primary_domain: platform
-  risk_class: medium
-  lifecycle_phases:
-  - discover
-  - plan
-  - implement
-  - verify
-  - evidence
-  standard_ids: []
-- id: axiom-terraform-infra
-  name: axiom-terraform-infra
-  title: Terraform Infrastructure
-  version: 1.2.0
-  domain: platform
-  subdomain: platform
-  category: implementation
-  maturity: experimental
-  owner: axiom-embedded
-  tags:
-  - skill
-  inputs:
-  - repository path
-  - objective
-  outputs:
-  - report
-  dependencies: []
-  related_skills: []
-  path: skills/axiom-terraform-infra
-  enabled: true
-  sub_skills: []
-  lifecycle:
-  - discover
-  - plan
-  - implement
-  - verify
-  - evidence
-  standards: []
-  artifact_types:
-  - report
-  - manifest
-  mcp_tools: []
-  risk_level: medium
-  review_required: true
-  activity: implementation
-  capability_kind: domain-specific
-  primary_domain: platform
-  risk_class: medium
-  lifecycle_phases:
-  - discover
-  - plan
-  - implement
-  - verify
-  - evidence
-  standard_ids: []
-- id: axiom-monitoring-observability
-  name: axiom-monitoring-observability
-  title: Monitoring Observability
-  version: 1.2.0
-  domain: platform
-  subdomain: platform
-  category: implementation
-  maturity: experimental
-  owner: axiom-embedded
-  tags:
-  - skill
-  inputs:
-  - repository path
-  - objective
-  outputs:
-  - report
-  dependencies: []
-  related_skills: []
-  path: skills/axiom-monitoring-observability
-  enabled: true
-  sub_skills: []
-  lifecycle:
-  - discover
-  - plan
-  - implement
-  - verify
-  - evidence
-  standards: []
-  artifact_types:
-  - report
-  - manifest
-  mcp_tools: []
-  risk_level: medium
-  review_required: true
-  activity: debugging
-  capability_kind: domain-specific
-  primary_domain: platform
-  risk_class: medium
-  lifecycle_phases:
-  - discover
-  - plan
-  - implement
-  - verify
-  - evidence
-  standard_ids: []
-- id: axiom-sre-reliability
-  name: axiom-sre-reliability
-  title: SRE Reliability
-  version: 1.2.0
-  domain: platform
-  subdomain: platform
-  category: implementation
-  maturity: experimental
-  owner: axiom-embedded
-  tags:
-  - skill
-  inputs:
-  - repository path
-  - objective
-  outputs:
-  - report
-  dependencies: []
-  related_skills: []
-  path: skills/axiom-sre-reliability
-  enabled: true
-  sub_skills: []
-  lifecycle:
-  - discover
-  - plan
-  - implement
-  - verify
-  - evidence
-  standards: []
-  artifact_types:
-  - report
-  - manifest
-  mcp_tools: []
-  risk_level: medium
-  review_required: true
-  activity: process-assessment
-  capability_kind: domain-specific
-  primary_domain: platform
-  risk_class: medium
-  lifecycle_phases:
-  - discover
-  - plan
-  - implement
-  - verify
-  - evidence
-  standard_ids: []
-- id: axiom-chaos-engineering
-  name: axiom-chaos-engineering
-  title: Chaos Engineering
-  version: 1.2.0
-  domain: all
-  subdomain: all
-  category: implementation
-  maturity: experimental
-  owner: axiom-embedded
-  tags:
-  - skill
-  inputs:
-  - repository path
-  - objective
-  outputs:
-  - report
-  dependencies: []
-  related_skills: []
-  path: skills/axiom-chaos-engineering
-  enabled: true
-  sub_skills: []
-  lifecycle:
-  - discover
-  - plan
-  - implement
-  - verify
-  - evidence
-  standards: []
-  artifact_types:
-  - report
-  - manifest
-  mcp_tools: []
-  risk_level: medium
-  review_required: true
-  activity: implementation
-  capability_kind: domain-specific
-  primary_domain: all
-  risk_class: medium
-  lifecycle_phases:
-  - discover
-  - plan
-  - implement
-  - verify
-  - evidence
-  standard_ids: []
-- id: axiom-cli-developer
-  name: axiom-cli-developer
-  title: CLI Developer
-  version: 1.2.0
-  domain: all
-  subdomain: all
-  category: implementation
-  maturity: experimental
-  owner: axiom-embedded
-  tags:
-  - skill
-  inputs:
-  - repository path
-  - objective
-  outputs:
-  - report
-  dependencies: []
-  related_skills: []
-  path: skills/axiom-cli-developer
-  enabled: true
-  sub_skills: []
-  lifecycle:
-  - discover
-  - plan
-  - implement
-  - verify
-  - evidence
-  standards: []
-  artifact_types:
-  - report
-  - manifest
-  mcp_tools: []
-  risk_level: medium
-  review_required: true
-  activity: implementation
-  capability_kind: domain-specific
-  primary_domain: all
-  risk_class: medium
-  lifecycle_phases:
-  - discover
-  - plan
-  - implement
-  - verify
-  - evidence
-  standard_ids: []
-- id: axiom-prompt-engineering
-  name: axiom-prompt-engineering
-  title: Prompt Engineering
-  version: 1.2.0
-  domain: generic-embedded
-  subdomain: generic-embedded
-  category: implementation
-  maturity: experimental
-  owner: axiom-embedded
-  tags:
-  - skill
-  inputs:
-  - repository path
-  - objective
-  outputs:
-  - report
-  dependencies: []
-  related_skills: []
-  path: skills/axiom-prompt-engineering
-  enabled: true
-  sub_skills: []
-  lifecycle:
-  - discover
-  - plan
-  - implement
-  - verify
-  - evidence
-  standards: []
-  artifact_types:
-  - report
-  - manifest
-  mcp_tools: []
-  risk_level: medium
-  review_required: true
-  activity: implementation
-  capability_kind: domain-specific
-  primary_domain: generic-embedded
-  risk_class: medium
-  lifecycle_phases:
-  - discover
-  - plan
-  - implement
-  - verify
-  - evidence
-  standard_ids: []
-- id: axiom-rag-architect
-  name: axiom-rag-architect
-  title: RAG Architect
-  version: 1.2.0
-  domain: generic-embedded
-  subdomain: generic-embedded
-  category: implementation
-  maturity: experimental
-  owner: axiom-embedded
-  tags:
-  - skill
-  inputs:
-  - repository path
-  - objective
-  outputs:
-  - report
-  dependencies: []
-  related_skills: []
-  path: skills/axiom-rag-architect
-  enabled: true
-  sub_skills: []
-  lifecycle:
-  - discover
-  - plan
-  - implement
-  - verify
-  - evidence
-  standards: []
-  artifact_types:
-  - report
-  - manifest
-  mcp_tools: []
-  risk_level: medium
-  review_required: true
-  activity: architecture
-  capability_kind: domain-specific
-  primary_domain: generic-embedded
-  risk_class: medium
-  lifecycle_phases:
-  - discover
-  - plan
-  - implement
-  - verify
-  - evidence
-  standard_ids: []
-- id: axiom-data-pipeline
-  name: axiom-data-pipeline
-  title: Data Pipeline
-  version: 1.2.0
-  domain: generic-embedded
-  subdomain: generic-embedded
-  category: implementation
-  maturity: experimental
-  owner: axiom-embedded
-  tags:
-  - skill
-  inputs:
-  - repository path
-  - objective
-  outputs:
-  - report
-  dependencies: []
-  related_skills: []
-  path: skills/axiom-data-pipeline
-  enabled: true
-  sub_skills: []
-  lifecycle:
-  - discover
-  - plan
-  - implement
-  - verify
-  - evidence
-  standards: []
-  artifact_types:
-  - report
-  - manifest
-  mcp_tools: []
-  risk_level: medium
-  review_required: true
-  activity: implementation
-  capability_kind: domain-specific
-  primary_domain: generic-embedded
-  risk_class: medium
-  lifecycle_phases:
-  - discover
-  - plan
-  - implement
-  - verify
-  - evidence
-  standard_ids: []
-- id: axiom-database-optimization
-  name: axiom-database-optimization
-  title: Database Optimization
-  version: 1.2.0
-  domain: all
-  subdomain: all
-  category: implementation
-  maturity: experimental
-  owner: axiom-embedded
-  tags:
-  - skill
-  inputs:
-  - repository path
-  - objective
-  outputs:
-  - report
-  dependencies: []
-  related_skills: []
-  path: skills/axiom-database-optimization
-  enabled: true
-  sub_skills: []
-  lifecycle:
-  - discover
-  - plan
-  - implement
-  - verify
-  - evidence
-  standards: []
-  artifact_types:
-  - report
-  - manifest
-  mcp_tools: []
-  risk_level: medium
-  review_required: true
-  activity: implementation
-  capability_kind: domain-specific
-  primary_domain: all
-  risk_class: medium
-  lifecycle_phases:
-  - discover
-  - plan
-  - implement
-  - verify
-  - evidence
-  standard_ids: []
-- id: axiom-graphql-architect
-  name: axiom-graphql-architect
-  title: GraphQL Architect
-  version: 1.2.0
-  domain: all
-  subdomain: all
-  category: implementation
-  maturity: experimental
-  owner: axiom-embedded
-  tags:
-  - skill
-  inputs:
-  - repository path
-  - objective
-  outputs:
-  - report
-  dependencies: []
-  related_skills: []
-  path: skills/axiom-graphql-architect
-  enabled: true
-  sub_skills: []
-  lifecycle:
-  - discover
-  - plan
-  - implement
-  - verify
-  - evidence
-  standards: []
-  artifact_types:
-  - report
-  - manifest
-  mcp_tools: []
-  risk_level: medium
-  review_required: true
-  activity: architecture
-  capability_kind: domain-specific
-  primary_domain: all
-  risk_class: medium
-  lifecycle_phases:
-  - discover
-  - plan
-  - implement
-  - verify
-  - evidence
-  standard_ids: []
-- id: axiom-microservices-architect
-  name: axiom-microservices-architect
-  title: Microservices Architect
-  version: 1.2.0
-  domain: all
-  subdomain: all
-  category: implementation
-  maturity: experimental
-  owner: axiom-embedded
-  tags:
-  - skill
-  inputs:
-  - repository path
-  - objective
-  outputs:
-  - report
-  dependencies: []
-  related_skills: []
-  path: skills/axiom-microservices-architect
-  enabled: true
-  sub_skills: []
-  lifecycle:
-  - discover
-  - plan
-  - implement
-  - verify
-  - evidence
-  standards: []
-  artifact_types:
-  - report
-  - manifest
-  mcp_tools: []
-  risk_level: medium
-  review_required: true
-  activity: architecture
-  capability_kind: domain-specific
-  primary_domain: all
-  risk_class: medium
-  lifecycle_phases:
-  - discover
-  - plan
-  - implement
-  - verify
-  - evidence
-  standard_ids: []
-- id: axiom-websocket-engineer
-  name: axiom-websocket-engineer
-  title: WebSocket Engineer
-  version: 1.2.0
-  domain: all
-  subdomain: all
-  category: implementation
-  maturity: experimental
-  owner: axiom-embedded
-  tags:
-  - skill
-  inputs:
-  - repository path
-  - objective
-  outputs:
-  - report
-  dependencies: []
-  related_skills: []
-  path: skills/axiom-websocket-engineer
-  enabled: true
-  sub_skills: []
-  lifecycle:
-  - discover
-  - plan
-  - implement
-  - verify
-  - evidence
-  standards: []
-  artifact_types:
-  - report
-  - manifest
-  mcp_tools: []
-  risk_level: medium
-  review_required: true
-  activity: implementation
-  capability_kind: domain-specific
-  primary_domain: all
-  risk_class: medium
-  lifecycle_phases:
-  - discover
-  - plan
-  - implement
-  - verify
-  - evidence
-  standard_ids: []
-- id: axiom-mcp-developer
-  name: axiom-mcp-developer
-  title: MCP Developer
-  version: 1.2.0
-  domain: platform
-  subdomain: platform
-  category: implementation
-  maturity: experimental
-  owner: axiom-embedded
-  tags:
-  - skill
-  inputs:
-  - repository path
-  - objective
-  outputs:
-  - report
-  dependencies: []
-  related_skills: []
-  path: skills/axiom-mcp-developer
-  enabled: true
-  sub_skills: []
-  lifecycle:
-  - discover
-  - plan
-  - implement
-  - verify
-  - evidence
-  standards: []
-  artifact_types:
-  - report
-  - manifest
-  mcp_tools: []
-  risk_level: medium
-  review_required: true
-  activity: implementation
-  capability_kind: domain-specific
-  primary_domain: platform
-  risk_class: medium
-  lifecycle_phases:
-  - discover
-  - plan
-  - implement
-  - verify
-  - evidence
-  standard_ids: []
-- id: axiom-test-master
-  name: axiom-test-master
-  title: Test Master
-  version: 1.2.0
-  domain: all
-  subdomain: all
-  category: implementation
-  maturity: experimental
-  owner: axiom-embedded
-  tags:
-  - skill
-  inputs:
-  - repository path
-  - objective
-  outputs:
-  - report
-  dependencies: []
-  related_skills: []
-  path: skills/axiom-test-master
-  enabled: true
-  sub_skills: []
-  lifecycle:
-  - discover
-  - plan
-  - implement
-  - verify
-  - evidence
-  standards: []
-  artifact_types:
-  - report
-  - manifest
-  mcp_tools: []
-  risk_level: medium
-  review_required: true
-  activity: unit-testing
-  capability_kind: domain-specific
-  primary_domain: all
-  risk_class: medium
-  lifecycle_phases:
-  - discover
-  - plan
-  - implement
-  - verify
-  - evidence
-  standard_ids: []
-- id: axiom-playwright-e2e
-  name: axiom-playwright-e2e
-  title: Playwright E2E
-  version: 1.2.0
-  domain: all
-  subdomain: all
-  category: implementation
-  maturity: experimental
-  owner: axiom-embedded
-  tags:
-  - skill
-  inputs:
-  - repository path
-  - objective
-  outputs:
-  - report
-  dependencies: []
-  related_skills: []
-  path: skills/axiom-playwright-e2e
-  enabled: true
-  sub_skills: []
-  lifecycle:
-  - discover
-  - plan
-  - implement
-  - verify
-  - evidence
-  standards: []
-  artifact_types:
-  - report
-  - manifest
-  mcp_tools: []
-  risk_level: medium
-  review_required: true
-  activity: system-testing
-  capability_kind: domain-specific
-  primary_domain: all
-  risk_class: medium
-  lifecycle_phases:
-  - discover
-  - plan
-  - implement
-  - verify
-  - evidence
-  standard_ids: []
-- id: axiom-debugging-wizard
-  name: axiom-debugging-wizard
-  title: Debugging Wizard
-  version: 1.2.0
-  domain: all
-  subdomain: all
-  category: implementation
-  maturity: experimental
-  owner: axiom-embedded
-  tags:
-  - skill
-  inputs:
-  - repository path
-  - objective
-  outputs:
-  - report
-  dependencies: []
-  related_skills: []
-  path: skills/axiom-debugging-wizard
-  enabled: true
-  sub_skills: []
-  lifecycle:
-  - discover
-  - plan
-  - implement
-  - verify
-  - evidence
-  standards: []
-  artifact_types:
-  - report
-  - manifest
-  mcp_tools: []
-  risk_level: medium
-  review_required: true
-  activity: debugging
-  capability_kind: domain-specific
-  primary_domain: all
-  risk_class: medium
-  lifecycle_phases:
-  - discover
-  - plan
-  - implement
-  - verify
-  - evidence
-  standard_ids: []
-- id: axiom-legacy-modernizer
-  name: axiom-legacy-modernizer
-  title: Legacy Modernizer
-  version: 1.2.0
-  domain: all
-  subdomain: all
-  category: implementation
-  maturity: experimental
-  owner: axiom-embedded
-  tags:
-  - skill
-  inputs:
-  - repository path
-  - objective
-  outputs:
-  - report
-  dependencies: []
-  related_skills: []
-  path: skills/axiom-legacy-modernizer
-  enabled: true
-  sub_skills: []
-  lifecycle:
-  - discover
-  - plan
-  - implement
-  - verify
-  - evidence
-  standards: []
-  artifact_types:
-  - report
-  - manifest
-  mcp_tools: []
-  risk_level: medium
-  review_required: true
-  activity: implementation
-  capability_kind: domain-specific
-  primary_domain: all
-  risk_class: medium
-  lifecycle_phases:
-  - discover
-  - plan
-  - implement
-  - verify
-  - evidence
-  standard_ids: []
-- id: axiom-secure-code-guardian
-  name: axiom-secure-code-guardian
-  title: Secure Code Guardian
-  version: 1.2.0
-  domain: all
-  subdomain: all
-  category: implementation
-  maturity: experimental
-  owner: axiom-embedded
-  tags:
-  - skill
-  inputs:
-  - repository path
-  - objective
-  outputs:
-  - report
-  dependencies: []
-  related_skills: []
-  path: skills/axiom-secure-code-guardian
-  enabled: true
-  sub_skills: []
-  lifecycle:
-  - discover
-  - plan
-  - implement
-  - verify
-  - evidence
-  standards: []
-  artifact_types:
-  - report
-  - manifest
-  mcp_tools: []
-  risk_level: medium
-  review_required: true
-  activity: cybersecurity
-  capability_kind: domain-specific
-  primary_domain: all
-  risk_class: medium
-  lifecycle_phases:
-  - discover
-  - plan
-  - implement
-  - verify
-  - evidence
-  standard_ids: []
-- id: axiom-security-reviewer
-  name: axiom-security-reviewer
-  title: Security Reviewer
-  version: 1.2.0
-  domain: all
-  subdomain: all
-  category: implementation
-  maturity: experimental
-  owner: axiom-embedded
-  tags:
-  - skill
-  inputs:
-  - repository path
-  - objective
-  outputs:
-  - report
-  dependencies: []
-  related_skills: []
-  path: skills/axiom-security-reviewer
-  enabled: true
-  sub_skills: []
-  lifecycle:
-  - discover
-  - plan
-  - implement
-  - verify
-  - evidence
-  standards: []
-  artifact_types:
-  - report
-  - manifest
-  mcp_tools: []
-  risk_level: medium
-  review_required: true
-  activity: security-review
-  capability_kind: domain-specific
-  primary_domain: all
-  risk_class: medium
-  lifecycle_phases:
-  - discover
-  - plan
-  - implement
-  - verify
-  - evidence
-  standard_ids: []
-- id: axiom-skill-evolution
-  name: axiom-skill-evolution
-  title: Skill Evolution
-  version: 1.2.0
-  domain: all
-  subdomain: all
-  category: implementation
-  maturity: experimental
-  owner: axiom-embedded
-  tags:
-  - skill
-  inputs:
-  - repository path
-  - objective
-  outputs:
-  - report
-  dependencies: []
-  related_skills: []
-  path: skills/axiom-skill-evolution
-  enabled: true
-  sub_skills: []
-  lifecycle:
-  - discover
-  - plan
-  - implement
-  - verify
-  - evidence
-  standards: []
-  artifact_types:
-  - report
-  - manifest
-  mcp_tools: []
-  risk_level: medium
-  review_required: true
-  activity: process-assessment
-  capability_kind: domain-specific
-  primary_domain: all
-  risk_class: medium
-  lifecycle_phases:
-  - discover
-  - plan
-  - implement
-  - verify
-  - evidence
-  standard_ids: []
-- id: axiom-production-readiness
-  name: axiom-production-readiness
-  title: Production readiness
-  version: 1.2.0
-  domain: generic-embedded
-  subdomain: generic-embedded
-  category: implementation
-  maturity: experimental
-  owner: axiom-embedded
-  tags:
-  - skill
-  inputs:
-  - repository path
-  - objective
-  outputs:
-  - report
-  dependencies: []
-  related_skills: []
-  path: skills/axiom-production-readiness
-  enabled: true
-  sub_skills: []
-  lifecycle:
-  - discover
-  - plan
-  - implement
-  - verify
-  - evidence
-  standards: []
-  artifact_types:
-  - report
-  - manifest
-  mcp_tools: []
-  risk_level: medium
-  review_required: true
-  activity: release-readiness
-  capability_kind: domain-specific
-  primary_domain: generic-embedded
-  risk_class: medium
-  lifecycle_phases:
-  - discover
-  - plan
-  - implement
-  - verify
-  - evidence
-  standard_ids: []
-- id: axiom-deployment-readiness
-  name: axiom-deployment-readiness
-  title: Deployment readiness
-  version: 1.2.0
-  domain: generic-embedded
-  subdomain: generic-embedded
-  category: implementation
-  maturity: experimental
-  owner: axiom-embedded
-  tags:
-  - skill
-  inputs:
-  - repository path
-  - objective
-  outputs:
-  - report
-  dependencies: []
-  related_skills: []
-  path: skills/axiom-deployment-readiness
-  enabled: true
-  sub_skills: []
-  lifecycle:
-  - discover
-  - plan
-  - implement
-  - verify
-  - evidence
-  standards: []
-  artifact_types:
-  - report
-  - manifest
-  mcp_tools: []
-  risk_level: medium
-  review_required: true
-  activity: release-readiness
-  capability_kind: domain-specific
-  primary_domain: generic-embedded
-  risk_class: medium
-  lifecycle_phases:
-  - discover
-  - plan
-  - implement
-  - verify
-  - evidence
-  standard_ids: []
-- id: axiom-automotive-requirements-analysis
-  name: axiom-automotive-requirements-analysis
-  title: Automotive requirements analysis
-  version: 1.2.0
-  domain: automotive
-  subdomain: automotive
-  category: implementation
-  maturity: experimental
-  owner: axiom-embedded
-  tags:
-  - skill
-  inputs:
-  - repository path
-  - objective
-  outputs:
-  - report
-  dependencies: []
-  related_skills: []
-  path: skills/axiom-automotive-requirements-analysis
-  enabled: true
-  sub_skills: []
-  activity: requirements-analysis
-  capability_kind: domain-specific
-  primary_domain: automotive
-  risk_class: medium
-  lifecycle_phases:
-  - discover
-  - plan
-  - implement
-  - verify
-  - evidence
-  standard_ids:
-  - automotive-spice
-  - iso-26262
-  lifecycle:
-  - discover
-  - plan
-  - implement
-  - verify
-  - evidence
-  standards: []
-  artifact_types:
-  - report
-  - manifest
-  mcp_tools: []
-  risk_level: medium
-  review_required: true
-- id: axiom-automotive-requirements-allocation
-  name: axiom-automotive-requirements-allocation
-  title: Automotive requirements allocation
-  version: 1.2.0
-  domain: automotive
-  subdomain: automotive
-  category: implementation
-  maturity: experimental
-  owner: axiom-embedded
-  tags:
-  - skill
-  inputs:
-  - repository path
-  - objective
-  outputs:
-  - report
-  dependencies: []
-  related_skills: []
-  path: skills/axiom-automotive-requirements-allocation
-  enabled: true
-  sub_skills: []
-  activity: requirements-allocation
-  capability_kind: domain-specific
-  primary_domain: automotive
-  risk_class: medium
-  lifecycle_phases:
-  - discover
-  - plan
-  - implement
-  - verify
-  - evidence
-  standard_ids:
-  - automotive-spice
-  - iso-26262
-  lifecycle:
-  - discover
-  - plan
-  - implement
-  - verify
-  - evidence
-  standards: []
-  artifact_types:
-  - report
-  - manifest
-  mcp_tools: []
-  risk_level: medium
-  review_required: true
-- id: axiom-automotive-code-review
-  name: axiom-automotive-code-review
-  title: Automotive Code Review
-  version: 1.2.0
-  domain: automotive
-  subdomain: automotive
-  category: implementation
-  maturity: experimental
-  owner: axiom-embedded
-  tags:
-  - skill
-  inputs:
-  - repository path
-  - objective
-  outputs:
-  - report
-  dependencies: []
-  related_skills: []
-  path: skills/axiom-automotive-code-review
-  enabled: true
-  sub_skills: []
-  activity: code-review
-  capability_kind: domain-specific
-  primary_domain: automotive
-  risk_class: medium
-  lifecycle_phases:
-  - implement
-  - verify
-  - evidence
-  standard_ids:
-  - misra-c
-  - autosar-cpp14
-  - iso-26262
-  lifecycle:
-  - implement
-  - verify
-  - evidence
-  standards: []
-  artifact_types:
-  - report
-  - manifest
-  mcp_tools: []
-  risk_level: medium
-  review_required: true
-- id: axiom-automotive-standards-applicability
-  name: axiom-automotive-standards-applicability
-  title: Automotive Standards Applicability
-  version: 1.2.0
-  domain: automotive
-  subdomain: automotive
-  category: implementation
-  maturity: experimental
-  owner: axiom-embedded
-  tags:
-  - skill
-  inputs:
-  - repository path
-  - objective
-  outputs:
-  - report
-  dependencies: []
-  related_skills: []
-  path: skills/axiom-automotive-standards-applicability
-  enabled: true
-  sub_skills: []
-  activity: standards-applicability
-  capability_kind: domain-specific
-  primary_domain: automotive
-  risk_class: medium
-  lifecycle_phases:
-  - discover
-  - plan
-  - implement
-  - verify
-  - evidence
-  standard_ids:
-  - iso-26262
-  - iso-sae-21434
-  - automotive-spice
-  - misra-c
-  lifecycle:
-  - discover
-  - plan
-  - implement
-  - verify
-  - evidence
-  standards: []
-  artifact_types:
-  - report
-  - manifest
-  mcp_tools: []
-  risk_level: medium
-  review_required: true
-- id: axiom-automotive-verification
-  name: axiom-automotive-verification
-  title: Automotive verification
-  version: 1.2.0
-  domain: automotive
-  subdomain: automotive
-  category: implementation
-  maturity: experimental
-  owner: axiom-embedded
-  tags:
-  - skill
-  inputs:
-  - repository path
-  - objective
-  outputs:
-  - report
-  dependencies: []
-  related_skills: []
-  path: skills/axiom-automotive-verification
-  enabled: true
-  sub_skills: []
-  activity: verification
-  capability_kind: domain-specific
-  primary_domain: automotive
-  risk_class: medium
-  lifecycle_phases:
-  - plan
-  - implement
-  - verify
-  - evidence
-  standard_ids:
-  - automotive-spice
-  - iso-26262
-  lifecycle:
-  - plan
-  - implement
-  - verify
-  - evidence
-  standards: []
-  artifact_types:
-  - report
-  - manifest
-  mcp_tools: []
-  risk_level: medium
-  review_required: true
-- id: axiom-aerospace-requirements-analysis
-  name: axiom-aerospace-requirements-analysis
-  title: Aerospace Requirements Analysis
-  version: 1.2.0
-  domain: aerospace
-  subdomain: aerospace
-  category: implementation
-  maturity: experimental
-  owner: axiom-embedded
-  tags:
-  - skill
-  inputs:
-  - repository path
-  - objective
-  outputs:
-  - report
-  dependencies: []
-  related_skills: []
-  path: skills/axiom-aerospace-requirements-analysis
-  enabled: true
-  sub_skills: []
-  activity: requirements-analysis
-  capability_kind: domain-specific
-  primary_domain: aerospace
-  risk_class: medium
-  lifecycle_phases:
-  - discover
-  - plan
-  - implement
-  - verify
-  - evidence
-  standard_ids:
-  - arp4754
-  - do-178c
-  lifecycle:
-  - requirements
-  - architecture
-  - design
-  - implementation
-  - integration
-  - verification
-  - validation
-  - release
-  standards:
-  - arp4754
-  - do-178c
-  artifact_types:
-  - analysis report
-  - HLR set
-  - gap report
-  - baseline record
-  mcp_tools:
-  - run_skill
-  - validate_skill
-  risk_level: medium
-  review_required: true
-- id: axiom-aerospace-requirements-allocation
-  name: axiom-aerospace-requirements-allocation
-  title: Aerospace requirements allocation
-  version: 1.2.0
-  domain: aerospace
-  subdomain: aerospace
-  category: implementation
-  maturity: experimental
-  owner: axiom-embedded
-  tags:
-  - skill
-  inputs:
-  - repository path
-  - objective
-  outputs:
-  - report
-  dependencies: []
-  related_skills: []
-  path: skills/axiom-aerospace-requirements-allocation
-  enabled: true
-  sub_skills: []
-  activity: requirements-allocation
-  capability_kind: domain-specific
-  primary_domain: aerospace
-  risk_class: medium
-  lifecycle_phases:
-  - discover
-  - plan
-  - implement
-  - verify
-  - evidence
-  standard_ids:
-  - arp4754
-  - do-178c
-  lifecycle:
-  - discover
-  - plan
-  - implement
-  - verify
-  - evidence
-  standards: []
-  artifact_types:
-  - report
-  - manifest
-  mcp_tools: []
-  risk_level: medium
-  review_required: true
-- id: axiom-aerospace-code-review
-  name: axiom-aerospace-code-review
-  title: Aerospace Code Review
-  version: 1.2.0
-  domain: aerospace
-  subdomain: aerospace
-  category: implementation
-  maturity: experimental
-  owner: axiom-embedded
-  tags:
-  - skill
-  inputs:
-  - repository path
-  - objective
-  outputs:
-  - report
-  dependencies: []
-  related_skills: []
-  path: skills/axiom-aerospace-code-review
-  enabled: true
-  sub_skills: []
-  activity: code-review
-  capability_kind: domain-specific
-  primary_domain: aerospace
-  risk_class: medium
-  lifecycle_phases:
-  - discover
-  - plan
-  - implement
-  - verify
-  - evidence
-  standard_ids:
-  - do-178c
-  - arp4754
-  lifecycle:
-  - discover
-  - plan
-  - implement
-  - verify
-  - evidence
-  standards: []
-  artifact_types:
-  - report
-  - manifest
-  mcp_tools: []
-  risk_level: medium
-  review_required: true
-- id: axiom-aerospace-standards-applicability
-  name: axiom-aerospace-standards-applicability
-  title: Aerospace Standards Applicability
-  version: 1.2.0
-  domain: aerospace
-  subdomain: aerospace
-  category: implementation
-  maturity: experimental
-  owner: axiom-embedded
-  tags:
-  - skill
-  inputs:
-  - repository path
-  - objective
-  outputs:
-  - report
-  dependencies: []
-  related_skills: []
-  path: skills/axiom-aerospace-standards-applicability
-  enabled: true
-  sub_skills: []
-  activity: standards-applicability
-  capability_kind: domain-specific
-  primary_domain: aerospace
-  risk_class: medium
-  lifecycle_phases:
-  - discover
-  - plan
-  - implement
-  - verify
-  - evidence
-  standard_ids:
-  - do-178c
-  - arp4754
-  - arp4761
-  - do-254
-  - iec-61508
-  lifecycle:
-  - discover
-  - plan
-  - implement
-  - verify
-  - evidence
-  standards: []
-  artifact_types:
-  - report
-  - manifest
-  mcp_tools: []
-  risk_level: medium
-  review_required: true

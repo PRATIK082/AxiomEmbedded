@@ -21,6 +21,7 @@ axiom:
   outputs: [verification plan, coverage report, verification verdict record]
   risk_level: medium
   lifecycle: [plan, implement, verify, evidence]
+  standards: []
   activity: verification
   capability_kind: domain-specific
   primary_domain: automotive
@@ -28,6 +29,7 @@ axiom:
   lifecycle_phases: [plan, implement, verify, evidence]
   standard_ids: [automotive-spice, iso-26262]
   artifact_types: [report, manifest]
+  mcp_tools: []
   related_skills: [axiom-static-analysis-triage, axiom-misra-c-cpp-review, axiom-automotive-code-review, coverage, requirements-traceability]
 ---
 

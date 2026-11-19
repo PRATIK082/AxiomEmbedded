@@ -2731,6 +2731,56 @@
       "platforms": [
         "mcu"
       ]
+    },
+    "axiom-bus-protocol-validation": {
+      "description": "Validates embedded communication buses and protocol stacks -- UART, CAN/CAN-FD, SPI, I2C, Ethernet/MQTT, and BLE -- with reusable frame builders, packet parsers, and bidirectional checks: software-to-hardware (register writes and RTOS events produce expected voltages, PWM, frames, logs) and hardware",
+      "domains": [
+        "all"
+      ],
+      "platforms": [
+        "mcu",
+        "mpu"
+      ]
+    },
+    "axiom-firmware-lifecycle": {
+      "description": "Standardizes building, signing, flashing (via OpenOCD, J-Link, DFU, or U-Boot/TFTP), and resetting targets across silicon vendors, with binary hash recording and reproducible build discipline. Produces the trusted firmware identity (hash plus build provenance) that pre-check phases gate on before an",
+      "domains": [
+        "all"
+      ],
+      "platforms": [
+        "mcu",
+        "mpu"
+      ]
+    },
+    "axiom-hw-interface-control": {
+      "description": "Controls bench instruments (power supplies over SCPI/VISA, programmable relays, oscilloscopes, logic analyzers) through a logical board_config.yaml mapping so test cases and agent workflows never hardcode physical pins, serial ports, IP addresses, or instrument strings. Enforces idempotent setup and",
+      "domains": [
+        "all"
+      ],
+      "platforms": [
+        "mcu",
+        "mpu"
+      ]
+    },
+    "axiom-sil-hil-bridge": {
+      "description": "Runs identical test logic against a virtual target (QEMU/Renode) first, then promotes the exact same validation criteria to physical HIL hardware with timing tolerances widened for real-world latency. Tracks per-case SIL status, HIL status, and tolerance deltas so no SIL pass is ever reported as har",
+      "domains": [
+        "all"
+      ],
+      "platforms": [
+        "mcu",
+        "mpu"
+      ]
+    },
+    "axiom-validation-orchestrator": {
+      "description": "Routes a verification target (MCU firmware, Embedded Linux image, or full system) to the right execution engine -- Unity/GoogleTest for unit-level C/C++, Pytest plus Labgrid for developer-driven integration, Robot Framework for system-level HIL and acceptance -- and generates the matching test skele",
+      "domains": [
+        "all"
+      ],
+      "platforms": [
+        "mcu",
+        "mpu"
+      ]
     }
   },
   "by_domain": {
@@ -2753,6 +2803,7 @@
       "axiom-agents-md-generator",
       "axiom-api-design",
       "axiom-architecture-decision-records",
+      "axiom-bus-protocol-validation",
       "axiom-chaos-engineering",
       "axiom-clean-ai-slop",
       "axiom-cli-developer",
@@ -2765,6 +2816,7 @@
       "axiom-document-skills",
       "axiom-embedded-cicd",
       "axiom-embedded-firmware-bringup",
+      "axiom-firmware-lifecycle",
       "axiom-framework-arduino",
       "axiom-framework-esp-idf",
       "axiom-framework-zephyr",
@@ -2774,6 +2826,7 @@
       "axiom-hardware-aware-checks",
       "axiom-hil-test-planning",
       "axiom-hmi-and-actuators",
+      "axiom-hw-interface-control",
       "axiom-improve-codebase-architecture",
       "axiom-interface-contract-design",
       "axiom-legacy-modernizer",
@@ -2792,6 +2845,7 @@
       "axiom-security-ownership-map",
       "axiom-security-reviewer",
       "axiom-security-threat-model",
+      "axiom-sil-hil-bridge",
       "axiom-skill-evolution",
       "axiom-static-analysis-triage",
       "axiom-storage-and-memory",
@@ -2800,6 +2854,7 @@
       "axiom-test-master",
       "axiom-trace-analysis",
       "axiom-validation-levels",
+      "axiom-validation-orchestrator",
       "axiom-websocket-engineer",
       "bare-metal",
       "bootloader",
@@ -3227,6 +3282,7 @@
       "axiom-autosar-rte-design",
       "axiom-bms-design",
       "axiom-bms-diagnostics",
+      "axiom-bus-protocol-validation",
       "axiom-can-network-design",
       "axiom-can-stack-integration",
       "axiom-chaos-engineering",
@@ -3251,6 +3307,7 @@
       "axiom-embedded-cicd",
       "axiom-embedded-firmware-bringup",
       "axiom-energy-grid-interface",
+      "axiom-firmware-lifecycle",
       "axiom-framework-arduino",
       "axiom-framework-esp-idf",
       "axiom-framework-zephyr",
@@ -3264,6 +3321,7 @@
       "axiom-hil-test-planning",
       "axiom-hmi-and-actuators",
       "axiom-human-in-the-loop",
+      "axiom-hw-interface-control",
       "axiom-iec62061-sil",
       "axiom-iec62061-sil-review",
       "axiom-iec62443-risk-assessment",
@@ -3321,6 +3379,7 @@
       "axiom-sensor-calibration",
       "axiom-sensor-diagnostics",
       "axiom-sensor-driver-integration",
+      "axiom-sil-hil-bridge",
       "axiom-skill-creator",
       "axiom-skill-evolution",
       "axiom-skill-seekers",
@@ -3339,6 +3398,7 @@
       "axiom-tool-schema-design",
       "axiom-trace-analysis",
       "axiom-validation-levels",
+      "axiom-validation-orchestrator",
       "axiom-vehicle-cybersecurity",
       "axiom-vnv-plan",
       "axiom-vnv-plan-review",
@@ -3401,6 +3461,7 @@
       "axiom-autosar-adaptive-deployment",
       "axiom-behavior-tree-spec",
       "axiom-behavior-tree-spec-review",
+      "axiom-bus-protocol-validation",
       "axiom-cobot-hand-guiding",
       "axiom-cobot-hand-guiding-review",
       "axiom-dataset-documentation",
@@ -3413,6 +3474,7 @@
       "axiom-embedded-cicd",
       "axiom-eoat-spec",
       "axiom-eoat-spec-review",
+      "axiom-firmware-lifecycle",
       "axiom-fleet-manager-architecture",
       "axiom-fleet-manager-architecture-review",
       "axiom-framework-zephyr",
@@ -3422,6 +3484,7 @@
       "axiom-hazard-risk-review",
       "axiom-hil-test-planning",
       "axiom-hmi-and-actuators",
+      "axiom-hw-interface-control",
       "axiom-iec62061-sil",
       "axiom-iec62061-sil-review",
       "axiom-iec62443-risk-assessment",
@@ -3489,6 +3552,7 @@
       "axiom-sensor-calibration",
       "axiom-sensor-diagnostics",
       "axiom-sensor-driver-integration",
+      "axiom-sil-hil-bridge",
       "axiom-ssm-plan",
       "axiom-ssm-plan-review",
       "axiom-static-analysis-triage",
@@ -3504,6 +3568,7 @@
       "axiom-urdf-model-spec-review",
       "axiom-v2x-communication",
       "axiom-validation-levels",
+      "axiom-validation-orchestrator",
       "axiom-vehicle-cybersecurity",
       "axiom-vnv-plan",
       "axiom-vnv-plan-review",
@@ -3708,9 +3773,11 @@
     "cloud-edge-platform": [
       "axiom-agent-evaluation",
       "axiom-agent-observability",
+      "axiom-bus-protocol-validation",
       "axiom-cloud-architecture",
       "axiom-context-engineering",
       "axiom-embedded-firmware-bringup",
+      "axiom-firmware-lifecycle",
       "axiom-framework-arduino",
       "axiom-framework-esp-idf",
       "axiom-framework-zephyr",
@@ -3718,6 +3785,7 @@
       "axiom-hil-test-planning",
       "axiom-hmi-and-actuators",
       "axiom-human-in-the-loop",
+      "axiom-hw-interface-control",
       "axiom-kubernetes-edge",
       "axiom-mcp-builder",
       "axiom-mcp-developer",
@@ -3726,6 +3794,7 @@
       "axiom-multi-agent-orchestration",
       "axiom-peripheral-timers",
       "axiom-rtos-architecture",
+      "axiom-sil-hil-bridge",
       "axiom-skill-creator",
       "axiom-skill-seekers",
       "axiom-skills-purge",
@@ -3735,7 +3804,8 @@
       "axiom-test-automation",
       "axiom-tool-schema-design",
       "axiom-trace-analysis",
-      "axiom-validation-levels"
+      "axiom-validation-levels",
+      "axiom-validation-orchestrator"
     ],
     "diagnostics": [
       "automotive-diagnostics",
@@ -3753,11 +3823,13 @@
       "axiom-aerospace-standards-applicability",
       "axiom-agent-evaluation",
       "axiom-agent-observability",
+      "axiom-bus-protocol-validation",
       "axiom-cloud-architecture",
       "axiom-context-engineering",
       "axiom-cross-domain-traceability",
       "axiom-embedded-firmware-bringup",
       "axiom-energy-grid-interface",
+      "axiom-firmware-lifecycle",
       "axiom-framework-arduino",
       "axiom-framework-esp-idf",
       "axiom-framework-zephyr",
@@ -3765,6 +3837,7 @@
       "axiom-hil-test-planning",
       "axiom-hmi-and-actuators",
       "axiom-human-in-the-loop",
+      "axiom-hw-interface-control",
       "axiom-iot-connectivity-stack",
       "axiom-kubernetes-edge",
       "axiom-mcp-builder",
@@ -3779,6 +3852,7 @@
       "axiom-rail-en50128-safety",
       "axiom-rtos-architecture",
       "axiom-semiconductor-test-coverage",
+      "axiom-sil-hil-bridge",
       "axiom-skill-creator",
       "axiom-skill-seekers",
       "axiom-skills-purge",
@@ -3791,6 +3865,7 @@
       "axiom-tool-schema-design",
       "axiom-trace-analysis",
       "axiom-validation-levels",
+      "axiom-validation-orchestrator",
       "bare-metal",
       "bootloader",
       "codebase-analysis",

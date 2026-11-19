@@ -22,6 +22,7 @@ axiom:
   outputs: [allocation map, interface contracts, unallocated-item report, traceability update]
   risk_level: medium
   lifecycle: [discover, plan, implement, verify, evidence]
+  standards: []
   activity: requirements-allocation
   capability_kind: domain-specific
   primary_domain: automotive
@@ -29,6 +30,7 @@ axiom:
   lifecycle_phases: [discover, plan, implement, verify, evidence]
   standard_ids: [automotive-spice, iso-26262]
   artifact_types: [report, manifest]
+  mcp_tools: []
   related_skills: [axiom-automotive-requirements-analysis, requirements-traceability, automotive-spice, automotive-vcycle]
 ---
 

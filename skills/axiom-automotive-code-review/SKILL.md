@@ -21,6 +21,7 @@ axiom:
   outputs: [review record, defect list, review verdict]
   risk_level: medium
   lifecycle: [implement, verify, evidence]
+  standards: []
   activity: code-review
   capability_kind: domain-specific
   primary_domain: automotive
@@ -28,6 +29,7 @@ axiom:
   lifecycle_phases: [implement, verify, evidence]
   standard_ids: [misra-c, autosar-cpp14, iso-26262]
   artifact_types: [report, manifest]
+  mcp_tools: []
   related_skills: [axiom-misra-c-cpp-review, code-review]
 ---
 

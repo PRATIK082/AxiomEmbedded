@@ -18,6 +18,7 @@ axiom:
   outputs: [run report, run manifest]
   risk_level: medium
   lifecycle: [discover, plan, implement, verify, evidence]
+  standards: []
   activity: requirements-allocation
   capability_kind: domain-specific
   primary_domain: aerospace
@@ -25,6 +26,7 @@ axiom:
   lifecycle_phases: [discover, plan, implement, verify, evidence]
   standard_ids: [arp4754, do-178c]
   artifact_types: [report, manifest]
+  mcp_tools: []
   related_skills: []
 ---
 

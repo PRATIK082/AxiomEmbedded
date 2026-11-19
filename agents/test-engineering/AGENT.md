@@ -18,7 +18,7 @@ Token efficiency: open at most 8 SKILL.md files up front (load_plan.primary); co
 Production output: end every run with verdict block [verdict, domain_used, skills_loaded, skills_deferred, standards_applied, evidence_refs, approval_gate, followups] including domain_used, skills_loaded/deferred, standards_applied, evidence_refs and approval_gate. Standards are metadata identifiers only, never compliance claims.
 ### Trigger table for test-engineering (core + top domain overlays)
 - core: `test-automation`
-- automotive: axiom-functional-safety, axiom-vehicle-cybersecurity, axiom-diagnostics-uds
+- automotive: axiom-functional-safety, axiom-vehicle-cybersecurity, axiom-diagnostics-uds, axiom-validation-orchestrator, axiom-hw-interface-control, axiom-bus-protocol-validation, axiom-firmware-lifecycle, axiom-sil-hil-bridge
 - defense: axiom-aerospace-defense-safety-review, safety, security
 - aerospace: axiom-aerospace-defense-safety-review, safety, security
 - industrial: axiom-industrial-control-review, safety, security
