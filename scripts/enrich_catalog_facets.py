@@ -168,15 +168,17 @@ def enrich(check: bool = False) -> int:
             ax = (load_fm(sid).get("axiom") or {})
         except Exception:
             ax = {}
-        if is_axiom:
-            for facet in FACETS:
-                want = ax.get(facet, [] if facet not in ("risk_level",) else "medium")
-                if facet == "risk_level" and want is None:
-                    want = "medium"
-                if entry.get(facet) != want:
-                    drift.append(f"{sid}.{facet}")
-                    if not check:
-                        entry[facet] = want
+        # Apply FACETS to ALL skills (axiom-* and legacy), not just axiom-*.
+        # Legacy skills carry the axiom: block too; skipping them left their
+        # catalog entries with stale/empty facets.
+        for facet in FACETS:
+            want = ax.get(facet, [] if facet not in ("risk_level",) else "medium")
+            if facet == "risk_level" and want is None:
+                want = "medium"
+            if entry.get(facet) != want:
+                drift.append(f"{sid}.{facet}")
+                if not check:
+                    entry[facet] = want
         for facet in DESA_FACETS:
             want = _desa_want(ax, facet) if ax else None
             if facet == "activity" and not want:

@@ -12,6 +12,7 @@ from packages.paths import ROOT
 
 
 _DESA_CACHE: dict = {}
+_CATALOG_CACHE: dict = {}
 
 
 def _desa_taxonomies() -> dict:
@@ -71,6 +72,7 @@ def desa_checks(skill_id: str, axiom: dict) -> tuple[list, list]:
 
 
 def validate_all(catalog_path: pathlib.Path | None = None) -> dict:
+    _CATALOG_CACHE.clear()
     results: list[dict] = []
     skills_dir = ROOT / "skills"
     ids = sorted(p.name for p in skills_dir.iterdir()
@@ -116,6 +118,24 @@ def validate_all(catalog_path: pathlib.Path | None = None) -> dict:
         axiom = fm.get("axiom", {}) if isinstance(fm.get("axiom"), dict) else {}
         maturity = axiom.get("maturity", "experimental")
         strict = maturity in ("beta", "production")
+        # Safety gating: safety_critical skills MUST have review_required=true.
+        if axiom.get("safety_critical") is True and axiom.get("review_required") is not True:
+            pg_errors.append("safety_critical requires review_required=true")
+        # Version compatibility: catalog version must match SKILL.md version.
+        # Catalog is loaded once per validate_all call (cached) to avoid O(n^2).
+        try:
+            _cat = _CATALOG_CACHE.get("cat")
+            if _cat is None:
+                from packages.skills.registry import load_catalog as _lc
+                _cat = _lc()
+                _CATALOG_CACHE["cat"] = _cat
+            _entry = next((e for e in _cat.get("skills", []) if e.get("id") == sid), None)
+            if _entry is not None and _entry.get("version") and fm.get("version"):
+                if str(_entry.get("version")) != str(fm.get("version")):
+                    pg_errors.append(
+                        f"catalog version {_entry.get('version')!r} != SKILL.md {fm.get('version')!r}")
+        except Exception:
+            pass
         sdir = skills_dir / sid
         def _has(sub):
             p = sdir / sub

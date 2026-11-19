@@ -36,6 +36,19 @@ skills:
   - verify
   - evidence
   standard_ids: []
+  lifecycle:
+  - discover
+  - plan
+  - implement
+  - verify
+  - evidence
+  standards: []
+  artifact_types:
+  - report
+  - manifest
+  mcp_tools: []
+  risk_level: medium
+  review_required: true
 - id: ai-validation
   name: axiom.legacy.ai-validation
   title: ai-validation
@@ -67,6 +80,19 @@ skills:
   - verify
   - evidence
   standard_ids: []
+  lifecycle:
+  - discover
+  - plan
+  - implement
+  - verify
+  - evidence
+  standards: []
+  artifact_types:
+  - report
+  - manifest
+  mcp_tools: []
+  risk_level: medium
+  review_required: true
 - id: architecture
   name: axiom.legacy.architecture
   title: architecture
@@ -105,6 +131,19 @@ skills:
   - verify
   - evidence
   standard_ids: []
+  lifecycle:
+  - discover
+  - plan
+  - implement
+  - verify
+  - evidence
+  standards: []
+  artifact_types:
+  - report
+  - manifest
+  mcp_tools: []
+  risk_level: medium
+  review_required: true
 - id: automotive-body
   name: axiom.legacy.automotive-body
   title: automotive-body
@@ -139,6 +178,19 @@ skills:
   - verify
   - evidence
   standard_ids: []
+  lifecycle:
+  - discover
+  - plan
+  - implement
+  - verify
+  - evidence
+  standards: []
+  artifact_types:
+  - report
+  - manifest
+  mcp_tools: []
+  risk_level: medium
+  review_required: true
 - id: automotive-cockpit
   name: axiom.legacy.automotive-cockpit
   title: automotive-cockpit
@@ -170,6 +222,19 @@ skills:
   - verify
   - evidence
   standard_ids: []
+  lifecycle:
+  - discover
+  - plan
+  - implement
+  - verify
+  - evidence
+  standards: []
+  artifact_types:
+  - report
+  - manifest
+  mcp_tools: []
+  risk_level: medium
+  review_required: true
 - id: automotive-coding
   name: axiom.legacy.automotive-coding
   title: automotive-coding
@@ -201,6 +266,19 @@ skills:
   - verify
   - evidence
   standard_ids: []
+  lifecycle:
+  - discover
+  - plan
+  - implement
+  - verify
+  - evidence
+  standards: []
+  artifact_types:
+  - report
+  - manifest
+  mcp_tools: []
+  risk_level: medium
+  review_required: true
 - id: automotive-cybersecurity
   name: axiom.legacy.automotive-cybersecurity
   title: automotive-cybersecurity
@@ -235,6 +313,19 @@ skills:
   - verify
   - evidence
   standard_ids: []
+  lifecycle:
+  - discover
+  - plan
+  - implement
+  - verify
+  - evidence
+  standards: []
+  artifact_types:
+  - report
+  - manifest
+  mcp_tools: []
+  risk_level: medium
+  review_required: true
 - id: automotive-diagnostics
   name: axiom.legacy.automotive-diagnostics
   title: automotive-diagnostics
@@ -271,6 +362,19 @@ skills:
   - verify
   - evidence
   standard_ids: []
+  lifecycle:
+  - discover
+  - plan
+  - implement
+  - verify
+  - evidence
+  standards: []
+  artifact_types:
+  - report
+  - manifest
+  mcp_tools: []
+  risk_level: medium
+  review_required: true
 - id: automotive-middleware
   name: axiom.legacy.automotive-middleware
   title: automotive-middleware
@@ -307,6 +411,19 @@ skills:
   - verify
   - evidence
   standard_ids: []
+  lifecycle:
+  - discover
+  - plan
+  - implement
+  - verify
+  - evidence
+  standards: []
+  artifact_types:
+  - report
+  - manifest
+  mcp_tools: []
+  risk_level: medium
+  review_required: true
 - id: automotive-networks
   name: axiom.legacy.automotive-networks
   title: automotive-networks
@@ -345,6 +462,19 @@ skills:
   - verify
   - evidence
   standard_ids: []
+  lifecycle:
+  - discover
+  - plan
+  - implement
+  - verify
+  - evidence
+  standards: []
+  artifact_types:
+  - report
+  - manifest
+  mcp_tools: []
+  risk_level: medium
+  review_required: true
 - id: automotive-ota
   name: axiom.legacy.automotive-ota
   title: automotive-ota
@@ -381,6 +511,19 @@ skills:
   - verify
   - evidence
   standard_ids: []
+  lifecycle:
+  - discover
+  - plan
+  - implement
+  - verify
+  - evidence
+  standards: []
+  artifact_types:
+  - report
+  - manifest
+  mcp_tools: []
+  risk_level: medium
+  review_required: true
 - id: automotive-spice
   name: axiom.legacy.automotive-spice
   title: automotive-spice
@@ -417,6 +560,19 @@ skills:
   - verify
   - evidence
   standard_ids: []
+  lifecycle:
+  - discover
+  - plan
+  - implement
+  - verify
+  - evidence
+  standards: []
+  artifact_types:
+  - report
+  - manifest
+  mcp_tools: []
+  risk_level: medium
+  review_required: true
 - id: automotive-vcycle
   name: axiom.legacy.automotive-vcycle
   title: automotive-vcycle
@@ -453,6 +609,19 @@ skills:
   - verify
   - evidence
   standard_ids: []
+  lifecycle:
+  - discover
+  - plan
+  - implement
+  - verify
+  - evidence
+  standards: []
+  artifact_types:
+  - report
+  - manifest
+  mcp_tools: []
+  risk_level: medium
+  review_required: true
 - id: autosar
   name: axiom.legacy.autosar
   title: autosar
@@ -497,6 +666,19 @@ skills:
   - verify
   - evidence
   standard_ids: []
+  lifecycle:
+  - discover
+  - plan
+  - implement
+  - verify
+  - evidence
+  standards: []
+  artifact_types:
+  - report
+  - manifest
+  mcp_tools: []
+  risk_level: medium
+  review_required: true
 - id: axiom-adas-perception-pipeline
   name: axiom.automotive.adas.perception.pipeline
   title: ADAS Perception Pipeline Design
@@ -12216,6 +12398,19 @@ skills:
   - verify
   - evidence
   standard_ids: []
+  lifecycle:
+  - discover
+  - plan
+  - implement
+  - verify
+  - evidence
+  standards: []
+  artifact_types:
+  - report
+  - manifest
+  mcp_tools: []
+  risk_level: medium
+  review_required: true
 - id: bootloader
   name: axiom.legacy.bootloader
   title: bootloader
@@ -12251,6 +12446,19 @@ skills:
   - verify
   - evidence
   standard_ids: []
+  lifecycle:
+  - discover
+  - plan
+  - implement
+  - verify
+  - evidence
+  standards: []
+  artifact_types:
+  - report
+  - manifest
+  mcp_tools: []
+  risk_level: medium
+  review_required: true
 - id: build-system
   name: axiom.legacy.build-system
   title: build-system
@@ -12285,6 +12493,19 @@ skills:
   - verify
   - evidence
   standard_ids: []
+  lifecycle:
+  - discover
+  - plan
+  - implement
+  - verify
+  - evidence
+  standards: []
+  artifact_types:
+  - report
+  - manifest
+  mcp_tools: []
+  risk_level: medium
+  review_required: true
 - id: change-impact
   name: axiom.legacy.change-impact
   title: change-impact
@@ -12317,6 +12538,19 @@ skills:
   - verify
   - evidence
   standard_ids: []
+  lifecycle:
+  - discover
+  - plan
+  - implement
+  - verify
+  - evidence
+  standards: []
+  artifact_types:
+  - report
+  - manifest
+  mcp_tools: []
+  risk_level: medium
+  review_required: true
 - id: code-review
   name: axiom.legacy.code-review
   title: code-review
@@ -12356,6 +12590,19 @@ skills:
   - verify
   - evidence
   standard_ids: []
+  lifecycle:
+  - discover
+  - plan
+  - implement
+  - verify
+  - evidence
+  standards: []
+  artifact_types:
+  - report
+  - manifest
+  mcp_tools: []
+  risk_level: medium
+  review_required: true
 - id: codebase-analysis
   name: axiom.legacy.codebase-analysis
   title: codebase-analysis
@@ -12387,6 +12634,19 @@ skills:
   - verify
   - evidence
   standard_ids: []
+  lifecycle:
+  - discover
+  - plan
+  - implement
+  - verify
+  - evidence
+  standards: []
+  artifact_types:
+  - report
+  - manifest
+  mcp_tools: []
+  risk_level: medium
+  review_required: true
 - id: configuration-management
   name: axiom.legacy.configuration-management
   title: configuration-management
@@ -12419,6 +12679,19 @@ skills:
   - verify
   - evidence
   standard_ids: []
+  lifecycle:
+  - discover
+  - plan
+  - implement
+  - verify
+  - evidence
+  standards: []
+  artifact_types:
+  - report
+  - manifest
+  mcp_tools: []
+  risk_level: medium
+  review_required: true
 - id: coverage
   name: axiom.legacy.coverage
   title: coverage
@@ -12453,6 +12726,19 @@ skills:
   - verify
   - evidence
   standard_ids: []
+  lifecycle:
+  - discover
+  - plan
+  - implement
+  - verify
+  - evidence
+  standards: []
+  artifact_types:
+  - report
+  - manifest
+  mcp_tools: []
+  risk_level: medium
+  review_required: true
 - id: debugging
   name: axiom.legacy.debugging
   title: debugging
@@ -12488,6 +12774,19 @@ skills:
   - verify
   - evidence
   standard_ids: []
+  lifecycle:
+  - discover
+  - plan
+  - implement
+  - verify
+  - evidence
+  standards: []
+  artifact_types:
+  - report
+  - manifest
+  mcp_tools: []
+  risk_level: medium
+  review_required: true
 - id: documentation
   name: axiom.legacy.documentation
   title: documentation
@@ -12523,6 +12822,19 @@ skills:
   - verify
   - evidence
   standard_ids: []
+  lifecycle:
+  - discover
+  - plan
+  - implement
+  - verify
+  - evidence
+  standards: []
+  artifact_types:
+  - report
+  - manifest
+  mcp_tools: []
+  risk_level: medium
+  review_required: true
 - id: drivers
   name: axiom.legacy.drivers
   title: drivers
@@ -12562,6 +12874,19 @@ skills:
   - verify
   - evidence
   standard_ids: []
+  lifecycle:
+  - discover
+  - plan
+  - implement
+  - verify
+  - evidence
+  standards: []
+  artifact_types:
+  - report
+  - manifest
+  mcp_tools: []
+  risk_level: medium
+  review_required: true
 - id: edge-ai
   name: axiom.legacy.edge-ai
   title: edge-ai
@@ -12593,6 +12918,19 @@ skills:
   - verify
   - evidence
   standard_ids: []
+  lifecycle:
+  - discover
+  - plan
+  - implement
+  - verify
+  - evidence
+  standards: []
+  artifact_types:
+  - report
+  - manifest
+  mcp_tools: []
+  risk_level: medium
+  review_required: true
 - id: embedded-c
   name: axiom.legacy.embedded-c
   title: embedded-c
@@ -12624,6 +12962,19 @@ skills:
   - verify
   - evidence
   standard_ids: []
+  lifecycle:
+  - discover
+  - plan
+  - implement
+  - verify
+  - evidence
+  standards: []
+  artifact_types:
+  - report
+  - manifest
+  mcp_tools: []
+  risk_level: medium
+  review_required: true
 - id: embedded-cpp
   name: axiom.legacy.embedded-cpp
   title: embedded-cpp
@@ -12655,6 +13006,19 @@ skills:
   - verify
   - evidence
   standard_ids: []
+  lifecycle:
+  - discover
+  - plan
+  - implement
+  - verify
+  - evidence
+  standards: []
+  artifact_types:
+  - report
+  - manifest
+  mcp_tools: []
+  risk_level: medium
+  review_required: true
 - id: embedded-linux
   name: axiom.legacy.embedded-linux
   title: embedded-linux
@@ -12686,6 +13050,19 @@ skills:
   - verify
   - evidence
   standard_ids: []
+  lifecycle:
+  - discover
+  - plan
+  - implement
+  - verify
+  - evidence
+  standards: []
+  artifact_types:
+  - report
+  - manifest
+  mcp_tools: []
+  risk_level: medium
+  review_required: true
 - id: evidence
   name: axiom.legacy.evidence
   title: evidence
@@ -12720,6 +13097,19 @@ skills:
   - verify
   - evidence
   standard_ids: []
+  lifecycle:
+  - discover
+  - plan
+  - implement
+  - verify
+  - evidence
+  standards: []
+  artifact_types:
+  - report
+  - manifest
+  mcp_tools: []
+  risk_level: medium
+  review_required: true
 - id: fault-injection
   name: axiom.legacy.fault-injection
   title: fault-injection
@@ -12752,6 +13142,19 @@ skills:
   - verify
   - evidence
   standard_ids: []
+  lifecycle:
+  - discover
+  - plan
+  - implement
+  - verify
+  - evidence
+  standards: []
+  artifact_types:
+  - report
+  - manifest
+  mcp_tools: []
+  risk_level: medium
+  review_required: true
 - id: feature-development
   name: axiom.legacy.feature-development
   title: feature-development
@@ -12783,6 +13186,19 @@ skills:
   - verify
   - evidence
   standard_ids: []
+  lifecycle:
+  - discover
+  - plan
+  - implement
+  - verify
+  - evidence
+  standards: []
+  artifact_types:
+  - report
+  - manifest
+  mcp_tools: []
+  risk_level: medium
+  review_required: true
 - id: git
   name: axiom.legacy.git
   title: git
@@ -12820,6 +13236,19 @@ skills:
   - verify
   - evidence
   standard_ids: []
+  lifecycle:
+  - discover
+  - plan
+  - implement
+  - verify
+  - evidence
+  standards: []
+  artifact_types:
+  - report
+  - manifest
+  mcp_tools: []
+  risk_level: medium
+  review_required: true
 - id: hardware-architecture
   name: axiom.legacy.hardware-architecture
   title: hardware-architecture
@@ -12852,6 +13281,19 @@ skills:
   - verify
   - evidence
   standard_ids: []
+  lifecycle:
+  - discover
+  - plan
+  - implement
+  - verify
+  - evidence
+  standards: []
+  artifact_types:
+  - report
+  - manifest
+  mcp_tools: []
+  risk_level: medium
+  review_required: true
 - id: hardware-bringup
   name: axiom.legacy.hardware-bringup
   title: hardware-bringup
@@ -12888,6 +13330,19 @@ skills:
   - verify
   - evidence
   standard_ids: []
+  lifecycle:
+  - discover
+  - plan
+  - implement
+  - verify
+  - evidence
+  standards: []
+  artifact_types:
+  - report
+  - manifest
+  mcp_tools: []
+  risk_level: medium
+  review_required: true
 - id: implementation
   name: axiom.legacy.implementation
   title: implementation
@@ -12919,6 +13374,19 @@ skills:
   - verify
   - evidence
   standard_ids: []
+  lifecycle:
+  - discover
+  - plan
+  - implement
+  - verify
+  - evidence
+  standards: []
+  artifact_types:
+  - report
+  - manifest
+  mcp_tools: []
+  risk_level: medium
+  review_required: true
 - id: integration-test
   name: axiom.legacy.integration-test
   title: integration-test
@@ -12956,6 +13424,19 @@ skills:
   - verify
   - evidence
   standard_ids: []
+  lifecycle:
+  - discover
+  - plan
+  - implement
+  - verify
+  - evidence
+  standards: []
+  artifact_types:
+  - report
+  - manifest
+  mcp_tools: []
+  risk_level: medium
+  review_required: true
 - id: legacy-recovery
   name: axiom.legacy.legacy-recovery
   title: legacy-recovery
@@ -12987,6 +13468,19 @@ skills:
   - verify
   - evidence
   standard_ids: []
+  lifecycle:
+  - discover
+  - plan
+  - implement
+  - verify
+  - evidence
+  standards: []
+  artifact_types:
+  - report
+  - manifest
+  mcp_tools: []
+  risk_level: medium
+  review_required: true
 - id: mcu
   name: axiom.legacy.mcu
   title: mcu
@@ -13022,6 +13516,19 @@ skills:
   - verify
   - evidence
   standard_ids: []
+  lifecycle:
+  - discover
+  - plan
+  - implement
+  - verify
+  - evidence
+  standards: []
+  artifact_types:
+  - report
+  - manifest
+  mcp_tools: []
+  risk_level: medium
+  review_required: true
 - id: mpsoc
   name: axiom.legacy.mpsoc
   title: mpsoc
@@ -13056,6 +13563,19 @@ skills:
   - verify
   - evidence
   standard_ids: []
+  lifecycle:
+  - discover
+  - plan
+  - implement
+  - verify
+  - evidence
+  standards: []
+  artifact_types:
+  - report
+  - manifest
+  mcp_tools: []
+  risk_level: medium
+  review_required: true
 - id: mpu
   name: axiom.legacy.mpu
   title: mpu
@@ -13087,6 +13607,19 @@ skills:
   - verify
   - evidence
   standard_ids: []
+  lifecycle:
+  - discover
+  - plan
+  - implement
+  - verify
+  - evidence
+  standards: []
+  artifact_types:
+  - report
+  - manifest
+  mcp_tools: []
+  risk_level: medium
+  review_required: true
 - id: performance
   name: axiom.legacy.performance
   title: performance
@@ -13124,6 +13657,19 @@ skills:
   - verify
   - evidence
   standard_ids: []
+  lifecycle:
+  - discover
+  - plan
+  - implement
+  - verify
+  - evidence
+  standards: []
+  artifact_types:
+  - report
+  - manifest
+  mcp_tools: []
+  risk_level: medium
+  review_required: true
 - id: project-audit
   name: axiom.legacy.project-audit
   title: project-audit
@@ -13155,6 +13701,19 @@ skills:
   - verify
   - evidence
   standard_ids: []
+  lifecycle:
+  - discover
+  - plan
+  - implement
+  - verify
+  - evidence
+  standards: []
+  artifact_types:
+  - report
+  - manifest
+  mcp_tools: []
+  risk_level: medium
+  review_required: true
 - id: release
   name: axiom.legacy.release
   title: release
@@ -13190,6 +13749,19 @@ skills:
   - verify
   - evidence
   standard_ids: []
+  lifecycle:
+  - discover
+  - plan
+  - implement
+  - verify
+  - evidence
+  standards: []
+  artifact_types:
+  - report
+  - manifest
+  mcp_tools: []
+  risk_level: medium
+  review_required: true
 - id: requirements
   name: axiom.legacy.requirements
   title: requirements
@@ -13224,6 +13796,19 @@ skills:
   - verify
   - evidence
   standard_ids: []
+  lifecycle:
+  - discover
+  - plan
+  - implement
+  - verify
+  - evidence
+  standards: []
+  artifact_types:
+  - report
+  - manifest
+  mcp_tools: []
+  risk_level: medium
+  review_required: true
 - id: requirements-traceability
   name: axiom.legacy.requirements-traceability
   title: requirements-traceability
@@ -13258,6 +13843,19 @@ skills:
   - verify
   - evidence
   standard_ids: []
+  lifecycle:
+  - discover
+  - plan
+  - implement
+  - verify
+  - evidence
+  standards: []
+  artifact_types:
+  - report
+  - manifest
+  mcp_tools: []
+  risk_level: medium
+  review_required: true
 - id: robot-bringup
   name: axiom.legacy.robot-bringup
   title: robot-bringup
@@ -13289,6 +13887,19 @@ skills:
   - verify
   - evidence
   standard_ids: []
+  lifecycle:
+  - discover
+  - plan
+  - implement
+  - verify
+  - evidence
+  standards: []
+  artifact_types:
+  - report
+  - manifest
+  mcp_tools: []
+  risk_level: medium
+  review_required: true
 - id: robotics
   name: axiom.legacy.robotics
   title: robotics
@@ -13323,6 +13934,19 @@ skills:
   - verify
   - evidence
   standard_ids: []
+  lifecycle:
+  - discover
+  - plan
+  - implement
+  - verify
+  - evidence
+  standards: []
+  artifact_types:
+  - report
+  - manifest
+  mcp_tools: []
+  risk_level: medium
+  review_required: true
 - id: ros1
   name: axiom.legacy.ros1
   title: ros1
@@ -13354,6 +13978,19 @@ skills:
   - verify
   - evidence
   standard_ids: []
+  lifecycle:
+  - discover
+  - plan
+  - implement
+  - verify
+  - evidence
+  standards: []
+  artifact_types:
+  - report
+  - manifest
+  mcp_tools: []
+  risk_level: medium
+  review_required: true
 - id: rtos
   name: axiom.legacy.rtos
   title: rtos
@@ -13388,6 +14025,19 @@ skills:
   - verify
   - evidence
   standard_ids: []
+  lifecycle:
+  - discover
+  - plan
+  - implement
+  - verify
+  - evidence
+  standards: []
+  artifact_types:
+  - report
+  - manifest
+  mcp_tools: []
+  risk_level: medium
+  review_required: true
 - id: rust-embedded
   name: axiom.legacy.rust-embedded
   title: rust-embedded
@@ -13419,6 +14069,19 @@ skills:
   - verify
   - evidence
   standard_ids: []
+  lifecycle:
+  - discover
+  - plan
+  - implement
+  - verify
+  - evidence
+  standards: []
+  artifact_types:
+  - report
+  - manifest
+  mcp_tools: []
+  risk_level: medium
+  review_required: true
 - id: safety
   name: axiom.legacy.safety
   title: safety
@@ -13455,6 +14118,19 @@ skills:
   - verify
   - evidence
   standard_ids: []
+  lifecycle:
+  - discover
+  - plan
+  - implement
+  - verify
+  - evidence
+  standards: []
+  artifact_types:
+  - report
+  - manifest
+  mcp_tools: []
+  risk_level: medium
+  review_required: true
 - id: security
   name: axiom.legacy.security
   title: security
@@ -13490,6 +14166,19 @@ skills:
   - verify
   - evidence
   standard_ids: []
+  lifecycle:
+  - discover
+  - plan
+  - implement
+  - verify
+  - evidence
+  standards: []
+  artifact_types:
+  - report
+  - manifest
+  mcp_tools: []
+  risk_level: medium
+  review_required: true
 - id: simulation
   name: axiom.legacy.simulation
   title: simulation
@@ -13525,6 +14214,19 @@ skills:
   - verify
   - evidence
   standard_ids: []
+  lifecycle:
+  - discover
+  - plan
+  - implement
+  - verify
+  - evidence
+  standards: []
+  artifact_types:
+  - report
+  - manifest
+  mcp_tools: []
+  risk_level: medium
+  review_required: true
 - id: soc
   name: axiom.legacy.soc
   title: soc
@@ -13559,6 +14261,19 @@ skills:
   - verify
   - evidence
   standard_ids: []
+  lifecycle:
+  - discover
+  - plan
+  - implement
+  - verify
+  - evidence
+  standards: []
+  artifact_types:
+  - report
+  - manifest
+  mcp_tools: []
+  risk_level: medium
+  review_required: true
 - id: software-architecture
   name: axiom.legacy.software-architecture
   title: software-architecture
@@ -13593,6 +14308,19 @@ skills:
   - verify
   - evidence
   standard_ids: []
+  lifecycle:
+  - discover
+  - plan
+  - implement
+  - verify
+  - evidence
+  standards: []
+  artifact_types:
+  - report
+  - manifest
+  mcp_tools: []
+  risk_level: medium
+  review_required: true
 - id: static-analysis
   name: axiom.legacy.static-analysis
   title: static-analysis
@@ -13627,6 +14355,19 @@ skills:
   - verify
   - evidence
   standard_ids: []
+  lifecycle:
+  - discover
+  - plan
+  - implement
+  - verify
+  - evidence
+  standards: []
+  artifact_types:
+  - report
+  - manifest
+  mcp_tools: []
+  risk_level: medium
+  review_required: true
 - id: system-test
   name: axiom.legacy.system-test
   title: system-test
@@ -13661,6 +14402,19 @@ skills:
   - verify
   - evidence
   standard_ids: []
+  lifecycle:
+  - discover
+  - plan
+  - implement
+  - verify
+  - evidence
+  standards: []
+  artifact_types:
+  - report
+  - manifest
+  mcp_tools: []
+  risk_level: medium
+  review_required: true
 - id: test-automation
   name: axiom.legacy.test-automation
   title: test-automation
@@ -13698,6 +14452,19 @@ skills:
   - verify
   - evidence
   standard_ids: []
+  lifecycle:
+  - discover
+  - plan
+  - implement
+  - verify
+  - evidence
+  standards: []
+  artifact_types:
+  - report
+  - manifest
+  mcp_tools: []
+  risk_level: medium
+  review_required: true
 - id: traceability
   name: axiom.legacy.traceability
   title: traceability
@@ -13732,6 +14499,19 @@ skills:
   - verify
   - evidence
   standard_ids: []
+  lifecycle:
+  - discover
+  - plan
+  - implement
+  - verify
+  - evidence
+  standards: []
+  artifact_types:
+  - report
+  - manifest
+  mcp_tools: []
+  risk_level: medium
+  review_required: true
 - id: unit-test
   name: axiom.legacy.unit-test
   title: unit-test
@@ -13769,6 +14549,19 @@ skills:
   - verify
   - evidence
   standard_ids: []
+  lifecycle:
+  - discover
+  - plan
+  - implement
+  - verify
+  - evidence
+  standards: []
+  artifact_types:
+  - report
+  - manifest
+  mcp_tools: []
+  risk_level: medium
+  review_required: true
 - id: validation
   name: axiom.legacy.validation
   title: validation
@@ -13804,3 +14597,16 @@ skills:
   - verify
   - evidence
   standard_ids: []
+  lifecycle:
+  - discover
+  - plan
+  - implement
+  - verify
+  - evidence
+  standards: []
+  artifact_types:
+  - report
+  - manifest
+  mcp_tools: []
+  risk_level: medium
+  review_required: true
