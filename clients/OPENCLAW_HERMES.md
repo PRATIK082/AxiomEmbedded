@@ -9,7 +9,7 @@ are not shipped. This file gives the verified manual setup instead.
 
 - Skill compatibility: `python scripts/audit_client_compat.py` checks
   every `skills/*/SKILL.md` for folder-model fit (`name == dirname`,
-  slug `[a-z0-9-]{1,64}`, non-empty description). Current: 275/275 pass.
+  slug `[a-z0-9-]{1,64}`, non-empty description). Current: 270/270 pass.
 - MCP tool surface: 38 tools in `axiom_mcp/server.py`, including
   `search_skills`, `engage`, `read_skill`, `run_skill` -- skills resolve
   server-side, so no skill files need copying.
