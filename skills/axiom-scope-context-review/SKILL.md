@@ -65,18 +65,8 @@ accept, accept-with-actions, or revise-and-resubmit.
   needs qualified human confirmation. Not a conformity approval.
 
 
-## Deviation management
-
-Any deviation from a rule or standard must be recorded with: Rule ID, reason,
-file/location, approver, and date. Deviations are tracked as first-class
-artifacts, not comments. (Straion pattern.)
 
 
-## Builder + reviewer
-
-This skill follows the builder + reviewer pattern: the builder produces the
-artifact, the reviewer independently verifies it before acceptance. No
-artifact is accepted without reviewer sign-off.
 
 
 ## Three-zone autonomy
@@ -87,8 +77,45 @@ artifact is accepted without reviewer sign-off.
 - **Non-critical zone** (AI unrestricted): documentation, examples, scaffolding, low-risk refactors.
 
 
-## Copyright-safe standards
 
-Never reproduce normative standards text. Store identifiers, clause numbers,
-applicability metadata, mappings, and project-authored interpretations only.
+
+
+## Copyright-safe standards references
+
+Identifiers and clause numbers only -- no normative text reproduced.
+
+| Rule | Standard clause | Impact |
+|---|---|---|
+| R1 | ISO 12100:2010 | MEDIUM |
+| R2 | ISO 10218-2:2011 | MEDIUM |
+| R3 | ISO 11161:2007 | MEDIUM |
+
+
+## Impact tiers
+
+| Tier | Meaning |
+|---|---|
+| CRITICAL | Safety/security-critical; requires human approval and impact assessment |
+| HIGH | Significant impact; requires review |
+| MEDIUM | Moderate impact; standard review |
+| LOW | Minor impact; routine review |
+
+### Rule impact assignments
+
+All rules in this skill default to MEDIUM unless marked CRITICAL or HIGH
+in the rule ID -> clause map above.
+
+## Deviation management
+
+Any deviation must be recorded with: Rule ID, reason, file/location,
+approver, and date. CRITICAL-rule deviations require safety-lead approval
+and an impact assessment. Deviations are first-class artifacts, not comments.
+
+
+## Three-zone autonomy
+
+- **Core / evidence zone** (AI no access, human accountable): certified artifacts,
+  evidence records, safety-critical code.
+- **Gray zone** (AI assistant + HITL): AI plans and drafts; human decides and approves.
+- **Non-critical zone** (AI unrestricted): documentation, examples, scaffolding, low-risk refactors.
 
