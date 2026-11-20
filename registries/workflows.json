@@ -22,6 +22,10 @@
       "path": "workflows/emergency-change.yaml"
     },
     {
+      "id": "evaluation-runs",
+      "path": "workflows/evaluation-runs.yaml"
+    },
+    {
       "id": "feature-change",
       "path": "workflows/feature-change.yaml"
     },
@@ -36,6 +40,14 @@
     {
       "id": "security-patch",
       "path": "workflows/security-patch.yaml"
+    },
+    {
+      "id": "skill-adoption",
+      "path": "workflows/skill-adoption.yaml"
+    },
+    {
+      "id": "skill-catalog-release",
+      "path": "workflows/skill-catalog-release.yaml"
     },
     {
       "id": "standards-migration",

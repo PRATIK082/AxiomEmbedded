@@ -14,7 +14,7 @@ your own projects**.
 5. [Using AxiomEmbedded in your own project](#5-using-axiomembedded-in-your-own-project)
 6. [Interfaces: REST, MCP, A2A, Python SDK](#6-interfaces-rest-mcp-a2a-python-sdk)
 7. [AI-client setup (Claude, opencode, Copilot, Cursor, ...)](#7-ai-client-setup)
-8. [Interface x client matrix](#8-interface--client-matrix)
+8. [Interface x client matrix](#8-interface-x-client-matrix)
 9. [Domain-aware agents: how they work and why](#9-domain-aware-agents-how-they-work-and-why)
 10. [Self-check, toolpacks and eval (CLI)](#10-self-check-toolpacks-and-eval-cli)
 11. [Using AxiomEmbedded in a UI](#11-using-axiomembedded-in-a-ui)

@@ -1,0 +1,951 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="Domain-neutral embedded engineering platform -- agents, skills, MCP, evidence.">
+      
+      
+      
+      
+      
+      
+        
+      
+      
+      <link rel="icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.8.2">
+    
+    
+      
+        <title>AxiomEmbedded Master Production Plan (E2E) - AxiomEmbedded</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.57a0d79d.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    <body dir="ltr">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#axiomembedded-master-production-plan-e2e" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../.." title="AxiomEmbedded" class="md-header__button md-logo" aria-label="AxiomEmbedded" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            AxiomEmbedded
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              AxiomEmbedded Master Production Plan (E2E)
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/PRATIK082/AxiomEmbedded" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+            
+<nav class="md-tabs" aria-label="Tabs" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../.." class="md-tabs__link">
+        
+  
+  
+    
+  
+  Home
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../ecosystem/install/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  Install
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../ecosystem/standalone-independence/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  Independence plan
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../agents/domain-aware-execution/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  Domain-aware agents
+
+      </a>
+    </li>
+  
+
+      
+    </ul>
+  </div>
+</nav>
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="AxiomEmbedded" class="md-nav__button md-logo" aria-label="AxiomEmbedded" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    AxiomEmbedded
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/PRATIK082/AxiomEmbedded" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Home
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../ecosystem/install/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Install
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../ecosystem/standalone-independence/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Independence plan
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../agents/domain-aware-execution/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Domain-aware agents
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#0-mission" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        0. Mission
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#1-production-grade-skill-criteria-must-hold-for-maturity-beta" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1. Production-grade skill criteria (must hold for maturity &gt;= beta)
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2-independence-decoupling" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2. Independence (decoupling)
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3-gap-audit-current-state-237-skills" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3. Gap audit (current state, 237 skills)
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#4-missing-skills-to-add-suitable-for-productagents" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4. Missing skills to add (suitable for product/agents)
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="4. Missing skills to add (suitable for product/agents)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#cloudedgeinfra-for-connected-embedded-products" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Cloud/Edge/Infra (for connected embedded products)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#dataml-edge-ai" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Data/ML (edge AI)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#apiintegration" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        API/Integration
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#qualityreview" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Quality/Review
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#security" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Security
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#agentmeta-already-added-27-in-phase-f1-verify-coverage" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Agent/Meta (already added 27 in Phase F1; verify coverage)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#self-evolving-skills-optional-user-decision" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Self-evolving skills — optional, user decision
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#5-execution-batches-agent-driven" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5. Execution batches (agent-driven)
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="5. Execution batches (agent-driven)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#batch-0-audit-baseline-done" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Batch 0 — Audit + baseline (done)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#batch-1-production-criteria-enforcement-in-code" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Batch 1 — Production criteria enforcement in code
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#batch-2-automated-scaffolding-all-237-skills" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Batch 2 — Automated scaffolding (all 237 skills)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#batch-3-new-missing-skills-30" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Batch 3 — New missing skills (~30)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#batch-4-content-refinement-top-20-production-skills" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Batch 4 — Content refinement (top 20 production skills)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#batch-5-groups-registries" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Batch 5 — Groups + registries
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#batch-6-tests-ci" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Batch 6 — Tests + CI
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#batch-7-global-visibility" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Batch 7 — Global visibility
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#batch-8-verification" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Batch 8 — Verification
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#6-decision-points-for-user" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6. Decision points for user
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#7-execution-log" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        7. Execution log
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#8-files-touched-running" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        8. Files touched (running)
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+  
+  
+
+
+<h1 id="axiomembedded-master-production-plan-e2e">AxiomEmbedded Master Production Plan (E2E)</h1>
+<p><strong>Owner:</strong> AI agent (full ownership granted). <strong>Branch:</strong> <code>feat/skill-ecosystem-strengthening</code>. <strong>Remote:</strong> https://github.com/PRATIK082/AxiomEmbedded.git. <strong>License:</strong> Apache-2.0. <strong>No reference traces in shipped skills</strong> (provenance kept only in internal register).</p>
+<h2 id="0-mission">0. Mission</h2>
+<p>Make AxiomEmbedded globally visible and every skill production-grade, independent, self-contained, and machine-verifiable. Use all available skills from study (embedded + agent-engineering + cloud/edge/quality). Execute in batches; inform user only on decisions.</p>
+<h2 id="1-production-grade-skill-criteria-must-hold-for-maturity-beta">1. Production-grade skill criteria (must hold for maturity &gt;= beta)</h2>
+<p>Each skill directory contains and passes:
+- <code>SKILL.md</code> — spec-compliant frontmatter (name/description/version/domains/platforms) + <code>axiom:</code> contract block (inputs, outputs, required_tools, optional_tools, mcp_tools, risk_level, review_required, safety_critical, lifecycle, related_skills, artifact_types, maturity, owner, tags, standards).
+- <code>manifest.yaml</code> — version parity with SKILL.md.
+- <code>checklists/review.yaml</code> — &gt;= 1 machine-readable gate.
+- <code>tests/</code> — &gt;= 3 eval scenarios (<code>evals.json</code>) for production; &gt;= 1 for beta.
+- <code>scripts/</code> — <code>validate.py</code> (stdlib, deterministic, errors explicit).
+- <code>references/</code> — &gt;= 1 reference doc (one level deep).
+- <code>templates/</code> — &gt;= 1 template where artifact-producing.
+- Description: third-person, 40-1024 chars, states what + when, no vague terms.
+- SKILL.md body &lt;= 500 lines; references one level deep.
+- ASCII-clean; no mojibake; forward-slash paths.
+- <code>enabled</code> respected by engage + sync.
+- Passes <code>skills-ref validate</code> (agentskills spec) for portability.
+- CI gate green: pipeline --check, pytest, doctor, repo validate, compileall.</p>
+<h2 id="2-independence-decoupling">2. Independence (decoupling)</h2>
+<ul>
+<li>Skills must not depend on repo-internal paths beyond declared inputs.</li>
+<li>Each skill's <code>scripts/validate.py</code> runs standalone with stdlib only.</li>
+<li><code>required_tools</code> declared; no assumed packages.</li>
+<li>Dry-run by default for any write-capable operation.</li>
+<li>No cross-skill file imports; composition via <code>related_skills</code> + artifact types.</li>
+<li>Domain overlays loaded only when project context matches.</li>
+</ul>
+<h2 id="3-gap-audit-current-state-237-skills">3. Gap audit (current state, 237 skills)</h2>
+<ul>
+<li>tests/: 1 skill has non-empty tests/ (axiom-autosar-classic-bsw-integration) → need 236.</li>
+<li>scripts/: 13 skills → need 224.</li>
+<li>checklists/: 232 ok, 5 missing.</li>
+<li>references/: 146 ok, 91 missing.</li>
+<li>templates/: 93 ok, 144 missing.</li>
+<li>contract fields: 64 legacy skills lack <code>required_tools</code> (and some lack inputs/outputs/artifact_types).</li>
+<li>maturity: 69 production, 4 beta, 164 experimental.</li>
+</ul>
+<h2 id="4-missing-skills-to-add-suitable-for-productagents">4. Missing skills to add (suitable for product/agents)</h2>
+<p>Capability gaps identified from internal study of the embedded/edge/cloud/quality/agent-engineering landscape, filtered to this product's domains. New <code>axiom-*</code> skills (experimental initially):</p>
+<h3 id="cloudedgeinfra-for-connected-embedded-products">Cloud/Edge/Infra (for connected embedded products)</h3>
+<ul>
+<li>axiom-cloud-architecture (AWS/Azure/GCP for edge fleets)</li>
+<li>axiom-kubernetes-edge (K8s for edge gateways/fleet orchestration)</li>
+<li>axiom-terraform-infra (IaC for test farms/cloud infra)</li>
+<li>axiom-monitoring-observability (logging/metrics/tracing for devices)</li>
+<li>axiom-sre-reliability (SLO/SLA, incident response for fleets)</li>
+<li>axiom-chaos-engineering (resilience/fault injection at system level)</li>
+<li>axiom-cli-developer (CLI design for axiom_cli itself + device CLIs)</li>
+</ul>
+<h3 id="dataml-edge-ai">Data/ML (edge AI)</h3>
+<ul>
+<li>axiom-prompt-engineering (LLM prompt design for on-device/edge agents)</li>
+<li>axiom-rag-architect (RAG for technical docs/knowledge bases)</li>
+<li>axiom-data-pipeline (telemetry ETL, time-series)</li>
+<li>axiom-database-optimization (telemetry storage, Postgres/Timescale)</li>
+</ul>
+<h3 id="apiintegration">API/Integration</h3>
+<ul>
+<li>axiom-api-design (REST/contract design — already have interface-contract-design; add OpenAPI-focused)</li>
+<li>axiom-graphql-architect</li>
+<li>axiom-microservices-architect (service-oriented ECUs / edge services)</li>
+<li>axiom-websocket-engineer (real-time device comms)</li>
+<li>axiom-mcp-developer (MCP server dev — we have mcp-builder meta; add engineering-focused)</li>
+</ul>
+<h3 id="qualityreview">Quality/Review</h3>
+<ul>
+<li>axiom-test-master (unified test strategy)</li>
+<li>axiom-playwright-e2e (HIL/web test automation)</li>
+<li>axiom-code-reviewer (deep review skill)</li>
+<li>axiom-code-documenter (inline/API docs)</li>
+<li>axiom-debugging-wizard (systematic root-cause)</li>
+<li>axiom-legacy-modernizer (brownfield recovery deep)</li>
+</ul>
+<h3 id="security">Security</h3>
+<ul>
+<li>axiom-secure-code-guardian</li>
+<li>axiom-security-reviewer</li>
+</ul>
+<h3 id="agentmeta-already-added-27-in-phase-f1-verify-coverage">Agent/Meta (already added 27 in Phase F1; verify coverage)</h3>
+<ul>
+<li>skill-creator, mcp-builder, tool-schema-design, agent-evaluation, agent-observability, human-in-the-loop, multi-agent-orchestration, prompt-injection-defense, agent-red-teaming, skills-purge, diagnosing-bugs, improve-codebase-architecture, clean-ai-slop, git-commit-plan, code-explainer, agents-md-generator, api-design, cto-advisor, security-best-practices, security-threat-model, security-ownership-map, mcp-security-testing, doc-coauthoring, document-skills, frontend-design, context-engineering, skill-seekers.</li>
+</ul>
+<h3 id="self-evolving-skills-optional-user-decision">Self-evolving skills — optional, user decision</h3>
+<ul>
+<li>axiom-skill-evolution (dedup/improve/verify skills from session data) — meta. Recommend adding as experimental.</li>
+</ul>
+<p>Total new: ~30. Decision point: confirm scope (cloud/edge vs core embedded). Default: add all as experimental, refine later.</p>
+<h2 id="5-execution-batches-agent-driven">5. Execution batches (agent-driven)</h2>
+<h3 id="batch-0-audit-baseline-done">Batch 0 — Audit + baseline (done)</h3>
+<ul>
+<li>Audit script results recorded above.</li>
+</ul>
+<h3 id="batch-1-production-criteria-enforcement-in-code">Batch 1 — Production criteria enforcement in code</h3>
+<ul>
+<li><code>packages/skills/validator.py</code>: require contract fields for beta/production (R1); manifest.yaml validation + version parity (already added F0); progressive disclosure lint &lt;=500 lines + refs one level; description quality lint.</li>
+<li><code>packages/skills/loader.py</code>: description quality lint (F0 done), safety gating.</li>
+<li><code>packages/skills/runner.py</code>: checker failures propagate (F0 done), plan-validate-execute mode, safety gate.</li>
+<li><code>packages/skills/engage.py</code>: filter disabled (F0 done).</li>
+<li>Add <code>scripts/check_production_grade.py</code> linter: tests/, scripts/validate.py, references/, checklists, contract fields, desc length.</li>
+</ul>
+<h3 id="batch-2-automated-scaffolding-all-237-skills">Batch 2 — Automated scaffolding (all 237 skills)</h3>
+<ul>
+<li>For each skill missing tests/: create <code>tests/evals.json</code> with 3 stub scenarios derived from description + acceptance.</li>
+<li>For each missing scripts/: create <code>scripts/validate.py</code> from template, customized with skill id.</li>
+<li>For each missing references/: create <code>references/overview.md</code> stub with standards placeholders.</li>
+<li>For each missing templates/: create <code>templates/artifact.template.md</code> stub.</li>
+<li>For each missing checklists/: create from template.</li>
+<li>Backfill contract fields (required_tools/inputs/outputs/artifact_types) for legacy skills using sensible defaults per domain.</li>
+</ul>
+<h3 id="batch-3-new-missing-skills-30">Batch 3 — New missing skills (~30)</h3>
+<ul>
+<li>Scaffold via create_skill.py (auto catalog + facet parity).</li>
+<li>Mark experimental; minimal but complete structure.</li>
+</ul>
+<h3 id="batch-4-content-refinement-top-20-production-skills">Batch 4 — Content refinement (top 20 production skills)</h3>
+<ul>
+<li>Deepen content for production skills and the 10 new high-value ones.</li>
+</ul>
+<h3 id="batch-5-groups-registries">Batch 5 — Groups + registries</h3>
+<ul>
+<li>Update groups.yaml with new groups (cloud-edge, data-ml, api-integration, quality-review, security-guard).</li>
+<li>Regenerate registries via pipeline apply.</li>
+<li>Agent-domain-matrix regenerate.</li>
+</ul>
+<h3 id="batch-6-tests-ci">Batch 6 — Tests + CI</h3>
+<ul>
+<li>Update test counts.</li>
+<li>Add tests/test_production_grade.py.</li>
+<li>Add .github/workflows/release.yml, nightly-drift.yml.</li>
+</ul>
+<h3 id="batch-7-global-visibility">Batch 7 — Global visibility</h3>
+<ul>
+<li>README, CHANGELOG, SECURITY.md, badges.</li>
+<li>Push branch, PR, tag (user approval for merge/push to main).</li>
+</ul>
+<h3 id="batch-8-verification">Batch 8 — Verification</h3>
+<ul>
+<li>Full gate + skills-ref validate + secret scan.</li>
+</ul>
+<h2 id="6-decision-points-for-user">6. Decision points for user</h2>
+<p>D1: Scope of new skills (all ~30 vs core-only). Default: all experimental.
+D2: Self-evolving skills (yes/no). Default: add axiom-skill-evolution as experimental.
+D3: Push to origin feature branch now? (permission granted by "keep push to git branch" → yes, feature branch only).
+D4: Merge to main / tag release → requires explicit approval (AGENTS.md).</p>
+<h2 id="7-execution-log">7. Execution log</h2>
+<p>(Updated as batches complete.)
+- Batch 0: done (audit).
+- Next: Batch 1.</p>
+<h2 id="8-files-touched-running">8. Files touched (running)</h2>
+<ul>
+<li>docs/skill-development/global-release-plan.md (prior)</li>
+<li>docs/skill-development/master-production-plan.md (this)</li>
+<li>(to be updated)</li>
+</ul>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "../..", "features": ["navigation.tabs", "navigation.sections"], "search": "../../assets/javascripts/workers/search.a7633da7.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.a5f9d56c.min.js"></script>
+      
+    
+  </body>
+</html>

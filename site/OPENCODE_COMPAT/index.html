@@ -1,0 +1,873 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="Domain-neutral embedded engineering platform -- agents, skills, MCP, evidence.">
+      
+      
+      
+      
+      
+      
+        
+      
+      
+      <link rel="icon" href="../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.8.2">
+    
+    
+      
+        <title>OpenCode compatibility record - AxiomEmbedded</title>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/stylesheets/main.57a0d79d.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    <body dir="ltr">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#opencode-compatibility-record" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href=".." title="AxiomEmbedded" class="md-header__button md-logo" aria-label="AxiomEmbedded" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            AxiomEmbedded
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              OpenCode compatibility record
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/PRATIK082/AxiomEmbedded" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+            
+<nav class="md-tabs" aria-label="Tabs" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href=".." class="md-tabs__link">
+        
+  
+  
+    
+  
+  Home
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../ecosystem/install/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  Install
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../ecosystem/standalone-independence/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  Independence plan
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../agents/domain-aware-execution/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  Domain-aware agents
+
+      </a>
+    </li>
+  
+
+      
+    </ul>
+  </div>
+</nav>
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href=".." title="AxiomEmbedded" class="md-nav__button md-logo" aria-label="AxiomEmbedded" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    AxiomEmbedded
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/PRATIK082/AxiomEmbedded" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href=".." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Home
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ecosystem/install/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Install
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ecosystem/standalone-independence/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Independence plan
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../agents/domain-aware-execution/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Domain-aware agents
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#tested-version" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Tested version
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#pinning-decision" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Pinning decision
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#v2-support-update-2026-10-25" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        v2 support update (2026-10-25)
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#license-and-attribution" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        License and attribution
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#integration-surface-v1-verified-against-docs" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Integration surface (v1, verified against docs)
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Integration surface (v1, verified against docs)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#headless-execution-the-launcher-primitive" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Headless execution -- the launcher primitive
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#isolated-config-the-key-launcher-mechanism" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Isolated config -- the key launcher mechanism
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#providers-and-models-passthrough-no-axiom-registry" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Providers and models -- passthrough, no Axiom registry
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#agents-opencode-native-subagents-with-allowlists" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Agents -- OpenCode-native subagents with allowlists
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#slash-commands-axiom-mapping-confirmed" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Slash commands -- /axiom-* mapping confirmed
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#hooks-typescript-plugins" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Hooks -- TypeScript plugins
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#mcp-axiom_mcp-wiring-confirmed" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        MCP -- axiom_mcp wiring confirmed
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#doctor-rule-binding-on-launcher-work" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Doctor rule (binding on launcher work)
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#re-verification-cadence" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Re-verification cadence
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+  
+  
+
+
+<h1 id="opencode-compatibility-record">OpenCode compatibility record</h1>
+<p>Status: <strong>surveyed 2026-10-09, no code written</strong>. This document is the
+Phase 2 step-0 gate required by the project amendment: verify OpenCode
+docs and changelog <em>before</em> building the <code>axiom</code> launcher on top of
+OpenCode. All generated client files remain <strong>provisional</strong> until the
+launcher work in this phase confirms them against a pinned OpenCode.</p>
+<h2 id="tested-version">Tested version</h2>
+<ul>
+<li>Local OpenCode: <strong>1.18.31</strong> (<code>opencode --version</code>, Chocolatey install).</li>
+<li>Latest upstream v1 at survey time: <strong>1.18.35</strong> (2026-10-06).</li>
+<li>Docs tree surveyed: <code>https://opencode.ai/docs</code> (last updated 2026-10-08).</li>
+</ul>
+<h2 id="pinning-decision">Pinning decision</h2>
+<ul>
+<li><strong>Phase 2 targets the v1 line only.</strong> Pin minimum <code>&gt;=1.18.31</code>
+  (the locally tested version); recommend latest v1 patch.</li>
+<li><strong>v2 is out of scope for Phase 2.</strong> Upstream ships a separate major
+  line (v2.0.6 at survey time, npm <code>@opencode/cli</code>, separate
+  <code>/v2/docs</code> tree, <code>opencode pair</code> instead of <code>opencode web</code>-style
+  flows). The v1 and v2 config/command surfaces must be assumed
+  divergent until someone surveys <code>/v2/docs</code> the way this document
+  surveys v1. Record v2 support as future work in ROADMAP, not as
+  a Phase 2 deliverable.</li>
+</ul>
+<h2 id="v2-support-update-2026-10-25">v2 support update (2026-10-25)</h2>
+<ul>
+<li>Local OpenCode surveyed: <strong>2.1.4</strong> (<code>opencode --version</code>, npm
+  <code>@opencode/cli</code>).</li>
+<li>Axiom now treats OpenCode <strong>2.1.0-2.1.4</strong> as a supported line in
+  addition to v1 <strong>1.18.31-1.18.35</strong>.</li>
+<li>v2 uses a client/server model. Configuration environment variables
+  (<code>OPENCODE_CONFIG</code>, <code>OPENCODE_CONFIG_DIR</code>, <code>OPENCODE_CONFIG_CONTENT</code>)
+  are consumed by the <code>opencode</code> service process, not by short-lived
+  client commands. Axiom's isolated config is still written under
+  <code>~/.axiom/opencode/</code> and passed through the launcher environment.</li>
+<li>For verification, use a private service (<code>opencode api --standalone</code>)
+  or <code>opencode debug config</code> against a service started with the
+  launcher environment; a client command alone may attach to an
+  already-running service.</li>
+<li>v2 major versions outside 2.1.0-2.1.4 remain warn/fail-closed unless
+  <code>AXIOM_ALLOW_UNTESTED_OPENCODE=1</code> is set.</li>
+<li>Changelog v1.18.31 -&gt; v1.18.35 contains <strong>bugfixes only</strong> (provider
+  SDK bumps, macOS signing, timeout defaults, Copilot/ACPs fixes).
+  No config-schema, CLI-flag, agent-frontmatter, command-frontmatter,
+  plugin-hook, or MCP-config breaking changes were found in that
+  range. Re-check the changelog before release; the launcher must
+  fail closed (see doctor rule below) on untested majors.</li>
+</ul>
+<h2 id="license-and-attribution">License and attribution</h2>
+<ul>
+<li>OpenCode is <strong>MIT licensed</strong> (<code>Copyright (c) 2025 opencode</code>,
+  verified from the upstream LICENSE file at survey time).</li>
+<li>Attribution is recorded in <code>NOTICE</code> at the repository root.</li>
+<li>Axiom does not vendor OpenCode. The launcher shells out to a
+  user-installed <code>opencode</code> binary.</li>
+</ul>
+<h2 id="integration-surface-v1-verified-against-docs">Integration surface (v1, verified against docs)</h2>
+<h3 id="headless-execution-the-launcher-primitive">Headless execution -- the launcher primitive</h3>
+<ul>
+<li><code>opencode run [message..]</code> is the supported non-interactive entry
+  point for scripting and automation.</li>
+<li>Flags the launcher will rely on: <code>--model/-m provider/model</code>,
+  <code>--agent</code>, <code>--dir</code>, <code>--format (default|json)</code>, <code>--continue/-c</code>,
+  <code>--session/-s</code>, <code>--title</code>, <code>--file/-f</code>, <code>--command</code>,
+  <code>--attach &lt;url&gt;</code>, <code>--auto</code> (auto-approve only permissions that are
+  not explicitly denied).</li>
+<li><code>opencode serve</code> + <code>opencode run --attach &lt;url&gt;</code> avoids MCP cold-boot
+  cost per invocation; the launcher may use this for repeated calls.</li>
+<li>TUI launch is plain <code>opencode [project]</code> with <code>--model</code>, <code>--agent</code>,
+  <code>--prompt</code>, <code>--auto</code> flags.</li>
+</ul>
+<h3 id="isolated-config-the-key-launcher-mechanism">Isolated config -- the key launcher mechanism</h3>
+<ul>
+<li><code>OPENCODE_CONFIG</code> (custom config file path) and
+  <code>OPENCODE_CONFIG_DIR</code> (custom directory searched for
+  <code>agents/ commands/ modes/ plugins/</code> like <code>.opencode/</code>) give the
+  launcher full config isolation: Axiom can point OpenCode at
+  Axiom-owned config without touching the user's own setup.</li>
+<li><code>OPENCODE_CONFIG_CONTENT</code> (inline JSON) allows runtime overrides.</li>
+<li>Config sources merge (not replace) in precedence order:
+  remote -&gt; global -&gt; <code>OPENCODE_CONFIG</code> -&gt; project -&gt; <code>.opencode</code> dirs -&gt;
+  inline -&gt; managed. The launcher must assume the user's global/project
+  config still merges in; Axiom-owned agents/commands ship via
+  <code>OPENCODE_CONFIG_DIR</code>, and Axiom defaults that must win go inline
+  via <code>OPENCODE_CONFIG_CONTENT</code>.</li>
+<li><code>opencode debug config</code> prints the resolved config and is the
+  launcher/doctor verification primitive.</li>
+<li>Auth material lives outside our config (<code>~/.local/share/opencode/auth.json</code>
+  via <code>/connect</code>); the launcher never writes credentials.</li>
+</ul>
+<h3 id="providers-and-models-passthrough-no-axiom-registry">Providers and models -- passthrough, no Axiom registry</h3>
+<ul>
+<li>Model selection is always <code>provider/model</code> (<code>--model</code>,
+  <code>model</code>/<code>small_model</code> config keys, per-agent and per-command
+  <code>model</code> overrides).</li>
+<li>75+ providers via AI SDK / Models.dev; <code>opencode models [provider]</code>
+  lists, <code>--refresh</code> updates the cache.</li>
+<li>Local models are plain custom providers with
+  <code>npm: @ai-sdk/openai-compatible</code> + <code>options.baseURL</code>
+  (documented patterns: Ollama <code>http://localhost:11434/v1</code>,
+  LM Studio <code>http://127.0.0.1:1234/v1</code>,
+  llama.cpp <code>http://127.0.0.1:8080/v1</code>, Atomic Chat).
+  The launcher passes provider/model through verbatim and documents
+  the local-model recipe; it does not maintain a model catalog.</li>
+<li><code>provider.&lt;id&gt;.options</code>: <code>baseURL</code>, <code>apiKey</code> (<code>{env:...}</code> /
+  <code>{file:...}</code> substitution supported in config), timeouts
+  (<code>timeout</code>, <code>headerTimeout</code>, <code>chunkTimeout</code>, <code>false</code> disables),
+  <code>blacklist</code>/<code>whitelist</code> model filters.
+  <code>disabled_providers</code> beats <code>enabled_providers</code>.</li>
+<li>Credentials env-var passthrough (e.g. <code>AWS_PROFILE</code>,
+  <code>AZURE_RESOURCE_NAME</code>) works because the launcher execs OpenCode
+  in-process-environment.</li>
+</ul>
+<h3 id="agents-opencode-native-subagents-with-allowlists">Agents -- OpenCode-native subagents with allowlists</h3>
+<ul>
+<li>Markdown agents in <code>.opencode/agents/</code> (or
+  <code>~/.config/opencode/agents/</code>, or <code>OPENCODE_CONFIG_DIR/agents/</code>);
+  filename becomes agent name; frontmatter <code>description</code> is required.</li>
+<li><code>mode: primary | subagent | all</code> (default <code>all</code>); built-ins: primary
+  <code>build</code> (default, full tools) and <code>plan</code> (edits/bash ask);
+  subagents <code>general</code> (full tools), <code>explore</code> (read-only),
+  <code>scout</code> (external-docs research).</li>
+<li>Permissions are the tool allowlist mechanism: per-agent
+  <code>permission:</code> with <code>allow | ask | deny</code> per key
+  (<code>read edit glob grep list bash task external_directory todowrite
+  webfetch websearch lsp skill question doom_loop</code>),
+  glob patterns for MCP tools (<code>"mymcp_*": "deny"</code>),
+  per-bash-command globs (<code>bash: {"git *": ask}</code> with <code>*</code> first,
+  last match wins), and <code>permission.task</code> globs controlling which
+  subagents an agent may invoke (denied subagents disappear from the
+  Task tool description).</li>
+<li>Legacy agent <code>tools:</code> map is <strong>deprecated</strong> in favor of
+  <code>permission:</code> -- Axiom generates <code>permission:</code> only.</li>
+<li><code>subagent_depth</code> (default 1), <code>steps</code>, <code>temperature</code>, <code>hidden</code>
+  (subagents only), <code>default_agent</code> (must be primary) complete the
+  surface the launcher needs.</li>
+</ul>
+<h3 id="slash-commands-axiom-mapping-confirmed">Slash commands -- <code>/axiom-*</code> mapping confirmed</h3>
+<ul>
+<li>Markdown commands in <code>.opencode/commands/</code> (also global and
+  <code>OPENCODE_CONFIG_DIR</code> locations); filename becomes <code>/name</code>;
+  frontmatter <code>description</code>, optional <code>agent</code>, <code>model</code>, <code>subtask</code>;
+  body is the template with <code>$ARGUMENTS</code> / <code>$1..$N</code>, <code>!`cmd`</code>
+  shell injection, <code>@file</code> references.</li>
+<li><code>subtask: true</code> forces subagent invocation without polluting primary
+  context -- the mapping for research-style <code>/axiom-*</code> commands.</li>
+<li>Custom commands can override built-ins; Axiom uses the <code>axiom-</code>
+  prefix and must never shadow built-ins.</li>
+</ul>
+<h3 id="hooks-typescript-plugins">Hooks -- TypeScript plugins</h3>
+<ul>
+<li>Local plugins: <code>.opencode/plugins/*.js|ts</code> (also global and
+  <code>OPENCODE_CONFIG_DIR</code>), auto-loaded at startup; npm plugins via
+  <code>plugin: [...]</code> config, installed with Bun into
+  <code>~/.cache/opencode/node_modules/</code>.</li>
+<li>Plugin functions receive <code>{project, client, $, directory, worktree}</code>
+  and return hook maps; typed via <code>@opencode-ai/plugin</code>
+  (<code>import type { Plugin } from "@opencode-ai/plugin"</code>).</li>
+<li>Relevant hook events for Axiom: <code>tool.execute.before/after</code>
+  (policy gates, e.g. deny <code>.env</code> reads), <code>permission.asked/replied</code>,
+  <code>session.created/compacted/error/idle</code>, <code>command.executed</code>,
+  <code>file.edited</code>, <code>experimental.session.compacting</code> (domain context
+  that survives compaction -- directly useful for Axiom traceability).</li>
+<li>The repo already carries <code>@opencode-ai/plugin</code> 1.18.31 in
+  <code>.opencode/</code> (found in Phase 0 audit), matching the pinned v1 line.</li>
+</ul>
+<h3 id="mcp-axiom_mcp-wiring-confirmed">MCP -- axiom_mcp wiring confirmed</h3>
+<ul>
+<li>Local MCP: <code>mcp.&lt;name&gt; = {type: "local", command: [...], cwd,
+  environment, enabled, timeout}</code>; remote: <code>{type: "remote", url,
+  headers, oauth, enabled, timeout}</code>; <code>{env:...}</code> substitution works.</li>
+<li>Per-agent scoping: disable globally (<code>tools: {"axiom_*": false}</code>),
+  enable per agent (<code>agent.&lt;name&gt;.tools</code> / permission globs).
+  MCP tools are namespaced <code>&lt;server&gt;_*</code>.</li>
+<li>Phase 1 <code>axiom_mcp</code> (stdio, 21 tools) plugs in as one <code>local</code>
+  entry: <code>command: ["axiom", "mcp"]</code> (or <code>python -m</code> fallback --
+  same rule as the Phase 1 installer).</li>
+<li><code>opencode mcp list/add/auth/debug</code> manage servers at runtime.</li>
+<li>Verified keyless against 1.18.31 (Phase 2c): config validation
+  rejects the generic <code>{command, args}</code> split -- OpenCode requires
+  strict <code>{type: "local", command: [...], enabled: ...}</code> (fixed in
+  sync/installer/launcher); the <code>initialize</code> result must carry
+  <code>{protocolVersion, capabilities, serverInfo}</code> (fixed in
+  <code>axiom_mcp</code>). Both entries report <code>connected</code> with no API key.</li>
+</ul>
+<h2 id="doctor-rule-binding-on-launcher-work">Doctor rule (binding on launcher work)</h2>
+<p><code>axiom doctor</code> must detect the <code>opencode</code> binary, parse
+<code>opencode --version</code>, and:</p>
+<ul>
+<li>pass on v1 within the tested range,</li>
+<li>warn (not fail) on newer v1 patches with a "re-verify" pointer to
+  this document,</li>
+<li><strong>fail closed</strong> on v2+ (or unparseable versions) until v2 is
+  surveyed, with an explicit override flag for operators who accept
+  the risk.</li>
+</ul>
+<h2 id="re-verification-cadence">Re-verification cadence</h2>
+<ul>
+<li>Before any Axiom release: re-run <code>opencode --version</code> against
+  latest v1, scan the changelog for config/CLI/agent/command/plugin/MCP
+  breaking changes, and bump the "tested version" line above.</li>
+<li>On any OpenCode major (v2+): full re-survey, new compat section,
+  no silent carry-over of v1 assumptions.</li>
+</ul>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "..", "features": ["navigation.tabs", "navigation.sections"], "search": "../assets/javascripts/workers/search.a7633da7.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../assets/javascripts/bundle.a5f9d56c.min.js"></script>
+      
+    
+  </body>
+</html>

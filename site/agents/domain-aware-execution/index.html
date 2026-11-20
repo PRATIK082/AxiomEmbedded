@@ -1,0 +1,790 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="Domain-neutral embedded engineering platform -- agents, skills, MCP, evidence.">
+      
+      
+      
+      
+        <link rel="prev" href="../../ecosystem/standalone-independence/">
+      
+      
+      
+        
+      
+      
+      <link rel="icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.8.2">
+    
+    
+      
+        <title>Domain-aware agents - AxiomEmbedded</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.57a0d79d.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    <body dir="ltr">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#domain-aware-agent-execution-tab-select-auto-skill-binding" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../.." title="AxiomEmbedded" class="md-header__button md-logo" aria-label="AxiomEmbedded" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            AxiomEmbedded
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Domain-aware agents
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/PRATIK082/AxiomEmbedded" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+            
+<nav class="md-tabs" aria-label="Tabs" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../.." class="md-tabs__link">
+        
+  
+  
+    
+  
+  Home
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../ecosystem/install/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  Install
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../ecosystem/standalone-independence/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  Independence plan
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+    
+  
+  
+    <li class="md-tabs__item md-tabs__item--active">
+      <a href="./" class="md-tabs__link">
+        
+  
+  
+    
+  
+  Domain-aware agents
+
+      </a>
+    </li>
+  
+
+      
+    </ul>
+  </div>
+</nav>
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="AxiomEmbedded" class="md-nav__button md-logo" aria-label="AxiomEmbedded" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    AxiomEmbedded
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/PRATIK082/AxiomEmbedded" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Home
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../ecosystem/install/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Install
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../ecosystem/standalone-independence/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Independence plan
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Domain-aware agents
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Domain-aware agents
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#how-it-works-runtime-every-run-co-step-0" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        How it works (runtime, every run ΓÇö Step 0)
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#runtime-clarification-no-silent-guessing" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Runtime clarification (no silent guessing)
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#token-efficiency-production-rule" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Token efficiency (production rule)
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#production-grade-output-deployment-ready-verdict" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Production-grade output (deployment-ready verdict)
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#how-a-user-links-a-new-development-future-proofing" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        How a user links a new development (future-proofing)
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#fixed-gaps-this-change" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Fixed gaps (this change)
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#how-it-works-runtime-every-run-co-step-0" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        How it works (runtime, every run ΓÇö Step 0)
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#runtime-clarification-no-silent-guessing" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Runtime clarification (no silent guessing)
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#token-efficiency-production-rule" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Token efficiency (production rule)
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#production-grade-output-deployment-ready-verdict" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Production-grade output (deployment-ready verdict)
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#how-a-user-links-a-new-development-future-proofing" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        How a user links a new development (future-proofing)
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#fixed-gaps-this-change" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Fixed gaps (this change)
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+  
+  
+
+
+<h1 id="domain-aware-agent-execution-tab-select-auto-skill-binding">Domain-aware agent execution (Tab-select + auto skill binding)</h1>
+<p>Every specialist agent (<code>agents/*/AGENT.md</code>, Tab-selectable in OpenCode / Claude /
+Codex) keeps a <strong>fixed identity</strong> but adapts its <strong>skill slice and checklists</strong>
+to the current project. A <code>code-review</code> stays a <code>code-review</code>; on an
+automotive project it reviews as automotive (MISRA + ISO 26262 + ASPICE), on a
+defense project as defense (DO-178C-informed + IEC 61508 + hardening).</p>
+<h2 id="how-it-works-runtime-every-run-co-step-0">How it works (runtime, every run ΓÇö Step 0)</h2>
+<p>Each agent executes <strong>Step 0 ΓÇö Resolve project context</strong> before any analysis:</p>
+<ol>
+<li><strong>Explicit file (wins):</strong> <code>./axiom.project.yaml</code> or <code>./.axiom/project.yaml</code>
+   (copy from <code>axiom.project.yaml.example</code>). Schema:
+   <code>schemas/axiom-project.schema.json</code>.</li>
+<li><strong>Repo signals:</strong> <code>packages/agents/project_context.py</code> scans file names +
+   <code>README.md</code> / <code>AGENTS.md</code> for <code>repo_signals</code> in
+   <code>configs/domain-routing.yaml</code> (e.g. <code>arxml/dbc</code> ΓåÆ automotive,
+   <code>do-178/arinc</code> ΓåÆ aerospace, <code>plc/modbus</code> ΓåÆ industrial).</li>
+<li><strong>Prompt keywords:</strong> <code>packages/agents/router.py::detect_domain()</code> (all
+   domains; canonical lists in <code>configs/domain-routing.yaml</code>).</li>
+<li><strong>Fallback:</strong> <code>generic-embedded</code> + <code>generic-embedded</code> profile.</li>
+</ol>
+<p>Then the agent calls <code>axiom engage --domain X --platform Y</code> (i.e.
+<code>packages/skills/engage.py</code>) and loads, in order (project AND prompt union):</p>
+<ul>
+<li><strong>Core skill</strong> ΓÇö same-name skill (<code>code-review</code> ΓåÆ <code>code-review</code> skill; full
+  map in <code>configs/domain-routing.yaml::agent_binding.core_skill_by_agent</code>).</li>
+<li><strong>Domain priority skills</strong> ΓÇö e.g. automotive adds
+  <code>axiom-functional-safety</code>, <code>axiom-vehicle-cybersecurity</code>,
+  <code>axiom-diagnostics-uds</code>; defense adds the <strong>shared</strong>
+  <code>axiom-aerospace-defense-safety-review</code> + <code>safety</code>/<code>security</code>.</li>
+<li><strong>Platform + group skills</strong> from the domain's <code>skill_groups</code>
+  (see <code>skills/groups.yaml</code> views).</li>
+<li><strong>Standards checklists</strong> as metadata identifiers only (never normative
+  text, never a compliance claim).</li>
+</ul>
+<p>The full cross-map is generated:
+<code>registries/agent-domain-matrix.json</code> (via
+<code>scripts/generate_agent_domain_matrix.py</code>) ΓÇö agent ├ù domain ΓåÆ skills,
+platforms, standards, profiles.</p>
+<h2 id="runtime-clarification-no-silent-guessing">Runtime clarification (no silent guessing)</h2>
+<p><code>resolve_project_context()</code> returns <code>confidence</code>, <code>needs_clarification</code>, and a
+ready-to-ask <code>clarification_question</code>. The agent MUST ask and wait when:
+nothing was detected (fallback, confidence 0.2), repo and prompt disagree
+(conflict, ~0.55), or confidence is below <code>runtime.ask_threshold</code> (0.5). Ask
+via the host question tool (OpenCode question, Claude AskUserQuestion, or chat
+prompt) with the candidate domains; re-resolve only after the user picks.</p>
+<h2 id="token-efficiency-production-rule">Token efficiency (production rule)</h2>
+<p><code>load_plan = {core, primary[], deferred[]}</code>. Open at most <code>primary_cap</code>
+SKILL.md files (default 8) before analysis; keep <code>context_files</code> within
+<code>max_context_files</code> (default 8). Consult <code>deferred</code> only on demand ΓÇö never
+bulk-load the matrix.</p>
+<h2 id="production-grade-output-deployment-ready-verdict">Production-grade output (deployment-ready verdict)</h2>
+<p>Every run ends with a machine-checkable verdict block: <code>verdict, domain_used,
+skills_loaded, skills_deferred, standards_applied, evidence_refs,
+approval_gate, followups</code> (see <code>runtime.production_output_contract</code>).
+<code>approval_gate</code> names the required human approval per <code>configs/project.yaml</code>;
+the agent never auto-approves.</p>
+<h2 id="how-a-user-links-a-new-development-future-proofing">How a user links a new development (future-proofing)</h2>
+<p>Scenario: you add a new subsystem, domain variant, or standard.</p>
+<ol>
+<li><strong>Declare the project:</strong> create/update <code>axiom.project.yaml</code> in the target
+   repo (<code>domain/platform/os/profile/standards</code>). Commit it ΓÇö agents pick it
+   up with zero code changes.</li>
+<li><strong>Add/extend the skill:</strong> scaffold with
+   <code>axiom skills create &lt;id&gt; --title ... --domain &lt;domain&gt;</code>, implement
+   <code>SKILL.md</code>, then <code>python scripts/skill_pipeline.py</code> (linkΓåÆenrichΓåÆindexΓåÆ
+   clientsΓåÆvalidate) to rebuild <code>registries/skill-index.json</code>.</li>
+<li><strong>Link the cross-map (single sources only):</strong></li>
+<li>Domain vocabulary/facets: <code>registries/skill-facets.yaml</code> (+
+     <code>taxonomies/domains.yaml</code> if a brand-new domain).</li>
+<li>Group view: <code>skills/groups.yaml</code> (rule-based, no file moves).</li>
+<li>Domain routing: <code>configs/domain-routing.yaml</code> ΓÇö add keywords,
+     <code>repo_signals</code>, <code>platforms</code>, <code>standards</code>, <code>skill_groups</code>,
+     <code>priority_skills</code>, <code>default_profile</code>.</li>
+<li>Graph links: <code>axiom skills link --set related_skills|extends|...</code>
+     (edits <code>skills/catalog.yaml</code>, the single source).</li>
+<li><strong>Regenerate derived artifacts (never hand-edit):</strong>
+   <code>python scripts/generate_agent_domain_matrix.py</code>,
+   <code>python scripts/sync_clients.py</code> (refreshes <code>.opencode/agents/*.md</code>,
+   <code>.claude/agents/*.md</code>, <code>opencode.json</code>, mirrors),
+   <code>python -m pytest -q tests/test_domain_routing.py tests/test_detect.py</code>.</li>
+<li><strong>Verify the agent sees it:</strong>
+   <code>axiom engage --domain &lt;new&gt; --platform &lt;p&gt;</code> lists the skill;
+   <code>axiom run "&lt;request&gt;"</code> shows <code>domain_source</code> + skill slice.</li>
+</ol>
+<h2 id="fixed-gaps-this-change">Fixed gaps (this change)</h2>
+<ul>
+<li><code>detect_domain()</code> knew <strong>automotive only</strong> ΓåÆ now all domains
+  (automotive/defense/aerospace/industrial/robotics/energy/iot/
+  generic-embedded), sourced from <code>configs/domain-routing.yaml</code>.</li>
+<li>No explicit project file ΓåÆ <code>axiom.project.yaml(.example)</code> + schema added.</li>
+<li>Agents had no Step 0 ΓåÆ all <code>agents/*/AGENT.md</code> now carry the
+  domain-aware preamble; manifests declare <code>domain_aware: true</code> +
+  <code>requires_project_context: true</code>.</li>
+<li>Defense/aerospace thin slices documented: defense reuses the shared
+  <code>axiom-aerospace-defense-safety-review</code> (no duplicate skill by design);
+  remaining depth comes from <code>safety</code>/<code>security</code>/<code>fault-injection</code>/platform
+  core skills ΓÇö see matrix <code>notes</code>.</li>
+</ul>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "../..", "features": ["navigation.tabs", "navigation.sections"], "search": "../../assets/javascripts/workers/search.a7633da7.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.a5f9d56c.min.js"></script>
+      
+    
+  </body>
+</html>
