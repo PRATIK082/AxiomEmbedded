@@ -212,6 +212,35 @@ Follow Execution Workflow. Record board, core, pin map, memory budget, build com
 - Pin constraints: respect reserved pins and electrical limits.
 - External components: verify voltage compatibility and bus loading.
 
+
+## Deviation management
+
+Any deviation from a rule or standard must be recorded with: Rule ID, reason,
+file/location, approver, and date. Deviations are tracked as first-class
+artifacts, not comments. (Straion pattern.)
+
+
+## Builder + reviewer
+
+This skill follows the builder + reviewer pattern: the builder produces the
+artifact, the reviewer independently verifies it before acceptance. No
+artifact is accepted without reviewer sign-off.
+
+
+## Three-zone autonomy
+
+- **Core / evidence zone** (AI no access, human accountable): certified artifacts,
+  evidence records, safety-critical code. AI must not modify without human approval.
+- **Gray zone** (AI assistant + HITL): AI plans and drafts; human decides and approves.
+- **Non-critical zone** (AI unrestricted): documentation, examples, scaffolding, low-risk refactors.
+
+
+## Copyright-safe standards
+
+Never reproduce normative standards text. Store identifiers, clause numbers,
+applicability metadata, mappings, and project-authored interpretations only.
+
+
 ## References
 - Arduino documentation (landing: https://www.arduino.cc/reference/en/).
 - arduino-cli documentation (landing: https://arduino.github.io/arduino-cli/latest/).

@@ -260,3 +260,26 @@ or cybersecurity assurance claim.
 
 Load task-specific domain overlays (`safety`, `security`, `autosar`) before
 execution. Keep all ASPICE domain knowledge in this skill.
+
+
+## Deviation management
+
+Any deviation from a rule or standard must be recorded with: Rule ID, reason,
+file/location, approver, and date. Deviations are tracked as first-class
+artifacts, not comments. (Straion pattern.)
+
+
+## Builder + reviewer
+
+This skill follows the builder + reviewer pattern: the builder produces the
+artifact, the reviewer independently verifies it before acceptance. No
+artifact is accepted without reviewer sign-off.
+
+
+## Three-zone autonomy
+
+- **Core / evidence zone** (AI no access, human accountable): certified artifacts,
+  evidence records, safety-critical code. AI must not modify without human approval.
+- **Gray zone** (AI assistant + HITL): AI plans and drafts; human decides and approves.
+- **Non-critical zone** (AI unrestricted): documentation, examples, scaffolding, low-risk refactors.
+

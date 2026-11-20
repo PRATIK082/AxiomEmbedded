@@ -227,6 +227,29 @@ the evidence package.
 | VL-R2 | ISO 26262-4 S7-S9 | System integration and testing |
 | VL-R3 | ISO/IEC/IEEE 29119 | Test planning and reporting processes |
 
+
+## Deviation management
+
+Any deviation from a rule or standard must be recorded with: Rule ID, reason,
+file/location, approver, and date. Deviations are tracked as first-class
+artifacts, not comments. (Straion pattern.)
+
+
+## Builder + reviewer
+
+This skill follows the builder + reviewer pattern: the builder produces the
+artifact, the reviewer independently verifies it before acceptance. No
+artifact is accepted without reviewer sign-off.
+
+
+## Three-zone autonomy
+
+- **Core / evidence zone** (AI no access, human accountable): certified artifacts,
+  evidence records, safety-critical code. AI must not modify without human approval.
+- **Gray zone** (AI assistant + HITL): AI plans and drafts; human decides and approves.
+- **Non-critical zone** (AI unrestricted): documentation, examples, scaffolding, low-risk refactors.
+
+
 ## References
 - Authoritative standard identifiers listed in catalog; landing URLs only, no normative text.
 - Cross-references: `validation`, `simulation`, `test-automation`, `integration-test`, `axiom-mil-sil-hil-testing`.

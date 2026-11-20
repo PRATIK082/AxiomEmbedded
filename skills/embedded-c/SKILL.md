@@ -162,3 +162,26 @@ All public interfaces must carry Doxygen-style doc blocks (`@brief`, `@param`, `
 ### 7.13 Auto-fix strategy
 When violations are found: report with file/line, explain embedded impact (safety/determinism/portability), provide corrected code, refactor automatically if mechanical. Priority: Safety > Determinism > Maintainability > Readability.
 
+
+
+## Deviation management
+
+Any deviation from a rule or standard must be recorded with: Rule ID, reason,
+file/location, approver, and date. Deviations are tracked as first-class
+artifacts, not comments. (Straion pattern.)
+
+
+## Builder + reviewer
+
+This skill follows the builder + reviewer pattern: the builder produces the
+artifact, the reviewer independently verifies it before acceptance. No
+artifact is accepted without reviewer sign-off.
+
+
+## Three-zone autonomy
+
+- **Core / evidence zone** (AI no access, human accountable): certified artifacts,
+  evidence records, safety-critical code. AI must not modify without human approval.
+- **Gray zone** (AI assistant + HITL): AI plans and drafts; human decides and approves.
+- **Non-critical zone** (AI unrestricted): documentation, examples, scaffolding, low-risk refactors.
+

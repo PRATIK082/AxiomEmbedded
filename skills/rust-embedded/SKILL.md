@@ -110,3 +110,26 @@ toolchain drift (lockfile/toolchain diff in review).
 
 - MISRA Rust status honestly labeled unpublished (S2, S4 preamble).
 - Zero unreviewed `unsafe`; panic policy tested, not assumed.
+
+
+## Deviation management
+
+Any deviation from a rule or standard must be recorded with: Rule ID, reason,
+file/location, approver, and date. Deviations are tracked as first-class
+artifacts, not comments. (Straion pattern.)
+
+
+## Builder + reviewer
+
+This skill follows the builder + reviewer pattern: the builder produces the
+artifact, the reviewer independently verifies it before acceptance. No
+artifact is accepted without reviewer sign-off.
+
+
+## Three-zone autonomy
+
+- **Core / evidence zone** (AI no access, human accountable): certified artifacts,
+  evidence records, safety-critical code. AI must not modify without human approval.
+- **Gray zone** (AI assistant + HITL): AI plans and drafts; human decides and approves.
+- **Non-critical zone** (AI unrestricted): documentation, examples, scaffolding, low-risk refactors.
+

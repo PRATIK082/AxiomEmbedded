@@ -131,6 +131,35 @@ in the run manifest.
 - No secret values in workflow files, logs, or templates -- names only.
 - No destructive steps (force-push, delete) in generated pipelines.
 
+
+## Deviation management
+
+Any deviation from a rule or standard must be recorded with: Rule ID, reason,
+file/location, approver, and date. Deviations are tracked as first-class
+artifacts, not comments. (Straion pattern.)
+
+
+## Builder + reviewer
+
+This skill follows the builder + reviewer pattern: the builder produces the
+artifact, the reviewer independently verifies it before acceptance. No
+artifact is accepted without reviewer sign-off.
+
+
+## Three-zone autonomy
+
+- **Core / evidence zone** (AI no access, human accountable): certified artifacts,
+  evidence records, safety-critical code. AI must not modify without human approval.
+- **Gray zone** (AI assistant + HITL): AI plans and drafts; human decides and approves.
+- **Non-critical zone** (AI unrestricted): documentation, examples, scaffolding, low-risk refactors.
+
+
+## Copyright-safe standards
+
+Never reproduce normative standards text. Store identifiers, clause numbers,
+applicability metadata, mappings, and project-authored interpretations only.
+
+
 ## References
 - CI provider workflow reference (public docs landing page).
 - Project release policy and evidence expectations (project-local).

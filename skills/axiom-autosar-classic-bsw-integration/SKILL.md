@@ -120,6 +120,35 @@ As Execution Workflow above; each step appends to the run manifest decisions log
 - No secrets; no shell beyond the deterministic checker; paths repo-relative only.
 - Never claim ASIL compliance from this heuristic review.
 
+
+## Deviation management
+
+Any deviation from a rule or standard must be recorded with: Rule ID, reason,
+file/location, approver, and date. Deviations are tracked as first-class
+artifacts, not comments. (Straion pattern.)
+
+
+## Builder + reviewer
+
+This skill follows the builder + reviewer pattern: the builder produces the
+artifact, the reviewer independently verifies it before acceptance. No
+artifact is accepted without reviewer sign-off.
+
+
+## Three-zone autonomy
+
+- **Core / evidence zone** (AI no access, human accountable): certified artifacts,
+  evidence records, safety-critical code. AI must not modify without human approval.
+- **Gray zone** (AI assistant + HITL): AI plans and drafts; human decides and approves.
+- **Non-critical zone** (AI unrestricted): documentation, examples, scaffolding, low-risk refactors.
+
+
+## Copyright-safe standards
+
+Never reproduce normative standards text. Store identifiers, clause numbers,
+applicability metadata, mappings, and project-authored interpretations only.
+
+
 ## References
 - AUTOSAR Classic Platform R24-11 (landing: https://www.autosar.org/standards/classic-platform).
 - ISO 26262:2018 (landing: https://www.iso.org/search.html?q=26262).
