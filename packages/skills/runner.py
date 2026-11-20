@@ -133,6 +133,14 @@ def run_skill(skill_id: str, repo_path: str = ".", target_files: list[str] | Non
         report += "\n## Checker results\n\n" + "\n".join(checker_outputs)
         manifest["decisions"].append(f"ran {len(checkers)} checker(s), rc={checker_rc}")
     (rundir / "report.md").write_text(report, encoding="utf-8")
+    # Validate manifest against schema before writing.
+    try:
+        from packages.eval.manifest_schema import validate_manifest
+        _merrs = validate_manifest(manifest)
+        if _merrs:
+            manifest["warnings"] = manifest.get("warnings", []) + [f"manifest schema: {e}" for e in _merrs]
+    except Exception:
+        pass
     (rundir / "run-manifest.json").write_text(
         json.dumps(manifest, indent=2), encoding="utf-8")
     manifest["generated_files"] = [str(rundir / "report.md"),
