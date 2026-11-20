@@ -114,28 +114,81 @@ Follow Execution Workflow; record per-step evidence in the run manifest.
 - No secrets in files; no unsafe shell; no unvalidated paths; no network calls.
 - Never claim certification or compliance from heuristic checks.
 
+## Copyright-safe standards references
+
+No normative text from any standard is reproduced here. Only rule identifiers,
+clause numbers, applicability metadata, and project-authored interpretations
+are stored; verification is against the cited edition.
+
+### Rule ID -> clause map
+
+| Rule ID | Standard / clause | Impact tier |
+|---|---|---|
+| industrial-control-plc-design | IEC 61131-3 (programming languages) | HIGH |
+| industrial-control-function-blocks | IEC 61499 (function blocks) | MEDIUM |
+| industrial-control-functional-safety | IEC 61508:2010 Cl. 7 (software) | HIGH |
+| industrial-control-security | IEC 62443-3-3:2013 (system security requirements) | HIGH |
+| industrial-control-safety-related-control | ISO 13849-1:2023 Cl. 6 (safety-related parts) | HIGH |
+| industrial-control-robot-safety | ISO 10218-2:2011 Cl. 4 (robot cell integration) | MEDIUM |
+| industrial-control-reviewer-independence | IEC 61508:2010 Cl. 7 (verification independence) | HIGH |
+
+## Impact tiers
+
+| Impact tier | Meaning | Typical handling |
+|---|---|---|
+| CRITICAL | Safety/security-critical; release blocker; core/evidence zone | Human approval required; no autonomous AI action |
+| HIGH | Major correctness or compliance impact | Reviewed change; evidence required |
+| MEDIUM | Moderate impact | Standard review |
+| LOW | Minor or advisory | Batched review acceptable |
+
+### Rule impact assignments
+
+| Rule ID | Impact tier |
+|---|---|
+| industrial-control-plc-design | HIGH |
+| industrial-control-function-blocks | MEDIUM |
+| industrial-control-functional-safety | HIGH |
+| industrial-control-security | HIGH |
+| industrial-control-safety-related-control | HIGH |
+| industrial-control-robot-safety | MEDIUM |
+| industrial-control-reviewer-independence | HIGH |
 
 ## Deviation management
 
-Any deviation from a rule or standard must be recorded with: Rule ID, reason,
-file/location, approver, and date. Deviations are tracked as first-class
-artifacts, not comments. (Straion pattern.)
+Any deviation from a rule or standard in this skill must be recorded as a
+first-class artifact (not a code comment) with all of the following:
 
+- Rule ID
+- Reason
+- File / location
+- Approver
+- Date
 
-## Builder + reviewer
+Deviations against CRITICAL rules require a safety/security lead approval and
+an impact assessment. Store deviation records under the project evidence or
+change-control location and link them in the traceability matrix.
 
-This skill follows the builder + reviewer pattern: the builder produces the
-artifact, the reviewer independently verifies it before acceptance. No
-artifact is accepted without reviewer sign-off.
+## Builder + reviewer pairing
 
+This skill is a reviewer. Where a paired builder exists, it must not modify the builder artifact; it samples evidence, records findings with severity, and emits a verdict. Solo use requires an explicit waiver recorded in the deviation log.
 
 ## Three-zone autonomy
 
-- **Core / evidence zone** (AI no access, human accountable): certified artifacts,
-  evidence records, safety-critical code. AI must not modify without human approval.
-- **Gray zone** (AI assistant + HITL): AI plans and drafts; human decides and approves.
-- **Non-critical zone** (AI unrestricted): documentation, examples, scaffolding, low-risk refactors.
+Autonomy is zoned by risk; the V&V boundary is the automation boundary.
 
+- Core / evidence zone (AI no access, human accountable): certified or
+  qualified artifacts, evidence records, safety/security-critical code, and
+  release baselines. AI must not read or write here without an explicit
+  human-approved change request.
+- Gray zone (AI assistant + HITL): AI plans and drafts; a human decides and
+  approves each step. Architecture, requirements, tests with safety impact, and
+  verification-affecting configuration live here.
+- Non-critical zone (AI unrestricted): documentation, examples, scaffolding,
+  low-risk refactors, and tooling glue.
+
+This skill's outputs are treated as gray-zone by default; AI may draft but a
+human approves. AI must never act autonomously in the core/evidence zone.
 
 ## References
 - Authoritative standard identifiers listed in catalog; landing URLs only, no normative text.
+
