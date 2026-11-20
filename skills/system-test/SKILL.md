@@ -3,7 +3,7 @@ name: system-test
 description: >
   Requirement-based system testing, stress/abuse campaigns, and triage. Use when
   validating a full product against its requirements.
-version: 1.2.0
+version: 1.3.0
 domains: [all]
 platforms: [all]
 
@@ -14,9 +14,9 @@ axiom:
   category: legacy
   maturity: production
   owner: axiom-embedded
-  tags: [legacy]
+  tags: [legacy, vv, system]
 
-  related_skills: [axiom-hil-test-planning]
+  related_skills: [axiom-hil-test-planning, axiom-test-automation, axiom-validation-orchestrator]
   checklists: [checklists/system-test-checklist.md]
 
   lifecycle: [discover, plan, implement, verify, evidence]
@@ -32,6 +32,7 @@ axiom:
   required_tools: []
   optional_tools: []
 ---
+
 # System-Test skill
 
 End-to-end verification of the integrated system against system requirements in
@@ -63,22 +64,24 @@ system-test report as a release artifact.
 
 ## 3. Test design rules
 
-1. **Requirement-based, risk-ordered.** Every system requirement has at least
-   one test; safety/security requirements first, then timing, then functional
-   breadth. Coverage of requirements (not code) is the system-test metric.
-2. **Environment fidelity stated.** Each campaign records how the environment
-   differs from production (chamber vs field, simulated vs real load) and why
-   the difference does not invalidate the result. Unstated fidelity gaps are
-   review findings.
-3. **Stress to the limit, then beyond.** Thermal, voltage, vibration, EMI,
-   load, and longevity campaigns establish margins -- passing at nominal only
-   proves the demo works.
-4. **Abuse cases.** Wrong inputs, failed sensors, power loss, operator error,
-   hostile network traffic: the system must reach a safe state or degrade
-   gracefully per the safety goals (`safety` S4), never undefined behavior.
-5. **Regression is automatic.** The system regression suite runs on every
-   release candidate; manual-only regression does not scale past prototype and
-   blocks release.
+1. **Requirement-based, risk-ordered.** `[CRITICAL]` Every system requirement
+   has at least one test; safety/security requirements first, then timing, then
+   functional breadth. Coverage of requirements (not code) is the system-test
+   metric.
+2. **Environment fidelity stated.** `[HIGH]` Each campaign records how the
+   environment differs from production (chamber vs field, simulated vs real load)
+   and why the difference does not invalidate the result. Unstated fidelity gaps
+   are review findings.
+3. **Stress to the limit, then beyond.** `[HIGH]` Thermal, voltage, vibration,
+   EMI, load, and longevity campaigns establish margins -- passing at nominal
+   only proves the demo works.
+4. **Abuse cases.** `[CRITICAL]` Wrong inputs, failed sensors, power loss,
+   operator error, hostile network traffic: the system must reach a safe state
+   or degrade gracefully per the safety goals (`safety` S4), never undefined
+   behavior.
+5. **Regression is automatic.** `[HIGH]` The system regression suite runs on
+   every release candidate; manual-only regression does not scale past prototype
+   and blocks release.
 
 ## 4. Defect triage
 
@@ -88,7 +91,39 @@ major; cosmetic = minor. No critical or major defects open at release; waivers
 require integrity-level-appropriate approval with compensating measures and
 expiry.
 
-## 5. Exit gates (blocking)
+## 5. Advanced V&V patterns (P1)
+
+### 5.1 Multi-DUT testing `[HIGH]`
+Synchronized multi-DUT logic with per-device options; required for gateway,
+multi-node, and redundancy system scenarios.
+
+### 5.2 Keyword layered architecture `[MEDIUM]`
+Protocol-level Python driver libraries plus domain keywords (Robot Framework
+shape): thin keywords over drivers, resource files per bench, variable files
+per board. Same suite runs in SIL and HIL.
+
+### 5.3 RF remote execution `[MEDIUM]`
+Parallel execution with pabot, result merge with Rebot, remote servers for
+distributed benches. Required for large system suites exceeding the feedback
+budget.
+
+### 5.4 Firmware provisioning in CI `[HIGH]`
+Automated flash of attested firmware before system tests; hash recorded and
+gated in pre-check. No system test runs on an unattested image.
+
+### 5.5 Flash caching `[MEDIUM]`
+Hash-based skip-reflash when the attested image is already present; reduces
+bench time. Cache invalidates on hash mismatch or policy change.
+
+### 5.6 Panic/core-dump decoding `[HIGH]`
+Automated backtrace decode on failure (addr2line/elf tools); attach decoded
+trace to the defect. Required for any crash during system campaign.
+
+### 5.7 RESD sensor replay `[MEDIUM]`
+Deterministic replay of recorded sensor streams for reproducible system-level
+fault and abuse cases.
+
+## 6. Exit gates (blocking)
 
 1. 100% of system requirements executed with pass results; failures triaged
    per S4 with zero critical/major open.
@@ -97,8 +132,30 @@ expiry.
 4. Regression suite automated and green on the release candidate.
 5. System-test report signed as release evidence (`evidence` skill).
 
-## 6. Verification of this skill (Phase 4 gate)
+## 7. Standards rule map (copyright-safe: IDs + clauses only)
+
+| Rule ID | Standard clause | Intent (paraphrased) |
+|---|---|---|
+| ST-R1 | ISO 26262-4 S8 | System testing per ASIL |
+| ST-R2 | ISO/IEC/IEEE 29119-1/2 | Test planning and reporting |
+| ST-R3 | ISTQB CTFL v4.0 | System test objectives and defect lifecycle |
+
+## 8. Verification of this skill (Phase 4 gate)
 
 - Requirement coverage measured and complete -- code coverage is not a
   substitute at this level.
 - Open critical/major defects block the gate unconditionally.
+
+## Workflow
+
+Follow the skill's numbered rules and gates; record per-step evidence in the
+run manifest.
+
+## Acceptance
+
+All checklist gates pass; findings carry severity plus evidence plus action.
+
+## References
+
+- `references/standard-map.md`
+- `references/vv-patterns.md`

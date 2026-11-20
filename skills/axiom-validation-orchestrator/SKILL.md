@@ -207,6 +207,43 @@ editing suites.
   certification audits. Findings that point there are handed off with data,
   not stretched into claims.
 
+## Advanced V&V patterns (P1)
+
+### Multi-DUT orchestration `[HIGH]`
+Parameterize suites per DUT identity and channel map; synchronize multi-DUT
+cases with per-device options. Required for gateway and multi-node campaigns.
+
+### RF remote execution `[MEDIUM]`
+pabot parallel runs, Rebot merge, remote servers for distributed benches;
+select subsets by tags (`sil`, `hil`, `security`, `no-harness`).
+
+### Cloud emulation for hardware-free CI `[MEDIUM]`
+Wokwi/esp-emu/QEMU for SIL smoke; promotion to physical rig remains
+mandatory for release claims.
+
+### Panic/core-dump decoding `[HIGH]`
+Automated backtrace decode on failure; attach decoded trace to the triage
+bundle.
+
+### Flash caching `[MEDIUM]`
+Hash-based skip-reflash when the attested image is present; invalidate on
+hash mismatch or policy change.
+
+### Firmware provisioning in CI `[HIGH]`
+Automated flash of attested firmware before any HIL phase; hash gated in
+pre-check.
+
+### Sanitizer gates `[HIGH]`
+ASan/UBSan/LSan on host-level suites routed through Unity/GoogleTest/Pytest;
+findings block merge.
+
+## Standards rule map (copyright-safe: IDs + clauses only)
+
+| Rule ID | Standard clause | Intent (paraphrased) |
+|---|---|---|
+| VO-R1 | ISO/IEC/IEEE 29119 | Test process and orchestration |
+| VO-R2 | ISO 26262-6 S10 | Software integration test methods |
+
 ## References
 
 - Authoritative standard identifiers listed in catalog; landing URLs only, no normative text.

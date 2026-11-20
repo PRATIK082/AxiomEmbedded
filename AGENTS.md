@@ -49,6 +49,43 @@ python -m axiom_cli repo validate
 
 For configuration/schema changes, also run profile and schema validation. For agent changes, run the applicable evaluation suite.
 
+## Three-zone autonomy
+
+Autonomy is zoned by risk. The V&V boundary is the automation boundary.
+
+- **Core / evidence zone** (AI no access, human accountable): certified/qualified artifacts, evidence records, safety/security-critical code, release baselines. AI must not read or write here without an explicit human-approved change request.
+- **Gray zone** (AI assistant + HITL): AI plans the path and drafts changes, but a human decides and approves each step. Includes architecture, requirements, tests with safety impact, and configuration affecting verification.
+- **Non-critical zone** (AI unrestricted): documentation, examples, generated scaffolding, low-risk refactors, and tooling glue. AI may act autonomously, subject to review.
+
+## Knowledge-base layering
+
+Keep repository knowledge in distinct layers so each has one owner and one update path:
+
+- `rules/` - enforceable rules and constraints.
+- `knowledge-base/` - reference material and domain facts.
+- `skills/` - procedures and how-to guidance.
+- `agents/` - personas and role definitions.
+- `commands/` - slash-command entry points.
+- `workflows/` - end-to-end process definitions.
+- `hooks/` - safety gates and automation hooks.
+- `tools/` - adapters and integrations.
+
+## Deviation management
+
+Any deviation from a rule or standard must be recorded with: Rule ID, reason, file/location, approver, and date (Straion pattern). Deviations are tracked as first-class artifacts, not comments.
+
+## Copyright-safe standards
+
+Never reproduce normative standards text. Store identifiers, clause numbers, applicability metadata, mappings, and project-authored interpretations only.
+
+## Builder + reviewer pairs
+
+Every artifact-producing skill is paired with a confirmation reviewer that independently checks its output before acceptance.
+
+## Self-updating meta-rule
+
+Rules are updated when a bug fix reveals a gap. Architectural decisions (ADRs) are kept separate from lessons learned; lessons do not become ADRs without explicit review.
+
 ## Git rules
 
 Agents may create branches and local commits only when explicitly permitted by the active client configuration. Pushing, merging, releasing, or changing protected branches requires human approval.

@@ -192,6 +192,42 @@ Follow Execution Workflow; record per-step evidence in the run manifest.
 - No secrets in files; no unsafe shell; no unvalidated paths; no network calls.
 - Never claim certification or compliance from heuristic checks.
 
+## Advanced V&V patterns (P1)
+
+### Co-simulation for SIL `[MEDIUM]`
+Use Verilator/SystemC/FPGA co-simulation as the simulation level for hardware-
+adjacent logic; promote sampled cases to HIL. Record simulator and model
+versions in the evidence package.
+
+### RESD sensor replay `[MEDIUM]`
+Deterministic replay of recorded sensor streams at the simulation/HIL
+boundary; preserve timestamps and sampling cadence; document fidelity limits.
+
+### Cloud emulation for hardware-free CI `[MEDIUM]`
+Wokwi/esp-emu/QEMU for early acceptance smoke; promotion to physical board
+remains mandatory for release claims.
+
+### Panic/core-dump decoding `[HIGH]`
+Automated backtrace decode on failure at any level; attach decoded trace to
+the evidence package.
+
+## Impact tiers (cross-level rules)
+
+- Never report build success as hardware proof. `[CRITICAL]`
+- Each level's evidence must cite requirement IDs and level. `[HIGH]`
+- Failures at a lower level block higher-level claims. `[CRITICAL]`
+- Record environment, versions, and configuration for reproducibility. `[HIGH]`
+- Keep acceptance criteria measurable and unambiguous. `[MEDIUM]`
+
+## Standards rule map (copyright-safe: IDs + clauses only)
+
+| Rule ID | Standard clause | Intent (paraphrased) |
+|---|---|---|
+| VL-R1 | ISO 26262-6 S9 | Software unit verification methods |
+| VL-R2 | ISO 26262-4 S7-S9 | System integration and testing |
+| VL-R3 | ISO/IEC/IEEE 29119 | Test planning and reporting processes |
+
 ## References
 - Authoritative standard identifiers listed in catalog; landing URLs only, no normative text.
 - Cross-references: `validation`, `simulation`, `test-automation`, `integration-test`, `axiom-mil-sil-hil-testing`.
+- `references/vv-patterns.md`

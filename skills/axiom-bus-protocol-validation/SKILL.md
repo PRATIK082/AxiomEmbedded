@@ -190,6 +190,31 @@ Protocol validation includes adversarial cases, scaled to bench safety:
 - Out of scope: RF-layer conformance, protocol stack certification testing,
   and penetration testing beyond interface fuzzing (hand off with captures).
 
+## Advanced V&V patterns (P1)
+
+### Property-based testing `[HIGH]`
+Property tests for frame parsers and codecs (round-trip, idempotence,
+monotonicity); shrink failures to minimal counterexamples.
+
+### Fuzzing lifecycle `[HIGH]`
+Coverage-guided fuzzer harness per parser; maintain seed corpus; triage
+crashes into minimal reproducers and regression tests.
+
+### Multi-node bus testing `[HIGH]`
+Synchronized multi-DUT bus scenarios with per-node options; required for
+gateway and redundancy cases.
+
+### RESD sensor replay `[MEDIUM]`
+Deterministic replay of recorded bus/sensor traffic for reproducible fault
+and abuse cases.
+
+## Standards rule map (copyright-safe: IDs + clauses only)
+
+| Rule ID | Standard clause | Intent (paraphrased) |
+|---|---|---|
+| BP-R1 | ISO 26262-6 S10 | Software integration and interface testing |
+| BP-R2 | ISO 11898 (CAN) | CAN protocol conformance (identifier only) |
+
 ## References
 
 - Authoritative standard identifiers listed in catalog; landing URLs only, no normative text.

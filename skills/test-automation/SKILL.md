@@ -3,7 +3,7 @@ name: test-automation
 description: >
   Host+target CI stages, farm discipline, flaky quarantine, feedback budgets.
   Use when building embedded CI pipelines or HIL farms.
-version: 1.2.0
+version: 1.3.0
 domains: [all]
 platforms: [all]
 
@@ -14,9 +14,9 @@ axiom:
   category: legacy
   maturity: production
   owner: axiom-embedded
-  tags: [legacy]
+  tags: [legacy, vv, automation]
 
-  related_skills: [axiom-embedded-cicd, axiom-test-automation]
+  related_skills: [axiom-embedded-cicd, axiom-test-automation, axiom-validation-orchestrator]
   checklists: [checklists/test-automation-checklist.md]
 
   lifecycle: [discover, plan, implement, verify, evidence]
@@ -32,6 +32,7 @@ axiom:
   required_tools: []
   optional_tools: []
 ---
+
 # Test-Automation skill
 
 Automated testing infrastructure for embedded targets: CI pipelines, on-target
@@ -62,37 +63,94 @@ skills own the content.
 
 ## 3. Pipeline rules
 
-1. **Two stages minimum.** Host stage (unit tests, static analysis, coverage)
-   runs per commit in minutes; target stage (on-hardware or cycle-accurate
-   simulation) runs per merge-request with console logs archived. Target
-   results block merging -- advisory-only hardware tests decay into noise.
-2. **Farm discipline.** Each farm board is a managed resource: exclusive
-   allocation per job, power-cycle between runs, serial console captured to
-   the job log, unhealthy boards auto-quarantined with alerts. Shared boards
-   without allocation produce cross-talk failures that erode trust.
-3. **Hermetic and reproducible.** Test jobs pin containers, toolchains, and
-   fixtures; rerunning a job reproduces its result except for quarantined
-   flaky tests (which are tracked, not silently retried).
-4. **Fast feedback budget.** Host stage under 10 minutes default; target stage
-   under 60 minutes default. Suites exceeding budget are split, parallelized,
-   or selected by change impact (see `change-impact`) -- never left slow, since
-   slow suites get skipped.
+1. **Two stages minimum.** `[HIGH]` Host stage (unit tests, static analysis,
+   coverage) runs per commit in minutes; target stage (on-hardware or
+   cycle-accurate simulation) runs per merge-request with console logs
+   archived. Target results block merging -- advisory-only hardware tests
+   decay into noise.
+2. **Farm discipline.** `[HIGH]` Each farm board is a managed resource:
+   exclusive allocation per job, power-cycle between runs, serial console
+   captured to the job log, unhealthy boards auto-quarantined with alerts.
+   Shared boards without allocation produce cross-talk failures that erode
+   trust.
+3. **Hermetic and reproducible.** `[CRITICAL]` Test jobs pin containers,
+   toolchains, and fixtures; rerunning a job reproduces its result except for
+   quarantined flaky tests (which are tracked, not silently retried).
+4. **Fast feedback budget.** `[MEDIUM]` Host stage under 10 minutes default;
+   target stage under 60 minutes default. Suites exceeding budget are split,
+   parallelized, or selected by change impact (see `change-impact`) -- never
+   left slow, since slow suites get skipped.
 
 ## 4. Flaky-test policy (blocking)
 
 A test failing intermittently without a code change is quarantined within 24h
 with an owner and a root-cause issue (timing assumption, shared state, farm
 health). Quarantined tests run informationally; unquarantined flakes fail the
-pipeline's credibility gate. Retry-without-diagnosis is forbidden -- it converts
-signal into superstition.
+pipeline's credibility gate. Retry-without-diagnosis is forbidden -- it
+converts signal into superstition.
 
-## 5. Release gates (blocking)
+## 5. Advanced V&V patterns (P1)
+
+### 5.1 Sanitizer gates `[HIGH]`
+ASan/UBSan/LSan in the host stage; SARIF reports archived. Findings block
+merge.
+
+### 5.2 Cloud emulation for hardware-free CI `[MEDIUM]`
+Wokwi/esp-emu/QEMU for host-stage smoke when benches unavailable; promotion
+to physical rig remains mandatory for release.
+
+### 5.3 Flash caching `[MEDIUM]`
+Hash-based skip-reflash when the attested image is present; invalidate on
+hash mismatch or policy change.
+
+### 5.4 Panic/core-dump decoding `[HIGH]`
+Automated backtrace decode on failure; attach decoded trace to the job log
+and defect.
+
+### 5.5 Labgrid architecture `[MEDIUM]`
+Coordinator/exporter/RemotePlace for shared rigs; managed resources with
+udev binding; Strategy pattern for boot states.
+
+### 5.6 RF remote execution `[MEDIUM]`
+pabot parallel runs, Rebot merge, remote servers for distributed benches.
+Required when suites exceed the feedback budget.
+
+### 5.7 Firmware provisioning in CI `[HIGH]`
+Automated flash of attested firmware before target stage; hash gated in
+pre-check.
+
+### 5.8 Multi-DUT testing `[HIGH]`
+Per-device parameterization in the same suite; required for multi-node
+scenarios.
+
+## 6. Release gates (blocking)
 
 1. Host + target stages green on the merge commit; logs archived.
 2. Zero unquarantined flakes; quarantine list reviewed weekly with burn-down.
 3. Coverage and duration trends published; regressions investigated.
 
-## 6. Verification of this skill (Phase 4 gate)
+## 7. Standards rule map (copyright-safe: IDs + clauses only)
+
+| Rule ID | Standard clause | Intent (paraphrased) |
+|---|---|---|
+| TA-R1 | ISO/IEC/IEEE 29119-2 | Test process and completion criteria |
+| TA-R2 | ISTQB CT-TAE | Automation architecture and rollout |
+
+## 8. Verification of this skill (Phase 4 gate)
 
 - Standards cited with number + version + clause + URL (S2).
 - No merged change without target-stage results or a recorded waiver.
+
+## Workflow
+
+Follow the skill's numbered rules and gates; record per-step evidence in the
+run manifest.
+
+## Acceptance
+
+All checklist gates pass; findings carry severity plus evidence plus action.
+
+## References
+
+- `references/standard-map.md`
+- `references/vv-patterns.md`

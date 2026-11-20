@@ -13141,14 +13141,14 @@ skills:
   - implement
   - verify
   - evidence
-  standard_ids: []
+  standard_ids: &id001 []
   lifecycle:
   - discover
   - plan
   - implement
   - verify
   - evidence
-  standards: []
+  standards: *id001
   artifact_types:
   - report
   - manifest
@@ -13423,14 +13423,14 @@ skills:
   - implement
   - verify
   - evidence
-  standard_ids: []
+  standard_ids: &id002 []
   lifecycle:
   - discover
   - plan
   - implement
   - verify
   - evidence
-  standards: []
+  standards: *id002
   artifact_types:
   - report
   - manifest
@@ -14401,14 +14401,14 @@ skills:
   - implement
   - verify
   - evidence
-  standard_ids: []
+  standard_ids: &id003 []
   lifecycle:
   - discover
   - plan
   - implement
   - verify
   - evidence
-  standards: []
+  standards: *id003
   artifact_types:
   - report
   - manifest
@@ -14451,14 +14451,14 @@ skills:
   - implement
   - verify
   - evidence
-  standard_ids: []
+  standard_ids: &id004 []
   lifecycle:
   - discover
   - plan
   - implement
   - verify
   - evidence
-  standards: []
+  standards: *id004
   artifact_types:
   - report
   - manifest
@@ -14548,14 +14548,14 @@ skills:
   - implement
   - verify
   - evidence
-  standard_ids: []
+  standard_ids: &id005 []
   lifecycle:
   - discover
   - plan
   - implement
   - verify
   - evidence
-  standards: []
+  standards: *id005
   artifact_types:
   - report
   - manifest

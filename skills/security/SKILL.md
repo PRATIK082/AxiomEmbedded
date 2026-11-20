@@ -113,3 +113,88 @@ monitored device security posture with evidence.
 
 - Security claims cite standards with number + version + URL (S2).
 - Safety-impacting threats coordinated with `safety`, never siloed (S3.2).
+
+## Copyright-safe standards references
+
+No normative text from any standard is reproduced here. Only rule identifiers,
+clause numbers, applicability metadata, and project-authored interpretations
+are stored; verification is against the cited edition.
+
+### Rule ID -> clause map
+
+| Rule ID | Standard / clause | Impact tier |
+|---|---|---|
+| security-threat-model-per-interface | IEC 62443-3-2:2020 Cl. 6 (risk assessment) / UNECE R155 Annex 5 | HIGH |
+| security-abuse-case-requirements | IEC 62443-4-1:2018 Cl. 8 (secure design) | HIGH |
+| security-secure-boot-signed-update | NIST SP 800-193 Rev. 1 (protection) | CRITICAL |
+| security-crypto-selection | IEC 62443-4-2:2019 CR 4.3 / NIST SP 800-193 | HIGH |
+| security-hardening-baseline | IEC 62443-4-2:2019 (component requirements) | MEDIUM |
+| security-fuzz-external-parsers | IEC 62443-4-1:2018 (verification) | MEDIUM |
+| security-sbom-cve-watch | UNECE R156 / IEC 62443-4-1:2018 | MEDIUM |
+| security-coordinated-disclosure | ISO/IEC 29147 (vulnerability disclosure) | MEDIUM |
+
+## Impact tiers
+
+| Impact tier | Meaning | Typical handling |
+|---|---|---|
+| CRITICAL | Safety/security-critical; release blocker; core/evidence zone | Human approval required; no autonomous AI action |
+| HIGH | Major correctness or compliance impact | Reviewed change; evidence required |
+| MEDIUM | Moderate impact | Standard review |
+| LOW | Minor or advisory | Batched review acceptable |
+
+### Rule impact assignments
+
+| Rule ID | Impact tier |
+|---|---|
+| security-threat-model-per-interface | HIGH |
+| security-abuse-case-requirements | HIGH |
+| security-secure-boot-signed-update | CRITICAL |
+| security-crypto-selection | HIGH |
+| security-hardening-baseline | MEDIUM |
+| security-fuzz-external-parsers | MEDIUM |
+| security-sbom-cve-watch | MEDIUM |
+| security-coordinated-disclosure | MEDIUM |
+
+## Deviation management
+
+Any deviation from a rule or standard in this skill must be recorded as a
+first-class artifact (not a code comment) with all of the following:
+
+- Rule ID
+- Reason
+- File / location
+- Approver
+- Date
+
+Deviations against CRITICAL rules require a safety/security lead approval and
+an impact assessment. Store deviation records under the project evidence or
+change-control location and link them in the traceability matrix.
+
+## Builder + reviewer pairing
+
+Where this skill produces an artifact, pair it with an independent confirmation review before acceptance; reviewers do not modify the artifact. No single dedicated reviewer skill is assigned in the catalog for this legacy skill, so use the domain review skill or a human reviewer.
+
+## Three-zone autonomy
+
+Autonomy is zoned by risk; the V&V boundary is the automation boundary.
+
+- Core / evidence zone (AI no access, human accountable): certified or
+  qualified artifacts, evidence records, safety/security-critical code, and
+  release baselines. AI must not read or write here without an explicit
+  human-approved change request.
+- Gray zone (AI assistant + HITL): AI plans and drafts; a human decides and
+  approves each step. Architecture, requirements, tests with safety impact, and
+  verification-affecting configuration live here.
+- Non-critical zone (AI unrestricted): documentation, examples, scaffolding,
+  low-risk refactors, and tooling glue.
+
+This skill's outputs are treated as gray-zone by default; AI may draft but a
+human approves. AI must never act autonomously in the core/evidence zone.
+
+## Workflow
+
+Follow the lifecycle and verification steps in this skill; record evidence per the applicable schema.
+
+## Acceptance
+
+All applicable release gates in this skill are satisfied and recorded with human approval where required.

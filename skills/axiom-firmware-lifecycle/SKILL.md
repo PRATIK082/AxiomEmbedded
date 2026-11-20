@@ -182,8 +182,112 @@ hardware abstraction, never averaged away.
 - Out of scope: key ceremony management, HSM operations, and production
   line provisioning (policies are inputs; custody stays with the owner).
 
+## Advanced V&V patterns (P1)
+
+### Flash caching `[MEDIUM]`
+Hash-based skip-reflash when the attested image is already present; invalidate
+on hash mismatch or policy change.
+
+### Panic/core-dump decoding `[HIGH]`
+Automated backtrace decode on boot failure or crash; attach decoded trace to
+the flash report and defect.
+
+### Cloud emulation `[MEDIUM]`
+QEMU encrypted-flash simulation for secure-boot and update-path validation
+before hardware availability; promotion to physical target remains mandatory.
+
+### Firmware provisioning in CI `[HIGH]`
+Automated flash of attested firmware in CI before test stages; hash gated in
+pre-check.
+
+### Secure boot validation `[CRITICAL]`
+eFuse timing checks, encrypted-flash simulation, voltage-glitch fault
+injection against the secure-boot path; verify anti-rollback and recovery.
+
+## Standards rule map (copyright-safe: IDs + clauses only)
+
+| Rule ID | Standard clause | Intent (paraphrased) |
+|---|---|---|
+| FW-R1 | ISO 26262-6 Cl. 9 | Software verification incl. update paths |
+| FW-R2 | NIST SP 800-193 | Platform firmware resiliency |
+
 ## References
 
 - Authoritative standard identifiers listed in catalog; landing URLs only, no normative text.
 - Cross-references: `axiom-validation-orchestrator`, `axiom-hw-interface-control`,
   `axiom-sil-hil-bridge`, `axiom-validation-levels`.
+
+## Copyright-safe standards references
+
+No normative text from any standard is reproduced here. Only rule identifiers,
+clause numbers, applicability metadata, and project-authored interpretations
+are stored; verification is against the cited edition.
+
+### Rule ID -> clause map
+
+| Rule ID | Standard / clause | Impact tier |
+|---|---|---|
+| firmware-reproducible-build | Project rule (no external standard cited) | HIGH |
+| firmware-readback-verify | Project rule (no external standard cited) | CRITICAL |
+| firmware-signing-policy | Project rule (no external standard cited) | CRITICAL |
+| firmware-hash-attestation | Project rule (no external standard cited) | HIGH |
+| firmware-deterministic-reset | Project rule (no external standard cited) | MEDIUM |
+| firmware-update-fault-injection | Project rule (no external standard cited) | HIGH |
+| firmware-cve-correlation | Project rule (no external standard cited) | MEDIUM |
+
+## Impact tiers
+
+| Impact tier | Meaning | Typical handling |
+|---|---|---|
+| CRITICAL | Safety/security-critical; release blocker; core/evidence zone | Human approval required; no autonomous AI action |
+| HIGH | Major correctness or compliance impact | Reviewed change; evidence required |
+| MEDIUM | Moderate impact | Standard review |
+| LOW | Minor or advisory | Batched review acceptable |
+
+### Rule impact assignments
+
+| Rule ID | Impact tier |
+|---|---|
+| firmware-reproducible-build | HIGH |
+| firmware-readback-verify | CRITICAL |
+| firmware-signing-policy | CRITICAL |
+| firmware-hash-attestation | HIGH |
+| firmware-deterministic-reset | MEDIUM |
+| firmware-update-fault-injection | HIGH |
+| firmware-cve-correlation | MEDIUM |
+
+## Deviation management
+
+Any deviation from a rule or standard in this skill must be recorded as a
+first-class artifact (not a code comment) with all of the following:
+
+- Rule ID
+- Reason
+- File / location
+- Approver
+- Date
+
+Deviations against CRITICAL rules require a safety/security lead approval and
+an impact assessment. Store deviation records under the project evidence or
+change-control location and link them in the traceability matrix.
+
+## Builder + reviewer pairing
+
+Where this skill produces an artifact, pair it with an independent confirmation review before acceptance; reviewers do not modify the artifact. No single dedicated reviewer skill is assigned in the catalog for this legacy skill, so use the domain review skill or a human reviewer.
+
+## Three-zone autonomy
+
+Autonomy is zoned by risk; the V&V boundary is the automation boundary.
+
+- Core / evidence zone (AI no access, human accountable): certified or
+  qualified artifacts, evidence records, safety/security-critical code, and
+  release baselines. AI must not read or write here without an explicit
+  human-approved change request.
+- Gray zone (AI assistant + HITL): AI plans and drafts; a human decides and
+  approves each step. Architecture, requirements, tests with safety impact, and
+  verification-affecting configuration live here.
+- Non-critical zone (AI unrestricted): documentation, examples, scaffolding,
+  low-risk refactors, and tooling glue.
+
+This skill's outputs are treated as gray-zone by default; AI may draft but a
+human approves. AI must never act autonomously in the core/evidence zone.

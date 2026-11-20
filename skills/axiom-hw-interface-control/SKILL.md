@@ -201,6 +201,29 @@ suites (see `axiom-sil-hil-bridge`).
   outputs), bench electrical safety sign-off, and shared-rig scheduling
   beyond per-place locking.
 
+## Advanced V&V patterns (P1)
+
+### Multi-DUT bench orchestration `[HIGH]`
+Synchronize multiple DUTs with per-device options (identity, firmware hash,
+channel map); share one suite parameterized per DUT. Required for gateway
+and multi-node campaigns.
+
+### RESD sensor replay `[MEDIUM]`
+Deterministic replay of recorded sensor streams through bench channels;
+preserve timestamps and sampling cadence; document fidelity limits.
+
+### Labgrid managed resources `[MEDIUM]`
+Coordinator/exporter/RemotePlace with managed resources bound via udev;
+Strategy pattern for boot states (off/bootloader/application); per-place
+locking for shared rigs.
+
+## Standards rule map (copyright-safe: IDs + clauses only)
+
+| Rule ID | Standard clause | Intent (paraphrased) |
+|---|---|---|
+| HW-R1 | ISO 26262-4 S7 | HW/SW interface verification |
+| HW-R2 | ISTQB CT-TAE | Automation architecture |
+
 ## References
 
 - Authoritative standard identifiers listed in catalog; landing URLs only, no normative text.

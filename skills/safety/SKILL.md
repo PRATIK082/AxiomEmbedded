@@ -191,3 +191,88 @@ results, and assessment outcomes in `schemas/compliance-evidence.schema.json`
 - Coverage and traceability rules in `rules/skill-update-gates.yaml` enforced.
 - Safety-sensitive content -> `verify_skill.py` flags human review; no
   safety-significant release proceeds without a recorded human approval.
+
+## Copyright-safe standards references
+
+No normative text from any standard is reproduced here. Only rule identifiers,
+clause numbers, applicability metadata, and project-authored interpretations
+are stored; verification is against the cited edition.
+
+### Rule ID -> clause map
+
+| Rule ID | Standard / clause | Impact tier |
+|---|---|---|
+| safety-hara-completeness | ISO 26262-3:2018 Cl. 7 (HARA) | CRITICAL |
+| safety-integrity-level-assignment | ISO 26262-3:2018 Cl. 7.4 / IEC 61508-1:2010 Cl. 7.6 | CRITICAL |
+| safety-requirements-traceability | ISO 26262-8:2018 Cl. 6 / IEC 61508-1:2010 Cl. 7.2 | CRITICAL |
+| safety-architecture-independence | ISO 26262-9:2018 Cl. 5 (decomposition) | HIGH |
+| safety-hardware-metrics | ISO 26262-5:2018 Cl. 8-9 (SPFM/LFM) | HIGH |
+| safety-coverage-targets | ISO 26262-6:2018 Cl. 9 (structural coverage) | HIGH |
+| safety-tool-qualification | ISO 26262-8:2018 Cl. 11 / DO-330 | MEDIUM |
+| safety-confirmation-review | ISO 26262-2:2018 Cl. 6 | MEDIUM |
+
+## Impact tiers
+
+| Impact tier | Meaning | Typical handling |
+|---|---|---|
+| CRITICAL | Safety/security-critical; release blocker; core/evidence zone | Human approval required; no autonomous AI action |
+| HIGH | Major correctness or compliance impact | Reviewed change; evidence required |
+| MEDIUM | Moderate impact | Standard review |
+| LOW | Minor or advisory | Batched review acceptable |
+
+### Rule impact assignments
+
+| Rule ID | Impact tier |
+|---|---|
+| safety-hara-completeness | CRITICAL |
+| safety-integrity-level-assignment | CRITICAL |
+| safety-requirements-traceability | CRITICAL |
+| safety-architecture-independence | HIGH |
+| safety-hardware-metrics | HIGH |
+| safety-coverage-targets | HIGH |
+| safety-tool-qualification | MEDIUM |
+| safety-confirmation-review | MEDIUM |
+
+## Deviation management
+
+Any deviation from a rule or standard in this skill must be recorded as a
+first-class artifact (not a code comment) with all of the following:
+
+- Rule ID
+- Reason
+- File / location
+- Approver
+- Date
+
+Deviations against CRITICAL rules require a safety/security lead approval and
+an impact assessment. Store deviation records under the project evidence or
+change-control location and link them in the traceability matrix.
+
+## Builder + reviewer pairing
+
+Where this skill produces an artifact, pair it with an independent confirmation review before acceptance; reviewers do not modify the artifact. No single dedicated reviewer skill is assigned in the catalog for this legacy skill, so use the domain review skill or a human reviewer.
+
+## Three-zone autonomy
+
+Autonomy is zoned by risk; the V&V boundary is the automation boundary.
+
+- Core / evidence zone (AI no access, human accountable): certified or
+  qualified artifacts, evidence records, safety/security-critical code, and
+  release baselines. AI must not read or write here without an explicit
+  human-approved change request.
+- Gray zone (AI assistant + HITL): AI plans and drafts; a human decides and
+  approves each step. Architecture, requirements, tests with safety impact, and
+  verification-affecting configuration live here.
+- Non-critical zone (AI unrestricted): documentation, examples, scaffolding,
+  low-risk refactors, and tooling glue.
+
+This skill's outputs are treated as gray-zone by default; AI may draft but a
+human approves. AI must never act autonomously in the core/evidence zone.
+
+## Workflow
+
+Follow the lifecycle and verification steps in this skill; record evidence per the applicable schema.
+
+## Acceptance
+
+All applicable release gates in this skill are satisfied and recorded with human approval where required.

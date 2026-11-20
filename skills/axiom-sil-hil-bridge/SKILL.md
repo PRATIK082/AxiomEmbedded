@@ -191,6 +191,35 @@ promotion until the model or the tolerance policy is corrected.
 - Out of scope: plant-model development or calibration (models are inputs
   with versions; tuning them is a separate workstream recorded as such).
 
+## Advanced V&V patterns (P1)
+
+### Co-simulation `[MEDIUM]`
+Verilator/SystemC/FPGA co-simulation for early SIL; promote sampled cases to
+HIL. Record simulator and model versions in the fidelity log.
+
+### RESD sensor replay `[MEDIUM]`
+Deterministic replay of recorded sensor streams in both SIL and HIL; preserve
+timestamps and sampling cadence.
+
+### Cloud emulation `[MEDIUM]`
+Wokwi/esp-emu/QEMU for hardware-free SIL smoke; promotion to physical rig
+remains mandatory for release claims.
+
+### Panic/core-dump decoding `[HIGH]`
+Automated backtrace decode on failure in either world; attach decoded trace
+to the promotion report.
+
+### Multi-DUT promotion `[HIGH]`
+Promote multi-DUT scenarios with per-device tolerance maps; keep dual
+verdicts per DUT.
+
+## Standards rule map (copyright-safe: IDs + clauses only)
+
+| Rule ID | Standard clause | Intent (paraphrased) |
+|---|---|---|
+| SH-R1 | ISO 26262-6 S9/S10 | Unit and integration verification |
+| SH-R2 | ISO/IEC/IEEE 29119 | Test process and reporting |
+
 ## References
 
 - Authoritative standard identifiers listed in catalog; landing URLs only, no normative text.
