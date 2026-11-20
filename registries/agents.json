@@ -14,8 +14,16 @@
       "manifest": "agents/change-impact/manifest.json"
     },
     {
+      "id": "cloud-infra",
+      "manifest": "agents/cloud-infra/manifest.json"
+    },
+    {
       "id": "code-review",
       "manifest": "agents/code-review/manifest.json"
+    },
+    {
+      "id": "data-ml",
+      "manifest": "agents/data-ml/manifest.json"
     },
     {
       "id": "debugging",
@@ -32,6 +40,10 @@
     {
       "id": "documentation",
       "manifest": "agents/documentation/manifest.json"
+    },
+    {
+      "id": "documentation-generation",
+      "manifest": "agents/documentation-generation/manifest.json"
     },
     {
       "id": "engineering-manager",
@@ -88,6 +100,14 @@
     {
       "id": "security",
       "manifest": "agents/security/manifest.json"
+    },
+    {
+      "id": "skill-adoption",
+      "manifest": "agents/skill-adoption/manifest.json"
+    },
+    {
+      "id": "skill-evaluation",
+      "manifest": "agents/skill-evaluation/manifest.json"
     },
     {
       "id": "skill-implementer",

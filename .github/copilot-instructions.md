@@ -571,16 +571,19 @@ approval. Never claim certification or compliance from a heuristic check.
 - `validation` -- Needs-based validation scenarios, usability, and acceptance. Use when proving the right product was built for stakeholders.
 
 
-## Specialist agents (30)
+## Specialist agents (35)
 
 - `ai-validation` -- Evaluates embedded AI models for accuracy, resource use and deployment readiness.
 - `brownfield-recovery` -- Recovers architecture, dependencies, tests and baselines from an existing product.
 - `change-impact` -- Computes change impact across the artifact graph.
+- `cloud-infra` -- 
 - `code-review` -- Reviews source changes against architecture, rules, tests and scope.
+- `data-ml` -- 
 - `debugging` -- Reproduces faults and drives root-cause analysis.
 - `dependency-analysis` -- Builds module, symbol and dependency relationships.
 - `diag-auto-review` -- Binds an external CLI review/fix agent to Axiom diag skills: auto-resolves findings, reviews code, and proposes updates under skill rules and human gates.
 - `documentation` -- Generates and updates engineering documentation from artifacts.
+- `documentation-generation` -- 
 - `engineering-manager` -- Plans multi-step engineering work, gates and evidence.
 - `git` -- Manages Git repository state: branches, commits, history hygiene, merges, tags, and recovery.
 - `hardware-architecture` -- Models compute, memory, peripherals, boards and HW/SW boundaries.
@@ -595,6 +598,8 @@ approval. Never claim certification or compliance from a heuristic check.
 - `root-cause` -- Builds evidence-backed causal hypotheses and verification plans.
 - `safety` -- Performs safety-oriented evidence and gate checks without claiming certification.
 - `security` -- Performs secure-development and threat-oriented checks.
+- `skill-adoption` -- 
+- `skill-evaluation` -- 
 - `skill-implementer` -- 
 - `skill-orchestrator` -- 
 - `skill-researcher` -- 
