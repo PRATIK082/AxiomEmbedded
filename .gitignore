@@ -18,6 +18,8 @@ dist/
 .claude/
 .claude-plugin/
 
+# MkDocs build output (generated; deploy via .github/workflows/docs.yml).
+site/
 # Local-only design notes, agent step logs, and detailed design drafts.
 docs/local/
 docs/internal/
