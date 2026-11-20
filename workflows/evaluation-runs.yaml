@@ -1,0 +1,13 @@
+id: evaluation-runs
+version: 1.0.0
+description: Execute and grade evaluation tasks (EV-*) against the repository.
+states:
+  - id: request
+  - id: discover-tasks
+  - id: grade-static
+  - id: grade-live
+  - id: report
+  - id: evidence
+gates:
+  - evidence-required
+  - all-tasks-pass

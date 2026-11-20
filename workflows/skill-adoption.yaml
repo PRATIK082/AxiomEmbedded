@@ -1,0 +1,18 @@
+id: skill-adoption
+version: 1.0.0
+description: Adopt and import external skills into the Axiom catalog with provenance tracking.
+states:
+  - id: request
+  - id: audit
+  - id: research
+  - id: plan
+  - id: scaffold
+  - id: backfill
+  - id: verify
+  - id: evidence
+  - id: review
+  - id: pr
+gates:
+  - evidence-required
+  - human-approval-for-sensitive-actions
+  - provenance-recorded

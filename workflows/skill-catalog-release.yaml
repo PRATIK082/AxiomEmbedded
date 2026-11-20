@@ -1,0 +1,17 @@
+id: skill-catalog-release
+version: 1.0.0
+description: Release a new version of the skill catalog (pipeline, tests, publish).
+states:
+  - id: request
+  - id: audit
+  - id: verify
+  - id: bump-version
+  - id: changelog
+  - id: tag
+  - id: publish
+  - id: evidence
+gates:
+  - pipeline-check-green
+  - pytest-green
+  - doctor-green
+  - human-approval-for-release
