@@ -80,34 +80,77 @@ As Execution Workflow above.
 ## Guardrails
 - No secrets/shell/net; never claim compliance.
 
+## Copyright-safe standards references
+
+No normative text from any standard is reproduced here. Only rule identifiers,
+clause numbers, applicability metadata, and project-authored interpretations
+are stored; verification is against the cited edition.
+
+### Rule ID -> clause map
+
+| Rule ID | Standard / clause | Impact tier |
+|---|---|---|
+| security-container-isolation | Container isolation / seccomp | MEDIUM |
+| iec-62443-secure-deployment | IEC 62443-4-2 | MEDIUM |
+| realtime-edge-latency | Edge latency budget | MEDIUM |
+| security-image-signing | Image signing / supply chain | HIGH |
+
+## Impact tiers
+
+| Impact tier | Meaning | Typical handling |
+|---|---|---|
+| CRITICAL | Safety/security-critical; release blocker; core/evidence zone | Human approval required; no autonomous AI action |
+| HIGH | Major correctness or compliance impact | Reviewed change; evidence required |
+| MEDIUM | Moderate impact | Standard review |
+| LOW | Minor or advisory | Batched review acceptable |
+
+### Rule impact assignments
+
+| Rule ID | Impact tier |
+|---|---|
+| security-container-isolation | MEDIUM |
+| iec-62443-secure-deployment | MEDIUM |
+| realtime-edge-latency | MEDIUM |
+| security-image-signing | HIGH |
 
 ## Deviation management
 
-Any deviation from a rule or standard must be recorded with: Rule ID, reason,
-file/location, approver, and date. Deviations are tracked as first-class
-artifacts, not comments. (Straion pattern.)
+Any deviation from a rule or standard in this skill must be recorded as a
+first-class artifact (not a code comment) with all of the following:
 
+- Rule ID
+- Reason
+- File / location
+- Approver
+- Date
 
-## Builder + reviewer
+Deviations against CRITICAL rules require a safety/security lead approval and
+an impact assessment. Store deviation records under the project evidence or
+change-control location and link them in the traceability matrix.
 
-This skill follows the builder + reviewer pattern: the builder produces the
-artifact, the reviewer independently verifies it before acceptance. No
-artifact is accepted without reviewer sign-off.
+## Builder + reviewer pairing
 
+This skill produces reviewable artifacts. Its outputs must be
+independently checked by a human reviewer or the domain review skill
+before acceptance; solo use requires an explicit waiver recorded in
+the deviation log.
 
 ## Three-zone autonomy
 
-- **Core / evidence zone** (AI no access, human accountable): certified artifacts,
-  evidence records, safety-critical code. AI must not modify without human approval.
-- **Gray zone** (AI assistant + HITL): AI plans and drafts; human decides and approves.
-- **Non-critical zone** (AI unrestricted): documentation, examples, scaffolding, low-risk refactors.
+Autonomy is zoned by risk; the V&V boundary is the automation boundary.
 
+- Core / evidence zone (AI no access, human accountable): certified or
+  qualified artifacts, evidence records, safety/security-critical code, and
+  release baselines. AI must not read or write here without an explicit
+  human-approved change request.
+- Gray zone (AI assistant + HITL): AI plans and drafts; a human decides and
+  approves each step. Architecture, requirements, tests with safety impact,
+  and verification-affecting configuration live here.
+- Non-critical zone (AI unrestricted): documentation, examples, scaffolding,
+  low-risk refactors, and tooling glue.
 
-## Copyright-safe standards
-
-Never reproduce normative standards text. Store identifiers, clause numbers,
-applicability metadata, mappings, and project-authored interpretations only.
-
+This skill's outputs are treated as gray-zone by default; AI may draft but
+a human approves. AI must never act autonomously in the core/evidence zone.
 
 ## References
 - Standard identifiers + landing URLs only.
