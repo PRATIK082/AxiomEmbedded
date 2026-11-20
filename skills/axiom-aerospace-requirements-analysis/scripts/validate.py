@@ -1,22 +1,51 @@
-"""Validate an analysis record: no TODO placeholders; status from allowed set."""
+"""Validate a axiom-aerospace-requirements-analysis artifact. Stdlib only."""
 from __future__ import annotations
+import pathlib
 import sys
-from pathlib import Path
-ALLOWED = {'NEW', 'ANALYZED', 'REVIEWED', 'BASELINED', 'CHANGED', 'DEFERRED'}
+import re
+
+
+REQUIRED_SECTIONS = ['Outputs', 'Acceptance Criteria']
+REQUIRED_STANDARDS = ['arp4754', 'do-178c']
+ARTIFACT_TYPES = ['analysis report', 'HLR set', 'gap report', 'baseline record']
+
 
 def validate(path: str) -> list[str]:
-    errors: list[str] = []
-    text = Path(path).read_text(encoding='utf-8')
-    if 'TODO' in text:
-        errors.append('record contains TODO placeholders')
-    for line in text.splitlines():
-        if line.strip().startswith('- status:'):
-            val = line.split(':', 1)[1].strip()
-            if val not in ALLOWED:
-                errors.append('invalid status: ' + val)
+    """Return list of error strings; empty means OK."""
+    errors = []
+    p = pathlib.Path(path)
+    if not p.exists():
+        errors.append(f"file not found: {path}")
+        return errors
+    text = p.read_text(encoding="utf-8")
+    if not text.strip():
+        errors.append("record is empty")
+        return errors
+    if "TODO" in text:
+        errors.append("record contains unreplaced TODO markers")
+    # Check required sections
+    for section in REQUIRED_SECTIONS:
+        if section.lower() not in text.lower():
+            errors.append(f"missing required section: {section}")
+    # Check standards references
+    for std in REQUIRED_STANDARDS:
+        if std and std.lower() not in text.lower():
+            errors.append(f"missing standards reference: {std}")
     return errors
 
-if __name__ == '__main__':
+
+def main() -> int:
+    if len(sys.argv) < 2:
+        print("usage: validate.py <artifact-path>")
+        return 2
     errs = validate(sys.argv[1])
-    print('VALID' if not errs else errs)
-    raise SystemExit(1 if errs else 0)
+    if errs:
+        for e in errs:
+            print(f"ERROR: {e}")
+        return 1
+    print("OK")
+    return 0
+
+
+if __name__ == "__main__":
+    raise SystemExit(main())

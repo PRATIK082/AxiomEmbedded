@@ -1,32 +1,49 @@
-# SPDX-License-Identifier: Apache-2.0
-"""Structural validator for axiom-validation-orchestrator (stdlib only)."""
+"""Validate a axiom-validation-orchestrator artifact. Stdlib only."""
 from __future__ import annotations
-
 import pathlib
 import sys
+import re
 
-ROOT = pathlib.Path(__file__).resolve().parents[3]
+
+REQUIRED_SECTIONS = ['Deliverables', 'Acceptance Criteria', 'Acceptance']
+REQUIRED_STANDARDS = []
+ARTIFACT_TYPES = ['validation plan', 'test skeleton', 'evidence package']
+
+
+def validate(path: str) -> list[str]:
+    """Return list of error strings; empty means OK."""
+    errors = []
+    p = pathlib.Path(path)
+    if not p.exists():
+        errors.append(f"file not found: {path}")
+        return errors
+    text = p.read_text(encoding="utf-8")
+    if not text.strip():
+        errors.append("record is empty")
+        return errors
+    if "TODO" in text:
+        errors.append("record contains unreplaced TODO markers")
+    # Check required sections
+    for section in REQUIRED_SECTIONS:
+        if section.lower() not in text.lower():
+            errors.append(f"missing required section: {section}")
+    # Check standards references
+    for std in REQUIRED_STANDARDS:
+        if std and std.lower() not in text.lower():
+            errors.append(f"missing standards reference: {std}")
+    return errors
 
 
 def main() -> int:
-    errors: list[str] = []
-    skill = ROOT / "skills" / "axiom-validation-orchestrator"
-    for rel in ("SKILL.md", "manifest.yaml", "checklists/review.yaml",
-                "references/overview.md", "templates/artifact.template.md",
-                "tests/evals.json"):
-        if not (skill / rel).exists():
-            errors.append(f"missing {rel}")
-    text = (skill / "SKILL.md").read_text(encoding="utf-8")
-    for token in ("Unity", "Pytest", "Robot Framework", "Pre-check", "Triage",
-                  "board_config.yaml"):
-        if token not in text:
-            errors.append(f"SKILL.md missing token: {token}")
-    if errors:
-        print("FAIL:")
-        for e in errors:
-            print(f"- {e}")
+    if len(sys.argv) < 2:
+        print("usage: validate.py <artifact-path>")
+        return 2
+    errs = validate(sys.argv[1])
+    if errs:
+        for e in errs:
+            print(f"ERROR: {e}")
         return 1
-    print("axiom-validation-orchestrator structural check: OK")
+    print("OK")
     return 0
 
 

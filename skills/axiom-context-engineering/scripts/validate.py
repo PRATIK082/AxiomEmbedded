@@ -1,40 +1,49 @@
-"""Validation script for axiom-context-engineering (stdlib only).
-
-Run: python scripts/validate.py [artifact_dir]
-"""
+"""Validate a axiom-context-engineering artifact. Stdlib only."""
 from __future__ import annotations
-import json
 import pathlib
 import sys
+import re
+
+
+REQUIRED_SECTIONS = ['Deliverables', 'Acceptance Criteria', 'Acceptance']
+REQUIRED_STANDARDS = []
+ARTIFACT_TYPES = ['report', 'manifest']
+
+
+def validate(path: str) -> list[str]:
+    """Return list of error strings; empty means OK."""
+    errors = []
+    p = pathlib.Path(path)
+    if not p.exists():
+        errors.append(f"file not found: {path}")
+        return errors
+    text = p.read_text(encoding="utf-8")
+    if not text.strip():
+        errors.append("record is empty")
+        return errors
+    if "TODO" in text:
+        errors.append("record contains unreplaced TODO markers")
+    # Check required sections
+    for section in REQUIRED_SECTIONS:
+        if section.lower() not in text.lower():
+            errors.append(f"missing required section: {section}")
+    # Check standards references
+    for std in REQUIRED_STANDARDS:
+        if std and std.lower() not in text.lower():
+            errors.append(f"missing standards reference: {std}")
+    return errors
 
 
 def main() -> int:
-    root = pathlib.Path(sys.argv[1]) if len(sys.argv) > 1 else pathlib.Path(".")
-    errors = []
-    # Skill-specific checks are added during content refinement.
-    # Generic structural checks:
-    skill_dir = pathlib.Path(__file__).resolve().parents[1]
-    if not (skill_dir / "SKILL.md").exists():
-        errors.append("SKILL.md missing")
-    if not (skill_dir / "manifest.yaml").exists():
-        errors.append("manifest.yaml missing")
-    if not (skill_dir / "checklists").is_dir():
-        errors.append("checklists/ missing")
-    # validate evals.json if present
-    evals = skill_dir / "tests" / "evals.json"
-    if evals.exists():
-        try:
-            data = json.loads(evals.read_text(encoding="utf-8"))
-            if not isinstance(data.get("scenarios"), list) or len(data["scenarios"]) < 1:
-                errors.append("evals.json must contain >=1 scenario")
-        except Exception as exc:
-            errors.append(f"evals.json parse error: {exc}")
-    if errors:
-        print("FAIL")
-        for e in errors:
-            print(f"- {e}")
+    if len(sys.argv) < 2:
+        print("usage: validate.py <artifact-path>")
+        return 2
+    errs = validate(sys.argv[1])
+    if errs:
+        for e in errs:
+            print(f"ERROR: {e}")
         return 1
-    print("PASS")
+    print("OK")
     return 0
 
 

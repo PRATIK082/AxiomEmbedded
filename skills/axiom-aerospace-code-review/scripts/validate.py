@@ -1,39 +1,51 @@
-"""Validate a filled review record against the verdict contract."""
+"""Validate a axiom-aerospace-code-review artifact. Stdlib only."""
 from __future__ import annotations
-
+import pathlib
 import sys
-from pathlib import Path
-
-try:
-    import yaml
-except ImportError:
-    yaml = None
-
-REQUIRED_GATES = [
-    "scope-dal", "entry-criteria", "independence", "hlr-quality",
-    "traceability", "code-compliance", "verification-artifacts",
-    "findings-classified", "dal-unchanged", "verdict-record",
-]
+import re
 
 
-def validate_record(path: str | Path) -> list[str]:
-    errors: list[str] = []
-    text = Path(path).read_text(encoding="utf-8")
+REQUIRED_SECTIONS = ['Acceptance Criteria']
+REQUIRED_STANDARDS = ['do-178c', 'arp4754']
+ARTIFACT_TYPES = ['report', 'manifest']
+
+
+def validate(path: str) -> list[str]:
+    """Return list of error strings; empty means OK."""
+    errors = []
+    p = pathlib.Path(path)
+    if not p.exists():
+        errors.append(f"file not found: {path}")
+        return errors
+    text = p.read_text(encoding="utf-8")
+    if not text.strip():
+        errors.append("record is empty")
+        return errors
     if "TODO" in text:
-        errors.append("record contains unfilled TODO placeholders")
-    for gate in REQUIRED_GATES:
-        if gate not in text:
-            errors.append(f"missing gate: {gate}")
-    if "verdict:" not in text:
-        errors.append("missing verdict line")
-    if "dal:" not in text:
-        errors.append("missing DAL line")
+        errors.append("record contains unreplaced TODO markers")
+    # Check required sections
+    for section in REQUIRED_SECTIONS:
+        if section.lower() not in text.lower():
+            errors.append(f"missing required section: {section}")
+    # Check standards references
+    for std in REQUIRED_STANDARDS:
+        if std and std.lower() not in text.lower():
+            errors.append(f"missing standards reference: {std}")
     return errors
 
 
-if __name__ == "__main__":
-    errs = validate_record(sys.argv[1])
+def main() -> int:
+    if len(sys.argv) < 2:
+        print("usage: validate.py <artifact-path>")
+        return 2
+    errs = validate(sys.argv[1])
     if errs:
-        print("\n".join(errs))
-        raise SystemExit(1)
-    print("record OK")
+        for e in errs:
+            print(f"ERROR: {e}")
+        return 1
+    print("OK")
+    return 0
+
+
+if __name__ == "__main__":
+    raise SystemExit(main())

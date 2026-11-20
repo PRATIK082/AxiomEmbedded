@@ -2,6 +2,12 @@
 from __future__ import annotations
 import pathlib
 import sys
+import re
+
+
+REQUIRED_SECTIONS = ['Deliverables', 'Acceptance Criteria', 'Acceptance']
+REQUIRED_STANDARDS = ['automotive-spice', 'iso-26262']
+ARTIFACT_TYPES = ['report', 'manifest']
 
 
 def validate(path: str) -> list[str]:
@@ -12,10 +18,19 @@ def validate(path: str) -> list[str]:
         errors.append(f"file not found: {path}")
         return errors
     text = p.read_text(encoding="utf-8")
-    if "TODO" in text:
-        errors.append("record contains unreplaced TODO markers")
     if not text.strip():
         errors.append("record is empty")
+        return errors
+    if "TODO" in text:
+        errors.append("record contains unreplaced TODO markers")
+    # Check required sections
+    for section in REQUIRED_SECTIONS:
+        if section.lower() not in text.lower():
+            errors.append(f"missing required section: {section}")
+    # Check standards references
+    for std in REQUIRED_STANDARDS:
+        if std and std.lower() not in text.lower():
+            errors.append(f"missing standards reference: {std}")
     return errors
 
 

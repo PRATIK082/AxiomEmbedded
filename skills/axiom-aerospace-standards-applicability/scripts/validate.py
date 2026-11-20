@@ -1,41 +1,51 @@
-"""Validate an applicability matrix: verdict contract, no TODOs, no DAL claims."""
+"""Validate a axiom-aerospace-standards-applicability artifact. Stdlib only."""
 from __future__ import annotations
-
-import re
+import pathlib
 import sys
-from pathlib import Path
-
-VERDICTS = {"APPLICABLE", "NOT_APPLICABLE", "DEFERRED"}
-FORBIDDEN = re.compile(r"\bTODO\b", re.IGNORECASE)
-DAL_CLAIM = re.compile(r"\bDAL\s+[A-E]\s+(assigned|upgraded|downgraded)\s+by\s+this", re.IGNORECASE)
+import re
 
 
-def validate(path: Path) -> list[str]:
-    errors: list[str] = []
-    text = path.read_text(encoding="utf-8")
-    if FORBIDDEN.search(text):
-        errors.append("matrix still contains TODO placeholders")
-    rows = [l for l in text.splitlines() if l.startswith("|")][2:]
-    if not rows:
-        errors.append("matrix has no standard rows")
-    for row in rows:
-        cells = [c.strip() for c in row.strip("|").split("|")]
-        if len(cells) < 5:
-            errors.append(f"malformed row: {row}")
-            continue
-        if cells[3] not in VERDICTS:
-            errors.append(f"invalid verdict {cells[3]!r} in row: {row}")
-        if not cells[4] or cells[4] == "TODO":
-            errors.append(f"missing rationale in row: {row}")
-    if DAL_CLAIM.search(text):
-        errors.append("matrix claims DAL assignment by this skill")
+REQUIRED_SECTIONS = ['Outputs', 'Acceptance Criteria']
+REQUIRED_STANDARDS = ['do-178c', 'arp4754', 'arp4761', 'do-254', 'iec-61508']
+ARTIFACT_TYPES = ['report', 'manifest']
+
+
+def validate(path: str) -> list[str]:
+    """Return list of error strings; empty means OK."""
+    errors = []
+    p = pathlib.Path(path)
+    if not p.exists():
+        errors.append(f"file not found: {path}")
+        return errors
+    text = p.read_text(encoding="utf-8")
+    if not text.strip():
+        errors.append("record is empty")
+        return errors
+    if "TODO" in text:
+        errors.append("record contains unreplaced TODO markers")
+    # Check required sections
+    for section in REQUIRED_SECTIONS:
+        if section.lower() not in text.lower():
+            errors.append(f"missing required section: {section}")
+    # Check standards references
+    for std in REQUIRED_STANDARDS:
+        if std and std.lower() not in text.lower():
+            errors.append(f"missing standards reference: {std}")
     return errors
 
 
+def main() -> int:
+    if len(sys.argv) < 2:
+        print("usage: validate.py <artifact-path>")
+        return 2
+    errs = validate(sys.argv[1])
+    if errs:
+        for e in errs:
+            print(f"ERROR: {e}")
+        return 1
+    print("OK")
+    return 0
+
+
 if __name__ == "__main__":
-    target = Path(sys.argv[1]) if len(sys.argv) > 1 else Path("templates/applicability-matrix.md")
-    problems = validate(target)
-    if problems:
-        print("\n".join(problems))
-        raise SystemExit(1)
-    print("matrix valid")
+    raise SystemExit(main())

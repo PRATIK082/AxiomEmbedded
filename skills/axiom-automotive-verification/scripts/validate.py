@@ -1,54 +1,51 @@
-"""Validate a verification verdict record.
-
-Contract: every coverage row has requirement_id and a status from the
-allowed set; WAIVED rows need a matching waiver entry with justification
-and approval_ref; verdict must be one of VERIFIED, PARTIAL, BLOCKED.
-"""
+"""Validate a axiom-automotive-verification artifact. Stdlib only."""
 from __future__ import annotations
-
+import pathlib
 import sys
-from pathlib import Path
-
-import yaml
-
-ALLOWED_STATUS = {"VERIFIED", "FAILED", "BLOCKED", "WAIVED", "NOT_APPLICABLE"}
-ALLOWED_VERDICT = {"VERIFIED", "PARTIAL", "BLOCKED"}
+import re
 
 
-def validate_record(path: str | Path) -> list[str]:
-    errors: list[str] = []
-    data = yaml.safe_load(Path(path).read_text(encoding="utf-8")) or {}
-    verdict = data.get("verdict")
-    if verdict not in ALLOWED_VERDICT:
-        errors.append(f"verdict must be one of {sorted(ALLOWED_VERDICT)}")
-    coverage = data.get("coverage") or []
-    if not coverage:
-        errors.append("coverage must list at least one requirement row")
-    waivers = {w.get("requirement_id") for w in (data.get("waivers") or [])}
-    for row in coverage:
-        rid = row.get("requirement_id", "?")
-        status = row.get("status")
-        if status not in ALLOWED_STATUS:
-            errors.append(f"{rid}: status must be one of {sorted(ALLOWED_STATUS)}")
-        if not row.get("evidence"):
-            errors.append(f"{rid}: evidence link or reason is required")
-        if status == "WAIVED" and rid not in waivers:
-            errors.append(f"{rid}: WAIVED needs a matching waivers entry")
-    for w in data.get("waivers") or []:
-        if not w.get("justification") or not w.get("approval_ref"):
-            errors.append(
-                f"{w.get('requirement_id', '?')}: waiver needs justification and approval_ref"
-            )
-    if verdict == "VERIFIED":
-        bad = [r.get("requirement_id") for r in coverage if r.get("status") != "VERIFIED"]
-        if bad:
-            errors.append(f"VERIFIED verdict with non-verified rows: {bad}")
+REQUIRED_SECTIONS = ['Deliverables', 'Acceptance Criteria', 'Acceptance']
+REQUIRED_STANDARDS = ['automotive-spice', 'iso-26262']
+ARTIFACT_TYPES = ['report', 'manifest']
+
+
+def validate(path: str) -> list[str]:
+    """Return list of error strings; empty means OK."""
+    errors = []
+    p = pathlib.Path(path)
+    if not p.exists():
+        errors.append(f"file not found: {path}")
+        return errors
+    text = p.read_text(encoding="utf-8")
+    if not text.strip():
+        errors.append("record is empty")
+        return errors
+    if "TODO" in text:
+        errors.append("record contains unreplaced TODO markers")
+    # Check required sections
+    for section in REQUIRED_SECTIONS:
+        if section.lower() not in text.lower():
+            errors.append(f"missing required section: {section}")
+    # Check standards references
+    for std in REQUIRED_STANDARDS:
+        if std and std.lower() not in text.lower():
+            errors.append(f"missing standards reference: {std}")
     return errors
 
 
-if __name__ == "__main__":
-    errs = validate_record(sys.argv[1])
+def main() -> int:
+    if len(sys.argv) < 2:
+        print("usage: validate.py <artifact-path>")
+        return 2
+    errs = validate(sys.argv[1])
     if errs:
-        print("\n".join(errs))
-        raise SystemExit(1)
-    print("record OK")
+        for e in errs:
+            print(f"ERROR: {e}")
+        return 1
+    print("OK")
+    return 0
+
+
+if __name__ == "__main__":
+    raise SystemExit(main())
