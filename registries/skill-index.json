@@ -2781,6 +2781,24 @@
         "mcu",
         "mpu"
       ]
+    },
+    "axiom-code-reviewer": {
+      "description": "Code Reviewer workflow for all. Use when code reviewer tasks arise in all projects.\n",
+      "domains": [
+        "all"
+      ],
+      "platforms": [
+        "mcu"
+      ]
+    },
+    "axiom-code-documenter": {
+      "description": "Code Documenter workflow for all. Use when code documenter tasks arise in all projects.\n",
+      "domains": [
+        "all"
+      ],
+      "platforms": [
+        "mcu"
+      ]
     }
   },
   "by_domain": {
@@ -2807,7 +2825,9 @@
       "axiom-chaos-engineering",
       "axiom-clean-ai-slop",
       "axiom-cli-developer",
+      "axiom-code-documenter",
       "axiom-code-explainer",
+      "axiom-code-reviewer",
       "axiom-cto-advisor",
       "axiom-database-optimization",
       "axiom-debugging-wizard",
@@ -3289,7 +3309,9 @@
       "axiom-clean-ai-slop",
       "axiom-cli-developer",
       "axiom-cloud-architecture",
+      "axiom-code-documenter",
       "axiom-code-explainer",
+      "axiom-code-reviewer",
       "axiom-context-engineering",
       "axiom-cross-domain-traceability",
       "axiom-cto-advisor",
@@ -3912,6 +3934,9 @@
     "extended-quality-integration": [
       "axiom-chaos-engineering",
       "axiom-cli-developer",
+      "axiom-code-documenter",
+      "axiom-code-explainer",
+      "axiom-code-reviewer",
       "axiom-data-pipeline",
       "axiom-database-optimization",
       "axiom-debugging-wizard",

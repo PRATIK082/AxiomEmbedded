@@ -18,7 +18,7 @@ Surface the plan first; never execute pushes, releases, destructive
 commands, or safety/security-critical changes without recorded human
 approval. Never claim certification or compliance from a heuristic check.
 
-## Skills (275)
+## Skills (277)
 
 - `adas` -- ADAS/AD perception-to-control pipeline, sensor fusion, SOTIF and ASIL decomposition, Euro-NCAP, data closed-loop, OpenSCENARIO/OpenDRIVE HIL. Use for L0-L4 driver assistance and automated driving. Use when adas tasks arise in automotive projects.
 
@@ -134,7 +134,11 @@ approval. Never claim certification or compliance from a heuristic check.
 
 - `axiom-cobot-hand-guiding-review` -- Designs hand-guiding collaborative operation: enabling-device logic, reduced-speed limits, mode transitions, and stop behavior. Use when cobot hand guiding review tasks arise in robotics projects.
 
+- `axiom-code-documenter` -- Code Documenter workflow for all. Use when code documenter tasks arise in all projects.
+
 - `axiom-code-explainer` -- Code Explainer (illustrated) workflow for all. Use when code explainer (illustrated) tasks arise in all projects.
+
+- `axiom-code-reviewer` -- Code Reviewer workflow for all. Use when code reviewer tasks arise in all projects.
 
 - `axiom-context-engineering` -- Context Engineering (prompt budget) workflow for platform. Use when context engineering (prompt budget) tasks arise in platform projects.
 

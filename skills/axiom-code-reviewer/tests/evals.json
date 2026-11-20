@@ -1,0 +1,20 @@
+[
+  {
+    "id": "E01",
+    "name": "happy path",
+    "input": "repository path, objective, constraints",
+    "expected": "run report + manifest produced, no errors"
+  },
+  {
+    "id": "E02",
+    "name": "missing inputs",
+    "input": "repository path only",
+    "expected": "clarification requested, no invented defaults"
+  },
+  {
+    "id": "E03",
+    "name": "dry-run no writes",
+    "input": "dry_run=true",
+    "expected": "no files written outside output dir"
+  }
+]

@@ -1,0 +1,5 @@
+gates:
+  - id: scope
+    text: Scope recorded
+  - id: validate
+    text: Validation green

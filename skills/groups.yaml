@@ -157,4 +157,4 @@ groups:
     title: Extended quality, integration and recovery
     description: Chaos engineering, CLI dev, data pipelines, APIs, testing, debugging, legacy modernization.
     match_any:
-      - {id_prefix: [axiom-chaos-, axiom-cli-, axiom-rag-, axiom-data-, axiom-database-, axiom-graphql-, axiom-microservices-, axiom-websocket-, axiom-test-, axiom-playwright-, axiom-debugging-, axiom-legacy-, axiom-secure-]}
+      - {id_prefix: [axiom-chaos-, axiom-cli-, axiom-rag-, axiom-data-, axiom-database-, axiom-graphql-, axiom-microservices-, axiom-websocket-, axiom-test-, axiom-playwright-, axiom-debugging-, axiom-legacy-, axiom-secure-, axiom-code-]}

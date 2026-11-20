@@ -230,8 +230,16 @@
       "path": "skills/axiom-cobot-hand-guiding-review"
     },
     {
+      "id": "axiom-code-documenter",
+      "path": "skills/axiom-code-documenter"
+    },
+    {
       "id": "axiom-code-explainer",
       "path": "skills/axiom-code-explainer"
+    },
+    {
+      "id": "axiom-code-reviewer",
+      "path": "skills/axiom-code-reviewer"
     },
     {
       "id": "axiom-context-engineering",

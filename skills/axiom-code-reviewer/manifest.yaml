@@ -1,0 +1,17 @@
+id: axiom-code-reviewer
+version: 1.2.0
+contract_version: 1
+type: domain-skill
+primary_domain: all
+activity: code-review
+capability_kind: validator
+standard_ids: []
+facets:
+  domains:
+  - all
+  platforms:
+  - mcu
+  lifecycle: [discover, plan, implement, verify, evidence]
+  artifact_types: [report, manifest]
+  risk_level: medium
+  review_required: true

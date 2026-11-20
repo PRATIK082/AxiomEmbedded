@@ -14610,3 +14610,93 @@ skills:
   mcp_tools: []
   risk_level: medium
   review_required: true
+- id: axiom-code-reviewer
+  name: axiom-code-reviewer
+  title: Code Reviewer
+  version: 1.2.0
+  domain: all
+  subdomain: all
+  category: implementation
+  maturity: experimental
+  owner: axiom-embedded
+  tags:
+  - skill
+  inputs:
+  - repository path
+  - objective
+  outputs:
+  - report
+  dependencies: []
+  related_skills: []
+  path: skills/axiom-code-reviewer
+  enabled: true
+  sub_skills: []
+  activity: code-review
+  capability_kind: validator
+  primary_domain: all
+  risk_class: medium
+  lifecycle_phases:
+  - discover
+  - plan
+  - implement
+  - verify
+  - evidence
+  standard_ids: []
+  lifecycle:
+  - discover
+  - plan
+  - implement
+  - verify
+  - evidence
+  standards: []
+  artifact_types:
+  - report
+  - manifest
+  mcp_tools: []
+  risk_level: medium
+  review_required: true
+- id: axiom-code-documenter
+  name: axiom-code-documenter
+  title: Code Documenter
+  version: 1.2.0
+  domain: all
+  subdomain: all
+  category: implementation
+  maturity: experimental
+  owner: axiom-embedded
+  tags:
+  - skill
+  inputs:
+  - repository path
+  - objective
+  outputs:
+  - report
+  dependencies: []
+  related_skills: []
+  path: skills/axiom-code-documenter
+  enabled: true
+  sub_skills: []
+  activity: documentation
+  capability_kind: validator
+  primary_domain: all
+  risk_class: medium
+  lifecycle_phases:
+  - discover
+  - plan
+  - implement
+  - verify
+  - evidence
+  standard_ids: []
+  lifecycle:
+  - discover
+  - plan
+  - implement
+  - verify
+  - evidence
+  standards: []
+  artifact_types:
+  - report
+  - manifest
+  mcp_tools: []
+  risk_level: medium
+  review_required: true
